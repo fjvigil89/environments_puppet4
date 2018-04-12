@@ -1,4 +1,4 @@
-class profile::correo {
+class profile::email {
 
 include roles::git
 include roles::composer
