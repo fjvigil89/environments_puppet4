@@ -1,3 +1,3 @@
 class roles::git{
-  # include git
+  include git
 }
