@@ -1,239 +1,113 @@
-# == Class: composer
+# = Class: composer
 #
-# The parameters for the composer class and corresponding definitions
-#
-# === Parameters
-#
-# Document parameters here.
+# == Parameters:
 #
 # [*target_dir*]
-#   The target dir that composer should be installed to.
-#   Defaults to ```/usr/local/bin```.
+#   Where to install the composer executable.
 #
-# [*composer_file*]
-#   The name of the composer binary, which will reside in ```target_dir```.
-#
-# [*download_method*]
-#   Either ```curl``` or ```wget```.
-#
-# [*logoutput*]
-#   If the output should be logged. Defaults to FALSE.
-#
-# [*tmp_path*]
-#   Where the composer.phar file should be temporarily put.
-#
-# [*php_package*]
-#   The Package name of tht PHP CLI package.
-#
-# [*curl_package*]
-#   The name of the curl package to override the default set in the
-#   composer::params class.
-#
-# [*wget_package*]
-#   The name of the wget package to override the default set in the
-#   composer::params class.
-#
-# [*composer_home*]
-#   Folder to use as the COMPOSER_HOME environment variable. Default comes
-#   from our composer::params class which derives from our own $composer_home
-#   fact. The fact returns the current users $HOME environment variable.
-#
-# [*php_bin*]
-#   The name or path of the php binary to override the default set in the
-#   composer::params class.
-#
-# [*suhosin_enabled*]
-#   If the suhosin mod is enabled. This requires setting php.ini
-#   values with augeas
-#
-# [*auto_update*]
-#   If the composer binary should automatically be updated on each run
+# [*command_name*]
+#   The name of the composer executable.
 #
 # [*user*]
-#   The user name to exec the composer commands as. Default is undefined.
+#   The owner of the composer executable.
 #
-# === Authors
+# [*auto_update*]
+#   Whether to run `composer self-update`.
 #
-# Thomas Ploch <profiploch@gmail.com>
+# [*version*]
+#   Custom composer version.
 #
-class composer(
-  $target_dir      = $composer::params::target_dir,
-  $composer_file   = $composer::params::composer_file,
-  $download_method = $composer::params::download_method,
-  $logoutput       = $composer::params::logoutput,
-  $tmp_path        = $composer::params::tmp_path,
-  $php_package     = $composer::params::php_package,
-  $curl_package    = $composer::params::curl_package,
-  $wget_package    = $composer::params::wget_package,
-  $composer_home   = $composer::params::composer_home,
-  $php_bin         = $composer::params::php_bin,
-  $suhosin_enabled = $composer::params::suhosin_enabled,
-  $auto_update     = $composer::params::auto_update,
-  $projects        = hiera_hash('composer::execs', {}),
-  $github_token    = undef,
-  $user            = undef,
-) inherits ::composer::params {
+# [*group*]
+#   Owner group of the composer executable.
+#
+# [*download_timeout*]
+#   The timeout of the download for wget.
+#
+# == Example:
+#
+#   include composer
+#
+#   class { 'composer':
+#     'target_dir'   => '/usr/local/bin',
+#     'user'         => 'root',
+#     'command_name' => 'composer',
+#     'auto_update'  => true
+#   }
+#
+class composer (
+  $target_dir       = 'UNDEF',
+  $command_name     = 'UNDEF',
+  $user             = 'UNDEF',
+  $auto_update      = false,
+  $version          = undef,
+  $group            = undef,
+  $download_timeout = '0',
+  $build_deps       = true,
+) {
+  validate_string($target_dir)
+  validate_string($command_name)
+  validate_string($user)
+  validate_bool($auto_update)
+  validate_string($version)
+  validate_string($group)
+  validate_bool($build_deps)
 
-  require ::stdlib
-  require ::git
-
-  # Validate input vars
-  validate_string(
-    $target_dir, $composer_file, $download_method,
-    $tmp_path, $php_package, $curl_package, $wget_package,
-    $composer_home, $php_bin
-  )
-  validate_bool($suhosin_enabled, $auto_update)
-
-  # Set the exec path for composer target dir
-  Exec { path => "/bin:/usr/bin/:/sbin:/usr/sbin:${target_dir}" }
-
-  # Only install php package if it's not defined
-  if defined(Package[$php_package]) == false {
-    package { $php_package: ensure => present, }
+  if $build_deps {
+    ensure_packages(['wget'])
   }
 
-  # download composer
-  case $download_method {
-    'curl': {
-      $download_command = "curl -sS https://getcomposer.org/installer | ${composer::php_bin}"
-      $download_require = $suhosin_enabled ? {
-        false    => [ Package['curl', $php_package] ],
-        default  => [
-          Package['curl', $php_package],
-          Augeas['allow_url_fopen', 'whitelist_phar']
-        ],
-      }
-      $method_package = $curl_package
-    }
-    'wget': {
-      $download_command = 'wget https://getcomposer.org/composer.phar -O composer.phar'
-      $download_require = $suhosin_enabled ? {
-        false   => [ Package['wget', $php_package] ],
-        default => [
-          Package['wget', $php_package],
-          Augeas['allow_url_fopen', 'whitelist_phar']
-        ],
-      }
-      $method_package = $wget_package
-    }
-    default: {
-      fail(
-        "The param download_method ${download_method} is not valid.
-        Please set download_method to curl or wget."
-      )
-    }
+  include composer::params
+
+  $composer_target_dir = $target_dir ? {
+    'UNDEF' => $::composer::params::target_dir,
+    default => $target_dir
   }
 
-  if defined(Package[$method_package]) == false {
-    package { $method_package: ensure => present, }
+  $composer_command_name = $command_name ? {
+    'UNDEF' => $::composer::params::command_name,
+    default => $command_name
   }
 
-  # check if directory exists
-  if defined(File[$target_dir]) == false {
-    file { $target_dir:
-      ensure => directory,
-    }
+  $composer_user = $user ? {
+    'UNDEF' => $::composer::params::user,
+    default => $user
   }
 
-  if defined(File["${target_dir}/${composer_file}"]) == false {
-    exec { 'download_composer':
-      command   => $download_command,
-      cwd       => $tmp_path,
-      require   => $download_require,
-      creates   => "${tmp_path}/composer.phar",
-      logoutput => $logoutput,
-    }
-    # move file to target_dir
-    file { "${target_dir}/${composer_file}":
-      ensure  => present,
-      source  => "${tmp_path}/composer.phar",
-      require => [ Exec['download_composer'], File[$target_dir] ],
-      mode    => '0755',
-    }
+  $target = $version ? {
+    undef   => $::composer::params::phar_location,
+    default => "https://getcomposer.org/download/${version}/composer.phar"
   }
 
-  if $auto_update == true {
-    composer::selfupdate {'auto_update': }
+  $composer_full_path = "${composer_target_dir}/${composer_command_name}"
+
+  $unless = $version ? {
+    undef   => "/usr/bin/test -f ${composer_full_path}",
+    default => "/usr/bin/test -f ${composer_full_path} && ${composer_full_path} -V |grep -q ${version}"
   }
 
-  if $suhosin_enabled == true {
-    case $composer::params::family {
-
-      'Redhat','Centos': {
-
-        # set /etc/php5/cli/php.ini/suhosin.executor.include.whitelist = phar
-        augeas { 'whitelist_phar':
-          context => '/files/etc/suhosin.ini/suhosin',
-          changes => 'set suhosin.executor.include.whitelist phar',
-          require => Package[$php_package],
-        }
-
-        # set /etc/cli/php.ini/PHP/allow_url_fopen = On
-        augeas{ 'allow_url_fopen':
-          context => '/files/etc/php.ini/PHP',
-          changes => 'set allow_url_fopen On',
-          require => Package[$php_package],
-        }
-      }
-
-      'Debian': {
-
-        # set /etc/php5/cli/php.ini/suhosin.executor.include.whitelist = phar
-        augeas { 'whitelist_phar':
-          context => '/files/etc/php5/conf.d/suhosin.ini/suhosin',
-          changes => 'set suhosin.executor.include.whitelist phar',
-          require => Package[$php_package],
-        }
-
-        # set /etc/php5/cli/php.ini/PHP/allow_url_fopen = On
-        augeas { 'allow_url_fopen':
-          context => '/files/etc/php5/cli/php.ini/PHP',
-          changes => 'set allow_url_fopen On',
-          require => Package[$php_package],
-        }
-      }
-
-      'FreeBSD': {
-        # set /usr/local/etc/php/suhosin.ini/suhosin.executor.include.whitelist = phar
-        augeas { 'whitelist_phar':
-          context => '/files/usr/local/etc/php/suhosin.ini/suhosin',
-          changes => 'set suhosin.executor.include.whitelist phar',
-          require => Package[$php_package],
-        }
-
-        # set /usr/local/etc/php.ini/PHP/allow_url_fopen = On
-        augeas { 'allow_url_fopen':
-          context => '/files/usr/local/etc/php.ini/PHP',
-          changes => 'set allow_url_fopen On',
-          require => Package[$php_package],
-        }
-      }
-
-      default: {}
-    }
+  exec { 'composer-install':
+    command     => "/usr/bin/wget --no-check-certificate -O ${composer_full_path} ${target}",
+    environment => [ "COMPOSER_HOME=${composer_target_dir}" ],
+    user        => $composer_user,
+    unless      => $unless,
+    timeout     => $download_timeout,
+    require     => Package['wget'],
   }
 
-  $composer_path = "${target_dir}/${composer_file}"
-  $github_config = 'config -g github-oauth.github.com'
-
-  if $github_token {
-    Exec {
-      environment => "COMPOSER_HOME=${composer_home}",
-    }
-    exec { 'setup_github_token':
-      command => "${composer_path} ${github_config} ${github_token}",
-      cwd     => $tmp_path,
-      require => File["${target_dir}/${composer_file}"],
-      user    => $user,
-      unless  => "${composer_path} ${github_config}|grep ${github_token}",
-    }
+  file { "${composer_target_dir}/${composer_command_name}":
+    ensure  => file,
+    owner   => $composer_user,
+    mode    => '0755',
+    group   => $group,
+    require => Exec['composer-install'],
   }
 
-  if $projects or $::execs {
-    class {'composer::project_factory' :
-      projects => $projects,
-      execs    => $::execs,
+  if $auto_update {
+    exec { 'composer-update':
+      command     => "${composer_full_path} self-update",
+      environment => [ "COMPOSER_HOME=${composer_target_dir}" ],
+      user        => $composer_user,
+      require     => File["${composer_target_dir}/${composer_command_name}"],
     }
   }
 }

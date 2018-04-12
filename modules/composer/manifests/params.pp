@@ -1,75 +1,21 @@
-# == Class: composer::params
+# = Class: composer::params
 #
-# The parameters for the composer class and corresponding definitions
+# This class defines default parameters used by the main module class composer.
+# Operating Systems differences in names and paths are addressed here.
 #
-# === Authors
+# == Variables:
 #
-# Thomas Ploch <profiploch@gmail.com>
-# Andrew Johnstone <andrew@ajohnstone.com>
+# Refer to composer class for the variables defined here.
 #
-# === Copyright
+# == Usage:
 #
-# Copyright 2013 Thomas Ploch
+# This class is not intended to be used directly.
+# It may be imported or inherited by other classes.
 #
 class composer::params {
-  $composer_home = $::composer_home
-  $auto_update   = false
-
-  # Support Amazon Linux which is supported by RedHat family
-  if $::osfamily == 'Linux' and $::operatingsystem == 'Amazon' {
-    $family = 'RedHat'
-  } else {
-    $family = $::osfamily
-  }
-
-  case $family {
-    'Debian': {
-      $target_dir      = '/usr/local/bin'
-      $composer_file   = 'composer'
-      $download_method = 'curl'
-      $logoutput       = false
-      $tmp_path        = '/tmp'
-      $php_package     = 'php5-cli'
-      $curl_package    = 'curl'
-      $wget_package    = 'wget'
-      $php_bin         = 'php'
-      case $::operatingsystem {
-        'Ubuntu': {
-          $suhosin_enabled = versioncmp(
-            $::operatingsystemmajrelease, '12.04'
-          ) <= 0
-        }
-        default: {
-          $suhosin_enabled = true
-        }
-      }
-    }
-    'RedHat', 'Centos': {
-      $target_dir      = '/usr/local/bin'
-      $composer_file   = 'composer'
-      $download_method = 'curl'
-      $logoutput       = false
-      $tmp_path        = '/tmp'
-      $php_package     = 'php-cli'
-      $curl_package    = 'curl'
-      $wget_package    = 'wget'
-      $php_bin         = 'php'
-      $suhosin_enabled = true
-    }
-    'FreeBSD': {
-      $target_dir      = '/usr/local/bin'
-      $composer_file   = 'composer'
-      $download_method = 'curl'
-      $logoutput       = false
-      $tmp_path        = '/tmp'
-      $php_package     = 'php5'
-      $curl_package    = 'curl'
-      $wget_package    = 'wget'
-      $php_bin         = 'php'
-      $suhosin_enabled = false 
-    }
-    default: {
-      fail("Unsupported platform: ${family}")
-    }
-  }
+  $phar_location = 'https://getcomposer.org/composer.phar'
+  $target_dir    = '/usr/local/bin'
+  $command_name  = 'composer'
+  $user          = 'root'
+  $version       = undef
 }
