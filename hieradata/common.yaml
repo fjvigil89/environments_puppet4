@@ -1,4 +1,7 @@
 ---
+roles:
+ - 'roles::file'
+
 classes:
  - 'profile::base'
 
