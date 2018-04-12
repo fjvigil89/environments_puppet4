@@ -3,5 +3,5 @@ node 'default'{
 }
 node 'client-puppet.upr.edu.cu'{
   include roles::file
-  include profile::email
+  include profile::correo
 }
