@@ -1,4 +1,4 @@
-class roles::email_roundcube {
+class roles::emailRoundcube {
    class {'roundcube':
       imap_host => 'ssl://localhost',
       imap_port => 993,
