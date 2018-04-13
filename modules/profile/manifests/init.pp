@@ -35,7 +35,8 @@
 #
 # Copyright 2018 Your name here, unless otherwise noted.
 #
-class profile {
-
-
+class profile::file {
+  file{'/tmp/hello':
+  content =>  'Hola del server de frank 2.0 \n',
+  }
 }
