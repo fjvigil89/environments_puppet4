@@ -11,6 +11,6 @@ class roles::dashboard{
   mysql_root_pw      => '123',
   dashboard_config   => false
   #passenger          => false,
-  passenger_install  => false,
+  #passenger_install  => false,
   }
 }
