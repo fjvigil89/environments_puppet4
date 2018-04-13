@@ -1,7 +1,7 @@
 class roles::mysql(
-$name_db,
-$name_user,
-$pass_db
+$name_db    = 'dashboard',
+$name_user  = 'dashboard',
+$pass_db    = 'dashboard' 
 ) {
   $override_options = {
   'section' =>  {
