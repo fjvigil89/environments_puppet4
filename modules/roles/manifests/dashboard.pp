@@ -8,7 +8,7 @@ class roles::dashboard{
   dashboard_charset =>  'utf8',
   dashboard_site =>  $fqdn,
   dashboard_port =>  '8080',
-  mysql_root_pw =>  'changemetoo',
+  mysql_root_pw =>  '123',
   passenger =>  true,
   }
 }

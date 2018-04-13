@@ -1,5 +1,5 @@
 node 'default'{
-  include roles::file
+  include profile::file
 }
 node 'client-puppet.upr.edu.cu'{
   include profile::file
