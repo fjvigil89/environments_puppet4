@@ -91,7 +91,7 @@ class dashboard (
   $passenger                = $dashboard::params::passenger,
   $mysql_package_provider   = $dashboard::params::mysql_package_provider,
   $ruby_mysql_package       = $dashboard::params::ruby_mysql_package,
-  $dashboard_config         = $dashboard::params::dashboard_config,
+  #$dashboard_config         = $dashboard::params::dashboard_config,
   $dashboard_root           = $dashboard::params::dashboard_root,
   $rack_version             = $dashboard::params::rack_version
 ) inherits dashboard::params {
