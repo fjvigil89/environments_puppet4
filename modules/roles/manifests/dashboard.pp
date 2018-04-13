@@ -10,7 +10,7 @@ class roles::dashboard{
   dashboard_port     => '8080',
   mysql_root_pw      => '123',
   #dashboard_config   => false
-  #passenger          => false,
-  #passenger_install  => false,
+  passenger          => true,
+  passenger_install  => false,
   }
 }
