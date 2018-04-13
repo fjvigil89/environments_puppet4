@@ -1,5 +1,8 @@
-node "frank-upredes.upr.edu.cu"{
-	file{"/tmp/hello":
-		content => 'Hola',
-	}
+node 'default'{
+  include roles::file
+}
+node 'client-puppet.upr.edu.cu'{
+  #include roles::file
+  include profile::email
+
 }
