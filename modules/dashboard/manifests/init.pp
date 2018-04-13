@@ -98,7 +98,7 @@ class dashboard (
 
   #require mysql
   class { 'mysql::server':
-    config_hash => { 'root_password' => $mysql_root_pw }
+    root_password => $mysql_root_pw, 
   }
   class { 'mysql::ruby':
     package_provider => $mysql_package_provider,
