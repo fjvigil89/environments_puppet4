@@ -18,4 +18,4 @@ class roles::dashboard
   # Access Puppetboard through 
   class { '::puppetboardserver::apache':;}
 }
-}
+
