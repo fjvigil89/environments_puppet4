@@ -1,9 +1,4 @@
-class roles::apache2{
-  class { 'apache':
-    default_vhost =>  false,
-  }
-}
-class puppetboardserver::apache {
+class roles::apache {
 
   class { '::apache': }
   class { '::apache::mod::wsgi': }
