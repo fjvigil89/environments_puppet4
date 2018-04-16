@@ -16,6 +16,6 @@ class roles::dashboard
   }
 
   # Access Puppetboard through 
-  include puppetboardserver::apache
+  #include puppetboardserver::apache
 }
 
