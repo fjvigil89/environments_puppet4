@@ -47,3 +47,4 @@ class puppetboardserver::apache {
   notify =>  Service[$::puppetboard::params::apache_service],
   
 }
+}
