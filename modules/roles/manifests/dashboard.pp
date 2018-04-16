@@ -16,6 +16,6 @@ class roles::dashboard
   }
 
   # Access Puppetboard through 
-  class { 'puppetboardserver::apache':}
+  include puppetboardserver::apache
 }
 
