@@ -9,5 +9,6 @@ class puppetdb_server {
     listen_port      => '8001',
     open_listen_port => true,
   }
+  class {'::puppetdb::master::config': }
 }
 
