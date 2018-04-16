@@ -17,6 +17,7 @@ mod 'puppetlabs-passenger', '0.4.1'
 mod 'puppetlabs-ruby', '1.0.0'
 mod 'croddy-make', '999.999.999'
 mod 'puppetlabs-gcc', '0.3.0'
+mod 'stankevich/python', '1.12.0'
 mod 'puppetlabs/vcsrepo', '1.3.2'
 mod 'puppetlabs-puppetdb', '6.0.2'
 
