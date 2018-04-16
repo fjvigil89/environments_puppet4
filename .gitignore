@@ -1,0 +1,15 @@
+.bundle
+coverage/
+junit
+log
+pkg
+.rspec_system
+**/fixtures/*
+!**/fixtures/hieradata/
+!**/fixtures/data/
+!**/fixtures/hiera.yaml
+.*.sw?
+.vagrant
+.yardoc
+/modules
+.idea
