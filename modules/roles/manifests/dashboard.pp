@@ -1,16 +1,21 @@
-class roles::dashboard{
-  class {'dashboard':
-  dashboard_ensure   => 'present',
-  dashboard_user     => 'puppet-dbuser',
-  dashboard_group    => 'puppet-dbgroup',
-  dashboard_password => 'changeme',
-  dashboard_db       => 'dashboard_prod',
-  dashboard_charset  => 'utf8',
-  dashboard_site     => $fqdn,
-  dashboard_port     => '8080',
-  mysql_root_pw      => '123',
-  #dashboard_config   => false
-  passenger          => true,
-  passenger_install  => false,
+class roles::dashboard
+(
+  String $puppetdb_host      = 'localhost',
+) {
+
+  # Add configuration below
+
+  # Configure puppetboard
+  class { '::puppetboard':
+  puppetdb_host =>  $puppetdb_host,
+  puppetdb_port =>  '8080',
+  manage_git =>  true,
+  manage_virtualenv =>  true,
+  enable_catalog =>  true,
+  revision =>  '35486e8',
   }
+
+  # Access Puppetboard through 
+  class { '::puppetboardserver::apache':;}
+}
 }

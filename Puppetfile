@@ -22,5 +22,6 @@ mod 'puppetlabs-gcc', '0.3.0'
 mod 'puppetlabs-puppetdb', '6.0.2'
 
 #Git
-mod 'dashboard',
-	:git => 'https://github.com/puppetlabs/puppetlabs-dashboard.git'	
+mod 'puppet/puppetboard',
+  :git => 'https://github.com/voxpupuli/puppet-puppetboard.git',
+  :ref => 'v2.9.0'
