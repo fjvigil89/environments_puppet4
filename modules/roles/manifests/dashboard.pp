@@ -1,7 +1,7 @@
 class roles::dashboard
 (
-  String $puppetdb_host      = 'localhost',
-) {
+  $puppetdb_host      = 'localhost',
+){
 
   # Add configuration below
 
@@ -16,6 +16,6 @@ class roles::dashboard
   }
 
   # Access Puppetboard through 
-  class { '::puppetboardserver::apache':;}
+  class { 'puppetboardserver::apache':;}
 }
 
