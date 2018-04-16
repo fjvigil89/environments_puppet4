@@ -11,5 +11,14 @@ class puppetdb_server {
   }
   class {'::puppetdb::master::config': }
   class {'::puppetdb::server': }
+
+
+  firewall {
+    '010 accept for localhost':
+      source => 'localhost',
+      proto  => 'tcp',
+      action => 'accept',
+
+  }
 }
 
