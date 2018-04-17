@@ -8,6 +8,7 @@
 <p>
 	<h4>Con esto se instalan los modulos automaticamente desde Puppetfile</h4>
 </p>
+<<<<<<< HEAD
 
 <p>
         <h2>Configuracion de envirinment.conf</h2>
@@ -17,3 +18,5 @@
  modulepath = roles:profiles:modules:$basemodulepath
 </pre>
 
+=======
+>>>>>>> f267099546ef27452d83a0c0089a86e8300691f4
