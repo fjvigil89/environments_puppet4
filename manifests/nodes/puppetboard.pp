@@ -1,5 +1,5 @@
 node 'client-puppet.upr.edu.cu'{
   file{'/tmp/otro':
-  content => 'Otra prueba',
+  content => 'Otra prueba2',
   }
 }
