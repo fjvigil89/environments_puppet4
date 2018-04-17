@@ -1,2 +1,0 @@
-hiera_include('classes')
-
