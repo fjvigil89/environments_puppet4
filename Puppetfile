@@ -38,5 +38,3 @@ mod 'puppet/puppetboard',
 mod 'rgevaert/resolv_conf',
   :git => 'https://github.com/rgevaert/puppet-resolv_conf.git',
   :ref => 'cf799eab07e77a92917f284d57fa1c0bf0410093'
-
->>>>>>> f267099546ef27452d83a0c0089a86e8300691f4
