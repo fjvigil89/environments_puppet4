@@ -10,7 +10,6 @@ class puppetdb_server {
     #open_listen_port => true,
   }
   class {'puppetdb::master::config': }
-  class {'puppetdb::server': }
 
 
   #  firewall {
