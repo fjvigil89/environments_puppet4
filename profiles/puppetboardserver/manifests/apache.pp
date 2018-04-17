@@ -5,11 +5,6 @@ class puppetboardserver::apache {
 
   class { '::apache': }
   class { '::apache::mod::wsgi': }
-  class { '::apache::mod::auth_cas':
-    cas_login_url    => 'https://login.ugent.be/login',
-    cas_validate_url => 'https://login.ugent.be/serviceValidate';
-  }
-
 
   $vhost_name  = $::fqdn
   $wsgi_alias  = '/'
@@ -25,29 +20,29 @@ class puppetboardserver::apache {
 
   $docroot = "${basedir}/puppetboard"
 
-  $wsgi_script_aliases = {
-    "${wsgi_alias}" => "${docroot}/wsgi.py",
-  }
+#  $wsgi_script_aliases = {
+#    "${wsgi_alias}" => "${docroot}/wsgi.py",
+#  }
 
-  $wsgi_daemon_process_options = {
-    threads => $threads,
-    group   => $group,
-    user    => $user,
-  }
+#  $wsgi_daemon_process_options = {
+#    threads => $threads,
+#    group   => $group,
+#    user    => $user,
+#  }
 
   # Template Uses:
   # - $basedir
   #
-  file { "${docroot}/wsgi.py":
-    ensure  => present,
-    content => template('puppetboard/wsgi.py.erb'),
-    owner   => $user,
-    group   => $group,
-    require => [
-      User[$user],
-      Vcsrepo[$docroot],
-    ],
-  }
+#  file { "${docroot}/wsgi.py":
+#    ensure  => present,
+#    content => template('puppetboard/wsgi.py.erb'),
+#    owner   => $user,
+#    group   => $group,
+#    require => [
+#      User[$user],
+#      Vcsrepo[$docroot],
+#    ],
+#  }
 
   # lint:ignore:80chars
   ::apache::vhost { $vhost_name:
