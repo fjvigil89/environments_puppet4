@@ -26,5 +26,5 @@ mod 'puppet/puppetboard',
   :git => 'https://github.com/voxpupuli/puppet-puppetboard.git',
   :ref => 'v2.9.0'
 
-mod 'saz/puppet-resolv_conf'
+mod 'saz/puppet-resolv_conf',
   :git => 'https://github.com/saz/puppet-resolv_conf'
