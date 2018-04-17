@@ -1,5 +1,10 @@
+#!/usr/bin/env ruby
+
+#forge 'https://forgeapi.puppetlabs.com'
+
 forge 'forge.puppetlabs.com'
 
+# A module from the Puppet Forge
 # Forge Modules Test Environments
 mod 'puppetlabs/ntp', '7.1.1'
 mod 'puppetlabs/stdlib'
