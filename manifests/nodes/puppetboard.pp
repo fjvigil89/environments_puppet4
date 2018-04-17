@@ -1,9 +1,6 @@
 node 'client-puppet.upr.edu.cu'{
-  # class {'::puppetboardserve':;}
-
-  cron { 'prueba':
-    command =>  '/usr/sbin/logrotate',
-    user =>  'root',
-    minute =>  '*/10',
+  file {'/tmp/Puppet':
+    content =>  'Prueba de puppet server',
   }
+  # class {'::puppetboardserve':;}
 }
