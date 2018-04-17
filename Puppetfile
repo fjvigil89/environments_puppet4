@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-forge 'forge.puppetlabs.com'
-
-# Forge Modules Environments
-mod 'puppetlabs/ntp', '7.1.1'
-mod 'puppetlabs/stdlib'
-mod 'puppet-cron', '1.1.1'
-mod 'aneesh-roundcube', '1.0.0'
-=======
 #!/usr/bin/env ruby
 
 #forge 'https://forgeapi.puppetlabs.com'
@@ -19,7 +10,6 @@ mod 'puppetlabs/ntp', '7.1.1'
 mod 'puppetlabs/stdlib'
 mod 'puppet-cron', '1.1.1'
 mod 'tohuwabohu-roundcube', '3.1.0'
->>>>>>> f267099546ef27452d83a0c0089a86e8300691f4
 mod 'puppet-php', '5.3.0'
 mod 'willdurand-composer', '1.2.6'
 mod 'puppetlabs-concat', '4.2.1'
@@ -28,12 +18,10 @@ mod 'puppetlabs-apache', '3.1.0'
 mod 'puppetlabs-mysql', '5.3.0'
 mod 'puppetlabs-translate', '1.1.0'
 mod 'puppet-staging', '3.2.0'
-<<<<<<< HEAD
 mod 'puppetlabs-puppetdb', '6.0.2'
 mod 'puppetlabs-postgresql', '5.4.0'
 mod 'puppetlabs-firewall', '1.12.0'
 mod 'puppetlabs-inifile', '2.2.1'
-=======
 mod 'puppetlabs-passenger', '0.4.1'
 mod 'puppetlabs-ruby', '1.0.0'
 mod 'croddy-make', '999.999.999'
