@@ -1,5 +1,5 @@
 node 'client-puppet.upr.edu.cu'{
-  class {'::puppetboardserve':;}
+  # class {'::puppetboardserve':;}
 
   cron { 'prueba':
     command =>  '/usr/sbin/logrotate',
