@@ -13,16 +13,16 @@ class puppetdb_server {
   class {'::puppetdb::server': }
 
 
-  firewall {
-    '010 accept for localhost':
-      source => 'localhost',
-      proto  => 'tcp',
-      action => 'accept',
-    '021 puppetdb API vanaf knabbel':
-      source =>  'puppetdb.upr.edu.cu',
-      dport  =>  '8080',
-      proto  =>  'tcp',
-      action =>  'accept';
-  }
+  #  firewall {
+  #  '010 accept for localhost':
+  #    source => 'localhost',
+  #    proto  => 'tcp',
+  #    action => 'accept',
+  #  '021 puppetdb API vanaf knabbel':
+  #    source =>  'puppetdb.upr.edu.cu',
+  #    dport  =>  '8080',
+  #    proto  =>  'tcp',
+  #    action =>  'accept';
+  #}
 }
 
