@@ -5,7 +5,7 @@ class puppetboardserver::apache {
 
   class { '::apache': }
   class { '::apache::mod::wsgi': 
-	wsgi_socket_prefix => "/var/run/wsgi",
+  	wsgi_socket_prefix => "/var/run/wsgi",
 	}
 
   # Configure Puppetboard
