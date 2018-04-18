@@ -1,3 +1,3 @@
-node 'cliente-puppet.upr.edu.cu'{
+node 'client-puppet.upr.edu.cu{
  include ::basesys
 }
