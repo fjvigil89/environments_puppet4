@@ -33,6 +33,7 @@ mod 'saz/vim', '2.4.0'
 mod 'saz-locales', '2.4.0'
 mod 'saz/sudo', '3.1.0'
 mod 'theforeman/puppet', '7.1.1'
+mod 'puppetlabs/apt', '2.4.0'
 
 #Git
 mod 'puppet/puppetboard',
