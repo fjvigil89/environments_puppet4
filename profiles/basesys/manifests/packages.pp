@@ -8,7 +8,7 @@ class basesys::packages {
   if($::basesys::packages_enabled) {
     class {'::vim':;}
     
-    include '::firewall'
+     include '::firewall'
 
     class {'::sudo':
       purge               => false,
@@ -16,18 +16,18 @@ class basesys::packages {
     }
 
     $ruby_version = $::lsbdistcodename ? {
-      'trusty' => '1.9.1',
-      'utopic' => '1.9.1',
-      'vivid'  => '1.9.1',
-      default  => 'installed',
+    'trusty' => '1.9.1',
+    'utopic' => '1.9.1',
+    #'vivid'  => '1.9.1',
+    default  => 'installed',
     }
     $rubygems_package = $::operatingsystem ? {
-      'Debian' => 'rubygems-integration',
-      default  => 'rubygems',
+     'Debian' => 'rubygems-integration',
+    default  => 'rubygems',
     }
     class { '::ruby':
-      version          => $ruby_version,
-      rubygems_package => $rubygems_package,
+    version          => $ruby_version,
+    rubygems_package => $rubygems_package,
     }
     class { '::ruby::dev':; }
 
@@ -76,14 +76,14 @@ class basesys::packages {
     ensure_packages($p_os_dependant)
     ensure_packages($p_os_independant)
 
-    $legacy_ugent_nagios_package = $::osfamily ? {
-      'Debian' => 'ugent-nagios-client',
-      'RedHat' => 'ugnagiosclient',
-      default  => 'ugent-nagios-client'
-    }
+    #$legacy_ugent_nagios_package = $::osfamily ? {
+    #  'Debian' => 'ugent-nagios-client',
+    #  'RedHat' => 'ugnagiosclient',
+    #  default  => 'ugent-nagios-client'
+    #}
 
     # 'ugent-nagios-client' heeft voorlopig een Bug #SYSADMIN-89
-    ensure_packages($legacy_ugent_nagios_package, {'ensure' => 'absent'})
+    #ensure_packages($legacy_ugent_nagios_package, {'ensure' => 'absent'})
 
     # lint:endignore
   }
