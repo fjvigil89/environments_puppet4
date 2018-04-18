@@ -8,3 +8,12 @@
 <p>
 	<h4>Con esto se instalan los modulos automaticamente desde Puppetfile</h4>
 </p>
+
+<p>
+        <h2>Configuracion de envirinment.conf</h2>
+</p>
+<pre>
+ manifest =  $confdir/environments/$environment/manifests/site.pp
+ modulepath = roles:profiles:modules:$basemodulepath
+</pre>
+
