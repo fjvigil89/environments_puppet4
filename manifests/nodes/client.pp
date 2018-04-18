@@ -3,6 +3,6 @@ node 'client-puppet.upr.edu.cu'{
   uprinfo_usage =>  'Puppet dev server',
   application =>  'puppetserver',
   application_tier =>  'dev',
-  puppet_enabled =>  fals
+  puppet_enabled =>  false;
  }
 }
