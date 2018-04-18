@@ -37,7 +37,7 @@ class puppetprodserver () {
     puppet_enabled   => false,
   }
 
-  class { '::puppet4server':
+  class { '::puppetserver':
     puppetdb_server => 'pupppetdb.upr.edu.cu';
   }
 }

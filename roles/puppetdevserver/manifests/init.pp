@@ -40,7 +40,7 @@ class puppetdevserver () {
 
   #class { '::puppetdbserver':;}
 
-  class { '::puppet4server':
+  class { '::puppetserver':
     #puppetdb_server => $::fqdn;
     puppetdb_server => 'puppetdb.upr.edu.cu';
   }
