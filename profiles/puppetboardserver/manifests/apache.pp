@@ -15,6 +15,7 @@ class puppetboardserver::apache {
   $ssl_cert    = undef
   $ssl_key     = undef
   $threads     = 5
+  $basedir     = $::puppetboard::params::basedir
   $override    = $::puppetboard::params::apache_override
 
   $docroot = "${basedir}/puppetboard" 
