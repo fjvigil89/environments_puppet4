@@ -28,6 +28,7 @@ mod 'puppetlabs-gcc', '0.3.0'
 mod 'stankevich/python', '1.12.0'
 mod 'puppetlabs/vcsrepo', '1.3.2'
 mod 'puppetlabs-puppetdb', '6.0.2'
+mod 'stahnma-epel', '1.3.0'
 
 #Git
 mod 'puppet/puppetboard',
