@@ -8,6 +8,14 @@ class puppetboardserver::apache {
 	wsgi_socket_prefix => "/var/run/wsgi",
 	}
 
+  # Configure Puppetboard
+  class { 'puppetboard': }
+  # Access Puppetboard through pboard.example.com
+  class { 'puppetboard::apache::vhost':
+     vhost_name =>  'pboard.upr.edu.cu',
+      port =>  80,
+  }
+
   $vhost_name  = $::fqdn
   $wsgi_alias  = '/'
   $port        = 80
