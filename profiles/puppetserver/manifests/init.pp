@@ -1,5 +1,4 @@
 class puppetserver (String $puppetdb_server = 'localhost') {
- 
 ::apt::source { 'puppetlabs-pc1-server':
     comment  => 'Puppetlabs PC1 jessie Repository',
     location => 'http://apt.puppetlabs.com',
@@ -9,7 +8,6 @@ class puppetserver (String $puppetdb_server = 'localhost') {
       server => 'pgp.mit.edu',
     },
   }
-
   class { '::puppet':
     server                      => true,
     server_foreman              => false,
@@ -33,12 +31,11 @@ class puppetserver (String $puppetdb_server = 'localhost') {
     manage_packages             => 'agent',
     runmode                     => 'cron',
   }
-
   # lint:ignore:140chars
   cron {
     'r10k-deploy':
       ensure  => absent,
-      command => '[ -x /usr/local/bin/r10k ] && /usr/local/bin/r10k deploy environment -p -c /etc/r10k.yaml';
+      command => '[ -x /usr/local/bin/r10k ] && /usr/local/bin/r10k deploy environment -p -c /etc/r10k.yaml',
       minute  => [7,12,17,22,27,32,37,42,47,52,57];
     #'serverbeheer2hiera':
     #  ensure  => present,
@@ -46,20 +43,16 @@ class puppetserver (String $puppetdb_server = 'localhost') {
      #minute  => [7,12,17,22,27,32,37,42,47,52,57];
   }
   # lint:endignore
-
   package {
     'libyaml-perl':
       ensure => installed,
   }
-
   # Voor de network puppet module
   package { 'ipaddress':
     ensure   => installed,
     provider => 'puppet_gem',
     require  => Class['::puppet'];
   }
-
-
   file {
     '/var/lib/serverbeheer':
       ensure => 'directory',
@@ -68,7 +61,6 @@ class puppetserver (String $puppetdb_server = 'localhost') {
       mode   => '0755',
       before => File['/var/lib/serverbeheer/data'],
   }
-
   file {
     '/var/lib/serverbeheer/data':
       ensure => 'directory',
@@ -76,7 +68,6 @@ class puppetserver (String $puppetdb_server = 'localhost') {
       group  => 'root',
       mode   => '0755',
   }
-
   file {
     '/etc/puppetlabs/code/hiera.yaml':
       ensure => 'file',
