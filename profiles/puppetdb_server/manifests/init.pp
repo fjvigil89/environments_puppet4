@@ -23,5 +23,8 @@ class puppetdb_server {
   #    proto  =>  'tcp',
   #    action =>  'accept';
   #}
+
+  # puppetboard profile
+  class { '::puppetboardserver':}
 }
 

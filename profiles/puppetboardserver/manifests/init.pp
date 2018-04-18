@@ -13,7 +13,7 @@ class puppetboardserver(
   # Configure puppetboard
   class { '::puppetboard':
     puppetdb_host     => $puppetdb_host,
-    puppetdb_port     => '8080',
+    puppetdb_port     => '8001',
     manage_git        => true,
     manage_virtualenv => true,
     enable_catalog    => true,
