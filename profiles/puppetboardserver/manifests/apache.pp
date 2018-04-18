@@ -35,7 +35,7 @@ class puppetboardserver::apache {
         auth_require => 'user frank.vigil arian',
       },
     ],
-    require                     => File["${docroot}/wsgi.py"],
+    # require                     => File["${docroot}/wsgi.py"],
     notify                      => Service[$::puppetboard::params::apache_service],
   }
   # lint:endignore
