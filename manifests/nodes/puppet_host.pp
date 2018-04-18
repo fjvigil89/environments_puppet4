@@ -1,5 +1,5 @@
 node 'client-puppet.upr.edu.cu'{
-  include ::puppetdevserver
+  include puppetdevserver
   class { '::basesys':
         uprinfo_usage =>  'Puppet dev server',
             application =>  'puppetserver',
