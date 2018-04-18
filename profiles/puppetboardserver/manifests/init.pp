@@ -20,6 +20,12 @@ class puppetboardserver(
     revision          => '35486e8',
   }
 
+  # Access Puppetboard through pboard.example.com
+  class { 'puppetboard::apache::vhost':
+    vhost_name =>   'pboard.upr.edu.cu',
+  ¦ port =>   80,
+  }
+
   # Access Puppetboard through 
   class { '::puppetboardserver::apache':;}
 }
