@@ -31,7 +31,7 @@ mod 'puppetlabs-puppetdb', '6.0.2'
 mod 'stahnma-epel', '1.3.0'
 mod 'saz/vim', '2.4.0'
 mod 'saz-locales', '2.4.0'
-
+mod 'saz/sudo', '3.1.0'
 #Git
 mod 'puppet/puppetboard',
   :git => 'https://github.com/voxpupuli/puppet-puppetboard.git',
