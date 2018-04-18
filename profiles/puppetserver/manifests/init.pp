@@ -32,16 +32,16 @@ class puppetserver (String $puppetdb_server = 'localhost') {
     runmode                     => 'cron',
   }
   # lint:ignore:140chars
-  cron {
-    'r10k-deploy':
-      ensure  => absent,
-      command => '[ -x /usr/local/bin/r10k ] && /usr/local/bin/r10k deploy environment -p -c /etc/r10k.yaml',
-      minute  => [7,12,17,22,27,32,37,42,47,52,57];
+  #cron {
+  #'r10k-deploy':
+      #ensure  => absent,
+      #command => '[ -x /usr/local/bin/r10k ] && /usr/local/bin/r10k deploy environment -p -c /etc/r10k.yaml',
+      #minute  => [7,12,17,22,27,32,37,42,47,52,57];
     #'serverbeheer2hiera':
     #  ensure  => present,
      # command => '/etc/puppetlabs/code/environments/production/bin/hosts2hiera.pl > /tmp/.hosts_$$ && mv /tmp/.hosts_$$ /var/lib/serverbeheer/data/serverbeheer.yaml',
      #minute  => [7,12,17,22,27,32,37,42,47,52,57];
-  }
+     #}
   # lint:endignore
   package {
     'libyaml-perl':
@@ -101,18 +101,4 @@ class puppetserver (String $puppetdb_server = 'localhost') {
       refreshonly => true;
   }
 
-  # Nagios check voor puppetserver
-  sudo::conf { 'check_puppetserver':
-    priority => 10,
-    content  => 'nagios ALL=(root) NOPASSWD:/usr/lib/nagios/plugins/check_http',
-  }
-
-  $fqdn_downcase = downcase($::fqdn)
-  # lint:ignore:140chars
-  nrpe::command {'check_puppetserver':
-    ensure  => present,
-    command => "check_http -k 'Accept: */*' -K /etc/puppetlabs/puppet/ssl/private_keys/${fqdn_downcase}.pem -J /etc/puppetlabs/puppet/ssl/certs/${fqdn_downcase}.pem -p 8140 -H ${::fqdn} -u '/puppet/v3/status/whatever?environment=production' -s '\"is_alive\":true'",
-    sudo    => true,
-  }
-  # lint:endignore
 }
