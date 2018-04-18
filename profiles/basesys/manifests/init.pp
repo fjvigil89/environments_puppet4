@@ -28,9 +28,9 @@ class basesys (
   ) inherits ::basesys::params {
 
 
-  if(lookup('deploy_eyaml_test') != 'AiVai2we'){
-    fail('Eyaml configuratie niet correct.  Eyaml decryptie stuk?')
-  }
+    #  if(lookup('deploy_eyaml_test') != 'AiVai2we'){
+    #    fail('Eyaml configuratie niet correct.  Eyaml decryptie stuk?')
+    #}
 
   # Alle subclasses includen, we kijken in de subclass of we config
   # toepassen of niet.
