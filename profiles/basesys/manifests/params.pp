@@ -6,7 +6,7 @@ class basesys::params {
   $conffile = 'basesys/etc/basesys.conf'
   
   # DNS
-  $dnsservers = [ '10.2.1.8']
+  $dnsservers = [ '10.2.1.8','8.8.8.8']
 
   # dominio
   $dnssearchdomains = 'upr.edu.cu'
