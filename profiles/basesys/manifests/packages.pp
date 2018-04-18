@@ -18,7 +18,7 @@ class basesys::packages {
     $ruby_version = $::lsbdistcodename ? {
     'trusty' => '1.9.1',
     'utopic' => '1.9.1',
-    #'vivid'  => '1.9.1',
+    'vivid'  => '1.9.1',
     default  => 'installed',
     }
     $rubygems_package = $::operatingsystem ? {
@@ -41,9 +41,9 @@ class basesys::packages {
     case $::operatingsystem {
       'Debian', 'Ubuntu': {
 
-        $p_os_dependant = [ 'ugent-keyring', 'vlan', 'perl-doc', 'bind9-host',
+        $p_os_dependant = [ 'vlan', 'perl-doc', 'bind9-host',
                             'ldap-utils', 'libssl-dev', 'libwrap0-dev', 'arping', 'lsb-release',
-                            'ifupdown-ugent', 'libconfig-general-perl', 'netcat',
+                            'libconfig-general-perl', 'netcat',
                             'links2', 'dnsutils','python-apt', 'ifupdown-extra', ]
 
         $packagelist_dist = $::lsbdistcodename ? {
