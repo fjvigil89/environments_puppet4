@@ -38,7 +38,7 @@ class puppetdevserver () {
     puppet_enabled   => false;
   }
 
-  #class { '::puppetdbserver':;}
+  class { '::puppetdb_server':;}
 
   class { '::puppetserver':
     #puppetdb_server => $::fqdn;

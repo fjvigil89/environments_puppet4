@@ -1,4 +1,4 @@
 
 node 'client-puppet.upr.edu.cu'{
-  include ::puppetserver
+  include ::puppetdevserver
 }
