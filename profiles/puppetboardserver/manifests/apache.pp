@@ -21,7 +21,8 @@ class puppetboardserver::apache {
   $docroot = "${basedir}/puppetboard" 
 
   # lint:ignore:80chars
-  ::apache::vhost { $vhost_name:
+  #::apache::vhost { $vhost_name:
+   ::apache::vhost { 'puppdb.upr.edu.cu':
     port                        => $port,
     docroot                     => $docroot,
     ssl                         => $ssl,
