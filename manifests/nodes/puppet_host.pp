@@ -1,3 +1,3 @@
-node 'client-puppet.upr.edu.cu'{
-  include puppetdevserver
+node 'puppet-master.upr.edu.cu'{
+  include puppetprodserver
 }
