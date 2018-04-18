@@ -1,5 +1,5 @@
 
-class basesys () {
+class basesys (
 
   String $application,
   String $uprinfo_usage,
