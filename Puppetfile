@@ -29,6 +29,8 @@ mod 'stankevich/python', '1.12.0'
 mod 'puppetlabs/vcsrepo', '1.3.2'
 mod 'puppetlabs-puppetdb', '6.0.2'
 mod 'stahnma-epel', '1.3.0'
+mod 'saz/vim', '2.4.0'
+mod 'saz-locales', '2.4.0'
 
 #Git
 mod 'puppet/puppetboard',
