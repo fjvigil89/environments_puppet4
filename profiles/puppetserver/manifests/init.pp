@@ -32,16 +32,16 @@ class puppetserver (String $puppetdb_server = 'localhost') {
     runmode                     => 'cron',
   }
   # lint:ignore:140chars
-  #cron {
-  #'r10k-deploy':
-      #ensure  => absent,
-      #command => '[ -x /usr/local/bin/r10k ] && /usr/local/bin/r10k deploy environment -p -c /etc/r10k.yaml',
-      #minute  => [7,12,17,22,27,32,37,42,47,52,57];
+  cron {
+    'r10k-deploy':
+      ensure  => absent,
+      command => '[ -x /usr/local/bin/r10k ] && /usr/local/bin/r10k deploy environment -p -c /etc/r10k.yaml';
+      # minute  => [7,12,17,22,27,32,37,42,47,52,57];
     #'serverbeheer2hiera':
     #  ensure  => present,
      # command => '/etc/puppetlabs/code/environments/production/bin/hosts2hiera.pl > /tmp/.hosts_$$ && mv /tmp/.hosts_$$ /var/lib/serverbeheer/data/serverbeheer.yaml',
      #minute  => [7,12,17,22,27,32,37,42,47,52,57];
-     #}
+  }
   # lint:endignore
   package {
     'libyaml-perl':
