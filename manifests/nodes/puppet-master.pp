@@ -4,6 +4,5 @@ node 'puppet-master.upr.edu.cu' {
   puppetdb_server => $puppetdb_host,
  }
 
- include puppetprodserver
 
 }
