@@ -24,7 +24,7 @@
 #
 # Copyright 2013 Your name here, unless otherwise noted.
 #
-class puppetdevserver () {
+class puppetdevserver{
   anchor { "${module_name}::begin": } ->
   class {"${module_name}::install": } ->
   class {"${module_name}::config": } ~>
