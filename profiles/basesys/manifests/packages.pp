@@ -10,10 +10,10 @@ class basesys::packages {
     
     include '::firewall'
 
-    class {'::sudo':
-      purge               => false,
-      config_file_replace => false;
-    }
+    # class {'::sudo':
+    #  purge               => false,
+    #  config_file_replace => false;
+    #}
 
     $ruby_version = $::lsbdistcodename ? {
       'trusty' => '1.9.1',
