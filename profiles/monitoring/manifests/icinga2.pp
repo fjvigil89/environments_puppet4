@@ -25,7 +25,6 @@ mysql::db { 'icinga2':
 }
 
 # Configure ido_mysql
-include ::icinga2
 class { '::icinga2::feature::idomysql':
   user          => $monitoring::icinga2::icinga2_dbuser,
   password      => $monitoring::icinga2::icinga2_dbpass,
