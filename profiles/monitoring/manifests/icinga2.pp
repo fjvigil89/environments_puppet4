@@ -16,13 +16,13 @@ class monitoring::icinga2 (
 
 
 # Create a DB icinga2 (IDO)
-#include ::mysql_server
-#mysql::sql {
-#  user     =>  $monitoring::icinga2::icinga2_dbuser,
-#  password =>  $monitoring::icinga2::icinga2_dbpass,
-#  host     =>  $monitoring::icinga2::icinga2_dbhost,
-#  grant    =>   ['SELECT', 'INSERT', 'UPDATE', 'DELETE', 'DROP', 'CREATE VIEW', 'CREATE', 'INDEX', 'EXECUTE', 'ALTER'],
-#}
+include ::mysql_server
+mysql::sql {
+  user     =>  $monitoring::icinga2::icinga2_dbuser,
+  password =>  $monitoring::icinga2::icinga2_dbpass,
+  host     =>  $monitoring::icinga2::icinga2_dbhost,
+  grant    =>   ['SELECT', 'INSERT', 'UPDATE', 'DELETE', 'DROP', 'CREATE VIEW', 'CREATE', 'INDEX', 'EXECUTE', 'ALTER'],
+}
 
 # Configure ido_mysql
 #class { 'icinga2::feature::idomysql':
