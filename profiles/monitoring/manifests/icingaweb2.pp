@@ -49,7 +49,7 @@ mysql::db { $monitoring::icingaweb2::director_dbname:
 class {'::icingaweb2':
   manage_package =>  false,
   import_schema  =>  true,
-  logging        =>  'syslog',
+  #logging        =>  'syslog',
   db_type        =>  'mysql',
   db_host        =>  $monitoring::icingaweb2::icingaweb2_dbhost,
   db_username    =>  $monitoring::icingaweb2::icingaweb2_dbuser,
