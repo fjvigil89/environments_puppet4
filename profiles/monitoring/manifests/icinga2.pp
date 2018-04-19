@@ -53,11 +53,11 @@ class { '::icinga2::feature::api':
     'host' =>  '${ipaddress}',
   }
 },
-zones => {
+zones           => {
   'master' =>  {
     'endpoints' =>  ['${fqdn}'],
   }
- } 
+ }
 }
 
 icinga2::object::zone {'global-templates':
