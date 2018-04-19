@@ -39,7 +39,7 @@ mysql::db { $monitoring::icingaweb2::icingaweb2_dbname:
 
 # Configure director DB
 mysql::db { $monitoring::icingaweb2::director_dbname:
-  user     =>  $monitoring::icingaweb2::director_db_user,
+  user     =>  $monitoring::icingaweb2::director_dbuser,
   password =>  $monitoring::icingaweb2::director_dbpass,
   host     =>  $monitoring::icingaweb2::director_dbhost,
   grant    =>  ['ALL'],
