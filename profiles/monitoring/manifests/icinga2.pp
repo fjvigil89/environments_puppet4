@@ -26,11 +26,12 @@ mysql::sql {
 
 # Configure ido_mysql
 class {'icinga2::feature::idomysql':
-  user          =>  $monitoring::icinga2::icinga2_dbuser,
-  password      =>  $monitoring::icinga2::icinga2_dbpass,
-  host          =>  $monitoring::icinga2::icinga2_dbhost,
-  import_schema =>  true,
-  require       =>  Mysql::Db['monitoring::icinga2::icinga2_dbname'],
+  user          => $monitoring::icinga2::icinga2_dbuser,
+  password      => $monitoring::icinga2::icinga2_dbpass,
+  host          => $monitoring::icinga2::icinga2_dbhost,
+  database      => $monitoring::icinga2::icinga2_dbname,
+  import_schema => true,
+  require       => Mysql::Db[$monitoring::icinga2::icinga2_dbname],
 }
 
 class { '::icinga2':
