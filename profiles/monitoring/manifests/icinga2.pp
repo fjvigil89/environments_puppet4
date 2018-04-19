@@ -46,21 +46,21 @@ class { '::icinga2::feature::idomysql':
   require       => Mysql::Db[$monitoring::icinga2::icinga2_dbname],
 }
 
-
-#class { '::icinga2::feature::api':
-# accept_commands => true,
-# accept_config   => true,
-# endpoints       => {
-#  '${fqdn}' => {
-#    'host' =>  '${ipaddress}',
-#  }
-#},
-#zones           => {
-#  'master' =>  {
-#    'endpoints' =>  ['${fqdn}'],
-#  }
-# }
-#}
+# Configure API
+class { '::icinga2::feature::api':
+ accept_commands => true,
+ accept_config   => true,
+ endpoints       => {
+  '${fqdn}' => {
+    'host' =>  '${ipaddress}',
+  }
+},
+zones           => {
+  'master' =>  {
+    'endpoints' =>  ['${fqdn}'],
+  }
+ }
+}
 
 #icinga2::object::zone { 'global-templates':
 #  global =>  true,
