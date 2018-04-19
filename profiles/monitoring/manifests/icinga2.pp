@@ -65,4 +65,4 @@ global =>  true,
 icinga2::object::zone {'director-global':
 global =>  true,
 }
-
+}
