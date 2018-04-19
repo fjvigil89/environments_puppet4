@@ -1,4 +1,4 @@
-lass monitoring::icinga2
+# class monitoring::icinga2
 #
 #============================
 #
