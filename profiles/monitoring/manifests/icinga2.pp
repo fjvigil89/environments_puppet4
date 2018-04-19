@@ -24,8 +24,19 @@ mysql::db { 'icinga2':
   grant    =>   ['SELECT', 'INSERT', 'UPDATE', 'DELETE', 'DROP', 'CREATE VIEW', 'CREATE', 'INDEX', 'EXECUTE', 'ALTER'],
 }
 
+# Configure icinga2 
+class { '::icinga2':
+  confd         =>   false,
+  manage_repo   =>   true,
+  features      =>   ['checker','mainlog','notification','statusdata','compatlog','command'],
+  constants     =>   {
+    'ZoneName' =>   'master',
+    'NodeName' =>   '${fqdn}',
+    ticketsalt =>   '5a3d695b8aef8f18452fc494593056a4',
+  },
+}
+
 # Configure ido_mysql
-include ::icinga2
 class { '::icinga2::feature::idomysql':
   user          => $monitoring::icinga2::icinga2_dbuser,
   password      => $monitoring::icinga2::icinga2_dbpass,
@@ -35,17 +46,6 @@ class { '::icinga2::feature::idomysql':
   require       => Mysql::Db[$monitoring::icinga2::icinga2_dbname],
 }
 
-# Configure icinga2 
-class { '::icinga2':
-  confd       =>  false,
-  manage_repo =>  true,
-  features    =>  ['checker','mainlog','notification','statusdata','compatlog','command'],
-  constants   =>  {
-   'ZoneName' =>  'master',
-   'NodeName' =>  '${fqdn}',
-   ticketsalt =>  '5a3d695b8aef8f18452fc494593056a4',
-  },
-}
 
 #class { '::icinga2::feature::api':
 # accept_commands => true,
