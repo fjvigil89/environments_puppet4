@@ -62,10 +62,10 @@ zones           => {
  }
 }
 
-#icinga2::object::zone { 'global-templates':
-#  global =>  true,
-#}
-#icinga2::object::zone { 'director-global':
-#  global =>  true,
-#}
+icinga2::object::zone { 'global-templates':
+  global =>  true,
+}
+icinga2::object::zone { 'director-global':
+  global =>  true,
+}
 }
