@@ -8,12 +8,12 @@ class monitoring::icingaweb2 (
  $icingaweb2_dbuser = 'icingaweb2',
  $icingaweb2_dbname = 'icingaweb2',
  $icingaweb2_dbpass = 'icingaweb2',
- $icingaweb2_dbhost = '127.0.0.1',
+ $icingaweb2_dbhost = 'localhost',
 
  $director_dbuser = 'director',
  $director_dbname = 'director',
  $director_dbpass = 'director',
- $director_dbhost = '127.0.0.1',
+ $director_dbhost = 'localhost',
 
  $ad_root_dn = 'CN=icinga2,OU=Servicios,DC=upr,DC=edu,DC=cu',
  $ad_bind_dn = 'icinga2',
@@ -25,7 +25,7 @@ class monitoring::icingaweb2 (
  $icinga2_dbuser = 'icinga2',
  $icinga2_dbname = 'icinga2',
  $icinga2_dbpass = 'supersecret',
- $icinga2_dbhost = '127.0.0.1',
+ $icinga2_dbhost = 'localhost',
 
 ) {
 # Configure icingaweb2 MySQL  
