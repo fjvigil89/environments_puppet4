@@ -17,7 +17,7 @@ class monitoring::icinga2 (
 
 # Create a DB icinga2 (IDO)
 include ::mysql_server
-mysql::sql {
+mysql::db { 'icinga2':
   user     =>  $monitoring::icinga2::icinga2_dbuser,
   password =>  $monitoring::icinga2::icinga2_dbpass,
   host     =>  $monitoring::icinga2::icinga2_dbhost,
