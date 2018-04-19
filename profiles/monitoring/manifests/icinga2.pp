@@ -51,13 +51,13 @@ class { '::icinga2::feature::api':
  accept_commands => true,
  accept_config   => true,
  endpoints       => {
-  '${fqdn}' => {
-    'host' =>  '${ipaddress}',
+  $facts['fqdn'] => {
+    'host' =>  $facts['ipaddress'],
   }
 },
 zones           => {
   'master' =>  {
-    'endpoints' =>  ['${fqdn}'],
+    'endpoints' =>  [$facts['fqdn']],
   }
  }
 }
