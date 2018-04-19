@@ -29,6 +29,7 @@ mod 'stankevich/python', '1.12.0'
 mod 'puppetlabs/vcsrepo', '1.3.2'
 mod 'puppetlabs-puppetdb', '6.0.2'
 mod 'icinga-icinga2', '1.3.5'
+mod 'icinga-icingaweb2', '2.1.0'
 mod 'puppet-zypprepo', '2.2.1'
 mod 'puppetlabs-apt', '4.5.1'
 
