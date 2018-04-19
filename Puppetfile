@@ -2,7 +2,7 @@
 
 #forge 'https://forgeapi.puppetlabs.com'
 
-forge 'forge.puppetlabs.com'
+#forge 'forge.puppetlabs.com'
 
 # A module from the Puppet Forge
 # Forge Modules Test Environments
