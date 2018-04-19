@@ -28,6 +28,8 @@ mod 'puppetlabs-gcc', '0.3.0'
 mod 'stankevich/python', '1.12.0'
 mod 'puppetlabs/vcsrepo', '1.3.2'
 mod 'puppetlabs-puppetdb', '6.0.2'
+mod 'icinga-icinga2', '1.3.5'
+mod 'puppet-zypprepo', '2.2.1'
 
 #Git
 mod 'puppet/puppetboard',
