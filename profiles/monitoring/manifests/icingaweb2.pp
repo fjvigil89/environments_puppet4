@@ -29,7 +29,7 @@ class monitoring::icingaweb2 (
 
 ) {
 # Configure icingaweb2 MySQL  
-include ::mysql_server
+include ::mysql::server
 mysql::db { $monitoring::icingaweb2::icingaweb2_dbname:
   user     =>  $monitoring::icingaweb2::icingaweb2_dbuser,
   password =>  $monitoring::icingaweb2::icingaweb2_dbpass,
