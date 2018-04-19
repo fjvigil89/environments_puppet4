@@ -31,7 +31,7 @@ mod 'puppetlabs-puppetdb', '6.0.2'
 mod 'icinga-icinga2', '1.3.5'
 mod 'puppet-zypprepo', '2.2.1'
 mod 'puppetlabs-apt', '4.5.1'
-
+mod 'puppetlabs-translate', '1.1.0'
 #Git
 mod 'puppet/puppetboard',
   :git => 'https://github.com/voxpupuli/puppet-puppetboard.git',
