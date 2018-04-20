@@ -4,5 +4,5 @@ node 'puppet-master.upr.edu.cu' {
   #puppetdb_server      => $puppetdb_host,
   #puppetdb_port        => 8081,
   #puppetdb_disable_ssl => true,
- }
+  # }
 }
