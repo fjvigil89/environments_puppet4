@@ -3,6 +3,7 @@
 #==================================
 #
 # Configure apache2 for icingaweb2
+include '::php'
 class { 'apache':
   mpm_module      => 'prefork'
   default_vhost   => false,
