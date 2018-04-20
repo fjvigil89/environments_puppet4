@@ -24,6 +24,6 @@ class puppetdb_server {
   #}
 
   # puppetboard profile
-  class { '::puppetboardserver':}
+  #  class { '::puppetboardserver':}
 }
 
