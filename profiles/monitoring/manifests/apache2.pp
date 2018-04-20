@@ -4,7 +4,20 @@
 #
 # Configure apache2 for icingaweb2
 class { 'apache':
-  mpm_module =>  'prefork'
+  mpm_module      => 'prefork'
+  default_vhost   => false,
+  confd_dir       => '/etc/apache2/conf-enabled',
+  purge_configs   => false,
+  purge_vhost_dir => true,
+
+  include ::apache::mod::php
+
+  apache::vhost { icingaweb.upr.edu.cu:
+  servername      => icingaweb.upr.edu.cu,
+  port            => '80',
+  docroot         => '/var/www/redirect',
+  redirect_status => 'permanent',
+  redirect_dest   => "http://icingaweb.upr.edu.cu",
 }
 
 class { 'apache::mod::php': }
