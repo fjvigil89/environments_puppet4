@@ -49,7 +49,7 @@ mysql::db { $monitoring::icingaweb2::director_dbname:
 class {'::icingaweb2':
   manage_package =>  true,
   import_schema  =>  true,
-  #logging        =>  'syslog',
+  logging        =>  'syslog',
   db_type        =>  'mysql',
   db_host        =>  $monitoring::icingaweb2::icingaweb2_dbhost,
   db_username    =>  $monitoring::icingaweb2::icingaweb2_dbuser,
@@ -75,5 +75,80 @@ icingaweb2::config::authmethod {'ad-auth':
   order    =>  '03',
 }
 
+#Configure Director Module
+class {'icingaweb2::module::director':
+  git_revision  =>   'master',
+  db_host       =>   $monitoring::icingaweb2::director_dbhost,
+  db_name       =>   $monitoring::icingaweb2::director_dbname,
+  db_username   =>   $monitoring::icingaweb2::director_dbuser,
+  db_password   =>   $monitoring::icingaweb2::director_dbpass,
+  import_schema =>   true,
+  kickstart     =>   true,
+  endpoint      =>   $facts['fqdn'],
+  api_username  =>   $monitoring::icingaweb2::director_apiuser,
+  api_password  =>   $monitoring::icingaweb2::director_apipass,
+  require       =>   Mysql::Db[$monitoring::icingaweb2::director_dbname],
+}
+
+#Director API user module
+icinga2::object::apiuser { 'root':
+  ensure      =>  present,
+  password    =>  $monitoring::icingaweb2::director_apipass,
+  permissions =>  ['*'],
+  target      =>  "${::icinga2::params::conf_dir}/features-available/api.conf",
+}
+
+# Kick Director 
+exec { 'Icinga Director Kickstart':
+  path    => '/usr/local/bin:/usr/bin:/bin',
+  command => 'icingacli director kickstart run',
+  onlyif  => 'icingacli director kickstart required',
+  require => Exec['Icinga Director DB migration'],
+}
+exec { 'Icinga Director DB migration':
+  path    => '/usr/local/bin:/usr/bin:/bin',
+  command => 'icingacli director migration run',
+  onlyif  => 'icingacli director migration pending',
+}
+
+# Configure Monitoring Module
+class {'icingaweb2::module::monitoring':
+  ido_host          => $monitoring::icingaweb2::icinga2_dbhost,
+  ido_db_name       => $monitoring::icingaweb2::icinga2_dbname,
+  ido_db_username   => $monitoring::icingaweb2::icinga2_dbuser,
+  ido_db_password   => $monitoring::icingaweb2::icinga2_dbpass,
+  commandtransports => {
+    icinga2 => {
+      transport => 'api',
+      username  => $monitoring::icingaweb2::icinga2_dbuser,
+      password  => $monitoring::icingaweb2::icinga2_dbpass,
+    }
+  }
+}
+
+#PuppetDB Icingaweb2 Module
+include icingaweb2
+$puppetdb_host    = 'puppetdb.upr.edu.cu'
+$my_certname      = 'puppetdb.upr.edu.cu'
+$ssldir           = '/etc/puppetlabs/puppet/ssl'
+$web_ssldir       = '/etc/icingaweb2/modules/puppetdb/ssl'
+$ssl_subdir       = "${web_ssldir}/${puppetdb_host}"
+$private_keys_dir = '/etc/icingaweb2/modules/puppetdb/ssl/'+$facts['fqdn']+'/private_keys'
+$certs_dir        = '/etc/icingaweb2/modules/puppetdb/ssl/'+$facts['fqdn']+'/certs'
+
+file { $web_ssldir:
+  ensure =>   directory,
+}
+file { $ssl_subdir:
+  ensure =>   directory,
+  source =>   $ssldir,
+  recurse =>   true,
+}
+exec { "Generate combined .pem file for ${puppetdb_host}":
+  command     =>   "cat ${private_keys_dir}/${my_certname}.pem ${certs_dir}/${my_certname}.pem > ${private_keys_dir}/${my_certname}_combined.pem",
+  path        =>   ['/usr/bin', '/usr/sbin'],
+  cwd         =>   $ssl_subdir,
+  refreshonly =>   true
+}
 }
 
