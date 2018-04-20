@@ -8,7 +8,7 @@ class { '::php::globals':
   config_root => '/etc/php/7.0',
 }->
 class { '::php':
-    manage_repos => true
+  manage_repos => true
 }
 
 class { 'apache':
@@ -20,12 +20,12 @@ class { 'apache':
 
   include ::apache::mod::php
 
-  apache::vhost { icingaweb.upr.edu.cu:
-  servername      => icingaweb.upr.edu.cu,
-  port            => '80',
-  docroot         => '/var/www/redirect',
-  redirect_status => 'permanent',
-  redirect_dest   => "http://icingaweb.upr.edu.cu",
+  apache::vhost { 'icingaweb.upr.edu.cu':
+    servername      => 'icingaweb.upr.edu.cu',
+    port            => '80',
+    docroot         => '/var/www/html',
+    redirect_status => 'permanent',
+    redirect_dest   => "http://icingaweb.upr.edu.cu",
 
   file_line{ 'date.timezone':
     path   => '/etc/php5/apache2/php.ini',
