@@ -131,7 +131,6 @@ class {'icingaweb2::module::monitoring':
 }
 
 #PuppetDB Icingaweb2 Module
-include icingaweb2
 include ::icingaweb2::module::puppetdb
 $puppetdb_host    = 'puppetdb.upr.edu.cu'
 $my_certname      = 'puppetdb.upr.edu.cu'
