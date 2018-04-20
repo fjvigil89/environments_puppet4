@@ -7,7 +7,7 @@ class puppetdb_server {
   class { 'puppetdb':
     listen_address    => '0.0.0.0',
     listen_port       => '8081',
-    disable_ssl       => false,
+    disable_ssl       => true,
   }
   #class {'puppetdb::master::config': }
 
