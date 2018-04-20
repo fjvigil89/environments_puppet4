@@ -5,14 +5,10 @@ class puppetboardserver::apache {
 
   class { '::apache': }
   class { '::apache::mod::wsgi': }
-<<<<<<< HEAD
-=======
   class { '::apache::mod::auth_cas':
     cas_login_url    => 'https://login.ugent.be/login',
     cas_validate_url => 'https://login.ugent.be/serviceValidate';
   }
-
->>>>>>> ad43b98cd5b906c1ad404dc60e36619c1cbf0470
 
   $vhost_name  = $::fqdn
   $wsgi_alias  = '/'
