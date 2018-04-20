@@ -75,7 +75,11 @@ icingaweb2::config::authmethod {'ad-auth':
   order    =>  '03',
 }
 
+#Configure Doc Module
+include ::icingaweb2::module::doc
+
 #Configure Director Module
+include git
 class {'icingaweb2::module::director':
   git_revision  =>   'master',
   db_host       =>   $monitoring::icingaweb2::director_dbhost,
