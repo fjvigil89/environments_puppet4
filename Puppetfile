@@ -32,6 +32,7 @@ mod 'icinga-icinga2', '1.3.5'
 mod 'icinga-icingaweb2', '2.1.0'
 mod 'puppet-zypprepo', '2.2.1'
 mod 'puppetlabs-apt', '4.5.1'
+mod 'stahnma-epel', '1.3.0'
 
 #Git
 mod 'puppet/puppetboard',
