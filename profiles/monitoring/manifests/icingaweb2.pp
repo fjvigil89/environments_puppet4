@@ -151,6 +151,6 @@ exec { "Generate combined .pem file for ${puppetdb_host}":
   cwd         =>   $ssl_subdir,
   refreshonly =>   true
 }
-include ::monitoring::apache
+include ::apache
 }
 
