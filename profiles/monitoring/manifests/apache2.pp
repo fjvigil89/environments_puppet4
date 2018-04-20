@@ -3,39 +3,6 @@
 #==================================
 #
 # Configure apache2 for icingaweb2
-class { '::php::globals':
-  php_version => '7.0',
-  config_root => '/etc/php/7.0',
-}->
-class { '::php':
-  manage_repos => true
-}
-
-class { 'apache':
-  mpm_module      => 'prefork'
-  default_vhost   => false,
-  confd_dir       => '/etc/apache2/conf-enabled',
-  purge_configs   => false,
-  purge_vhost_dir => true,
-
-  include ::apache::mod::php
-
-  apache::vhost { 'icingaweb.upr.edu.cu':
-    servername      => 'icingaweb.upr.edu.cu',
-    port            => '80',
-    #docroot        => '/var/www/html/icingaweb',
-    docroot         => '/usr/share/icingaweb2/public',
-    redirect_status => 'permanent',
-    redirect_dest   => "http://icingaweb.upr.edu.cu",
-
-  file_line{ 'date.timezone':
-    path   => '/etc/php5/apache2/php.ini',
-    line   => 'date.timezone = America/Havana',
-    match  => '^date.timezone =',
-    notify =>  Class['apache'],
-  }
-}
-
 class { 'apache::mod::php': }
 
 case $::osfamily {
@@ -65,3 +32,37 @@ default: {
   fail("Your plattform ${::osfamily} is not supported.")
 }
 }
+
+class { '::php::globals':
+  php_version => '7.0',
+  config_root => '/etc/php/7.0',
+}
+class { '::php':
+  manage_repos => true
+}
+
+class { 'apache':
+  mpm_module      => 'prefork'
+  default_vhost   => false,
+  confd_dir       => '/etc/apache2/conf-enabled',
+  purge_configs   => false,
+  purge_vhost_dir => true,
+
+  include ::apache::mod::php
+
+  apache::vhost { 'icingaweb.upr.edu.cu':
+  servername      => 'icingaweb.upr.edu.cu',
+  port            => '80',
+  #docroot        => '/var/www/html/icingaweb',
+  docroot         => '/usr/share/icingaweb2/public',
+  redirect_status => 'permanent',
+  redirect_dest   => "http://icingaweb.upr.edu.cu",
+
+  file_line{ 'date.timezone':
+  ¦ path   => '/etc/php5/apache2/php.ini',
+  ¦ line   => 'date.timezone = America/Havana',
+  ¦ match  => '^date.timezone =',
+  ¦ notify =>  Class['apache'],
+  }
+  }
+
