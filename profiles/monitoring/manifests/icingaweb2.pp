@@ -72,7 +72,7 @@ icingaweb2::config::resource{'ad-upr':
 icingaweb2::config::authmethod {'ad-auth':
   backend  =>  'msldap',
   resource =>  'ad-upr',
-  order    =>  '01',
+  order    =>  '03',
 }
 
 }
