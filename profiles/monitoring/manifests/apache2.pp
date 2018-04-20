@@ -3,7 +3,14 @@
 #==================================
 #
 # Configure apache2 for icingaweb2
-include '::php'
+class { '::php::globals':
+  php_version => '7.0',
+  config_root => '/etc/php/7.0',
+}->
+class { '::php':
+    manage_repos => true
+}
+
 class { 'apache':
   mpm_module      => 'prefork'
   default_vhost   => false,
