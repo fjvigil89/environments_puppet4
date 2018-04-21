@@ -178,7 +178,7 @@ apache::vhost { 'icingaweb.upr.edu.cu':
   redirect_status => 'permanent',
   redirect_dest   => "http://icingaweb.upr.edu.cu",
 
-file_line { 'date.timezone':
+file_line{ 'date.timezone':
   path   => '/etc/php5/apache2/php.ini',
   line   => 'date.timezone = America/Havana',
   match  => '^date.timezone =',
