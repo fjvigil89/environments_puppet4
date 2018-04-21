@@ -162,13 +162,13 @@ class { '::php':
   manage_repos =>  true
 }
 
-class { 'apache':
-  mpm_module      => 'prefork',
-  default_vhost   => false,
-  confd_dir       => '/etc/apache2/conf-enabled',
-  purge_configs   => false,
-  purge_vhost_dir => true,
-}
+#class { 'apache':
+#  mpm_module      => 'prefork',
+#  default_vhost   => false,
+#  confd_dir       => '/etc/apache2/conf-enabled',
+#  purge_configs   => false,
+#  purge_vhost_dir => true,
+#}
 
 include ::apache::mod::php
 apache::vhost { 'icingaweb.upr.edu.cu':
