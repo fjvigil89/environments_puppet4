@@ -185,6 +185,6 @@ file_line { 'date.timezone':
   notify =>  Class['apache'],
 }
 }
-
+}
 #}
 
