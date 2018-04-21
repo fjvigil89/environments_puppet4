@@ -164,7 +164,7 @@ class { '::php':
 
 class { 'apache':
   mpm_module      => 'prefork'
-  default_vhost   => false,
+  #default_vhost   => false,
   confd_dir       => '/etc/apache2/conf-enabled',
   purge_configs   => false,
   purge_vhost_dir => true,
