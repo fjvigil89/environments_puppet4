@@ -154,13 +154,13 @@ exec { "Generate combined .pem file for ${puppetdb_host}":
 
 include ::apache
 
-#class { '::php::globals':
-#  php_version =>  '7.0',
-#  config_root =>  '/etc/php/7.0',
-#}
-#class { '::php':
-#  manage_repos =>  true
-#}
+class { '::php::globals':
+  php_version =>  '7.0',
+  config_root =>  '/etc/php/7.0',
+}
+class { '::php':
+  manage_repos =>  true
+}
 
 #include ::apache::mod::php
 #class roles::webserver::service::website () {
@@ -170,8 +170,6 @@ apache::vhost { 'icingaweb.upr.edu.cu':
   servername      => 'icingaweb.upr.edu.cu',
   port            => '80',
   docroot         => '/usr/share/icingaweb2/public',
-#  redirect_status => 'permanent',
-#  redirect_dest   => "http://icingaweb.upr.edu.cu",
 }
 #}
 #file_line{ 'date.timezone':
