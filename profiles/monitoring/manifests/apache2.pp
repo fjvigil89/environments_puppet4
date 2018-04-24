@@ -34,6 +34,7 @@ default: {
 }
 
 class { 'apache':
+  apache::mod::prefork
   mpm_module      => 'prefork',
   default_vhost   => false,
   confd_dir       => '/etc/apache2/conf-enabled',
