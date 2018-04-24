@@ -156,18 +156,12 @@ exec { "Generate combined .pem file for ${puppetdb_host}":
 #Installing apache or httpd
 include ::apache
 
+# Install and define php-fpm
 include phpfpm
-#class { '::php':
-  #  php_version => '7.0',
-  #config_root   => '/etc/php/7.0',
-  #  ensure         => latest,
-  #manage_repos   => true,
-  #fpm            => true,
-  #dev            => true,
-  #composer       => true,
-  #pear           => true,
-  #phpunit        => false
-  #}
+~> service { 'rh-php71-php-fpm':
+  ensure => running,
+  enable => true,
+}
 
 # Apache virtual Host
 apache::vhost { 'icingaweb.upr.edu.cu':
