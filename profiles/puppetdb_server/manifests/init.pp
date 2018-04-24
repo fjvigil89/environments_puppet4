@@ -5,7 +5,7 @@
 
 class puppetdb_server {
   class { 'puppetdb':
-    listen_address  => 'puppetdb.upr.edu.cu',
+    listen_address  => '0.0.0.0',
     listen_port     => '8001',
     ssl_listen_port => '8001',
   }
