@@ -169,7 +169,7 @@ class { '::php':
 #  purge_configs   => false,
 #  purge_vhost_dir => true,
 #}
-include roles::webserver::apache
+#include roles::webserver::apache
 include ::apache::mod::php
 apache::vhost { 'icingaweb.upr.edu.cu':
   servername      => 'icingaweb.upr.edu.cu',
