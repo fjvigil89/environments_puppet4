@@ -47,7 +47,6 @@ mysql::db { $monitoring::icingaweb2::director_dbname:
 
 # Configure icingaweb2
 class {'::icingaweb2':
-  ensure         => latest,
   manage_package => true,
   import_schema  => true,
   logging        => 'syslog',
