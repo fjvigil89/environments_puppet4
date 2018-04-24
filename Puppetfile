@@ -34,6 +34,7 @@ mod 'puppet-zypprepo', '2.2.1'
 mod 'puppetlabs-apt', '4.5.1'
 mod 'stahnma-epel', '1.3.0'
 mod 'camptocamp-archive', '0.9.0'
+mod 'Slashbunny-phpfpm', '0.0.16'
 
 #Git
 mod 'puppet/puppetboard',

@@ -156,6 +156,7 @@ exec { "Generate combined .pem file for ${puppetdb_host}":
 #Installing apache or httpd
 include ::apache
 
+include phpfpm
 #class { '::php':
   #  php_version => '7.0',
   #config_root   => '/etc/php/7.0',
