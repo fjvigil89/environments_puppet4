@@ -162,12 +162,14 @@ include phpfpm
 class { 'apache::mod::php': }
 # Apache virtual Host
 include ::apache::mod::php
+class roles::webserver::service::website () {
+include ::roles::webserver::apache
 apache::vhost { 'icingaweb.upr.edu.cu':
   servername  => 'icingaweb.upr.edu.cu',
   port        => '80',
   docroot     => '/usr/share/icingaweb2/public',
 }
-
+}
 # Define TimeZone in php
 file_line { 'date.timezone':
   path   => '/etc/php/7.0/apache2/php.ini',
