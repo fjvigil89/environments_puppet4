@@ -3,7 +3,7 @@
 #==================================
 #
 # Configure apache2 for icingaweb2
-class { 'apache':
+class { '::apache':
   mpm_module      => 'prefork',
   confd_dir       =>  '/etc/apache2/conf-enabled',
   purge_configs   =>  false,
