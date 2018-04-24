@@ -158,10 +158,6 @@ include ::apache
 
 # Install and define php-fpm
 include phpfpm
-service { 'php7.0-fpm':
-  ensure => running,
-  enable => true,
-}
 
 # Apache virtual Host
 apache::vhost { 'icingaweb.upr.edu.cu':
