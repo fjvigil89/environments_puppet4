@@ -152,6 +152,7 @@ exec { "Generate combined .pem file for ${puppetdb_host}":
   refreshonly =>   true
 }
 
+#Installing apache or httpd
 include ::apache
 
 #class { '::php':
@@ -166,12 +167,14 @@ include ::apache
   #phpunit        => false
   #}
 
+# Apache virtual Host
 apache::vhost { 'icingaweb.upr.edu.cu':
   servername  => 'icingaweb.upr.edu.cu',
   port        => '80',
   docroot     => '/usr/share/icingaweb2/public',
 }
 
+# Define TimeZone in php
 file_line{ 'date.timezone':
   path   => '/etc/php/7.0/apache2/php.ini',
   line   => 'date.timezone = America/Havana',
