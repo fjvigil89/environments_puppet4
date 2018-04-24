@@ -160,6 +160,7 @@ include ::apache
 include phpfpm
 
 # Apache virtual Host
+include ::apache::mod::php
 apache::vhost { 'icingaweb.upr.edu.cu':
   servername  => 'icingaweb.upr.edu.cu',
   port        => '80',
