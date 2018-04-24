@@ -6,8 +6,8 @@
 class puppetdb_server {
   class { 'puppetdb':
     listen_address  => '0.0.0.0',
-    listen_port     => '8081',
-    ssl_listen_port => '8081',
+    listen_port     => '8001',
+    ssl_listen_port => '8001',
   }
   #class {'puppetdb::master::config': }
 
