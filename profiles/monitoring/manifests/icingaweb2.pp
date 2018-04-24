@@ -154,34 +154,30 @@ exec { "Generate combined .pem file for ${puppetdb_host}":
 
 include ::apache
 
-class { '::php':
+#class { '::php':
   #  php_version => '7.0',
   #config_root   => '/etc/php/7.0',
-  ensure         => latest,
-  manage_repos   => true,
-  fpm            => true,
-  dev            => true,
-  composer       => true,
-  pear           => true,
-  phpunit        => false
-}
+  #  ensure         => latest,
+  #manage_repos   => true,
+  #fpm            => true,
+  #dev            => true,
+  #composer       => true,
+  #pear           => true,
+  #phpunit        => false
+  #}
 
-#include ::apache::mod::php
-#class roles::webserver::service::website () {
-
-#include roles::webserver::apache
 apache::vhost { 'icingaweb.upr.edu.cu':
   servername  => 'icingaweb.upr.edu.cu',
   port        => '80',
   docroot     => '/usr/share/icingaweb2/public',
 }
-#}
-#file_line{ 'date.timezone':
-#  path   => '/etc/php5/apache2/php.ini',
-#  line   => 'date.timezone = America/Havana',
-#  match  => '^date.timezone =',
-#  notify =>  Class['apache'],
-#}
+
+file_line{ 'date.timezone':
+  path   => '/etc/php/7.0/apache2/php.ini',
+  line   => 'date.timezone = America/Havana',
+  match  => '^date.timezone =',
+  notify =>  Class['apache'],
+ }
 }
 
 
