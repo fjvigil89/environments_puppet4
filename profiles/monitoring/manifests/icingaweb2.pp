@@ -47,19 +47,17 @@ mysql::db { $monitoring::icingaweb2::director_dbname:
 
 # Configure icingaweb2
 class {'::icingaweb2':
-  manage_package =>  true,
-  import_schema  =>  true,
-  logging        =>  'syslog',
-  db_type        =>  'mysql',
-  db_host        =>  $monitoring::icingaweb2::icingaweb2_dbhost,
-  db_username    =>  $monitoring::icingaweb2::icingaweb2_dbuser,
-  db_password    =>  $icingaweb2_dbpass,
-  require        =>  Mysql::Db[$monitoring::icingaweb2::icingaweb2_dbname],
+  ensure         => latest,
+  manage_package => true,
+  import_schema  => true,
+  logging        => 'syslog',
+  db_type        => 'mysql',
+  db_host        => $monitoring::icingaweb2::icingaweb2_dbhost,
+  db_username    => $monitoring::icingaweb2::icingaweb2_dbuser,
+  db_password    => $icingaweb2_dbpass,
+  require        => Mysql::Db[$monitoring::icingaweb2::icingaweb2_dbname],
 }
 
-package { 'icingaweb2':
-  ensure =>  latest,
-}
 
 #Configure Resourse Authentication
 icingaweb2::config::resource{'ad-upr':
