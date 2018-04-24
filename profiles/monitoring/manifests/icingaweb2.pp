@@ -158,7 +158,7 @@ include ::apache
 
 # Install and define php-fpm
 include phpfpm
-class { '::apache::mod::prefork': }
+#class { '::apache::mod::prefork': }
 class { '::apache::mod::php': }
 class { '::apache':
 #    mpm_module =>  'prefork',
