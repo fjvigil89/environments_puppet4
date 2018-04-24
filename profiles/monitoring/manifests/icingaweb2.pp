@@ -57,6 +57,10 @@ class {'::icingaweb2':
   require        =>  Mysql::Db[$monitoring::icingaweb2::icingaweb2_dbname],
 }
 
+package { 'icingaweb2':
+  ensure =>  latest,
+}
+
 #Configure Resourse Authentication
 icingaweb2::config::resource{'ad-upr':
   type            =>  'ldap',

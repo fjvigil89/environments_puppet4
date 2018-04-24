@@ -3,6 +3,10 @@
 #==================================
 #
 # Configure apache2 for icingaweb2
+class{ 'apache':
+  mpm_module => 'prefork'
+}
+
 class { 'apache::mod::php': }
 
 case $::osfamily {
