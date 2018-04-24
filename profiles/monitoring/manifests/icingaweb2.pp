@@ -166,13 +166,13 @@ include ::apache
 #class roles::webserver::service::website () {
 
 #include roles::webserver::apache
-#apache::vhost { 'icingaweb.upr.edu.cu':
-#  servername      => 'icingaweb.upr.edu.cu',
-#  port            => '80',
-#  docroot         => '/usr/share/icingaweb2/public',
+apache::vhost { 'icingaweb.upr.edu.cu':
+  servername      => 'icingaweb.upr.edu.cu',
+  port            => '80',
+  docroot         => '/usr/share/icingaweb2/public',
 #  redirect_status => 'permanent',
 #  redirect_dest   => "http://icingaweb.upr.edu.cu",
-#}
+}
 #}
 #file_line{ 'date.timezone':
 #  path   => '/etc/php5/apache2/php.ini',
