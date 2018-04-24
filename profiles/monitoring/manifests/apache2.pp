@@ -9,7 +9,7 @@ class { '::apache':
 #  purge_configs   =>  false,
 #  purge_vhost_dir =>  true,
 }
-
+class { 'apache::mod::prefork': }
 class { 'apache::mod::php': }
 
 case $::osfamily {

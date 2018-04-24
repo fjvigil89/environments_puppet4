@@ -158,13 +158,6 @@ include ::apache
 
 # Install and define php-fpm
 include phpfpm
-class { '::apache':
-  default_vhost   => false,
-  mpm_module      => 'prefork',
-  confd_dir       => '/etc/apache2/conf-enabled',
-  purge_configs   => false,
-  purge_vhost_dir => true,
-}
 
 class { 'apache::mod::php': }
 # Apache virtual Host
