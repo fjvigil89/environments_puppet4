@@ -158,7 +158,7 @@ include ::apache
 
 # Install and define php-fpm
 include phpfpm
-~> service { 'rh-php71-php-fpm':
+service { 'php7.0-fpm':
   ensure => running,
   enable => true,
 }
