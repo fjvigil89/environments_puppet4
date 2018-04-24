@@ -158,7 +158,15 @@ include ::apache
 
 # Install and define php-fpm
 include phpfpm
+class { '::apache':
+  default_vhost   => false,
+  mpm_module      => 'prefork',
+  confd_dir       => '/etc/apache2/conf-enabled',
+  purge_configs   => false,
+  purge_vhost_dir => true,
+}
 
+class { 'apache::mod::php': }
 # Apache virtual Host
 include ::apache::mod::php
 apache::vhost { 'icingaweb.upr.edu.cu':
@@ -168,7 +176,7 @@ apache::vhost { 'icingaweb.upr.edu.cu':
 }
 
 # Define TimeZone in php
-file_line{ 'date.timezone':
+file_line { 'date.timezone':
   path   => '/etc/php/7.0/apache2/php.ini',
   line   => 'date.timezone = America/Havana',
   match  => '^date.timezone =',
