@@ -162,7 +162,7 @@ class { '::php':
   manage_repos =>  true
 }
 
-include ::apache::mod::php
+#include ::apache::mod::php
 class roles::webserver::service::website () {
 
 include roles::webserver::apache
