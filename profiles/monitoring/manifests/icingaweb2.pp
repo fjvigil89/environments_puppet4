@@ -158,10 +158,8 @@ include ::apache
 
 # Install and define php-fpm
 include phpfpm
-class { '::apache::mod::itk': }
 class { '::apache::mod::php': }
 class { '::apache':
-#  mpm_module      => 'itk',
   confd_dir       => '/etc/apache2/conf-enabled',
   purge_configs   => false,
   purge_vhost_dir => true,
