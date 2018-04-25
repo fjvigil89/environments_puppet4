@@ -154,28 +154,28 @@ exec { "Generate combined .pem file for ${puppetdb_host}":
 }
 
 #Installing apache or httpd
-include ::apache
-
+#include ::apache
+ class { 'nginx': }
 # Install and define php-fpm
-include phpfpm
+#include phpfpm
 #class { '::apache':
 #  confd_dir       => '/etc/apache2/conf-enabled',
 #  purge_configs   => false,
 #  purge_vhost_dir => true,
 #}
 
-apache::vhost { 'icingaweb.upr.edu.cu':
-  servername  => 'icingaweb.upr.edu.cu',
-  port        => '80',
-  docroot     => '/usr/share/icingaweb2/public',
-}
+#apache::vhost { 'icingaweb.upr.edu.cu':
+#  servername  => 'icingaweb.upr.edu.cu',
+#  port        => '80',
+#  docroot     => '/usr/share/icingaweb2/public',
+#}
 # Define TimeZone in php
-file_line { 'date.timezone':
-  path   => '/etc/php/7.0/apache2/php.ini',
-  line   => 'date.timezone = America/Havana',
-  match  => '^date.timezone =',
-  notify =>  Class['apache'],
- }
+#file_line { 'date.timezone':
+#  path   => '/etc/php/7.0/apache2/php.ini',
+#  line   => 'date.timezone = America/Havana',
+#  match  => '^date.timezone =',
+#  notify =>  Class['apache'],
+# }
 }
 
 
