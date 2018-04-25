@@ -155,8 +155,11 @@ exec { "Generate combined .pem file for ${puppetdb_host}":
 
 #Installing apache or httpd
 #include ::apache
- class { 'nginx': }
- include ::nginx
+class { 'nginx': 
+  manage_repo    => true,
+  package_source => 'nginx_mainline',
+}
+# include ::nginx
 # Install and define php-fpm
 #include phpfpm
 #class { '::apache':
