@@ -1,8 +1,9 @@
-$puppetdb_host = 'puppetdb.upr.edu.cu'
+#$puppetdb_host = 'puppetdb.upr.edu.cu'
 node 'puppet-master.upr.edu.cu' {
- class {'puppetdb::master::config':
-  puppetdb_server => $puppetdb_host,
- }
+  include ::puppetdb_server
+  #class {'puppetdb::master::config':
+  #puppetdb_server => $puppetdb_host,
+  #}
 
 
 }
