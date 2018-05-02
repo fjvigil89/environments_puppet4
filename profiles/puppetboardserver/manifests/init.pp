@@ -33,23 +33,24 @@ class puppetboardserver(
    #Configure Puppetboard
    class { 'puppetboard':
      puppetdb_host       => $puppetdb_host,
-     puppetdb_port       => '8080',
+     puppetdb_port       => 8080,
      default_environment => '*',
      manage_git          => 'latest',
      manage_virtualenv   => 'latest',
      reports_count       => 50
-   }->
-  python::pip { 'Flask':
-    virtualenv => '/srv/puppetboard/virtenv-puppetboard',
-  }->
-  python::pip { 'Flask-WTF':
-    virtualenv => '/srv/puppetboard/virtenv-puppetboard',
-  }->
-  python::pip { 'WTForms':
-    virtualenv => '/srv/puppetboard/virtenv-puppetboard',
-  }->
-  python::pip { 'pypuppetdb':
-    virtualenv => '/srv/puppetboard/virtenv-puppetboard',
-  }
-
+   }
+# ->
+#  python::pip { 'Flask':
+#    virtualenv => '/srv/puppetboard/virtenv-puppetboard',
+#  }->
+#  python::pip { 'Flask-WTF':
+#    virtualenv => '/srv/puppetboard/virtenv-puppetboard',
+#  }->
+#  python::pip { 'WTForms':
+#    virtualenv => '/srv/puppetboard/virtenv-puppetboard',
+#  }->
+#  python::pip { 'pypuppetdb':
+#    virtualenv => '/srv/puppetboard/virtenv-puppetboard',
+#  }
+#
 }
