@@ -71,7 +71,7 @@ class puppetboardserver::apache {
       }
       
 
-}
+
 # lint:endignore
 
 }
