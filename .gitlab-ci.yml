@@ -1,10 +1,19 @@
-before_script:
-  - echo Hello World
+stages:
+  - checks
+  - deploy
+
 
 lint:
+  stage: checks
   script:
-    - echo Hello Lint
+    - tools/puppet_lint.sh
+
+syntax:
+  stage: checks
+  script:
+    - tools/puppet_check_syntax_fast.sh
 
 deploy:
+  stage: deploy
   script:
     - echo Hello deploy
