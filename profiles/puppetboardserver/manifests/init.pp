@@ -35,8 +35,8 @@ class puppetboardserver(
      puppetdb_host       => $puppetdb_host,
      puppetdb_port       => 8080,
      default_environment => '*',
-     manage_git          => 'latest',
-     manage_virtualenv   => 'latest',
+     manage_git          => true,
+     manage_virtualenv   => true,
      reports_count       => 50
    }
 # ->
