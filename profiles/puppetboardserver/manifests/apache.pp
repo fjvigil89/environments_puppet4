@@ -24,9 +24,9 @@ class puppetboardserver::apache {
   }
   
   $wsgi_daemon_process_options = {
-    ¦ threads      => $threads,
-    ¦ group        => $group,
-    ¦ user         => $user,
+    threads => $threads,
+    group   => $group,
+    user    => $user,
     
   }
 
@@ -34,14 +34,14 @@ class puppetboardserver::apache {
   # - $basedir
   #
   file { "${docroot}/wsgi.py":
-    ¦ ensure       => pache::vhost { $vhost_name:    present,
-    ¦ content      => template('puppetboard/wsgi.py.erb'),
-    ¦ owner        => $user,
-    ¦ group        => $group,
-    ¦ require      => [
-      ¦ ¦ User[$user],
-      ¦ ¦ Vcsrepo[$docroot],
-      ¦ ],
+    ensure   => present,
+    content  => template('puppetboard/wsgi.py.erb'),
+    owner    => $user,
+    group    => $group,
+    require  => [
+     User[$user],
+     Vcsrepo[$docroot],
+     ],
     }
     
   }
