@@ -193,7 +193,7 @@ apache::vhost { 'icingaweb.upr.edu.cu':
   servername => 'icingaweb.upr.edu.cu',
   port       => '80',
   # docroot  => '/usr/share/icingaweb2/public',
-  docroot    => '/var/www/html/icingaweb2',
+  docroot    => '/var/www/html/',
 }
 # Define TimeZone in php
 file_line { 'date.timezone':
