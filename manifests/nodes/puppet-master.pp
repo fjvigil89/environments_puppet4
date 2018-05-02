@@ -5,5 +5,5 @@ node 'puppet-master.upr.edu.cu' {
   }
   class { 'puppetdb::master::config': }
 
-  class {'puppetboardserver':}
+  include puppetboardserver
 }
