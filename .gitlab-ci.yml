@@ -1,0 +1,10 @@
+before_script:
+  - echo Hello World
+
+lint:
+  script:
+    - echo Hello Lint
+
+deploy:
+  script:
+    - echo Hello deploy
