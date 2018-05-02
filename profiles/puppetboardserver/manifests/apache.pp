@@ -10,7 +10,7 @@ class puppetboardserver::apache {
 
 
   $vhost_name  = $::fqdn
-  $wsgi_alias  = '/'
+  $wsgi_alias  = '/pboard'
   $port        = 80
   $ssl         = false
   $ssl_cert    = undef
