@@ -10,10 +10,10 @@ class puppetboardserver(
 
   # Add configuration below
 	class {'apache':
-     default_vhost    => false,
-     server_signature => 'Off',
-     server_tokens    => 'Prod',
-     trace_enable     => 'Off',
+		purge_configs => false,
+  	mpm_module    => 'prefork',
+  	default_vhost => true,
+  	default_mods  => false,
    }
 
   # Configure puppetboard
@@ -39,18 +39,5 @@ class puppetboardserver(
      manage_virtualenv   => true,
      reports_count       => 50
    }
-# ->
-#  python::pip { 'Flask':
-#    virtualenv => '/srv/puppetboard/virtenv-puppetboard',
-#  }->
-#  python::pip { 'Flask-WTF':
-#    virtualenv => '/srv/puppetboard/virtenv-puppetboard',
-#  }->
-#  python::pip { 'WTForms':
-#    virtualenv => '/srv/puppetboard/virtenv-puppetboard',
-#  }->
-#  python::pip { 'pypuppetdb':
-#    virtualenv => '/srv/puppetboard/virtenv-puppetboard',
-#  }
-#
+   class { 'puppetboard::apache::conf': }
 }
