@@ -1,0 +1,36 @@
+stages:
+  - checks
+  - deploy
+
+lint:
+  stage: checks
+  script:
+    - tools/puppet_lint.sh
+
+syntax:
+  stage: checks
+  script:
+    - tools/puppet_check_syntax_fast.sh
+
+deploy_environment:
+  stage: deploy
+  script:
+   - echo "${CI_COMMIT_REF_NAME}"
+   - tools/deploy-puppet.sh $CI_COMMIT_REF_NAME
+  when: always
+  environment:
+    name: ${CI_COMMIT_REF_NAME}
+    on_stop: cleanup_environment
+
+cleanup_environment:
+  stage: deploy
+  variables:
+    GIT_STRATEGY: none
+  script:
+    - echo "Delete environment ${CI_COMMIT_REF_NAME}"
+    - sudo /usr/local/bin/r10k deploy environment -p
+  when: manual
+  environment:
+    name: ${CI_COMMIT_REF_NAME}
+    action: stop
+
