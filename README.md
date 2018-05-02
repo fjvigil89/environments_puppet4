@@ -17,3 +17,8 @@
  modulepath = roles:profiles:modules:$basemodulepath
 </pre>
 
+sudo config:
+
+# Gitlab ci user can deploy puppet code
+gitlabci ALL=(ALL) NOPASSWD:/usr/local/bin/r10k
+
