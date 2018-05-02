@@ -71,7 +71,7 @@ icingaweb2::config::resource{'ad-upr':
 
 # Configure Autentication Method
 icingaweb2::config::authmethod {'ad-auth':
-  backend  =>  'ldap',
+  backend  =>  'msldap',
   resource =>  'ad-upr',
   order    =>  '03',
 }
