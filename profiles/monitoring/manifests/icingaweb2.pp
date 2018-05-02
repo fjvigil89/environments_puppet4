@@ -189,7 +189,7 @@ case $::osfamily {
 }
 
 
-apache::vhost { 'icingaweb.upr.edu.cu':
+apache::vhost { 'icingaweb.upr.edu.cu/icingaweb2':
   servername  => 'icingaweb.upr.edu.cu',
   port        => '80',
   docroot     => '/usr/share/icingaweb2/public',
