@@ -20,28 +20,30 @@ class puppetboardserver::apache {
   $docroot = "${basedir}/puppetboard"
   
   $wsgi_script_aliases = {
-    ¦ "${wsgi_alias}" =>  "${docroot}/wsgi.py",
+    "${wsgi_alias}" => "${docroot}/wsgi.py",    
   }
   
   $wsgi_daemon_process_options = {
-    ¦ threads =>  $threads,
-    ¦ group =>  $group,
-    ¦ user =>  $user,
+    ¦ threads      => $threads,
+    ¦ group        => $group,
+    ¦ user         => $user,
+    
   }
 
   #  ::ate Uses:
   # - $basedir
   #
   file { "${docroot}/wsgi.py":
-    ¦ ensure => pache::vhost { $vhost_name:    present,
-    ¦ content =>  template('puppetboard/wsgi.py.erb'),
-    ¦ owner =>  $user,
-    ¦ group =>  $group,
-    ¦ require =>  [
+    ¦ ensure       => pache::vhost { $vhost_name:    present,
+    ¦ content      => template('puppetboard/wsgi.py.erb'),
+    ¦ owner        => $user,
+    ¦ group        => $group,
+    ¦ require      => [
       ¦ ¦ User[$user],
       ¦ ¦ Vcsrepo[$docroot],
       ¦ ],
     }
+    
   }
 
 
@@ -60,12 +62,13 @@ class puppetboardserver::apache {
       wsgi_daemon_process_options => $wsgi_daemon_process_options,
       override                    => $override,
       directories                 => [
-      { path =>  $docroot,
-       options =>  ['Indexes','FollowSymLinks','MultiViews'],
+      { path                      => $docroot,
+      options                     => ['Indexes','FollowSymLinks','MultiViews'],
        ],
-       require =>  File["${docroot}/wsgi.py"],
-       notify =>  Service[$::puppetboard::params::apache_service],
+      require                     => File["${docroot}/wsgi.py"],
+      notify                      => Service[$::puppetboard::params::apache_service],
       }
+      
 
 }
 # lint:endignore
