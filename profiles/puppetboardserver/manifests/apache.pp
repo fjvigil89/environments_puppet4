@@ -4,9 +4,10 @@
 class puppetboardserver::apache {
 
   class { '::apache': }
-  class { '::apache::mod::wsgi':}
+  class { '::apache::mod::wsgi': }
 
-  $host_name  = $::fqdn
+
+  $vhost_name  = $::fqdn
   $wsgi_alias  = '/'
   $port        = 80
   $ssl         = false
@@ -17,61 +18,53 @@ class puppetboardserver::apache {
   $group       = $::puppetboard::params::group
   $basedir     = $::puppetboard::params::basedir
   $override    = $::puppetboard::params::apache_override
+
   $docroot = "${basedir}/puppetboard"
-  
+
   $wsgi_script_aliases = {
-    "${wsgi_alias}" => "${docroot}/wsgi.py",    
+    "${wsgi_alias}" => "${docroot}/wsgi.py",
   }
-  
+
   $wsgi_daemon_process_options = {
     threads => $threads,
     group   => $group,
     user    => $user,
-    
   }
 
-  #  ::ate Uses:
+  # Template Uses:
   # - $basedir
   #
   file { "${docroot}/wsgi.py":
-    ensure   => present,
-    content  => template('puppetboard/wsgi.py.erb'),
-    owner    => $user,
-    group    => $group,
-    require  => [
-     User[$user],
-     Vcsrepo[$docroot],
-     ],
-    }
-    
-  
+    ensure  => present,
+    content => template('puppetboard/wsgi.py.erb'),
+    owner   => $user,
+    group   => $group,
+    require => [
+      User[$user],
+      Vcsrepo[$docroot],
+    ],
+  }
 
-
-
-
-  #nt:ignore:80chars
-    ::apache::vhost { $vhost_name:
-      port                        => $port,
-      docroot                     => $docroot,
-      ssl                         => $ssl,
-      ssl_cert                    => $ssl_cert,
-      ssl_key                     => $ssl_key,
-      wsgi_daemon_process         => $user,
-      wsgi_process_group          => $group,
-      wsgi_script_aliases         => $wsgi_script_aliases,
-      wsgi_daemon_process_options => $wsgi_daemon_process_options,
-      override                    => $override,
-      directories                 => [
-      { path                      => $docroot,
-        options                   => ['Indexes','FollowSymLinks','MultiViews'],
-      }, 
-      ],
-      require                     => File["${docroot}/wsgi.py"],
-      notify                      => Service[$::puppetboard::params::apache_service],
-      }
-      
-
-
-# lint:endignore
-
+  # lint:ignore:80chars
+  ::apache::vhost { $vhost_name:
+    port                        => $port,
+    docroot                     => $docroot,
+    ssl                         => $ssl,
+    ssl_cert                    => $ssl_cert,
+    ssl_key                     => $ssl_key,
+    wsgi_daemon_process         => $user,
+    wsgi_process_group          => $group,
+    wsgi_script_aliases         => $wsgi_script_aliases,
+    wsgi_daemon_process_options => $wsgi_daemon_process_options,
+    override                    => $override,
+    directories                 => [
+      { path         => $docroot,
+        options      => ['Indexes','FollowSymLinks','MultiViews'],
+      },
+    ],
+    require                     => File["${docroot}/wsgi.py"],
+    notify                      => Service[$::puppetboard::params::apache_service],
+  }
+  # lint:endignore
 }
+# lint:endignore
