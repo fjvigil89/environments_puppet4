@@ -155,18 +155,8 @@ exec { "Generate combined .pem file for ${puppetdb_host}":
 
 #Installing apache or httpd
 include ::apache
-#class { 'nginx': 
-#  manage_repo    => true,
-#  package_source => 'nginx-stable',
-#}
-# include ::nginx
 # Install and define php-fpm
 include phpfpm
-#class { '::apache':
-#confd_dir       => '/etc/apache2/conf-enabled',
-#  purge_configs   => false,
-#  purge_vhost_dir => true,
-#}
 
 apache::vhost { 'icingaweb.upr.edu.cu':
   servername  => 'icingaweb.upr.edu.cu',
