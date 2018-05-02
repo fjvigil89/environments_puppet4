@@ -32,7 +32,7 @@ class puppetboardserver::apache {
     directories                 => [
       { path         => $docroot,
         options      => ['Indexes','FollowSymLinks','MultiViews'],
-        auth_type    => 'CAS',
+        #auth_type    => 'CAS',
         auth_require => 'user frank.vigil arian',
       },
     ],

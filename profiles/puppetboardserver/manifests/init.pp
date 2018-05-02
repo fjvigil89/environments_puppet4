@@ -13,7 +13,7 @@ class puppetboardserver(
   # Configure puppetboard
   class { '::puppetboard':
     puppetdb_host     => $puppetdb_host,
-    puppetdb_port     => '8001',
+    puppetdb_port     => '8080',
     manage_git        => true,
     manage_virtualenv => true,
     enable_catalog    => true,
@@ -21,10 +21,10 @@ class puppetboardserver(
   }
 
   # Access Puppetboard through pboard.example.com
-  class { 'puppetboard::apache::vhost':
-    vhost_name  => 'pboard.upr.edu.cu',
-    port        => '80',
-  }
+  #  class { 'puppetboard::apache::vhost':
+  #  vhost_name  => 'pboard.upr.edu.cu',
+  #  port        => '80',
+  #}
 
   # Access Puppetboard through 
   class { '::puppetboardserver::apache':;}
