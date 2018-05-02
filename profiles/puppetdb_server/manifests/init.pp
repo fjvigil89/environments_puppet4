@@ -6,7 +6,6 @@
 class puppetdb_server {
   class { 'puppetdb':
     listen_address  => '0.0.0.0',
-    listen_port     => '8001',
   }
   #class {'puppetdb::master::config': }
 
