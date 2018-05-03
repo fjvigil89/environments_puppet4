@@ -25,22 +25,10 @@ class basesys (
 
 #  class {'::basesys::repos':;}
   class {'::basesys::dns':;}
-  #class {'::basesys::time':;}
+  class {'::basesys::time':;}
   class {'::basesys::packages':;}
-#  class {'::basesys::paths':;}
-#  class {'::basesys::ugent_info':;}
-#  class {'::basesys::mta':;}
-#  class {'::basesys::ssh':;}
-#  class {'::basesys::hardware':;}
 #  class {'::basesys::monitoring':;}
-#  class {'::basesys::users':;}
-#  class {'::basesys::groups':;}
-#  class {'::basesys::backup':;}
-  class {'::basesys::puppet':;}
-#  class {'::basesys::serverbeheer':;}
-#  class {'::basesys::ugent_scripts':;}
-# class {'::udev':;}
-#  class {'::cronic':;}
+  #class {'::basesys::puppet':;}
  
   class {'::locales':
     default_locale => 'en_US.UTF-8',
