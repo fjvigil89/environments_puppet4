@@ -163,7 +163,6 @@ $my_certname      =  $facts['fqdn']
 #$private_keys_dir = '/etc/icingaweb2/modules/puppetdb/ssl/puppet-master.upr.edu.cu/private_keys'
 #$certs_dir        = '/etc/icingaweb2/modules/puppetdb/ssl/puppet-master.upr.edu.cu/certs'
 
-$my_certname   = $::fqdn
 $ssldir        = $::settings::ssldir
 $web_ssldir    = '/etc/icingaweb2/modules/puppetdb/ssl'
 $ssl_subdir    = "${web_ssldir}/${puppetdb_host}"
