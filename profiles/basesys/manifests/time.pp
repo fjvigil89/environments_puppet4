@@ -11,6 +11,9 @@ class basesys::time {
         #config_template => $basesys::ntpconf,
 	config_epp	=> $basesys::ntpconf,
     }
+   class { 'timezone':
+    	timezone => 'America/Havana',
+	}
     # NOTE: NTPd start niet na boot voor RHEL7
     #       https://access.redhat.com/solutions/1315793
     #
