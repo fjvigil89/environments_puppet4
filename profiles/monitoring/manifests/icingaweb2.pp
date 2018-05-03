@@ -15,8 +15,9 @@ class monitoring::icingaweb2 (
  $director_dbpass = 'director',
  $director_dbhost = 'localhost',
 
- $ad_root_dn = 'CN=icinga2,OU=_Servicios,DC=upr,DC=edu,DC=cu',
+ $ad_root_dn = 'DC=upr,DC=edu,DC=cu',
  $ad_base_dn = 'OU=_GrupoRedes,DC=upr,DC=edu,DC=cu',
+ $ad_group_base_dn = 'OU=_Gestion,DC=upr,DC=edu,DC=cu',
  $ad_bind_dn = 'icinga2',
  $ad_bind_pw = 'web.2k17',
 
@@ -72,9 +73,11 @@ icingaweb2::config::resource {'ad-upr':
 
 # Configure Autentication Method
 icingaweb2::config::authmethod {'ad-auth':
-  backend  =>  'msldap',
-  resource =>  'ad-upr',
-  order    =>  '03',
+  backend      => 'msldap',
+  resource     => 'ad-upr',
+  ldap_filter  => '!(objectClass=computer)',
+  ldap_base_dn => $monitoring::icingaweb2::ad_base_dn,
+  order        => '02',
 }
 
 #Configure Manage Group Backends
@@ -82,8 +85,8 @@ icingaweb2::config::groupbackend {'ldap-backend':
   backend                   => 'msldap',
   resource                  => 'ad-upr',
   ldap_group_name_attribute => 'sAMAccountName',
-  ldap_base_dn              => $monitoring::icingaweb2::ad_base_dn,
-  ldap_group_class          => 'user',
+  ldap_base_dn              => $monitoring::icingaweb2::ad_group_base_dn,
+  ldap_group_class          => 'group',
 }
 
 
