@@ -156,10 +156,10 @@ class {'icingaweb2::module::monitoring':
 #PuppetDB Icingaweb2 Module
 include ::icingaweb2::module::puppetdb
 $puppetdb_host    = 'puppetdb.upr.edu.cu'
-$my_certname      = 'puppetdb.upr.edu.cu'
+$my_certname      =  $::fqdn
 $ssldir           = '/etc/puppetlabs/puppet/ssl'
 $web_ssldir       = '/etc/icingaweb2/modules/puppetdb/ssl'
-$ssl_subdir       = "${web_ssldir}/${puppetdb_host}"
+$ssl_subdir       = "{web_ssldir}/${puppetdb_host}"
 $private_keys_dir = '/etc/icingaweb2/modules/puppetdb/ssl/puppetdb.upr.edu.cu/private_keys'
 $certs_dir        = '/etc/icingaweb2/modules/puppetdb/ssl/puppetdb.upr.edu.cu/certs'
 
