@@ -16,6 +16,7 @@ class monitoring::icingaweb2 (
  $director_dbhost = 'localhost',
 
  $ad_root_dn = 'CN=icinga2,OU=_Servicios,DC=upr,DC=edu,DC=cu',
+ $ad_base_dn = "OU=_GrupoRedes,DC=upr,DC=edu,DC=cu"
  $ad_bind_dn = 'icinga2',
  $ad_bind_pw = 'web.2k17',
 
@@ -75,6 +76,16 @@ icingaweb2::config::authmethod {'ad-auth':
   resource =>  'ad-upr',
   order    =>  '03',
 }
+
+#Configure Manage Group Backends
+icingaweb2::config::groupbackend {'ldap-backend':
+  backend                  => 'msldap'
+  resourse                 => 'ad-ldap'
+  ldap_user_name_attribute => 'sAMAccountName',
+  ldap_base_dn             => $monitoring::icingaweb2::ad_base_dn,
+  ldap_user_class          => 'user',
+}
+
 
 #Configure Doc Module
 include ::icingaweb2::module::doc
