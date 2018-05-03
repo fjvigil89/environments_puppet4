@@ -80,7 +80,7 @@ icingaweb2::config::authmethod {'ad-auth':
 #Configure Manage Group Backends
 icingaweb2::config::groupbackend {'ldap-backend':
   backend                   => 'ldap',
-  resourse                  => 'ad-upr',
+  #resourse                  => 'ad-upr',
   ldap_group_name_attribute => 'sAMAccountName',
   ldap_base_dn              => $monitoring::icingaweb2::ad_base_dn,
   ldap_group_class          => 'user',
