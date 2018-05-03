@@ -27,7 +27,7 @@ class basesys (
 
 #  class {'::basesys::repos':;}
   class {'::basesys::dns':;}
-  #class {'::basesys::time':;}
+  class {'::basesys::time':;}
   class {'::basesys::packages':;}
 #  class {'::basesys::paths':;}
 #  class {'::basesys::ugent_info':;}
