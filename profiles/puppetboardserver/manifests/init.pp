@@ -3,7 +3,6 @@
 #
 # Full description of class puppetboardserver here.
 #
-#
 class puppetboardserver(
   String $puppetdb_host      = 'localhost',
 ) {
