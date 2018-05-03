@@ -29,6 +29,8 @@ class monitoring::icingaweb2 (
  $icinga2_dbpass = 'supersecret',
  $icinga2_dbhost = '127.0.0.1',
 
+ $roles = undef,
+
 ) {
 # Configure icingaweb2 MySQL  
 include ::mysql::server
@@ -84,6 +86,11 @@ icingaweb2::config::groupbackend {'ad-group-backend':
   resource                  => 'ad-upr',
 }
 
+#Manage Roles
+if $roles{
+    validate_hash($roles)
+    create_resources('icingaweb2::config::role', $roles)
+}
 
 #Configure Doc Module
 include ::icingaweb2::module::doc
