@@ -15,9 +15,9 @@ class basesys::time {
     #
     #       Om het eenvoudig te houden verwijderen we
     #       chrony op alle systemen.
-    package {
-      'chrony':
-        ensure => absent;
-    }
+    #package {
+    #  'chrony':
+    #    ensure => absent;
+    #}
   }
 }
