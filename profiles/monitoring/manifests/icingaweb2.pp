@@ -27,7 +27,7 @@ class monitoring::icingaweb2 (
  $icinga2_dbuser = 'icinga2',
  $icinga2_dbname = 'icinga2',
  $icinga2_dbpass = 'supersecret',
- $icinga2_dbhost = 'localhost',
+ $icinga2_dbhost = '127.0.0.1',
 
 ) {
 # Configure icingaweb2 MySQL  
