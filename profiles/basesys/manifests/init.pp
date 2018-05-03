@@ -21,13 +21,11 @@ class basesys (
 
   #Boolean $monitoring_enabled    = $::basesys::params::monitoring_enabled,
 
-
-
   ) inherits ::basesys::params{ 
 
 #  class {'::basesys::repos':;}
   class {'::basesys::dns':;}
-  class {'::basesys::time':;}
+  #class {'::basesys::time':;}
   class {'::basesys::packages':;}
 #  class {'::basesys::paths':;}
 #  class {'::basesys::ugent_info':;}
@@ -38,7 +36,7 @@ class basesys (
 #  class {'::basesys::users':;}
 #  class {'::basesys::groups':;}
 #  class {'::basesys::backup':;}
-  #class {'::basesys::puppet':;}
+  class {'::basesys::puppet':;}
 #  class {'::basesys::serverbeheer':;}
 #  class {'::basesys::ugent_scripts':;}
 # class {'::udev':;}
