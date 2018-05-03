@@ -79,8 +79,8 @@ icingaweb2::config::authmethod {'ad-auth':
 
 #Configure Manage Group Backends
 icingaweb2::config::groupbackend {'ldap-backend':
-  backend                  => 'msldap'
-  resourse                 => 'ad-ldap'
+  backend                  => 'msldap',
+  resourse                 => 'ad-ldap',
   ldap_user_name_attribute => 'sAMAccountName',
   ldap_base_dn             => $monitoring::icingaweb2::ad_base_dn,
   ldap_user_class          => 'user',
