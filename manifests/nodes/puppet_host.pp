@@ -2,7 +2,7 @@ node 'client-puppet.upr.edu.cu'{
   #include puppetprodserver
 
 class { '::basesys':
-    ugentinfo_usage  => 'test of puppet',
+    uprinfo_usage  => 'test of puppet',
     application      => 'puppet',
     puppet_enabled   => true;
   }
