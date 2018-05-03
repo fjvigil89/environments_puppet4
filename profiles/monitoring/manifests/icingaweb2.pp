@@ -172,7 +172,7 @@ file { $ssl_subdir:
   source  => $ssldir,
   recurse => true,
 }
-exec { "Generate combined .pem file for ${puppetdb_host}":
+~> exec { "Generate combined .pem file for ${puppetdb_host}":
   #command     => "cat ${private_keys_dir}/${my_certname}.pem ${certs_dir}/${my_certname}.pem > ${private_keys_dir}/${my_certname}_combined.pem",
   command     =>  "cat private_keys/${my_certname}.pem certs/${my_certname}.pem > private_keys/${my_certname}_combined.pem",
   path        => ['/usr/bin', '/usr/sbin'],
