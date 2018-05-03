@@ -159,9 +159,9 @@ $puppetdb_host    = 'puppet-master.upr.edu.cu'
 $my_certname      =  $facts['fqdn']
 $ssldir           = '/etc/puppetlabs/puppet/ssl'
 #$web_ssldir       = '/etc/icingaweb2/modules/puppetdb/ssl/'
-$ssl_subdir       = '/etc/icingaweb2/modules/puppetdb/ssl/puppetdb.upr.edu.cu'
-$private_keys_dir = '/etc/icingaweb2/modules/puppetdb/ssl/puppetdb.upr.edu.cu/private_keys'
-$certs_dir        = '/etc/icingaweb2/modules/puppetdb/ssl/puppetdb.upr.edu.cu/certs'
+$ssl_subdir       = '/etc/icingaweb2/modules/puppetdb/ssl/puppet-master.upr.edu.cu'
+$private_keys_dir = '/etc/icingaweb2/modules/puppetdb/ssl/puppet-master.upr.edu.cu/private_keys'
+$certs_dir        = '/etc/icingaweb2/modules/puppetdb/ssl/puppet-master.upr.edu.cu/certs'
 
 file { $ssl_subdir:
   ensure  => directory,
