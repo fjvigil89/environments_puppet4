@@ -4,8 +4,6 @@ class basesys (
   String $application,
   String $uprinfo_usage,
 
-  Enum['prd', 'dev', 'qas', 'tst'] $application_tier = 'prd',
-
   String $puppetmaster                = $::basesys::params::puppetmaster,
 
   Boolean $dns_enabled                = true,
@@ -16,28 +14,20 @@ class basesys (
   Array[String] $ntp_server           = $::basesys::params::ntp_server,
   String $ntpconf                     = $::basesys::params::ntpconf,
 
+  Boolean $puppet_enabled        = $::basesys::params::puppet_enabled,
+  String  $puppet_environment    = $::basesys::params::puppet_environment,
+
   Boolean $packages_enabled           = true,
 
   #Boolean $monitoring_enabled    = $::basesys::params::monitoring_enabled,
 
-  Boolean $puppet_enabled        = $::basesys::params::puppet_enabled,
-  String  $puppet_environment    = $::basesys::params::puppet_environment,
-
-  Enum['passwd', 'ldap'] $authenticationdb = 'passwd',
-
-  ) inherits ::basesys::params {
 
 
-    #  if(lookup('deploy_eyaml_test') != 'AiVai2we'){
-    #    fail('Eyaml configuratie niet correct.  Eyaml decryptie stuk?')
-    #}
+  ) inherits ::basesys::params{ 
 
-  # Alle subclasses includen, we kijken in de subclass of we config
-  # toepassen of niet.
-  # Volgorde is van belang.  We moeten eerst onze repo's goed zetten
 #  class {'::basesys::repos':;}
   class {'::basesys::dns':;}
-#  class {'::basesys::time':;}
+  class {'::basesys::time':;}
   class {'::basesys::packages':;}
 #  class {'::basesys::paths':;}
 #  class {'::basesys::ugent_info':;}
@@ -48,11 +38,12 @@ class basesys (
 #  class {'::basesys::users':;}
 #  class {'::basesys::groups':;}
 #  class {'::basesys::backup':;}
-#  class {'::basesys::puppet':;}
+  class {'::basesys::puppet':;}
 #  class {'::basesys::serverbeheer':;}
 #  class {'::basesys::ugent_scripts':;}
 # class {'::udev':;}
 #  class {'::cronic':;}
+ 
   class {'::locales':
     default_locale => 'en_US.UTF-8',
     locales        => [
@@ -64,13 +55,4 @@ class basesys (
     ],
  }
 
-  # VMWare hosts only
-#  if ($::virtual == 'vmware'){
-#    class {'::basesys::vmware_guest':;}
-#  }
-
-  # Debian hosts only
-#  if($::osfamily == 'Debian'){
-#    class {'::basesys::unattendedupgrade':;}
-#  }
 }
