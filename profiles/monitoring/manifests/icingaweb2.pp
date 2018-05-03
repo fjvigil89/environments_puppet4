@@ -113,10 +113,16 @@ class {'icingaweb2::module::director':
 
 #Director API user module
 icinga2::object::apiuser { 'root':
-  ensure      =>  present,
-  password    =>  $monitoring::icingaweb2::director_apipass,
-  permissions =>  ['*'],
-  target      =>  "${::icinga2::params::conf_dir}/features-available/api.conf",
+  ensure      => present,
+  password    => $monitoring::icingaweb2::icinga2_dbpass,
+  permissions => ['*'],
+  target      => "${::icinga2::params::conf_dir}/features-available/api.conf",
+}
+icinga2::object::apiuser { 'director':
+  ensure      => present,
+  password    => $monitoring::icingaweb2::director_apipass,
+  permissions => ['*'],
+  target      => "${::icinga2::params::conf_dir}/features-available/api.conf",
 }
 
 # Kick Director 
