@@ -157,11 +157,11 @@ class {'icingaweb2::module::monitoring':
 include ::icingaweb2::module::puppetdb
 $puppetdb_host    = 'puppetdb.upr.edu.cu'
 $my_certname      =  $facts['fqdn']
-$ssldir           = '/etc/puppetlabs/puppet/ssl'
-$web_ssldir       = '/etc/icingaweb2/modules/puppetdb/ssl'
-$ssl_subdir       = "{web_ssldir}/${puppetdb_host}"
-$private_keys_dir = '/etc/icingaweb2/modules/puppetdb/ssl/puppetdb.upr.edu.cu/private_keys'
-$certs_dir        = '/etc/icingaweb2/modules/puppetdb/ssl/puppetdb.upr.edu.cu/certs'
+#$ssldir           = '/etc/puppetlabs/puppet/ssl'
+#$web_ssldir       = '/etc/icingaweb2/modules/puppetdb/ssl'
+#$ssl_subdir       = "{web_ssldir}/${puppetdb_host}"
+#$private_keys_dir = '/etc/icingaweb2/modules/puppetdb/ssl/puppetdb.upr.edu.cu/private_keys'
+#$certs_dir        = '/etc/icingaweb2/modules/puppetdb/ssl/puppetdb.upr.edu.cu/certs'
 
 file { $ssl_subdir:
   ensure =>   directory,
@@ -169,10 +169,11 @@ file { $ssl_subdir:
   recurse =>   true,
 }
 exec { "Generate combined .pem file for ${puppetdb_host}":
-  command     =>   "cat ${private_keys_dir}/${my_certname}.pem ${certs_dir}/${my_certname}.pem > ${private_keys_dir}/${my_certname}_combined.pem",
-  path        =>   ['/usr/bin', '/usr/sbin'],
-  cwd         =>   $ssl_subdir,
-  refreshonly =>   true
+  command     => "cat ${private_keys_dir}/${my_certname}.pem ${certs_dir}/${my_certname}.pem > ${private_keys_dir}/${my_certname}_combined.pem",
+  command     =>  "cat private_keys/${my_certname}.pem certs/${my_certname}.pem > private_keys/${my_certname}_combined.pem",
+  path        => ['/usr/bin', '/usr/sbin'],
+  cwd         => $ssl_subdir,
+  refreshonly => true
 }
 
 #Installing apache or httpd
