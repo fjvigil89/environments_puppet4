@@ -13,7 +13,7 @@ class monitoring::icingaweb2 (
  $director_dbuser = 'director',
  $director_dbname = 'director',
  $director_dbpass = 'director',
- $director_dbhost = 'localhost',
+ $director_dbhost = '127.0.0.1',
 
  $ad_root_dn = 'DC=upr,DC=edu,DC=cu',
  $ad_base_dn = 'OU=_GrupoRedes,DC=upr,DC=edu,DC=cu',
