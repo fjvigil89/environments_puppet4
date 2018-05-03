@@ -79,7 +79,7 @@ icingaweb2::config::authmethod {'ad-auth':
 }
 
 #Configure Manage Group Backends
-icingaweb2::config::groupbackend {'ldap-backend':
+icingaweb2::config::groupbackend {'ad-group-backend':
   backend                   => 'msldap',
   resource                  => 'ad-upr',
 }
