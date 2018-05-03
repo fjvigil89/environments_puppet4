@@ -75,8 +75,6 @@ icingaweb2::config::resource {'ad-upr':
 icingaweb2::config::authmethod {'ad-auth':
   backend      => 'msldap',
   resource     => 'ad-upr',
-  ldap_filter  => '!(objectClass=computer)',
-  ldap_base_dn => $monitoring::icingaweb2::ad_base_dn,
   order        => '02',
 }
 
@@ -84,9 +82,6 @@ icingaweb2::config::authmethod {'ad-auth':
 icingaweb2::config::groupbackend {'ldap-backend':
   backend                   => 'msldap',
   resource                  => 'ad-upr',
-  ldap_group_name_attribute => 'sAMAccountName',
-  ldap_base_dn              => $monitoring::icingaweb2::ad_group_base_dn,
-  ldap_group_class          => 'group',
 }
 
 
