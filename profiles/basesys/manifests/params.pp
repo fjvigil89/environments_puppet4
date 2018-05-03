@@ -13,7 +13,7 @@ class basesys::params {
 
   # NTP
   $ntp_server  = ['10.2.1.11']
-  $ntpconf     = 'ntp/ntp.conf.erb'
+  $ntpconf     = 'ntp/ntp.conf.epp'
 
 
   # Puppet agent settings
