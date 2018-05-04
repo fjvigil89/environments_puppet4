@@ -25,7 +25,7 @@ mod 'puppetlabs-passenger', '0.4.1'
 mod 'puppetlabs-ruby', '1.0.0'
 mod 'croddy-make', '999.999.999'
 mod 'puppetlabs-gcc', '0.3.0'
-mod 'stankevich/python', '1.12.0'
+mod 'stankevich/python', '1.19.0'
 mod 'puppetlabs/vcsrepo', '1.3.2'
 mod 'puppetlabs-puppetdb', '6.0.2'
 mod 'stahnma-epel', '1.3.0'
@@ -38,7 +38,7 @@ mod 'puppetlabs/apt', '2.4.0'
 #Git
 mod 'puppet/puppetboard',
   :git => 'https://github.com/voxpupuli/puppet-puppetboard.git',
-  :ref => 'v2.9.0'
+  :ref => 'v4.0.0'
 
 mod 'rgevaert/resolv_conf',
   :git => 'https://github.com/rgevaert/puppet-resolv_conf.git',

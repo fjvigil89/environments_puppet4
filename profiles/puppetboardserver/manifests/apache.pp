@@ -4,9 +4,7 @@
 class puppetboardserver::apache {
 
   class { '::apache': }
-  class { '::apache::mod::wsgi': 
-  	wsgi_socket_prefix => "/var/run/wsgi",
-	}
+  class { '::apache::mod::wsgi': }
 
 
   $vhost_name  = $::fqdn
@@ -16,27 +14,55 @@ class puppetboardserver::apache {
   $ssl_cert    = undef
   $ssl_key     = undef
   $threads     = 5
+  $user        = $::puppetboard::params::user
+  $group       = $::puppetboard::params::group
   $basedir     = $::puppetboard::params::basedir
   $override    = $::puppetboard::params::apache_override
 
-  $docroot = "${basedir}/puppetboard" 
+  $docroot = "${basedir}/puppetboard"
+
+  $wsgi_script_aliases = {
+    "${wsgi_alias}" => "${docroot}/wsgi.py",
+  }
+
+  $wsgi_daemon_process_options = {
+    threads => $threads,
+    group   => $group,
+    user    => $user,
+  }
+
+  # Template Uses:
+  # - $basedir
+  #
+  file { "${docroot}/wsgi.py":
+    ensure  => present,
+    content => template('puppetboard/wsgi.py.erb'),
+    owner   => $user,
+    group   => $group,
+    require => [
+      User[$user],
+      Vcsrepo[$docroot],
+    ],
+  }
 
   # lint:ignore:80chars
-   ::apache::vhost { $vhost_name:   
+  ::apache::vhost { $vhost_name:
     port                        => $port,
     docroot                     => $docroot,
     ssl                         => $ssl,
     ssl_cert                    => $ssl_cert,
     ssl_key                     => $ssl_key,
+    wsgi_daemon_process         => $user,
+    wsgi_process_group          => $group,
+    wsgi_script_aliases         => $wsgi_script_aliases,
+    wsgi_daemon_process_options => $wsgi_daemon_process_options,
     override                    => $override,
     directories                 => [
       { path         => $docroot,
         options      => ['Indexes','FollowSymLinks','MultiViews'],
-        auth_type    => 'CAS',
-        auth_require => 'user frank.vigil arian',
       },
     ],
-    # require                     => File["${docroot}/wsgi.py"],
+    require                     => File["${docroot}/wsgi.py"],
     notify                      => Service[$::puppetboard::params::apache_service],
   }
   # lint:endignore

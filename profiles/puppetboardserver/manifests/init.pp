@@ -3,29 +3,40 @@
 #
 # Full description of class puppetboardserver here.
 #
-#
 class puppetboardserver(
   String $puppetdb_host      = 'localhost',
 ) {
 
   # Add configuration below
+	class {'apache':
+		purge_configs => false,
+  	mpm_module    => 'prefork',
+  	default_vhost => true,
+  	default_mods  => false,
+   }
 
   # Configure puppetboard
-  class { '::puppetboard':
-    puppetdb_host     => $puppetdb_host,
-    puppetdb_port     => '8001',
-    manage_git        => true,
-    manage_virtualenv => true,
-    enable_catalog    => true,
-    revision          => '35486e8',
-  }
+#  class { '::puppetboard':
+#    puppetdb_host     => $puppetdb_host,
+#    puppetdb_port     => '8080',
+#    manage_git        => true,
+#    manage_virtualenv => true,
+#    enable_catalog    => true,
+#    revision          => '35486e8',
+#  }
 
-  # Access Puppetboard through pboard.example.com
-  class { 'puppetboard::apache::vhost':
-    vhost_name  => 'pboard.upr.edu.cu',
-    port        => '80',
-  }
+ 	class { 'apache::mod::wsgi':
+     wsgi_socket_prefix => '/var/run/wsgi',
+   }
 
-  # Access Puppetboard through 
-  class { '::puppetboardserver::apache':;}
+   #Configure Puppetboard
+   class { 'puppetboard':
+     puppetdb_host       => $puppetdb_host,
+     puppetdb_port       => 8080,
+     default_environment => '*',
+     manage_git          => true,
+     manage_virtualenv   => true,
+     reports_count       => 50
+   }
+   class { 'puppetboard::apache::conf': }
 }
