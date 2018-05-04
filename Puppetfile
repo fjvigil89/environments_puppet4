@@ -7,7 +7,8 @@ forge 'forge.puppetlabs.com'
 # A module from the Puppet Forge
 # Forge Modules Test Environments
 mod 'puppetlabs/ntp', '7.1.1'
-mod 'saz-timezone', '4.1.1'
+#mod 'saz-timezone', '4.1.1'
+mod 'bashtoni-timezone', '1.0.0'
 mod 'puppetlabs-stdlib', '4.25.1'
 mod 'puppet-cron', '1.1.1'
 mod 'tohuwabohu-roundcube', '3.1.0'
