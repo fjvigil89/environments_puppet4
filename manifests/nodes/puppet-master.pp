@@ -4,7 +4,7 @@ node 'puppet-master.upr.edu.cu' {
     application      => 'puppet-master',
     puppet_enabled   => false;
   }
-}
+
 class { 'puppetdb': 
    listen_address   =>  '0.0.0.0',
   }
