@@ -6,7 +6,11 @@
 class basesys::packages {
 
   if($::basesys::packages_enabled) {
-    class {'::vim':;}
+	case $::operatingsystem {
+	'Debian', 'Ubuntu': {    
+		class {'::vim':;}
+		}
+	}
     
      include '::firewall'
 
