@@ -1,6 +1,12 @@
 #$puppetdb_host = 'puppetdb.upr.edu.cu'
 node 'puppet-master.upr.edu.cu' {
-  class { 'puppetdb': 
+ class { '::basesys':
+    uprinfo_usage  => 'puppet master',
+    application      => 'puppet-master',
+    puppet_enabled   => false;
+  }
+}
+class { 'puppetdb': 
    listen_address   =>  '0.0.0.0',
   }
   class { 'puppetdb::master::config': }
