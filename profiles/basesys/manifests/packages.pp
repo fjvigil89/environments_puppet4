@@ -6,26 +6,20 @@
 class basesys::packages {
 
   if($::basesys::packages_enabled) {
-	case $::operatingsystem {
-	'Debian', 'Ubuntu': {    
-		class {'::vim':;}
+	class {'::vim':;}
 		
 	
-		$ruby_version = $::lsbdistcodename ? {
-    		'trusty' => '1.9.1',
-    		'utopic' => '1.9.1',
-    		'vivid'  => '1.9.1',
-    		default  => 'installed',
-    		}
-		 class { '::ruby':
-		    version       => $ruby_version,
-		    rubygems_package => $rubygems_package,
-		    }
-		 class { '::ruby::dev':; }
-
-
-		}
-	}
+	$ruby_version = $::lsbdistcodename ? {
+    	'trusty' => '1.9.1',
+    	'utopic' => '1.9.1',
+    	'vivid'  => '1.9.1',
+    	default  => 'installed',
+    	}
+	 class { '::ruby':
+	    version       => $ruby_version,
+	    rubygems_package => $rubygems_package,
+	    }
+	 class { '::ruby::dev':; }
 	
     
      include '::firewall'
