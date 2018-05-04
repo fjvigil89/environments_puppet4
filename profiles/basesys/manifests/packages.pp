@@ -69,7 +69,7 @@ class basesys::packages {
       }
 
       'RedHat', 'CentOS': {
-        $p_os_dependant = [ 'dhcp', 'nc', 'libconfig', ]
+        $p_os_dependant = [ 'dhcp', 'nc', 'libconfig', 'tzdata']
       }
     }
 
