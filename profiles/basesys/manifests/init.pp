@@ -28,7 +28,7 @@ class basesys (
   class {'::basesys::time':;}
   class {'::basesys::packages':;}
 #  class {'::basesys::monitoring':;}
-  #class {'::basesys::puppet':;}
+  class {'::basesys::puppet':;}
  
   class {'::locales':
     default_locale => 'en_US.UTF-8',
