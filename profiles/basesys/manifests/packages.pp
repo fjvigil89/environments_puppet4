@@ -9,7 +9,7 @@ class basesys::packages {
 	case $::operatingsystem {
 	'Debian', 'Ubuntu': {    
 		class {'::vim':;}
-		}
+		
 	
 		$ruby_version = $::lsbdistcodename ? {
     		'trusty' => '1.9.1',
@@ -17,6 +17,8 @@ class basesys::packages {
     		'vivid'  => '1.9.1',
     		default  => 'installed',
     		}
+
+		}
 	}
 	
     
