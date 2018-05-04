@@ -2,7 +2,7 @@
 
 #forge 'https://forgeapi.puppetlabs.com'
 
-forge 'forge.puppetlabs.com'
+#forge 'forge.puppetlabs.com'
 
 # A module from the Puppet Forge
 # Forge Modules Test Environments
@@ -36,6 +36,12 @@ mod 'saz-locales', '2.4.0'
 mod 'saz/sudo', '3.1.0'
 mod 'theforeman/puppet', '7.1.1'
 mod 'puppetlabs/apt', '2.4.0'
+mod 'icinga-icinga2', '1.3.5'
+mod 'icinga-icingaweb2', '2.1.0'
+mod 'puppet-zypprepo', '2.2.1'
+mod 'camptocamp-archive', '0.9.0'
+mod 'Slashbunny-phpfpm', '0.0.16'
+mod 'puppet-nginx', '0.11.0'
 
 #Git
 mod 'puppet/puppetboard',

@@ -5,6 +5,7 @@
 
 class puppetdb_server {
   class { 'puppetdb':
+    listen_address  => '0.0.0.0',
   }
   class {'puppetdb::master::config': }
 
@@ -23,5 +24,6 @@ class puppetdb_server {
 
   # puppetboard profile
   #class { '::puppetboardserver':}
+  #  class { '::puppetboardserver':}
 }
 
