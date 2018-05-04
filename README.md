@@ -23,7 +23,7 @@ sudo config:
 gitlabci ALL=(ALL) NOPASSWD:/usr/local/bin/r10k
 
 
-**Create git clone in this proyect
+** Create git clone in this proyect
 * se clona el proyecto principal
 git clone git@git.upr.edu.cu:dcenter/environments.git
 
@@ -39,5 +39,12 @@ git branch -D master
 * se crea nueva rama para el trabajo del environment
 git checkout -b <new branch>
 
+** Usar BaseSys
+* class { '::basesys':
+    uprinfo_usage  => 'test of puppet',
+    application      => 'puppet',
+    puppet_enabled   => true;
+  }
+}
 
 
