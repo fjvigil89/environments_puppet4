@@ -11,6 +11,14 @@ class basesys::packages {
 		class {'::vim':;}
 		}
 	}
+	$ruby_version = $::lsbdistcodename ? {
+    	'trusty' => '1.9.1',
+    	'utopic' => '1.9.1',
+    	'vivid'  => '1.9.1',
+    	default  => 'installed',
+    	}
+
+	}
     
      include '::firewall'
 
@@ -19,12 +27,6 @@ class basesys::packages {
       config_file_replace => false;
     }
 
-    $ruby_version = $::lsbdistcodename ? {
-    'trusty' => '1.9.1',
-    'utopic' => '1.9.1',
-    'vivid'  => '1.9.1',
-    default  => 'installed',
-    }
     $rubygems_package = $::operatingsystem ? {
      'Debian' => 'rubygems-integration',
     default  => 'rubygems',
