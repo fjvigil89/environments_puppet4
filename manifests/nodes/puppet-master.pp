@@ -1,4 +1,3 @@
-#$puppetdb_host = 'puppetdb.upr.edu.cu'
 node 'puppet-master.upr.edu.cu' {
  class { '::basesys':
     uprinfo_usage  => 'puppet master',
