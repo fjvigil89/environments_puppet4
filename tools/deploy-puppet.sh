@@ -2,4 +2,4 @@
 
 ENV=${1:-production}
 echo Deploying $ENV
-sudo /usr/bin/r10k deploy environment ${ENV} -p -v
+sudo /opt/puppetlabs/puppet/bin/r10k deploy environment ${ENV} -p -v
