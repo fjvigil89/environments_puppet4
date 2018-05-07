@@ -5,7 +5,7 @@
 # Configure icinga2_agent
 
 class monitoring::icinga2_agent(
-  $manage_repo = false,
+  $manage_repo = true,
 ) {
 
  class {'::icinga2':
