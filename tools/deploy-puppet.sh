@@ -1,5 +1,5 @@
 #!/bin/bash
 
 ENV=${1:-production}
-echo Deployingg $ENV
+echo Deploying $ENV
 /opt/puppetlabs/puppet/bin/r10k deploy environment ${ENV} -p -v
