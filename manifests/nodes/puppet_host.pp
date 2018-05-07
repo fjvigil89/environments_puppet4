@@ -4,6 +4,6 @@ node 'client-puppet.upr.edu.cu'{
 class { '::basesys':
     uprinfo_usage  => 'test of puppet',
     application      => 'puppet',
-    puppet_enabled   => true;
+    puppet_enabled   => false;
   }
 }
