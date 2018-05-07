@@ -43,6 +43,7 @@ mod 'puppet-zypprepo', '2.2.1'
 mod 'camptocamp-archive', '0.9.0'
 mod 'Slashbunny-phpfpm', '0.0.16'
 mod 'puppet-nginx', '0.11.0'
+mod 'puppet-gitlab', '2.0.0'
 
 #Git
 mod 'puppet/puppetboard',
