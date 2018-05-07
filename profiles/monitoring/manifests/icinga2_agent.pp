@@ -9,7 +9,7 @@ class monitoring::icinga2_agent(
 ) {
 
  class {'::icinga2':
-  manage_repo = $manage_repo,
+  manage_repo => $manage_repo,
  }
 
  include ::icinga2::feature::api
