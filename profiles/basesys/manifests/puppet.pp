@@ -8,25 +8,25 @@
 class basesys::puppet{
   if($basesys::puppet_enabled) {
     
-   cron { 'puppet-basesys-run':
-      ensure  => absent,
-    }
+   #cron { 'puppet-basesys-run':
+   #   ensure  => absent,
+   # }
    
-   file { '/usr/local/sbin/enable-puppet':
-        ensure => absent,
-    }
+   #file { '/usr/local/sbin/enable-puppet':
+   #     ensure => absent,
+   # }
    
-   cron { 'enable-puppet':
-      ensure  => absent,
-    }
+   #cron { 'enable-puppet':
+   #   ensure  => absent,
+   # }
    
-   file { '/usr/local/sbin/cron-puppet-noop':
-      ensure => absent,
-    }
+   #file { '/usr/local/sbin/cron-puppet-noop':
+   #   ensure => absent,
+   # }
    
-   cron { 'puppet-noop-run':
-      ensure  => absent,
-    }
+   #cron { 'puppet-noop-run':
+   #   ensure  => absent,
+   # }
   
   class { '::puppet':
       puppetmaster         => $basesys::puppetmaster,
