@@ -23,7 +23,7 @@ mysql::db { 'icinga2':
   host     =>  $monitoring::icinga2::icinga2_dbhost,
   grant    =>   ['SELECT', 'INSERT', 'UPDATE', 'DELETE', 'DROP', 'CREATE VIEW', 'CREATE', 'INDEX', 'EXECUTE', 'ALTER'],
 }
-
+include ::monitoring::icinga2_agent
 # Configure icinga2 
 class { '::icinga2':
   confd         =>   false,
