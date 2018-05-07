@@ -6,4 +6,6 @@ class { '::basesys':
     application      => 'puppet',
     puppet_enabled   => false;
   }
+
+include gitlabserver 
 }
