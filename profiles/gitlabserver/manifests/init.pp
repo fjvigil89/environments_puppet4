@@ -16,9 +16,9 @@ $url_externa = 'http://localhost'
 		 'main'  => {
 		      label				=> 'LDAP',
 		      host				=> 'ad.upr.edu.cu',
-		      port				=> 636,  #389
+		      port				=> 389,	#636,  #389
 		      uid				=> 'sAMAccountName',
-		      method				=> 'ssl', # "tls" or "ssl" or "plain"
+		      method				=> 'tls', # "tls" or "ssl" or "plain"
 		      bind_dn				=> 'CN=git,OU=_Servicios,DC=upr,DC=edu,DC=cu',
 		      password				=> 'mistake*tig.20',
 		      active_directory			=> true,
