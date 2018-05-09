@@ -10,8 +10,8 @@ $url_externa = 'http://localhost'
 		 redirect_http_to_https	=> true
 		  },
 	  gitlab_rails => {
-   		 #'webhook_timeout' => 10,
-    		 #'gitlab_default_theme' => 2,
+   		 'webhook_timeout' => 10,
+    		 'gitlab_default_theme' => 2,
 		 'ldap_enabled'	=> true,
 		 'ldap_servers' => { 
 		 'main'  => {
