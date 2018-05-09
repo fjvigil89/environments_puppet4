@@ -19,7 +19,7 @@ $url_externa = 'http://localhost'
 		      host				=> 'ad.upr.edu.cu',
 		      port				=> 389,	#636,  #389
 		      uid				=> 'sAMAccountName',
-		      method				=> 'plain' # "tls" or "ssl" or "plain"
+		      method				=> 'plain', # "tls" or "ssl" or "plain"
 		      bind_dn				=> 'CN=git,OU=_Servicios,DC=upr,DC=edu,DC=cu',
 		      password				=> 'mistake*tig.20',
 		      active_directory			=> true,
