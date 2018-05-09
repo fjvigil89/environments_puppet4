@@ -10,8 +10,8 @@ $url_externa = 'http://localhost'
 		 redirect_http_to_https	=> true
 		  },
 	  gitlab_rails => {
-   		 'webhook_timeout' => 10,
-    		 'gitlab_default_theme' => 2,
+   		 #'webhook_timeout' => 10,
+    		 #'gitlab_default_theme' => 2,
 		 'ldap_enabled'	=> true,
 		 'ldap_servers' => { 
 		 'main'  => {
@@ -27,14 +27,19 @@ $url_externa = 'http://localhost'
 		      block_auto_created_users		=> false,
 		      base				=> 'DC=upr,DC=edu,DC=cu',
 		      #group_base			=> 'MYGROUPBASE',
-		      user_filter			=> '',				
+		      #user_filter			=> '',				
 			}
 			},
 		  },
 	  logging      => {
 		 'svlogd_size' => '200 * 1024 * 1024',
 		  },
+ 	  gitlab::secrets => { 'gitlab_shell'{ secret_token => 'asecrettoken1234567890'},
+			       'gitlab_rails'{ secret_token => 'asecrettoken123456789010'},
+			       'gitlab_ci'{ secret_token 	  => null,
+					  secret_key_base => 'asecrettoken123456789011',
+					  db_key_base     => 'asecrettoken123456789012'}
+			   },
 		
 	}
-
 }
