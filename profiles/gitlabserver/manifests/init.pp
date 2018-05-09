@@ -4,6 +4,10 @@ $url_externa = 'http://localhost'
 
 	class { 'gitlab':
 	  external_url => $url_externa,
+	  nginx        => {
+		 ssl_certificate     => '/etc/gitlab/ssl/gitlab.example.com.crt',
+		 ssl_certificate_key => '/etc/gitlab/ssl/gitlab.example.com.key'
+		  },
 	  gitlab_rails => {
    		 'webhook_timeout' => 10,
     		 'gitlab_default_theme' => 2,
