@@ -5,12 +5,12 @@ class gitlabserver{
 	  nginx        => {
 		 #ssl_certificate     => '/etc/gitlab/ssl/gitlab.example.com.crt',
 		 #ssl_certificate_key => '/etc/gitlab/ssl/gitlab.example.com.key'
-		 redirect_http_to_https	=> yes
+		 redirect_http_to_https	=> true
 		  },
 	  gitlab_rails => {
    		 'webhook_timeout' => 10,
     		 'gitlab_default_theme' => 2,
-		 'ldap_enabled'	=> yes,
+		 'ldap_enabled'	=> true,
 		 'ldap_servers' => { 
 		 'main'  => {
 		      label				=> 'LDAP',
