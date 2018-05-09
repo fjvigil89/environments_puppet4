@@ -5,6 +5,6 @@ class gitlab {
     	 puppet_enabled   => false;
   	}
 
-	class{ '::gitlabserver';}
+	#class{ '::gitlabserver';}
 
 }
