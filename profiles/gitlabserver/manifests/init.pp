@@ -8,7 +8,8 @@ $url_externa = 'http://localhost'
    		 'webhook_timeout' => 10,
     		 'gitlab_default_theme' => 2,
 		 'ldap_enabled'	=> true,
-		 'ldap_servers' => { 'main':
+		 'ldap_servers' => { 
+		 'main'  => {
 		      label				=> 'LDAP',
 		      host				=> 'ad.upr.edu.cu',
 		      port				=> 636,  #389
@@ -22,7 +23,7 @@ $url_externa = 'http://localhost'
 		      base				=> 'DC=upr,DC=edu,DC=cu',
 		      #group_base			=> 'MYGROUPBASE',
 		      user_filter			=> '',				
-			
+			}
 			},
 		  },
 	  logging      => {
