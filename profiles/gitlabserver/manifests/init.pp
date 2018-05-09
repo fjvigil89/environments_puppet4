@@ -31,7 +31,7 @@ class gitlabserver (
 		 'main'  => {
 		      label				=> $label,
 		      host				=> $host,
-		      port				=> $port
+		      port				=> $port,
 		      uid				=> $uid,
 		      method				=> $method,
 		      bind_dn				=> $bind_dn,
