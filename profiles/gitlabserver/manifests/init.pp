@@ -17,29 +17,29 @@ class gitlabserver (
 )inherits ::gitlabserver::params{
 
 	class { 'gitlab':
-	  external_url => $url_externa,
+	  external_url => $gitlabserver::url_externa,
 	  nginx        => {
 		 #ssl_certificate     => '/etc/gitlab/ssl/gitlab.example.com.crt',
 		 #ssl_certificate_key => '/etc/gitlab/ssl/gitlab.example.com.key'
-		 redirect_http_to_https	=> true
+		 redirect_http_to_https	=> gitlabserver::nginx_redirect
 		  },
 	  gitlab_rails => {
    		 'webhook_timeout' => 10,
     		 'gitlab_default_theme' => 2,
-		 'ldap_enabled'	=> true,
+		 'ldap_enabled'	=> $gitlabserver::ldap_server,
 		 'ldap_servers' => { 
 		 'main'  => {
-		      label				=> $label,
-		      host				=> $host,
-		      port				=> $port,
-		      uid				=> $uid,
-		      method				=> $method,
-		      bind_dn				=> $bind_dn,
-		      password				=> $password,
-		      active_directory			=> true,
-		      allow_username_or_email_login	=> false,
-		      block_auto_created_users		=> false,
-		      base				=> $base,
+		      label				=> $gitlabserver::label,
+		      host				=> $gitlabserver::host,
+		      port				=> $gitlabserver::port,
+		      uid				=> $gitlabserver::uid,
+		      method				=> $gitlabserver::method,
+		      bind_dn				=> $gitlabserver::bind_dn,
+		      password				=> $gitlabserver::password,
+		      active_directory			=> $gitlabserver::active_directory,
+		      allow_username_or_email_login	=> $gitlabserver::allow_username_or_email_login,
+		      block_auto_created_users		=> $gitlabserver::block_auto_created_users,
+		      base				=> $gitlabserver::base,
 		      #group_base			=> 'MYGROUPBASE',
 		      #user_filter			=> '',				
 			}
