@@ -21,6 +21,7 @@ class monitoring::icinga2_agent(
  icinga2::object::zone { 'director-global':
   global => true,
  }
+ include ::monitoring::checks
  # class { '::icinga2::feature::api':
  # pki             => 'icinga2',
  # #ticket_salt     => '5a3d695b8aef8f18452fc494593056a4',
