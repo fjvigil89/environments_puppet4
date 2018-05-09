@@ -14,7 +14,7 @@ class gitlabserver (
         $block_auto_created_users 		= false,
         String $base                           	= $::gitlabserver::params::base,
 
-){
+)inherits ::gitlabserver::params{
 
 	class { 'gitlab':
 	  external_url => $url_externa,
