@@ -27,8 +27,8 @@ cleanup_environment:
   variables:
     GIT_STRATEGY: none
   script:
-    - echo "Delete environmentt ${CI_COMMIT_REF_NAME}"
-    - sudo /usr/local/bin/r10k deploy environment -p
+    - echo "Delete environment ${CI_COMMIT_REF_NAME}"
+    - sudo /opt/puppetlabs/puppet/bin/r10k deploy environment -p
   when: manual
   environment:
     name: ${CI_COMMIT_REF_NAME}
