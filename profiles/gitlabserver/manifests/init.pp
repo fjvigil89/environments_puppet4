@@ -35,11 +35,13 @@ $url_externa = 'http://localhost'
 		 'svlogd_size' => '200 * 1024 * 1024',
 		  },
 	 
- 	  secrets 	=> { 'gitlab_shell'{ secret_token => 'asecrettoken1234567890'},
-			       'gitlab_rails'{ secret_token => 'asecrettoken123456789010'},
-			       'gitlab_ci'{ secret_token 	  => null,
+ 	  secrets 	=> { 'gitlab_shell' 	=> { secret_token => 'asecrettoken1234567890'},
+			       'gitlab_rails'	=> { secret_token => 'asecrettoken123456789010'},
+			       'gitlab_ci'	=> {
+					  secret_token 	  => null,
 					  secret_key_base => 'asecrettoken123456789011',
-					  db_key_base     => 'asecrettoken123456789012'}
+					  db_key_base     => 'asecrettoken123456789012'
+					}
 			   },
 		
 	}
