@@ -1,18 +1,18 @@
 class gitlabserver (
-	String $url_externa 			= 'http://gitlab.upr.edu.cu',#$::gitlabserver::params::url_externa,
+	String $url_externa 			= $::gitlabserver::params::url_externa,
 	Boolean $nginx_redirect 		= true,
 	Boolean $ldap_server			= true,
-	String $label				= 'LDAP',#$::gitlabserver::params::label,
-	String $host                   		= 'ad.upr.edu.cu',	#$::gitlabserver::params::host,
-	$port                   		= 389,	#$::gitlabserver::params::port,
-	String $uid                    		= 'sAMAccountName',	#$::gitlabserver::params::uid,
-	String $method                 		= 'plain',	#$::gitlabserver::params::method,	
-	String $bind_dn                		= 'CN=git,OU=_Servicios,DC=upr,DC=edu,DC=cu',	#$::gitlabserver::params::bind_dn,
-        String $password               		= 'mistake*tig.20',	#$::gitlabserver::params::password,
+	String $label				= $::gitlabserver::params::label,
+	String $host                   		= $::gitlabserver::params::host,
+	$port                   		= $::gitlabserver::params::port,
+	String $uid                    		= $::gitlabserver::params::uid,
+	String $method                 		= $::gitlabserver::params::method,	
+	String $bind_dn                		= $::gitlabserver::params::bind_dn,
+        String $password               		= $::gitlabserver::params::password,
         $active_directory       		= true,
         $allow_username_or_email_login 		= false,
         $block_auto_created_users 		= false,
-        String $base                           	= 'DC=upr,DC=edu,DC=cu',	#$::gitlabserver::params::base,
+        String $base                           	= $::gitlabserver::params::base,
 
 )inherits ::gitlabserver::params{
 
@@ -21,7 +21,7 @@ class gitlabserver (
 	  nginx        => {
 		 #ssl_certificate     => '/etc/gitlab/ssl/gitlab.example.com.crt',
 		 #ssl_certificate_key => '/etc/gitlab/ssl/gitlab.example.com.key'
-		 redirect_http_to_https	=> gitlabserver::nginx_redirect
+		 redirect_http_to_https	=> $gitlabserver::nginx_redirect
 		  },
 	  gitlab_rails => {
    		 'webhook_timeout' => 10,
