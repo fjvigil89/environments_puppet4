@@ -6,7 +6,7 @@
 class basesys::packages {
 
   if($::basesys::packages_enabled) {
-	class {'::vim':;}
+    #class {'::vim':;}
 		
 	
 	$ruby_version = $::lsbdistcodename ? {
