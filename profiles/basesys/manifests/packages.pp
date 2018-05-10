@@ -10,7 +10,7 @@ class basesys::packages {
 		
     case $facts['os']['family'] {
       'Centos':{
-        $ruby_version = 'installed',
+        $ruby_version = 'installed'
         }
        default: {
         $ruby_version = $::lsbdistcodename ? {
