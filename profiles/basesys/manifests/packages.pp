@@ -12,7 +12,7 @@ class basesys::packages {
       'Centos':{
         $ruby_version = 'installed'
         }
-       default: {
+       'Debian', 'ubuntu': {
         $ruby_version = $::lsbdistcodename ? {
       	'trusty' => '1.9.1',
       	'utopic' => '1.9.1',
