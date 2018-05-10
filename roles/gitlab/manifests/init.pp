@@ -5,5 +5,5 @@ class gitlab {
     puppet_enabled => false;
   }
 	include gitlabserver
-  include git
+  include ::git
 }
