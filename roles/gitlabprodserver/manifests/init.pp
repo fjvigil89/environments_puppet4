@@ -25,13 +25,14 @@
 # Copyright 2013 Your name here, unless otherwise noted.
 #
 class gitlabprodserver{
-  	#class { '::basesys':
-       # 	 uprinfo_usage  => 'servidor gitlab',
-       # 	 application      => 'puppet',
-       # 	 
-       # }
+  	class { '::basesys':
+       	 uprinfo_usage  => 'servidor gitlab',
+       	 application      => 'production',
+       	 
+       }
 
   include gitlabserver
+
   # To install puppet-lint
   package { 'puppet-lint':
   ensure   => '1.1.0',
