@@ -1,5 +1,5 @@
 class gitlabserver{
-
+  include git
   class { 'gitlab':
     external_url => 'http://gitlab.upr.edu.cu',
     nginx        => {
