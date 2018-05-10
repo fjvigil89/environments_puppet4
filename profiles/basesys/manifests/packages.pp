@@ -15,12 +15,7 @@ class basesys::packages {
     	'vivid'  => '1.9.1',
     	default  => 'installed',
     	}
-	 class { '::ruby':
-	    version       => $ruby_version,
-	    rubygems_package => $rubygems_package,
-	    }
-	 class { '::ruby::dev':; }
-	
+	 
     
      include '::firewall'
 
@@ -33,6 +28,12 @@ class basesys::packages {
      'Debian' => 'rubygems-integration',
     default  => 'rubygems',
     }
+   class { '::ruby':
+	    version       => $ruby_version,
+	    rubygems_package => $rubygems_package,
+	    }
+	 class { '::ruby::dev':; }
+	
 
     # lint:ignore:80chars
     $p_os_independant = [ 'wget', 'curl', 'man-db', 'bridge-utils', 'at', 'ntpdate', 'subversion-tools',
