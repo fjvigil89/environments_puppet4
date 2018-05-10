@@ -61,6 +61,7 @@ zones           => {
  }
 }
 
+class { '::icinga2::pki::ca': }
 icinga2::object::zone { 'global-templates':
   global =>  true,
 }
