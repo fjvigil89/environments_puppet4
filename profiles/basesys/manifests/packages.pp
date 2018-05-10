@@ -8,13 +8,18 @@ class basesys::packages {
   if($::basesys::packages_enabled) {
     #class {'::vim':;}
 		
-	
-	$ruby_version = $::lsbdistcodename ? {
+    if $facts['os']['family']== 'Centos'{
+        $ruby_version = 'installed',
+        }
+    else {
+      $ruby_version = $::lsbdistcodename ? {
     	'trusty' => '1.9.1',
     	'utopic' => '1.9.1',
     	'vivid'  => '1.9.1',
     	default  => 'installed',
     	}
+    }
+    
 	 
     
      include '::firewall'
