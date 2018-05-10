@@ -9,7 +9,7 @@ class basesys::packages {
     #class {'::vim':;}
 		
     case $facts['os']['family'] {
-      'Centos':{
+      'Centos','RedHat':{
         $ruby_version = 'installed'
         }
        'Debian', 'ubuntu': {
