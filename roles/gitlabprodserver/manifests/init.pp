@@ -13,7 +13,7 @@
 # === Examples
 #
 #  class { gitlabprodserver:
-#    servers => [ 'pool.ntp.org', 'ntp.local.company.com' ]
+#    servers   => [ 'pool.ntp.org', 'ntp.local.company.com' ]
 #  }
 #
 # === Authors
@@ -26,9 +26,10 @@
 #
 class gitlabprodserver{
   	class { '::basesys':
-       	 uprinfo_usage  => 'servidor gitlab',
-       	 application      => 'production',
-       	 
+         uprinfo_usage  => 'servidor gitlab',
+         application    => 'production',
+         puppet_enabled =>   false,
+
        }
 
   include gitlabserver
@@ -39,3 +40,4 @@ class gitlabprodserver{
   provider => 'gem',
   }
 }
+
