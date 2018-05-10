@@ -2,4 +2,4 @@
 
 ENV=${1:-production}
 echo Deploying $ENV
-/opt/puppetlabs/puppet/bin/r10k deploy environment ${ENV} -p -v
+ssh root@puppet-master.upr.edu.cu '/opt/puppetlabs/puppet/bin/r10k deploy environment ${ENV} -p -v'
