@@ -1,8 +1,13 @@
 node 'puppet-master.upr.edu.cu' {
 
-class { 'puppetdb': 
+	class { '::basesys':
+         uprinfo_usage  => 'servidor test',
+         application      => 'puppet',         
+        }
+
+	class { 'puppetdb': 
   listen_address   =>  '0.0.0.0',
-}
+	}
   class { 'puppetdb::master::config': }
   
   include puppetboardserver
