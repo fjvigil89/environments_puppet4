@@ -2,7 +2,8 @@ node 'puppet-master.upr.edu.cu' {
 
 	class { '::basesys':
          uprinfo_usage  => 'servidor test',
-         application      => 'puppet',         
+         application    => 'puppet',        
+         puppet_enabled => false,
         }
 
 	class { 'puppetdb': 
