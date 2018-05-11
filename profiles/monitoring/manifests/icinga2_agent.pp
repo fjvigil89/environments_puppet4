@@ -14,7 +14,7 @@ class monitoring::icinga2_agent(
   features    => ['checker','mainlog'],
 	 }
 ->
- package { [ 'icinga2', 'nagios-plugins' ]:
+ package { [ 'nagios-plugins' ]:
   ensure => installed,
  }
  icinga2::object::zone { 'global-templates':
