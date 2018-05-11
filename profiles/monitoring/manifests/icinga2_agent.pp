@@ -23,17 +23,19 @@ class monitoring::icinga2_agent(
   global => true,
  }
  include ::monitoring::checks
- # class { '::icinga2::feature::api':
- # pki             => 'icinga2',
+ class { '::icinga2::feature::api':
+  pki             => 'icinga2',
  # #ticket_salt     => '5a3d695b8aef8f18452fc494593056a4',
- # accept_config   => true,
- # accept_commands => true,
- # zones           => {
- #    'NodeName'   => {
- #     'endpoints' => ['NodeName'],
- #     'parent'    =>   'master',
- #   },
- #   'master' =>   {}
- # }
- #}
+  accept_config   => true,
+  accept_commands => true,
+  zones           => {
+    'NodeName' => {
+     'endpoints' => ['NodeName'],
+     'parent'    =>   'master',
+    },
+    'master' => {
+     'endpoints' => ['master-icinga0.upr.edu.cu'],
+    }
+  }
+ }
 }

@@ -48,16 +48,16 @@ class { '::icinga2::feature::idomysql':
 # Configure API
 class { '::icinga2::feature::api':
  accept_commands => true,
- accept_config   => true,
+ accept_config   => false,
  endpoints       => {
   $facts['fqdn'] => {
     'host' =>  $facts['ipaddress'],
   }
 },
 zones           => {
-  'master' =>  {
+  'master' => {
     'endpoints' =>  [$facts['fqdn']],
-  }
+  } 
  }
 }
 
