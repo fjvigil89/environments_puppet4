@@ -32,17 +32,15 @@ class mailserver () {
 #anchor { "${module_name}::end": }
 
 	class { 'postfix':
-  	config_file_template => "postfix/${::operatingsystem}/etc/postfix/main.cf.erb",
-  	config_file_hash     => {
+    config_file_template => "postfix/${::operatingsystem}/etc/postfix/main.cf.erb",
+    config_file_hash     => {
   		'postfix' => {
   			config_file_path   => '/etc/postfix',
   			config_file_string => "${::fqdn}\n",
+        package_ensure       =>  'latest',
+        config_dir_purge =>  true,
   		},
   	},
-		package_ensure => 'latest',
-		config_dir_purge  => true,
-#config_dir_source => "puppet:///modules/postfix/${::operatingsystem}/etc/postfix",
-#config_file_string => '# THIS FILE IS MANAGED BY PUPPET',	
 	}
 }
 
