@@ -48,5 +48,7 @@ class mailserver () {
   }
 
   class {'dovecot':;}
+  class {'dovecot::imap':;}
+  class {'dovecot::pop3':;}
 }
 
