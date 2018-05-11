@@ -26,7 +26,7 @@ mysql::db { 'icinga2':
 # Configure icinga2 
 class { '::icinga2':
  #  confd        => false,
-  confd       => 'example.d',
+ # confd       => 'example.d',
   manage_repo   =>   false,
   features      =>   ['checker','mainlog','notification','statusdata','compatlog','command'],
   constants     =>   {
