@@ -64,7 +64,7 @@ class monitoring::checks {
   #  group  => 'root',
   #  mode   => '0755',
   #  source => 'puppet:///modules/monitoring/checks/check_pv',
-  }
+  #}
 
   #file { "${plugin_dir}/spectre-meltdown-checker.sh":
   #  ensure => file,
