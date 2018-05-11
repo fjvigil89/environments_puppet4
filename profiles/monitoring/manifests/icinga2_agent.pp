@@ -40,4 +40,3 @@ class monitoring::icinga2_agent(
     }
   }
  }
-}
