@@ -24,9 +24,7 @@
 #
 # Copyright 2013 Your name here, unless otherwise noted.
 #
-class mailserver (
-  Enum['mx', 'email'] $application_type = 'email',
-) {
+class mailserver ( String $application_type = 'email') {
 #anchor { "${module_name}::begin": } ->
 #class {"${module_name}::install": } ->
 #class {"${module_name}::config": } ~>
@@ -44,7 +42,7 @@ class mailserver (
   },
     package_ensure       => 'present',
     config_dir_purge     => true,
-    case ${application_type}{
+    case $mailserver::application_type{
       'mx':{
       config_dir_source => 'puppet:///postfix/Ubuntu/mx',
     }
