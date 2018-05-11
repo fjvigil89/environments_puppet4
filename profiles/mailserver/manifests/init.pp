@@ -24,7 +24,7 @@
 #
 # Copyright 2013 Your name here, unless otherwise noted.
 #
-class mailserver ( String $application_type = 'email') {
+class mailserver ($application_type ="email") {
 #anchor { "${module_name}::begin": } ->
 #class {"${module_name}::install": } ->
 #class {"${module_name}::config": } ~>

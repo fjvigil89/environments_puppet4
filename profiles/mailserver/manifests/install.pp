@@ -7,4 +7,4 @@ class mailserver::install {
     ensure => present,
   }
 
- }
+}
