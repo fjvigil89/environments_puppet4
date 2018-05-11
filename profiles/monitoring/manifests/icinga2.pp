@@ -163,7 +163,7 @@ icinga2::object::zone { 'director-global':
  */
 
  file { '/etc/icinga2/zones.d/master/templates.conf':
-  ensure => directory,
+  ensure => absent,
   # tag    => 'icinga2::config::file',
  }
 ::icinga2::object::host { 'generic-host':
