@@ -168,7 +168,7 @@ icinga2::object::zone { 'director-global':
  }
 icinga2::object::host { 'generic-host':
   template           => true,
-  target             => '/etc/icinga2/zones.d/master/templates.conf',
+  target             => '/etc/icinga2/example.d/templates.conf',
   check_interval     => '1m',
   retry_interval     => '30s',
   max_check_attempts => 3,
