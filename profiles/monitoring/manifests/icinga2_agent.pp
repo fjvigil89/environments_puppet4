@@ -13,7 +13,6 @@ class monitoring::icinga2_agent(
   manage_repo => $manage_repo,
   features    => ['checker','mainlog'],
 	 }
-}
 ->
  package { [ 'icinga2', 'nagios-plugins' ]:
   ensure => installed,
@@ -40,3 +39,4 @@ class monitoring::icinga2_agent(
     }
   }
  }
+}
