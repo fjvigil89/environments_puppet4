@@ -15,7 +15,6 @@ class monitoring::icinga2_agent(
   features    => ['checker','mainlog'],
  }
 
- include ::icinga2::feature::api
 
  icinga2::object::zone { 'global-templates':
   global => true,
