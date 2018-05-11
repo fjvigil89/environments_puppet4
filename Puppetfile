@@ -44,7 +44,8 @@ mod 'camptocamp-archive', '0.9.0'
 mod 'Slashbunny-phpfpm', '0.0.16'
 mod 'puppet-nginx', '0.11.0'
 mod 'puppet-gitlab', '2.0.0'
-
+mod 'dhoppe-postfix', '1.4.2'
+mod 'um-dovecot', '1.0.12' #Ubuntu
 #Git
 mod 'puppet/puppetboard',
   :git => 'https://github.com/voxpupuli/puppet-puppetboard.git',
