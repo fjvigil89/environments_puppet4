@@ -39,12 +39,14 @@ class mailserver () {
       config_file_string => "${::fqdn}\n",
     },
   },
-    package_ensure      => 'latest',
-    config_dir_purge    => true,
-    mydestination       => 'localhost',
-    relayhost           => 'mx-externo.upr.edu.cu',
-    relayport           => '25',
-    recipient_delimiter => '',
+    package_ensure     => 'latest',
+    config_dir_purge   => true,
+    mydestination      => 'localhost',
+    relayhost          => 'mx-externo.upr.edu.cu',
+    relayport          => '25',
+    #config_file_source =>  "puppet:///modules/postfix/${::operatingsystem}/etc/postfix/main.cf",
   }
+
+  class {'::devecot':;}
 }
 
