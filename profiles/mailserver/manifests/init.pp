@@ -44,7 +44,7 @@ class mailserver (
   },
     package_ensure      => 'present',
     config_dir_purge    => true,
-    if ($mailserver::application_type == 'mx'){ 
+    if($mailserver::application_type == 'mx'){ 
       config_dir_source   => "puppet:///postfix/Ubuntu/mx",
     }
     else{
