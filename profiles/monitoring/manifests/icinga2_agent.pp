@@ -35,7 +35,7 @@ class monitoring::icinga2_agent(
      'parent'    =>   'master',
     },
     'master' => {
-     'endpoints' => ['master-icinga0.upr.edu.cu'],
+      # 'endpoints' => ['master-icinga0.upr.edu.cu'],
     }
   }
  }
