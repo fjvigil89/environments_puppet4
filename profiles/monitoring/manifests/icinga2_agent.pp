@@ -38,7 +38,8 @@ class monitoring::icinga2_agent(
      'endpoints' => ['master-icinga0.upr.edu.cu'],
     }
   }
- icinga2::object::endpoint { $::fqdn:
+ }
+  icinga2::object::endpoint { $::fqdn:
     host => $::ipaddress,
   }
 
@@ -54,6 +55,4 @@ class monitoring::icinga2_agent(
   icinga2::object::zone { 'master':
     endpoints => [ 'master-icinga0.upr.edu.cu' ],
   }
-
- }
 }
