@@ -31,7 +31,7 @@ class mailserver (String $application_type ="mx") {
 #class {"${module_name}::service": } ~>
 #class {"${module_name}::params":}~>
 #anchor { "${module_name}::end": }
-
+ notify {"What are we echoing? ${application_type}.":}
   class { 'postfix':
     config_file_template => "postfix/${::operatingsystem}/etc/postfix/main.cf.erb",
     config_file_hash     => {
