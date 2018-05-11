@@ -7,7 +7,7 @@
 # A module from the Puppet Forge
 # Forge Modules Test Environments
 mod 'puppetlabs/ntp', '7.1.1'
-mod 'bashtoni-timezone', '1.0.0'
+mod 'kogitoapp-timezone', '2.1.1'
 mod 'puppetlabs-stdlib', '4.25.1'
 mod 'tohuwabohu-roundcube', '3.1.0'
 mod 'puppet-php', '5.3.0'
