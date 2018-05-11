@@ -47,6 +47,6 @@ class mailserver () {
     #config_file_source =>  "puppet:///modules/postfix/${::operatingsystem}/etc/postfix/main.cf",
   }
 
-  include devecot
+  class {'dovecot':;}
 }
 
