@@ -3,6 +3,6 @@ node 'puppet-master.upr.edu.cu' {
     listen_address => '0.0.0.0',
   }
   class { 'puppetdb::master::config': }
-
+  include ::monitoring:icinga2_agent
   include puppetboardserver
 }
