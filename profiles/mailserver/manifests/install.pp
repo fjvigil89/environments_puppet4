@@ -6,4 +6,5 @@ class mailserver::install {
   package { $mailserver::params::pkgname:
     ensure => present,
   }
-}
+
+ }
