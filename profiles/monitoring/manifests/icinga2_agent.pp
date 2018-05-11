@@ -12,9 +12,12 @@ class monitoring::icinga2_agent(
  class {'::icinga2':
   manage_repo => $manage_repo,
   features    => ['checker','mainlog'],
+	 }
+}
+->
+ package { [ 'icinga2', 'nagios-plugins' ]:
+  ensure => installed,
  }
-
-
  icinga2::object::zone { 'global-templates':
   global => true,
  }
