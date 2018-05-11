@@ -25,12 +25,11 @@
 # Copyright 2013 Your name here, unless otherwise noted.
 #
 class gitlabprodserver{
-  	class { '::basesys':
-         uprinfo_usage  => 'servidor gitlab',
-         application    => 'production',
-         puppet_enabled =>   false,
-
-       }
+  class { '::basesys':
+  uprinfo_usage  => 'servidor gitlab',
+  application    => 'production',
+  puppet_enabled =>   false,
+  }
 
   include gitlabserver
 

@@ -8,6 +8,7 @@
 # Forge Modules Test Environments
 mod 'puppetlabs/ntp', '7.1.1'
 mod 'kogitoapp-timezone', '2.1.1'
+mod 'stm-debconf', '2.2.0'
 mod 'puppetlabs-stdlib', '4.25.1'
 mod 'tohuwabohu-roundcube', '3.1.0'
 mod 'puppet-php', '5.3.0'

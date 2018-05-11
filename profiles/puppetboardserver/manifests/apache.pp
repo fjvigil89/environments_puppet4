@@ -61,9 +61,10 @@ class puppetboardserver::apache {
     wsgi_daemon_process_options => $wsgi_daemon_process_options,
     override                    => $override,
     directories                 => [
-      { path         => $docroot,
-        options      => ['Indexes','FollowSymLinks','MultiViews'],
-      },
+    {
+    path    => $docroot,
+    options => ['Indexes','FollowSymLinks','MultiViews'],
+    },
     ],
     require                     => File["${docroot}/wsgi.py"],
     notify                      => Service[$::puppetboard::params::apache_service],

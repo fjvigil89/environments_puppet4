@@ -5,11 +5,10 @@
 #
 class puppetdevserver{
   
- class { '::basesys':
-    uprinfo_usage  => 'Puppet dev server',
-    application      => 'puppetserver',
-    application_tier => 'dev',
-    puppet_enabled   => false;
+  class {'::basesys':
+    uprinfo_usage   => 'Puppet dev server',
+    application     => 'puppetserver',
+    puppet_enabled  => false;
   }
 
   class { '::puppetdb_server':;}
