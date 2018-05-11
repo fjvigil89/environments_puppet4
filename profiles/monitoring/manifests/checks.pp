@@ -1,4 +1,4 @@
-lass: monitoring::checks
+#class: monitoring::checks
 # ===========================
 #
 # Install plugins for icinga2 agents
