@@ -42,7 +42,8 @@ class mailserver () {
     package_ensure   => 'latest',
     config_dir_purge => true,
     mydestination    => 'localhost',
-    relayhost        => 'mx-externo.upr.edu.cu:25',
+    relayhost        => 'mx-externo.upr.edu.cu',
+    relayport        => '25',
   }
 }
 
