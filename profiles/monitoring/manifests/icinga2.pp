@@ -69,7 +69,7 @@ icinga2::object::zone { 'global-templates':
 icinga2::object::zone { 'director-global':
   global =>  true,
 }
-icinga2::object::host { 'generic-host':
+::icinga2::object::host { 'generic-host':
   template           => true,
   target             => '/etc/icinga2/zones.d/director-global/host_templates.conf',
   order              => '47',
@@ -78,79 +78,4 @@ icinga2::object::host { 'generic-host':
   max_check_attempts => 3,
   check_command      => 'hostalive',
 }
-
-# UPR icinga2 Configuration
-
-#file { '/etc/icinga2/conf.d/app.conf':
- #    ensure     => absent,
- #    tag        => 'icinga2::config::file',
- #    source     => 'puppet:///modules/monitoring/confd/app.conf',
-#  }
-
- # file { '/etc/icinga2/conf.d/apt.conf':
- #   ensure      => absent,
- #   tag         => 'icinga2::config::file',
- #   source      => 'puppet:///modules/monitoring/confd/apt.conf',
- # }
-
- # file { '/etc/icinga2/conf.d/commands.conf':
- #   ensure      => file,
- #   tag         => 'icinga2::config::file',
- #   source      => 'puppet:///modules/monitoring/confd/commands.conf',
- # }
-
- # file { '/etc/icinga2/conf.d/downtimes.conf':
- #   ensure      => absent,
- #   tag         => 'icinga2::config::file',
- #   source      => 'puppet:///modules/monitoring/confd/downtimes.conf',
- # }
-
- # file { '/etc/icinga2/conf.d/groups.conf':
- #   ensure      => file,
- #   tag         => 'icinga2::config::file',
- #   source      => 'puppet:///modules/monitoring/confd/groups.conf',
- # }
-
- # file { '/etc/icinga2/conf.d/hosts.conf':
- #   ensure      => absent,
- #   tag         => 'icinga2::config::file',
- #   source      => 'puppet:///modules/monitoring/confd/hosts.conf',
- # }
-
- # file { '/etc/icinga2/conf.d/notifications.conf':
- #   ensure      => absent,
- #   tag         => 'icinga2::config::file',
- #   source      => 'puppet:///modules/monitoring/confd/notifications.conf',
- # }
-
- # file { '/etc/icinga2/conf.d/satellite.conf':
- #   ensure      => absent,
- #   tag         => 'icinga2::config::file',
- #   source      => 'puppet:///modules/monitoring/confd/satellite.conf',
- # }
-
-#  file { '/etc/icinga2/conf.d/services.conf':
- #    ensure     => absent,
- #    tag        => 'icinga2::config::file',
- #    source     => 'puppet:///modules/monitoring/confd/services.conf',
-#  }
-
-#  file { '/etc/icinga2/repository.d/templates.conf':
- #    ensure     => file,
- #    tag        => 'icinga2::config::file',
- #    source     => 'puppet:///modules/monitoring/confd/templates.conf',
-#  }
-
-#  file { '/etc/icinga2/conf.d/timeperiods.conf':
- #    ensure     => file,
- #    tag        => 'icinga2::config::file',
- #    source     => 'puppet:///modules/monitoring/confd/timeperiods.conf',
-#  }
-
-#  file { '/etc/icinga2/conf.d/users.conf':
- #    ensure     => file,
- #    tag        => 'icinga2::config::file',
- #    source     => 'puppet:///modules/monitoring/confd/users.conf',
-#  }
-
 }
