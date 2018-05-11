@@ -44,6 +44,7 @@ class mailserver () {
     mydestination    => 'localhost',
     relayhost        => 'mx-externo.upr.edu.cu',
     relayport        => '25',
+    recipient        => undef,
   }
 }
 
