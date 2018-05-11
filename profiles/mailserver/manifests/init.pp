@@ -42,14 +42,15 @@ class mailserver (
       config_file_string => "${::fqdn}\n",
     },
   },
-    package_ensure      => 'present',
-    config_dir_purge    => true,
-    case $application_type:
-      'mx':{ 
-      config_dir_source   => "puppet:///postfix/Ubuntu/mx",
+    package_ensure       => 'present',
+    config_dir_purge     => true,
+    case $mailserver::application_type{
+      'mx':{
+      config_dir_source => 'puppet:///postfix/Ubuntu/mx',
     }
       'email':{
-      config_dir_source =>  "puppet:///postfix/Ubuntu/email",
+      config_dir_source =>  'puppet:///postfix/Ubuntu/email',
+    }
     }
   }
 
