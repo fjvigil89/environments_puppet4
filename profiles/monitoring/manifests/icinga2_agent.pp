@@ -26,7 +26,7 @@ class monitoring::icinga2_agent(
  }
  include ::monitoring::checks
  class { '::icinga2::feature::api':
-  pki             => 'icinga2',
+  pki             => 'puppet',
   accept_config   => true,
   accept_commands => true,
   zones           => {

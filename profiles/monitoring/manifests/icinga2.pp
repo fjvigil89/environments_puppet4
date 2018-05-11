@@ -50,7 +50,7 @@ class { '::icinga2::feature::idomysql':
 class { '::icinga2::feature::api':
  accept_commands => true,
  accept_config   => true,
- pki             => 'none',
+ pki             => 'puppet',
  endpoints       => {
   $facts['fqdn'] => {
     'host' =>  $facts['ipaddress'],
