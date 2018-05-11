@@ -25,7 +25,7 @@ mysql::db { 'icinga2':
 }
 # Configure icinga2 
 class { '::icinga2':
-  confd         =>   true,
+  confd         =>   false,
   manage_repo   =>   false,
   features      =>   ['checker','mainlog','notification','statusdata','compatlog','command'],
   constants     =>   {
@@ -48,7 +48,7 @@ class { '::icinga2::feature::idomysql':
 # Configure API
 class { '::icinga2::feature::api':
  accept_commands => true,
- accept_config   => false,
+ accept_config   => true,
  endpoints       => {
   $facts['fqdn'] => {
     'host' =>  $facts['ipaddress'],
@@ -124,7 +124,7 @@ file { '/etc/icinga2/conf.d/app.conf':
     source => 'puppet:///modules/monitoring/confd/services.conf',
   }
 
-  file { '/etc/icinga2/conf.d/templates.conf':
+  file { '/etc/icinga2/repository.d/templates.conf':
     ensure => file,
     tag    => 'icinga2::config::file',
     source => 'puppet:///modules/monitoring/confd/templates.conf',
