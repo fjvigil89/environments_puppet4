@@ -41,7 +41,7 @@ class mailserver () {
   	},
 		package_ensure => 'latest',
 		config_dir_purge  => true,
-  	config_dir_source => "puppet:///modules/postfix/${::operatingsystem}/etc/postfix",
+#config_dir_source => "puppet:///modules/postfix/${::operatingsystem}/etc/postfix",
 		config_file_string => '# THIS FILE IS MANAGED BY PUPPET',	
 	}
 }

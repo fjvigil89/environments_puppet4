@@ -11,11 +11,12 @@ class basesys::time {
         #config_template => $basesys::ntpconf,
 	config_epp	=> $basesys::ntpconf,
     }
-   class { 'timezone':
-  	region   => 'America',
-	locality => 'Havana',
-	}
-    
+   class { '::timezone':
+    	timezone => 'America/Havana',
+    	package_ensure => 'present',
+    	manage_package => true,
+		}	
+
     package {
       	'chrony':
         ensure => absent;
