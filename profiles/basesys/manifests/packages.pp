@@ -7,23 +7,20 @@ class basesys::packages {
 
   if($::basesys::packages_enabled) {
     #class {'::vim':;}
-		
     case $facts['os']['family'] {
       'Centos','RedHat':{
         $ruby_version = 'installed'
         }
-       'Debian', 'ubuntu': {
+      'Debian','ubuntu':{
         $ruby_version = $::lsbdistcodename ? {
-      	'trusty' => '1.9.1',
-      	'utopic' => '1.9.1',
-    	  'vivid'  => '1.9.1',
-      	default  => 'installed',
-      	}
+        'trusty' => '1.9.1',
+        'utopic' => '1.9.1',
+        'vivid'  => '1.9.1',
+        default  => 'installed',
+        }
       }
     }
-	 
-    
-     include '::firewall'
+  include '::firewall'
 
     class {'::sudo':
       purge               => false,
@@ -31,15 +28,15 @@ class basesys::packages {
     }
 
     $rubygems_package = $::operatingsystem ? {
-     'Debian' => 'rubygems-integration',
+    'Debian' => 'rubygems-integration',
     default  => 'rubygems',
     }
-   class { '::ruby':
-	    version       => $ruby_version,
-	    rubygems_package => $rubygems_package,
-	    }
-	 class { '::ruby::dev':; }
-	
+  class { '::ruby':
+      version          => $ruby_version,
+      rubygems_package => $rubygems_package,
+      }
+  class { '::ruby::dev':; }
+  
 
     # lint:ignore:80chars
     $p_os_independant = [ 'wget', 'curl', 'man-db', 'bridge-utils', 'at', 'ntpdate', 'subversion-tools',

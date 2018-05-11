@@ -7,18 +7,18 @@ class basesys::time {
   if($::basesys::time_enabled) {
     class {
       '::ntp':
-        servers         => $basesys::ntp_server,
+        servers => $basesys::ntp_server,
         #config_template => $basesys::ntpconf,
-	config_epp	=> $basesys::ntpconf,
+  config_epp    => $basesys::ntpconf,
     }
-   class { '::timezone':
-    	timezone => 'America/Havana',
+  class {'::timezone':
+    timezone => 'America/Havana',
       #package_ensure => 'present',
       #manage_package => true,
-		}	
+    }
 
     package {
-      	'chrony':
+        'chrony':
         ensure => absent;
     }
   }

@@ -7,30 +7,26 @@
 
 class basesys::puppet{
   if($basesys::puppet_enabled) {
-    
-   cron { 'puppet-basesys-run':
-      ensure  => absent,
-    }
-   
-   file { '/usr/local/sbin/enable-puppet':
-        ensure => absent,
-    }
-   
-   cron { 'enable-puppet':
-      ensure  => absent,
-    }
-   
-   file { '/usr/local/sbin/cron-puppet-noop':
-      ensure => absent,
-    }
-   
-   cron { 'puppet-noop-run':
-      ensure  => absent,
-    }
+  
+  cron { 'puppet-basesys-run':
+    ensure  => absent,
+  }
+  
+  file { '/usr/local/sbin/enable-puppet':
+    ensure => absent,
+  }
+  cron { 'enable-puppet':
+    ensure  => absent,
+  }
+  file { '/usr/local/sbin/cron-puppet-noop':
+    ensure => absent,
+  }
+  cron { 'puppet-noop-run':
+    ensure  => absent,
+  }
   
   class { '::puppet':
       puppetmaster         => $basesys::puppetmaster,
-     #autosign             => $basesys::params::autosign,
       manage_packages      => $basesys::params::manage_packages,
       runmode              => $basesys::params::runmode,
       version              => $basesys::params::puppet_version,
