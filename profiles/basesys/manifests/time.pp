@@ -13,8 +13,8 @@ class basesys::time {
     }
    class { '::timezone':
     	timezone => 'America/Havana',
-    	package_ensure => 'present',
-    	manage_package => true,
+      #package_ensure => 'present',
+      #manage_package => true,
 		}	
 
     package {
