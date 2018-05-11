@@ -44,7 +44,7 @@ class mailserver (
   },
     package_ensure       => 'present',
     config_dir_purge     => true,
-    case $mailserver::application_type{
+    case ${application_type}{
       'mx':{
       config_dir_source => 'puppet:///postfix/Ubuntu/mx',
     }
