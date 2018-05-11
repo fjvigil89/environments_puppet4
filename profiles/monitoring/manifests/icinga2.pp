@@ -73,7 +73,6 @@ icinga2::object::host { 'generic-host':
   template           => true,
   target             => '/etc/icinga2/zones.d/director-global/host_templates.conf',
   order              => '47',
-  order              => '47',
   check_interval     => '1m',
   retry_interval     => 30,
   max_check_attempts => 3,
