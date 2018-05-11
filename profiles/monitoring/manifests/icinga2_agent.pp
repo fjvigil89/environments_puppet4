@@ -29,15 +29,17 @@ class monitoring::icinga2_agent(
   pki             => 'puppet',
   accept_config   => true,
   accept_commands => true,
-  zones           => {
-    'NodeName' => {
-     'endpoints' => ['NodeName'],
-     'parent'    =>   'master',
-    },
-    'master' => {
-      # 'endpoints' => ['master-icinga0.upr.edu.cu'],
-    }
-  }
+  #zones          => {
+    #  'NodeName' => {
+    # 'endpoints' => ['NodeName'],
+    # 'parent'    =>   'master',
+    #},
+    #'master' => {
+    #'endpoints' => ['master-icinga0.upr.edu.cu'],
+      #}
+      #}
+  endpoints       =>  {},
+  zones           =>  {},
  }
   icinga2::object::endpoint { $::fqdn:
     host => $::ipaddress,
