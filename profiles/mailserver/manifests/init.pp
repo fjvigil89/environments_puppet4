@@ -24,11 +24,14 @@
 #
 # Copyright 2013 Your name here, unless otherwise noted.
 #
-class mailserver () {
+class mailserver (
+  Enum['mx', 'email'] $application_type = 'email',
+) {
 #anchor { "${module_name}::begin": } ->
 #class {"${module_name}::install": } ->
 #class {"${module_name}::config": } ~>
 #class {"${module_name}::service": } ~>
+#class {"${module_name}::params":}~>
 #anchor { "${module_name}::end": }
 
   class { 'postfix':
@@ -39,16 +42,15 @@ class mailserver () {
       config_file_string => "${::fqdn}\n",
     },
   },
-    package_ensure     => 'latest',
-    config_dir_purge   => true,
-    mydestination      => 'localhost',
-    relayhost          => 'mx-externo.upr.edu.cu',
-    relayport          => '25',
-    #config_file_source =>  "puppet:///modules/postfix/${::operatingsystem}/etc/postfix/main.cf",
+    package_ensure      => 'present',
+    config_dir_purge    => true,
+    if($mailserver::application_type == 'mx')} 
+      config_dir_source   => "puppet:///postfix/Ubuntu/mx",
+    }
+    else{
+      config_dir_source =>  "puppet:///postfix/Ubuntu/email",
+    }
   }
 
-  class {'dovecot':;}
-  class {'dovecot::imap':;}
-  class {'dovecot::pop3':;}
 }
 

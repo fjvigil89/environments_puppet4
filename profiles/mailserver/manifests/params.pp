@@ -9,4 +9,6 @@ class mailserver::params {
     'RedHat' => 'mailserver',
     default  => fail('unsupported platform')
   }
+
+
 }
