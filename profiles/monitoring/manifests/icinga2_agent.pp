@@ -38,5 +38,5 @@ class monitoring::icinga2_agent(
     }
   }
  }
- include ::monitoring::icinga2_conf
+ include ::icinga2_conf
 }
