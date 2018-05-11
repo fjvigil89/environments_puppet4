@@ -141,5 +141,19 @@ file { '/etc/icinga2/conf.d/app.conf':
     tag    => 'icinga2::config::file',
     source => 'puppet:///modules/monitoring/confd/users.conf',
   }
-
+ icinga2::object::host { $facts['fqdn']:
+  display_name  => $facts['fqdn'],
+  address       => $facts['ipaddress'],
+  #address6      => '::1',
+  check_command => 'hostalive',
+  target        => '/etc/icinga2/conf.d/hosts-test.conf',
+ }
+ icinga2::object::service { 'SSH':
+  target        => '/etc/icinga2/conf.d/test.conf',
+  apply         => true,
+  assign        => [ 'host.vars.os == Linux' ],
+  ignore        => [ 'host.vars.os == Windows' ],
+  display_name  => 'Test Service',
+  check_command => 'ssh',
+ }
 }
