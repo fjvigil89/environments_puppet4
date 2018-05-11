@@ -11,7 +11,8 @@ class monitoring::icinga2_agent(
 
  class {'::icinga2':
   manage_repo => $manage_repo,
-  features    =>  ['checker','mainlog'],
+  confd       =>  'example.d',
+  features    => ['checker','mainlog'],
  }
 
  include ::icinga2::feature::api
@@ -38,4 +39,5 @@ class monitoring::icinga2_agent(
     }
   }
  }
+ include ::monitoring::icinga2_conf
 }
