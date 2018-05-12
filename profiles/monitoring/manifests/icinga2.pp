@@ -69,13 +69,4 @@ icinga2::object::zone { 'global-templates':
 icinga2::object::zone { 'director-global':
   global =>  true,
 }
-#icinga2::object::host { 'generic-host':
-#  template           => true,
-#  target             => '/etc/icinga2/zones.d/director-global/host_templates.conf',
-#  order              => '47',
-#  check_interval     => '1m',
-#  retry_interval     => '30s',
-#  max_check_attempts => 3,
-#  check_command      => 'hostalive',
-#}
 }
