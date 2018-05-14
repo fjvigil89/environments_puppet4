@@ -1,7 +1,4 @@
-class mailserver (
-  $application_type,
-  String $dir_source = $::mailserver::params::dir_source,
-)inherits ::mailserver::params {
+class mailserver {
   class { 'postfix':
     config_file_template => "postfix/${::operatingsystem}/etc/postfix/main.cf.erb",
     config_file_hash     => {
@@ -12,7 +9,7 @@ class mailserver (
   },
     package_ensure       => 'present',
     config_dir_purge     => true,
-    config_dir_source    => $mailserver::dir_source,
+    config_dir_source    => 'puppet:///postfix/Ubuntu/mx',
     #case $mailserver::application_type{
     #  'mx':{
     #  config_dir_source => 'puppet:///postfix/Ubuntu/mx',

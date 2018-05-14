@@ -6,8 +6,6 @@ node 'client-puppet.upr.edu.cu'{
   puppet_enabled   => false;
   }
 
-  class {'mailserver':
-  application_type =>'mx';    
-  }
+  class {'mailserver':;}
 
 }
