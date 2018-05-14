@@ -155,7 +155,7 @@ class {'icingaweb2::module::monitoring':
     icinga2 => {
       transport => 'api',
       username  => 'root',
-      password  => 'lostall*icinga.2k17',
+      password  => $monitoring::icingaweb2::icinga2_dbpass,
     }
   }
 }
