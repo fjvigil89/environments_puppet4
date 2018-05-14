@@ -154,8 +154,8 @@ class {'icingaweb2::module::monitoring':
   commandtransports => {
     icinga2 => {
       transport => 'api',
-      username  => 'icinga2',
-      password  => 'supersecret',
+      username  => 'root',
+      password  => 'lostall*icinga.2k17',
     }
   }
 }
