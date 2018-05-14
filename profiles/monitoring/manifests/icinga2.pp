@@ -63,7 +63,6 @@ class { '::icinga2::feature::api':
 }
 #Configure Command
 class { '::icinga2::feature::command':
- ensure     => present,
  commandpath => '/var/run/icinga2/cmd/icinga2.cmd', 
 }
 
