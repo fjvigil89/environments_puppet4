@@ -44,7 +44,6 @@ mod 'camptocamp-archive', '0.9.0'
 mod 'Slashbunny-phpfpm', '0.0.16'
 mod 'puppet-nginx', '0.11.0'
 mod 'puppet-gitlab', '2.0.0'
-mod 'tohuwabohu-roundcube', '3.1.0'
 
 mod 'puppet/puppetboard',
   :git => 'https://github.com/voxpupuli/puppet-puppetboard.git',
@@ -61,4 +60,18 @@ mod 'rgevaert/pwgen',
 mod 'puppet/network',
   :git => 'https://github.com/voxpupuli/puppet-network.git',
   :ref => 'ea7cac426ea123629821e49d88cd305f7afe3f23'
+
+
+mod 'rgevaert/postfix',
+  :git => 'https://github.com/rgevaert/puppet-postfix.git',
+  :ref => '66bae4d5569f20fc4e06cb4fb5c41b5b13fe4de5'
+
+
+mod 'saz/rsyslog',
+  :git => 'https://github.com/saz/puppet-rsyslog.git',
+  :tag => 'v3.5.1'
+
+mod 'rgevaert/jchkmail',
+    :git => 'https://github.com/rgevaert/puppet-jchkmail',
+    :ref => 'ce5deb2824a0bee214e4cb835349f5d3b26f2577'
 
