@@ -48,9 +48,6 @@ class php_webserver::params {
   $mount_share = false
   $sharename = ''
 
-  $lvs_enabled   = false
-  $lvs_ip        = ''
-  $lvs_device    = 'tunl0'
 
   $create_application_data_dir = true
   $directoryindex = 'index.php'
@@ -82,7 +79,7 @@ class php_webserver::params {
   ]
 
   $csp = {
-    'default-src' => '\'self\' *.ugent.be \'unsafe-inline\' \'unsafe-eval\'',
+    'default-src' => '\'self\' *.upr.edu.cu \'unsafe-inline\' \'unsafe-eval\'',
   }
 
 

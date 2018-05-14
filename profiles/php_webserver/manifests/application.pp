@@ -104,15 +104,6 @@ define php_webserver::application (
     }
   }
 
-  if($lvs_enabled) {
-    validate_ip_address($lvs_ip)
-
-    basesys::network::tunnel{ $lvs_device:
-      device  => $lvs_device,
-      address => $lvs_ip,
-      state   => 'up';
-    }
-  }
 
   file { "/tmp/${fpm_listen}":
     ensure => $ensure,
