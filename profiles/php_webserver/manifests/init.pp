@@ -67,12 +67,12 @@ class php_webserver (
   }
 
   # Load mod_rewrite if needed and not yet loaded
-  if ! defined(Class['apache::mod::rewrite']) {
-    include ::apache::mod::rewrite
-  }
+  #if ! defined(Class['apache::mod::rewrite']) {
+  #include ::apache::mod::rewrite
+  #}
 
-  class { '::apache::mod::proxy':; }
-  -> class { '::apache::mod::proxy_fcgi':; }
+  #class { '::apache::mod::proxy':; }
+  #-> class { '::apache::mod::proxy_fcgi':; }
 
   if $mod_security_enabled {
     class { '::apache::mod::security':
@@ -81,23 +81,23 @@ class php_webserver (
 
     }
   }
-  group { $webapp_group:
-    ensure => present,
-    gid    => $webapp_gid,
-  }
+  #group { $webapp_group:
+  #ensure => present,
+  #gid    => $webapp_gid,
+    #}
 
   # Newrelic setup
-  class { '::php_webserver::newrelic':
-    enabled => $::php_webserver::newrelic_enabled,
-  }
+  #class { '::php_webserver::newrelic':
+    #enabled => $::php_webserver::newrelic_enabled,
+    #}
 
   # Define all the webapp_users virtual, the application define will realize the users needed on this server...
-  create_resources('@user', $webapp_users, $webapp_user_defaults)
+  #create_resources('@user', $webapp_users, $webapp_user_defaults)
 
   # Create applications if passed
-  create_resources('php_webserver::application', $applications, {})
+  #create_resources('php_webserver::application', $applications, {})
 
   # Manage aditional software
-  ensure_packages($packages)
+  #ensure_packages($packages)
 
 }

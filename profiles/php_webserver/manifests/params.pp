@@ -36,7 +36,7 @@ class php_webserver::params {
   $php_version = '5.6'
 
   $php_settings = {
-    'Date/date.timezone'      => 'Europe/Brussels',
+    'Date/date.timezone'      => 'America/Havana',
   }
 
   $php_extensions = {}
