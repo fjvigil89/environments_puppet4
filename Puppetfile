@@ -10,7 +10,6 @@ mod 'puppetlabs/ntp', '7.1.1'
 mod 'kogitoapp-timezone', '2.1.1'
 mod 'stm-debconf', '2.2.0'
 mod 'puppetlabs-stdlib', '4.25.1'
-mod 'tohuwabohu-roundcube', '3.1.0'
 mod 'puppet-php', '5.3.0'
 mod 'willdurand-composer', '1.2.6'
 mod 'puppetlabs-concat', '4.2.1'
@@ -45,9 +44,8 @@ mod 'camptocamp-archive', '0.9.0'
 mod 'Slashbunny-phpfpm', '0.0.16'
 mod 'puppet-nginx', '0.11.0'
 mod 'puppet-gitlab', '2.0.0'
-mod 'dhoppe-postfix', '1.4.2'
-mod 'um-dovecot', '1.0.12' #Ubuntu
-#Git
+mod 'tohuwabohu-roundcube', '3.2.0'
+
 mod 'puppet/puppetboard',
   :git => 'https://github.com/voxpupuli/puppet-puppetboard.git',
   :ref => 'v4.0.0'
