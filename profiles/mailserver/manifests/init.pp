@@ -15,7 +15,7 @@ class mailserver {
     mode   => '0755',
     owner  => 'root',
     group  => 'root',
-    ensure => 'present',
+    ensure => 'file',
     source => 'puppet:///profiles/mailserver/mx/main.cf',
 
   }
