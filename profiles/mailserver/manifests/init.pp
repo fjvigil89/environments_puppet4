@@ -10,7 +10,7 @@ class mailserver {
     #}
   package_ensure       => 'present',
   config_dir_purge     => true,
-  config_dir_source =>   "puppet:///modules/postfix/${::operatingsystem}/etc/postfix",
+  config_dir_source =>   "puppet:///profiles/mailserver/${::operatingsystem}/etc/postfix",
 
   }
 
