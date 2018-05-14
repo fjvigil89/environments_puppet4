@@ -87,10 +87,16 @@ icingaweb2::config::groupbackend {'ad-group-backend':
 }
 
 #Manage Roles
-if $roles{
-    validate_hash($roles)
-    create_resources('icingaweb2::config::role', $roles)
+
+icingaweb2::config::role {'SysAdmins':
+  users       => 'icingaadmin, arian,frank.vigil ',
+  groups      => 'SysAdmins',
+  permissions => '*',
 }
+#if $roles{
+#    validate_hash($roles)
+#    create_resources('icingaweb2::config::role', $roles)
+#}
 
 #Configure Doc Module
 include ::icingaweb2::module::doc
