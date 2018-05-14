@@ -7,8 +7,8 @@ class mailserver {
       config_file_string => "${::fqdn}\n",
       #config_dir_source => "puppet:///profiles/mailserver/${::operatingsystem}/etc/postfix",
     }
-  }  
-  #package_ensure    => 'latest',
+  },  
+    package_ensure    => 'latest',
     config_dir_purge  => true,
     config_dir_source => "puppet:///profiles/mailserver/${::operatingsystem}/etc/postfix/",
 
