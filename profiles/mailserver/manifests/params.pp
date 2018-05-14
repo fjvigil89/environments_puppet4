@@ -10,5 +10,11 @@ class mailserver::params {
     default  => fail('unsupported platform')
   }
 
-  $application_type='mx'
+  case $mailserver::application_type{
+    'mx':{
+      $mailserver::dir_source => 'puppet:///postfix/Ubuntu/mx',
+    },
+    'email':{
+      $mailserver::dir_source => 'puppet:///postfix/Ubuntu/email',
+      }  
 }

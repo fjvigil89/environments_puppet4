@@ -1,6 +1,6 @@
 class mailserver (
   Enum['mx','email'] $application_type ='mx',
-  String $dir_source = undef,
+  String $dir_source = $::mailserver::params::dir_source,
 )inherits ::mailserver::params {
   class { 'postfix':
     config_file_template => "postfix/${::operatingsystem}/etc/postfix/main.cf.erb",
@@ -21,7 +21,7 @@ class mailserver (
     #  config_dir_source => 'puppet:///postfix/Ubuntu/email',
     #}
   }
-    class {'::mailserver::service':;}
+  #class {'::mailserver::service':;}
   
 
 }
