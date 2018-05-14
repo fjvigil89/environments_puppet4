@@ -6,6 +6,18 @@ node 'client-puppet.upr.edu.cu'{
   puppet_enabled   => false;
   }
 
-  class {'mailserver':;}
+  #class {'mailserver':;}
 
-}
+
+
+	class { '::php_webserver':
+    php_version    => '7.0',
+    php_extensions => {
+      'curl'     => {},
+      'gd'       => {},
+      'mysql'    => {},
+      'ldap'     => {},
+      'xml'      => {},
+      'mbstring' => {},
+    },
+  }
