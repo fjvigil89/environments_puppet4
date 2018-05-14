@@ -10,7 +10,7 @@ mod 'puppetlabs/ntp', '7.1.1'
 mod 'kogitoapp-timezone', '2.1.1'
 mod 'stm-debconf', '2.2.0'
 mod 'puppetlabs-stdlib', '4.25.1'
-mod 'puppet-php', '5.3.0'
+#mod 'puppet-php', '5.3.0'
 mod 'willdurand-composer', '1.2.6'
 mod 'puppetlabs-concat', '4.2.1'
 mod 'puppetlabs-git', '0.5.0'
@@ -71,4 +71,6 @@ mod 'saz/rsyslog',
   :git => 'https://github.com/saz/puppet-rsyslog.git',
   :tag => 'v3.5.1'
 
-
+mod 'puppet/php',
+  :git => 'https://github.com/mcrauwel/puppet-php.git',
+  :ref => '1c3c1f80ee90713ab3fd5e915a5c4125292429a1'
