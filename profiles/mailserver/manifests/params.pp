@@ -12,9 +12,9 @@ class mailserver::params {
 
   case $mailserver::application_type{
     'mx':{
-      $mailserver::dir_source => 'puppet:///postfix/Ubuntu/mx',
+      $mailserver::dir_source = 'puppet:///postfix/Ubuntu/mx',
     },
     'email':{
-      $mailserver::dir_source => 'puppet:///postfix/Ubuntu/email',
+      $mailserver::dir_source = 'puppet:///postfix/Ubuntu/email',
       }  
 }
