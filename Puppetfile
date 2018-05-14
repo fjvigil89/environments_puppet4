@@ -71,7 +71,4 @@ mod 'saz/rsyslog',
   :git => 'https://github.com/saz/puppet-rsyslog.git',
   :tag => 'v3.5.1'
 
-mod 'rgevaert/jchkmail',
-    :git => 'https://github.com/rgevaert/puppet-jchkmail',
-    :ref => 'ce5deb2824a0bee214e4cb835349f5d3b26f2577'
 
