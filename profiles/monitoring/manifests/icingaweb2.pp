@@ -156,10 +156,8 @@ class {'icingaweb2::module::monitoring':
   commandtransports => {
     icinga2 => {
       transport => 'api',
-      #username => $monitoring::icingaweb2::icinga2_dbuser,
-      #password => $monitoring::icingaweb2::icinga2_dbpass,
-      username  => 'root',
-        ¦ ¦ password => 'icinga',
+      username => $monitoring::icingaweb2::icinga2_dbuser,
+      password => $monitoring::icingaweb2::icinga2_dbpass,
     }
   }
 }
