@@ -18,9 +18,9 @@ class mailserver (
     #  'email':{
     #  config_dir_source =>  'puppet:///postfix/Ubuntu/email',
     #}
-    #}
-    class {'::mailserver::service':;}
   }
+    class {'::mailserver::service':;}
+  
 
 }
 
