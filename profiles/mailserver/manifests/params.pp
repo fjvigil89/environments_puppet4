@@ -10,5 +10,5 @@ class mailserver::params {
     default  => fail('unsupported platform')
   }
 
-
+  $application_type='mx'
 }
