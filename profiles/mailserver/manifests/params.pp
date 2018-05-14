@@ -16,5 +16,6 @@ class mailserver::params {
     },
     'email':{
       $mailserver::dir_source = 'puppet:///postfix/Ubuntu/email',
-      }  
+      }
+  }
 }
