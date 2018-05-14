@@ -5,6 +5,7 @@ class mailserver {
     'postfix' => {
       config_file_path   => '/etc/postfix',
       config_file_string => "${::fqdn}\n",
+      config_dir_source  =>  "puppet:///modules/postfix/${::operatingsystem}/etc/postfix",
     },
   },
     package_ensure       => 'present',
