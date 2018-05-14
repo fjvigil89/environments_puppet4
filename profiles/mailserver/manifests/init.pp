@@ -12,7 +12,8 @@ class mailserver {
   }
   
   file {'/etc/postfix/main.cf':
-    content => 'puppet:///profiles/mailserver/postfix/${::operatingsystem}/etc/postfix/main.cf'
+    ensure => 'present',
+    source => 'puppet:///profiles/mailserver/postfix/${::operatingsystem}/etc/postfix/main.cf',
   }
 
 }
