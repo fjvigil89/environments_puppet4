@@ -13,7 +13,7 @@ class mailserver::params {
   $dir_source= $mailserver::application_type ?{
     'mx'    => 'puppet:///postfix/Ubuntu/mx', 
     'email' => 'puppet:///postfix/Ubuntu/email',
-    default =>  fail('unsupported platform')
+
 
   }
 }
