@@ -10,7 +10,7 @@ class mailserver::service {
 
 	case $mailserver::application_type{
   	'mx':{
-  		config_dir_source => 'puppet:///postfix/Ubuntu/mx',
+      config_dir_source => 'puppet:///postfix/Ubuntu/mx', 
   	}
   	'email':{
   		config_dir_source =>  'puppet:///postfix/Ubuntu/email',
