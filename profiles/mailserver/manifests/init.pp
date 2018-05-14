@@ -7,6 +7,8 @@ class mailserver {
       content => "local6.*                          @logs.upr.edu.cu\nlocal6.*                          -/var/log/j-chkmail.log\n& ~";
   }
 
-  class {'postfix':}
+  class {'postfix':
+    root_alias => 'localhost';
+  }
 }
 
