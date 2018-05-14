@@ -7,8 +7,7 @@ node 'client-puppet.upr.edu.cu'{
   }
 
   class {'::mailserver':
-    application_type => 'mx',
-    dir_source       => 'puppet';
+    application_type => 'mx';    
   }
 
 }

@@ -1,5 +1,5 @@
 class mailserver (
-  Enum['mx','email'] $application_type ='mx',
+  $application_type,
   String $dir_source = $::mailserver::params::dir_source,
 )inherits ::mailserver::params {
   class { 'postfix':
