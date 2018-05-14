@@ -27,7 +27,7 @@ mysql::db { 'icinga2':
 class { '::icinga2':
   confd       => false,
   manage_repo => false,
-  features    => ['checker','mainlog','notification','statusdata','compatlog','command'],
+  features    => ['checker','mainlog','notification','statusdata','compatlog'],
   constants   => {
     'ZoneName' => 'master',
     'NodeName' => $facts['fqdn'],
@@ -60,6 +60,11 @@ class { '::icinga2::feature::api':
     'endpoints' =>  [$facts['fqdn']],
   } 
  }
+}
+#Configure Command
+class { '::icinga2::feature::command':
+ ensure     => present,
+ commanpath => '/var/run/icinga2/cmd/icinga2.cmd', 
 }
 
 icinga2::object::zone { 'global-templates':
