@@ -37,67 +37,11 @@ class php_webserver (
 
   include '::archive'
 
-  $real_settings = deep_merge($::php_webserver::params::php_settings, $php_settings)
-  $real_extensions = deep_merge($::php_webserver::params::php_extensions, $php_extensions)
-
   file { $datadir_base:
     ensure => 'directory',
     owner  => $datadir_base_owner,
     group  => $datadir_base_group,
     mode   => '0755',
   }
-
-  class { '::php::globals':
-    php_version => $php_version,
-  }
-  -> class { '::php':
-    manage_repos => true,
-    fpm          => true,
-    dev          => $development_mode,
-    composer     => true,
-    pear         => true,
-    phpunit      => $development_mode,
-    settings     => $real_settings,
-    extensions   => $real_extensions,
-    #fpm_pools   => {},
-  }
-
-  class { '::apache':
-    default_vhost => false,
-  }
-
-  # Load mod_rewrite if needed and not yet loaded
-  #if ! defined(Class['apache::mod::rewrite']) {
-  #include ::apache::mod::rewrite
-  #}
-
-  #class { '::apache::mod::proxy':; }
-  #-> class { '::apache::mod::proxy_fcgi':; }
-
-  if $mod_security_enabled {
-    class { '::apache::mod::security':
-      activated_rules      => $mod_security_rules,
-      modsec_secruleengine => $mod_security_mode,
-
-    }
-  }
-  #group { $webapp_group:
-  #ensure => present,
-  #gid    => $webapp_gid,
-    #}
-
-  # Newrelic setup
-  #class { '::php_webserver::newrelic':
-    #enabled => $::php_webserver::newrelic_enabled,
-    #}
-
-  # Define all the webapp_users virtual, the application define will realize the users needed on this server...
-  #create_resources('@user', $webapp_users, $webapp_user_defaults)
-
-  # Create applications if passed
-  #create_resources('php_webserver::application', $applications, {})
-
-  # Manage aditional software
-  #ensure_packages($packages)
 
 }
