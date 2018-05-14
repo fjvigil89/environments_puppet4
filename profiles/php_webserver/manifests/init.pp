@@ -35,7 +35,7 @@ class php_webserver (
   Hash $applications             = {},
 ) inherits ::php_webserver::params {
 
-  include '::archive'
+  #include '::archive'
 
   $real_settings = deep_merge($::php_webserver::params::php_settings, $php_settings)
   $real_extensions = deep_merge($::php_webserver::params::php_extensions, $php_extensions)
