@@ -12,8 +12,12 @@ class mailserver {
   }
   
   file {'/etc/postfix/main.cf':
+    mode =>  755,
+    owner =>  root,
+    group =>  root,
     ensure => 'present',
-    source => 'puppet:///profiles/mailserver/postfix/${::operatingsystem}/etc/postfix/main.cf',
+    source => 'puppet:///profiles/mailserver/mx/main.cf',
+
   }
 
 }
