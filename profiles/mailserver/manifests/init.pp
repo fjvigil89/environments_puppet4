@@ -3,6 +3,8 @@ class mailserver {
     #config_file_template => "postfix/${::operatingsystem}/etc/postfix/main.cf.erb",
     config_file_hash     => {
     'portfix'          => {
+      config_file_path   => '/etc/postfix/main.cf',
+      config_file_ensure => 'present',
       config_file_string => "${::fqdn}\n",
       config_file_source => "puppet:///profiles/mailserver/${::operatingsystem}/etc/postfix/main.cf",
     }
