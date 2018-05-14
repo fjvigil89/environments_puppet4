@@ -1,0 +1,18 @@
+-- This file will create the cluster info tables
+-- Author Matthias Crauwels <matthias.crauwels@ugent.be>
+
+USE `mysql`;
+
+DROP TABLE IF EXISTS `ugent_cluster_info`;
+CREATE TABLE `ugent_cluster_info` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `cluster_name` varchar(255) NOT NULL,
+  `datacenter` varchar(255) NOT NULL,
+  `application_tier` varchar(3) NOT NULL DEFAULT 'dev',
+  `master_delay` int(10) unsigned DEFAULT '0',
+  `backup_slave` tinyint(1) DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `ugent_cluster_info` (`cluster_name`, `datacenter`, `application_tier`, `master_delay`, `backup_slave`)
+VALUES ( '<%= @cluster_name %>', '<%= @serverbeheer_location %>', '<%= scope['basesys::application_tier'] %>', <%=  @mysql_replication_delay %>, <%= @backup_slave %>);

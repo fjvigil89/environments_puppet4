@@ -12,7 +12,7 @@ class mailserver {
   }
   
   file {'/etc/postfix/main.cf':
-    mode   => '755',
+    mode   => '0755',
     owner  => 'root',
     group  => 'root',
     ensure => 'present',

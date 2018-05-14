@@ -1,0 +1,33 @@
+#!/bin/bash
+#
+# This script will start replication with the correct credentials.
+# Usage: mysql_start_replication <master_host>
+#
+# Author: Matthias Crauwels <matthias.crauwels@ugent.be>
+#
+# This file is managed with Puppet!
+#
+
+SCRIPTNAME=`basename $0`
+MYSQL=`which mysql`
+
+if [ $# -lt 1 ]
+then
+  echo "Usage: ${SCRIPTNAME} <master_host> [port]"
+  exit -1
+fi
+
+MASTER_HOST=$1
+
+if [ $# -ge 2 ]
+then
+  MASTER_PORT=$2
+else
+  MASTER_PORT=3306
+fi
+
+MASTER_USER=<%= @mysql_replication_user %>
+MASTER_PASSWORD=<%= @mysql_replication_pass %>
+MASTER_DELAY=<%= @mysql_replication_delay %>
+
+${MYSQL} --execute="STOP SLAVE; CHANGE MASTER TO MASTER_HOST='${MASTER_HOST}', MASTER_PORT=${MASTER_PORT}, MASTER_USER='${MASTER_USER}', MASTER_PASSWORD='${MASTER_PASSWORD}', MASTER_DELAY=${MASTER_DELAY}, MASTER_AUTO_POSITION=1; START SLAVE;"
