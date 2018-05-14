@@ -29,8 +29,6 @@ class monitoring::icingaweb2 (
  $icinga2_dbpass = 'supersecret',
  $icinga2_dbhost = '127.0.0.1',
 
- $roles = undef,
-
 ) {
 # Configure icingaweb2 MySQL  
 include ::mysql::server
@@ -156,8 +154,8 @@ class {'icingaweb2::module::monitoring':
   commandtransports => {
     icinga2 => {
       transport => 'api',
-      username => $monitoring::icingaweb2::icinga2_dbuser,
-      password => $monitoring::icingaweb2::icinga2_dbpass,
+      username  => 'root',
+      password  => 'icinga',
     }
   }
 }
