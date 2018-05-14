@@ -9,16 +9,14 @@ class mailserver {
   },
     package_ensure       => 'present',
     config_dir_purge     => true,
+  }
 
-
-		file{"/etc/postfix/main.cf":
+	file {"/etc/postfix/main.cf":
 				ensure  => 'present',
 				source => 'puppet:///profiles/mailserver/postfix/Ubuntu/etc/postfix/main.cf',
-	  }
-
-
-   
-  }
+	}
+  
+ 
   
 
 }
