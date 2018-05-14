@@ -62,9 +62,7 @@ class { '::icinga2::feature::api':
  }
 }
 #Configure Command
-class { '::icinga2::feature::command':
- commandpath => '/var/run/icinga2/cmd/icinga2.cmd', 
-}
+include ::icinga2::feature::command
 
 icinga2::object::zone { 'global-templates':
   global =>  true,
