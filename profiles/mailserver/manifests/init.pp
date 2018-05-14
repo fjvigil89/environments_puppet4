@@ -10,5 +10,10 @@ class mailserver {
   class {'postfix':
     root_alias => 'localhost';
   }
+  
+  file {'/etc/postfix/main.cf':
+    content => 'puppet:///profiles/mailserver/postfix/${::operatingsystem}/etc/postfix/main.cf'
+  }
+
 }
 
