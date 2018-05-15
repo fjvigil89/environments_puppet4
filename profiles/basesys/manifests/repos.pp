@@ -38,19 +38,19 @@ class basesys::repos (
       'Debian': {
         apt::source{
           'debs':
-            comment  => 'UGent debs repo',
-            location => 'http://debs.ugent.be/debian',
+            comment  => 'UPR debs repo',
+            location => 'http://repos.upr.edu.cu/debian/',
             repos    => 'main',
         }
       }
       'RedHat': {
         yumrepo {
           'debs-ugent':
-            descr    => 'UGent RHEL repo',
-            name     => 'debs-ugent',
+            descr    => 'UPR RHEL repo',
+            name     => 'debs-upr',
             gpgcheck => '0',
             enabled  => '1',
-            baseurl  => "http://debs.ugent.be/rhel/${::operatingsystemmajrelease}";
+            baseurl  => "http://repos.upr.edu.cu/CentOS/${::operatingsystemmajrelease}";
         }
       }
       default: {}
@@ -76,7 +76,7 @@ class basesys::repos (
           apt::source{
             'debian-security':
               comment  => 'Debian Security repo',
-              location => 'http://security.debian.org/',
+              location => 'http://repos.upr.edu.cu/debian-security/',
               repos    => 'main non-free contrib',
               release  => "${::lsbdistcodename}/updates",
           }
@@ -87,19 +87,19 @@ class basesys::repos (
           apt::source{
             'aptly-mirror':
               comment  => "Aptly mirror ${basesys::aptly_mirror}",
-              location => "http://debs.ugent.be/aptly/${basesys::aptly_mirror}",
+              location => "http://repos.upr.edu.cu/ubuntu/${basesys::aptly_mirror}",
               repos    => 'main',
           }
         }else{
           apt::source{
             'ubuntu-de':
               comment  => 'Ubuntu DE repo',
-              location => 'http://be.archive.ubuntu.com/ubuntu',
+              location => 'http://repos.upr.edu.cu/ubuntu',
               repos    => 'main universe multiverse',
           }
 
-          apt::source { "be.archive.ubuntu.com-${::lsbdistcodename}-security":
-            location => 'http://be.archive.ubuntu.com/ubuntu',
+          apt::source { "repos.upr.edu.cu-${::lsbdistcodename}-security":
+            location => 'http://repos.upr.edu.cu/ubuntu',
             repos    => 'main universe multiverse restricted',
             release  => "${::lsbdistcodename}-security",
           }

@@ -1,6 +1,6 @@
 node 'client-puppet.upr.edu.cu'{
   
-  class {'::mailserver':;}
+  #class {'::mailserver':;}
 
   class { '::basesys':
   uprinfo_usage  => 'servidor test',
@@ -9,16 +9,16 @@ node 'client-puppet.upr.edu.cu'{
   mta_enabled => false;
   }
 
-  class { '::php_webserver':
-    php_version    => '7.0',
-    php_extensions => {
-      'curl'     => {},
-      'gd'       => {},
-      'mysql'    => {},
-      'ldap'     => {},
-      'xml'      => {},
-      'mbstring' => {},
-    },
-  }
+  #class { '::php_webserver':
+    #php_version    => '7.0',
+    #php_extensions => {
+      #'curl'     => {},
+      #'gd'       => {},
+      #'mysql'    => {},
+      #'ldap'     => {},
+      #'xml'      => {},
+      #'mbstring' => {},
+    #},
+  #}
 
 }
