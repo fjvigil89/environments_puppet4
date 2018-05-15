@@ -1,5 +1,5 @@
 #
-#  Class graphite
+#  Class graphite_server
 #================================
 #
 
