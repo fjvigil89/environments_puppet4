@@ -181,11 +181,11 @@ file { $ssl_subdir:
 }
 
 #Installing apache or httpd
-class { 'apache':
-  mpm_module => 'prefork'
-}
+#class { 'apache':
+#  mpm_module => 'prefork'
+#}
 
-class { 'apache::mod::php': }
+#class { 'apache::mod::php': }
 
 case $::osfamily {
   'redhat': {
