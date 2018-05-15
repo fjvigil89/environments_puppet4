@@ -231,7 +231,7 @@ file_line { 'date.timezone':
 # Apache PHP memory limit
 file_line{ 'php_memory_limit':
     path   => '/etc/php/7.0/apache2/php.ini',
-    line   => 'memory_limit = 512M',
+    line   => 'memory_limit = 1024M',
     match  => '^memory_limit =',
     notify => Class['apache'],
   }
