@@ -18,21 +18,20 @@ class monitoring::icinga2 (
 # Create a DB icinga2 (IDO)
 include '::mysql::server'
 mysql::db { 'icinga2':
-  user     =>  $monitoring::icinga2::icinga2_dbuser,
-  password =>  $monitoring::icinga2::icinga2_dbpass,
-  host     =>  $monitoring::icinga2::icinga2_dbhost,
-  grant    =>   ['SELECT', 'INSERT', 'UPDATE', 'DELETE', 'DROP', 'CREATE VIEW', 'CREATE', 'INDEX', 'EXECUTE', 'ALTER'],
+  user     => $monitoring::icinga2::icinga2_dbuser,
+  password => $monitoring::icinga2::icinga2_dbpass,
+  host     => $monitoring::icinga2::icinga2_dbhost,
+  grant    => ['SELECT', 'INSERT', 'UPDATE', 'DELETE', 'DROP', 'CREATE VIEW', 'CREATE', 'INDEX', 'EXECUTE', 'ALTER'],
 }
-
 # Configure icinga2 
 class { '::icinga2':
-  confd         =>   false,
-  manage_repo   =>   true,
-  features      =>   ['checker','mainlog','notification','statusdata','compatlog','command'],
-  constants     =>   {
-    'ZoneName' =>   'master',
-    'NodeName' =>   $facts['fqdn'],
-    ticketsalt =>   '5a3d695b8aef8f18452fc494593056a4',
+  confd       => false,
+  manage_repo => false,
+  features    => ['checker','mainlog','notification','statusdata','compatlog'],
+  constants   => {
+    'ZoneName' => 'master',
+    'NodeName' => $facts['fqdn'],
+    ticketsalt => '5a3d695b8aef8f18452fc494593056a4',
   },
 }
 
@@ -50,17 +49,20 @@ class { '::icinga2::feature::idomysql':
 class { '::icinga2::feature::api':
  accept_commands => true,
  accept_config   => true,
+ pki             => 'puppet',
  endpoints       => {
   $facts['fqdn'] => {
     'host' =>  $facts['ipaddress'],
   }
 },
-zones           => {
-  'master' =>  {
+ zones           => {
+  'master' => {
     'endpoints' =>  [$facts['fqdn']],
-  }
+  } 
  }
 }
+#Configure Command
+include ::icinga2::feature::command
 
 icinga2::object::zone { 'global-templates':
   global =>  true,

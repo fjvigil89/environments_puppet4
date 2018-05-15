@@ -29,8 +29,6 @@ class monitoring::icingaweb2 (
  $icinga2_dbpass = 'supersecret',
  $icinga2_dbhost = '127.0.0.1',
 
- $roles = undef,
-
 ) {
 # Configure icingaweb2 MySQL  
 include ::mysql::server
@@ -87,10 +85,19 @@ icingaweb2::config::groupbackend {'ad-group-backend':
 }
 
 #Manage Roles
-if $roles{
-    validate_hash($roles)
-    create_resources('icingaweb2::config::role', $roles)
+
+icingaweb2::config::role {'SysAdmins':
+  users       => 'icingaadmin, arian, frank.vigil, rene, ymtnez, ysantalla, yandy',
+  groups      => 'SysAdmins',
+  permissions => '*',
 }
+
+icingaweb2::config::role {'Develops':
+  users       => 'irlenys.ibarra, luis.junco, manuel.diaz, osmay, serrano',
+  groups      => 'Develops',
+  permissions => 'module/monitoring, module/doc',
+}
+
 
 #Configure Doc Module
 include ::icingaweb2::module::doc
@@ -147,7 +154,7 @@ class {'icingaweb2::module::monitoring':
   commandtransports => {
     icinga2 => {
       transport => 'api',
-      username  => $monitoring::icingaweb2::icinga2_dbuser,
+      username  => 'root',
       password  => $monitoring::icingaweb2::icinga2_dbpass,
     }
   }
@@ -212,7 +219,7 @@ case $::osfamily {
 apache::vhost { 'icingaweb.upr.edu.cu':
   servername => 'icingaweb.upr.edu.cu',
   port       => '80',
-  docroot  => '/usr/share/icingaweb2/public',
+  docroot    => '/usr/share/icingaweb2/public',
 }
 # Define TimeZone in php
 file_line { 'date.timezone':
@@ -221,6 +228,14 @@ file_line { 'date.timezone':
   match  => '^date.timezone =',
   notify =>  Class['apache'],
  }
+# Apache PHP memory limit
+file_line{ 'php_memory_limit':
+    path   => '/etc/php/7.0/apache2/php.ini',
+    line   => 'memory_limit = 1024M',
+    match  => '^memory_limit =',
+    notify => Class['apache'],
+  }
+ 
 }
 
 
