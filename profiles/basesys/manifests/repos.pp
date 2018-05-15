@@ -18,7 +18,7 @@ class basesys::repos (
             'sources.list.d' => true,
           },
           update => {
-            'tries'     => '3',
+            'tries'     => 3,
             'frequency' => 'always',
           },
       }
