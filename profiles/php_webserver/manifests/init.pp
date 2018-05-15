@@ -90,4 +90,15 @@ class php_webserver (
     enabled => $::php_webserver::newrelic_enabled,
   }
 
+
+
+
+#ll the webapp_users virtual, the application define will realize the users needed on this server...
+  create_resources('@user', $webapp_users, $webapp_user_defaults)
+
+  # Create applications if passed
+  create_resources('php_webserver::application', $applications, {})
+
+  # Manage aditional software
+  ensure_packages($packages)
 }
