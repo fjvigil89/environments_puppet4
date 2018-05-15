@@ -80,8 +80,14 @@ class php_webserver (
     }
   }
 
+  group { $webapp_group:
+    ensure => present,
+    gid    => $webapp_gid,
+  }
 
-
-
+  # Newrelic setup
+  class { '::php_webserver::newrelic':
+    enabled => $::php_webserver::newrelic_enabled,
+  }
 
 }
