@@ -1,3 +1,9 @@
+#
+# Class puppetserver
+#==================================
+#
+# Configure puppetserver
+
 class puppetserver (String $puppetdb_server = 'localhost') {
 ::apt::source { 'puppetlabs-pc1-server':
     comment  => 'Puppetlabs PC1 jessie Repository',
