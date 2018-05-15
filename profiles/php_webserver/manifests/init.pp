@@ -44,4 +44,26 @@ class php_webserver (
     mode   => '0755',
   }
 
+
+  class { '::php::globals':
+    php_version => '7.0',
+    config_root => '/etc/php/7.0',
+  }
+  -> class { '::php':
+    manage_repos => true,
+    fpm          => true,
+    dev          => $development_mode,
+    composer     => true,
+    pear         => true,
+    phpunit      => $development_mode,
+    settings     => $real_settings,
+    extensions   => $real_extensions,
+    #fpm_pools   => {},
+  }
+
+
+
+
+
+
 }
