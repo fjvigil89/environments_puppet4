@@ -180,7 +180,7 @@ file { $ssl_subdir:
   refreshonly => true
 }
 
-Installing apache or httpd
+#Installing apache or httpd
 class { 'apache':
   mpm_module => 'prefork'
 }
