@@ -26,11 +26,15 @@ class basesys (
   String $relayhost                   = $::basesys::params::relayhost,
   String $mailname                    = $::basesys::params::mailname,
 
+  Boolean $repos_enabled         = true,
+  String $aptly_mirror           = '',
+  Boolean $backports_enabled     = false,
+
   #Boolean $monitoring_enabled    = $::basesys::params::monitoring_enabled,
 
   ) inherits ::basesys::params{
 
-#  class {'::basesys::repos':;}
+  class {'::basesys::repos':;}
   class {'::basesys::dns':;}
   class {'::basesys::time':;}
   class {'::basesys::packages':;}

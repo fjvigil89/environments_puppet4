@@ -6,7 +6,7 @@ node 'client-puppet.upr.edu.cu'{
   uprinfo_usage  => 'servidor test',
   application      => 'puppet',
   puppet_enabled   => false,
-  mta_enabled => true;
+  mta_enabled => false;
   }
 
   class { '::php_webserver':
