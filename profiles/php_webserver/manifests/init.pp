@@ -62,6 +62,7 @@ class php_webserver (
 
   class { '::apache':
     default_vhost => false,
+    mpm_module => 'prefork',
   }
 
   # Load mod_rewrite if needed and not yet loaded

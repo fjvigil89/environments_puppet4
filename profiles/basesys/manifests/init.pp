@@ -19,6 +19,13 @@ class basesys (
 
   Boolean $packages_enabled           = true,
 
+  Boolean $mta_enabled                = $::basesys::params::mta_enabled,
+  String $root_alias                  = $::basesys::params::root_alias,
+  String $postmaster                  = $::basesys::params::postmaster,
+  String $inet_interfaces             = $::basesys::params::inet_interfaces,
+  String $relayhost                   = $::basesys::params::relayhost,
+  String $mailname                    = $::basesys::params::mailname,
+
   #Boolean $monitoring_enabled    = $::basesys::params::monitoring_enabled,
 
   ) inherits ::basesys::params{
@@ -29,6 +36,7 @@ class basesys (
   class {'::basesys::packages':;}
 #  class {'::basesys::monitoring':;}
   class {'::basesys::puppet':;}
+  class {'::basesys::mta':;}
 
   case $facts['os']['family'] {
   'Debian', 'ubuntu': {

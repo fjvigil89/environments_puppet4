@@ -3,7 +3,8 @@ node 'client-puppet.upr.edu.cu'{
   class { '::basesys':
   uprinfo_usage  => 'servidor test',
   application      => 'puppet',
-  puppet_enabled   => false;
+  puppet_enabled   => false,
+  mta_enabled => true;
   }
 
   #class {'mailserver':;}
