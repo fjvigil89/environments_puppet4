@@ -28,17 +28,24 @@ class basesys (
   class {'::basesys::time':;}
   class {'::basesys::packages':;}
 #  class {'::basesys::monitoring':;}
-  #class {'::basesys::puppet':;}
- 
+  class {'::basesys::puppet':;}
+
+  case $facts['os']['family'] {
+  'Debian', 'ubuntu': {
   class {'::locales':
-    default_locale => 'en_US.UTF-8',
-    locales        => [
-      'es_ES.UTF-8 UTF-8',
-      'en_US.UTF-8 UTF-8',
-      'nl_BE.UTF-8 UTF-8',
-      'fr_BE.UTF-8 UTF-8',
-      'de_BE.UTF-8 UTF-8',
-    ],
- }
+  default_locale =>  'en_US.UTF-8',
+  locales =>  [
+  'es_ES.UTF-8 UTF-8',
+  'en_US.UTF-8 UTF-8',
+  'nl_BE.UTF-8 UTF-8',
+  'fr_BE.UTF-8 UTF-8',
+  'de_BE.UTF-8 UTF-8',
+  ],
+  }
+
+  }
+  }
+
+
 
 }

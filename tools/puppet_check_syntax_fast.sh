@@ -21,7 +21,7 @@ fi
 if [ ! -z ${PUPPET} ]; then
   echo_title "Validating Manifests in site directory"
 
-  for i in $(find site -name '*.pp')
+  for i in $(find profiles roles manifests -name '*.pp')
   do
     manifests="$manifests $i"
   done
