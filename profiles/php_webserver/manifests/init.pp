@@ -46,8 +46,8 @@ class php_webserver (
 
 
   class { '::php::globals':
-    php_version => '7.0',
-    config_root => '/etc/php/7.0',
+    php_version => $php_version,
+    config_root => '/etc/php/'$php_version,
   }
   -> class { '::php':
     manage_repos => true,
