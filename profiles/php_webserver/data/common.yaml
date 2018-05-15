@@ -1,0 +1,14 @@
+---
+php_webserver::users:
+  # icto applicatie users (uid range 150000 - 160000)
+  # icto legacy application users range 151000 - 152000
+  'minerva':
+    uid        : '151001'
+  'leerlink_dev':
+    uid        : '151002'
+  'leerlink_qas':
+    uid        : '151003'
+  'leerlink_prd':
+    uid        : '151004'
+  'matomo':
+    uid        : '151005'

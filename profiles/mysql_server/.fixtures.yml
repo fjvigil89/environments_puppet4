@@ -1,0 +1,38 @@
+fixtures:
+  repositories:
+    nshares:
+      repo: "git@github.ugent.be:DICT-Puppetmasters/puppet-nshares.git"
+      ref: "147482787164664b76aa1b7d81f7566634019f08"
+    accounts:
+      repo: "https://github.com/rgevaert/puppetlabs-accounts.git"
+      ref: "a8d42d248eaa2c5824512adffb55cb302389ac2f"
+    systemd:
+      repo: 'https://github.com/camptocamp/puppet-systemd.git'
+      ref: '047b31db32f5b6ed2555fedb1bf0cfd02d19e23d'
+    logrotate:
+      repo: "https://github.com/yo61/puppet-logrotate.git"
+      ref:  "v1.3.0"
+  symlinks:
+    mysql_server: "#{source_dir}"
+  forge_modules:
+    stdlib:
+      repo: 'puppetlabs/stdlib'
+      ref: '4.24.0'
+    mysql:
+      repo: 'puppetlabs/mysql'
+      ref: '3.10.0'
+    apt:
+      repo: "puppetlabs/apt"
+      ref: "2.4.0"
+    collectd:
+      repo: "puppet/collectd"
+      ref: "5.3.0"
+    concat:
+      repo: "puppetlabs/concat"
+      ref: "2.1.0"
+    nfs:
+      repo: 'derdanne/nfs'
+      ref: '0.0.14'
+    nrpe:
+      repo: "pdxcat/nrpe"
+      ref: "2.1.1"

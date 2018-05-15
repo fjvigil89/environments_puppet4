@@ -1,0 +1,38 @@
+fixtures:
+  repositories:
+    sslcert:
+      repo: "https://github.com/rgevaert/puppet-sslcert.git"
+      ref: "29837d65be0939608b24d01f3d78824c195ac377"
+    nshares:
+      repo: "git@github.ugent.be:DICT-Puppetmasters/puppet-nshares.git"
+      ref: "147482787164664b76aa1b7d81f7566634019f08"
+    newrelic:
+      repo: "https://github.com/fsalum/puppet-newrelic.git"
+      ref: 'd0a8be2c6cf40dcce9cc100dbcba953f87e356ae'
+  symlinks:
+    php_webserver: "#{source_dir}"
+  forge_modules:
+    stdlib:
+      repo: 'puppetlabs/stdlib'
+      ref: '4.24.0'
+    apt:
+      repo: "puppetlabs/apt"
+      ref: "2.4.0"
+    php:
+      repo: 'mayflower/php'
+      ref: '4.0.0-beta1'
+    apache:
+      repo: 'puppetlabs/apache'
+      ref: '1.10.0'
+    concat:
+      repo: 'puppetlabs/concat'
+      ref: '2.2.0'
+    inifile:
+      repo: 'puppetlabs/inifile'
+      ref: '1.6.0'
+    archive:
+      repo: "puppet/archive"
+      ref: "1.3.0"
+    nfs:
+      repo: 'derdanne/nfs'
+      ref: '0.0.14'

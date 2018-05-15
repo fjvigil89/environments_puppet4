@@ -21,7 +21,7 @@ class basesys (
 
   #Boolean $monitoring_enabled    = $::basesys::params::monitoring_enabled,
 
-  ) inherits ::basesys::params{ 
+  ) inherits ::basesys::params{
 
 #  class {'::basesys::repos':;}
   class {'::basesys::dns':;}
@@ -34,7 +34,7 @@ class basesys (
   'Debian', 'ubuntu': {
   class {'::locales':
   default_locale =>  'en_US.UTF-8',
-  locales =>  [
+  locales        =>  [
   'es_ES.UTF-8 UTF-8',
   'en_US.UTF-8 UTF-8',
   'nl_BE.UTF-8 UTF-8',

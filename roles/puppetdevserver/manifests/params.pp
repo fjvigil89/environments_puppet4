@@ -7,6 +7,6 @@ class puppetdevserver::params {
   $service = $::osfamily ? {
     'Debian' => 'puppetdevserver',
     'RedHat' => 'puppetdevserver',
-    default  => fail('${::operatingsystem} unsupported platform')
+    default  => fail('unsupported platform')
   }
 }

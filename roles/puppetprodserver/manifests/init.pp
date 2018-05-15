@@ -30,11 +30,11 @@ class puppetprodserver () {
   #class {"${module_name}::config": } ~>
   #class {"${module_name}::service": } ~>
   #anchor { "${module_name}::end": }
- class { '::basesys':
+  class {'::basesys':
     uprinfo_usage  => 'Puppet Server UPR',
-    application      => 'puppetserver',
-    application_tier => 'prd',
-    puppet_enabled   => false,
+  application      => 'puppetserver',
+  application_tier => 'prd',
+  puppet_enabled   => false,
   }
 
   class { '::puppetserver':

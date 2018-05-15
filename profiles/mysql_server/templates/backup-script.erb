@@ -1,0 +1,43 @@
+#!/bin/bash
+#
+# This script will create a MySQL backup using Percona xtrabackup
+# Author: Matthias Crauwels <matthias.crauwels@ugent.be>
+#
+# This script is managed by Puppet!
+#
+
+MOUNT_PATH=<%= @backup_mount %>
+DATE_EXTENSION=`date +%A`
+BACKUP_TARGET_DIR=${MOUNT_PATH}/${DATE_EXTENSION}
+BACKUP_KEY_FILE=<%= @backup_key_file %>
+BACKUP_LOG_FILE=/var/log/mysql/backup.log
+
+XTRABACKUP_COMPRESS_THREADS=4
+
+MOUNT=`which mount`
+XTRABACKUP=`which xtrabackup`
+
+# Mount the backup volume to be writeable
+${MOUNT} -o remount,rw ${MOUNT_PATH}
+
+if [ -d ${BACKUP_TARGET_DIR} ]
+then
+  mv ${BACKUP_TARGET_DIR} ${BACKUP_TARGET_DIR}_old
+fi
+
+# Do the backup
+${XTRABACKUP} --backup --compress --compress-threads=${XTRABACKUP_COMPRESS_THREADS} --encrypt=AES256 --encrypt-key-file=${BACKUP_KEY_FILE} --target-dir=${BACKUP_TARGET_DIR} --lock-ddl 2> ${BACKUP_LOG_FILE}
+
+XTRABACKUP_RETURN=$?
+
+if [ "${XTRABACKUP_RETURN}" -eq "0" ]
+then
+  rm -rf ${BACKUP_TARGET_DIR}_old
+else
+  cat ${BACKUP_LOG_FILE}
+fi
+
+# Mount the backup volume to be writeable
+${MOUNT} -o remount,ro ${MOUNT_PATH}
+
+exit ${XTRABACKUP_RETURN}

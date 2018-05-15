@@ -1,0 +1,8 @@
+---
+php_webserver::users:
+  'my_php_application':
+    uid        : '151001'
+  'ckent':
+    uid        : '151002'
+php_webserver::applications:
+  my_php_application: {}

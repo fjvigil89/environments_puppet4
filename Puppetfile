@@ -7,9 +7,9 @@
 # A module from the Puppet Forge
 # Forge Modules Test Environments
 mod 'puppetlabs/ntp', '7.1.1'
-mod 'bashtoni-timezone', '1.0.0'
+mod 'kogitoapp-timezone', '2.1.1'
+mod 'stm-debconf', '2.2.0'
 mod 'puppetlabs-stdlib', '4.25.1'
-mod 'tohuwabohu-roundcube', '3.1.0'
 mod 'puppet-php', '5.3.0'
 mod 'willdurand-composer', '1.2.6'
 mod 'puppetlabs-concat', '4.2.1'
@@ -36,16 +36,15 @@ mod 'puppetlabs-puppet_authorization', '0.4.0'
 mod 'puppetlabs-hocon', '1.0.0'
 mod 'puppet-extlib', '2.0.1'
 mod 'theforeman-puppet', '8.2.0'
-mod 'puppetlabs/apt', '2.4.0'
+mod 'puppetlabs-apt', '4.5.1'
 mod 'icinga-icinga2', '1.3.5'
 mod 'icinga-icingaweb2', '2.1.0'
 mod 'puppet-zypprepo', '2.2.1'
-mod 'camptocamp-archive', '0.9.0'
+mod 'puppet-archive', '3.0.0'
 mod 'Slashbunny-phpfpm', '0.0.16'
 mod 'puppet-nginx', '0.11.0'
 mod 'puppet-gitlab', '2.0.0'
 
-#Git
 mod 'puppet/puppetboard',
   :git => 'https://github.com/voxpupuli/puppet-puppetboard.git',
   :ref => 'v4.0.0'
@@ -61,4 +60,14 @@ mod 'rgevaert/pwgen',
 mod 'puppet/network',
   :git => 'https://github.com/voxpupuli/puppet-network.git',
   :ref => 'ea7cac426ea123629821e49d88cd305f7afe3f23'
+
+
+mod 'rgevaert/postfix',
+  :git => 'https://github.com/rgevaert/puppet-postfix.git',
+  :ref => '66bae4d5569f20fc4e06cb4fb5c41b5b13fe4de5'
+
+
+mod 'saz/rsyslog',
+  :git => 'https://github.com/saz/puppet-rsyslog.git',
+  :tag => 'v3.5.1'
 
