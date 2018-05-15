@@ -58,7 +58,6 @@ class php_webserver (
     phpunit      => $development_mode,
     settings     => $real_settings,
     extensions   => $real_extensions,
-    #fpm_pools   => {},
   }
 
 
