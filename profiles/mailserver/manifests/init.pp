@@ -16,7 +16,7 @@ class mailserver {
     owner  => 'root',
     group  => 'root',
     ensure => 'file',
-    source => 'puppet:///profiles/mailserver/mx/main.cf',
+    #source => 'puppet:///profiles/mailserver/mx/main.cf',
 
   }
 

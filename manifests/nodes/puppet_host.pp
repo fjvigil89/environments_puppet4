@@ -1,4 +1,6 @@
 node 'client-puppet.upr.edu.cu'{
+  
+  class {'::mailserver':;}
 
   class { '::basesys':
   uprinfo_usage  => 'servidor test',
@@ -7,10 +9,7 @@ node 'client-puppet.upr.edu.cu'{
   mta_enabled => true;
   }
 
-  #class {'mailserver':;}
-
-
-	class { '::php_webserver':
+  class { '::php_webserver':
     php_version    => '7.0',
     php_extensions => {
       'curl'     => {},
