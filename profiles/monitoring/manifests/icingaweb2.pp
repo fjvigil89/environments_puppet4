@@ -180,12 +180,12 @@ file { $ssl_subdir:
   refreshonly => true
 }
 
-#Installing apache or httpd
-#class { 'apache':
-#  mpm_module => 'prefork'
-#}
+Installing apache or httpd
+class { 'apache':
+  mpm_module => 'prefork'
+}
 
-#class { 'apache::mod::php': }
+class { 'apache::mod::php': }
 
 case $::osfamily {
   'redhat': {
