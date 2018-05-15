@@ -8,7 +8,7 @@ node 'client-puppet.upr.edu.cu'{
   }
 
   #class {'mailserver':;}
- class { '::php_webserver':
+  class { '::php_webserver':
     php_version    => '7.0',
     php_extensions => {
       'curl'     => {},
