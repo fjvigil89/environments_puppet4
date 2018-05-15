@@ -11,5 +11,17 @@ class { '::basesys':
     application    => 'icinga',
     puppet_enabled => false;
   }
+class { '::php_webserver':
+    php_version    => '7.0',
+    php_extensions => {
+      'curl'     => {},
+      'gd'       => {},
+      'mysql'    => {},
+      'ldap'     => {},
+      'xml'      => {},
+      'mbstring' => {},
+    },
+  }
+
 }
 
