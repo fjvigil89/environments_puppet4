@@ -241,6 +241,20 @@ class { 'icingaweb2::module::graphite':
   git_revision => 'v0.9.0',
   url          => 'http://graphite.upr.edu.cu:8080'
 }
+
+#Fileshippet Module
+class { 'icingaweb2::module::fileshipper':
+  git_revision => 'master',
+  base_directories => {
+    systemen_github => '/etc/icingaweb2/fileshipper',
+  },
+  directories      => {
+    'test' => {
+      'source'     => '/usr/local/src/custom-rules.git',
+      'target'     => '/zones.d/director-global/custom-rules',
+    }
+  }
+}
 }
 
 
