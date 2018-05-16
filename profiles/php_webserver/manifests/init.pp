@@ -59,8 +59,8 @@ class php_webserver (
     composer     => true,
     pear         => true,
     phpunit      => $development_mode,
-    settings     => $php_settings,
-    extensions   => $php_extensions,
+    settings     => $real_settings,
+    extensions   => $real_extensions,
   }
 
   #class { '::apache':
