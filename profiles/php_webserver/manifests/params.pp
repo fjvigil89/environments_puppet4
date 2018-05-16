@@ -39,7 +39,7 @@ class php_webserver::params {
     'Date/date.timezone'      => 'America/Havana',
   }
 
-  $php_extensions = { }
+  $php_extensions = {}
 
   $datadir_base = '/srv'
   $datadir_base_owner = 'root'
