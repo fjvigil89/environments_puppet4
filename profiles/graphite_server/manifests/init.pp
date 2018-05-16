@@ -34,7 +34,6 @@ class graphite_server {
   gr_memcache_hosts         => ['127.0.0.1:11211']
   }
   
-include '::apache'
 apache::vhost { 'graphite.upr.edu.cu':
   port    => '80',
   docroot => '/opt/graphite/webapp',
