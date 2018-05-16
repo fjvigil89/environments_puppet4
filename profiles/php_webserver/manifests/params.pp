@@ -44,8 +44,28 @@ class php_webserver::params {
     'Date/date.timezone'      => 'America/Havana',
   }
 
-  $php_extensions = {}
-
+  $php_extensions = {
+   'ldap'=>{
+    bcmath    => { },
+    imagick   => {
+      provider => pecl,
+    },
+    xmlrpc    => { },
+    memcached => {
+      provider        => 'pecl',
+      header_packages => [ 'libmemcached-devel', ],
+    },
+    apc       => {
+      provider => 'pecl',
+      settings => {
+        'apc/stat'       => '1',
+        'apc/stat_ctime' => '1',
+      },
+      sapi     => 'fpm',
+    },
+    },
+ }
+ 
   $datadir_base = '/srv'
   $datadir_base_owner = 'root'
   $datadir_base_group = 'root'
