@@ -15,7 +15,7 @@ node 'client-puppet.upr.edu.cu'{
   class { '::letsencrypt_host':
    email => 'fjvigil@hispavista.com',
    webroot_enable => true,
-   dominios => ['sinc.upr.edu.cu'],
+   dominios => ['sync.upr.edu.cu'],
    plugin => 'webroot',
    webroot_paths => ['/root/Sync-UPR/public/'],
   }
