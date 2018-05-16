@@ -6,8 +6,14 @@ node 'client-puppet.upr.edu.cu'{
   uprinfo_usage  => 'servidor test',
   application      => 'puppet',
   puppet_enabled   => false,
-  mta_enabled => false;
+  mta_enabled => false,
+  repos_enabled => false;
+ 
   }
+
+ class { ::letsencrypt:
+  email => 'fjvigil@hispavista.com',
+ }	
 
   #class { '::php_webserver':
     #php_version    => '7.0',

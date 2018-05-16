@@ -26,7 +26,7 @@ mod 'puppetlabs-ruby', '1.0.0'
 mod 'croddy-make', '999.999.999'
 mod 'puppetlabs-gcc', '0.3.0'
 mod 'stankevich/python', '1.19.0'
-mod 'puppetlabs/vcsrepo', '1.3.2'
+mod 'puppetlabs/vcsrepo', '2.3.0'
 mod 'puppetlabs-puppetdb', '6.0.2'
 mod 'stahnma-epel', '1.3.0'
 mod 'saz/vim', '2.4.0'
@@ -44,6 +44,9 @@ mod 'puppet-archive', '3.0.0'
 mod 'Slashbunny-phpfpm', '0.0.16'
 mod 'puppet-nginx', '0.11.0'
 mod 'puppet-gitlab', '2.0.0'
+mod 'puppet-letsencrypt', '2.3.0'
+
+
 
 mod 'puppet/puppetboard',
   :git => 'https://github.com/voxpupuli/puppet-puppetboard.git',
