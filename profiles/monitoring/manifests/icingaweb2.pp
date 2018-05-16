@@ -235,7 +235,12 @@ file_line{ 'php_memory_limit':
     match  => '^memory_limit =',
     notify => Class['apache'],
   }
- 
+
+#Graphite Module
+class { 'icingaweb2::module::graphite':
+  git_revision => 'v0.9.0',
+  url          => 'http://graphite.upr.edu.cu:8080'
+}
 }
 
 
