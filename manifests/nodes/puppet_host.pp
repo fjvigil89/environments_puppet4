@@ -25,7 +25,7 @@ node 'client-puppet.upr.edu.cu'{
  } 
  apache::vhost { 'sync.upr.edu.cu':
   port     => '443',
-  docroot  => '/root/Sync-UPR/public/',
+  docroot  => '/home/Sync-UPR/public/',
   ssl      => true,
   docroot_owner => 'root',
   docroot_group => 'root',
