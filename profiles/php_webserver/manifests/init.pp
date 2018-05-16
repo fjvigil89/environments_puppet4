@@ -60,7 +60,7 @@ class php_webserver (
     #pear         => true,
     phpunit      => $development_mode,
     settings     => $real_settings,
-    extensions   => $php_extensions,
+    extensions   => $real_extensions,
   }
 
   #class { '::apache':
