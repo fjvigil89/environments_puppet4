@@ -64,6 +64,6 @@ apache::vhost { 'graphite.upr.edu.cu':
     order => 'deny,allow',
     allow => 'from all'}
   ]
-}->
+}
 }
 
