@@ -35,8 +35,9 @@ class graphite_server {
   }
   
 apache::vhost { 'graphite.upr.edu.cu':
-  port    => '80',
-  docroot => '/opt/graphite/webapp',
+  port                        => '80',
+  docroot                     => '/opt/graphite/webapp',
+  suphp_engine                =>  'on',
   wsgi_application_group      => '%{GLOBAL}',
   wsgi_daemon_process         => 'graphite',
   wsgi_daemon_process_options => {
@@ -54,12 +55,12 @@ apache::vhost { 'graphite.upr.edu.cu':
   wsgi_script_aliases         => {
     '/' => '/opt/graphite/conf/graphite_wsgi.py'
   },
-  headers => [
+  headers                     => [
     'set Access-Control-Allow-Origin "*"',
     'set Access-Control-Allow-Methods "GET, OPTIONS, POST"',
     'set Access-Control-Allow-Headers "origin, authorization, accept"',
   ],
-  directories => [{
+  directories                 => [{
     path => '/media/',
     order => 'deny,allow',
     allow => 'from all'}
