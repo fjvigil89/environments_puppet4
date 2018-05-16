@@ -15,8 +15,8 @@ class graphite_server {
       retentions => '1m:90d'
     },
     {
-      name       => 'special_server',
-      pattern    => '^longtermserver_',
+      name       => 'default',
+      pattern    => '.*',
       retentions => '10s:7d,1m:365d,10m:5y'
     },
     {
@@ -33,39 +33,39 @@ class graphite_server {
   gr_django_db_port         => '3306',
   gr_memcache_hosts         => ['127.0.0.1:11211']
   }
-include '::apache'
+  #include '::apache'
 
-apache::vhost { 'graphite.upr.edu.cu':
-  port                        => '80',
-  docroot                     => '/opt/graphite/webapp',
-  suphp_engine                =>  'on',
-  wsgi_application_group      => '%{GLOBAL}',
-  wsgi_daemon_process         => 'graphite',
-  wsgi_daemon_process_options => {
-    processes          => '5',
-    threads            => '5',
-    display-name       => '%{GROUP}',
-    inactivity-timeout => '120',
-  },
-  wsgi_import_script          => '/opt/graphite/conf/graphite_wsgi.py',
-  wsgi_import_script_options  => {
-    process-group     => 'graphite',
-    application-group => '%{GLOBAL}'
-  },
-  wsgi_process_group          => 'graphite',
-  wsgi_script_aliases         => {
-    '/' => '/opt/graphite/conf/graphite_wsgi.py'
-  },
-  headers                     => [
-    'set Access-Control-Allow-Origin "*"',
-    'set Access-Control-Allow-Methods "GET, OPTIONS, POST"',
-    'set Access-Control-Allow-Headers "origin, authorization, accept"',
-  ],
-  directories                 => [{
-    path => '/media/',
-    order => 'deny,allow',
-    allow => 'from all'}
-  ]
-}
+  #apache::vhost { 'graphite.upr.edu.cu':
+  #port                        => '80',
+  #docroot                     => '/opt/graphite/webapp',
+  #suphp_engine                =>  'on',
+  #wsgi_application_group      => '%{GLOBAL}',
+  #wsgi_daemon_process         => 'graphite',
+  #wsgi_daemon_process_options => {
+  #  processes          => '5',
+  #  threads            => '5',
+  #  display-name       => '%{GROUP}',
+  #  inactivity-timeout => '120',
+  #},
+  #wsgi_import_script          => '/opt/graphite/conf/graphite_wsgi.py',
+  #wsgi_import_script_options  => {
+  #  process-group     => 'graphite',
+  #  application-group => '%{GLOBAL}'
+  #},
+  #wsgi_process_group          => 'graphite',
+  #wsgi_script_aliases         => {
+  #  '/' => '/opt/graphite/conf/graphite_wsgi.py'
+  #},
+  #headers                     => [
+  #  'set Access-Control-Allow-Origin "*"',
+  #  'set Access-Control-Allow-Methods "GET, OPTIONS, POST"',
+  #  'set Access-Control-Allow-Headers "origin, authorization, accept"',
+  #],
+  #directories                 => [{
+  #  path => '/media/',
+  #  order => 'deny,allow',
+  #  allow => 'from all'}
+  #]
+  #}
 }
 
