@@ -250,8 +250,9 @@ class { 'icingaweb2::module::fileshipper':
   },
   directories       => {
     'test' => {
-      'source' => '/usr/local/src/custom-rules.git',
-      'target' => '/zones.d/director-global/custom-rules',
+      'source'     => '/usr/local/src/custom-rules.git',
+      'target'     => '/zones.d/director-global/custom-rules',
+      'extensions' => '.conf, .md',
     }
   }
 }
