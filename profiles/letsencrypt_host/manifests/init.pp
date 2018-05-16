@@ -35,7 +35,7 @@
 #
 # Copyright 2018 Your name here, unless otherwise noted.
 #
-class letsencrypt_host
+class letsencrypt_host (
  Array[String] $dominios   = $::letsencrypt_host::params::dominios,
  Boolean $webroot_enable    = false,
  Array[String] $webroot_paths   = $::letsencrypt_host::params::webroot_paths,
