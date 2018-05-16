@@ -45,7 +45,7 @@ mod 'Slashbunny-phpfpm', '0.0.16'
 mod 'puppet-nginx', '0.11.0'
 mod 'puppet-gitlab', '2.0.0'
 mod 'puppet-letsencrypt', '2.3.0'
-
+mod 'mayflower-prosody', '0.3.1'
 
 
 mod 'puppet/puppetboard',
