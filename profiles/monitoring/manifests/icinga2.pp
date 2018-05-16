@@ -5,13 +5,13 @@
 # Configure icinga2
 
 class monitoring::icinga2 (
-   $icinga2_dbuser   = 'icinga2',
-   $icinga2_dbname   = 'icinga2',
-   $icinga2_dbpass   = 'supersecret',
-   $icinga2_dbhost   = '127.0.0.1',
-   $director_apipass = '123456',
-   $director_apiuser = 'director',
-   $api_users = {},
+  $icinga2_dbuser   = 'icinga2',
+  $icinga2_dbname   = 'icinga2',
+  $icinga2_dbpass   = 'supersecret',
+  $icinga2_dbhost   = '127.0.0.1',
+  $director_apipass = '123456',
+  $director_apiuser = 'director',
+  $api_users = {},
 ) {
 
 
@@ -47,19 +47,19 @@ class { '::icinga2::feature::idomysql':
 
 # Configure API
 class { '::icinga2::feature::api':
- accept_commands => true,
- accept_config   => true,
- pki             => 'puppet',
- endpoints       => {
-  $facts['fqdn'] => {
-    'host' =>  $facts['ipaddress'],
+  accept_commands => true,
+  accept_config   => true,
+  pki             => 'puppet',
+  endpoints       => {
+    $facts['fqdn'] => {
+      'host' =>  $facts['ipaddress'],
+    }
+  },
+  zones           => {
+    'master' => {
+      'endpoints' =>  [$facts['fqdn']],
+    }
   }
-},
- zones           => {
-  'master' => {
-    'endpoints' =>  [$facts['fqdn']],
-  } 
- }
 }
 #Configure Command
 include ::icinga2::feature::command
