@@ -1,13 +1,13 @@
-# letsencrypt
+# letsencrypt_host
 
 #### Table of Contents
 
 1. [Overview](#overview)
 2. [Module Description - What the module does and why it is useful](#module-description)
-3. [Setup - The basics of getting started with letsencrypt](#setup)
-    * [What letsencrypt affects](#what-letsencrypt-affects)
+3. [Setup - The basics of getting started with letsencrypt_host](#setup)
+    * [What letsencrypt_host affects](#what-letsencrypt_host-affects)
     * [Setup requirements](#setup-requirements)
-    * [Beginning with letsencrypt](#beginning-with-letsencrypt)
+    * [Beginning with letsencrypt_host](#beginning-with-letsencrypt_host)
 4. [Usage - Configuration options and additional functionality](#usage)
 5. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
 5. [Limitations - OS compatibility, etc.](#limitations)
@@ -31,7 +31,7 @@ management, etc.) this is the time to mention it.
 
 ## Setup
 
-### What letsencrypt affects
+### What letsencrypt_host affects
 
 * A list of files, packages, services, or operations that the module will alter,
   impact, or execute on the system it's installed on.
@@ -43,7 +43,7 @@ management, etc.) this is the time to mention it.
 If your module requires anything extra before setting up (pluginsync enabled,
 etc.), mention it here.
 
-### Beginning with letsencrypt
+### Beginning with letsencrypt_host
 
 The very basic steps needed for a user to get the module up and running.
 
