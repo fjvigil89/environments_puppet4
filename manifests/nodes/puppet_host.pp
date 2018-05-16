@@ -21,8 +21,8 @@ class { 'prosody':
   prosody::virtualhost {
     'sync.upr.edu.cu' :
       ensure   => present,
-      ssl_key  => '/etc/ssl/key/sync.upr.edu.cu.key',
-      ssl_cert => '/etc/ssl/crt/sync.upr.edu.cu.crt',
+      #ssl_key  => '/etc/ssl/key/sync.upr.edu.cu.key',
+      #ssl_cert => '/etc/ssl/crt/sync.upr.edu.cu.crt',
   }
 
 #fin del jabbel
@@ -71,6 +71,7 @@ class { 'prosody':
       #'mbstring' => {},
      
     #},
+    #packages => ['php-gd', 'php-xml','php7.0-mbstring'],
   #}
 
 }
