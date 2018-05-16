@@ -41,7 +41,7 @@ node 'client-puppet.upr.edu.cu'{
       'ldap'     => {},
       'xml'      => {},
       'mbstring' => {},
-      'ext-mbstring'=> {},
+     
     },
   }
 
