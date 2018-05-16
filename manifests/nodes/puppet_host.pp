@@ -11,24 +11,26 @@ node 'client-puppet.upr.edu.cu'{
  
   }
  
+
+  class { '::letsencrypt_host':
+   email => 'fjvigil@hispavista.com',
+   webroot_enable => true,
+   dominios => ['sinc.upr.edu.cu'],
+   plugin => 'webroot',
+   webroot_paths => ['/root/Sync-UPR/public/'],
+  }
+
  class { 'apache':
   default_vhost => false,
- }
- 
+ } 
  apache::vhost { 'sync.upr.edu.cu':
   port     => '443',
   docroot  => '/root/Sync-UPR/public/',
   ssl      => true,
-  ssl_cert => '/etc/ssl/fourth.example.com.cert',
-  ssl_key  => '/etc/ssl/fourth.example.com.key',
+  #ssl_cert => '/etc/ssl/fourth.example.com.cert',
+  #ssl_key  => '/etc/ssl/fourth.example.com.key',
  } 
 
- #class { '::letsencrypt_host':
-  #email => 'fjvigil@hispavista.com',
-  #webroot_enable => false,
-  #dominios => ['upr.edu.cu'], 
-  #plugin => 'apache',
- #}	
 
   class { '::php_webserver':
     php_version    => '7.0',
