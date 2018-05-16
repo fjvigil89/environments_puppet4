@@ -11,23 +11,24 @@ node 'client-puppet.upr.edu.cu'{
  
   }
 
- class { '::letsencrypt_host':
-  email => 'fjvigil@hispavista.com',
-  webroot_enable => false,
-  dominios => ['upr.edu.cu'], 
-  plugin => 'apache',
- }	
 
-  #class { '::php_webserver':
-    #php_version    => '7.0',
-    #php_extensions => {
-      #'curl'     => {},
-      #'gd'       => {},
-      #'mysql'    => {},
-      #'ldap'     => {},
-      #'xml'      => {},
-      #'mbstring' => {},
-    #},
-  #}
+ #class { '::letsencrypt_host':
+  #email => 'fjvigil@hispavista.com',
+  #webroot_enable => false,
+  #dominios => ['upr.edu.cu'], 
+  #plugin => 'apache',
+ #}	
+
+  class { '::php_webserver':
+    php_version    => '7.0',
+    php_extensions => {
+      'curl'     => {},
+      'gd'       => {},
+      'mysql'    => {},
+      'ldap'     => {},
+      'xml'      => {},
+      'mbstring' => {},
+    },
+  }
 
 }
