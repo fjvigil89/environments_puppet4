@@ -39,7 +39,9 @@ class php_webserver::params {
     'Date/date.timezone'      => 'America/Havana',
   }
 
-  $php_extensions = {}
+  $php_extensions = {
+   'extension' => 'php_ldap.dll',
+  }
 
   $datadir_base = '/srv'
   $datadir_base_owner = 'root'
