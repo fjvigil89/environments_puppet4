@@ -46,24 +46,7 @@ class php_webserver::params {
 
   $php_extensions = {
     extensions => {
-     bcmath    => { },
-     imagick   => {
-       provider => pecl,
      },
-     xmlrpc    => { },
-     memcached => {
-       provider        => 'pecl',
-       header_packages => [ 'libmemcached-devel', ],
-     },
-     apc       => {
-       provider => 'pecl',
-       settings => {
-         'apc/stat'       => '1',
-         'apc/stat_ctime' => '1',
-       },
-       sapi     => 'fpm',
-     },
-   },
   }
 
   $datadir_base = '/srv'
