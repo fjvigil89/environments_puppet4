@@ -10,7 +10,18 @@ node 'client-puppet.upr.edu.cu'{
   repos_enabled => false;
  
   }
-
+ 
+ class { 'apache':
+  default_vhost => false,
+ }
+ 
+ apache::vhost { 'sync.upr.edu.cu':
+  port     => '443',
+  docroot  => '/root/Sync-UPR/public/',
+  ssl      => true,
+  ssl_cert => '/etc/ssl/fourth.example.com.cert',
+  ssl_key  => '/etc/ssl/fourth.example.com.key',
+ } 
 
  #class { '::letsencrypt_host':
   #email => 'fjvigil@hispavista.com',
