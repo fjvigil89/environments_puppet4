@@ -6,7 +6,6 @@
 class graphite_server {
 include '::apache'
 class { 'graphite':
-  gr_web_server => 'none'
 }->
 apache::vhost { 'graphite.upr.edu.cu':
   port    => '80',
