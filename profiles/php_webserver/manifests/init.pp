@@ -37,7 +37,7 @@ class php_webserver (
 
   include '::archive'
 
-  #$real_settings = deep_merge($::php_webserver::params::php_settings, $php_settings)
+  $real_settings = deep_merge($::php_webserver::params::php_settings, $php_settings)
   #$real_extensions = deep_merge($::php_webserver::params::php_extensions, $php_extensions)
 
   file { $datadir_base:
