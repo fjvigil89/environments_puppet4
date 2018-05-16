@@ -36,11 +36,34 @@ class php_webserver::params {
   $php_version = '5.6'
 
   $php_settings = {
+    'PHP/max_execution_time'  => '90',
+    'PHP/max_input_time'      => '300',
+    'PHP/memory_limit'        => '-1',
+    'PHP/post_max_size'       => '32M',
+    'PHP/upload_max_filesize' => '32M',	
     'Date/date.timezone'      => 'America/Havana',
   }
 
   $php_extensions = {
-   'extension' => 'php_ldap.dll',
+    extensions => {
+     bcmath    => { },
+     imagick   => {
+       provider => pecl,
+     },
+     xmlrpc    => { },
+     memcached => {
+       provider        => 'pecl',
+       header_packages => [ 'libmemcached-devel', ],
+     },
+     apc       => {
+       provider => 'pecl',
+       settings => {
+         'apc/stat'       => '1',
+         'apc/stat_ctime' => '1',
+       },
+       sapi     => 'fpm',
+     },
+   },
   }
 
   $datadir_base = '/srv'
