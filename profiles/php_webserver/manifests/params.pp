@@ -45,8 +45,6 @@ class php_webserver::params {
   }
 
   $php_extensions = {
-    extensions => {
-     },
   }
 
   $datadir_base = '/srv'
