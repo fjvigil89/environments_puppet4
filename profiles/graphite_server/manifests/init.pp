@@ -33,7 +33,7 @@ class graphite_server {
   gr_django_db_port         => '3306',
   gr_memcache_hosts         => ['127.0.0.1:11211']
   }
-  include '::apache'
+  #include '::apache'
 
   #apache::vhost { 'graphite.upr.edu.cu':
   #port                        => '80',
