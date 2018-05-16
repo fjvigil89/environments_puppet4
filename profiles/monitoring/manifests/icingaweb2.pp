@@ -244,14 +244,14 @@ class { 'icingaweb2::module::graphite':
 
 #Fileshippet Module
 class { 'icingaweb2::module::fileshipper':
-  git_revision => 'master',
-  base_directories => {
-    systemen_github => '/etc/icingaweb2/fileshipper',
+  git_revision      => 'master',
+  base_directories  => {
+    basedir => '/etc/icingaweb2/fileshipper',
   },
-  directories      => {
+  directories       => {
     'test' => {
-      'source'     => '/usr/local/src/custom-rules.git',
-      'target'     => '/zones.d/director-global/custom-rules',
+      'source' => '/usr/local/src/custom-rules.git',
+      'target' => '/zones.d/director-global/custom-rules',
     }
   }
 }
