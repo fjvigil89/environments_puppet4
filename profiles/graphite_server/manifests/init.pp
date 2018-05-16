@@ -65,9 +65,5 @@ apache::vhost { 'graphite.upr.edu.cu':
     allow => 'from all'}
   ]
 }->
-class { 'graphite':
-  gr_web_server           => 'none',
-  gr_disable_webapp_cache => true,
-}
 }
 
