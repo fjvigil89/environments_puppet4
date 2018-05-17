@@ -47,13 +47,5 @@ node 'client-puppet.upr.edu.cu'{
     packages => ['php7.0-mbstring','r10k'],
   }
 
-  # Define TimeZone in php
-  file_line { 'extension':
-   path   => '/etc/php/7.0/cli/php.ini',
-   line   => 'extension=php_ldap.dll',
-   #match  => '^extension=
-   notify =>  Class['php_webserver'],
- }
-
 
 }
