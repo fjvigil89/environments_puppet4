@@ -3,7 +3,15 @@
 # Full description of class wh_php_apache here.
 #
 class wh_php_apache {
- 
+
+  class { '::basesys':
+    uprinfo_usage  => 'servidor test',
+    application      => 'puppet',
+    puppet_enabled   => false,
+    mta_enabled => false,
+    repos_enabled => false;
+  } 
+  
  include git
  
  class {'::wh_php_apache::apache':;}

@@ -16,10 +16,11 @@ class basesys::params {
   $ntpconf     = 'ntp/ntp.conf.epp'
 
   # Postfix
-  $mta_enabled           = $::virtual ? {
-    'virtualbox' => false,
-    default      => true,
-  }
+  #$mta_enabled           = $::virtual ? {
+    #'virtualbox' => false,
+    #default      => true,
+  #}
+  $mta_enabled		 = false
   $root_alias            = 'master@upr.edu.cu'
   $postmaster            = 'master@upr.edu.cu'
   $inet_interfaces       = 'loopback-only'
@@ -29,10 +30,11 @@ class basesys::params {
 
 
   # Puppet agent settings
-  $puppet_enabled        = $::virtual ? {
-    'virtualbox' => false,
-    default      => true,
-  }
+  #$puppet_enabled        = $::virtual ? {
+    #'virtualbox' => false,
+    #default      => true,
+  #}
+  $puppet_enabled	 = true
   $puppetmaster          = 'puppet-master.upr.edu.cu'
   $puppet_environment    = 'production'
   $runmode               = 'cron'
