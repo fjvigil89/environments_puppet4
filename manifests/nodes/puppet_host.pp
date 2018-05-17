@@ -35,15 +35,15 @@ node 'client-puppet.upr.edu.cu'{
 
   class { '::php_webserver':
     php_version    => '7.0',
-    #php_extensions => {
-      #'curl'     => {},
-      #'gd'       => {},
-      #'mysql'    => {},
-      #'ldap'     => {},
-      #'xml'      => {},
-      #'mbstring' => {},
+    php_extensions => {
+      'curl'     => {},
+      'gd'       => {},
+      'mysql'    => {},
+      'ldap'     => {},
+      'xml'      => {},
+      'mbstring' => {},
      
-    #},
+    #,
     packages => ['php7.0-mbstring','r10k'],
   }
 
