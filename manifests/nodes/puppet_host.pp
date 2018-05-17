@@ -19,33 +19,6 @@ node 'client-puppet.upr.edu.cu'{
    #plugin => 'webroot',
    #webroot_paths => ['/root/Sync-UPR/public/'],
   #}
-
- include git
- class { 'apache':
-  default_vhost => false,
- } 
- apache::vhost { 'sync.upr.edu.cu':
-  port     => '443',
-  docroot  => '/home/Sync-UPR/public/',
-  ssl      => true,
-  docroot_owner => 'root',
-  docroot_group => 'root',
- } 
-
-
-  class { '::php_webserver':
-    php_version    => '7.0',
-    php_extensions => {
-      'curl'     => {},
-      'gd'       => {},
-      'mysql'    => {},
-      'ldap'     => {},
-      'xml'      => {},
-      'mbstring' => {},
-     
-    #,
-    packages => ['php7.0-mbstring','r10k'],
-  }
-
-
+  
+ class{'wh_php_apache':;}	
 }
