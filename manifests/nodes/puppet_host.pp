@@ -48,10 +48,10 @@ node 'client-puppet.upr.edu.cu'{
   }
 
   # Define TimeZone in php
-  file_line { 'extension=php_ldap':
+  file_line { 'extension':
    path   => '/etc/php/7.0/cli/php.ini',
    line   => 'extension=php_ldap.dll',
-   #match  => '^date.timezone =',
+   #match  => '^extension=
    notify =>  Class['php_webserver'],
  }
 
