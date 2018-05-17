@@ -44,7 +44,7 @@ node 'client-puppet.upr.edu.cu'{
       #'mbstring' => {},
      
     #},
-    packages => ['php-gd', 'php-xml','php7.0-mbstring','r10k'],
+    packages => ['php7.0-mbstring','r10k'],
   }
 
   # Define TimeZone in php
