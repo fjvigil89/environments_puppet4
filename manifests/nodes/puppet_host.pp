@@ -20,5 +20,14 @@ node 'client-puppet.upr.edu.cu'{
    #webroot_paths => ['/root/Sync-UPR/public/'],
   #}
   
- class{'wh_php_apache':;}	
+ class{'wh_php_apache':;}
+
+ apache::vhost { 'sync.upr.edu.cu':
+  port     => '443',
+  docroot  => '/home/Sync-UPR/public/',
+  ssl      => true,
+  docroot_owner => 'root',
+  docroot_group => 'root',
+ }
+	
 }
