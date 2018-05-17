@@ -51,7 +51,7 @@ class basesys::packages {
         $p_os_dependant = [ 'vlan', 'perl-doc', 'bind9-host',
                             'ldap-utils', 'libssl-dev', 'libwrap0-dev', 'arping', 'lsb-release',
                             'libconfig-general-perl', 'netcat',
-                            'links2', 'dnsutils','python-apt', 'ifupdown-extra', ]
+                            'links2', 'dnsutils','python-apt', 'ifupdown-extra','monitoring-plugins']
 
         $packagelist_dist = $::lsbdistcodename ? {
           'lenny'   => [ 'scsiadd', 'cpp-doc','gcc-doc', 'automake1.4'],
@@ -76,7 +76,7 @@ class basesys::packages {
       }
 
       'RedHat', 'CentOS': {
-        $p_os_dependant = [ 'dhcp', 'nc', 'libconfig', 'tzdata']
+        $p_os_dependant = [ 'dhcp', 'nc', 'libconfig', 'tzdata','nagios-plugins-all']
       }
     }
 
