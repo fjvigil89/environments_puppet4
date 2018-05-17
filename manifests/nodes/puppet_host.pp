@@ -21,12 +21,6 @@ node 'client-puppet.upr.edu.cu'{
   #}
 
  include git
- class { '::composer':
-  command_name => 'composer',
-  target_dir   => '/usr/local/bin'
- }
-
-
  class { 'apache':
   default_vhost => false,
  } 
