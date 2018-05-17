@@ -1,7 +1,6 @@
 node 'client-puppet.upr.edu.cu'{
   
- class {'::talkserver':;}
-
+  #class {'::talkserver':;}
   #class {'::mailserver':;}
 
   class { '::basesys':
@@ -12,7 +11,6 @@ node 'client-puppet.upr.edu.cu'{
   repos_enabled => false;
  
   }
- 
 
   #class { '::letsencrypt_host':
    #email => 'fjvigil@hispavista.com',
@@ -22,20 +20,23 @@ node 'client-puppet.upr.edu.cu'{
    #webroot_paths => ['/root/Sync-UPR/public/'],
   #}
 
- #class { 'apache':
-  #default_vhost => false,
- #} 
- #apache::vhost { 'sync.upr.edu.cu':
-  #port     => '443',
-  #docroot  => '/home/Sync-UPR/public/',
-  #ssl      => true,
-  #docroot_owner => 'root',
-  #docroot_group => 'root',
- #} 
+ include git
+ include composer
+
+ class { 'apache':
+  default_vhost => false,
+ } 
+ apache::vhost { 'sync.upr.edu.cu':
+  port     => '443',
+  docroot  => '/home/Sync-UPR/public/',
+  ssl      => true,
+  docroot_owner => 'root',
+  docroot_group => 'root',
+ } 
 
 
-  #class { '::php_webserver':
-    #php_version    => '7.0',
+  class { '::php_webserver':
+    php_version    => '7.0',
     #php_extensions => {
       #'curl'     => {},
       #'gd'       => {},
@@ -45,7 +46,7 @@ node 'client-puppet.upr.edu.cu'{
       #'mbstring' => {},
      
     #},
-    #packages => ['php-gd', 'php-xml','php7.0-mbstring'],
-  #}
+    packages => ['php-gd', 'php-xml','php7.0-mbstring','r10k'],
+  }
 
 }
