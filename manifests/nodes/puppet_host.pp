@@ -21,7 +21,11 @@ node 'client-puppet.upr.edu.cu'{
   #}
 
  include git
- include composer
+ class { '::composer':
+  command_name => 'composer',
+  target_dir   => '/usr/local/bin'
+ }
+
 
  class { 'apache':
   default_vhost => false,
@@ -48,5 +52,14 @@ node 'client-puppet.upr.edu.cu'{
     #},
     packages => ['php-gd', 'php-xml','php7.0-mbstring','r10k'],
   }
+
+  # Define TimeZone in php
+  file_line { ';extension=php_ldap':
+   path   => '/etc/php/7.0/cli/php.ini',
+   line   => 'extension=php_ldap.dll',
+   #match  => '^date.timezone =',
+   notify =>  Class['php_webserver'],
+ }
+
 
 }
