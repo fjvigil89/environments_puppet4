@@ -28,5 +28,7 @@ node 'client-puppet.upr.edu.cu'{
   #docroot_owner => 'root',
   #docroot_group => 'root',
  #}
+
+ 
 	
 }

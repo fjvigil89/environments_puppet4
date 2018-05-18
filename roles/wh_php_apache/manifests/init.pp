@@ -26,7 +26,7 @@ class wh_php_apache {
       'xml'      => {},
       'mbstring' => {},
      }, 
-    packages => ['php7.0-mbstring','r10k'],
+    packages => ['php7.0-mbstring','r10k','gitlab-runner'],
   }
 
 
