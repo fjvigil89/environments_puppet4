@@ -51,7 +51,7 @@ class basesys::packages {
         $p_os_dependant = [ 'vlan', 'perl-doc', 'bind9-host',
                             'ldap-utils', 'libssl-dev', 'libwrap0-dev', 'arping', 'lsb-release',
                             'libconfig-general-perl', 'netcat',
-                            'links2', 'dnsutils','python-apt', 'ifupdown-extra','monitoring-plugins']
+                            'links2', 'dnsutils','python-apt', 'ifupdown-extra','monitoring-plugins','libwww-perl']
 
         $packagelist_dist = $::lsbdistcodename ? {
           'lenny'   => [ 'scsiadd', 'cpp-doc','gcc-doc', 'automake1.4'],
