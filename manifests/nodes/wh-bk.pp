@@ -19,9 +19,9 @@ node 'wh-bk.upr.edu.cu'{
  }
 
  apache::vhost { 'apiassets.upr.edu.cu':
-  port     => '443',
+  port     => '80',
   docroot  => '/home/Api-Assets/master/public/',
-  ssl      => true,
+  ssl      => false,
   docroot_owner => 'root',
   docroot_group => 'root',
  }
