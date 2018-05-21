@@ -29,6 +29,8 @@ class gitlabprodserver{
   uprinfo_usage  => 'servidor gitlab',
   application    => 'production',
   puppet_enabled =>   false,
+  mta_enabled => false,
+  repos_enabled => false;
   }
 
   include gitlabserver
