@@ -12,7 +12,7 @@ class basesys::time {
   config_epp    => $basesys::ntpconf,
     }
   class {'::timezone':
-    timezone => 'America/Havana',
+    timezone => 'America/New_York',
       #package_ensure => 'present',
       #manage_package => true,
     }
