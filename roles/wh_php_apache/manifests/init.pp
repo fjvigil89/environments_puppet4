@@ -26,7 +26,7 @@ class wh_php_apache {
       'xml'      => {},
       'mbstring' => {},
      }, 
-    packages => ['php7.0-mbstring','r10k'],
+    packages => ['php7.0-mbstring','r10k','php7.0-curl','php7.0-intl','php7.0-ldap','php7.0-mysql','php7.0-sybase'],
   }
 
 
