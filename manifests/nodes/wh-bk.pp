@@ -8,8 +8,6 @@ node 'wh-bk.upr.edu.cu'{
   docroot          => '/home/Sync-UPR/master/public/',
   redirect_status  => 'permanent',
   redirect_dest    => 'https://sync.upr.edu.cu/',
-  fallbackresource => '/index.php',
-  file_type        => 'application/x-httpd-php',
  }
 
  apache::vhost { 'sync.upr.edu.cu ssl':
