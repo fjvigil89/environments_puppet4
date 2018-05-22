@@ -9,7 +9,7 @@ node 'wh-bk.upr.edu.cu'{
   redirect_status  => 'permanent',
   redirect_dest    => 'https://sync.upr.edu.cu/'
   fallbackresource => '/index.php',
-  file_type        => 'application/x-httpd-php'
+  file_type        => 'application/x-httpd-php',
  }
 
  apache::vhost { 'sync.upr.edu.cu ssl':
@@ -18,7 +18,7 @@ node 'wh-bk.upr.edu.cu'{
   docroot          => '/home/Sync-UPR/master/public/',
   ssl              => true,
   fallbackresource => '/index.php',
-  file_type        => 'application/x-httpd-php'
+  file_type        => 'application/x-httpd-php',
  } 
 
  apache::vhost { 'contable.upr.edu.cu':
