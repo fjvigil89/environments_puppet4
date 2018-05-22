@@ -16,7 +16,6 @@ node 'wh-bk.upr.edu.cu'{
   docroot          => '/home/Sync-UPR/master/public/',
   ssl              => true,
   fallbackresource => '/index.php',
-  file_type        => 'application/x-httpd-php',
  } 
 
  apache::vhost { 'contable.upr.edu.cu':
