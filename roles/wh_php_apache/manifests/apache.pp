@@ -5,15 +5,24 @@
 class wh_php_apache::apache{
 
  class { 'apache':
-  default_vhost => false,
+  default_vhost => true,
+  mpm_module => 'prefork',
  }
- 
- #apache::vhost { 'sync.upr.edu.cu':
-  #port     => '443',
-  #docroot  => '/home/Sync-UPR/public/',
-  #ssl      => true,
-  #docroot_owner => 'root',
-  #docroot_group => 'root',
- #}
+
+  # Load mod_rewrite if needed and not yet loaded
+  if ! defined(Class['apache::mod::rewrite']) {
+  ¦ include ::apache::mod::rewrite
+  }
+
+  class { '::apache::mod::proxy':; }
+  -> class { '::apache::mod::proxy_fcgi':; }
+
+  if $mod_security_enabled {
+  ¦ class { '::apache::mod::security':
+  ¦ ¦ activated_rules      => $mod_security_rules,
+  ¦ ¦ modsec_secruleengine => $mod_security_mode,
+
+  ¦ }
+  } 
 
 }
