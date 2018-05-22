@@ -7,7 +7,7 @@ node 'wh-bk.upr.edu.cu'{
   port             => '80',
   docroot          => '/home/Sync-UPR/master/public/',
   redirect_status  => 'permanent',
-  redirect_dest    => 'https://sync.upr.edu.cu/'
+  redirect_dest    => 'https://sync.upr.edu.cu/',
   fallbackresource => '/index.php',
   file_type        => 'application/x-httpd-php',
  }
