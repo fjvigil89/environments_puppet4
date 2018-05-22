@@ -6,8 +6,8 @@ node 'wh-bk.upr.edu.cu'{
   servername       => 'sync.upr.edu.cu',
   port             => '80',
   docroot          => '/home/Sync-UPR/master/public/',
-  redirect_status  => 'permanent',
-  redirect_dest    => 'https://sync.upr.edu.cu/',
+  # redirect_status  => 'permanent',
+  #redirect_dest    => 'https://sync.upr.edu.cu/',
  }
 
  apache::vhost { 'sync.upr.edu.cu ssl':
@@ -15,7 +15,6 @@ node 'wh-bk.upr.edu.cu'{
   port             => '443',
   docroot          => '/home/Sync-UPR/master/public/',
   ssl              => true,
-  fallbackresource => '/index.php',
  } 
 
  apache::vhost { 'contable.upr.edu.cu':
