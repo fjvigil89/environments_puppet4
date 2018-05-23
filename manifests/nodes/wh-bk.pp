@@ -26,11 +26,11 @@ node 'wh-bk.upr.edu.cu'{
   servername       => 'contable.upr.edu.cu',
   serveraliases => ['www.contable.upr.edu.cu'],
   port             => '80',
-  docroot          => '/home/Contable/master/public/',
+  docroot          => '/home/Contable/master/web/',
   docroot_owner    => 'root',
   docroot_group    => 'root',
   directories      => [ {
-    path    => '/home/Contable/master/public',
+    path    => '/home/Contable/master/web',
     #options => ['Indexes','FollowSymLinks','MultiViews'],
     allowoverride  => 'All',
     allowfrom     => 'All',
