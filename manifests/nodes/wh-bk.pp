@@ -28,7 +28,7 @@ node 'wh-bk.upr.edu.cu'{
     #options => ['Indexes','FollowSymLinks','MultiViews'],
     allowoverride  => 'All',
     allowfrom     => 'All',
-    directoryindex => 'index.php index.html ',
+    directoryindex => 'app.php app.html ',
     },],
 
   # redirect_status  => 'permanent',
