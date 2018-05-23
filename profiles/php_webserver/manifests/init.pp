@@ -57,7 +57,7 @@ class php_webserver (
     fpm          => true,
     dev          => $development_mode,
     composer     => true,
-    #pear         => true,
+    pear         => true,
     phpunit      => $development_mode,
     settings     => $real_settings,
     extensions   => $real_extensions,
