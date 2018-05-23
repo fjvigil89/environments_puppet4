@@ -137,8 +137,8 @@ class basesys::repos (
 	    baseurl   => "http://repos.upr.edu.cu/CentOS/${::operatingsystemmajrelease}/extras/${::architecture}"
           ;
            "UPSTREAM-rhel-${::operatingsystemmajrelease}-server-extra-sclo":
-            descr     => "UPSTREAM rhel ${::operatingsystemmajrelease} server extra rpms",
-            name      => "UPSTREAM-rhel-${::operatingsystemmajrelease}-server-extra-rpms",
+            descr     => "UPSTREAM rhel ${::operatingsystemmajrelease} server extra sclo",
+            name      => "UPSTREAM-rhel-${::operatingsystemmajrelease}-server-extra-sclo",
             enabled   => '1',
             sslverify => '0',
             gpgcheck  => '0',
