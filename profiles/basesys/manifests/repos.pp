@@ -136,6 +136,16 @@ class basesys::repos (
             #baseurl   => "https://pulp2.ugent.be/pulp/repos/rhelupstream/rhel/server/${::operatingsystemmajrelease}/x86_64/extras",
 	    baseurl   => "http://repos.upr.edu.cu/CentOS/${::operatingsystemmajrelease}/extras/${::architecture}"
           ;
+           "UPSTREAM-rhel-${::operatingsystemmajrelease}-server-extra-sclo":
+            descr     => "UPSTREAM rhel ${::operatingsystemmajrelease} server extra rpms",
+            name      => "UPSTREAM-rhel-${::operatingsystemmajrelease}-server-extra-rpms",
+            enabled   => '1',
+            sslverify => '0',
+            gpgcheck  => '0',
+            #baseurl   => "https://pulp2.ugent.be/pulp/repos/rhelupstream/rhel/server/${::operatingsystemmajrelease}/x86_64/extras",
+            baseurl   => "http://repos.upr.edu.cu/CentOS/${::operatingsystemmajrelease}/sclo/${::architecture}"
+          ;
+
           'epel':
             descr          => "Extra Packages for Enterprise Linux ${::operatingsystemmajrelease}",
             name           => 'epel',
