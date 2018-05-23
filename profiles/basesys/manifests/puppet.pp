@@ -41,15 +41,15 @@ class basesys::puppet{
     }
     # Verwijderen oude puppet config
     file {
-      '/etc/puppet/puppet.conf':
+      '/etc/puppetlabs/puppet/puppet.conf':
         ensure => 'absent';
-      '/etc/puppet/puppet.conf.pre_fcopy':
+      '/etc/puppetlabs/puppet/puppet.conf.pre_fcopy':
         ensure => 'absent';
-      '/etc/puppet/etckeeper-commit-pre':
+      '/etc/puppetlabs/puppet/etckeeper-commit-pre':
         ensure => 'absent';
-      '/etc/puppet/etckeeper-commit-post':
+      '/etc/puppetlabs/puppet/etckeeper-commit-post':
         ensure => 'absent';
-      '/etc/puppet/README':
+      '/etc/puppetlabs/puppet/README':
         ensure => present,
         source => 'puppet:///modules/basesys/README';
     }
