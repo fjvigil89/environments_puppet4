@@ -115,7 +115,7 @@ class basesys::repos (
             sslverify => '0',
             gpgcheck  => '0',
             #baseurl   => "https://pulp2.ugent.be/pulp/repos/rhelupstream/rhel/server/${::operatingsystemmajrelease}/x86_64/os",
-	    baseurl   => "http://repos.upr.edu.cu/CentOS/${::operatingsystemmajrelease}/os/$basearch/"
+	    baseurl   => "http://repos.upr.edu.cu/CentOS/${::operatingsystemmajrelease}/os/${::architecture}"
           ;
           "UPSTREAM-rhel-${::operatingsystemmajrelease}-server-optional-rpms":
             descr     => "UPSTREAM rhel ${::operatingsystemmajrelease} server optional rpms",
@@ -124,7 +124,7 @@ class basesys::repos (
             sslverify => '0',
             gpgcheck  => '0',
             #baseurl   => "https://pulp2.ugent.be/pulp/repos/rhelupstream/rhel/server/${::operatingsystemmajrelease}/x86_64/optional",
-	    baseurl   => "http://repos.upr.edu.cu/CentOS/${::operatingsystemmajrelease}/os/$basearch/"
+	    baseurl   => "http://repos.upr.edu.cu/CentOS/${::operatingsystemmajrelease}/os/${::architecture}"
 
           ;
           "UPSTREAM-rhel-${::operatingsystemmajrelease}-server-extra-rpms":
@@ -134,7 +134,7 @@ class basesys::repos (
             sslverify => '0',
             gpgcheck  => '0',
             #baseurl   => "https://pulp2.ugent.be/pulp/repos/rhelupstream/rhel/server/${::operatingsystemmajrelease}/x86_64/extras",
-	    baseurl   => "http://repos.upr.edu.cu/CentOS/${::operatingsystemmajrelease}/extras/$basearch/"
+	    baseurl   => "http://repos.upr.edu.cu/CentOS/${::operatingsystemmajrelease}/extras/${::architecture}"
           ;
           'epel':
             descr          => "Extra Packages for Enterprise Linux ${::operatingsystemmajrelease}",
