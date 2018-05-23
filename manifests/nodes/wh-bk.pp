@@ -32,8 +32,8 @@ node 'wh-bk.upr.edu.cu'{
   directories      => [ {
     path    => '/home/Contable/master/web',
     #options => ['Indexes','FollowSymLinks','MultiViews'],
-    allowoverride  => 'All',
-    allowfrom     => 'All',
+    allowoverride  => 'all',
+    allowfrom     => 'all',
     directoryindex => 'app.php app.html ',
     },],
 
