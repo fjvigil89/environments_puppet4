@@ -10,8 +10,8 @@ node 'wh-bk.upr.edu.cu'{
     path    => '/home/Sync-UPR/master/public',
     #options => ['Indexes','FollowSymLinks','MultiViews'],
     directoryindex => 'index.php index.html ',
-    allowoverride  => 'All',
-    allow     => 'from All',
+    allowoverride  => All,
+    allowfrom     => 'All',
     },],
 
   # redirect_status  => 'permanent',
