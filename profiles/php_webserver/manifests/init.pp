@@ -50,7 +50,7 @@ class php_webserver (
 
   class { '::php::globals':
     php_version => $php_version,
-    config_root => '/etc/php/7.0/fpm/',
+    config_root => '/etc/php/7.0',
   }
   -> class { '::php':
     manage_repos => true,
