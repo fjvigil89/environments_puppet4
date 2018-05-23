@@ -4,6 +4,7 @@ node 'wh-bk.upr.edu.cu'{
 
  apache::vhost { 'sync.upr.edu.cu':
   servername       => 'sync.upr.edu.cu',
+  serveraliases => ['www.sync.upr.edu.cu'], 
   port             => '80',
   docroot	   => '/home/Sync-UPR/master/public/',
   docroot_owner    => 'root',
@@ -23,6 +24,7 @@ node 'wh-bk.upr.edu.cu'{
  
  apache::vhost { 'contable.upr.edu.cu':
   servername       => 'contable.upr.edu.cu',
+  serveraliases => ['www.contable.upr.edu.cu'],
   port             => '80',
   docroot          => '/home/Contable/master/public/',
   docroot_owner    => 'root',
