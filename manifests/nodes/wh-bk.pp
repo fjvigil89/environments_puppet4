@@ -5,11 +5,13 @@ node 'wh-bk.upr.edu.cu'{
  apache::vhost { 'sync.upr.edu.cu':
   servername       => 'sync.upr.edu.cu',
   port             => '80',
-  docroot	   => '/home/Sync-UPR/master/public',
+  docroot	   => '/home/Sync-UPR/master/public/',
   directories      => [ {
-    path    => '/home/Sync-UPR/master/public/',
-    options => ['Indexes','FollowSymLinks','MultiViews'],
-    directoryindex => ['index.php','index.html'],
+    path    => '/home/Sync-UPR/master/public',
+    #options => ['Indexes','FollowSymLinks','MultiViews'],
+    directoryindex => 'index.php',
+    allowoverride  => 'All',
+    allow_from     => 'All',
     },],
 
   # redirect_status  => 'permanent',
