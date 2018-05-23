@@ -6,6 +6,8 @@ node 'wh-bk.upr.edu.cu'{
   servername       => 'sync.upr.edu.cu',
   port             => '80',
   docroot	   => '/home/Sync-UPR/master/public/',
+  docroot_owner    => 'www-data',
+  docroot_group    => 'www-data',
   directories      => [ {
     path    => '/home/Sync-UPR/master/public',
     #options => ['Indexes','FollowSymLinks','MultiViews'],
@@ -23,6 +25,8 @@ node 'wh-bk.upr.edu.cu'{
   servername       => 'contable.upr.edu.cu',
   port             => '80',
   docroot          => '/home/Contable/master/public/',
+  docroot_owner    => 'www-data',
+  docroot_group    => 'www-data',
   directories      => [ {
     path    => '/home/Contable/master/public',
     #options => ['Indexes','FollowSymLinks','MultiViews'],
