@@ -29,9 +29,6 @@ node 'wh-bk.upr.edu.cu'{
   docroot          => '/home/Contable/master/web/',
   docroot_owner    => 'root',
   docroot_group    => 'root',
-  suphp_addhandler => 'x-httpd-php7',
-  suphp_engine     => 'on',
-  suphp_configpath => '/etc/php/7.0/apache2', 
   directories      => [ {
     path    => '/home/Contable/master/web',
     #options => ['Indexes','FollowSymLinks','MultiViews'],

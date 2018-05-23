@@ -54,7 +54,7 @@ class php_webserver (
   }
   -> class { '::php':
     manage_repos => true,
-    fpm          => true,
+    fpm          => false,
     dev          => $development_mode,
     composer     => true,
     #pear         => true,
