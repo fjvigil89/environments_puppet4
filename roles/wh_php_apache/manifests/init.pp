@@ -9,7 +9,7 @@ class wh_php_apache {
     application      => 'puppet',
     puppet_enabled   => false,
     mta_enabled => false,
-    repos_enabled => false;
+    repos_enabled => true;
   } 
   
  include git
@@ -26,7 +26,7 @@ class wh_php_apache {
       'xml'      => {},
       'mbstring' => {},
      }, 
-    packages => ['php7.0-mbstring','r10k','php7.0','php7.0-curl','php7.0-intl','php7.0-ldap','php7.0-mysql','php7.0-sybase','libapache2-mod-php7.0','php7.0-mcrypt'],
+   #packages => ['php7.0-mbstring','r10k','php7.0','php7.0-curl','php7.0-intl','php7.0-ldap','php7.0-mysql','php7.0-sybase','libapache2-mod-php7.0','php7.0-mcrypt'],
   }
 
 
