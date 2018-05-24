@@ -11,7 +11,7 @@ class graphite_server {
  mysql::db { 'graphite':
   user     => 'graphite',
   password => 'graphite*upr.2k18',
-  host     => '127.0.0.1',
+  host     => 'localhost',
   grant    => ['SELECT', 'INSERT', 'UPDATE', 'DELETE', 'DROP', 'CREATE VIEW', 'CREATE', 'INDEX', 'EXECUTE', 'ALTER'],
 }
 
