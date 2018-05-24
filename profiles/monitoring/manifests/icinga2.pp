@@ -70,4 +70,13 @@ icinga2::object::zone { 'global-templates':
 icinga2::object::zone { 'director-global':
   global =>  true,
 }
+
+#Graphite Feature Conf
+class { '::icinga2::feature::graphite':
+  host                   => '10.2.1.46',
+  port                   => 2003,
+  enable_send_thresholds => true,
+  enable_send_metadata   => true,
+}
+
 }
