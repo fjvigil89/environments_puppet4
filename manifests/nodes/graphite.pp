@@ -5,5 +5,4 @@ class { '::basesys':
   ¦ puppet_enabled => false,
   ¦ mta_enabled    => false,
   }
-
 }
