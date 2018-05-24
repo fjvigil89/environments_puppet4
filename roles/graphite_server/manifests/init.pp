@@ -3,7 +3,7 @@
 #================================
 #
 
-class graphite_server {
+class graphiteserver {
 class { '::basesys':
     uprinfo_usage  => 'graphite_server',
     application    => 'graphite',
