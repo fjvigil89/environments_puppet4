@@ -4,5 +4,6 @@
 #
 
 class graphite_server {
+  class { 'graphite': }
 }
 
