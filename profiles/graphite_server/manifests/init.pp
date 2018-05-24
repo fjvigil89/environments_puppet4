@@ -12,7 +12,8 @@ class graphite_server {
   user     => 'graphite',
   password => 'graphite*upr.2k18',
   host     => 'localhost',
-  grant    => ['SELECT', 'INSERT', 'UPDATE', 'DELETE', 'DROP', 'CREATE VIEW', 'CREATE', 'INDEX', 'EXECUTE', 'ALTER'],
+  #  grant => ['SELECT', 'INSERT', 'UPDATE', 'DELETE', 'DROP', 'CREATE VIEW', 'CREATE', 'INDEX', 'EXECUTE', 'ALTER'],
+  grant    =>  ['ALL'],
 }
 
 
