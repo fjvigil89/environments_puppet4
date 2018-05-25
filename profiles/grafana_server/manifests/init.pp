@@ -5,14 +5,11 @@
 # === Parameters
 #
 class grafana_server {
-class { '::mysql::server':
- root_password           => 'graphite.2k18',
- remove_default_accounts => true,
-} 
+include '::mysql::server'
 mysql::db { 'grafana':
 user     => 'grafana',
 password => 'grafana*upr.2k18',
-host     => 'localhost',
+host     => '127.0.0.1',
 grant    =>  ['ALL'],
 }
 class { 'grafana':
