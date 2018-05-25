@@ -67,4 +67,4 @@ grafana_dashboard { 'example_dashboard':
 }
 }
 
-}
+
