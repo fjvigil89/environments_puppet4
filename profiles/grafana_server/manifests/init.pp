@@ -15,6 +15,11 @@ password => 'grafana*upr.2k18',
 host     => 'localhost',
 grant    =>  ['ALL'],
 }
+'auth.ldap' => {
+  enabled     => 'true',
+  config_file => '/etc/grafana/ldap.toml',
+},
+
 class { 'grafana':
 cfg => {
 app_mode => 'production',
