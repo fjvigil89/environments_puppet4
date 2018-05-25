@@ -235,7 +235,7 @@ file_line{ 'php_memory_limit':
 #Graphite Module
 class { 'icingaweb2::module::graphite':
   git_revision => 'v0.9.0',
-  url          => 'https://graphite.upr.edu.cu:443'
+  url          => 'http://graphite.upr.edu.cu'
 }
 
 #Fileshippet Module
