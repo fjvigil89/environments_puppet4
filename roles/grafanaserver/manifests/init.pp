@@ -10,6 +10,6 @@ class grafanaserver {
   #application    => 'Grafana Server',
   #puppet_enabled =>   false,
   #}
-
+include grafana_server
 
 }
