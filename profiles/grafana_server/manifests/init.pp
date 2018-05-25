@@ -32,24 +32,24 @@ server   => {
       allow_sign_up => false,
     },
   },
-ldap_cfg   => {
-   servers => [
-    { host            => 'ad.upr.edu.cu',
-      port            => 389,
-      use_ssl         => false,
-      search_filter   => '(sAMAccountName=%s)',
-      search_base_dns => [ 'ou=_GrupoRedes,dc=upr,dc=edu,dc=cu' ],
-      bind_dn         => 'icinga2',
-      bind_password   => 'web.2k17',
-    },
-  ],
-  'servers.attributes' => {
-    name      => 'givenName',
-    surname   => 'sn',
-    username  => 'sAMAccountName',
-    member_of => 'memberOf',
-    email     => 'email',
-  }
+  #ldap_cfg   => {
+  # servers => [
+  #  { host            => 'ad.upr.edu.cu',
+  #    port            => 389,
+  #    use_ssl         => false,
+  #    search_filter   => '(sAMAccountName=%s)',
+  #    search_base_dns => [ 'ou=_GrupoRedes,dc=upr,dc=edu,dc=cu' ],
+  #    bind_dn         => 'icinga2',
+  #    bind_password   => 'web.2k17',
+  #  },
+  #],
+  #'servers.attributes' => {
+  #  name      => 'givenName',
+  #  surname   => 'sn',
+  #  username  => 'sAMAccountName',
+  #  member_of => 'memberOf',
+  #  email     => 'email',
+  #}
 },
 #'auth.ldap' => {
 #  enabled     => 'true',
