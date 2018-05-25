@@ -46,6 +46,7 @@ mod 'puppet-nginx', '0.11.0'
 mod 'puppet-gitlab', '2.0.0'
 mod 'dwerder-graphite', '7.3.0'
 mod 'puppetlabs-postgresql', '5.4.0'
+mod 'puppet-grafana', '4.2.0'
 
 mod 'puppet/puppetboard',
   :git => 'https://github.com/voxpupuli/puppet-puppetboard.git',
