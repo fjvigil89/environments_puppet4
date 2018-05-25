@@ -50,26 +50,26 @@ server   => {
   #  member_of => 'memberOf',
   #  email     => 'email',
   #}
-},
+}
 #'auth.ldap' => {
 #  enabled     => 'true',
 #  config_file => '/etc/grafana/ldap.toml',
 #},
 
 
-grafana_organization { 'UPRedes':
-  grafana_url      => 'http://localhost:3000',
-  grafana_user     => 'admin',
-  grafana_password => 'grafana',
-}
-grafana_dashboard { 'example_dashboard':
-  grafana_url       => 'http://localhost:3000',
-  grafana_user      => 'admin',
-  grafana_password  => 'grafana',
-  grafana_api_path  => '/grafana/api',
-  organization      => 'UPRedes',
-  content           => template('path/to/exported/file.json'),
-}
+#grafana_organization { 'UPRedes':
+#  grafana_url      => 'http://localhost:3000',
+#  grafana_user     => 'admin',
+#  grafana_password => 'grafana',
+#}
+#grafana_dashboard { 'example_dashboard':
+#  grafana_url       => 'http://localhost:3000',
+#  grafana_user      => 'admin',
+#  grafana_password  => 'grafana',
+#  grafana_api_path  => '/grafana/api',
+#  organization      => 'UPRedes',
+#  content           => template('path/to/exported/file.json'),
+#}
 }
 
 
