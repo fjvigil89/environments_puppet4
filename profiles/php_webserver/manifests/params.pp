@@ -36,17 +36,17 @@ class php_webserver::params {
   $php_version = '5.6'
 
   $php_settings = {	
-    'PHP/max_execution_time'  => '90',
-    'PHP/max_input_time'      => '300',
-    'PHP/memory_limit'        => '-1',
-    'PHP/post_max_size'       => '32M',
-    'PHP/upload_max_filesize' => '32M',
+    #'PHP/max_execution_time'  => '90',
+    #'PHP/max_input_time'      => '300',
+    #'PHP/memory_limit'        => '-1',
+    #'PHP/post_max_size'       => '32M',
+    #'PHP/upload_max_filesize' => '32M',
     'Date/date.timezone'      => 'America/Havana',
   }
 
   $php_extensions ={} 
  
-  $datadir_base = '/srv'
+  $datadir_base = '/home'
   $datadir_base_owner = 'root'
   $datadir_base_group = 'root'
 

@@ -26,7 +26,7 @@ class wh_php_apache {
       'xml'      => {},
       'mbstring' => {},
      }, 
-     packages => ['php7.1-mbstring','r10k'],#,'php7.1','php7.0-cli','php7.1-common','php7.1-curl','php7.1-intl','php7.1-ldap','php7.1-mysql','php7.1-sybase','libapache2-mod-php7.1','php7.1-mcrypt'],
+     packages => ['php7.0-mbstring','r10k'],#,'php7.1','php7.0-cli','php7.1-common','php7.1-curl','php7.1-intl','php7.1-ldap','php7.1-mysql','php7.1-sybase','libapache2-mod-php7.1','php7.1-mcrypt'],
   }
 
 
