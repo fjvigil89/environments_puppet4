@@ -8,7 +8,7 @@ node 'client-puppet.upr.edu.cu'{
   application      => 'puppet',
   puppet_enabled   => false,
   #mta_enabled => false,
-  repos_enabled => false;
+  repos_enabled => true;
  
   }
 
