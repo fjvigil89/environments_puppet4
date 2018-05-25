@@ -15,11 +15,6 @@ password => 'grafana*upr.2k18',
 host     => 'localhost',
 grant    =>  ['ALL'],
 }
-'auth.ldap' => {
-  enabled     => 'true',
-  config_file => '/etc/grafana/ldap.toml',
-},
-
 class { 'grafana':
 cfg => {
 app_mode => 'production',
@@ -56,7 +51,13 @@ ldap_cfg   => {
     email     => 'email',
   }
 },
+'auth.ldap' => {
+  enabled     => 'true',
+  config_file => '/etc/grafana/ldap.toml',
+},
+
 }
+
 grafana_organization { 'UPRedes':
   grafana_url      => 'http://localhost:3000',
   grafana_user     => 'admin',
