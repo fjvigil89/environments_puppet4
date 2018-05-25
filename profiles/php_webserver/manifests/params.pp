@@ -36,7 +36,7 @@ class php_webserver::params {
   $php_version = '5.6'
 
   $php_settings = {	
-    #'PHP/max_execution_time'  => '90',
+    'PHP/max_execution_time'  => '90',
     #'PHP/max_input_time'      => '300',
     #'PHP/memory_limit'        => '-1',
     #'PHP/post_max_size'       => '32M',
@@ -46,7 +46,7 @@ class php_webserver::params {
 
   $php_extensions ={} 
  
-  $datadir_base = '/home'
+  $datadir_base = '/home/'
   $datadir_base_owner = 'root'
   $datadir_base_group = 'root'
 
@@ -55,7 +55,7 @@ class php_webserver::params {
 
 
   $create_application_data_dir = true
-  $directoryindex = 'index.php'
+  $directoryindex = 'index.php app.php'
 
   $mod_security_mode = 'Off'
   $mod_security_enabled = false

@@ -7,14 +7,12 @@ node 'wh-bk.upr.edu.cu'{
   serveraliases => ['www.sync.upr.edu.cu'], 
   port             => '80',
   docroot	   => '/home/Sync-UPR/master/public/',
-  docroot_owner    => 'root',
-  docroot_group    => 'root',
   directories      => [ {
     path    => '/home/Sync-UPR/master/public',
     #options => ['Indexes','FollowSymLinks','MultiViews'],
     allowoverride  => 'All',
     allowfrom     => 'All',
-    directoryindex => 'index.php index.html ',
+    directoryindex => 'index.php',
     },],
 
   redirect_status  => 'permanent',
@@ -34,14 +32,12 @@ node 'wh-bk.upr.edu.cu'{
   serveraliases => ['www.contable.upr.edu.cu'],
   port             => '80',
   docroot          => '/home/Contable/master/web/',
-  docroot_owner    => 'root',
-  docroot_group    => 'root',
   directories      => [ {
     path    => '/home/Contable/master/web',
     #options => ['Indexes','FollowSymLinks','MultiViews'],
     allowoverride  => 'all',
     allowfrom     => 'all',
-    directoryindex => 'app.php app.html ',
+    directoryindex => 'app.php',
     },],
 
   redirect_status  => 'permanent',
