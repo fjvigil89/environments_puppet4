@@ -51,10 +51,10 @@ ldap_cfg   => {
     email     => 'email',
   }
 },
-'auth.ldap' => {
-  enabled     => 'true',
-  config_file => '/etc/grafana/ldap.toml',
-},
+#'auth.ldap' => {
+#  enabled     => 'true',
+#  config_file => '/etc/grafana/ldap.toml',
+#},
 
 }
 
