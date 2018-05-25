@@ -30,10 +30,12 @@ class wh_php_apache {
   }
  
   exec{"change_php5_to_php7":  
+    path    => "/bin:/usr/bin", #path donde esta el comando.
     command => 'a2enmod php7.0',
   }
  
   exec{"restart_apache2":
+    path    => "/bin:/usr/bin", #path donde esta el comando.
     command => 'service apache2 restart',
   }
 
