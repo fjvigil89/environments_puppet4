@@ -56,7 +56,6 @@ server   => {
 #  config_file => '/etc/grafana/ldap.toml',
 #},
 
-}
 
 grafana_organization { 'UPRedes':
   grafana_url      => 'http://localhost:3000',
