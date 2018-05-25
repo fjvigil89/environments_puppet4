@@ -51,6 +51,7 @@ ldap_cfg   => {
     email     => 'email',
   }
 },
+}
 grafana_organization { 'UPRedes':
   grafana_url      => 'http://localhost:3000',
   grafana_user     => 'admin',
