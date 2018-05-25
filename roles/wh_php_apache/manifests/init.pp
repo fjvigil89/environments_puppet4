@@ -29,14 +29,12 @@ class wh_php_apache {
      packages       =>  ['php7.0-mbstring','r10k','php7.0','php7.0-cli','php7.0-curl','php7.0-intl','php7.0-ldap','php7.0-mysql','php7.0-sybase','libapache2-mod-php7.0','php7.0-mcrypt','phpmyadmin'],
   }
  
-  exec{"change_php5_to_php7":
-  ensure => present,
-  command => 'a2enmod php7.0',
+  exec{"change_php5_to_php7":  
+    command => 'a2enmod php7.0',
   }
  
   exec{"restart_apache2":
-  ensure => present,
-  command => 'service apache2 restart',
+    command => 'service apache2 restart',
   }
 
 }
