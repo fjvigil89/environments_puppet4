@@ -39,7 +39,7 @@ node 'wh-bk.upr.edu.cu'{
     },],
 
   redirect_status  => 'permanent',
-  redirect_dest    => 'https://contable.upr.edu.cu/',
+  redirect_dest    => 'https://contable.upr.edu.cu/app.php',
  }~> 
  apache::vhost { 'contable.upr.edu.cu ssl':
   servername    => 'contable.upr.edu.cu',
