@@ -29,5 +29,10 @@ class wh_php_apache {
      packages       =>  ['php7.0-mbstring','r10k','php7.0','php7.0-cli','php7.0-curl','php7.0-intl','php7.0-ldap','php7.0-mysql','php7.0-sybase','libapache2-mod-php7.0','php7.0-mcrypt','phpmyadmin'],
   }
  
+  cron{'sync_upr':
+    ensure  => present,
+    command => '/usr/bin/curl -q "https://sync.upr.edu.cu/saber_ldap"* > /var/log/Sync.upr.edu.cu.log',
+    hour    => ['2'],
+  }
 
 }
