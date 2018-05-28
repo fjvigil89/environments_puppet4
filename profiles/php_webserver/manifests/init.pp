@@ -64,7 +64,7 @@ class php_webserver (
   }
 
   class { '::apache':
-    default_vhost => true,
+    default_vhost => false,
     mpm_module => 'prefork',
   }
 
