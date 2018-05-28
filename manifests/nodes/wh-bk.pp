@@ -70,8 +70,6 @@ node 'wh-bk.upr.edu.cu'{
   'allow_override'  => 'all',
   'directoryindex' => 'app.php',
   },],
-  redirect_status  => 'permanent',
-  redirect_dest    => 'https://apiassets.upr.edu.cu',
  }~>
  exec{"a2enmod_php7":
   command => '/usr/bin/sudo a2enmod php7.0',
