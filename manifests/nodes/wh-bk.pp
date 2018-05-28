@@ -59,7 +59,7 @@ node 'wh-bk.upr.edu.cu'{
   },], 
 
  }~>
- apache::vhost { 'apiassets.upr.edu.cu non-ssl':
+ apache::vhost { 'apiassets.upr.edu.cu':
   servername       => 'apiassets.upr.edu.cu',
   serveraliases => ['www.apiassets.upr.edu.cu'],
   port             => '80',
@@ -70,23 +70,8 @@ node 'wh-bk.upr.edu.cu'{
   'allow_override'  => 'all',
   'directoryindex' => 'app.php',
   },],
-
   redirect_status  => 'permanent',
   redirect_dest    => 'https://apiassets.upr.edu.cu',
- }~>
- apache::vhost { 'apiassets.upr.edu.cu ssl':
-  servername    => 'apiassets.upr.edu.cu',
-  serveraliases =>  ['www.apiassets.upr.edu.cu'],
-  port          => '443',
-  docroot       => '/home/Api-Assets/master/web/',
-  ssl           => true,
-  directories      => [ {
-  'path'    => '/home/Api-Assets/master/web',
-  'options' => ['Indexes','FollowSymLinks','MultiViews'],
-  'allow_override'  => 'all',
-  'directoryindex' => 'app.php',
-  },],
-
  }~>
  exec{"a2enmod_php7":
   command => '/usr/bin/sudo a2enmod php7.0',
