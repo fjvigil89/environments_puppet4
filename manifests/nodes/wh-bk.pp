@@ -38,7 +38,7 @@ node 'wh-bk.upr.edu.cu'{
   directories      => [ {
     'path'    => '/home/Contable/master/web',
     'options' => ['Indexes','FollowSymLinks','MultiViews'],
-    'allow_override'  => 'all',
+    'allow_override'  => 'All',
     'directoryindex' => 'app.php',
     },],
 
@@ -54,7 +54,7 @@ node 'wh-bk.upr.edu.cu'{
   directories      => [ {
   'path'    => '/home/Contable/master/web',
   'options' => ['Indexes','FollowSymLinks','MultiViews'],
-  'allow_override'  => 'all',
+  'allow_override'  => 'All',
   'directoryindex' => 'app.php',
   },], 
 
@@ -67,7 +67,7 @@ node 'wh-bk.upr.edu.cu'{
   directories      => [ {
   'path'    => '/home/Api-Assets/master/web',
   'options' => ['Indexes','FollowSymLinks','MultiViews'],
-  'allow_override'  => 'all',
+  'allow_override'  => 'All',
   'directoryindex' => 'app.php',
   },],
  }~>
