@@ -43,7 +43,7 @@ node 'wh-bk.upr.edu.cu'{
     },],
 
   redirect_status  => 'permanent',
-  redirect_dest    => 'https://contable.upr.edu.cu/app.php',
+  redirect_dest    => 'https://contable.upr.edu.cu/',
  }~> 
  apache::vhost { 'contable.upr.edu.cu ssl':
   servername    => 'contable.upr.edu.cu',
@@ -72,7 +72,7 @@ node 'wh-bk.upr.edu.cu'{
   },],
 
   redirect_status  => 'permanent',
-  redirect_dest    => 'https://apiassets.upr.edu.cu/app.php',
+  redirect_dest    => 'https://apiassets.upr.edu.cu/',
  }~>
  apache::vhost { 'apiassets.upr.edu.cu ssl':
   servername    => 'apiassets.upr.edu.cu',
