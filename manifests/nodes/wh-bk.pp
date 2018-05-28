@@ -49,7 +49,6 @@ node 'wh-bk.upr.edu.cu'{
   ssl           => true,
  }~>
  exec{"a2enmod_php7":
-  refreshonly => true,
   command => '/usr/bin/sudo a2enmod php7.0',
  }~>
  exec{"service_apache2_restart":
