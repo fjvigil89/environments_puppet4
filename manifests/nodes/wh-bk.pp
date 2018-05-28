@@ -65,11 +65,11 @@ node 'wh-bk.upr.edu.cu'{
   port             => '80',
   docroot          => '/home/Api-Assets/master/web/',
   directories      => [ {
-  ¦ 'path'    => '/home/Api-Assets/master/web',
-  ¦ 'options' => ['Indexes','FollowSymLinks','MultiViews'],
-  ¦ 'allow_override'  => 'all',
-  ¦ 'directoryindex' => 'app.php',
-  ¦ },],
+  'path'    => '/home/Api-Assets/master/web',
+  'options' => ['Indexes','FollowSymLinks','MultiViews'],
+  'allow_override'  => 'all',
+  'directoryindex' => 'app.php',
+  },],
 
   redirect_status  => 'permanent',
   redirect_dest    => 'https://apiassets.upr.edu.cu/app.php',
