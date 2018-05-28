@@ -10,7 +10,7 @@ node 'wh-bk.upr.edu.cu'{
   directories      => [ {
     'path'    => '/home/Sync-UPR/master/public',
     'options' => ['Indexes','FollowSymLinks','MultiViews'],
-    'allowoverride'  => 'All',
+    'override'  => 'All',
     'directoryindex' => 'index.php',
     },],
 
@@ -26,7 +26,7 @@ node 'wh-bk.upr.edu.cu'{
   directories =>  [ {
   'path'            => '/home/Sync-UPR/master/public',
   'options'         => ['Indexes','FollowSymLinks','MultiViews'],
-  'allowoverride'   => 'All',    
+  'override'   => 'All',    
   'directoryindex'  => 'index.php',
   },],
  }~> 
