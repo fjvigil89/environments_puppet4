@@ -72,7 +72,7 @@ node 'wh-bk.upr.edu.cu'{
   },],
 
   redirect_status  => 'permanent',
-  redirect_dest    => 'https://apiassets.upr.edu.cu/',
+  redirect_dest    => 'https://apiassets.upr.edu.cu',
  }~>
  apache::vhost { 'apiassets.upr.edu.cu ssl':
   servername    => 'apiassets.upr.edu.cu',
