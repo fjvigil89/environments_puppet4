@@ -29,13 +29,5 @@ class wh_php_apache {
      packages       =>  ['php7.0-mbstring','r10k','php7.0','php7.0-cli','php7.0-curl','php7.0-intl','php7.0-ldap','php7.0-mysql','php7.0-sybase','libapache2-mod-php7.0','php7.0-mcrypt','phpmyadmin'],
   }
  
- exec{"a2enmod_php7":  
-    refreshonly => true,
-    command => '/usr/bin/sudo a2enmod php7.0',
-  }
- 
-  exec{"service_apache2_restart":
-    command => '/usr/bin/sudo service apache2 restart',
-  }
 
 }
