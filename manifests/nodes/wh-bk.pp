@@ -36,11 +36,10 @@ node 'wh-bk.upr.edu.cu'{
   port             => '80',
   docroot          => '/home/Contable/master/web/',
   directories      => [ {
-    path    => '/home/Contable/master/web',
-    #options => ['Indexes','FollowSymLinks','MultiViews'],
-    allowoverride  => 'all',
-    allowfrom     => 'all',
-    directoryindex => 'app.php',
+    'path'    => '/home/Contable/master/web',
+    'options' => ['Indexes','FollowSymLinks','MultiViews'],
+    'allow_override'  => 'all',
+    'directoryindex' => 'app.php',
     },],
 
   redirect_status  => 'permanent',
@@ -52,6 +51,42 @@ node 'wh-bk.upr.edu.cu'{
   port          => '443',
   docroot       => '/home/Contable/master/web/',
   ssl           => true,
+  directories      => [ {
+  'path'    => '/home/Contable/master/web',
+  'options' => ['Indexes','FollowSymLinks','MultiViews'],
+  'allow_override'  => 'all',
+  'directoryindex' => 'app.php',
+  },], 
+
+ }~>
+ apache::vhost { 'apiassets.upr.edu.cu non-ssl':
+  servername       => 'apiassets.upr.edu.cu',
+  serveraliases => ['www.apiassets.upr.edu.cu'],
+  port             => '80',
+  docroot          => '/home/Api-Assets/master/web/',
+  directories      => [ {
+  ¦ 'path'    => '/home/Api-Assets/master/web',
+  ¦ 'options' => ['Indexes','FollowSymLinks','MultiViews'],
+  ¦ 'allow_override'  => 'all',
+  ¦ 'directoryindex' => 'app.php',
+  ¦ },],
+
+  redirect_status  => 'permanent',
+  redirect_dest    => 'https://apiassets.upr.edu.cu/app.php',
+ }~>
+ apache::vhost { 'apiassets.upr.edu.cu ssl':
+  servername    => 'apiassets.upr.edu.cu',
+  serveraliases =>  ['www.apiassets.upr.edu.cu'],
+  port          => '443',
+  docroot       => '/home/Api-Assets/master/web/',
+  ssl           => true,
+  directories      => [ {
+  'path'    => '/home/Api-Assets/master/web',
+  'options' => ['Indexes','FollowSymLinks','MultiViews'],
+  'allow_override'  => 'all',
+  'directoryindex' => 'app.php',
+  },],
+
  }~>
  exec{"a2enmod_php7":
   command => '/usr/bin/sudo a2enmod php7.0',
@@ -61,7 +96,7 @@ node 'wh-bk.upr.edu.cu'{
  }
 
 
-
+ 
 
 }
 
