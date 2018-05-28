@@ -24,6 +24,14 @@ node 'wh-bk.upr.edu.cu'{
   port          => '443',
   docroot       => '/home/Sync-UPR/master/public/',
   ssl           => true,
+  directories =>  [ {
+  ¦ path =>  '/home/Sync-UPR/master/public',
+  ¦ #options =>  ['Indexes','FollowSymLinks','MultiViews'],
+  ¦ allowoverride => 'All',
+  ¦ allowfrom => 'All',
+    directoryindex => 'index.php',
+    
+  },],
  }~> 
  apache::vhost { 'contable.upr.edu.cu non-ssl':
   servername       => 'contable.upr.edu.cu',
