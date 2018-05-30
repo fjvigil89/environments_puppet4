@@ -36,7 +36,7 @@ class php_webserver::params {
   $php_version = '5.6'
 
   $php_settings = {	
-    'PHP/max_execution_time'  => '300',
+    'PHP/max_execution_time'  => '-1',
     'PHP/max_input_time'      => '300',
     'PHP/memory_limit'        => '-1',
     'PHP/post_max_size'       => '32M',
