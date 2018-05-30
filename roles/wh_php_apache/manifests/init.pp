@@ -10,10 +10,10 @@ class wh_php_apache {
     puppet_enabled   => false,
     mta_enabled => false,
     repos_enabled => false;
-  } 
+  }
   
  include git
- include vim 
+ include vim
  #class {'::wh_php_apache::apache':;}
 
  class { '::php_webserver':
@@ -25,14 +25,19 @@ class wh_php_apache {
       'ldap'     => {},
       'xml'      => {},
       'mbstring' => {},
-     },      
+     },
      packages       =>  ['php7.0-mbstring','r10k','php7.0','php7.0-cli','php7.0-curl','php7.0-intl','php7.0-ldap','php7.0-mysql','php7.0-sybase','libapache2-mod-php7.0','php7.0-mcrypt','phpmyadmin'],
   }
  
-  cron{'sync_upr':
+  cron{'sync_upr_NoDocentes':
     ensure  => present,
-    command => '/usr/bin/curl -q "https://sync.upr.edu.cu/saber_ldap"* > /var/log/Sync.upr.edu.cu.log',
+    command => 'wget -q -d  --no-check-certificate "https://sync.upr.edu.cu/saber_ldap/NoDocentes" > /var/log/sync_upr_NoDocentes.log',
     hour    => ['2'],
   }
-
+  
+  cron{'sync_upr_Docentes':
+  ensure  => present,
+  command => 'wget -q -d  --no-check-certificate "https://sync.upr.edu.cu/saber_ldap/Docentes" > /var/log/sync_upr_Docentes.log',
+  hour    => ['2'],
+  }
 }
