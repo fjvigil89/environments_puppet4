@@ -66,9 +66,9 @@ node 'wh-bk.upr.edu.cu'{
   docroot          => '/home/Api-Assets/master/web/',
   directories      => [ {
   'path'           => '/home/Api-Assets/master/web',
-  'options'        => ['Indexes','FollowSymLinks','MultiViews'],
+  #'options'        => ['Indexes','FollowSymLinks','MultiViews'],
   'allow_override' => 'All',
-  'allow_from'     => 'All',
+  'allow'          => 'from All',
   'directoryindex' => 'app.php',
   },],
  }~>
