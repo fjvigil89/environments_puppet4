@@ -33,6 +33,6 @@ class mailserver {
     source => 'puppet:///profiles/mailserver/mx/main.cf',
 
   }
+ }
 
-}
 
