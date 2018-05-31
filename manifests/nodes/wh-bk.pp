@@ -71,6 +71,13 @@ node 'wh-bk.upr.edu.cu'{
   'allow'          => 'from All',
   'directoryindex' => 'app.php',
   },],
+  rewrites       => [{
+  comment      => 'Solo para apiassets',
+  rewrite_cond => [' %{REQUEST_FILENAME} !-f'],
+  rewrite_rule => ['^(.*)$ app.php [QSA,L]'],
+  },],
+
+ 
  }~>
  exec{"a2enmod_php7":
   command => '/usr/bin/sudo a2enmod php7.0',
@@ -78,6 +85,7 @@ node 'wh-bk.upr.edu.cu'{
  exec{"service_apache2_restart":
   command => '/usr/bin/sudo service apache2 restart',
  }
+ 
 
 
  
