@@ -1,3 +1,9 @@
+#
+# Class puppetserver
+#==================================
+#
+# Configure puppetserver
+
 class puppetserver (String $puppetdb_server = 'localhost') {
 ::apt::source { 'puppetlabs-pc1-server':
     comment  => 'Puppetlabs PC1 jessie Repository',
@@ -39,8 +45,8 @@ class puppetserver (String $puppetdb_server = 'localhost') {
       # minute  => [7,12,17,22,27,32,37,42,47,52,57];
     #'serverbeheer2hiera':
     #  ensure  => present,
-     # command => '/etc/puppetlabs/code/environments/production/bin/hosts2hiera.pl > /tmp/.hosts_$$ && mv /tmp/.hosts_$$ /var/lib/serverbeheer/data/serverbeheer.yaml',
-     #minute  => [7,12,17,22,27,32,37,42,47,52,57];
+    # command => '/etc/puppetlabs/code/environments/production/bin/hosts2hiera.pl > /tmp/.hosts_$$ && mv /tmp/.hosts_$$ /var/lib/serverbeheer/data/serverbeheer.yaml',
+    #minute  => [7,12,17,22,27,32,37,42,47,52,57];
   }
   # lint:endignore
   package {

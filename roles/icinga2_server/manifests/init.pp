@@ -9,18 +9,8 @@ class icinga2_server {
 class { '::basesys':
     uprinfo_usage  => 'icinga_server',
     application    => 'icinga',
-    puppet_enabled => false;
-  }
-class { '::php_webserver':
-    php_version    => '7.0',
-    php_extensions => {
-      'curl'     => {},
-      'gd'       => {},
-      'mysql'    => {},
-      'ldap'     => {},
-      'xml'      => {},
-      'mbstring' => {},
-    },
+    puppet_enabled => false,
+    mta_enabled    => false,
   }
 }
 

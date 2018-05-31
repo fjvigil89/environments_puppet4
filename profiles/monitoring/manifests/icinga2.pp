@@ -5,13 +5,13 @@
 # Configure icinga2
 
 class monitoring::icinga2 (
-   $icinga2_dbuser   = 'icinga2',
-   $icinga2_dbname   = 'icinga2',
-   $icinga2_dbpass   = 'supersecret',
-   $icinga2_dbhost   = '127.0.0.1',
-   $director_apipass = '123456',
-   $director_apiuser = 'director',
-   $api_users = {},
+  $icinga2_dbuser   = 'icinga2',
+  $icinga2_dbname   = 'icinga2',
+  $icinga2_dbpass   = 'supersecret',
+  $icinga2_dbhost   = '127.0.0.1',
+  $director_apipass = '123456',
+  $director_apiuser = 'director',
+  $api_users = {},
 ) {
 
 
@@ -27,7 +27,7 @@ mysql::db { 'icinga2':
 class { '::icinga2':
   confd       => false,
   manage_repo => false,
-  features    => ['checker','mainlog','notification','statusdata','compatlog'],
+  features    => ['checker','mainlog','notification','statusdata','compatlog','perfdata'],
   constants   => {
     'ZoneName' => 'master',
     'NodeName' => $facts['fqdn'],
@@ -47,19 +47,19 @@ class { '::icinga2::feature::idomysql':
 
 # Configure API
 class { '::icinga2::feature::api':
- accept_commands => true,
- accept_config   => true,
- pki             => 'puppet',
- endpoints       => {
-  $facts['fqdn'] => {
-    'host' =>  $facts['ipaddress'],
+  accept_commands => true,
+  accept_config   => true,
+  pki             => 'puppet',
+  endpoints       => {
+    $facts['fqdn'] => {
+      'host' =>  $facts['ipaddress'],
+    }
+  },
+  zones           => {
+    'master' => {
+      'endpoints' =>  [$facts['fqdn']],
+    }
   }
-},
- zones           => {
-  'master' => {
-    'endpoints' =>  [$facts['fqdn']],
-  } 
- }
 }
 #Configure Command
 include ::icinga2::feature::command
@@ -70,4 +70,13 @@ icinga2::object::zone { 'global-templates':
 icinga2::object::zone { 'director-global':
   global =>  true,
 }
+
+#Graphite Feature Conf
+class { '::icinga2::feature::graphite':
+  host                   => '10.2.1.46',
+  port                   => 2003,
+  enable_send_thresholds => true,
+  enable_send_metadata   => true,
+}
+
 }

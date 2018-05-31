@@ -5,29 +5,25 @@
 # Configure icingaweb2
 
 class monitoring::icingaweb2 (
- $icingaweb2_dbuser = 'icingaweb2',
- $icingaweb2_dbname = 'icingaweb2',
- $icingaweb2_dbpass = 'icingaweb2',
- $icingaweb2_dbhost = 'localhost',
-
- $director_dbuser = 'director',
- $director_dbname = 'director',
- $director_dbpass = 'director',
- $director_dbhost = '127.0.0.1',
-
- $ad_root_dn = 'DC=upr,DC=edu,DC=cu',
- $ad_base_dn = 'OU=_GrupoRedes,DC=upr,DC=edu,DC=cu',
- $ad_group_base_dn = 'OU=_Gestion,DC=upr,DC=edu,DC=cu',
- $ad_bind_dn = 'icinga2',
- $ad_bind_pw = 'web.2k17',
-
- $director_apipass = '123456',
- $director_apiuser = 'director',
-
- $icinga2_dbuser = 'icinga2',
- $icinga2_dbname = 'icinga2',
- $icinga2_dbpass = 'supersecret',
- $icinga2_dbhost = '127.0.0.1',
+  $icingaweb2_dbuser = 'icingaweb2',
+  $icingaweb2_dbname = 'icingaweb2',
+  $icingaweb2_dbpass = 'icingaweb2',
+  $icingaweb2_dbhost = 'localhost',
+  $director_dbuser = 'director',
+  $director_dbname = 'director',
+  $director_dbpass = 'director',
+  $director_dbhost = '127.0.0.1',
+  $ad_root_dn = 'DC=upr,DC=edu,DC=cu',
+  $ad_base_dn = 'OU=_GrupoRedes,DC=upr,DC=edu,DC=cu',
+  $ad_group_base_dn = 'OU=_Gestion,DC=upr,DC=edu,DC=cu',
+  $ad_bind_dn = 'icinga2',
+  $ad_bind_pw = 'web.2k17',
+  $director_apipass = '123456',
+  $director_apiuser = 'director',
+  $icinga2_dbuser = 'icinga2',
+  $icinga2_dbname = 'icinga2',
+  $icinga2_dbpass = 'supersecret',
+  $icinga2_dbhost = '127.0.0.1',
 
 ) {
 # Configure icingaweb2 MySQL  
@@ -73,15 +69,15 @@ icingaweb2::config::resource {'ad-upr':
 
 # Configure Autentication Method
 icingaweb2::config::authmethod {'ad-auth':
-  backend      => 'msldap',
-  resource     => 'ad-upr',
-  order        => '02',
+  backend  => 'msldap',
+  resource => 'ad-upr',
+  order    => '02',
 }
 
 #Configure Manage Group Backends
 icingaweb2::config::groupbackend {'ad-group-backend':
-  backend                   => 'msldap',
-  resource                  => 'ad-upr',
+  backend  => 'msldap',
+  resource => 'ad-upr',
 }
 
 #Manage Roles
@@ -181,11 +177,11 @@ file { $ssl_subdir:
 }
 
 #Installing apache or httpd
-#class { 'apache':
-#  mpm_module => 'prefork'
-#}
+class { 'apache':
+  mpm_module => 'prefork'
+}
 
-#class { 'apache::mod::php': }
+class { 'apache::mod::php': }
 
 case $::osfamily {
   'redhat': {
@@ -227,7 +223,7 @@ file_line { 'date.timezone':
   line   => 'date.timezone = America/Havana',
   match  => '^date.timezone =',
   notify =>  Class['apache'],
- }
+}
 # Apache PHP memory limit
 file_line{ 'php_memory_limit':
     path   => '/etc/php/7.0/apache2/php.ini',
@@ -235,7 +231,27 @@ file_line{ 'php_memory_limit':
     match  => '^memory_limit =',
     notify => Class['apache'],
   }
- 
+
+#Graphite Module
+class { 'icingaweb2::module::graphite':
+  git_revision => 'v0.9.0',
+  url          => 'http://graphite.upr.edu.cu'
+}
+
+#Fileshippet Module
+class { 'icingaweb2::module::fileshipper':
+  git_revision     => 'master',
+  base_directories => {
+    basedir => '/etc/icingaweb2/fileshipper',
+  },
+  directories      => {
+    'test' => {
+      'source'     => '/usr/local/src/custom-rules.git',
+      'target'     => '/zones.d/director-global/custom-rules',
+      'extensions' => '.conf, .md',
+    }
+  }
+}
 }
 
 

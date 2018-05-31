@@ -11,7 +11,6 @@ node 'client-puppet.upr.edu.cu'{
   repos_enabled => true;
  
   }
-
   #class { '::letsencrypt_host':
    #email => 'fjvigil@hispavista.com',
    #webroot_enable => true,
@@ -29,6 +28,17 @@ node 'client-puppet.upr.edu.cu'{
   #docroot_group => 'root',
  #}
 
- 
-	
+  #class {'mailserver':;}
+  class { '::php_webserver':
+    php_version    => '7.0',
+    php_extensions => {
+      'curl'     => {},
+      'gd'       => {},
+      'mysql'    => {},
+      'ldap'     => {},
+      'xml'      => {},
+      'mbstring' => {},
+    },
+  }
+
 }

@@ -15,7 +15,7 @@ mod 'willdurand-composer', '1.2.7'
 mod 'puppetlabs-concat', '4.2.1'
 mod 'puppetlabs-git', '0.5.0'
 mod 'puppetlabs-apache', '3.1.0'
-mod 'puppetlabs-mysql', '5.3.0'
+mod 'puppetlabs-mysql', '5.4.0'
 mod 'puppetlabs-translate', '1.1.0'
 mod 'puppet-staging', '3.2.0'
 mod 'puppetlabs-postgresql', '5.4.0'
@@ -37,16 +37,22 @@ mod 'puppetlabs-hocon', '1.0.0'
 mod 'puppet-extlib', '2.0.1'
 mod 'theforeman-puppet', '8.2.0'
 mod 'puppetlabs-apt', '4.5.1'
-mod 'icinga-icinga2', '1.3.5'
-mod 'icinga-icingaweb2', '2.1.0'
+mod 'icinga-icinga2', '1.3.6'
+mod 'icinga-icingaweb2', '2.2.0'
 mod 'puppet-zypprepo', '2.2.1'
 mod 'puppet-archive', '3.0.0'
 mod 'Slashbunny-phpfpm', '0.0.16'
 mod 'puppet-nginx', '0.11.0'
 mod 'puppet-gitlab', '2.0.0'
+<<<<<<< HEAD
 mod 'puppet-letsencrypt', '2.3.0'
 mod 'mayflower-prosody', '0.3.1'
 
+=======
+mod 'dwerder-graphite', '7.3.0'
+mod 'puppetlabs-postgresql', '5.4.0'
+mod 'puppet-grafana', '4.2.0'
+>>>>>>> puppetdb
 
 mod 'puppet/puppetboard',
   :git => 'https://github.com/voxpupuli/puppet-puppetboard.git',
