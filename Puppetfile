@@ -47,7 +47,6 @@ mod 'puppet-gitlab', '2.0.0'
 mod 'puppet-letsencrypt', '2.3.0'
 mod 'mayflower-prosody', '0.3.1'
 mod 'dwerder-graphite', '7.3.0'
-mod 'puppetlabs-postgresql', '5.4.0'
 mod 'puppet-grafana', '4.2.0'
 
 mod 'puppet/puppetboard',
