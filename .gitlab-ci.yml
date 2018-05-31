@@ -2,10 +2,10 @@ stages:
   - checks
   - deploy
 
-#lint:
-#stage: checks
-#script:
-#- tools/puppet_lint.sh
+lint:
+stage: checks
+script:
+- tools/puppet_lint.sh
 
 syntax:
   stage: checks
