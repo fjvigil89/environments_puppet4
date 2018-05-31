@@ -65,11 +65,11 @@ node 'wh-bk.upr.edu.cu'{
   port             => '80',
   docroot          => '/home/Api-Assets/master/web/',
   directories      => [ {
-  ¦ 'path'    => '/home/Api-Assets/master/web',
-  ¦ 'options' => ['Indexes','FollowSymLinks','MultiViews'],
-  ¦ 'allow_override'  => 'All',
-  ¦ 'directoryindex' => 'app.php',
-  ¦ },],
+  'path'    => '/home/Api-Assets/master/web',
+  'options' => ['Indexes','FollowSymLinks','MultiViews'],
+  'allow_override'  => 'All',
+  'directoryindex' => 'app.php',
+  },],
  }~>
  exec{"a2enmod_php7":
   command => '/usr/bin/sudo a2enmod php7.0',
