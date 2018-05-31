@@ -61,13 +61,14 @@ node 'wh-bk.upr.edu.cu'{
  }~>
  apache::vhost { 'apiassets2.upr.edu.cu':
   servername       => 'apiassets2.upr.edu.cu',
-  serveraliases => ['www.apiassets2.upr.edu.cu'],
+  serveraliases    => ['www.apiassets2.upr.edu.cu'],
   port             => '80',
   docroot          => '/home/Api-Assets/master/web/',
   directories      => [ {
-  'path'    => '/home/Api-Assets/master/web',
-  'options' => ['Indexes','FollowSymLinks','MultiViews'],
-  'allow_override'  => 'All',
+  'path'           => '/home/Api-Assets/master/web',
+  'options'        => ['Indexes','FollowSymLinks','MultiViews'],
+  'allow_override' => 'All',
+  'allow_from'     => 'All',
   'directoryindex' => 'app.php',
   },],
  }~>
