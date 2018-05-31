@@ -59,9 +59,9 @@ node 'wh-bk.upr.edu.cu'{
   },], 
 
  }~>
- apache::vhost { 'apiassets2.upr.edu.cu':
-  servername       => 'apiassets2.upr.edu.cu',
-  serveraliases    => ['www.apiassets2.upr.edu.cu'],
+ apache::vhost { 'apiassets.upr.edu.cu':
+  servername       => 'apiassets.upr.edu.cu',
+  serveraliases    => ['www.apiassets.upr.edu.cu'],
   port             => '80',
   docroot          => '/home/Api-Assets/master/web/',
   directories      => [ {
@@ -71,14 +71,14 @@ node 'wh-bk.upr.edu.cu'{
   'allow'          => 'from All',
   'directoryindex' => 'app.php',
   },],
-  rewrites       => [{
-  comment      => 'Solo para apiassets',
-  rewrite_cond => [' %{REQUEST_FILENAME} !-f'],
-  rewrite_rule => ['^(.*)$ app.php [QSA,L]'],
-  },],
-
- 
  }~>
+ file{'/etc/apache2/sites-available/25-apiassets2.upr.edu.cu.conf':
+  ensure => 'file',
+  owner  => 'root',
+  group  => 'root',
+  mode   => '0644',
+  source => 'puppet:///modules/php_webserver/25-apiassets.upr.edu.cu.conf',
+  }~>
  exec{"a2enmod_php7":
   command => '/usr/bin/sudo a2enmod php7.0',
  }~>
