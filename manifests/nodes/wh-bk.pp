@@ -72,7 +72,7 @@ node 'wh-bk.upr.edu.cu'{
   'directoryindex' => 'app.php',
   },],
  }~>
- file{'/etc/apache2/sites-available/25-apiassets2.upr.edu.cu.conf':
+ file{'/etc/apache2/sites-available/25-apiassets.upr.edu.cu.conf':
   ensure => 'file',
   owner  => 'root',
   group  => 'root',
