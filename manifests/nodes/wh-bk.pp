@@ -59,9 +59,9 @@ node 'wh-bk.upr.edu.cu'{
   },], 
 
  }~>
- apache::vhost { 'apiassets2.upr.edu.cu':
-  servername       => 'apiassets2.upr.edu.cu',
-  serveraliases    => ['www.apiassets2.upr.edu.cu'],
+ apache::vhost { 'apiassets.upr.edu.cu':
+  servername       => 'apiassets.upr.edu.cu',
+  serveraliases    => ['www.apiassets.upr.edu.cu'],
   port             => '80',
   docroot          => '/home/Api-Assets/master/web/',
   directories      => [ {
@@ -72,20 +72,20 @@ node 'wh-bk.upr.edu.cu'{
   'directoryindex' => 'app.php',
   },],
  }~>
+ exec{"a2enmod_php7":
+  command => '/usr/bin/sudo a2enmod php7.0',
+ }~>
+ exec{"service_apache2_restart":
+  command => '/usr/bin/sudo service apache2 restart',
+ }~>
  file{'/etc/apache2/sites-available/25-apiassets.upr.edu.cu.conf':
   ensure => 'file',
   owner  => 'root',
   group  => 'root',
   mode   => '0644',
   source => 'puppet:///modules/php_webserver/25-apiassets.upr.edu.cu.conf',
-  }~>
- exec{"a2enmod_php7":
-  command => '/usr/bin/sudo a2enmod php7.0',
- }~>
- exec{"service_apache2_restart":
-  command => '/usr/bin/sudo service apache2 restart',
- }
- 
+  notify => Exec['service_apache2_restart'];
+  }
 
 
  
