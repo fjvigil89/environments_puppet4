@@ -85,6 +85,13 @@ node 'wh-bk.upr.edu.cu'{
   notify => Exec['service_apache2_restart'];
   }
 
+ file{'/etc/freetds/freetds.conf':
+  ensure => 'file',
+  owner  => 'root',
+  group  => 'root',
+  mode   => '0644',
+  source => 'puppet:///modules/php_webserver/freetds.conf',
+  }
  exec{"a2enmod_php7":
   command => '/usr/bin/sudo a2enmod php7.0',
  }
