@@ -71,13 +71,8 @@ node 'wh-bk.upr.edu.cu'{
   'allow'          => 'from All',
   'directoryindex' => 'app.php',
   },],
- }~>
- exec{"a2enmod_php7":
-  command => '/usr/bin/sudo a2enmod php7.0',
- }~>
- exec{"service_apache2_restart":
-  command => '/usr/bin/sudo service apache2 restart',
- }~>
+ }
+
  file{'/etc/apache2/sites-available/25-apiassets.upr.edu.cu.conf':
   ensure => 'file',
   owner  => 'root',
@@ -87,7 +82,14 @@ node 'wh-bk.upr.edu.cu'{
   notify => Exec['service_apache2_restart'];
   }
 
+ exec{"a2enmod_php7":
+  command => '/usr/bin/sudo a2enmod php7.0',
+ }
 
+ exec{"service_apache2_restart":
+  command     => '/usr/bin/sudo service apache2 restart',
+  refreshonly => true;
+ }
  
 
 }
