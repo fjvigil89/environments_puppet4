@@ -59,9 +59,9 @@ node 'wh-bk.upr.edu.cu'{
   },], 
 
  }~>
- apache::vhost { 'apiassets.upr.edu.cu':
-  servername       => 'apiassets.upr.edu.cu',
-  serveraliases    => ['www.apiassets.upr.edu.cu'],
+ apache::vhost { 'apiassets2.upr.edu.cu':
+  servername       => 'apiassets2.upr.edu.cu',
+  serveraliases    => ['www.apiassets2.upr.edu.cu'],
   port             => '80',
   docroot          => '/home/Api-Assets/master/web/',
   directories      => [ {
