@@ -72,7 +72,7 @@ node 'wh-bk.upr.edu.cu'{
   'allow'          => 'from All',
   'directoryindex' => 'app.php',
   },],
-  before           => File['/etc/apache2/sites-available/25-apiassets.upr.edu.cu.conf'],
+  #before           => File['/etc/apache2/sites-available/25-apiassets.upr.edu.cu.conf'],
  }
 
  file{'/etc/apache2/sites-available/25-apiassets.upr.edu.cu.conf':
