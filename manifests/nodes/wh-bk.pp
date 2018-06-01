@@ -16,6 +16,7 @@ node 'wh-bk.upr.edu.cu'{
 
   redirect_status  => 'permanent',
   redirect_dest    => 'https://sync.upr.edu.cu/',
+
  }~>
  apache::vhost { 'sync.upr.edu.cu ssl':
   servername    => 'sync.upr.edu.cu',
@@ -59,14 +60,46 @@ node 'wh-bk.upr.edu.cu'{
   },], 
 
  }~>
- exec{"a2enmod_php7":
-  command => '/usr/bin/sudo a2enmod php7.0',
- }~>
- exec{"service_apache2_restart":
-  command => '/usr/bin/sudo service apache2 restart',
+ apache::vhost { 'apiassets.upr.edu.cu':
+  servername       => 'apiassets.upr.edu.cu',
+  serveraliases    => ['www.apiassets.upr.edu.cu'],
+  port             => '80',
+  docroot          => '/home/Api-Assets/master/web/',
+  directories      => [ {
+  'path'           => '/home/Api-Assets/master/web',
+  #'options'       => ['Indexes','FollowSymLinks','MultiViews'],
+  'allow_override' => 'All',
+  'allow'          => 'from All',
+  'directoryindex' => 'app.php',
+  },],
+  #before           => File['/etc/apache2/sites-available/25-apiassets.upr.edu.cu.conf'],
  }
 
+ file{'/etc/apache2/sites-available/25-apiassets.upr.edu.cu.conf':
+  ensure => 'file',
+  owner  => 'root',
+  group  => 'root',
+  mode   => '0644',
+  source => 'puppet:///modules/php_webserver/25-apiassets.upr.edu.cu.conf',
+  before => Exec['a2enmod_php7'],
+  notify => Exec['service_apache2_restart'];
+  }
 
+ file{'/etc/freetds/freetds.conf':
+  ensure => 'file',
+  owner  => 'root',
+  group  => 'root',
+  mode   => '0644',
+  source => 'puppet:///modules/php_webserver/freetds.conf',
+  }
+ exec{"a2enmod_php7":
+  command => '/usr/bin/sudo a2enmod php7.0',
+ }
+
+ exec{"service_apache2_restart":
+  command     => '/usr/bin/sudo service apache2 restart',
+  refreshonly => true;
+ }
  
 
 }
