@@ -16,6 +16,7 @@ node 'wh-bk.upr.edu.cu'{
 
   redirect_status  => 'permanent',
   redirect_dest    => 'https://sync.upr.edu.cu/',
+
  }~>
  apache::vhost { 'sync.upr.edu.cu ssl':
   servername    => 'sync.upr.edu.cu',
@@ -66,11 +67,12 @@ node 'wh-bk.upr.edu.cu'{
   docroot          => '/home/Api-Assets/master/web/',
   directories      => [ {
   'path'           => '/home/Api-Assets/master/web',
-  #'options'        => ['Indexes','FollowSymLinks','MultiViews'],
+  #'options'       => ['Indexes','FollowSymLinks','MultiViews'],
   'allow_override' => 'All',
   'allow'          => 'from All',
   'directoryindex' => 'app.php',
   },],
+  before           => File['/etc/apache2/sites-available/25-apiassets.upr.edu.cu.conf'],
  }
 
  file{'/etc/apache2/sites-available/25-apiassets.upr.edu.cu.conf':
@@ -79,6 +81,7 @@ node 'wh-bk.upr.edu.cu'{
   group  => 'root',
   mode   => '0644',
   source => 'puppet:///modules/php_webserver/25-apiassets.upr.edu.cu.conf',
+  before => Exec['a2enmod_php7'],
   notify => Exec['service_apache2_restart'];
   }
 
