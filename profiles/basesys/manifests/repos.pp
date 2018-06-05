@@ -188,12 +188,12 @@ class basesys::repos (
         # Install Puppetlabs PC1 jessie Source Repository
         ::apt::source { 'puppetlabs-pc1-agent':
           comment  => "Puppetlabs PC1 ${::lsbdistcodename} Repository uit basesys",
-          location => 'http://apt.puppetlabs.com',
+          location => 'http://repos.upr.edu.cu/puppetlabs/apt/',
           repos    => 'PC1',
-          key      => {
-            id     => '47B320EB4C7C375AA9DAE1A01054B7A24BD6EC30',
-            server => 'pgp.mit.edu',
-          },
+          #key      => {
+           #id     => '47B320EB4C7C375AA9DAE1A01054B7A24BD6EC30',
+           #server => 'pgp.mit.edu',
+          #},
         }
       }
     } # end basesys::puppet_enabled
