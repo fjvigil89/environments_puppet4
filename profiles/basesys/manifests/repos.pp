@@ -91,37 +91,32 @@ class basesys::repos (
               repos    => 'main',
           }
         }else{
-          apt::source{
-            'ubuntu-de':
+          apt::source{'ubuntu-de':
               comment  => 'Ubuntu DE repo',
               location => 'http://repos.upr.edu.cu/ubuntu',
               repos    => 'main universe multiverse',
           }
 
-          apt::source { 
-            "ubuntu-security":
-            comment  => "repos.upr.edu.cu-${::lsbdistcodename}-security",
+          apt::source {'ubuntu-security':
+            comment  => 'repos.upr.edu.cu-${::lsbdistcodename}-security',
             location => 'http://repos.upr.edu.cu/ubuntu',
             repos    => 'main universe multiverse restricted',
             release  => "${::lsbdistcodename}-security",
           }
- 					apt::source { 
-  ¦ ¦ ¦ ¦ "ubuntu-updates":
-  ¦ ¦ ¦ ¦ ¦ comment  => "repos.upr.edu.cu-${::lsbdistcodename}-updates",
+ 					apt::source {'ubuntu-updates':
+  ¦ ¦ ¦ ¦ ¦ comment  => 'repos.upr.edu.cu-${::lsbdistcodename}-updates',
   ¦ ¦ ¦ ¦ ¦ location => 'http://repos.upr.edu.cu/ubuntu',
   ¦ ¦ ¦ ¦ ¦ repos    => 'main universe multiverse restricted',
   ¦ ¦ ¦ ¦ ¦ release  => "${::lsbdistcodename}-updates",
   ¦ ¦ ¦ ¦ }
-					apt::source { 
-    ¦ ¦ ¦ "ubuntu-proposed":
-  ¦ ¦ ¦ ¦ ¦ comment  => "repos.upr.edu.cu-${::lsbdistcodename}-proposed",
+					apt::source {'ubuntu-proposed':
+  ¦ ¦ ¦ ¦ ¦ comment  => 'repos.upr.edu.cu-${::lsbdistcodename}-proposed',
   ¦ ¦ ¦ ¦ ¦ location => 'http://repos.upr.edu.cu/ubuntu',
   ¦ ¦ ¦ ¦ ¦ repos    => 'main universe multiverse restricted',
   ¦ ¦ ¦ ¦ ¦ release  => "${::lsbdistcodename}-proposed",
   ¦ ¦ ¦ ¦ }
-					apt::source { 
-  ¦ ¦ ¦ ¦ ¦ "ubuntu-backports":
-  ¦ ¦ ¦ ¦ ¦ comment  => "repos.upr.edu.cu-${::lsbdistcodename}-backports",
+					apt::source {'ubuntu-backports':
+  ¦ ¦ ¦ ¦ ¦ comment  => 'repos.upr.edu.cu-${::lsbdistcodename}-backports',
   ¦ ¦ ¦ ¦ ¦ location => 'http://repos.upr.edu.cu/ubuntu',
   ¦ ¦ ¦ ¦ ¦ repos    => 'main universe multiverse restricted',
   ¦ ¦ ¦ ¦ ¦ release  => "${::lsbdistcodename}-backports",
