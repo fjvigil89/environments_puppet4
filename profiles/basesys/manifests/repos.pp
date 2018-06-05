@@ -33,17 +33,17 @@ class basesys::repos (
       })
     }
 
-    # Debs repository met packages gemaakt/gehost op UGent
-    case $::osfamily{
-      'Debian': {
+    # Debs repository met packages gemaakt/gehost op UGent    
+     case $::osname{
+       'Ubuntu': {
         apt::source{
           'debs':
             comment  => 'UPR debs repo',
-            location => 'http://repos.upr.edu.cu/debian/',
+            location => 'http://repos.upr.edu.cu/ubuntu/',
             repos    => 'main',
         }
       }
-      'RedHat': {
+      'CentOS': {
         yumrepo {
           'debs-ugent':
             descr    => 'UPR RHEL repo',
@@ -98,11 +98,35 @@ class basesys::repos (
               repos    => 'main universe multiverse',
           }
 
-          apt::source { "repos.upr.edu.cu-${::lsbdistcodename}-security":
+          apt::source { 
+            "ubuntu-security":
+            comment  => "repos.upr.edu.cu-${::lsbdistcodename}-security",
             location => 'http://repos.upr.edu.cu/ubuntu',
             repos    => 'main universe multiverse restricted',
             release  => "${::lsbdistcodename}-security",
           }
+ 					apt::source { 
+  ¦ ¦ ¦ ¦ ¦ "ubuntu-updates":
+  ¦ ¦ ¦ ¦ ¦ comment  => "repos.upr.edu.cu-${::lsbdistcodename}-updates",
+  ¦ ¦ ¦ ¦ ¦ location => 'http://repos.upr.edu.cu/ubuntu',
+  ¦ ¦ ¦ ¦ ¦ repos    => 'main universe multiverse restricted',
+  ¦ ¦ ¦ ¦ ¦ release  => "${::lsbdistcodename}-updates",
+  ¦ ¦ ¦ ¦ }
+					apt::source { 
+  ¦ ¦ ¦ ¦ ¦ "ubuntu-proposed":
+  ¦ ¦ ¦ ¦ ¦ comment  => "repos.upr.edu.cu-${::lsbdistcodename}-proposed",
+  ¦ ¦ ¦ ¦ ¦ location => 'http://repos.upr.edu.cu/ubuntu',
+  ¦ ¦ ¦ ¦ ¦ repos    => 'main universe multiverse restricted',
+  ¦ ¦ ¦ ¦ ¦ release  => "${::lsbdistcodename}-proposed",
+  ¦ ¦ ¦ ¦ }
+					apt::source { 
+  ¦ ¦ ¦ ¦ ¦ "ubuntu-backports":
+  ¦ ¦ ¦ ¦ ¦ comment  => "repos.upr.edu.cu-${::lsbdistcodename}-backports",
+  ¦ ¦ ¦ ¦ ¦ location => 'http://repos.upr.edu.cu/ubuntu',
+  ¦ ¦ ¦ ¦ ¦ repos    => 'main universe multiverse restricted',
+  ¦ ¦ ¦ ¦ ¦ release  => "${::lsbdistcodename}-backports",
+  ¦ ¦ ¦ ¦ }
+
         }
       }
 # lint:ignore:80chars
