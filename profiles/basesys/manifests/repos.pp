@@ -106,14 +106,14 @@ class basesys::repos (
             release  => "${::lsbdistcodename}-security",
           }
  					apt::source { 
-  ¦ ¦ ¦ ¦ ¦ "ubuntu-updates":
+  ¦ ¦ ¦ ¦ "ubuntu-updates":
   ¦ ¦ ¦ ¦ ¦ comment  => "repos.upr.edu.cu-${::lsbdistcodename}-updates",
   ¦ ¦ ¦ ¦ ¦ location => 'http://repos.upr.edu.cu/ubuntu',
   ¦ ¦ ¦ ¦ ¦ repos    => 'main universe multiverse restricted',
   ¦ ¦ ¦ ¦ ¦ release  => "${::lsbdistcodename}-updates",
   ¦ ¦ ¦ ¦ }
 					apt::source { 
-  ¦ ¦ ¦ ¦ ¦ "ubuntu-proposed":
+    ¦ ¦ ¦ "ubuntu-proposed":
   ¦ ¦ ¦ ¦ ¦ comment  => "repos.upr.edu.cu-${::lsbdistcodename}-proposed",
   ¦ ¦ ¦ ¦ ¦ location => 'http://repos.upr.edu.cu/ubuntu',
   ¦ ¦ ¦ ¦ ¦ repos    => 'main universe multiverse restricted',
