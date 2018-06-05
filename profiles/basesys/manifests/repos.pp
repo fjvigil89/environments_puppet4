@@ -102,24 +102,24 @@ class basesys::repos (
             repos    => 'main universe multiverse restricted',
             release  => "${::lsbdistcodename}-security",
           }
-apt::source {'ubuntu-updates':
-comment  => 'repos.upr.edu.cu-${::lsbdistcodename}-updates',
-location => 'http://repos.upr.edu.cu/ubuntu',
-repos    => 'main universe multiverse restricted',
-release  => "${::lsbdistcodename}-updates",
-}
-apt::source {'ubuntu-proposed':
-comment  => 'repos.upr.edu.cu-${::lsbdistcodename}-proposed',
-location => 'http://repos.upr.edu.cu/ubuntu',
-repos    => 'main universe multiverse restricted',
-release  => "${::lsbdistcodename}-proposed",
-}
-apt::source {'ubuntu-backports':
-comment  => 'repos.upr.edu.cu-${::lsbdistcodename}-backports',
-location => 'http://repos.upr.edu.cu/ubuntu',
-repos    => 'main universe multiverse restricted',
-release  => "${::lsbdistcodename}-backports",
-}
+          apt::source{'ubuntu-updates':
+            comment  => 'repos.upr.edu.cu-${::lsbdistcodename}-updates',
+            location => 'http://repos.upr.edu.cu/ubuntu',
+            repos    => 'main universe multiverse restricted',
+            release  => "${::lsbdistcodename}-updates",
+          }
+          apt::source{'ubuntu-proposed':
+            comment  => 'repos.upr.edu.cu-${::lsbdistcodename}-proposed',
+            location => 'http://repos.upr.edu.cu/ubuntu',
+            repos    => 'main universe multiverse restricted',
+            release  => "${::lsbdistcodename}-proposed",
+          }
+          apt::source{'ubuntu-backports':
+            comment  => 'repos.upr.edu.cu-${::lsbdistcodename}-backports',
+            location => 'http://repos.upr.edu.cu/ubuntu',
+            repos    => 'main universe multiverse restricted',
+            release  => "${::lsbdistcodename}-backports",
+          }
         }
       }
 # lint:ignore:80chars
