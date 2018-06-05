@@ -20,25 +20,6 @@ node 'client-puppet.upr.edu.cu'{
   #}
   
 
- #apache::vhost { 'sync.upr.edu.cu':
-  #port     => '443',
-  #docroot  => '/home/Sync-UPR/public/',
-  #ssl      => true,
-  #docroot_owner => 'root',
-  #docroot_group => 'root',
- #}
 
-  #class {'mailserver':;}
-  class { '::php_webserver':
-    php_version    => '7.0',
-    php_extensions => {
-      'curl'     => {},
-      'gd'       => {},
-      'mysql'    => {},
-      'ldap'     => {},
-      'xml'      => {},
-      'mbstring' => {},
-    },
-  }
 
 }
