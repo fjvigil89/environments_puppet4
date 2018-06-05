@@ -46,4 +46,9 @@ class wh_php_apache {
   hour    => ['2'],
   }
  
+  cron{'sync_upr_User_Bajas':
+  ensure  => present,
+  command => 'wget -q -d  --no-check-certificate "https://sync.upr.edu.cu/saber_ldap/Bajas" > /var/log/sync_upr_User_Bajas.log',
+  hour    => ['2'],
+  }
 }
