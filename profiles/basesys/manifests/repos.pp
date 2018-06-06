@@ -189,7 +189,7 @@ class basesys::repos (
         ::apt::source { 'puppetlabs-pc1-agent':
           comment  => "Puppetlabs PC1 ${::lsbdistcodename} Repository uit basesys",
           location => 'http://repos.upr.edu.cu/puppetlabs/apt/',
-          repos    => 'PC1',
+          repos    => 'main',
           #key      => {
            #id     => '47B320EB4C7C375AA9DAE1A01054B7A24BD6EC30',
            #server => 'pgp.mit.edu',
