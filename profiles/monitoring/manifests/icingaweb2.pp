@@ -216,8 +216,6 @@ apache::vhost { 'icingaweb.upr.edu.cu':
   servername => 'icingaweb.upr.edu.cu',
   port       => '80',
   docroot    => '/usr/share/icingaweb2/public',
-  redirect_status  => 'permanent',
-  redirect_dest    => 'http://icingaweb.upr.edu.cu/icingaweb2/authentication/login',
 }
 # Define TimeZone in php
 file_line { 'date.timezone':
