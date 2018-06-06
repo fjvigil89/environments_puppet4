@@ -3,8 +3,8 @@ stages:
   - deploy
 
 lint:
-stage: checks
-script:
+  stage: checks
+  script:
     - tools/puppet_lint.sh
 
 syntax:
