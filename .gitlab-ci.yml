@@ -5,7 +5,7 @@ stages:
 lint:
 stage: checks
 script:
-- tools/puppet_lint.sh
+    - tools/puppet_lint.sh
 
 syntax:
   stage: checks
