@@ -38,17 +38,17 @@ class wh_php_apache {
   cron{'sync_upr_Docentes':
   ensure  => present,
   command => 'wget -q -d  --no-check-certificate "https://sync.upr.edu.cu/saber_ldap/Docentes" > /var/log/sync_upr_Docentes.log',
-  hour    => ['2'],
+  hour    => ['3'],
   }
   cron{'sync_upr_Bajas':
   ensure  => present,
   command => 'wget -q -d  --no-check-certificate "https://sync.upr.edu.cu/actualizar_bajas_profesores" > /var/log/sync_upr_Bajas.log',
-  hour    => ['2'],
+  hour    => ['1'],
   }
  
   cron{'sync_upr_User_Bajas':
   ensure  => present,
   command => 'wget -q -d  --no-check-certificate "https://sync.upr.edu.cu/saber_ldap/Bajas" > /var/log/sync_upr_User_Bajas.log',
-  hour    => ['2'],
+  hour    => ['4'],
   }
 }

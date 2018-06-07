@@ -6,9 +6,6 @@ node 'client-puppet.upr.edu.cu'{
   class { '::basesys':
   uprinfo_usage  => 'servidor test',
   application      => 'puppet',
-  puppet_enabled   => true,
-  #mta_enabled => false,
-  repos_enabled => true;
  
   }
   #class { '::letsencrypt_host':
