@@ -44,10 +44,10 @@ class monitoring::checks {
   #}
 
   # https://www.thomas-krenn.com/en/wiki/IPMI_Sensor_Monitoring_Plugin
-  #$ipc_run_package = $::osfamily ? {
-  #  'RedHat' => 'perl-IPC-Run',
-  #  default  => 'libipc-run-perl',
-  #}
+  $ipc_run_package = $::osfamily ? {
+    'RedHat' => 'perl-IPC-Run',
+    default  => 'libipc-run-perl',
+  }
 
   #file { "${plugin_dir}/check_ipmi_sensor":
   #  ensure => file,
