@@ -1,4 +1,4 @@
-class: basesys::monitoring
+#class: basesys::monitoring
 # ===========================
 #
 # monitoring configuratie:
