@@ -42,6 +42,12 @@ class basesys::repos (
             location => 'http://repos.upr.edu.cu/ubuntu/',
             repos    => 'main',
         }
+        apr::source{
+          'icinga':
+            comment  => 'Upr icinga',
+            location => 'http://repos.upr.edu.cu/icinga/debian/',
+            repos    => "icinga-${::lsbdistcodename} main",
+        }
       }
       'CentOS': {
         yumrepo {
@@ -51,6 +57,15 @@ class basesys::repos (
             gpgcheck => '0',
             enabled  => '1',
             baseurl  => "http://repos.upr.edu.cu/CentOS/${::operatingsystemmajrelease}";
+
+          'icinga':
+            descr    => 'Upr Icinga',
+            name     => 'icinga-upr',
+            gpgcheck => '1',
+            enabled  => '1',
+            gpgkey   => "http://repos.upr.edu.cu/icinga/icinga.key",
+            baseurl  => "http://repos.upr.edu.cu/icinga/epel/${::osreleasemajor}/release";
+          
         }
       }
       'Debian':{
@@ -59,6 +74,12 @@ class basesys::repos (
             comment  => 'UPR debs repos Debian',
             location => 'http://repos.upr.edu.cu/debian/',
             repos    => 'main',
+        }
+        apt::source{
+          'icinga2':
+            comment  => 'Icinga UPR',
+            location => 'http://repos.upr.edu.cu/icinga/ubuntu/',
+            repos    => "icinga-${::lsbdistcodename} main",
         }
       }
       default: {}
