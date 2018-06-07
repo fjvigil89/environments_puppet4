@@ -34,7 +34,7 @@ class basesys::params {
     #'virtualbox' => false,
     #default      => true,
   #}
-  $puppet_enabled	 = true
+  $puppet_enabled	 = false 
   $puppetmaster          = 'puppet-master.upr.edu.cu'
   $puppet_environment    = 'production'
   $runmode               = 'cron'

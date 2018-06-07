@@ -33,17 +33,17 @@ class basesys::repos (
       })
     }
 
-    # Debs repository met packages gemaakt/gehost op UGent
-    case $::osfamily{
-      'Debian': {
+    # Debs repository met packages gemaakt/gehost op UGent    
+     case $::osname{
+       'Ubuntu': {
         apt::source{
           'debs':
             comment  => 'UPR debs repo',
-            location => 'http://repos.upr.edu.cu/debian/',
+            location => 'http://repos.upr.edu.cu/ubuntu/',
             repos    => 'main',
         }
       }
-      'RedHat': {
+      'CentOS': {
         yumrepo {
           'debs-ugent':
             descr    => 'UPR RHEL repo',
@@ -51,6 +51,14 @@ class basesys::repos (
             gpgcheck => '0',
             enabled  => '1',
             baseurl  => "http://repos.upr.edu.cu/CentOS/${::operatingsystemmajrelease}";
+        }
+      }
+      'Debian':{
+        apt::source{
+          'debs':
+            comment  => 'UPR debs repos Debian',
+            location => 'http://repos.upr.edu.cu/debian/',
+            repos    => 'main',
         }
       }
       default: {}
@@ -63,14 +71,14 @@ class basesys::repos (
           apt::source{
             'aptly-mirror':
               comment  => "Aptly mirror ${basesys::aptly_mirror}",
-              location => "http://debs.ugent.be/aptly/${basesys::aptly_mirror}",
+              location => "http://repos.upr.edu.cu/debian/${basesys::aptly_mirror}",
               repos    => 'main',
           }
         }else{
           apt::source{
             'debian-de':
               comment  => 'Debian DE repo',
-              location => 'http://ftp.de.debian.org/debian',
+              location => 'http://repos.upr.edu.cu/debian/',
               repos    => 'main non-free contrib',
           }
           apt::source{
@@ -91,17 +99,34 @@ class basesys::repos (
               repos    => 'main',
           }
         }else{
-          apt::source{
-            'ubuntu-de':
+          apt::source{'ubuntu-de':
               comment  => 'Ubuntu DE repo',
               location => 'http://repos.upr.edu.cu/ubuntu',
               repos    => 'main universe multiverse',
           }
-
-          apt::source { "repos.upr.edu.cu-${::lsbdistcodename}-security":
+          apt::source {'ubuntu-security':
+            comment  => 'repos.upr.edu.cu-${::lsbdistcodename}-security',
             location => 'http://repos.upr.edu.cu/ubuntu',
             repos    => 'main universe multiverse restricted',
             release  => "${::lsbdistcodename}-security",
+          }
+          apt::source{'ubuntu-updates':
+            comment  => 'repos.upr.edu.cu-${::lsbdistcodename}-updates',
+            location => 'http://repos.upr.edu.cu/ubuntu',
+            repos    => 'main universe multiverse restricted',
+            release  => "${::lsbdistcodename}-updates",
+          }
+          apt::source{'ubuntu-proposed':
+            comment  => 'repos.upr.edu.cu-${::lsbdistcodename}-proposed',
+            location => 'http://repos.upr.edu.cu/ubuntu',
+            repos    => 'main universe multiverse restricted',
+            release  => "${::lsbdistcodename}-proposed",
+          }
+          apt::source{'ubuntu-backports':
+            comment  => 'repos.upr.edu.cu-${::lsbdistcodename}-backports',
+            location => 'http://repos.upr.edu.cu/ubuntu',
+            repos    => 'main universe multiverse restricted',
+            release  => "${::lsbdistcodename}-backports",
           }
         }
       }
@@ -171,12 +196,12 @@ class basesys::repos (
         # Install Puppetlabs PC1 jessie Source Repository
         ::apt::source { 'puppetlabs-pc1-agent':
           comment  => "Puppetlabs PC1 ${::lsbdistcodename} Repository uit basesys",
-          location => 'http://apt.puppetlabs.com',
-          repos    => 'PC1',
-          key      => {
-            id     => '47B320EB4C7C375AA9DAE1A01054B7A24BD6EC30',
-            server => 'pgp.mit.edu',
-          },
+          location => 'http://repos.upr.edu.cu/puppetlabs/apt/',
+          repos    => 'main',
+          #key      => {
+           #id     => '47B320EB4C7C375AA9DAE1A01054B7A24BD6EC30',
+           #server => 'pgp.mit.edu',
+          #},
         }
       }
     } # end basesys::puppet_enabled
