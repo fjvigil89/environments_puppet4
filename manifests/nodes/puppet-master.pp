@@ -3,7 +3,7 @@ node 'puppet-master.upr.edu.cu' {
     uprinfo_usage  => 'servidor test',
     application    => 'puppet',
     puppet_enabled => false,
-    repos_enable   => false,
+    repos_enabled  => false,
   }
 
   class { 'puppetdb':
