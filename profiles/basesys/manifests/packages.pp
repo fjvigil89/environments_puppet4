@@ -40,7 +40,7 @@ class basesys::packages {
 
     # lint:ignore:80chars
     $p_os_independant = [ 'wget', 'curl', 'man-db', 'bridge-utils', 'at', 'ntpdate', 'subversion-tools',
-                          'patchutils', 'ftp', 'rsync', 'binutils', 'gcc', 'libtool', 'make', 'openssl',
+                          'patchutils', 'ftp', 'rsync', 'binutils', 'make', 'openssl',
                           'xfsprogs', 'bc', 'acl', 'lsof', 'unzip', 'zip', 'screen', 'traceroute',
                           'iproute', 'bzip2', 'dmidecode', 'telnet', 'lvm2', 'tcpdump', 'mdadm',
                           'htop', 'iftop', 'iotop', ]
@@ -49,7 +49,7 @@ class basesys::packages {
       'Debian', 'Ubuntu': {
 
         $p_os_dependant = [ 'vlan', 'perl-doc', 'bind9-host',
-                            'ldap-utils', 'libssl-dev', 'libwrap0-dev', 'arping', 'lsb-release',
+                            'ldap-utils', 'libwrap0-dev', 'arping', 'lsb-release',
                             'libconfig-general-perl', 'netcat',
                             'links2', 'dnsutils','python-apt', 'ifupdown-extra','monitoring-plugins','libwww-perl','tzdata']
 
