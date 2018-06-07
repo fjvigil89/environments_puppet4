@@ -30,7 +30,7 @@ class basesys (
   String $aptly_mirror           = '',
   Boolean $backports_enabled     = false,
 
-  #Boolean $monitoring_enabled    = $::basesys::params::monitoring_enabled,
+  Boolean $monitoring_enabled    = $::basesys::params::monitoring_enabled,
 
   ) inherits ::basesys::params{
 
@@ -38,7 +38,7 @@ class basesys (
   class {'::basesys::dns':;}
   class {'::basesys::time':;}
   class {'::basesys::packages':;}
-#  class {'::basesys::monitoring':;}
+  class {'::basesys::monitoring':;}
   class {'::basesys::puppet':;}
   class {'::basesys::mta':;}
 

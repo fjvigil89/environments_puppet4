@@ -12,7 +12,7 @@ node 'puppet-master.upr.edu.cu' {
   class { 'puppetdb::master::config': }
   
   include puppetboardserver
-  include ::monitoring::icinga2_agent
+  
   #To install puppet-lint
   package { 'puppet-lint':
   ensure   => '1.1.0',

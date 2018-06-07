@@ -15,24 +15,22 @@ class basesys::params {
   $ntp_server  = ['10.2.1.11','ntp.upr.edu.cu','time.upr.edu.cu']
   $ntpconf     = 'ntp/ntp.conf.epp'
 
+
   # Postfix
-  #$mta_enabled           = $::virtual ? {
-    #'virtualbox' => false,
-    #default      => true,
-  #}
   $mta_enabled		 = false
   $root_alias            = 'master@upr.edu.cu'
   $postmaster            = 'master@upr.edu.cu'
   $inet_interfaces       = 'loopback-only'
   $relayhost             = ''
   $mailname              = $::fqdn
+  
+  #monitoring
+  $monitoring_enabled = true
+
+  #repos 
   $repos = true
 
   # Puppet agent settings
-  #$puppet_enabled        = $::virtual ? {
-    #'virtualbox' => false,
-    #default      => true,
-  #}
   $puppet_enabled	 = false 
   $puppetmaster          = 'puppet-master.upr.edu.cu'
   $puppet_environment    = 'production'
