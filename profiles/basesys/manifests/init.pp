@@ -26,7 +26,7 @@ class basesys (
   String $relayhost                   = $::basesys::params::relayhost,
   String $mailname                    = $::basesys::params::mailname,
 
-  Boolean $repos_enabled         = true,
+  Boolean $repos_enabled        = $::basesys::params::repos,
   String $aptly_mirror           = '',
   Boolean $backports_enabled     = false,
 

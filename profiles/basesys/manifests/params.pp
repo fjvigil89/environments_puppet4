@@ -26,8 +26,7 @@ class basesys::params {
   $inet_interfaces       = 'loopback-only'
   $relayhost             = ''
   $mailname              = $::fqdn
-
-
+  $repos                 = true
 
   # Puppet agent settings
   #$puppet_enabled        = $::virtual ? {
