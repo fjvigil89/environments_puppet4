@@ -53,6 +53,14 @@ class basesys::repos (
             baseurl  => "http://repos.upr.edu.cu/CentOS/${::operatingsystemmajrelease}";
         }
       }
+      'Debian':{
+        apt::source{
+          'debs':
+            comment  => 'UPR debs repos Debian',
+            location => 'http://repos.upr.edu.cu/debian/',
+            repos    => 'main',
+        }
+      }
       default: {}
     }
 
@@ -63,14 +71,14 @@ class basesys::repos (
           apt::source{
             'aptly-mirror':
               comment  => "Aptly mirror ${basesys::aptly_mirror}",
-              location => "http://debs.ugent.be/aptly/${basesys::aptly_mirror}",
+              location => "http://repos.upr.edu.cu/debian/${basesys::aptly_mirror}",
               repos    => 'main',
           }
         }else{
           apt::source{
             'debian-de':
               comment  => 'Debian DE repo',
-              location => 'http://ftp.de.debian.org/debian',
+              location => 'http://repos.upr.edu.cu/debian/',
               repos    => 'main non-free contrib',
           }
           apt::source{
