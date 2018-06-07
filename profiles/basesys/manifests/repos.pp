@@ -42,7 +42,7 @@ class basesys::repos (
             location => 'http://repos.upr.edu.cu/ubuntu/',
             repos    => 'main',
         }
-        apr::source{
+        apt::source{
           'icinga':
             comment  => 'Upr icinga',
             location => 'http://repos.upr.edu.cu/icinga/debian/',
