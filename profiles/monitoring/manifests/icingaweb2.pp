@@ -254,8 +254,13 @@ class { 'icingaweb2::module::fileshipper':
 }
 #Copy Logo & Icon Image
 file { '/usr/share/icingaweb2/public/img/icons/host_logos':
-  ensure => 'directory',
-  target => 'puppet:///profiles/monitoring/files/host_logos/',
+  ensure  => 'directory',
+  source  => 'puppet:///profiles/monitoring/files/host_logos/',
+  recurse => 'remote',
+  path    => '/usr/share/icingaweb2/public/img/icons/host_logos',
+  owner   => 'root',
+  group   => 'root',
+  mode    => '0644',
 }
 
 }
