@@ -253,9 +253,9 @@ class { 'icingaweb2::module::fileshipper':
   }
 }
 #Copy Logo & Icon Image
-file { '/usr/share/icingaweb2/public/img/icons/':
+file { '/usr/share/icingaweb2/public/img/icons/host_logos':
   ensure => 'directory',
-  target => 'puppet:///profiles/monitoring/files/logos/',
+  target => 'puppet:///profiles/monitoring/files/host_logos/',
 }
 
 }
