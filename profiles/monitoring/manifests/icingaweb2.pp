@@ -256,7 +256,7 @@ class { 'icingaweb2::module::fileshipper':
 file_line { 'icon_image':
   ensure => present,
   path   => '/usr/share/icingaweb2/public/img/icons/',
-  target => 'profiles/monitoring/files/logos/',
+  target => 'puppet:///profiles/monitoring/files/logos/',
 }
 
 }
