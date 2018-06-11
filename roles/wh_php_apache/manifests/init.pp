@@ -62,4 +62,10 @@ class wh_php_apache {
     command => 'wget -q -d  --no-check-certificate "https://sync.upr.edu.cu/actualizar_altas_profesores" > /var/log/sync_upr_CrearUsuario.log',
     hour    => [12,18],
   }
+  cron{'eliminar_logs':
+    ensure  => present,
+    command => 'rm -rf /home/Sync-UPR/master/storage/logs/laravel.log',
+    weekday => [0],
+    hour    => [0],
+  }
 }
