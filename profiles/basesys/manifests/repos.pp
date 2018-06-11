@@ -75,12 +75,6 @@ class basesys::repos (
             location => 'http://repos.upr.edu.cu/debian/',
             repos    => 'main',
         }
-        apt::source{
-          'icinga':
-            comment  => 'Icinga UPR',
-            location => 'http://repos.upr.edu.cu/icinga/debian/',
-            repos    => "icinga-${::lsbdistcodename} main",
-        }
       }
       default: {}
     }
@@ -108,6 +102,12 @@ class basesys::repos (
               location => 'http://repos.upr.edu.cu/debian-security/',
               repos    => 'main non-free contrib',
               release  => "${::lsbdistcodename}/updates",
+          }
+          apt::source{
+            'icinga':
+              comment  => 'Icinga UPR',
+              location => 'http://repos.upr.edu.cu/icinga/debian/',
+              repos    => "icinga-${::lsbdistcodename} main",
           }
         }
       }
