@@ -57,4 +57,9 @@ class wh_php_apache {
   command => 'wget -q -d  --no-check-certificate "https://sync.upr.edu.cu/saber_ldap/Actualizar" > /var/log/sync_upr_User_Actualizar_OU.log',
   hour    => ['4'],
   }
+  cron{'sync_upr_CrearUsuarios':
+    ensure  => present,
+    command => 'wget -q -d  --no-check-certificate "https://sync.upr.edu.cu/actualizar_altas_profesores" > /var/log/sync_upr_CrearUsuario.log',
+    hour    => [12,18],
+  }
 }
