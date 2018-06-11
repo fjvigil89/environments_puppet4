@@ -14,7 +14,7 @@ class monitoring::icingaweb2 (
   $director_dbpass = 'director',
   $director_dbhost = '127.0.0.1',
   $ad_root_dn = 'DC=upr,DC=edu,DC=cu',
-  $ad_base_dn = 'OU=_GrupoRedes,DC=upr,DC=edu,DC=cu',
+  $ad_base_dn = 'OU=_GrupoRedes,OU=_Usuarios,DC=upr,DC=edu,DC=cu',
   $ad_group_base_dn = 'OU=_Gestion,DC=upr,DC=edu,DC=cu',
   $ad_bind_dn = 'icinga2',
   $ad_bind_pw = 'web.2k17',
