@@ -36,8 +36,8 @@ class php_webserver::params {
   $php_version = '5.6'
 
   $php_settings = {
-    'PHP/post_max_size'       => '0',
-    'PHP/upload_max_filesize' => '0',
+    'PHP/post_max_size'       => '100M',
+    'PHP/upload_max_filesize' => '100M',
     'PHP/max_execution_time'  => '0',
     'PHP/max_input_time'      => '0',
     'PHP/memory_limit'        => '-1',
