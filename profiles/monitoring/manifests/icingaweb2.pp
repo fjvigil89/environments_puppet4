@@ -242,7 +242,7 @@ class { 'icingaweb2::module::graphite':
 class { 'icingaweb2::module::fileshipper':
   git_revision     => 'master',
   base_directories => {
-    basedir => '/etc/icingaweb2/fileshipper',
+    basedir => '/var/cache/icinga2',
   },
   directories      => {
     'test' => {
