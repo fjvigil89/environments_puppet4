@@ -68,4 +68,9 @@ class wh_php_apache {
     weekday => [0],
     hour    => [0],
   }
+  cron{'sync_upr_UPRedes':
+    ensure  => present,
+    command => 'wget -q -d  --no-check-certificate "https://sync.upr.edu.cu/upredes" > /var/log/sync_upr_UPRedes.log',
+    hour    => [5],
+  }
 }
