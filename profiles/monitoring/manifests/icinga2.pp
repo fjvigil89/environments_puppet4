@@ -63,6 +63,8 @@ class { '::icinga2::feature::api':
 }
 #Configure Command
 include ::icinga2::feature::command
+#Configure livestatus
+include ::icinga2::feature::livestatus
 
 icinga2::object::zone { 'global-templates':
   global =>  true,
