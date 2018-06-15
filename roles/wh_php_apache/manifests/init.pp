@@ -55,7 +55,7 @@ class wh_php_apache {
   cron{'sync_upr_Actualizar_OU':
   ensure  => present,
   command => 'wget -q -d  --no-check-certificate "https://sync.upr.edu.cu/saber_ldap/Actualizar" > /var/log/sync_upr_User_Actualizar_OU.log',
-  hour    => ['4'],
+  hour    => ['6','20'],
   }
   cron{'sync_upr_CrearUsuarios':
     ensure  => present,

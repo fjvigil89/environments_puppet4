@@ -12,9 +12,9 @@ class basesys::time {
   config_epp    => $basesys::ntpconf,
     }
   class {'::timezone':
-    timezone => 'America/New_York',
-      #package_ensure => 'present',
-      #manage_package => true,
+    timezone => 'GMT/UTC-4',
+    package_ensure => 'present',
+    manage_package => true,
     }
 
     package {
