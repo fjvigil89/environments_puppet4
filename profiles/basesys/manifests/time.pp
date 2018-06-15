@@ -12,9 +12,8 @@ class basesys::time {
   config_epp    => $basesys::ntpconf,
     }
   class {'::timezone':
-    timezone => 'GMT/UTC',
-    package_ensure => 'present',
-    manage_package => true,
+    region   => 'America',
+    locality => 'Havana',
     }
 
     package {

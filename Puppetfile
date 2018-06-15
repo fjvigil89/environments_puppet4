@@ -7,7 +7,8 @@
 # A module from the Puppet Forge
 # Forge Modules Test Environments
 mod 'puppetlabs/ntp', '7.1.1'
-mod 'kogitoapp-timezone', '2.1.1'
+#mod 'kogitoapp-timezone', '2.1.1'
+mod 'claranet-timezone', '2.0.0'
 mod 'stm-debconf', '2.2.0'
 mod 'puppetlabs-stdlib', '4.25.1'
 mod 'puppet-php', '5.3.0'
