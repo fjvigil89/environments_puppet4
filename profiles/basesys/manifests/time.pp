@@ -12,7 +12,7 @@ class basesys::time {
   config_epp    => $basesys::ntpconf,
     }
   class {'::timezone':
-    timezone => 'GMT/UTC-4',
+    timezone => 'GMT/UTC',
     package_ensure => 'present',
     manage_package => true,
     }
