@@ -14,7 +14,7 @@ class monitoring::icingaweb2 (
   $director_dbpass = 'director',
   $director_dbhost = '127.0.0.1',
   $ad_root_dn = 'DC=upr,DC=edu,DC=cu',
-  $ad_base_dn = 'OU=_GrupoRedes,DC=upr,DC=edu,DC=cu',
+  $ad_base_dn = 'OU=_GrupoRedes,OU=_Usuarios,DC=upr,DC=edu,DC=cu',
   $ad_group_base_dn = 'OU=_Gestion,DC=upr,DC=edu,DC=cu',
   $ad_bind_dn = 'icinga2',
   $ad_bind_pw = 'web.2k17',
@@ -242,7 +242,7 @@ class { 'icingaweb2::module::graphite':
 class { 'icingaweb2::module::fileshipper':
   git_revision     => 'master',
   base_directories => {
-    basedir => '/etc/icingaweb2/fileshipper',
+    basedir => '/var/cache/icinga2',
   },
   directories      => {
     'test' => {
@@ -252,6 +252,17 @@ class { 'icingaweb2::module::fileshipper':
     }
   }
 }
+#Copy Logo & Icon Image
+#file { '/usr/share/icingaweb2/public/img/icons/host_logos':
+#  ensure  => 'directory',
+#  source => 'puppet:///profiles/monitoring/files/host_logos/',
+#  recurse => 'true',
+#  path    => '/usr/share/icingaweb2/public/img/icons/host_logos',
+#  owner   => 'root',
+#  group   => 'root',
+#  mode    => '0644',
+#}
+
 }
 
 
