@@ -1,4 +1,4 @@
-node /^mx\d+$/.upr\.edu\.cu$/ {
+node /^mx\d+$\.upr\.edu\.cu$/ {
    class { '::basesys':
     uprinfo_usage  => 'servidor mx',
     application    => 'MX Postfix',
