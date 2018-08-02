@@ -29,7 +29,7 @@ class basesys::repos (
       #(In debian 10/ubuntu 18.04 is dit niet meer nodig, maar wel als dummy package beschikbaar)
       # Beheerd door de Apt module vanaf versie 4.4.0
       ensure_packages(['apt-transport-https'], {
-        ensure=> installed,
+        ensure => present,
       })
     }
 
@@ -69,8 +69,7 @@ class basesys::repos (
         }
       }
       'Debian':{
-        apt::source{
-          'debs':
+        apt::source { 'debs':
             comment  => 'UPR debs repos Debian',
             location => 'http://repos.upr.edu.cu/debian/',
             repos    => 'main',
@@ -119,7 +118,8 @@ class basesys::repos (
           apt::source { 'icinga':
               comment  => 'Icinga UPR',
               location => 'http://repos.upr.edu.cu/icinga/debian/',
-              repos    => "icinga-${::lsbdistcodename} main",
+              repos    => 'main',
+              release  => "icinga-${::lsbdistcodename}"
           }
         }
       }
