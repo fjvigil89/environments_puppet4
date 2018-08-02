@@ -1,15 +1,15 @@
 # Class: basesys::repos
 # ===========================
 #
-# repos configuratie.  repos
+# Configuration of repos
 #
 class basesys::repos (
 ){
 
   if($basesys::repos_enabled){
 
-    # Debian/Ubuntu heeft specifieke module nodig.
-    # Rhel based OS kan gewoon yum resource gebruiken.
+    # Debian/Ubuntu needs the module
+    # Rhel based OS can use yum resource
     if($::osfamily == 'Debian') {
       class {
         '::apt':
@@ -22,27 +22,26 @@ class basesys::repos (
             'frequency' => 'always',
           },
       }
-      # Uitzondering toevoegen voor apt-transport-https om dependentie loops te voorkomen
+      # Add exception for apt-transport-https to avoid dependency loops
       Class['apt::update'] -> Package <| title != 'apt-transport-https' |>
 
-      # apt-https-transport toevoegen
-      #(In debian 10/ubuntu 18.04 is dit niet meer nodig, maar wel als dummy package beschikbaar)
-      # Beheerd door de Apt module vanaf versie 4.4.0
+      # apt-https-transport Add
+      #(In debian 10/ubuntu 18.04 is this no longer necessary, but as a dummy package available)
+      # Managed by the Apt module from version 4.4.0 
       ensure_packages(['apt-transport-https'], {
         ensure => present,
       })
     }
 
-    # Debs repository met packages gemaakt/gehost op UGent    
-     case $::osname{
+    # Debs repository with packages created / hosted at UPR    
+     case $::osname {
        'Ubuntu': {
-        apt::source{
-          'debs':
+        apt::source { 'debs':
             comment  => 'UPR debs repo',
             location => 'http://repos.upr.edu.cu/ubuntu/',
             repos    => 'main',
         }
-        apt::source{
+        apt::source {
           'icinga':
             comment  => 'Upr icinga',
             location => 'http://repos.upr.edu.cu/icinga/ubuntu/',
@@ -50,8 +49,7 @@ class basesys::repos (
         }
       }
       'CentOS': {
-        yumrepo {
-          'debs-ugent':
+        yumrepo { 'debs-upr':
             descr    => 'UPR RHEL repo',
             name     => 'debs-upr',
             gpgcheck => '0',
@@ -59,7 +57,7 @@ class basesys::repos (
             baseurl  => "http://repos.upr.edu.cu/CentOS/${::operatingsystemmajrelease}";
 
           'icinga2':
-            descr    => 'Upr Icinga',
+            descr    => 'UPR Icinga',
             name     => 'icinga-upr',
             gpgcheck => '1',
             enabled  => '1',
@@ -68,7 +66,8 @@ class basesys::repos (
           
         }
       }
-      'Debian':{
+
+      'Debian': {
         apt::source { 'debs':
             comment  => 'UPR debs repos Debian',
             location => 'http://repos.upr.edu.cu/debian/',
@@ -77,8 +76,8 @@ class basesys::repos (
       }
       default: {}
     }
-
-    # OS repos, bij Debian based houden we rekening met aptly_mirror variable
+    
+    #OS repos, at Debian based we take into account aptly_mirror variable
     case $::operatingsystem{
       'Debian': {
         if($basesys::aptly_mirror != ''){
@@ -88,7 +87,7 @@ class basesys::repos (
               location => "http://repos.upr.edu.cu/debian/${basesys::aptly_mirror}",
               repos    => 'main',
           }
-        }else{
+        } else {
           apt::source { "debian-upr-${lsbdistcodename}":
               comment  => 'Debian UPR repo',
               location => 'http://repos.upr.edu.cu/debian/',
@@ -131,8 +130,8 @@ class basesys::repos (
               repos    => 'main',
           }
         }else{
-          apt::source { 'ubuntu-de':
-              comment  => 'Ubuntu DE repo',
+          apt::source { 'ubuntu-upr':
+              comment  => 'Ubuntu UPR repo',
               location => 'http://repos.upr.edu.cu/ubuntu',
               repos    => 'main universe multiverse',
           }
@@ -169,7 +168,7 @@ class basesys::repos (
             sslverify => '0',
             gpgcheck  => '0',
             #baseurl   => "https://pulp2.ugent.be/pulp/repos/rhelupstream/rhel/server/${::operatingsystemmajrelease}/x86_64/os",
-	    baseurl   => "http://repos.upr.edu.cu/CentOS/${::operatingsystemmajrelease}/os/${::architecture}"
+	          baseurl   => "http://repos.upr.edu.cu/CentOS/${::operatingsystemmajrelease}/os/${::architecture}"
           ;
           "UPSTREAM-rhel-${::operatingsystemmajrelease}-server-optional-rpms":
             descr     => "UPSTREAM rhel ${::operatingsystemmajrelease} server optional rpms",
@@ -178,7 +177,7 @@ class basesys::repos (
             sslverify => '0',
             gpgcheck  => '0',
             #baseurl   => "https://pulp2.ugent.be/pulp/repos/rhelupstream/rhel/server/${::operatingsystemmajrelease}/x86_64/optional",
-	    baseurl   => "http://repos.upr.edu.cu/CentOS/${::operatingsystemmajrelease}/os/${::architecture}"
+            baseurl   => "http://repos.upr.edu.cu/CentOS/${::operatingsystemmajrelease}/os/${::architecture}"
 
           ;
           "UPSTREAM-rhel-${::operatingsystemmajrelease}-server-extra-rpms":
@@ -188,7 +187,7 @@ class basesys::repos (
             sslverify => '0',
             gpgcheck  => '0',
             #baseurl   => "https://pulp2.ugent.be/pulp/repos/rhelupstream/rhel/server/${::operatingsystemmajrelease}/x86_64/extras",
-	    baseurl   => "http://repos.upr.edu.cu/CentOS/${::operatingsystemmajrelease}/extras/${::architecture}"
+	          baseurl   => "http://repos.upr.edu.cu/CentOS/${::operatingsystemmajrelease}/extras/${::architecture}"
           ;
            "UPSTREAM-rhel-${::operatingsystemmajrelease}-server-extra-sclo":
             descr     => "UPSTREAM rhel ${::operatingsystemmajrelease} server extra sclo",
@@ -224,7 +223,7 @@ class basesys::repos (
       if($::osfamily == 'Debian'){
         # Install Puppetlabs PC1 jessie Source Repository
         ::apt::source { 'puppetlabs-pc1-agent':
-          comment  => "Puppetlabs PC1 ${::lsbdistcodename} Repository uit basesys",
+          comment  => "Puppetlabs PC1 ${::lsbdistcodename} Repository from basesys",
           location => 'http://repos.upr.edu.cu/puppetlabs/apt/',
           repos    => 'main',
           #key      => {
