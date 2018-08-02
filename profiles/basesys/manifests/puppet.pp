@@ -1,7 +1,7 @@
 #class: basesys::puppet
 # ===========================
 #
-# Agent configuratie voor onze nodes
+# Agent configuration for our nodes 
 #
 # lint:ignore:80chars
 
@@ -33,13 +33,13 @@ class basesys::puppet{
       unavailable_runmodes => ['systemd.timer'],
       environment          => $basesys::puppet_environment,
     }
-    # Voor de network puppet module
+    # For the network puppet module
     package { 'ipaddress':
       ensure   => installed,
       provider => 'puppet_gem',
       require  => Class['::puppet'];
     }
-    # Verwijderen oude puppet config
+    # Delete old puppet config
     file {
       '/etc/puppetlabs/puppet/puppet.conf':
         ensure => 'absent';
