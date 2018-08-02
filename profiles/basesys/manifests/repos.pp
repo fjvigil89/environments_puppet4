@@ -83,28 +83,40 @@ class basesys::repos (
     case $::operatingsystem{
       'Debian': {
         if($basesys::aptly_mirror != ''){
-          apt::source{
+          apt::source {
             'aptly-mirror':
               comment  => "Aptly mirror ${basesys::aptly_mirror}",
               location => "http://repos.upr.edu.cu/debian/${basesys::aptly_mirror}",
               repos    => 'main',
           }
         }else{
-          apt::source{
-            'debian-de':
-              comment  => 'Debian DE repo',
+          apt::source { "debian-upr-${lsbdistcodename}":
+              comment  => 'Debian UPR repo',
               location => 'http://repos.upr.edu.cu/debian/',
               repos    => 'main non-free contrib',
           }
-          apt::source{
-            'debian-security':
+         
+          apt::source { "debian-upr-${lsbdistcodename}-updates":
+              comment  => 'Debian UPR repo',
+              location => 'http://repos.upr.edu.cu/debian/',
+              repos    => 'main non-free contrib',
+              release  => "${lsbdistcodename}-updates"
+          }
+           
+          apt::source { "debian-upr-${lsbdistcodename}-backports":
+              comment  => 'Debian UPR repo',
+              location => 'http://repos.upr.edu.cu/debian/',
+              repos    => 'main non-free contrib',
+              release  => "${lsbdistcodename}-backports"
+          }
+					
+					apt::source { "debian-security":
               comment  => 'Debian Security repo',
               location => 'http://repos.upr.edu.cu/debian-security/',
               repos    => 'main non-free contrib',
               release  => "${::lsbdistcodename}/updates",
           }
-          apt::source{
-            'icinga':
+          apt::source { 'icinga':
               comment  => 'Icinga UPR',
               location => 'http://repos.upr.edu.cu/icinga/debian/',
               repos    => "icinga-${::lsbdistcodename} main",
@@ -113,37 +125,33 @@ class basesys::repos (
       }
       'Ubuntu': {
         if($basesys::aptly_mirror != ''){
-          apt::source{
-            'aptly-mirror':
+          apt::source { 'aptly-mirror':
               comment  => "Aptly mirror ${basesys::aptly_mirror}",
               location => "http://repos.upr.edu.cu/ubuntu/${basesys::aptly_mirror}",
               repos    => 'main',
           }
         }else{
-          apt::source{'ubuntu-de':
+          apt::source { 'ubuntu-de':
               comment  => 'Ubuntu DE repo',
               location => 'http://repos.upr.edu.cu/ubuntu',
               repos    => 'main universe multiverse',
           }
-          apt::source {'ubuntu-security':
+
+          apt::source { 'ubuntu-security':
             comment  => 'repos.upr.edu.cu-${::lsbdistcodename}-security',
             location => 'http://repos.upr.edu.cu/ubuntu',
             repos    => 'main universe multiverse restricted',
             release  => "${::lsbdistcodename}-security",
           }
-          apt::source{'ubuntu-updates':
+
+          apt::source { 'ubuntu-updates':
             comment  => 'repos.upr.edu.cu-${::lsbdistcodename}-updates',
             location => 'http://repos.upr.edu.cu/ubuntu',
             repos    => 'main universe multiverse restricted',
             release  => "${::lsbdistcodename}-updates",
           }
-          apt::source{'ubuntu-proposed':
-            comment  => 'repos.upr.edu.cu-${::lsbdistcodename}-proposed',
-            location => 'http://repos.upr.edu.cu/ubuntu',
-            repos    => 'main universe multiverse restricted',
-            release  => "${::lsbdistcodename}-proposed",
-          }
-          apt::source{'ubuntu-backports':
+
+          apt::source { 'ubuntu-backports':
             comment  => 'repos.upr.edu.cu-${::lsbdistcodename}-backports',
             location => 'http://repos.upr.edu.cu/ubuntu',
             repos    => 'main universe multiverse restricted',
