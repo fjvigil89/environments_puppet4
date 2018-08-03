@@ -75,12 +75,10 @@ class basesys::mta (
         value => 'smtp-amavis:[127.0.0.1]:10024';
       'smtpd_client_restrictions':
         value => 'check_client_access hash:/etc/postfix/blackwhite.map,
-                  reject_non_fqdn_sender,
                   reject_unknown_sender_domain,
                   permit_mynetworks,permit';
       'smtpd_sender_restrictions':
         value => 'check_sender_access hash:/etc/postfix/blackwhite.map,
-                  permit';
       'smtpd_relay_restrictions':
         value => 'check_recipient_access hash:/etc/postfix/blackwhite.map,reject_non_fqdn_hostname,
         reject_non_fqdn_sender,
@@ -91,7 +89,6 @@ class basesys::mta (
         permit';
       'smtpd_recipient_restrictions':
         value => 'reject_invalid_hostname,
-            reject_unauth_pipelining,
             permit_mynetworks,
             permit_sasl_authenticated,
             check_policy_service inet:127.0.0.1:10026,
