@@ -1,0 +1,65 @@
+# This file is managed in Puppet
+# Basesys sudo file basesys/templates/sudo.erb
+#
+# Tip: editeer deze file lokaal met visudo -f basesys/templates/sudo.erb
+# Dan zal visudo al zeggen als je syntax fouten maakt
+
+####
+# Gebruikersgroepen op basis van DICT organogram
+####
+User_Alias  SYSTEMEN = rgevaert, savdamme, fdleersn, geroggem, jorschra, dbollaer, dcadriae, iddecker, goborrem
+User_Alias  NETWERKEN = wwaeyaer, avdmeren, kavroste, jestever
+
+User_Alias  ICTO_ADMINS = tberton, krkeppen
+User_Alias  ICTO = pcool, tvhoecke, kuvwynsb, wjudgrys, ocauberg, bvderkim, gnootaer, brugooss, ICTO_ADMINS
+
+User_Alias  TCKB = TCKB_ADMINS
+User_Alias  TCKB_ADMINS = fiterbek, slipeete
+
+User_Alias  SAP_ADMINS = jsinnaev, jvgoethe
+
+User_Alias  ORACLE_ADMINS = acfor, jserrari
+
+####
+# Gebruikersgroepen op basis van service
+####
+User_Alias  MYSQLDBA = SYSTEMEN, tkorocz
+User_Alias  OTRS_ADMINS = chvlanck
+
+####
+# Host_Aliases
+####
+Host_Alias  MYSQLSERVERS = mysql1, mysql2, mysql3, mysql4, mysql5, mysql6, testsql1, testsql2, testsql3, testsql4, testsql5, ugrad1, ugrad2, ugrad3, ugrad4, hgmysql1, hgmysql2, simondb1, simondb2, osql1, osql2, osql3, psql1, psql2, psql3, kanpai, sake, psqlprd1, psqlprd2, psqlprd3, osqlprd1, osqlprd2, osqlprd3, gpmysql1, gpmysql2, gpmysql3, infrasql1, infrasql2, infrasql3
+
+####
+# Configuratie sudo regels hieronder
+####
+
+# Ansible account mag alles overal
+# op RHEL wordt standaard een tty afgedwongen. Maar ansible heeft die niet
+Defaults:ansible !requiretty
+ansible   ALL = (ALL) NOPASSWD: ALL
+
+# Systemen team members ook
+SYSTEMEN  ALL = (ALL) NOPASSWD: ALL
+
+# ICTO_ADMINS mogen ook alles kunnen, afspraak is dat alles in puppet komt
+ICTO_ADMINS  ALL = (ALL) NOPASSWD: ALL
+
+# MySQL dba's mogen ook hun servers beheren, maar met Puppet
+MYSQLDBA  MYSQLSERVERS = (ALL) NOPASSWD: ALL
+
+# SAP_ADMINS mogen ook alles kunnen, afspraak is dat alles in puppet komt
+SAP_ADMINS  ALL = (ALL) NOPASSWD: ALL
+
+# Any user in the ICTO User_Alias, may run any command as user icto/www-data or simply su(1) to icto/www-data.
+ICTO  ALL = (icto) NOPASSWD: ALL
+ICTO  ALL = (www-data) NOPASSWD: ALL
+
+# Specifieke aanvragen, voor zie JiRA of OTRS ticket (als die er is)
+# Helios hangt aan LDAP, dus we hebben passwoorden op die server.  We nemen daarom NOPASSWD niet op in de rule
+stdweird helios = (ALL) ALL
+jvcamp  helios = (ALL) ALL
+
+# Simon Peeters pulp setup
+slipeete pulpd1 = (ALL) NOPASSWD: ALL

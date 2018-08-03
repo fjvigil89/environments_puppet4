@@ -1,0 +1,199 @@
+---
+basesys::global_ssh_authorized_keys:
+  'ansible@ansible':
+    ensure: present
+    key   : 'AAAAB3NzaC1yc2EAAAADAQABAAABAQC9QuqUG5SBsyfaCJjJUc/jGaCbxOrynhZtf3uBzMLW9CzGTXYkdaHM65jhvhAZQJlD/l/3biaF90cxE7KKcxwI1I+fs9gDZIfU7Bg90Q4e/6rKRMsSVT/8cocYGdyAJlykfFhWgQcjhMmUZq04d6c4Jh/OdrM2espZh8xn6ArgojjZAmnVLFv4eHRUT8qcwEUDk0swf8CvlPTp/qLUDoe0aC489UsXG2xTxywNnSfQUMKFJbmU6zbMHmOV/HMQnFU/Wu2xytJuzRLu4MLFXP5F3HaWfLttPnI0DRSJxzxX/kC3MgKcLLVnJEa1/f5F77VlZ9FbJLH6XFIhK6fDN/n7'
+    user  : 'ansible'
+    type  : 'ssh-rsa'
+    options: 'from="ansible.ugent.be,157.193.47.225"'
+  'SA-JenkinsSystemen@jenkins5':
+    ensure: present
+    key   : 'AAAAB3NzaC1yc2EAAAADAQABAAACAQCpYFxW1MtQdkXisb357RAhRSBMjfjUccqTtcl3WS3A1A7h2tZNgnqulwUlnMz/QJrQ31XkIBZohFHSA3jd4d1hk9R0JwOF+lrGF11C1lAQ4MNj3OKBeGhT4JSI676OihCUp0DBSCJMqfa8fWzR7eEbNFp4FaQTZKIgyRl5kPKO54LAeGqQT83q8R6XnfAadhmPaefQde0YJRnRe+rnEX2q8D6c28m0CtZMe/718SmhRHo06xgurxrWGQL0y37R8+OX4T7PuP5q3n/B+sXBkkxsjc0zOw+3rYrDksnnv1lrdEtLc6cVi9lI9UxSb6G/uXTTA9WndP2A1t4Tk5rt4PN5mN9DwBJcw87ycZskgPrqqtVJwimF5z6bUFx6GM0cEIp9hBhmMPH/0+vVcI5i8M431BbC+av7HT4TLiqgU01+TWhpZcFzcA43EvSI10il2BxKYy1uxezSs+7iE3PTK9dbmYXxXtbRnZJKQ1H2q+y0M2GkzfqVkO8Jkey0MLie3l97nMeadZeCPfkyo2ocv3lrkNTMGG3JpfWI1FIa+4KNjQXqBn9gn3gOXtPjmXImME8yGFc97Z+z2TUgzvH/LM3wDPtiCl1rxhJiM2Nvs9KAgyGS3w8AIUJJwMKz50SoFjSrhFYqrQR3kCWcKMn4pUl4a126KizlP+kXlj4HCjRAXQ=='
+    type  : 'ssh-rsa'
+    user  : 'root'
+  'jenkins@jenkins4.ugent.be':
+    ensure: present
+    key   : 'AAAAB3NzaC1yc2EAAAADAQABAAACAQDK/X2snT1NvJzSZd65zndH/O018KqKp/AEWZ9V/8xc6oLE15j44ienB/FXa0kWXniiYOZtAjj6u1l24JxFcj1klZMwYvxGteLQacqtJNqYtHr02bXc1YzuNCQNSy39Eie/uyXdlObuQVAelmFzOE+s1HQa5QMSBiRqOkEhJ3yuuHmqa5ZVG3rtuSgb0f6lYU6kSloglRNi7khhBQP+mZSd5TqQHTxKXqVxsk/rZwV+VAC2I2OAoPIr4Am+XHKW1xnB7fVe2RtPyndWUx+bITNbwjfljAlqFmy2KAS/sBBpLHoXiUyFO+VwcMBCJ1E70EmFiu3HlYlpfHNCRlpgWJoi5VNyZx29K22Ts8+eDRd7VN03wMx2/PSU8IwWlggztn5URpi/0tnYMDl2n0/fW878eFeTQemdrA9qAzxGfF10T9xugorZLMuSMV5prBb6lkaIw86UDFZhaj6KSRbdEAdB/QQ1JjcnYeZkD4Rzr1rk0JfsUZ5g1We6YdawhPI3h4SdDwzeTt2YgEwZYQvn43OOKbUyNXGWbXlESGWpcz/0Shy12HgpfEmNxbWiCSI4CGA8fgCsLhIAJYJ0RIPVocQFX2vR+yIvhEOGjgapwvEs5cvocs1nCB4cJTdQBiNCuvsyeMIq4F4SEpnB4ShvqEVbuXUWZZE77WvOSKeuqkhjHQ=='
+    type  : 'ssh-rsa'
+    user  : 'jenkins'
+  'root@knobbel':
+    ensure: present
+    key   : 'AAAAB3NzaC1yc2EAAAADAQABAAABAQCrRrmkOch24DKdT0K/0gQNesqthSqC1UvKELtIGr/R37K/2LgYID+VGzP5Qpb7w/eFcNqfd1TLJ7eiQzWZSKbe7HIZ6VaWSupAVqfjv63ulpbF1y0xlDaQhBlkJh8YxNdyyIyzZABJqrKOKJe4OmLgNO1Jn6H35jzrqfcvZsbnNvNDXJD54UjSWUkNCm9lGKzBjNQAbz5c0sVu9KMUkh+xzWxcwcXBL9jAyTORWqMtB3drj58RLWW29ugbKpjIfDQvd7FxoNmB0Qvb+pSlkoIXqGoqHs8Cbcflf2GSiRpy7h0Hb7Gw7JtCgJLkIXWB5ELLtQg5zUBon4DEo+Vnyw7t'
+    type  : 'ssh-rsa'
+    user  : 'root'
+    options: 'from="knobbel.ugent.be,157.193.32.4"'
+  # Jens Timmerman
+  'jens@exile.ugent.be':
+    ensure: present
+    key   : 'AAAAB3NzaC1yc2EAAAADAQABAAABAQCuSE98vleIlwQ5OLpvfbP8N5OsygFSD64ft7dtgQvZDJuRMYgya7E379pwFfEcu4oeQprf7wfQrtb1UNdQA7Xt3e+u3zL+OYasM497boxNOOjbDyXzQX2yf4bjkb27Doe4edndmgjSGeGJa42ogfFeKNDy8IglYo+8ozZ0kPUobTsGO+QKkDdwUGfNzSr7qihGenVPEi591TEyUZJ7fOIxsUccPivckIMd/YtudQ7RmTmZ4Ez35iQwtIyOvziVz1QDoFZW6PmuImr9jXaSsE7OhwoezDgtMphOU0SAe7eMXEGCCkd/CWVBPMy9wYhmRujLBk89jCyDyUgp4Zkd/Gkb'
+    type  : 'ssh-rsa'
+    user  : 'jgtimmer'
+    tag   : 'hpc_jenkins_admin'
+  'jens@ca60c173.ugent.be':
+    ensure: present
+    key   : 'AAAAB3NzaC1yc2EAAAADAQABAAABAQDc72/Kpypi6oWH/8EThuZ7LK7bepKkLGur2E2vH5Ntga/PZ53aXoILk2jlR2QDar7WjgpOMmazA3Xzp6KfMaf9eI52Xb3r9ZVRU+gMbNLxXsDO/DSY6GZlEOR1HI0+yyUfQeTg92LUBjESRGXk4/SiNTE/CB0tTXemmGbjziFq4r/WrWNmdizdcvMJ0H/iVtO4BF0uV9kBXCdEFulI1xQ26MIwgjCF2u3KH6Uc4NxFSKzhbNUv+n00yjSqBDyPO0wyukJFLhzx8esJMb4XWC+BwsSxSlAxAkeqqPeJBXPP9kGAPw3I1CcvX6P3LOi2AWPO0+ljROdsSoJ2PsybQ0uJ'
+    type  : 'ssh-rsa'
+    user  : 'jgtimmer'
+    tag   : 'hpc_jenkins_admin'
+  'jens+fedora_exile@ugent.be':
+    ensure: absent
+    key   : 'AAAAB3NzaC1yc2EAAAADAQABAAABAQDbnUIdMFet1c785ExhyNwKXLaJcl9qt29H8zBWRI1XC+HmZiqy13q5qqTDaRY7sAUA2cgf+1XOibhG7wejrhQFm8iZtrs6hahEHyoF3Zj6Juwa2lLeyNzk83bA6cTnvWEJEiUeQ6QT5cE/1d+NdYYLqmmiFe6lCw9MrPdFlsrfJzHU0eaIwOvQtDi4DgGAou/1eWvW0e06jIt46zyOY77qu/FlYXvFOaZH2mcUNbluHzI3dyQVIpG8M996EqUEWqTZ6At7f13/jnZmCiuMCK38yhpojsnziLISzO0D47higmqaL6JSYBKGNg5qZ4sdm/jO6EVUXuue0iLMLN8NadwN'
+    type  : 'ssh-rsa'
+    user  : 'jgtimmer'
+    tag   : 'hpc_jenkins_admin'
+  'jens@dujour.ugent.be':
+    ensure: present
+    key   : 'AAAAB3NzaC1yc2EAAAADAQABAAABAQCpoDssSwuVtJ3FKOlJz05P4/QJ1fow8L98lRRqoK11GlsvPAXIRXqPhWpcFuFCOdThD0HE+sEjeC686H8ByqLvGEDWNrlOz/Y9+aH8eAhUieLUgtyeUkvGwgEyI201TUuu7dvyVV+xjnckVjAgiXTqbMGujbSB7Ma9Rdx/q3nFhqiVBB6xYQj6LNS5keMCseRjQHnw7QcBewTsRVSsoriPfKP35ccnbon2k/c0AsoHpi5PmMIlIb6kla2PcDaPPdDg160HRXyRs3664KFcDBdPonj/5KUBEa7Dy+eFsXp6rU5MchlVLOgKZb2yy99CXnSl868MaAapmiFGunLPmWnT'
+    type  : 'ssh-rsa'
+    user  : 'jgtimmer'
+    tag   : 'hpc_jenkins_admin'
+  # Kenneth Hoste
+  'kehoste@boegel.elis.ugent.be':
+    ensure: present
+    key   : 'AAAAB3NzaC1yc2EAAAABIwAAAQEA7MbZmifMIHP+5nt+4Ss6WfuUsR6tLhH4opyu4Ro/akftQPsHyfLuTUGf4EIn/H9yF7Hzwoj/BUm+3DdJUolGUCwGvDZ/zjejDvTfC4vrCi+4h8ojy5ssQsEChppYROAC9h80FilLt14ZN7GcEo0BedP7xc7tCNHOXt2U97iLiFwehcHHbq3mQI81CxyiJ2eukFvwYnaIzcJ5SwvAjo9qK5CXwGdR8qmR/Io8geSIC3fO8EQtjJ39Nt8v+3heS3zUvCxLAhJVNrQb3wUSYQIInlkQ3++vYbbuA9rdZjdxgGSSS/kOSwtHckYi3wcrbZ6VidCQlS6s5zoc1rk1/k4RVw=='
+    type  : 'ssh-rsa'
+    user  : 'kehoste'
+    tag   : 'hpc_jenkins_admin'
+  # Stijn De Weirdt
+  'stdweird@localhost.localdomain':
+    ensure: present
+    key   : 'AAAAB3NzaC1yc2EAAAABIwAAAQEArXLs091YmxzYaKkwZh+BZUx17Pbw1VdHblt+lr0Q1YqXv0w6TadNqs8RpNfSd/+hXQx23bWcmIwXeMcSOsT7JHO5FQlVLIp7wxyOv+5lgZn2bSMi00JNUBcI1puGpDyb7xJijpV6Y53Awfb1ghCxYcM2kOaXBjt87PCuiTX7jv0viryT1FAzQpGtWlMC9tdbEdvW6VbCKjHRZp+ZW5OlT/hzf42LRmSP7OUZ+SSIX8I5fLIhf6KQPWFpNi+NGnerY/q5FHuV1pzZRAT5D+dA/yvEz6IuR8sUO4OoxU9u36UcxisBiFt2FSnlkLePlKGefbGnAIPfZFYVl4X4o5vxKw=='
+    type  : 'ssh-rsa'
+    user  : 'stdweird'
+    tag   : 'hpc_jenkins_admin'
+  # Wouter Depypere
+  'wdpypere@localhost.localdomain':
+    ensure: present
+    key   : 'AAAAB3NzaC1yc2EAAAADAQABAAABAQDOlI7iEeEflgo+QBXJ37XDAjxlCsJrxszehNvGkTuloEYKZhb9QflIzeve0BPvdpnREQfHwmp4KanQZG9M4kJeft0KNIr8Y5j+KnZjSLfsEZG9rnp1niylgF5hzQ7WbboHtfTFkCGLT+tqAxt8+vgq9OfWM1KGJd6XoU7PvRAmK1o3geRRMju6pjwoB2VEMg6smv7TYm6DVLPT+GJsZhWE99ScfKHqVuZGxflZ9TrvWrIIGAbEj5oVdqxzT3ffEbC4Kq1fj97EaXFMB6umcZhiclktzRFDFyKYD2X2NWUo4441kT2+/7ioMW1+RW296Ng5Rxg4AStWDMgKFO743NsF'
+    type  : 'ssh-rsa'
+    user  : 'wdpypere'
+    tag   : 'hpc_jenkins_admin'
+  # Ward Poelmans
+  'ward@ward-laptop':
+    ensure: absent
+    key   : 'AAAAB3NzaC1yc2EAAAADAQABAAABAQDI4gvhOpwKbukZP/Tht/GmKcRCBHGn8JadVlgb9U6O/EP/lWhV+vCvn4N+lg834twvcRlXM7iFaWFMtbGH5seOAa3lMghR1KLDbKY7KVjVOlUcvfawn44SIGsmKCzehYJV2s/XU1QSaaLrjB7n+vfOyj1C3EgzfZcMOHvL51xPuSgIoKd9oER/63B/pUV/BEZK5LEC06O1LgAjwLy2DrHNN3cQdnTbxQ4vM5ggDb/BC+DyRYlN5NG74VFguVQmoqMPA8FYXBvT/bBvIAZFw7piZIQFd6C803dtG6xwgo2yNXp3UcGyF7G2p1v5wMuI/ijGDAaJ+mN/KjlYZT0ml8mH'
+    type  : 'ssh-rsa'
+    user  : 'wpoelman'
+    tag   : 'hpc_jenkins_admin'
+  # Johan van Camp
+  'jvcamp_spamadm':
+    ensure: present
+    key   : 'AAAAB3NzaC1yc2EAAAADAQABAAABAQDcTqpCb10rv11Y9FAiuaKir07ZtZitJDmZ3CubbWPTlQNl1pRwQxuUnfpb7BP53BHG7DWpSkXv79qUYwKmqp1fk9Rd1jzHaa3YHBiNAtC0pWZX2KAZKhU0X1pIyZfvK+N8yvqShprzuQPuuk9rU0jn6f1p2U2zgTGLFanPfFlbGG+SjdZXvu81eCU13OuqZEX25Us3VhgwiXN3PnctiKBkEwXDe9SQUefqqfPZvljqBQ+ou5MU0pxM+fArqszd+vVPLvPcie1fjS7FykcUvoog4e+xCw6XYjDfKgpVawiqp+wv0DKjZQ7hqFjoXD3zQKk5fPm/1/L9TRYgcfuY946P'
+    type  : 'ssh-rsa'
+    user  : 'jvcamp'
+    tag   : 'spamadm_users'
+  # Olivier Cauberghe
+  'ocauberg@home':
+    ensure : present
+    user   : 'ocauberg'
+    type   : 'ssh-rsa'
+    tag    : 'icto_sshkey'
+    key    : 'AAAAB3NzaC1yc2EAAAADAQABAAACAQDPOSCscxkZxEbgkdaX8s5Ctv0NhhOf+EypFhXy96H513nFkdLSN8lTtvpg0c9ElivQWZ7oYscdrA4/U4yHDHAk8yTb3k3SP/5UCrnn778FCpdVP8jfy3xLZVRQCtobto5BF8yiRZL/S7Q0nswLUcoEvRXpX9+vcmkt+Q0AqlYOUt+mbgtFJOtYHNNwzRbqt1QfEIg9I6BQqo+DiPSJmZhtXcneJkzQuMkNFvE/xEwrd4HEKTyp6YboWGa82sv0h+9B1pn9JGar26bJ0d7PYWYFVSkCYhxPuw0yV7pIrdo9H3jRgiJwHW9gckzUelmCme+uRkS9NuU0OgCEM0COGTtwS01gf+4z51Uk/0sKl8+aKxgBQNnf3VDgzugnXiMEC7IEFzb+7IswcqXoJ6f7uLB7Q81yekgye1lem0WhPtaT3hmeZVmAjPQmwZaegVVhOZoIEnnpABQgsUWrAV3a7mtI/mAgjsqVa//g6q8iLdORJRDzydUr9q8PqWsBrvrmLGr9aEnwiKSLB5bAQx0ZwgIf7PzK1QJ4ijd03dGZAK0gFbQvpjHuRAnzZ+tyfhGnE2A/iKXD8GaCf5+YRsVo8hAVzqO9rc2/+lbRv4SSq8rr0SvNPChP0LAtXwsneCikgbXkX4PvC9YfoV443jcnKIfR2u9wErW7QmyQIC95yKT/EQ=='
+  'ocauberg@macbook':
+    ensure : present
+    user   : 'ocauberg'
+    type   : 'ssh-rsa'
+    tag    : 'icto_sshkey'
+    key    : 'AAAAB3NzaC1yc2EAAAADAQABAAACAQC5/lfiZDC2dxBCInvm1Za5m4DbE9v/UGvCdPLqMcxCNxp2ykJ9NXyH6wxqq2ttFnj0X4xEa7gbLQUhaRLNNT1hjIPMkw3sO6TyxOTWDAcUmBptfhAokyzU6h/o249GupoBP7obxSDXSe+izXHrMudhV/g/H/P1owAjEf/r9iTc2OjEqosh6Jk1k3bw/FM0guA7FEOjw/MSXlpbkPyjJP+VWIFHBxIgXlqD72W/IdxgIKbJiL2K84WfNkISU5HmsNdXkPAqNyM4x9PFkrUaiBQVJTwbvXLp2ysOObKnziZsQTCJZCTyzTk2VmHsUl7fOF7FZBkpq2udyOWivL2OBkbJk3VRMsv71TusSU+YCbiY9vbnFjlSL6x9o+E5DqtYlv6Gr0lXY2HkhJS9w+7hP3YpJlAhScnotMOGv0njgIyzMLvxbmucOKE6a2TTKAil3oKXBCQAZOUXHKsaPEq9AX3ZScxbzLCtqqIrNToymT9+UmXQkZsSNWFtXUYESLdvN2ZuR+kDxGjvaeAJBMXLNnc1lwgz/+r2J5T3NJN7BRXK3B/cIERfTEzSEQGvSXS5xaetaWaQ5JModO/pHHLoTFk1nDtp10B0RfezxzvV9KLPXGQutTt8t+F6p91D94m9gpHxrD20vrqLQXjDSA0z1ZV0tPLrcgq1AGE+njUV2Llqkw=='
+  # Thomas Berton
+  'tberton@laptop':
+    ensure : present
+    user   : 'tberton'
+    type   : 'ssh-rsa'
+    tag    : 'icto_sshkey'
+    key    : 'AAAAB3NzaC1yc2EAAAABIwAAAQEAr65akhKyVJg0Bm8SR87WMHWHfn7CtSlDTsULGkQDix9k5eqG6l3HRb5+/fYxnmivvopU/5SSYy/B4M0fwAx22IYujx8quSyZxJc4xq9t9eZI6kex7b58+NX+6i1gQpXKLJFdzhCSzbh4dJtGA54WlBHr7oxcZ10u7XYaUsHSzCLkP+SBv/NxYEptNQae0b4pKNhk1VS2VFHZL0934d68CzU/yH7Fz0+WwvIfKiUJHrWnCkpX+eFP38U/3LKzRhJ/G+ofYC0t5APJVL1/9pYq+otrvOMFgl4HMFtX/WJigRS9GPIfcxSArAZPPrGVwaW/B/yTOM3fbhJPaiN3H8Qw3Q=='
+  # Kristof Keppens
+  'krkeppen@laptop':
+    ensure : present
+    user   : 'krkeppen'
+    type   : 'ssh-rsa'
+    tag    : 'icto_sshkey'
+    key    : 'AAAAB3NzaC1yc2EAAAABIwAAAQEAxGxfLl+RSPC2nEDnZa0Xmt4vS3APaoOJOrx1BP3LzYfSpUYglbvA1fOTSJ37ASVL0t1UKeP3CmuGj/r1pwTGXW1Boe4rbQMXZWfBJE5JpJrfbYkD8/85nQmhgBdKeLXL1j9Qa0dF64ELmo1QgPke/7Nzbhrc4nPfDtcC8d+t0PTINAO+oHNcqFYmXpWBCBPjqhHfhLiiRQaG02GUpGA3Mp7HNwfz2S2pHydVxv/1ZRfYLPqW7sverRcVP1lXq1cjshoufE6m5YrRoKOUNDxgl1fZLrprHyCX0ljO6drNQFwV2mx8daPWar3W4NORoCDW0hoagFGaZLsuHT/N3mH4Mw=='
+  # Bruno Goossens
+  'brugooss@macbook':
+    ensure : present
+    user   : 'brugooss'
+    type   : 'ssh-rsa'
+    tag    : 'icto_sshkey'
+    key    : 'AAAAB3NzaC1yc2EAAAADAQABAAABAQC0lo8gyoXEBz0DX9yo+RTwo341zKFQMOHY55ema/XvxfWIa3q4db7fO8Zskozytx27XySQ95u2vhy10JJ/MnpGqhkrm3iN7NYRZ3IbZqIqoeJZzUlGiAfkAZvHriLK/TTxhFwtcD5KDt/8Wo5ItwHyWyvs9cz1a4QrNKwMPNYEHM1cjNZjOog5tIAfS4Cg4BHMtekwKYJKP3ZwrPpiKijoQt7orrjDGQgBtI9540tZQxjdz4PiJ21qMRaDJFeoWyOPQdCecgALhQWD/h8Z72+m6E93AzdghIpJedX6jBRmAt2avfqwrcR5KEkNRxCLaNckAnPSgGyt7Y1sMAz3XWM3'
+  # Gijs Nootaert
+  'gnootaer@laptop':
+    ensure : present
+    user   : 'gnootaer'
+    type   : 'ssh-rsa'
+    tag    : 'icto_sshkey'
+    key    : 'AAAAB3NzaC1yc2EAAAADAQABAAACAQC1kgGArdH+MiVGlbCjniy4H2w8Gv0iodpHB0URMuw3UIjSHfoJgM60G7UehwrgHS4o12pHsPvioriKRKmbm7R3wRwe+zxXGV7tw5nycEQUt8QK5IC/zmO2qBM6mOyQ+5POWV2xjX4NH9mYQL2PcFu1gbdUQn0YRHE1yuCh0H9fV9sxBncLVebXflE2buvrN9P0a9TzuFcxmRKRarKxMX+X7zvhVo8gjnqjGSrH8TXUbygF0BHdImN55qSdM1+e+/LrEbKHuG3C1Ujbf5lGP5CiMromiHCke6Cli3kbw1D96hQU6EQB5aRPTcra3XJn88kjjzofP7kN3KK83jiONU5IjpeG4s24wVwPchUz15/9NvXnW0rrqoiJo+164NeAsc23gTiiHzyioanY8YG7SMpQ9Mt90pyAR+0rAIOtAE3vIIqM5InDCGnGE3hwIcSkevGTu1elpafDjYghtdLVEvFHUJu1fblwICMk1fQqwQ6Em+fJhAxyZImdIkXaJdEctJPOiMmoAXN/nbA+8IWgRJ6shuPWep9HziqMGfqcZioR+48n0zAQLlWmzW80LuLs5dSlbZqf5n4yvwy7SGzFZVBYsvX4jd8fewhKUmc8hhOfTuCa3e//JOdu0yb2HDQq5hUVa9QvEmA4UhWuhiSbmjlQOIZx4SCD3NHJ/OW2SPlPww=='
+  # Matthias Crauwels
+  'mcrauwel@laptop':
+    ensure : absent
+    user   : 'mcrauwel'
+    type   : 'ssh-rsa'
+    tag    : 'icto_sshkey'
+    key    : 'AAAAB3NzaC1yc2EAAAABIwAAAQEA/Bs8jm/jRzYP1A9fOc73zCVKhUrLfcrWxVhcFWcXRM585HrTIdClbSB8ey1Jsb7W4Q9vngUTDaQyuKS45HdrgOvWbZ+2BsrmtMVZoTSecMW719BwX42eo6OIYZd/h8RlB44757KkCKg/AEuFuZ3Qn37oXAk3hSeNhtNltZwXihTehp+BLu6kZhWH4yC5nYt5pHyEkgP6nLJAt29KNJ1py99AAB3UN/r71NhoDKSaVguVBhdnCEZ7AooZylU+z3YACD60wbrQQ9jCgzwtn2hcP4nxyNco8q519IickvnEz8f3g7SvbAhi8Kp65SZ4FFSh4BJYSi6ZyyFSE0P4VR1Ffw=='
+  # Patrick Cool
+  'pcool@laptop':
+    ensure : present
+    user   : 'pcool'
+    type   : 'ssh-rsa'
+    tag    : 'icto_sshkey'
+    key    : 'AAAAB3NzaC1yc2EAAAADAQABAAACAQCua27Em48YOINCmD/jnsaqT6TIrxThtLVyXsUJSYk7UG/BUWHp4f15UpeJgdxw4lyBtmiVIg6Ti/PLjcvy1LC1R0FkpW/rAvP9nimqBUPTmp/vIjvzwInauNlsD5ccNcXz/5+lTdUHtea2R8zdzri+cXrcVrAAtDV43yZEtGcEAjrZAtWZG2pzsOyvJj8yMVKF5D4nJVmruTyk5TnsBHbPCBo0AxBqFAo/3bvQHQxSNKipfm8AMeOQTynJ6aNfUgL3CiX5AAyNktPiWMrb5dUif4BjlqCaaUbCqHPJvm7l3uMCVX+QDy2gwcgXdot0ZgFxkFfsL0/BcWO/K3u9Qd7DH/+6NMk7uJzDRFwkirD0Qgm3Vie7AyE0uIKLSGRnXOgEQ6VUZ0km8keKgw7Xjh2wTlf8lnvL7EhWNzxIcD2ONQpB4lTw/M6Wc023D3HcVrBAWV6wVqq4A6FXcfX3oGlaoxKQEpWrECwsM2rW3RAMWO2cMKLU05vlLVdhumA596Yli3FPo7InkaEdmPBButyYH4E5pOcnQjukb1ZDcCRhSLXkQU1pFqDd+zDMjQX0hCYNA6Gry4XYwvXdFogZD+YU1SuC0hTl8nB1AckEU8wC2w6AHiVz2XWCuV9Hj711WLaDFDT9NcgPySEPKj632AFwutzCTWaxtCK8z5scd6yrRw=='
+  # Bert Vanderkimpen
+  'bvderkim@laptop':
+    ensure : present
+    user   : 'bvderkim'
+    type   : 'ssh-rsa'
+    tag    : 'icto_sshkey'
+    key    : 'AAAAB3NzaC1yc2EAAAABJQAAAgEAnQqnWgVda0xlX60oDYRpLXKDblthX8Seg7yeJ7S3EcokLBilK7f88XD1b8j/xDsOrsP3j6br9+yLoh7QY+0lCohScn7niWz7zayockZfVH72TRwVutoIYbMoKOOgAcngsDFL5ulD8tGeK6PHUQcChAVTODCKD3c66p+IwdxQWRXgTdVZbg/SR8G/girVS/biO3tLbvuFQdIWb52IckE1GIihmn/DajKnAGnmykPQ526s6OqCcFcCosyv1IhPxTyxOYnKp9wG9/XAHrAtdrX75DbDdEXguq3Hm0rbhry2uqoTmqRJA4vOcLbUNsC8LV5chBM8m0r8ZM1NS/smmJInn02sw0WeJJT1OTw4i5T1Tdrd9uKcwOxPba5NQ4rNcOUnz/H+x8HfuS6neP7BApM26S9sK/MywNweZMigJjV5LGEna1EzP2Wts4XLpXQim8x87C9Jz/EnuQzMtLIZMXtV2Gby+55ZmVKZr5u1RD0ifV4cako03NkYsXjWswr/sBclyEA4LGcQQTDJ8qHWsW20n3Lir8ulfH3utMHDaTaO6KLuh3I3qbDLOuyWuAQyvtdaV6dFQ/zU5c5VaExOt1SNRohzpv+oBoABtdF/vMaIxq/v1kV1v+dBZA3j/SBx7Nkfb+oDV+tdg0p0bp2L2APz2/InvDGWkUtzrSz81kL92LE='
+  # Toon Van Hoecke
+  'tvhoecke@laptop':
+    ensure : present
+    user   : 'tvhoecke'
+    type   : 'ssh-rsa'
+    tag    : 'icto_sshkey'
+    key    : 'AAAAB3NzaC1yc2EAAAABJQAAAQEAvz7vy9fcAqQNfe9KL41uxEmKNfn83ecbYIFncyTEuPiJVXRB4gkyqvGQ1jgZtBwMaU9ioMP7wiq1S5majg8YNnH4ZGznkJx1DJ1yB3sLlsMWbejJqsU34QotSp/MeuK03sioTc9OIEF1Fey55UT0IZOtYe1f86SAbaCHu6GhZXmvyzqw3Mhomkb/x5LC+MO/Xw5+D3uFHWof6+ymtrbnw9/oYhseg0nww78bKCT/hKlRDmm7Jh9fpJpsaeza0bakR+ff8k1gbEH9ZArPgzGUe/ZTRes/7/EurnM1LFslyHQDQUZjviTxWcbe7opuM6C7QAEpl5grWKwDyWjS2gmjNQ=='
+  # Kurt Van Wynsberge
+  'kuvwynsb@laptop':
+    ensure : present
+    user   : 'kuvwynsb'
+    type   : 'ssh-rsa'
+    tag    : 'icto_sshkey'
+    key    : 'AAAAB3NzaC1yc2EAAAABJQAAAIB4+FVbAP6n67cOGhvEarY24z3UFVdDhbP1pZOyek9JdhQsu6vit4g5ld63otPoZPnJyjidrOFttkkY9qxhiTMtE8Pw0X0pssDWLPwSArQGcuTFxBzf0m5Ab/yWHZh/UZT4ngdrPKEWc5hTvhVBF6Nr2lw2oLKU3VIa+6eV9/yJ5Q=='
+  # William De Gryse
+  'wjudgrys@laptop':
+    ensure : present
+    user   : 'wjudgrys'
+    type   : 'ssh-rsa'
+    tag    : 'icto_sshkey'
+    key    : 'AAAAB3NzaC1yc2EAAAADAQABAAACAQCwVhiXedZByQY0kN4wjntOyNqce26SK6Khkp+57615wZ0xVfBzEbNJz4w+RWppYuAdbzdr5QlGMVHVoN5rngzQav6/i1h1gTNFpGIPKdqiBZ6lIgSQltRMj+QKdxcaSvMHOpd8VJW2qp85Q0zj7STlHup6pu3XgSyoSNRw/uDsRCS9ZFFAf+P5XkCMumxCbN7MSEMV7XFRM7j13m0zl7ZF78O2V7JNwUgZrkKpBTbdG9gzgAHy80iyefwau0aGWDtg16xUm6tet/cf9YNOAiAf83DNwsQGDEy19Sl8XInZGNiO9QXkkSe5hPQS8MUYcWgSsGlU2rT7LDPb8o+1wsQCYi7XU9QvYBcHd2Ew9l4ohyHJM7ljxcdtCpkKgQ7NzIsDPO1S4K96/eOsjvVck6N/R7OwO+z9sFn+YJmyqX0rq7mQveGHyPPNpw2zO7iBrzEOtwmHk3uNZ3HZqla0nVTqiGtrV0E1fMwLbSnn+/n4UP8IePwWIQbvYwlCmsML1lWAygu/gY6lOU+pmGuWjcbva688EC6BaggP/r1rHIMzdOgazq1xfgcLN4aTMvxOOUBTMSMOLnUZD4zmxgIWBhTO9FxUJDfPbRE22LxXskm27V7gBhnzemDms3jQC7bAznnDwdZyvZMNOxDM3eiOQQyECLLk3wXQ9zd4M45irz5haQ=='
+  # icto deploy Keys
+  'jenkins-deploy-key':
+    ensure : present
+    type   : 'ssh-rsa'
+    user   : 'icto_sshkey'
+    key    : 'AAAAB3NzaC1yc2EAAAADAQABAAABAQDJtB9nuRUPG1VYvUk0XQMkGo/BvvFwfYtcuz1JogLXxVjmlrJedcXTmirdW5Zqv6FiNOR/CZ3fXQP2OjPN5JF5TaH8D+Qixra3J87rcubcL1vdZVvn0f2FNfY9UHnD7VDygXKTT8Azcy2T62o8vq7WMK7ES2EiwQEFJAUAebIqKy5zpVZtnaHboCCJnHZM8WWW5KslnPyGELmfpy29euIr0GGMsf+Ua8bEUDgwkZMXb+q04PCRpcbEtbwEMu5l9ab57v3eJxBWnBlHr0KzkANnxBf6++tFB3TaK/AfQ0Mf+GROEZG3WU206KLK5xijiXrEEY7fg9tmzknnaFuvvBzN'
+    options: 'from="jenkins2.ugent.be,157.193.47.95,jenkins3.ugent.be,157.193.33.28"'
+    tag    : 'icto_sshkey'
+  'jenkins6-deploy-key':
+    ensure : present
+    type   : 'ssh-rsa'
+    user   : 'icto_sshkey'
+    key    : 'AAAAB3NzaC1yc2EAAAADAQABAAACAQDCR9S1IdO+EDbF3l5NYCDffOCWaGT79vlI62Sdnjutt6McbCoL9ZYQ7orS72geJjsRc5qLGVKTefGkc0xNsjXTaTqdsz7JNVnLt2isEKhvDfEWeu/RSd9I05UE4pvFyr2C/YyJA1GCAvhaC0LZdhLUJ7GpRyE6J4pHFtJABogFjcceygAbOb+3dSa8FB8F9YZVbhoYaK+HDNHARicREILbRnly/zr9Ed86i6KFfPep9Hh3f0tLLq2mjAtwTACkAep8d/E7N4/wXKSWtLnBQ0fqwgFwZGlrFpUJ0OwSM/GLvmd+g2597WqI/qh2LQq/m9jZp8KLwWODp7LwrvJY2ulBlm8pdqPH7lWO6ZPfDMhHYf8m0Plt7BsjzTEz4SPuQ7ffl9IUfPZ2muG0vUy+KOl6f3RO0EWYQZ/Fyv47pwh2snKvrUdys7lKL5dF9J9pSzQmeLl4RuoRq2rxva4VbOhTNkREdbdCy1/a2rKynsQ1dTudBq5Jh5wQqZzaGuelil7A5e0GazbMdA2o8YDNrgYKijqbhWT1aUe9+mppcoZ3kUcZ90qCMaaYjWNpmQGo33Vyyhn6IC+K0vSpceLoiidD1qrjybuSY1xqPoEUgmtAn4lBQttdZV3jF40p6+KG/2eZB14fDZNGYU9OACZbIkYRuyDwP1ZxLuZfhI5GqdDIrQ=='
+    options: 'from="jenkins6.ugent.be,157.193.33.203"'
+    tag    : 'icto_sshkey'
+  # icto old shared key
+  'icto@jaga':
+    ensure : absent
+    user   : 'icto_sshkey'
+    type   : 'ssh-rsa'
+    key    : 'AAAAB3NzaC1yc2EAAAABIwAAAgEA4KcA6WXrAmDApg7L7hTiQkWEAE5FyQ8hCpuLnLuChIKstYlej+1FpjyhWSWVidhilAiPYt192B0GXoSog3bCdrY6oQq0vKe+byCvuBrp1zf1+Qb17azaJqGJIWd/K5W+YCkAae4BamCPU9PnxmBeVJc+ul7zyJ30HbIfoYcp632C0ixROs7Z+mTdU3dtO+AV2hEMNkXLCjNNEhPAPFIU6QpYISGuTw6Rnv45TGjN4lhpwBpZ7Ju/C6r/9MbXZz7FuM34AlWFmhvG713rwgXPgoTwk7aIjS3MlgXgrDlPv/NltIWYYnGvqnaE8tJI7VaoQfM/rKGj5+rXTEr9XdSbFsImYDZxBT/k87KsFoNj22SpTJtq4XkGDgdWGBYeHWSaiUWc5nrPJZOUqdwpkMf4enwbK8HlLwOtC0iBC6Lq9E1cUa1YubGtrwuZFc+kb7Uc2fS/YU7ZQ9XvUYGr5UV2Brw0fBu+gq+A5e9j9K61ZtbZfuoYm0iHDghGwB1j1nh/qx3d5F5w1CKEDi9r6shyKhC9aFgGvw8oaukE/gL6IKOt/5JySrs9OoIJKEpYjyHsU9b5UT0iZ3veYYBepDNgUGUA2/Ni0MHnX1scJY0wD/Sj59RkaipKrkTigMf+8NnV4AImXxL3LUeuZy7k8Q0uP4PjgDVGnY+lg/JJzgHsa4M='
+    tag    : 'icto_sshkey'
+  'ldapadm@chestnut':
+    ensure : present
+    key    : 'AAAAB3NzaC1yc2EAAAABIwAAAIEAsLoMTadtUYapY/2Cq6L02J7CLy71j8ccuB0o5coBnsa0oJke2TNXzNfm/B66LbAUo60n3t/l1/dcV3TTBYRUeeh22cF8hGJRU0titMQlF3VMu/lW2+se6wcgecEAnuRR12A+O/W/J2rsQT2aBS40/0KmqiamQ6Jw7agnq45NVPk='
+    type   : 'ssh-rsa'
+    user   : 'ldapadm'
+  'usradm@chestnut':
+    ensure : present
+    key : 'AAAAB3NzaC1kc3MAAACBANvQYQVzOokeKu1kDo3j+fZB/VG9exjNqte8Df7LfIasUTyfVYLcAnzY2tau7J7PWJ87vgFtLMWPU6LJCoFrMOFnR8AJy/QFaDDJj7Kj9+mbH1im4F+Q0DSE1N++2KMtL4cR9QmVKn8oikKBCB7mhZCmWyikPtmQ8254nLzBO4PDAAAAFQCKVHP9a44nG2dorKhl3FPyCza6LwAAAIAWyEU9lRqOGG477SxFvWPol9kmR/Jn37N0rixTdBan3PY20qCetyYgMpoVUC9EeYYzG0LLwM4cRn1wsw4c+vjE1b+wdGjRoMsY5Un6Yk0Gf/lU1w35ajX1xSSx4ykA7MYRThJhO0O3kupRKvHGk+6Rd9mJMiZ31UVQZQea2TXkOwAAAIB4RefCc5uN8VxKWJrn31ItE2oJhEy3QvVpaekMb5biSKMtZdrkVfZn0FWZspZxA8H3PqvEKfoC+aEHuMfxrZ4ezSfJXTWB0Xun7XU0nVAR88hpnoY8BbHDNglE3AwvfIih92gwZy742H4i70tWa+7uAKPaT2pgx3Vy3WbjbgA9mA=='
+    type : 'ssh-dss'
+    user : 'usradm'

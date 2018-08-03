@@ -1,0 +1,2046 @@
+---
+# System users
+basesys::system_users:
+  'styleguide':
+    ensure     : present
+    uid        : '508'
+    comment    : 'Styleguide system user'
+    home       : '/home/styleguide'
+    shell      : '/bin/bash'
+    groups     : 'adm'
+    managehome : true
+  'icto':
+    ensure     : present
+    uid        : '509'
+    comment    : 'ICTO gebruiker'
+    home       : '/home/icto'
+    shell      : '/bin/bash'
+    groups     : 'adm'
+    managehome : true
+  'oasis':
+    ensure     : present
+    uid        : '200'
+    gid        : '200'
+    comment    : 'Oasis system user'
+    home       : '/home/oasis'
+    shell      : '/bin/bash'
+    managehome : true
+  'edo':
+    ensure     : present
+    uid        : '904'
+    comment    : 'Edo system user'
+    home       : '/home/edo'
+    shell      : '/bin/bash'
+    managehome : true
+#   'zopeadm':
+#     ensure : present
+#     uid : 903
+#     gid : 903
+#     comment : 'portaal administrator account'
+#     home       : '/home/zopeadm'
+#     managehome : true
+#     shell      : '/bin/bash'
+#   'zopeusr':
+#     ensure : present
+#     uid : 904
+#     gid : 904
+#     comment : 'portaal user account'
+#     home       : '/home/zopeusr'
+#     managehome : true
+#4 !aNULL !eNULL !LOW !3DES !MD5 !EXP !PSK !SRP !DSS !DH"
+  'zope':
+    ensure     : present
+    uid        : 905
+    gid        : 905
+    comment    : 'portaal group account'
+    home       : '/home/zope'
+    managehome : true
+    shell      : '/bin/bash'
+  'otrs':
+    ensure     : present
+    uid        : '991'
+    gid        : '991'
+    comment    : 'OTRS user'
+    home       : '/opt/otrs'
+    shell      : '/bin/bash'
+    managehome : false
+    groups     : 'www-data'
+  'samba01':
+    ensure     : present
+    uid        : 203
+    comment    : 'Speciale Samba services'
+    home       : '/home/samba01'
+    managehome : true
+  'studnt':
+    ensure     : present
+    uid        : 220
+    comment    : 'NT backup'
+    home       : '/home/studnt'
+    managehome : true
+  'sa':
+    ensure     : present
+    uid        : 302
+    comment    : 'System Administator'
+    home       : '/home/sa'
+    managehome : true
+  'adminnt':
+    ensure     : present
+    uid        : 500
+    comment    : 'ARC SMB root'
+    home       : '/home/adminnt'
+    managehome : true
+  'generic':
+    ensure     : present
+    uid        : 501
+    comment    : 'ARC SMB guest'
+    home       : '/home/generic'
+    managehome : true
+  'mailadm':
+    ensure     : present
+    uid        : 666
+    gid        : 15000
+    comment    : 'User to manage mailstores'
+    home       : '/home/mailadm'
+    shell      : '/bin/bash'
+    managehome : true
+  'maple':
+    ensure     : present
+    uid        : 700
+    comment    : 'Maple'
+    home       : '/home/maple'
+    managehome : true
+  'dba':
+    ensure     : present
+    uid        : 781
+    comment    : 'Database Administrator'
+    home       : '/home/dba'
+    managehome : true
+  'orawpp':
+    ensure     : present
+    uid        : 851
+    gid        : 15003
+    password   : 'Vru5VK7x7XM5.'
+    groups     : ['oper' , 'sapinst']
+    comment    : 'SAP Database Administration User'
+    home       : '/oracle/WPP'
+    managehome : true
+  'wppadm':
+    ensure     : present
+    uid        : 951
+    gid        : 15001
+    password   : 'ZfWD/s.mfyME2'
+    comment    : 'SAP System Administrator'
+    home       : '/home/wppadm'
+    managehome : true
+  'www':
+    ensure     : present
+    uid        : 900
+    comment    : 'Apache httpd'
+    home       : '/home/www'
+    managehome : true
+  'helpdesk':
+    ensure     : present
+    uid        : 911
+    comment    : 'ARC Helpdesk'
+    home       : '/home/helpdesk'
+    managehome : true
+  'fididiva':
+    ensure     : present
+    uid        : 987
+    comment    : 'fididiva backup'
+    home       : '/home/fididiva'
+    managehome : true
+  'helpdfin':
+    ensure     : present
+    uid        : 995
+    comment    : 'helpdesk directie financien'
+    home       : '/home/helpdfin'
+    managehome : true
+  'oratst':
+    ensure     : present
+    uid        : 1036
+    gid        : 15003
+    password   : 'Vru5VK7x7XM5.'
+    groups     : ['oper' , 'sapinst']
+    comment    : 'SAP Database Administrator'
+    home       : '/oracle/TST'
+    managehome : false
+  'oratrn':
+    ensure     : present
+    uid        : 1036
+    gid        : 15003
+    password   : 'Vru5VK7x7XM5.'
+    comment    : 'SAP Database Administrator'
+    home       : '/home/oratrn'
+    managehome : false
+    shell      : '/bin/csh'
+    groups     : [ 'oper' , 'sapinst' , 'oinstall', 'sapsys']
+  'oraprd':
+    ensure     : present
+    uid        : 1036
+    gid        : 15003
+    password   : 'Vru5VK7x7XM5.'
+    comment    : 'SAP Database Administrator'
+    home       : '/home/oraprd'
+    shell      : '/bin/csh'
+    managehome : false
+    groups     : [ 'oper' , 'sapinst' , 'oinstall', 'sapsys']
+  'oragwd':
+    ensure     : present
+    uid        : 1036
+    gid        : 15003
+    password   : 'Vru5VK7x7XM5.'
+    comment    : 'SAP Database Administrator'
+    home       : '/home/oragwd'
+    shell      : '/bin/csh'
+    managehome : false
+    groups     : [ 'oper' , 'sapinst' , 'oinstall', 'sapsys']
+  'oragwq':
+    ensure     : present
+    uid        : 1036
+    gid        : 15003
+    password   : 'Vru5VK7x7XM5.'
+    comment    : 'SAP Database Administrator'
+    home       : '/home/oragwq'
+    shell      : '/bin/csh'
+    managehome : false
+    groups     : [ 'oper' , 'sapinst' , 'oinstall' ]
+  'oragwp':
+    ensure     : present
+    uid        : 1036
+    gid        : 15003
+    password   : 'Vru5VK7x7XM5.'
+    comment    : 'SAP Database Administrator'
+    home       : '/home/oragwp'
+    shell      : '/bin/csh'
+    managehome : false
+    groups     : [ 'oper' , 'sapinst' , 'oinstall' ]
+  'oraemp':
+    ensure     : present
+    uid        : 1036
+    gid        : 15003
+    password   : '$6$s84O5f09$itlNsvm5/nYZ.Bcb6ngLxfKGn6rqLvErTQvhEJ.MpsqOp8XmOnPNGPoDRlVtBbHyYRf7FWPd5nKSP/VBKkGN51'
+    comment    : 'SAP Database Administrator'
+    home       : '/oracle/EMP'
+    shell      : '/bin/csh'
+    managehome : false
+    groups     : [ 'oper' , 'sapinst' , 'oinstall' ]
+  'devadm':
+    ensure     : present
+    uid        : 1037
+    gid        : 15001
+    password   : 'ZfWD/s.mfyME2'
+    comment    : 'SAP System Administrator'
+    home       : '/home/devadm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : ['dba' , 'oper' , 'sapinst' , 'asmoper' , 'asmdba']
+  'tstadm':
+    ensure     : present
+    uid        : 1037
+    gid        : 15001
+    password   : 'ZfWD/s.mfyME2'
+    comment    : 'SAP System Administrator'
+    home       : '/home/tstadm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : ['dba' , 'oper' , 'sapinst' , 'asmoper' , 'asmdba']
+  'trnadm':
+    ensure     : present
+    uid        : 1037
+    gid        : 15001
+    password   : 'ZfWD/s.mfyME2'
+    comment    : 'SAP System Administrator'
+    home       : '/home/trnadm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : ['dba' , 'oper' , 'sapinst' , 'asmoper' , 'asmdba']
+  'prdadm':
+    ensure     : present
+    uid        : 1037
+    gid        : 15001
+    password   : 'ZfWD/s.mfyME2'
+    comment    : 'SAP System Administrator'
+    home       : '/home/prdadm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : ['dba' , 'oper' , 'sapinst' , 'asmoper' , 'asmdba']
+  'gwdadm':
+    ensure     : present
+    uid        : 1037
+    gid        : 15001
+    password   : 'ZfWD/s.mfyME2'
+    comment    : 'SAP System Administrator'
+    home       : '/home/gwdadm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : ['dba' , 'oper' , 'sapinst' , 'asmoper' , 'asmdba' , 'asmoper' , 'asmdba' ]
+  'gwqadm':
+    ensure     : present
+    uid        : 1037
+    gid        : 15001
+    password   : 'ZfWD/s.mfyME2'
+    comment    : 'SAP System Administrator'
+    home       : '/home/gwqadm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : ['dba' , 'oper' , 'sapinst' , 'asmoper' , 'asmdba']
+  'gwpadm':
+    ensure     : present
+    uid        : 1037
+    gid        : 15001
+    password   : 'ZfWD/s.mfyME2'
+    comment    : 'SAP System Administrator'
+    home       : '/home/gwpadm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : ['dba' , 'oper' , 'sapinst' , 'asmoper' , 'asmdba']
+  'empadm':
+    ensure     : present
+    uid        : 1037
+    gid        : 15001
+    password   : 'ZfWD/s.mfyME2'
+    comment    : 'SAP System Administrator'
+    home       : '/home/empadm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : ['dba' , 'oper' , 'sapinst' , 'asmoper' , 'asmdba']
+  'judadm':
+    ensure     : present
+    uid        : 1037
+    gid        : 15001
+    password   : 'ZfWD/s.mfyME2'
+    comment    : 'SAP System Administrator'
+    home       : '/home/judadm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : ['dba' , 'oper' , 'sapinst' , 'asmoper' , 'asmdba']
+  'orajud':
+    ensure     : present
+    uid        : 1036
+    gid        : 15001
+    password   : 'ZfWD/s.mfyME2'
+    comment    : 'SAP System Administrator'
+    home       : '/home/orajud'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : ['dba' , 'oper' , 'sapinst' , 'asmoper' , 'asmdba']
+  'jupadm':
+    ensure     : present
+    uid        : 1037
+    gid        : 15001
+    password   : 'ZfWD/s.mfyME2'
+    comment    : 'SAP System Administrator'
+    home       : '/home/jupadm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : ['dba' , 'oper' , 'sapinst' , 'asmoper' , 'asmdba']
+  'sc1adm':
+    ensure     : present
+    uid        : 1037
+    gid        : 15001
+    password   : 'ZfWD/s.mfyME2'
+    comment    : 'SAP System Administrator'
+    home       : '/home/sc1adm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : ['dba' , 'oper' , 'sapinst' , 'asmoper' , 'asmdba']
+  'sc2adm':
+    ensure     : present
+    uid        : 1037
+    gid        : 15001
+    password   : 'ZfWD/s.mfyME2'
+    comment    : 'SAP System Administrator'
+    home       : '/home/sc2adm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : ['dba' , 'oper' , 'sapinst' , 'asmoper' , 'asmdba']
+  'wddadm':
+    ensure     : present
+    uid        : 1037
+    gid        : 15001
+    password   : 'ZfWD/s.mfyME2'
+    comment    : 'SAP System Administrator'
+    home       : '/home/wddadm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : ['dba' , 'oper' , 'sapinst' , 'asmoper' , 'asmdba']
+  'orajup':
+    ensure     : present
+    uid        : 1036
+    gid        : 15001
+    password   : 'ZfWD/s.mfyME2'
+    comment    : 'SAP System Administrator'
+    home       : '/home/orajup'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : ['dba' , 'oper' , 'sapinst' , 'asmoper' , 'asmdba']
+  'grdadm':
+    ensure     : present
+    uid        : 1037
+    gid        : 15001
+    password   : 'ZfWD/s.mfyME2'
+    comment    : 'SAP System Administrator'
+    home       : '/home/grdadm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : ['dba' , 'oper' , 'sapinst' , 'asmoper' , 'asmdba']
+  'oragrd':
+    ensure     : present
+    uid        : 1036
+    gid        : 15003
+    password   : 'ZfWD/s.mfyME2'
+    comment    : 'SAP System Administrator'
+    home       : '/home/oragrd'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : ['dba' , 'oper' , 'sapinst' , 'asmoper' , 'asmdba', 'sapsys']
+  'grpadm':
+    ensure     : present
+    uid        : 1037
+    gid        : 15001
+    password   : 'ZfWD/s.mfyME2'
+    comment    : 'SAP System Administrator'
+    home       : '/home/grpadm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : ['dba' , 'oper' , 'sapinst' , 'asmoper' , 'asmdba']
+  'oragrp':
+    ensure     : present
+    uid        : 1036
+    gid        : 15003
+    password   : 'ZfWD/s.mfyME2'
+    comment    : 'SAP System Administrator'
+    home       : '/home/oragrp'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : ['dba' , 'oper' , 'sapinst' , 'asmoper' , 'asmdba', 'sapsys']
+  'juccs':
+    ensure     : present
+    uid        : 1041
+    gid        : 15001
+    comment    : 'SAP JUD Content Server user'
+    home       : '/home/juccs'
+    shell      : '/bin/csh'
+    managehome : true
+  'studadm':
+    ensure     : present
+    uid        : 3901
+    password   : 'NP'
+    comment    : 'Studentenadministratie'
+    home       : '/home/studadm'
+    managehome : true
+  'orawpd':
+    ensure     : present
+    uid        : 17589
+    gid        : 15003
+    password   : 'Vru5VK7x7XM5.'
+    groups     : ['oper' , 'sapinst']
+    comment    : 'SAP Database Administration User'
+    home       : '/home/orawpd'
+    shell      : '/bin/csh'
+    managehome : true
+  'wpdadm':
+    ensure     : present
+    uid        : 17590
+    gid        : 15001
+    password   : 'ZfWD/s.mfyME2'
+    comment    : 'SAP System Administrator'
+    home       : '/home/wpdadm'
+    shell      : '/bin/csh'
+    managehome : true
+  'orakwd':
+    ensure     : present
+    uid        : 17591
+    gid        : 15003
+    password   : 'Vru5VK7x7XM5.'
+    groups     : ['oper' , 'sapinst']
+    comment    : 'SAP Database Administration User'
+    home       : '/home/orakwd'
+    managehome : true
+  'kwdadm':
+    ensure     : present
+    uid        : 17592
+    gid        : 15001
+    password   : 'ZfWD/s.mfyME2'
+    comment    : 'SAP System Administrator'
+    home       : '/home/kwdadm'
+    managehome : true
+  'matlab':
+    ensure     : present
+    uid        : 998
+    comment    : 'MATLAB'
+    home       : '/home/matlab'
+    managehome : true
+  'oradev':
+    ensure     : present
+    uid        : 1036
+    gid        : 15003
+    password   : 'Vru5VK7x7XM5.'
+    groups     : ['oper' , 'sapinst' , 'oinstall', 'sapsys']
+    comment    : 'SAP Database Administrator'
+    home       : '/home/oradev'
+    managehome : false
+    shell      : '/bin/csh'
+  'studdev':
+    ensure     : present
+    uid        : 3902
+    comment    : 'Development'
+    home       : '/home/studdev'
+    managehome : true
+  'ipdbadm':
+    ensure     : present
+    uid        : 913
+    comment    : 'IP database administrator'
+    home       : '/home/ipdbadm'
+    managehome : true
+# uid 915 is de howest gebruiker zie howest module
+# uid 507 is de hogent gebruiker zie hogent module
+  'ldapadm':
+    ensure     : present
+    uid        : 914
+    gid        : arcs
+    comment    : 'LDAP administrator'
+    home       : '/home/ldapadm'
+    shell      : '/bin/bash'
+    managehome : true
+  'pwadm':
+    ensure     : present
+    uid        : 917
+    gid        : arcs
+    comment    : 'pwdb administrator'
+    home       : '/home/pwadm'
+    shell      : '/bin/bash'
+    managehome : true
+  'cyrus':
+    ensure     : present
+    uid        : 980
+    gid        : '8'
+    comment    : 'Cyrus Admin'
+    home       : '/home/cyrus'
+    managehome : true
+    shell      : '/bin/bash'
+    groups     : ['sasl']
+  'qasadm':
+    ensure     : present
+    uid        : 955
+    gid        : 15001
+    password   : 'ZfWD/s.mfyME2'
+    comment    : 'SAP System Administrator'
+    home       : '/home/qasadm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : ['dba' , 'oper' , 'sapinst' , 'asmoper' , 'asmdba']
+  'powadm':
+    ensure     : present
+    uid        : 942
+    gid        : 15001
+    comment    : 'SAP System Administrator'
+    home       : '/home/powadm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : [ 'oper', 'dba' ]
+  'pozadm':
+    ensure     : present
+    uid        : 943
+    gid        : 15001
+    comment    : 'SAP System Administrator'
+    home       : '/home/pozadm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : [ 'oper', 'dba' ]
+  'pouadm':
+    ensure     : present
+    uid        : 942
+    gid        : 15001
+    comment    : 'SAP System Administrator'
+    home       : '/home/pouadm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : [ 'oper', 'dba' ]
+  'poyadm':
+    ensure     : present
+    uid        : 941
+    gid        : 15001
+    comment    : 'SAP System Administrator'
+    home       : '/home/poyadm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : [ 'oper', 'dba' ]
+  'potadm':
+    ensure     : present
+    uid        : 944
+    gid        : 15001
+    password   : 'ZfWD/s.mfyME2'
+    comment    : 'SAP System Administrator'
+    home       : '/home/potadm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : ['dba' , 'oper' , 'sapinst' , 'asmoper' , 'asmdba']
+  'poqadm':
+    ensure     : present
+    uid        : 940
+    gid        : 15001
+    password   : 'ZfWD/s.mfyME2'
+    comment    : 'SAP System Administrator'
+    home       : '/home/poqadm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : ['dba' , 'oper' , 'sapinst' , 'asmoper' , 'asmdba']
+  'popadm':
+    ensure     : present
+    uid        : 939
+    gid        : 15001
+    password   : 'ZfWD/s.mfyME2'
+    comment    : 'SAP System Administrator'
+    home       : '/home/popadm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : ['dba' , 'oper' , 'sapinst' , 'asmoper' , 'asmdba']
+  'pidadm':
+    ensure     : present
+    uid        : 949
+    gid        : 15001
+    password   : 'ZfWD/s.mfyME2'
+    comment    : 'SAP System Administrator'
+    home       : '/home/pidadm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : ['dba' , 'oper' , 'sapinst' , 'asmoper' , 'asmdba']
+  'piqadm':
+    ensure     : present
+    uid        : 946
+    gid        : 15001
+    password   : 'ZfWD/s.mfyME2'
+    comment    : 'SAP System Administrator'
+    home       : '/home/piqadm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : ['dba' , 'oper' , 'sapinst' , 'asmoper' , 'asmdba']
+  'pipadm':
+    ensure     : present
+    uid        : 945
+    gid        : 15001
+    password   : 'ZfWD/s.mfyME2'
+    comment    : 'SAP System Administrator'
+    home       : '/home/pipadm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : ['dba' , 'oper' , 'sapinst' , 'asmoper' , 'asmdba']
+  'oraqas':
+    ensure     : present
+    uid        : 855
+    gid        : 15003
+    password   : 'Vru5VK7x7XM5.'
+    groups     : ['oper' , 'sapinst' , 'oinstall', 'sapsys']
+    comment    : 'SAP Database Administrator'
+    shell      : '/bin/csh'
+    home       : '/home/oraqas'
+    managehome : false
+  'orapid':
+    ensure     : present
+    uid        : 867
+    gid        : 15003
+    password   : 'Vru5VK7x7XM5.'
+    groups     : ['oper' , 'sapinst' , 'oinstall', 'sapsys']
+    comment    : 'SAP Database Administrator'
+    shell      : '/bin/csh'
+    home       : '/oracle/PID'
+    managehome : false
+  'orapiq':
+    ensure     : present
+    uid        : 868
+    gid        : 15003
+    password   : 'Vru5VK7x7XM5.'
+    groups     : ['oper' , 'sapinst' , 'oinstall', 'sapsys']
+    comment    : 'SAP Database Administrator'
+    shell      : '/bin/csh'
+    home       : '/oracle/PIQ'
+    managehome : false
+  'orapip':
+    ensure     : present
+    uid        : 869
+    gid        : 15003
+    password   : 'Vru5VK7x7XM5.'
+    groups     : ['oper' , 'sapinst', 'sapsys']
+    comment    : 'SAP Database Administrator'
+    shell      : '/bin/csh'
+    home       : '/oracle/PIP'
+    managehome : false
+  'orapot':
+    ensure     : present
+    uid        : 870
+    gid        : 15003
+    password   : 'Vru5VK7x7XM5.'
+    groups     : ['oper' , 'sapinst' , 'oinstall', 'sapsys']
+    comment    : 'SAP Database Administrator'
+    shell      : '/bin/csh'
+    home       : '/home/orapot'
+    managehome : false
+  'orapoq':
+    ensure     : present
+    uid        : 871
+    gid        : 15003
+    password   : 'Vru5VK7x7XM5.'
+    groups     : ['oper' , 'sapinst' , 'oinstall', 'sapsys']
+    comment    : 'SAP Database Administrator'
+    shell      : '/bin/csh'
+    home       : '/home/orapoq'
+    managehome : false
+  'orapop':
+    ensure     : present
+    uid        : 872
+    gid        : 15003
+    password   : 'Vru5VK7x7XM5.'
+    groups     : ['oper' , 'sapinst' , 'oinstall', 'sapsys']
+    comment    : 'SAP Database Administrator'
+    shell      : '/bin/csh'
+    home       : '/home/orapop'
+    managehome : false
+  'dvladm':
+    ensure     : present
+    uid        : 954
+    gid        : 15001
+    password   : 'ZfWD/s.mfyME2'
+    comment    : 'SAP System Administrator'
+    home       : '/home/dvladm'
+    shell      : '/bin/csh'
+    groups     : ['dba' , 'oper' , 'sapinst' , 'asmoper' , 'asmdba']
+    managehome : true
+  'oradvl':
+    ensure     : present
+    uid        : 854
+    gid        : 15003
+    password   : 'Vru5VK7x7XM5.'
+    groups     : ['oper' , 'sapinst' , 'oinstall', 'sapsys']
+    comment    : 'SAP Database Administrator'
+    home       : '/home/oradvl'
+    shell      : '/bin/csh'
+    managehome : false
+  'quotshar':
+    ensure     : present
+    uid        : 107
+    comment    : 'quota voor share'
+    home       : '/home/quotshar'
+    managehome : true
+  'brbackup':
+    ensure     : present
+    uid        : 950
+    comment    : 'BRBACKUP'
+    home       : '/home/brbackup'
+    managehome : true
+  'ssmon':
+    ensure     : present
+    uid        : 60000
+    comment    : 'Sun StorEdge(tm) Configuration Service a'
+    home       : '/home/ssmon'
+    managehome : true
+  'orabwp':
+    ensure     : present
+    uid        : 853
+    gid        : 15003
+    password   : 'Vru5VK7x7XM5.'
+    groups     : ['oper' , 'sapinst' , 'oinstall']
+    comment    : 'SAP Database Administration User'
+    home       : '/oracle/BWP'
+    shell      : '/bin/csh'
+    managehome : false
+  'bwdadm':
+    ensure     : present
+    uid        : 952
+    gid        : 15001
+    password   : 'ZfWD/s.mfyME2'
+    groups     : ['dba' , 'oper' , 'sapinst' , 'asmoper' , 'asmdba']
+    comment    : 'SAP System Administrator'
+    home       : '/home/bwdadm'
+    shell      : '/bin/csh'
+    managehome : true
+  'bwpadm':
+    ensure     : present
+    uid        : 953
+    gid        : 15001
+    password   : 'ZfWD/s.mfyME2'
+    groups     : ['dba' , 'oper' , 'sapinst' , 'asmoper' , 'asmdba']
+    comment    : 'SAP System Administrator'
+    home       : '/home/bwpadm'
+    shell      : '/bin/csh'
+    managehome : true
+  'orabwd':
+    ensure     : present
+    uid        : 852
+    gid        : 15003
+    password   : 'Vru5VK7x7XM5.'
+    groups     : ['oper' , 'sapinst' , 'oinstall']
+    comment    : 'SAP Database Administration User'
+    home       : '/oracle/BWD'
+    shell      : '/bin/csh'
+    managehome : false
+  'oraebd':
+    ensure     : present
+    uid        : 856
+    gid        : 15003
+    groups     : ['oper' , 'sapinst']
+    comment    : 'SAP Database Administration User'
+    home       : '/home/oraebd'
+    shell      : '/bin/csh'
+    managehome : true
+  'oraebp':
+    ensure     : present
+    uid        : 857
+    gid        : 15003
+    password   : 'Vru5VK7x7XM5.'
+    groups     : ['oper' , 'sapinst']
+    comment    : 'SAP Database Administration User'
+    home       : '/home/oraebp'
+    shell      : '/bin/csh'
+    managehome : true
+  'ebdadm':
+    ensure     : present
+    uid        : 956
+    gid        : 15001
+    groups     : ['dba' , 'oper' , 'sapinst' , 'asmoper' , 'asmdba']
+    comment    : 'SAP System Administrator'
+    home       : '/home/ebdadm'
+    shell      : '/bin/csh'
+    managehome : true
+  'ebpadm':
+    ensure     : present
+    uid        : 957
+    gid        : 15001
+    password   : 'ZfWD/s.mfyME2'
+    groups     : ['dba' , 'oper' , 'sapinst' , 'asmoper' , 'asmdba']
+    comment    : 'SAP System Administrator'
+    home       : '/home/ebpadm'
+    shell      : '/bin/csh'
+    managehome : true
+  'orared':
+    ensure     : present
+    uid        : 858
+    gid        : 15003
+    password   : 'Vru5VK7x7XM5.'
+    groups     : ['oper' , 'sapinst']
+    comment    : 'SAP Database Administration User'
+    home       : '/home/orared'
+    shell      : '/bin/csh'
+    managehome : true
+  'redadm':
+    ensure     : present
+    uid        : 958
+    gid        : 15001
+    password   : 'ZfWD/s.mfyME2'
+    groups     : ['dba' , 'oper' , 'sapinst' , 'asmoper' , 'asmdba']
+    comment    : 'SAP System Administrator'
+    home       : '/home/redadm'
+    shell      : '/bin/csh'
+    managehome : true
+  'itsadm':
+    ensure     : present
+    uid        : 959
+    gid        : 15001
+    password   : 'ZfWD/s.mfyME2'
+    groups     : ['dba' , 'oper' , 'sapinst' , 'asmoper' , 'asmdba']
+    comment    : 'SAP ITS Administrator'
+    home       : '/home/itsadm'
+    shell      : '/bin/csh'
+    managehome : true
+  'orarep':
+    ensure     : present
+    uid        : 860
+    gid        : 15003
+    password   : 'Vru5VK7x7XM5.'
+    groups     : ['oper' , 'sapinst']
+    comment    : 'SAP Database Administration User'
+    home       : '/home/orarep'
+    managehome : true
+  'repadm':
+    ensure     : present
+    uid        : 960
+    gid        : 15001
+    password   : 'ZfWD/s.mfyME2'
+    groups     : ['dba' , 'oper' , 'sapinst' , 'asmoper' , 'asmdba']
+    comment    : 'SAP System Administrator'
+    home       : '/home/repadm'
+    managehome : true
+  'soladm':
+    ensure     : present
+    uid        : 961
+    gid        : 15001
+    password   : 'ZfWD/s.mfyME2'
+    groups     : ['dba' , 'oper' , 'sapinst' , 'asmoper' , 'asmdba']
+    comment    : 'SAP System Administrator'
+    home       : '/home/soladm'
+    shell      : '/bin/csh'
+    managehome : true
+  'orasol':
+    ensure     : present
+    uid        : 861
+    gid        : 15003
+    password   : 'Vru5VK7x7XM5.'
+    groups     : ['oper' , 'sapinst' , 'oinstall', 'sapsys']
+    comment    : 'SAP Database Administration User'
+    home       : '/home/orasol'
+    shell      : '/bin/csh'
+    managehome : false
+  'citrix':
+    ensure     : present
+    uid        : 905
+    comment    : 'citrix administration user'
+    home       : '/home/citrix'
+    managehome : true
+  'sharelog':
+    ensure     : present
+    uid        : 909
+    comment    : 'webshare logfiles user'
+    home       : '/home/sharelog'
+    managehome : true
+  'odbcusr4':
+    ensure     : present
+    uid        : 775
+    comment    : 'Dirk Ghekiere odbc'
+    home       : '/home/odbcusr4'
+    managehome : true
+  'wifi':
+    ensure     : present
+    uid        : 930
+    comment    : 'Wireless Administrator'
+    home       : '/home/wifi'
+    managehome : true
+  'orabwq':
+    ensure     : present
+    uid        : 862
+    gid        : 15003
+    password   : 'Vru5VK7x7XM5.'
+    groups     : ['oper' , 'sapinst']
+    comment    : 'SAP Database Administration User'
+    home       : '/oracle/BWQ'
+    shell      : '/bin/csh'
+    managehome : true
+  'bwqadm':
+    ensure     : present
+    uid        : 962
+    gid        : 15001
+    password   : 'ZfWD/s.mfyME2'
+    groups     : ['dba' , 'oper' , 'sapinst' , 'asmoper' , 'asmdba']
+    comment    : 'SAP System Administrator'
+    home       : '/home/bwqadm'
+    shell      : '/bin/csh'
+    managehome : true
+  'netadm':
+    ensure     : present
+    uid        : 922
+    gid        : 15000
+    comment    : 'Network Administration User'
+    home       : '/home/netadm'
+    groups     : ['adm']
+    managehome : true
+    shell      : '/bin/bash'
+    password   : '$1$5K8Yu/9x$eSczshTCsgCnwFE/LEr1H0'
+  'softadm':
+    ensure     : present
+    uid        : 923
+    comment    : 'software distribution administrator'
+    home       : '/home/softadm'
+    managehome : true
+  'accadm':
+    ensure     : present
+    uid        : 925
+    comment    : 'Account Administratie'
+    home       : '/home/accadm'
+    managehome : true
+  'systems':
+    ensure     : present
+    uid        : 800
+    comment    : 'System Administration'
+    home       : '/home/systems'
+    managehome : true
+  'pcca':
+    ensure     : present
+    uid        : 926
+    comment    : 'PCCA share'
+    home       : '/home/pcca'
+    managehome : true
+  'rollout':
+    ensure     : present
+    uid        : 502
+    comment    : 'PC roll out'
+    home       : '/home/rollout'
+    managehome : true
+  'aptly':
+    ensure     : present
+    uid        : 503
+    gid        : 100
+    comment    : 'Aptly user'
+    home       : '/home/aptly'
+    shell      : '/bin/bash'
+    managehome : true
+  'ansible':
+    ensure     : present
+    uid        : 504
+    gid        : 100
+    comment    : 'Ansible user'
+    home       : '/home/ansible'
+    shell      : '/bin/bash'
+    managehome : true
+# tomcat user wordt gemaakt in de tomcat module
+#@user{
+#  'tomcat':
+#    ensure     : present
+#    uid        : 799
+#    comment    : 'tomcat voor jurgen lust'
+#    home       : '/home/tomcat'
+#    managehome : true
+#
+  'sapprt':
+    ensure     : present
+    uid        : 963
+    gid        : 940
+    password   : 'uQ5sjJJAid/lk'
+    comment    : 'SAP printers'
+    home       : '/home/sapprt'
+    managehome : true
+  'podadm':
+    ensure     : present
+    uid        : 971
+    gid        : 15001
+    password   : 'ZfWD/s.mfyME2'
+    groups     : ['dba' , 'oper' , 'sapinst' , 'asmoper' , 'asmdba']
+    comment    : 'SAP System Administrator'
+    home       : '/home/podadm'
+    shell      : '/bin/csh'
+    managehome : true
+  'orapod':
+    ensure     : present
+    uid        : 863
+    gid        : 15003
+    password   : 'Vru5VK7x7XM5.'
+    groups     : ['oper' , 'sapinst', 'sapsys']
+    comment    : 'SAP Database Administration User'
+    home       : '/home/orapod'
+    shell      : '/bin/csh'
+    managehome : true
+  'pcbeheer':
+    ensure     : present
+    uid        : 802
+    comment    : 'PC Beheer System User'
+    home       : '/home/pcbeheer'
+    managehome : true
+  'orabjd':
+    ensure     : present
+    uid        : 864
+    gid        : 15003
+    password   : 'Vru5VK7x7XM5.'
+    groups     : ['oper' , 'sapinst' , 'oinstall' ]
+    comment    : 'SAP Database Administration User'
+    home       : '/oracle/BJD'
+    shell      : '/bin/csh'
+    managehome : true
+  'bjdadm':
+    ensure     : present
+    uid        : 964
+    gid        : 15001
+    password   : 'ZfWD/s.mfyME2'
+    groups     : ['dba' , 'oper' , 'sapinst' , 'asmoper' , 'asmdba']
+    comment    : 'SAP System Administrator'
+    home       : '/home/bjdadm'
+    shell      : '/bin/csh'
+    managehome : true
+  'smdadm':
+    ensure     : present
+    uid        : 965
+    gid        : 15001
+    password   : 'ZfWD/s.mfyME2'
+    groups     : ['dba' , 'oper' , 'sapinst' , 'asmoper' , 'asmdba']
+    comment    : 'SAP System Administrator'
+    home       : '/home/smdadm'
+    shell      : '/bin/csh'
+    managehome : true
+  'solprint':
+    ensure     : present
+    uid        : 940
+    comment    : 'Solaris printadm'
+    home       : '/home/solprint'
+    managehome : true
+  'orasm1':
+    ensure     : present
+    uid        : 865
+    gid        : 15003
+    password   : 'Vru5VK7x7XM5.'
+    groups     : ['oper' , 'sapinst']
+    comment    : 'SAP Database Administration User'
+    home       : '/home/orasm1'
+    shell      : '/bin/csh'
+    managehome : true
+  'oramdd':
+    ensure     : present
+    uid        : 866
+    gid        : 15003
+    password   : 'Vru5VK7x7XM5.'
+    groups     : ['oper' , 'sapinst']
+    comment    : 'SAP Database Administration User'
+    home       : '/oracle/MDD'
+    shell      : '/bin/csh'
+    managehome : true
+  'sm1adm':
+    ensure     : present
+    uid        : 966
+    gid        : 15001
+    password   : 'ZfWD/s.mfyME2'
+    groups     : ['dba' , 'oper' , 'sapinst' , 'asmoper' , 'asmdba']
+    comment    : 'SAP System Administrator'
+    home       : '/home/sm1adm'
+    shell      : '/bin/csh'
+    managehome : true
+  'mddadm':
+    ensure     : present
+    uid        : 967
+    gid        : 15001
+    password   : 'ZfWD/s.mfyME2'
+    groups     : ['dba' , 'oper' , 'sapinst' , 'asmoper' , 'asmdba']
+    comment    : 'SAP System Administrator'
+    home       : '/home/mddadm'
+    shell      : '/bin/csh'
+    managehome : true
+  'mdm':
+    ensure     : present
+    uid        : 968
+    comment    : 'Master Data Management User'
+    home       : '/home/mdm'
+    managehome : true
+  'augent':
+    ensure     : present
+    uid        : 920
+    comment    : 'AUGent LDAP admin'
+    home       : '/home/augent'
+    managehome : true
+# User voor firma tactics
+  'tactics':
+    ensure     : present
+    uid        : 809
+    comment    : 'tactics'
+    shell      : '/bin/bash'
+    home       : '/home/tactics'
+    managehome : true
+  'jboss':
+    ensure     : present
+    uid        : 810
+    comment    : 'jboss'
+    home       : '/home/jboss'
+    managehome : true
+  'augentld':
+    ensure     : present
+    uid        : 822
+    comment    : 'AUGent LDAP user'
+    home       : '/home/augentld'
+    managehome : true
+  'myld':
+    ensure     : present
+    uid        : 821
+    comment    : 'myld ldap user'
+    home       : '/home/myld'
+    managehome : true
+  'ugentlda':
+    ensure     : present
+    uid        : 820
+    comment    : 'UGent LDAP user'
+    home       : '/home/ugentlda'
+    managehome : true
+  'jira':
+    ensure     : present
+    uid        : 811
+    comment    : 'Jira gebruiker'
+    home       : '/home/jira'
+    shell      : '/bin/bash'
+    managehome : true
+  'crowd':
+    ensure     : present
+    uid        : 812
+    comment    : 'Crowd gebruiker Jurgen Lust'
+    home       : '/home/crowd'
+    managehome : true
+  'confluen':
+    ensure     : present
+    uid        : 813
+    comment    : 'Confluence gebruiker Jurgen Lust'
+    home       : '/home/confluen'
+    managehome : true
+  'confluence':
+    ensure     : present
+    uid        : 813
+    comment    : 'Confluence gebruiker Jurgen Lust'
+    home       : '/home/confluence'
+    shell      : '/bin/bash'
+    managehome : true
+  'bamboo':
+    ensure     : present
+    uid        : 813
+    comment    : 'Bamboo gebruiker Jurgen Lust'
+    home       : '/home/bamboo'
+    managehome : true
+  'maven':
+    ensure     : present
+    uid        : 814
+    comment    : 'Maven gebruiker'
+    home       : '/home/maven'
+    shell      : '/bin/bash'
+    managehome : true
+  'artifactory':
+    ensure     : present
+    uid        : 815
+    comment    : 'Artifactory gebruiker'
+    home       : '/var/lib/artifactory'
+    managehome : true
+  'qaccs':
+    ensure     : present
+    uid        : 1038
+    gid        : 15001
+    comment    : 'SAP QAS Content Server user'
+    home       : '/home/qaccs'
+    shell      : '/bin/csh'
+    managehome : true
+  'sdb':
+    ensure     : present
+    uid        : 1039
+    gid        : 1042,                   # sdba group
+    comment    : 'Database Software Owner'
+    home       : '/home/sdb'
+    shell      : '/bin/csh'
+    managehome : true
+  'sqdsdb':
+    ensure     : present
+    uid        : 1040
+    comment    : 'Owner of Database Instance SDB'
+    home       : '/home/sqdsdb'
+    shell      : '/bin/csh'
+    managehome : true
+    groups     : ['sdba']
+  'prccs':
+    ensure     : present
+    uid        : 1041
+    gid        : 15001
+    comment    : 'SAP PRD Content Server user'
+    home       : '/home/prccs'
+    shell      : '/bin/csh'
+    managehome : true
+  'deccs':
+    ensure     : present
+    uid        : 1041
+    gid        : 15001
+    comment    : 'SAP DEC Content Server user'
+    home       : '/home/deccs'
+    shell      : '/bin/csh'
+    managehome : true
+  'qaccsadm':
+    ensure     : present
+    uid        : 1043
+    gid        : 15001
+    comment    : 'SAP QAC Content Server admin user'
+    home       : '/home/qaccsadm'
+    shell      : '/bin/csh'
+    managehome : true
+  'prccsadm':
+    ensure     : present
+    uid        : 1043
+    gid        : 15001
+    comment    : 'SAP PRC Content Server admin user'
+    home       : '/home/prccsadm'
+    shell      : '/bin/csh'
+    managehome : true
+  'deccsadm':
+    ensure     : present
+    uid        : 1043
+    gid        : 15001
+    comment    : 'SAP DEC Content Server admin user'
+    home       : '/home/deccsadm'
+    shell      : '/bin/csh'
+    managehome : true
+  'dewadm':
+    ensure     : present
+    uid        : 1044
+    gid        : 15001
+    comment    : 'SAP System Administrator'
+    home       : '/home/dewadm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : [ 'oper', 'dba' ]
+  'prwadm':
+    ensure     : present
+    uid        : 1045
+    gid        : 15001
+    comment    : 'SAP System Administrator'
+    home       : '/home/prwadm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : [ 'oper', 'dba' ]
+  'piwadm':
+    ensure     : present
+    uid        : 1049
+    gid        : 15001
+    comment    : 'SAP System Administrator'
+    home       : '/home/piwadm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : [ 'oper', 'dba' ]
+  'piuadm':
+    ensure     : present
+    uid        : 1050
+    gid        : 15001
+    comment    : 'SAP System Administrator'
+    home       : '/home/piuadm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : [ 'oper', 'dba' ]
+  'piyadm':
+    ensure     : present
+    uid        : 1051
+    gid        : 15001
+    comment    : 'SAP System Administrator'
+    home       : '/home/piyadm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : [ 'oper', 'dba' ]
+  'trwadm':
+    ensure     : present
+    uid        : 1046
+    gid        : 15001
+    comment    : 'SAP System Administrator'
+    home       : '/home/trwadm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : [ 'oper', 'dba' ]
+  'dvwadm':
+    ensure     : present
+    uid        : 1052
+    gid        : 15001
+    comment    : 'SAP System Administrator'
+    home       : '/home/dvwadm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : [ 'oper', 'dba' ]
+  'tswadm':
+    ensure     : present
+    uid        : 1047
+    gid        : 15001
+    comment    : 'SAP System Administrator'
+    home       : '/home/tswadm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : [ 'oper', 'dba' ]
+  'qawadm':
+    ensure     : present
+    uid        : 1048
+    gid        : 15001
+    comment    : 'SAP System Administrator'
+    home       : '/home/qawadm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : [ 'oper', 'dba' ]
+  'daaadm':
+    ensure     : present
+    uid        : 948
+    gid        : 15001
+    password   : 'ZfWD/s.mfyME2'
+    comment    : 'SAP System Administrator'
+    home       : '/home/daaadm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : [ 'oper', 'dba' ]
+  'sapadm':
+    ensure     : present
+    uid        : 947
+    gid        : 15001
+    comment    : 'SAP System Administrator'
+    home       : '/home/sapadm'
+    managehome : true
+    shell      : '/bin/csh'
+  'sowadm':
+    ensure     : present
+    uid        : 1053
+    gid        : 15001
+    comment    : 'SAP System Administrator'
+    home       : '/home/sowadm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : [ 'oper', 'dba' ]
+  'bwwadm':
+    ensure     : present
+    uid        : 1054
+    gid        : 15001
+    comment    : 'SAP System Administrator'
+    home       : '/home/bwwadm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : [ 'oper', 'dba' ]
+  'bwyadm':
+    ensure     : present
+    uid        : 1055
+    gid        : 15001
+    comment    : 'SAP System Administrator'
+    home       : '/home/bwyadm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : [ 'oper', 'dba' ]
+  'pdyadm':
+    ensure     : present
+    uid        : 1057
+    gid        : 15001
+    comment    : 'SAP System Administrator'
+    home       : '/home/pdyadm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : [ 'oper', 'dba' ]
+  # Aangemaakt via accounts module
+  #'saprpt':
+    #uid        : 969
+  'itextpdf':
+    ensure     : present
+    uid        : 1056
+    comment    : 'itextpdf user'
+    home       : '/home/itextpdf'
+    managehome : true
+    shell      : '/bin/bash'
+    password   : 'NP'
+  'wdtadm':
+    ensure     : present
+    uid        : 970
+    gid        : 15001
+    password   : 'ZfWD/s.mfyME2'
+    comment    : 'SAP System Administrator'
+    home       : '/home/wdtadm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : ['dba' , 'oper' , 'sapinst' , 'asmoper' , 'asmdba']
+  'wdladm':
+    ensure     : present
+    uid        : 972
+    gid        : 15001
+    password   : 'ZfWD/s.mfyME2'
+    comment    : 'SAP System Administrator'
+    home       : '/home/wdladm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : ['dba' , 'oper' , 'sapinst' , 'asmoper' , 'asmdba']
+  'pdeadm':
+    ensure     : present
+    uid        : 964
+    gid        : 15001
+    password   : 'ZfWD/s.mfyME2'
+    comment    : 'SAP System Administrator'
+    home       : '/home/pdeadm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : ['dba' , 'oper' , 'sapinst' , 'asmoper' , 'asmdba']
+  'orapde':
+    ensure     : present
+    uid        : 859
+    gid        : 15003
+    password   : 'Vru5VK7x7XM5.'
+    comment    : 'SAP Database Administrator'
+    home       : '/home/orapde'
+    shell      : '/bin/csh'
+    managehome : false
+    groups     : [ 'oper' , 'sapinst' , 'oinstall', 'sapsys']
+  'simplesamlphp':
+    ensure     : present
+    uid        : 901
+    password   : 'ZWTpJCvMyVLRY'
+    comment    : 'simplesamlphp Admin'
+    home       : '/home/simplesamlphp'
+    managehome : true
+  'cab':
+    ensure     : present
+    uid        : 906
+    password   : 'ZWTpJCvMyVLRY'
+    comment    : 'CAB Admin'
+    home       : '/home/cab'
+    shell      : '/bin/bash'
+    managehome : true
+  'pqgadm':
+    ensure     : present
+    uid        : 1058
+    gid        : 15001
+    comment    : 'SAP System Administrator'
+    home       : '/home/pqgadm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : [ 'oper', 'dba' ]
+  'ppgadm':
+    ensure     : present
+    uid        : 1059
+    gid        : 15001
+    comment    : 'SAP System Administrator'
+    home       : '/home/ppgadm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : [ 'oper', 'dba' ]
+  'pqaadm':
+    ensure     : present
+    uid        : 1060
+    gid        : 15001
+    password   : 'ZfWD/s.mfyME2'
+    comment    : 'SAP System Administrator'
+    home       : '/home/pqaadm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : [ 'oper', 'dba' ]
+  'orapqa':
+    ensure     : present
+    uid        : 1061
+    gid        : 15003
+    password   : 'Vru5VK7x7XM5.'
+    comment    : 'SAP Database Administrator'
+    home       : '/home/orapqa'
+    shell      : '/bin/csh'
+    managehome : false
+    groups     : [ 'oper' , 'sapinst' , 'oinstall', 'sapsys']
+  'bjgadm':
+    ensure     : present
+    uid        : 1062
+    gid        : 15001
+    comment    : 'SAP System Administrator'
+    home       : '/home/bjgadm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : [ 'oper', 'dba' ]
+  'pqyadm':
+    ensure     : present
+    uid        : 1063
+    gid        : 15001
+    comment    : 'SAP System Administrator'
+    home       : '/home/pqyadm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : [ 'oper', 'dba' ]
+  'ppyadm':
+    ensure     : present
+    uid        : 1064
+    gid        : 15001
+    comment    : 'SAP System Administrator'
+    home       : '/home/ppyadm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : [ 'oper', 'dba' ]
+  'ptradm':
+    ensure     : present
+    uid        : 1065
+    gid        : 15001
+    password   : 'ZfWD/s.mfyME2'
+    comment    : 'SAP System Administrator'
+    home       : '/home/ptradm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : [ 'oper', 'dba' ]
+  'bjyadm':
+    ensure     : present
+    uid        : 1066
+    gid        : 15001
+    comment    : 'SAP System Administrator'
+    home       : '/home/bjyadm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : [ 'oper', 'dba' ]
+  'ppradm':
+    ensure     : present
+    uid        : 1067
+    gid        : 15001
+    password   : 'ZfWD/s.mfyME2'
+    comment    : 'SAP System Administrator'
+    home       : '/home/ppradm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : ['dba' , 'oper' , 'sapinst' , 'asmoper' , 'asmdba']
+  'bjpadm':
+    ensure     : present
+    uid        : 1068
+    gid        : 15001
+    password   : 'ZfWD/s.mfyME2'
+    comment    : 'SAP System Administrator'
+    home       : '/home/bjpadm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : ['dba' , 'oper' , 'sapinst' , 'asmoper' , 'asmdba']
+  'orappr':
+    ensure     : present
+    uid        : 1069
+    gid        : 15003
+    password   : 'Vru5VK7x7XM5.'
+    comment    : 'SAP Database Administrator'
+    home       : '/home/orappr'
+    shell      : '/bin/csh'
+    managehome : false
+    groups     : [ 'oper' , 'sapinst' , 'oinstall', 'sapsys']
+  'orabjp':
+    ensure     : present
+    uid        : 1070
+    gid        : 15003
+    password   : 'Vru5VK7x7XM5.'
+    comment    : 'SAP Database Administrator'
+    home       : '/oracle/BJP'
+    shell      : '/bin/csh'
+    managehome : false
+    groups     : [ 'oper' , 'sapinst' , 'oinstall' ]
+  'orabc1':
+    ensure     : present
+    uid        : 1071
+    gid        : 15003
+    password   : 'Vru5VK7x7XM5.'
+    comment    : 'SAP Database Administrator'
+    home       : '/home/orabc1'
+    shell      : '/bin/csh'
+    managehome : false
+    groups     : [ 'oper' , 'sapinst' , 'oinstall', 'sapsys' ]
+  'orabc2':
+    ensure     : present
+    uid        : 1072
+    gid        : 15003
+    password   : 'Vru5VK7x7XM5.'
+    comment    : 'SAP Database Administrator'
+    home       : '/home/orabc2'
+    shell      : '/bin/csh'
+    managehome : false
+    groups     : [ 'oper' , 'sapinst' , 'oinstall', 'sapsys']
+  'gryadm':
+    ensure     : present
+    uid        : 1096
+    gid        : 15001
+    comment    : 'SAP System Administrator'
+    home       : '/home/gryadm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : [ 'oper', 'dba' ]
+  'grjadm':
+    ensure     : present
+    uid        : 1097
+    gid        : 15001
+    comment    : 'SAP System Administrator'
+    home       : '/home/grjadm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : [ 'oper', 'dba' ]
+  'oraepo':
+    ensure     : present
+    uid        : 1078
+    gid        : 15003
+    password   : 'Vru5VK7x7XM5.'
+    comment    : 'SAP Database Administrator'
+    home       : '/oracle/EPO'
+    shell      : '/bin/csh'
+    managehome : false
+    groups     : [ 'oper' , 'sapinst' , 'oinstall' ]
+  'pcwadm':
+    ensure     : present
+    uid        : 1092
+    gid        : 15001
+    comment    : 'SAP System Administrator'
+    home       : '/home/pcwadm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : [ 'oper', 'dba' ]
+  'fiwadm':
+    ensure     : present
+    uid        : 1093
+    gid        : 15001
+    comment    : 'SAP System Administrator'
+    home       : '/home/fiwadm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : [ 'oper', 'dba' ]
+  'bowadm':
+    ensure     : present
+    uid        : 1094
+    gid        : 15001
+    comment    : 'SAP System Administrator'
+    home       : '/home/bowadm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : [ 'oper', 'dba' ]
+  'bc1adm':
+    ensure     : present
+    uid        : 1073
+    gid        : 15001
+    password   : 'ZfWD/s.mfyME2'
+    comment    : 'SAP System Administrator'
+    home       : '/home/bc1adm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : ['dba' , 'oper' , 'sapinst' , 'asmoper' , 'asmdba']
+  'bc2adm':
+    ensure     : present
+    uid        : 1074
+    gid        : 15001
+    password   : 'ZfWD/s.mfyME2'
+    comment    : 'SAP System Administrator'
+    home       : '/home/bc2adm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : ['dba' , 'oper' , 'sapinst' , 'asmoper' , 'asmdba']
+  'epoadm':
+    ensure     : present
+    uid        : 1079
+    gid        : 15001
+    password   : 'ZfWD/s.mfyME2'
+    comment    : 'SAP System Administrator'
+    home       : '/home/epoadm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : ['dba' , 'oper' , 'sapinst' , 'asmoper' , 'asmdba']
+  'bw1adm':
+    ensure     : present
+    uid        : 1075
+    gid        : 15001
+    comment    : 'SAP System Administrator'
+    home       : '/home/bw1adm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : [ 'oper', 'dba' ]
+  'bw2adm':
+    ensure     : present
+    uid        : 1076
+    gid        : 15001
+    comment    : 'SAP System Administrator'
+    home       : '/home/bw2adm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : [ 'oper', 'dba' ]
+  'epjadm':
+    ensure     : present
+    uid        : 1077
+    gid        : 15001
+    comment    : 'SAP System Administrator'
+    home       : '/home/epjadm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : [ 'oper', 'dba' ]
+  'hpc':
+    ensure     : present
+    uid        : '801'
+    comment    : 'HPC user'
+    home       : '/home/hpc'
+    shell      : '/bin/bash'
+    managehome : true
+    password   : '$6$hcrmcNEH$yS0O0PksCgL8OwD0kNfhAfS2RSIdJmkOBApbmpCpWMdx88FKl6WG.etw2XdiSAqNZZsmhe/OChp4NWn7gaKYx1'
+  'applicaties':
+    ensure     : present
+    uid        : '803'
+    comment    : 'Applicatie user'
+    home       : '/home/applicaties'
+    shell      : '/bin/bash'
+    managehome : true
+  'diveline':
+    ensure     : present
+    uid        : '804'
+    comment    : 'Diveline Applicatie user'
+    home       : '/home/diveline'
+    shell      : '/bin/bash'
+    managehome : true
+  'sappi':
+    ensure     : present
+    uid        : '805'
+    gid        : '805'
+    comment    : 'SAP PI data-transfer user'
+    home       : '/home/sappi'
+    shell      : '/bin/bash'
+    managehome : true
+  'simon':
+    ensure     : present
+    uid        : '897'
+    comment    : 'SIMON studententest user'
+    groups     : ['www-data','adm']
+    home       : '/home/simon'
+    shell      : '/bin/bash'
+    managehome : true
+  'beeld':
+    ensure     : present
+    uid        : '897'
+    comment    : 'Beeldarchief user'
+    groups     : 'www-data'
+    home       : '/home/beeld'
+    shell      : '/bin/bash'
+    managehome : true
+  'orabod':
+    ensure     : present
+    uid        : 1076
+    gid        : 15003
+    password   : 'Vru5VK7x7XM5.'
+    comment    : 'SAP Database Administrator'
+    home       : '/oracle/BOD'
+    shell      : '/bin/csh'
+    managehome : false
+    groups     : [ 'oper' , 'sapinst' , 'oinstall'  ]
+  'bojadm':
+    ensure     : present
+    uid        : 1077
+    gid        : 15001
+    comment    : 'SAP System Administrator'
+    home       : '/home/bojadm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : [ 'oper', 'dba' ]
+  'bodadm':
+    ensure     : present
+    uid        : 1079
+    gid        : 15001
+    password   : 'ZfWD/s.mfyME2'
+    comment    : 'SAP System Administrator'
+    home       : '/home/bodadm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : ['dba' , 'oper' , 'sapinst' , 'asmoper' , 'asmdba']
+  'pcdadm':
+    ensure     : present
+    uid        : 1080
+    gid        : 15001
+    password   : 'ZfWD/s.mfyME2'
+    comment    : 'SAP System Administrator'
+    home       : '/home/pcdadm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : ['dba' , 'oper' , 'sapinst' , 'asmoper' , 'asmdba']
+  'fidadm':
+    ensure     : present
+    uid        : 1081
+    gid        : 15001
+    password   : 'ZfWD/s.mfyME2'
+    comment    : 'SAP System Administrator'
+    home       : '/home/fidadm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : ['dba' , 'oper' , 'sapinst' , 'asmoper' , 'asmdba']
+  'pcpadm':
+    ensure     : present
+    uid        : 1082
+    gid        : 15001
+    password   : 'ZfWD/s.mfyME2'
+    comment    : 'SAP System Administrator'
+    home       : '/home/pcpadm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : ['dba' , 'oper' , 'sapinst' , 'asmoper' , 'asmdba']
+  'fipadm':
+    ensure     : present
+    uid        : 1083
+    gid        : 15001
+    password   : 'ZfWD/s.mfyME2'
+    comment    : 'SAP System Administrator'
+    home       : '/home/fipadm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : ['dba' , 'oper' , 'sapinst' , 'asmoper' , 'asmdba']
+  'bopadm':
+    ensure     : present
+    uid        : 1084
+    gid        : 15001
+    password   : 'ZfWD/s.mfyME2'
+    comment    : 'SAP System Administrator'
+    home       : '/home/bopadm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : ['dba' , 'oper' , 'sapinst' , 'asmoper' , 'asmdba']
+  'orapcd':
+    ensure     : present
+    uid        : 1085
+    gid        : 15003
+    password   : 'Vru5VK7x7XM5.'
+    comment    : 'SAP Database Administrator'
+    home       : '/oracle/PCD'
+    shell      : '/bin/csh'
+    managehome : false
+    groups     : [ 'oper' , 'sapinst' , 'oinstall' ]
+  'orafid':
+    ensure     : present
+    uid        : 1086
+    gid        : 15003
+    password   : 'Vru5VK7x7XM5.'
+    comment    : 'SAP Database Administrator'
+    home       : '/oracle/FID'
+    shell      : '/bin/csh'
+    managehome : false
+    groups     : [ 'oper' , 'sapinst' , 'oinstall'  ]
+  'orapcp':
+    ensure     : present
+    uid        : 1087
+    gid        : 15003
+    password   : 'Vru5VK7x7XM5.'
+    comment    : 'SAP Database Administrator'
+    home       : '/oracle/PCP'
+    shell      : '/bin/csh'
+    managehome : false
+    groups     : [ 'oper' , 'sapinst' , 'oinstall' ]
+  'orafip':
+    ensure     : present
+    uid        : 1088
+    gid        : 15003
+    password   : 'Vru5VK7x7XM5.'
+    comment    : 'SAP Database Administrator'
+    home       : '/oracle/FIP'
+    shell      : '/bin/csh'
+    managehome : false
+    groups     : [ 'oper' , 'sapinst' , 'oinstall' ]
+  'orabop':
+    ensure     : present
+    uid        : 1089
+    gid        : 15003
+    password   : 'Vru5VK7x7XM5.'
+    comment    : 'SAP Database Administrator'
+    home       : '/oracle/BOP'
+    shell      : '/bin/csh'
+    managehome : false
+    groups     : [ 'oper' , 'sapinst' , 'oinstall' ]
+  'pcjadm':
+    ensure     : present
+    uid        : 1090
+    gid        : 15001
+    comment    : 'SAP System Administrator'
+    home       : '/home/pcjadm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : [ 'oper', 'dba' ]
+  'fijadm':
+    ensure     : present
+    uid        : 1091
+    gid        : 15001
+    comment    : 'SAP System Administrator'
+    home       : '/home/fijadm'
+    managehome : true
+    shell      : '/bin/csh'
+    groups     : [ 'oper', 'dba' ]
+  'oraptr':
+    ensure     : present
+    uid        : 1095
+    gid        : 15003
+    password   : 'Vru5VK7x7XM5.'
+    comment    : 'SAP Database Administrator'
+    home       : '/home/oraptr'
+    shell      : '/bin/csh'
+    managehome : false
+    groups     : [ 'oper' , 'sapinst' , 'oinstall', 'sapsys']
+  'spamadm':
+    ensure     : present
+    managehome : true
+    gid        : 15000
+    uid        : '898'
+    shell      : '/bin/bash'
+    comment    : 'Spam Administration System Account'
+  'shareinfo':
+    ensure     : present
+    managehome : true
+    gid        : 15000
+    uid        : '899'
+    shell      : '/bin/bash'
+    comment    : 'Shareinfo System Account'
+  'cas':
+    ensure     : present
+    managehome : true
+    gid        : 15000
+    uid        : '907'
+    shell      : '/bin/bash'
+    comment    : 'CAS System Account'
+  'identity':
+    ensure     : present
+    managehome : true
+    gid        : 15000
+    uid        : '908'
+    shell      : '/bin/bash'
+    comment    : 'Identity System Account'
+  'wayf':
+    ensure     : present
+    managehome : true
+    gid        : 15000
+    uid        : '912'
+    shell      : '/bin/bash'
+    comment    : 'Wayf System Account'
+  'vmbackup':
+    ensure     : present
+    managehome : true
+    gid        : 15000
+    uid        : '996'
+    shell      : '/bin/bash'
+    comment    : 'vmbackup System Account'
+  'portaal':
+    ensure     : present
+    managehome : true
+    gid        : 15000
+    uid        : '997'
+    shell      : '/bin/bash'
+    comment    : 'Portal System Account'
+  'portaalbot':
+    ensure     : present
+    managehome : true
+    gid        : 994
+    uid        : '994'
+    shell      : '/bin/bash'
+    comment    : 'Portal Bot Account'
+    password   : '$6$sPPLtMa4$NOi7spoFGcc2QtwAcTsI4MRp6aRsBmxEVG3OhVDiB.2q4Ol3OK3BVOks9ne1YLfW0Dt9eEqJMLrg1eZTxA/Ar0'
+  'absadm':
+    ensure     : present
+    managehome : true
+    uid        : '902'
+    gid        : '901'
+    shell      : '/bin/bash'
+    comment    : 'ABS Admin Account'
+    groups     : ['adm']
+  'djangoadm':
+    ensure     : present
+    managehome : true
+    gid        : 906
+    uid        : '896'
+    shell      : '/bin/bash'
+    comment    : 'Django Admin Account'
+    groups     : ['adm']
+  'webappadm':
+    ensure     : present
+    managehome : true
+    gid        : 913
+    uid        : 916
+    shell      : '/bin/bash'
+    comment    : 'Webapp Admin Account'
+  'patchadm':
+    ensure     : present
+    managehome : true
+    gid        : 15000
+    uid        : '850'
+    shell      : '/bin/bash'
+    comment    : 'patchmanager Admin Account'
+  'matterhorn':
+    ensure     : present
+    managehome : true
+    gid        : 'matterhorn'
+    uid        : '999'
+    shell      : '/bin/bash'
+    comment    : 'Matterhorn User'
+  'gift':
+    ensure     : present
+    managehome : true
+    gid        : '908'
+    uid        : '600'
+    shell      : '/bin/bash'
+    comment    : 'GIFT User'
+    password   : '$6$USx1h4eW$h11vkrdE20MfL78G8IUGvoi1ows0Zb/S.He18JZO7eR1Rc9xZq0CdzfmZuw.VOaw4imlTNZRSzTbFnFI9F2Sw0'
+  'jmeter':
+    ensure     : present
+    managehome : true
+    uid        : '931'
+    shell      : '/bin/bash'
+    comment    : 'JMeter User'
+  'oftpb':
+    ensure     : present
+    managehome : true
+    home       : '/sapbackup/oftpb'
+    uid        : '932'
+    shell      : '/bin/bash'
+    comment    : 'Oracle FTP Backup user'
+    password   : '$6$OSXsvKh4$PLRE1ElPtxK09jtHGs4keeYYFXK1sQNfN5pSgpVyh1JcC/IU/DHBPUt18qeai08Y.y7Y5SfOR9i902hi4w7pP/'
+  'zenoss':
+    ensure     : present
+    managehome : true
+    home       : '/home/zenoss'
+    uid        : '1098'
+    gid        : '1131'
+    shell      : '/bin/bash'
+    comment    : 'zenoss user'
+  'rundeck':
+    ensure     : present
+    managehome : true
+    home       : '/home/rundeck'
+    uid        : '506'
+    shell      : '/bin/bash'
+    comment    : 'rundeck user'
