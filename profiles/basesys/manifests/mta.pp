@@ -64,8 +64,85 @@ class basesys::mta (
         value => 'no';
       'recipient_delimiter':
         value => '+';
+      'inet_interfaces':
+        value => 'all';
       'message_size_limit':
-        value => '26214400';
+        value => '3072000';
+      'mailbox_size_limit':
+        value => '0';
+      #Anti SPAM#
+      'disable_vrfy_command':
+        value => 'yes';
+      'strict_rfc821_envelopes':
+        value => 'yes';
+      'content_filter':
+        value => 'smtp-amavis:[127.0.0.1]:10024';
+      'smtpd_client_restrictions':
+        value => 'check_client_access hash:/etc/postfix/blackwhite.map,
+                  reject_non_fqdn_hostname,
+                  reject_non_fqdn_sender,
+                  reject_unknown_sender_domain,
+                  permit_mynetworks,permit';
+      'smtpd_sender_restrictions':
+        value => 'check_sender_access hash:/etc/postfix/blackwhite.map,
+                  reject_unknown_sender_domain,
+                  reject_non_fqdn_sender,
+                  permit';
+      'smtpd_relay_restrictions':
+        value => 'check_recipient_access hash:/etc/postfix/blackwhite.map,reject_non_fqdn_hostname,
+        reject_non_fqdn_sender,
+        reject_non_fqdn_recipient,
+        reject_unknown_sender_domain,
+        permit_mynetworks,reject_unauth_destination,
+        check_policy_service inet:127.0.0.1:10026,
+        permit';
+      'smtpd_recipient_restrictions':
+        value => 'reject_invalid_hostname,
+            reject_unknown_recipient_domain,
+            reject_unauth_pipelining,
+            permit_mynetworks,
+            permit_sasl_authenticated,
+            check_policy_service inet:127.0.0.1:10026,
+            check_sender_access hash:/etc/postfix/access_sender,
+            reject_rbl_client b.barracudacentral.org,
+            permit';
+      'smtpd_error_sleep_time':
+        value => '60';
+      'smtpd_soft_error_limit':
+        value => '60';
+      'smtpd_hard_error_limit':
+        value => '10';
+      #DKIM#
+      'milter_default_action':
+        value => 'accept';
+      'milter_protocol':
+        value => '6';
+      'smtpd_milters':
+        value => 'inet:localhost:8891';
+      'non_smtpd_milters':
+        value => 'inet:localhost:8891';
+      #Max of recipient#
+      'smtpd_recipient_limit':
+        value => '20';
+      #Headers Checks#
+      'header_checks':
+        value => 'pcre:/etc/postfix/header_checks.pcre';
+      'body_checks':
+        value => 'regexp:/etc/postfix/body_checks';
+      'policy-spf_time_limit':
+        value => '3600';
+      #max email per user#
+      'smtpd_client_event_limit_exceptions':
+        value => '$mynetworks';
+      'anvil_rate_time_unit': 
+        value => '60s';
+      'anvil_status_update_time':
+        value => '120s';
+      'smtpd_client_message_rate_limit':
+        value => '100';
+
+
+
     }
   }
 }
