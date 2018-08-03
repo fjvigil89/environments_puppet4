@@ -119,6 +119,9 @@ class basesys::repos (
               location => 'http://repos.upr.edu.cu/icinga/debian/',
               repos    => 'main',
               release  => "icinga-${::lsbdistcodename}",
+              key      => {
+                source => 'http://repos.upr.edu.cu/icinga/icinga.key',
+              }
               }
           if($::is_virtual == 'false'){
 						apt::source { "proxmox":
