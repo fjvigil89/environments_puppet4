@@ -7,7 +7,7 @@ basesys::system_users:
     comment    : 'System Admin'
     home       : '/home/frank'
     shell      : '/bin/bash'
-    groups     : 'admins'
+    groups     : 'adm'
     managehome : true
   'arian':
     ensure     : present
@@ -15,7 +15,7 @@ basesys::system_users:
     comment    : 'System Admin'
     home       : '/home/arian'
     shell      : '/bin/bash'
-    groups     : 'admins'
+    groups     : 'adm'
     managehome : true  
   'www':
     ensure     : present
