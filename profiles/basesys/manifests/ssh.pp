@@ -13,8 +13,8 @@ class basesys::ssh(
   $global_ssh_authorized_keys = lookup('basesys::global_ssh_authorized_keys', {merge => hash, default_value => {}})
   create_resources('@ssh_authorized_key', $global_ssh_authorized_keys)
 
-  Ssh_authorized_key <| title == 'frank' |>
-  Ssh_authorized_key <| title == 'arian' |>
+  Ssh_authorized_key <| title == 'frank@frank-PC' |>
+  Ssh_authorized_key <| title == 'arian@Nazgul' |>
 
   $partial_hostname = regsubst($::fqdn, '\.upr\.edu\.cu$', '')
   if $partial_hostname == $::hostname {
