@@ -5,12 +5,13 @@
 #
 class basesys::spamassassin {
  class { 'spamassassin':
-   #sa-update         => true,
+  sa_update         => true,
+  service_enabled   => true,
   run_execs_as_user => 'amavis',
   service_enabled   => false,
   bayes_path        => '/var/lib/amavis/bayes'
   #razor_home        => '/var/lib/amavis/.razor',
-  pyzor_home        => '/var/lib/amavis/.pyzor',
+  #pyzor_home        => '/var/lib/amavis/.pyzor',
  } 
 }
   
