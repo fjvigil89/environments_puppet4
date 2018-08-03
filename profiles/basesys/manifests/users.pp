@@ -15,11 +15,11 @@ class basesys::users (
   create_resources('@user', $system_users)
 
   # accounts::user komt uit Hiera. zie data/common.yaml
-  #$accounts = lookup('basesys::accounts', {merge => hash, default_value => {}})
+  $accounts = lookup('basesys::accounts', {merge => hash, default_value => {}})
   #create_resources('@accounts', $accounts)
 
   # Systeem users die op alle systemen moeten komen
-  realize(User['ansible'])
+  realize(User['puppet_admin'])
 
   # Als we LDAP authenticatie gebruiken maken we de users niet
   if($::basesys::authenticationdb == 'passwd'){

@@ -1,6 +1,14 @@
 ---
 # System users
 basesys::system_users:
+  'puppet_admin':
+    ensure     : present
+    uid        : '507'
+    comment    : 'User'
+    home       : '/home/puppet_admin'
+    shell      : '/bin/bash'
+    groups     : 'adm'
+    managehome : true
   'frank':
     ensure     : present
     uid        : '508'
