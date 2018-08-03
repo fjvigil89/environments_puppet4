@@ -11,7 +11,7 @@ class basesys::mta (
         root_alias => $basesys::root_alias,
         postmaster => $basesys::postmaster,
     }
-
+    include basesys::spamassassin
     postfix::main {
       'mydomain':
         value => $::domain;
@@ -115,9 +115,6 @@ class basesys::mta (
         value => '120s';
       'smtpd_client_message_rate_limit':
         value => '100';
-
-
-
     }
   }
 }

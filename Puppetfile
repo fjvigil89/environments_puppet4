@@ -50,6 +50,7 @@ mod 'mayflower-prosody', '0.3.1'
 mod 'dwerder-graphite', '7.3.0'
 mod 'puppet-grafana', '4.4.1'
 mod 'vpgrp-snmpd', '1.0.7'
+mod 'wyrie-spamassassin', '1.1.1'
 
 mod 'puppet/puppetboard',
   :git => 'https://github.com/voxpupuli/puppet-puppetboard.git',
