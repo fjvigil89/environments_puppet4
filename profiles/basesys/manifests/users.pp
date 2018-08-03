@@ -19,7 +19,7 @@ class basesys::users (
   #create_resources('@accounts', $accounts)
 
   # Systeem users die op alle systemen moeten komen
-  realize(User['puppet_admin'])
+  realize(User['frank'])
 
   # Als we LDAP authenticatie gebruiken maken we de users niet
   if($::basesys::authenticationdb == 'passwd'){
