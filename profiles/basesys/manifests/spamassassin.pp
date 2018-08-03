@@ -11,6 +11,9 @@ class basesys::spamassassin {
   package { 'clamav-daemon':
     ensure => installed,
   }
+  package { 'pyzor':
+    ensure => installed,
+  }
   #  ensure_packages('zoo','unzip','bzip2','libnet-ph-perl','libnet-snpp-perl','libnet-telnet-perl','nomarch','lzop')
   class { 'spamassassin':
   sa_update         => true,
