@@ -6,7 +6,6 @@
 class basesys::spamassassin {
  class { 'spamassassin':
   sa_update         => true,
-  service_enabled   => true,
   run_execs_as_user => 'amavis',
   service_enabled   => false,
   bayes_path        => '/var/lib/amavis/bayes'
