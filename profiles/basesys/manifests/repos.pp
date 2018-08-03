@@ -120,7 +120,7 @@ class basesys::repos (
               repos    => 'main',
               release  => "icinga-${::lsbdistcodename}",
               key      => {
-                'id'     => 'F51A91A5EE001AA5D77D53C4C6E319C334410682',
+                #'id'     => 'F51A91A5EE001AA5D77D53C4C6E319C334410682',
                 'source' => 'http://repos.upr.edu.cu/icinga/icinga.key',
               }
           }
