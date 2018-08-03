@@ -49,6 +49,7 @@ mod 'puppet-letsencrypt', '2.3.0'
 mod 'mayflower-prosody', '0.3.1'
 mod 'dwerder-graphite', '7.3.0'
 mod 'puppet-grafana', '4.4.1'
+mod 'puppetfinland-librenms', '4.0.4'
 
 mod 'puppet/puppetboard',
   :git => 'https://github.com/voxpupuli/puppet-puppetboard.git',
