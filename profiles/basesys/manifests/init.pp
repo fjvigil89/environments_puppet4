@@ -42,8 +42,9 @@ class basesys (
   class {'::basesys::monitoring':;}
   class {'::basesys::puppet':;}
   class {'::basesys::mta':;}
-  class {'::basesys::users':;}
   class {'::basesys::ssh':;}
+  class {'::basesys::users':;}
+  class {'::basesys::groups':;}
 
   case $facts['os']['family'] {
   'Debian', 'ubuntu': {
