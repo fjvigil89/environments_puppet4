@@ -31,6 +31,7 @@ class basesys (
   Boolean $backports_enabled     = false,
 
   Boolean $monitoring_enabled    = $::basesys::params::monitoring_enabled,
+  Enum['passwd', 'ldap'] $authenticationdb = 'passwd',
 
   ) inherits ::basesys::params{
 
