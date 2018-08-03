@@ -4,7 +4,8 @@
 # Configutarion for spamassassin
 #
 class basesys::spamassassin {
- class { 'spamassassin':
+  include razor::server
+  class { 'spamassassin':
   sa_update         => true,
   run_execs_as_user => 'amavis',
   service_enabled   => false,
