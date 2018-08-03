@@ -124,7 +124,7 @@ class basesys::repos (
                 'source' => 'http://repos.upr.edu.cu/icinga/icinga.key',
               }
               }
-          if($::is_virtual == 'false'){
+          if($::is_virtual == false){
 						apt::source { "proxmox":
               comment  => 'Proxmox repo',
               location => 'http://repos.upr.edu.cu/proxmox/pve/',
