@@ -15,19 +15,20 @@ class basesys::users (
   create_resources('@user', $system_users)
 
   # accounts::user komt uit Hiera. zie data/common.yaml
-  $accounts = lookup('basesys::accounts', {merge => hash, default_value => {}})
-  create_resources('@accounts::user', $accounts)
+  #$accounts = lookup('basesys::accounts', {merge => hash, default_value => {}})
+  #create_resources('@accounts::user', $accounts)
 
   # Systeem users die op alle systemen moeten komen
   realize(User['frank'])
-
-  # Als we LDAP authenticatie gebruiken maken we de users niet
-  if($::basesys::authenticationdb == 'passwd'){
-    # Iedereen in systemen zie accounts.yaml
-    Accounts::User<|tag=='systemen'|> {
-      purge_sshkeys => true,
-    }
-  }
+  realize(User['arian'])
+  
+# Als we LDAP authenticatie gebruiken maken we de users niet
+  #if($::basesys::authenticationdb == 'passwd'){
+   # # Iedereen in systemen zie accounts.yaml
+  #  Accounts::User<|tag=='systemen'|> {
+  #    purge_sshkeys => true,
+  #  }
+  #}
 
   sudo::conf { 'basesys':
     priority => 99,
