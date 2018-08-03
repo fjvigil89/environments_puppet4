@@ -88,6 +88,11 @@ class basesys::repos (
               repos    => 'main',
           }
         } else {
+
+          exec {"Add Icinga Repo key":
+              command  => '/usr/bin/sudo wget -O - http://repos.upr.edu.cu/icinga/icinga.key | apt-key add -',
+          }
+
           apt::source { "debian-upr-${lsbdistcodename}":
               comment  => 'Debian UPR repo',
               location => 'http://repos.upr.edu.cu/debian/',
@@ -119,12 +124,8 @@ class basesys::repos (
               location => 'http://repos.upr.edu.cu/icinga/debian/',
               repos    => 'main',
               release  => "icinga-${::lsbdistcodename}",
-              key      => {
-                #'id'     => 'F51A91A5EE001AA5D77D53C4C6E319C334410682',
-                'source' => 'http://repos.upr.edu.cu/icinga/icinga.key',
               }
-          }
-          if($::is_virtual== 'false'){
+          if($::is_virtual == 'false'){
 						apt::source { "proxmox":
               comment  => 'Proxmox repo',
               location => 'http://repos.upr.edu.cu/proxmox/pve/',
