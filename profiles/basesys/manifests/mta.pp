@@ -55,8 +55,6 @@ class basesys::mta (
         value => '127.0.0.0/8 [::ffff:127.0.0.0]/104 [::1]/128 10.2.24.161 10.2.24.183 200.14.49.3 200.14.49.7 200.14.49.14';
       'relayhost':
         value => $basesys::relayhost;
-      'mailbox_size_limit':
-        value => '0';
       # Appending .domain is the MUA's job.
       'append_dot_mydomain':
         value => 'no';
