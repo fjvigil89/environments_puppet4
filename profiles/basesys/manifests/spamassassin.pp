@@ -5,6 +5,7 @@
 #
 class basesys::spamassassin {
   include razor::server
+  include amavis
   class { 'spamassassin':
   sa_update         => true,
   run_execs_as_user => 'amavis',
