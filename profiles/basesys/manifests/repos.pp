@@ -120,7 +120,16 @@ class basesys::repos (
               repos    => 'main',
               release  => "icinga-${::lsbdistcodename}"
           }
+          if($::is_virtual== 'false'){
+						apt::source { "proxmox":
+              comment  => 'Proxmox repo',
+              location => 'http://repos.upr.edu.cu/proxmox/pve',
+              repos    => 'pve-no-subcription',
+              release  => "${::lsbdistcodename}",
+            }
+				  }
         }
+        
       }
       'Ubuntu': {
         if($basesys::aptly_mirror != ''){
@@ -155,6 +164,13 @@ class basesys::repos (
             location => 'http://repos.upr.edu.cu/ubuntu',
             repos    => 'main universe multiverse restricted',
             release  => "${::lsbdistcodename}-backports",
+          }
+         
+          apt::source { 'icinga':
+              comment  => 'Icinga UPR',
+              location => 'http://repos.upr.edu.cu/icinga/ubuntu/',
+              repos    => 'main',
+              release  => "icinga-${::lsbdistcodename}"
           }
         }
       }
