@@ -15,8 +15,8 @@ class basesys::users (
   create_resources('@user', $system_users)
 
   # accounts::user komt uit Hiera. zie data/common.yaml
-  $accounts = lookup('basesys::accounts', {merge => hash, default_value => {}})
-  create_resources('@accounts', $accounts)
+  #$accounts = lookup('basesys::accounts', {merge => hash, default_value => {}})
+  #create_resources('@accounts', $accounts)
 
   # Systeem users die op alle systemen moeten komen
   realize(User['ansible'])
