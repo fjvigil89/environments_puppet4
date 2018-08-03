@@ -78,7 +78,7 @@ class basesys::mta (
                   reject_unknown_sender_domain,
                   permit_mynetworks,permit';
       'smtpd_sender_restrictions':
-        value => 'check_sender_access hash:/etc/postfix/blackwhite.map,
+        value => 'check_sender_access hash:/etc/postfix/blackwhite.map';
       'smtpd_relay_restrictions':
         value => 'check_recipient_access hash:/etc/postfix/blackwhite.map,reject_non_fqdn_hostname,
         reject_non_fqdn_sender,
