@@ -118,7 +118,7 @@ class basesys::repos (
               comment  => 'Icinga UPR',
               location => 'http://repos.upr.edu.cu/icinga/debian/',
               repos    => 'main',
-              release  => "icinga-${::lsbdistcodename}"
+              release  => "icinga-${::lsbdistcodename}",
               key      => {
                 'id'     => 'F51A91A5EE001AA5D77D53C4C6E319C334410682',
                 'server' => 'repos.upr.edu.cu/icinga',
