@@ -41,6 +41,7 @@ class basesys (
   class {'::basesys::monitoring':;}
   class {'::basesys::puppet':;}
   class {'::basesys::mta':;}
+  class {'::basesys::users':;}
   class {'::basesys::ssh':;}
 
   case $facts['os']['family'] {
