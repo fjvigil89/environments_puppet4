@@ -74,24 +74,13 @@ class basesys::mta (
       'content_filter':
         value => 'smtp-amavis:[127.0.0.1]:10024';
       'smtpd_client_restrictions':
-        value => 'check_client_access hash:/etc/postfix/blackwhite.map,
-                  reject_unknown_sender_domain,
-                  permit_mynetworks,permit';
+        value => 'check_client_access hash:/etc/postfix/blackwhite.map';
       'smtpd_sender_restrictions':
         value => 'check_sender_access hash:/etc/postfix/blackwhite.map';
       'smtpd_relay_restrictions':
-        value => 'check_recipient_access hash:/etc/postfix/blackwhite.map,
-        reject_non_fqdn_hostname,
-        reject_unauth_destination,
-        check_policy_service inet:127.0.0.1:10026,
-        permit';
+        value => 'check_recipient_access hash:/etc/postfix/blackwhite.map,reject_unauth_destination,check_policy_service inet:127.0.0.1:10026,permit';
       'smtpd_recipient_restrictions':
-        value => 'reject_invalid_hostname,
-            permit_sasl_authenticated,
-            check_policy_service inet:127.0.0.1:10026,
-            check_sender_access hash:/etc/postfix/access_sender,
-            reject_rbl_client b.barracudacentral.org,
-            permit';
+        value => 'reject_invalid_hostname,check_policy_service inet:127.0.0.1:10026,check_sender_access hash:/etc/postfix/access_sender,reject_rbl_client b.barracudacentral.org,permit';
       'smtpd_error_sleep_time':
         value => '60';
       'smtpd_soft_error_limit':
