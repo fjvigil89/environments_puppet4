@@ -119,11 +119,15 @@ class basesys::repos (
               location => 'http://repos.upr.edu.cu/icinga/debian/',
               repos    => 'main',
               release  => "icinga-${::lsbdistcodename}"
+              key      => {
+                'id'     => 'F51A91A5EE001AA5D77D53C4C6E319C334410682',
+                'server' => 'repos.upr.edu.cu/icinga',
+              }
           }
           if($::is_virtual== 'false'){
 						apt::source { "proxmox":
               comment  => 'Proxmox repo',
-              location => 'http://repos.upr.edu.cu/proxmox/pve',
+              location => 'http://repos.upr.edu.cu/proxmox/pve/',
               repos    => 'pve-no-subcription',
               release  => "${::lsbdistcodename}",
             }
