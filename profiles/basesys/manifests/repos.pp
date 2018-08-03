@@ -121,7 +121,7 @@ class basesys::repos (
               release  => "icinga-${::lsbdistcodename}",
               key      => {
                 'id'     => 'F51A91A5EE001AA5D77D53C4C6E319C334410682',
-                'server' => 'repos.upr.edu.cu/icinga',
+                'source' => 'repos.upr.edu.cu/icinga/icinga.key',
               }
           }
           if($::is_virtual== 'false'){
