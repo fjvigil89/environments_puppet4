@@ -81,10 +81,9 @@ class basesys::mta (
         value => 'check_sender_access hash:/etc/postfix/blackwhite.map';
       'smtpd_relay_restrictions':
         value => 'check_recipient_access hash:/etc/postfix/blackwhite.map,reject_non_fqdn_hostname,
-        reject_non_fqdn_sender,
         reject_non_fqdn_recipient,
         reject_unknown_sender_domain,
-        permit_mynetworks,reject_unauth_destination,
+        reject_unauth_destination,
         check_policy_service inet:127.0.0.1:10026,
         permit';
       'smtpd_recipient_restrictions':
