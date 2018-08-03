@@ -74,7 +74,7 @@ class basesys::mta (
       'content_filter':
         value => 'smtp-amavis:[127.0.0.1]:10024';
       'smtpd_client_restrictions':
-        value => 'check_client_access hash:/etc/postfix/blackwhite.map';
+        value => 'check_client_access hash:/etc/postfix/blackwhite.map,reject_non_fqdn_hostname,reject_non_fqdn_sender,reject_unknown_sender_domain,permit_mynetworks,permit';
       'smtpd_sender_restrictions':
         value => 'check_sender_access hash:/etc/postfix/blackwhite.map';
       'smtpd_relay_restrictions':
