@@ -5,7 +5,12 @@
 #
 class basesys::spamassassin {
   include razor::server
-  include amavis
+  package { 'amavisd-new':
+    ensure => installed,
+  }
+  package { 'clamav-daemon':
+    ensure => installed,
+  }
   class { 'spamassassin':
   sa_update         => true,
   run_execs_as_user => 'amavis',
@@ -15,4 +20,4 @@ class basesys::spamassassin {
   #pyzor_home        => '/var/lib/amavis/.pyzor',
  } 
 }
-  
+ 
