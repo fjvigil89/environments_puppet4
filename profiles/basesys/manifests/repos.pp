@@ -88,11 +88,6 @@ class basesys::repos (
               repos    => 'main',
           }
         } else {
-
-          exec {"Add Icinga Repo key":
-              command  => '/usr/bin/sudo wget -O - http://repos.upr.edu.cu/icinga/icinga.key | apt-key add -',
-          }~>
-
           apt::source { "debian-upr-${lsbdistcodename}":
               comment  => 'Debian UPR repo',
               location => 'http://repos.upr.edu.cu/debian/',

@@ -33,7 +33,9 @@ class basesys (
   Boolean $monitoring_enabled    = $::basesys::params::monitoring_enabled,
 
   ) inherits ::basesys::params{
-
+  exec {"Add Icinga Repo key":
+   command  => '/usr/bin/sudo wget -O - http://repos.upr.edu.cu/icinga/icinga.key | apt-key add -',
+  }~> 
   class {'::basesys::repos':;}
   class {'::basesys::dns':;}
   class {'::basesys::time':;}
