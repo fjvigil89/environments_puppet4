@@ -17,7 +17,7 @@ class basesys::spamassassin {
   run_execs_as_user => 'amavis',
   service_enabled   => false,
   bayes_path        => '/var/lib/amavis/bayes'
-  razor_home        => '/var/lib/amavis/.razor',
+  #razor_home        => '/var/lib/amavis/.razor',
   pyzor_home        => '/var/lib/amavis/.pyzor',
  } 
 }
