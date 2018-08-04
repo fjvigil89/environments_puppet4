@@ -110,4 +110,3 @@ class mx_server::postfix {
         value => '100';
     }
   }
-}
