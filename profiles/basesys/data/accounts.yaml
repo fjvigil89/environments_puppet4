@@ -1,0 +1,14 @@
+---
+basesys::accounts:
+  ################
+  ### systemen ###
+  ################
+  'frank':
+    comment: 'Frank J. Vigil Vega'
+    uid: '508'
+    manage_primary_group: false
+    gid: '100'
+    tag: 'systemen'
+    sshkeys:
+      - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD0ZVH5uXCM9/gZhhDApFoshRH86kHqWFpuBrHAQUB8mNBMwI8lQbfwSrVsMv3UcdsvCjYzxPRv7/9Y73zuT32246sJo1Wm0fVZw4gG6p9Pcfc5f4gwo+KDJKcqb0qo5WfgD1xpGfprOBVmlGhGKm5xxRH6qg36Lgxj84oAFL10CK2cb63hw03XNpd4VLWSX9gOyFVyJLLwW+T6mdll2tICvGCAxVkqfBE4PiXS8Eg5m/stnIf1BvKqR9fsq2fmy8MWjaC7sW0xyIli9zJsC7bMWhL2apOiOObOUdndxGejKR0bxtALhywhGpJd7REIJiwnYkT/a2S482nJZ4ppaunJ frank@frank-PC'
+  

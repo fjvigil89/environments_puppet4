@@ -1,0 +1,128 @@
+---
+# System groups
+basesys::system_groups:
+  'oasis':
+    ensure     : present
+    gid        : '777'
+  'users':
+    ensure     : present
+    gid        : '7000'
+  'admins':
+    ensure     : present
+    gid        : '10000'
+  'arcs':
+    ensure     : present
+    gid        : '15000'
+  'guests':
+    ensure     : present
+    gid        : '6100'
+  'diverimport':
+    ensure     : present
+    gid        : '805'
+  'abs_admins':
+    ensure     : present
+    gid        : '901'
+  'diveline':
+    ensure     : present
+    gid        : '902'
+  'zopeadm':
+    ensure     : present
+    gid        : '903'
+  'zopeusr':
+    ensure     : present
+    gid        : '904'
+  'zope':
+    ensure     : present
+    gid        : '905'
+  'djangousr':
+    ensure     : present
+    gid        : '896'
+  'django':
+    ensure     : present
+    gid        : '906'
+  'portaal_admins':
+    ensure     : present
+    gid        : '907'
+  'gift':
+    ensure     : present
+    gid        : '908'
+  'oasis_admins':
+    ensure     : present
+    gid        : '909'
+  'opt':
+    ensure     : present
+    gid        : '910'
+  'jira_admins':
+    ensure     : present
+    gid        : '911'
+  'confluence_admins':
+    ensure     : present
+    gid        : '912'
+  'maven_admins':
+    ensure     : present
+    gid        : '913'
+  'artifactory_admins':
+    ensure     : present
+    gid        : '914'
+  'webapp_admins':
+    ensure     : present
+    gid        : '915'
+  'bamboo_admins':
+    ensure     : present
+    gid        : '916'
+  'webapp_sudo':
+    ensure     : present
+    gid        : '917'
+  'otrs':
+    ensure     : present
+    gid        : '991'
+  'oracle':
+    ensure     : present
+    gid        : '105'
+  'oinstall':
+    ensure     : present
+    gid        : '102'
+  'asmoper':
+    ensure     : present
+    gid        : '60100'
+  'asmadmin':
+    ensure     : present
+    gid        : '60101'
+  'asmdba':
+    ensure     : present
+    gid        : '60102'
+  'sasl':
+    ensure     : present
+  'nagios':
+    ensure     : present
+    gid        : '985'
+  'solprint':
+    ensure     : present
+    gid        : '940'
+  'samba':
+    ensure     : present
+    gid        : '990'
+  'sapsys':
+    ensure     : present
+    gid        : '15001'
+  'dba':
+    ensure     : present
+    gid        : '15003'
+  'sapinst':
+    ensure     : present
+    gid        : '15004'
+  'oper':
+    ensure     : present
+    gid        : '15005'
+  'sapcmd':
+    ensure     : present
+    gid        : '15006'
+  'matterhorn':
+    ensure     : present
+    gid        : '15007'
+  'sdba':
+    ensure     : present
+    gid        : '1042'
+  'nslcd':
+    ensure     : present
+    gid        : '900'
