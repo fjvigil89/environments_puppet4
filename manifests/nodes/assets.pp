@@ -1,4 +1,4 @@
-node /^\ssetsd+$/ {  
+node /^assets\d+$/ {  
   package { 'lsb-release':
           ensure => installed,
   }~>
