@@ -55,7 +55,7 @@ mod 'jmkeyes-razor', '0.0.7'
 
 mod 'puppet/puppetboard',
   :git => 'https://github.com/voxpupuli/puppet-puppetboard.git',
-  :ref => 'v4.0.0'
+  :ref => 'v4.1.0'
 
 mod 'rgevaert/resolv_conf',
   :git => 'https://github.com/rgevaert/puppet-resolv_conf.git',
