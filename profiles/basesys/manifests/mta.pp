@@ -11,3 +11,5 @@ class basesys::mta (
         root_alias => $basesys::root_alias,
         postmaster => $basesys::postmaster,
     }
+  }
+  }
