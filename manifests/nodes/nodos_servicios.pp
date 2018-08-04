@@ -1,4 +1,4 @@
-node /^((?:nodo|NODO)\w{0,9}\d+)/ {  
+node /^nodo\d+$/ {  
   package { 'lsb-release':
           ensure => installed,
   }~>
