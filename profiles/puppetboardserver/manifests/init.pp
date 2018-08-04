@@ -20,7 +20,7 @@ class puppetboardserver(
   }
 
   $ssl_dir = $::settings::ssldir
-  $puppetboard_certname = $::certname
+  $puppetboard_certname = $puppetdb_host
 # Configure Puppetboard
   class { 'puppetboard':
     groups              => 'puppet',
