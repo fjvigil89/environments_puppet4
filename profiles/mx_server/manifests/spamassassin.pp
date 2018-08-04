@@ -1,15 +1,9 @@
-# Class: basesys::spamassassin
+# Class: mx_server::spamassassin
 # ===========================
 #
 # Configutarion for spamassassin
 #
-class basesys::spamassassin {
-  include razor::server
-  package { 'amavisd-new':
-    ensure => installed,
-  }
-  package { 'clamav-daemon':
-    ensure => installed,
+class mx_server::spamassassin {
   }
   #  ensure_packages('zoo','unzip','bzip2','libnet-ph-perl','libnet-snpp-perl','libnet-telnet-perl','nomarch','lzop')
   class { 'spamassassin':
