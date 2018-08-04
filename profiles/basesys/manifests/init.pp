@@ -3,6 +3,8 @@ class basesys (
 
   String $application,
   String $uprinfo_usage,
+ 
+  Enum['prd', 'dev', 'qas', 'tst'] $application_tier = 'prd',
 
   String $puppetmaster                = $::basesys::params::puppetmaster,
 
