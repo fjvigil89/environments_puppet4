@@ -1,4 +1,4 @@
-node /^nodo\d+$/ {  
+node 'nodo09.upr.edu.cu' {  
   package { 'lsb-release':
           ensure => installed,
   }~>
