@@ -2,11 +2,20 @@
 #================================
 # Esta clase es par desplegar puppetdb
 #
-#class puppetdb_server {
-#    class {'puppetdb':
-#      listen_adress    =>  '0.0.0.0',
-#      listen_port      =>  '8001',
-#      open_listen_port =>  true,
-#    }
-#}
+class puppetdbprodserver {
+ class { '::basesys':
+    uprinfo_usage  => 'servidor Puppet DB, Puppet-master, PuppetBoard',
+    application    => 'puppet',
+    puppet_enabled => false,
+    repos_enabled  => false,
+  }
+ include puppetdb_server
+
+ #To install puppet-lint
+ package { 'puppet-lint':
+  ensure                  => '1.1.0',
+  provider                => 'gem',
+  }
+
+}
 
