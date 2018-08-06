@@ -1,7 +1,7 @@
-node /^ns\d+$/ {  
+node 'ntp.upr.edu.cu' {  
   class { '::basesys':
-    uprinfo_usage  => 'servidor ns externo',
-    application    => 'NS Externo',
+    uprinfo_usage  => 'servidor ntp',
+    application    => 'NTP Service',
     puppet_enabled => false,
     repos_enabled  => false,
     mta_enabled    => false,
