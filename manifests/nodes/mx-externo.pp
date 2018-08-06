@@ -1,4 +1,4 @@
-node 'mx-externo.upnedu.cu' {  
+node 'mx-externo.upr.edu.cu' {  
   class { '::basesys':
     uprinfo_usage  => 'servidor mx-externo',
     application    => 'mx-externo',
