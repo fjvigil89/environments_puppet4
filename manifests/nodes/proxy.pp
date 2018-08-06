@@ -1,4 +1,4 @@
-node 'proxy-go.upr.edu.cu','proxy-tor.upr.edu.cu','proxy-pap.upr.edu.cu {  
+node 'proxy-go.upr.edu.cu','proxy-tor.upr.edu.cu','proxy-pap.upr.edu.cu' {  
   class { '::basesys':
     uprinfo_usage  => 'Servidor Proxy',
     application    => 'Servidor Proxy Squid',
