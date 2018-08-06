@@ -28,7 +28,7 @@ mod 'croddy-make', '999.999.999'
 mod 'puppetlabs-gcc', '0.3.0'
 mod 'stankevich/python', '1.19.0'
 mod 'puppetlabs/vcsrepo', '2.3.0'
-mod 'puppetlabs-puppetdb', '6.0.2'
+mod 'puppetlabs-puppetdb', '7.0.1'
 mod 'stahnma-epel', '1.3.0'
 mod 'saz/vim', '2.4.0'
 mod 'saz-locales', '2.4.0'
@@ -50,9 +50,12 @@ mod 'mayflower-prosody', '0.3.1'
 mod 'dwerder-graphite', '7.3.0'
 mod 'puppet-grafana', '4.4.1'
 mod 'vpgrp-snmpd', '1.0.7'
+mod 'wyrie-spamassassin', '1.1.1'
+mod 'jmkeyes-razor', '0.0.7'
+
 mod 'puppet/puppetboard',
   :git => 'https://github.com/voxpupuli/puppet-puppetboard.git',
-  :ref => 'v4.0.0'
+  :ref => 'v4.1.0'
 
 mod 'rgevaert/resolv_conf',
   :git => 'https://github.com/rgevaert/puppet-resolv_conf.git',
