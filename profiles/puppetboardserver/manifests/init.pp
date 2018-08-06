@@ -24,9 +24,6 @@ class puppetboardserver(
 # Configure Puppetboard
   class { 'puppetboard':
     groups              => 'puppet',
-    puppetdb_key        => "${ssl_dir}/private_keys/${puppetboard_certname}.pem",
-    puppetdb_ssl_verify => "${ssl_dir}/certs/ca.pem",
-    puppetdb_cert       => "${ssl_dir}/certs/${puppetboard_certname}.pem",
     puppetdb_host       => $puppetdb_host,
     puppetdb_port       => 8080,
     default_environment => '*',
