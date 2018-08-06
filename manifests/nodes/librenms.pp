@@ -3,7 +3,7 @@ node 'librenms.upr.edu.cu' {
     uprinfo_usage  => 'servidor librenms',
     application    => 'LibreNMS',
     puppet_enabled => false,
-    repos_enabled  => true,
+    repos_enabled  => false,
     mta_enabled    => false,
   }
 }
