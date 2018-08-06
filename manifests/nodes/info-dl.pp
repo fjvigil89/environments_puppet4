@@ -1,4 +1,4 @@
-node /^gestion\d+$/ {  
+node 'info-dl.upr.edu.cu' {  
   package { 'lsb-release':
           ensure => installed,
   }~>
