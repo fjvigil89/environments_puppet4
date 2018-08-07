@@ -6,4 +6,3 @@ node 'dns.upr.edu.cu' {
     repos_enabled  => false,
     mta_enabled    => false,
   }
-
