@@ -1,6 +1,6 @@
-node /^assets\d+$/ {  
+node /^assets\d+$/{
   package { 'lsb-release':
-          ensure => installed,
+    ensure => installed,
   }~>
   class { '::basesys':
     uprinfo_usage  => 'servidor de Assets',

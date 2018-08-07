@@ -1,4 +1,4 @@
-node 'librenms.upr.edu.cu' {  
+node 'librenms.upr.edu.cu'{
   class { '::basesys':
     uprinfo_usage  => 'servidor librenms',
     application    => 'LibreNMS',

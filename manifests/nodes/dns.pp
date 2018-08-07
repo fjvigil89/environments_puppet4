@@ -1,4 +1,4 @@
-node 'dns.upr.edu.cu' {  
+node 'dns.upr.edu.cu' {
   class { '::basesys':
     uprinfo_usage  => 'servidor master dns',
     application    => 'DNS UPR',
@@ -6,4 +6,4 @@ node 'dns.upr.edu.cu' {
     repos_enabled  => false,
     mta_enabled    => false,
   }
-}
+
