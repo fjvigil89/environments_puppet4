@@ -1,5 +1,5 @@
-node /^mx\d+$/ {
-include mxserver
+node /^mx\d+$/{
+  include mxserver
 }
 
 
