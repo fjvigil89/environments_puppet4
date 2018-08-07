@@ -4,25 +4,9 @@
 # Full description of class mx_server::amavis
 #
 
-class mx_server::amavis
-{
-
-# lint:ignore:140chars
-  $mcheck_hosts   = 'master-icinga.upr.edu.cu,librenms.upr.edu.cu'
-
-  $content_filter  = $::hostname ? {
-  #  /smtpdev[1-9]/ => 'smtp-amavis:[]:10024',
-  #  /smtp[1-9]/    => 'smtp-amavis:[]:10024',
-  #  /relayd[1-9]/  => 'smtp-amavis:[]:10024',
-    /mx[1-9]/   => 'smtp-amavis:[master-icinga.upr.edu.cu]:10024',
-    default        => fail('Wrong hostname'),
-  }
-
-
+class mx_server::amavis {
+  # lint:ignore:140chars
   postfix::main {
-    # Internal amavis content filter
-    'content_filter':
-      value => $content_filter;
     # Because we use a content filter
     'receive_override_options':
       value => 'no_address_mappings';
