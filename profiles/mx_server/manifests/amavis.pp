@@ -8,7 +8,7 @@ class mx_server::amavis
 {
 
 # lint:ignore:140chars
-  $mcheck_hosts   = 'master-icinga.upr.edu.cu','librenms.upr.edu.cu'
+  $mcheck_hosts   = 'master-icinga.upr.edu.cu,librenms.upr.edu.cu'
 
   $content_filter  = $::hostname ? {
   #  /smtpdev[1-9]/ => 'smtp-amavis:[]:10024',
