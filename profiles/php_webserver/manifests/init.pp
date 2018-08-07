@@ -53,7 +53,7 @@ class php_webserver (
    #config_root => '/etc/php/7.0',
   }
   -> class { '::php':
-    manage_repos => true,
+    manage_repos => false,
     fpm          => true,
     dev          => $development_mode,
     composer     => true,

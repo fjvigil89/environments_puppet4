@@ -1,7 +1,7 @@
 require 'spec_helper'
-describe 'grafana_server' do
+describe 'puppetdbprod' do
 
   context 'with defaults for all parameters' do
-    it { should contain_class('grafana_server') }
+    it { should contain_class('puppetdbprod') }
   end
 end

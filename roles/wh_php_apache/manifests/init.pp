@@ -6,10 +6,9 @@ class wh_php_apache {
 
   class { '::basesys':
     uprinfo_usage  => 'servidor test',
-    application      => 'puppet',
-    puppet_enabled   => false,
-    mta_enabled => false,
-    repos_enabled => false;
+    application    => 'puppet',
+    puppet_enabled => false,
+    mta_enabled    => false,
   }
   
  include git

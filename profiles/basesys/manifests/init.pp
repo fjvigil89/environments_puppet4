@@ -3,6 +3,8 @@ class basesys (
 
   String $application,
   String $uprinfo_usage,
+ 
+  Enum['prd', 'dev', 'qas', 'tst'] $application_tier = 'prd',
 
   String $puppetmaster                = $::basesys::params::puppetmaster,
 
@@ -31,6 +33,7 @@ class basesys (
   Boolean $backports_enabled     = false,
 
   Boolean $monitoring_enabled    = $::basesys::params::monitoring_enabled,
+  Enum['passwd', 'ldap'] $authenticationdb = 'passwd',
 
   ) inherits ::basesys::params{
     #  exec {"Add Icinga Repo key":
@@ -43,6 +46,9 @@ class basesys (
   class {'::basesys::monitoring':;}
   class {'::basesys::puppet':;}
   class {'::basesys::mta':;}
+  class {'::basesys::ssh':;}
+  class {'::basesys::users':;}
+  class {'::basesys::groups':;}
 
   case $facts['os']['family'] {
   'Debian', 'ubuntu': {

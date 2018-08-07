@@ -4,11 +4,15 @@
 # Configuracion de Puppetdb
 
 class puppetdb_server {
-  class { 'puppetdb':
-    listen_address  => '0.0.0.0',
+ class { 'puppetdb':
+  listen_address          => '0.0.0.0',
   }
-  class {'puppetdb::master::config': }
+  class { 'puppetdb::master::config':
+    manage_report_processor => true,
+    enable_reports          => true,
+  }
 
+  include puppetboardserver
 
   #  firewall {
   #  '010 accept for localhost':

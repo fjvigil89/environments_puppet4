@@ -1,8 +1,8 @@
 {
-  "name": "root-grafana_server",
+  "name": "root-puppetdbprod",
   "version": "0.1.0",
-  "author": "Arian Trujillo Diaz",
-  "summary": "Module to configure grafana",
+  "author": "root",
+  "summary": null,
   "license": "Apache 2.0",
   "source": "",
   "project_page": null,

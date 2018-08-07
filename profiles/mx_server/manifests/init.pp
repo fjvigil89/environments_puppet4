@@ -7,4 +7,5 @@ class mx_server {
   include mx_server::postfix
   include mx_server::spamassassin
   include mx_server::install
+  include mx_server::amavis
 }

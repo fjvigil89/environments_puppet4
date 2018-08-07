@@ -7,6 +7,7 @@ class mysql_server::monitoring (
   String $collectd_username = $::mysql_server::collectd_username,
   String $collectd_password = $::mysql_server::collectd_password,
 ) {
+  # lint:ignore:140chars
   if(defined(Class['collectd'])) {
 
     package { 'python-mysqldb':
@@ -81,5 +82,5 @@ host = 127.0.0.1
       command => 'check_mysql_config',
     }
   }
-
+# lint:endignore
 }

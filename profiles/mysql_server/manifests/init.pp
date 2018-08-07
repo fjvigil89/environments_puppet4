@@ -6,6 +6,7 @@
 # It also manages the tooling around the setup.
 #
 class mysql_server (
+  # lint:ignore:140chars
   String $root_password = 'root',
 
   String $cluster_name = '',
@@ -262,4 +263,5 @@ class mysql_server (
   }
 
   include ::mysql_server::backup
+  # lint:endignore
 }
