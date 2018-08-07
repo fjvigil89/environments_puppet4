@@ -21,7 +21,7 @@ class mysql_server::users (
   Array $proxy_servers = [],
   Hash $mysql_grants = {},
 ) {
-
+  # lint:ignore:140chars
   assert_private()
 
   $backend_user_default = {

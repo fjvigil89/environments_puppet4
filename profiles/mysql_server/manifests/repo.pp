@@ -1,7 +1,7 @@
 # Class: mysql_server::repo
 # ===========================
 class mysql_server::repo () inherits mysql_server::params {
-
+# lint:ignore:140chars
   case $::osfamily {
     'Debian': {
       case $::mysql_server::provider {
@@ -35,5 +35,5 @@ class mysql_server::repo () inherits mysql_server::params {
       fail('This OS is not implemented in mysql_server profile')
     }
   }
-
+  # lint:endignore
 }
