@@ -17,9 +17,7 @@ class basesys::repos (
         group  => 'root',
         mode   => '0755',
         source => 'puppet:///modules/basesys/check_mem.pl',
-        target => '/etc/apt/apt.conf.d',
-      }
-
+      }~>
       class {
         '::apt':
           purge  => {
