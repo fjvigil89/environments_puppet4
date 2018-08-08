@@ -25,7 +25,7 @@ class basesys::repos (
             'tries'     => 3,
             'frequency' => 'always',
           },
-         conf => { 'unauth':
+         conf => {
   					priority => 99,
  						 content  => 'APT::Get::AllowUnauthenticated 1;'
           },
