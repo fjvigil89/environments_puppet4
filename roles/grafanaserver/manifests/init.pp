@@ -6,9 +6,9 @@
 #
 class grafanaserver {
   class { '::basesys':
-  uprinfo_usage  => 'servidor grafana',
-  application    => 'Grafana Server',
-  puppet_enabled =>   false,
+    uprinfo_usage  => 'servidor grafana',
+    application    => 'Grafana Server',
+    puppet_enabled =>   false,
   }
   #include grafana_server
 
