@@ -12,7 +12,7 @@ class basesys::repos (
     # Rhel based OS can use yum resource
     if($::osfamily == 'Debian') {
       exec { 'Check-Valid-Until=false':
-       command => 'apt-get -o Acquire::Check-Valid-Until=false update',
+       command => 'apt -o Acquire::Check-Valid-Until=false update',
        path    => '/usr/local/bin/:/bin/',
       }~>
       class {
