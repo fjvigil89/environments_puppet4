@@ -11,10 +11,10 @@ class basesys::repos (
     # Debian/Ubuntu needs the module
     # Rhel based OS can use yum resource
     if($::osfamily == 'Debian') {
-      exec { 'Check-Valid-Until=false':
-        command => 'apt -o Acquire::Check-Valid-Until=false update',
-        path    => '/usr/bin/',
-      }~>
+      #exec { 'Check-Valid-Until=false':
+      #  command => 'apt -o Acquire::Check-Valid-Until=false update',
+      #  path    => '/usr/bin/',
+      # }~>
       class {
         '::apt':
           purge  => {
@@ -25,10 +25,10 @@ class basesys::repos (
             'tries'     => 3,
             'frequency' => 'always',
           },
-         conf => {
-  					priority => 99,
- 						 content  => 'APT::Get::AllowUnauthenticated 1;'
-          },
+      }
+      apt::conf { 'unauth':
+        priority => 99,
+        content  => 'APT::Get::AllowUnauthenticated 1;',
       }
       # Add exception for apt-transport-https to avoid dependency loops
       Class['apt::update'] -> Package <| title != 'apt-transport-https' |>
