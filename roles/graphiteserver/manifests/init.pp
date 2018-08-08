@@ -4,7 +4,8 @@
 #
 
 class graphiteserver {
-class { '::basesys':
+  include graphite_server
+  class { '::basesys':
     uprinfo_usage  => 'graphite_server',
     application    => 'graphite',
     puppet_enabled => false,
