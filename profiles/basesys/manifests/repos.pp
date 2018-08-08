@@ -16,7 +16,7 @@ class basesys::repos (
         owner  => 'root',
         group  => 'root',
         mode   => '0755',
-        source => 'puppet:///modules/basesys/80update',
+        source => 'puppet:///modules/basesys/aptconf/80update',
       }~>
       class {
         '::apt':
