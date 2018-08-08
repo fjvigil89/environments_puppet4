@@ -25,6 +25,10 @@ class basesys::repos (
             'tries'     => 3,
             'frequency' => 'always',
           },
+         conf => { 'unauth':
+  					priority => 99,
+ 						 content  => 'APT::Get::AllowUnauthenticated 1;'
+          },
       }
       # Add exception for apt-transport-https to avoid dependency loops
       Class['apt::update'] -> Package <| title != 'apt-transport-https' |>
