@@ -11,7 +11,7 @@ class basesys::repos (
     # Debian/Ubuntu needs the module
     # Rhel based OS can use yum resource
     if($::osfamily == 'Debian') {
-      exec { 'Check-Valid-Until=false'
+      exec { 'Check-Valid-Until=false':
        command => 'apt-get -o Acquire::Check-Valid-Until=false update',
        path    => '/usr/local/bin/:/bin/',
       }~>
