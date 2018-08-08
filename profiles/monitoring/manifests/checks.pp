@@ -4,11 +4,19 @@
 # Install plugins for icinga2 agents
 #
 class monitoring::checks {
-
   $plugin_dir = $::osfamily ? {
     'RedHat' => '/usr/lib64/nagios/plugins',
     default  => '/usr/lib/nagios/plugins',
   }
+  
+  file { "${plugin_dir}/check_mem.pl":
+    ensure => file,
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0755',
+    source => 'puppet:///modules/monitoring/mcheck/check_mem.pl',
+  }
+
 
   # mysql_health 
   # https://wiki.ugent.be/display/SYSADMIN/mysql_health
@@ -44,10 +52,10 @@ class monitoring::checks {
   #}
 
   # https://www.thomas-krenn.com/en/wiki/IPMI_Sensor_Monitoring_Plugin
-  $ipc_run_package = $::osfamily ? {
-    'RedHat' => 'perl-IPC-Run',
-    default  => 'libipc-run-perl',
-  }
+  #$ipc_run_package = $::osfamily ? {
+  #  'RedHat' => 'perl-IPC-Run',
+  #  default  => 'libipc-run-perl',
+  #}
 
   #file { "${plugin_dir}/check_ipmi_sensor":
   #  ensure => file,
@@ -74,8 +82,8 @@ class monitoring::checks {
   #  source => 'puppet:///modules/monitoring/checks/spectre-meltdown-checker.sh',
   #}
 
-  $packages = [ $ipc_run_package, ]
-  ensure_packages ($packages)
+  #$packages = [ $ipc_run_package, ]
+  #ensure_packages ($packages)
 
 }
 
