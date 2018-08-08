@@ -14,7 +14,7 @@ class monitoring::checks {
     owner    => 'root',
     group    => 'root',
     mode     => '0755',
-    source => 'puppet:///profiles/monitoring/check_mem.pl',
+    source => 'puppet:///modules/monitoring/checks/check_mem.pl',
   }
 
 
