@@ -10,11 +10,12 @@ class monitoring::checks {
   }
   
   file { "${plugin_dir}/check_mem.pl":
-    ensure => file,
-    owner  => 'root',
-    group  => 'root',
-    mode   => '0755',
-    source => 'puppet:///modules/monitoring/mcheck/check_mem.pl',
+    ensure   => file,
+    owner    => 'root',
+    group    => 'root',
+    mode     => '0755',
+    # source => 'puppet:///modules/monitoring/mcheck/check_mem.pl',
+    source   => '/etc/puppetlabs/code/environments/puppetdb/profiles/monitoring/mcheck/check_mem.pl',
   }
 
 
