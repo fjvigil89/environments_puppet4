@@ -194,38 +194,38 @@ class basesys::repos (
 # lint:ignore:80chars
       'RedHat', 'CentOS': {
         yumrepo {
-          "UPSTREAM-rhel-${::operatingsystemmajrelease}-server-rpms":
-            descr     => "UPSTREAM rhel ${::operatingsystemmajrelease} server rpms",
-            name      => "UPSTREAM-rhel-${::operatingsystemmajrelease}-server-rpms",
+          "base-${::operatingsystemmajrelease}":
+            descr     => "base ${::operatingsystemmajrelease} server rpms",
+            name      => "base-${::operatingsystemmajrelease}-server-rpms",
             enabled   => '1',
             sslverify => '0',
             gpgcheck  => '0',
 	          baseurl   => "http://repos.upr.edu.cu/CentOS/${::operatingsystemmajrelease}/os/${::architecture}"
           ;
-          "UPSTREAM-rhel-${::operatingsystemmajrelease}-server-optional-rpms":
-            descr     => "UPSTREAM rhel ${::operatingsystemmajrelease} server optional rpms",
-            name      => "UPSTREAM-rhel-${::operatingsystemmajrelease}-server-optional-rpms",
+          "updates-${::operatingsystemmajrelease}-server-updates-rpms":
+            descr     => "updates ${::operatingsystemmajrelease} server updates rpms",
+            name      => "updates-${::operatingsystemmajrelease}-server-updates-rpms",
             enabled   => '1',
             sslverify => '0',
             gpgcheck  => '0',
-            baseurl   => "http://repos.upr.edu.cu/CentOS/${::operatingsystemmajrelease}/os/${::architecture}"
+            baseurl   => "http://repos.upr.edu.cu/CentOS/${::operatingsystemmajrelease}/updates/${::architecture}"
 
           ;
-          "UPSTREAM-rhel-${::operatingsystemmajrelease}-server-extra-rpms":
-            descr     => "UPSTREAM rhel ${::operatingsystemmajrelease} server extra rpms",
-            name      => "UPSTREAM-rhel-${::operatingsystemmajrelease}-server-extra-rpms",
+          "extras-${::operatingsystemmajrelease}-server-extra-rpms":
+            descr     => "extras ${::operatingsystemmajrelease} server extra rpms",
+            name      => "extras-${::operatingsystemmajrelease}-server-extra-rpms",
             enabled   => '1',
             sslverify => '0',
             gpgcheck  => '0',
 	          baseurl   => "http://repos.upr.edu.cu/CentOS/${::operatingsystemmajrelease}/extras/${::architecture}"
           ;
-           "UPSTREAM-rhel-${::operatingsystemmajrelease}-server-extra-sclo":
-            descr     => "UPSTREAM rhel ${::operatingsystemmajrelease} server extra sclo",
-            name      => "UPSTREAM-rhel-${::operatingsystemmajrelease}-server-extra-sclo",
+           "centosplus-${::operatingsystemmajrelease}-server-centosplus":
+            descr     => "centosplus ${::operatingsystemmajrelease} server centosplus",
+            name      => "centosplus-${::operatingsystemmajrelease}-server-centosplus",
             enabled   => '1',
             sslverify => '0',
             gpgcheck  => '0',
-            baseurl   => "http://repos.upr.edu.cu/CentOS/${::operatingsystemmajrelease}/sclo/${::architecture}"
+            baseurl   => "http://repos.upr.edu.cu/CentOS/${::operatingsystemmajrelease}/centosplus/${::architecture}"
           ;
 
           'epel':
