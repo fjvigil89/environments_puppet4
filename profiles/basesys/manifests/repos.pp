@@ -11,7 +11,7 @@ class basesys::repos (
     # Debian/Ubuntu needs the module
     # Rhel based OS can use yum resource
     if($::osfamily == 'Debian') { 
-      file { "80update":
+      file { "/etc/apt/apt.conf.d/80update":
         ensure => file,
         owner  => 'root',
         group  => 'root',
