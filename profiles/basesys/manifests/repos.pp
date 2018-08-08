@@ -200,7 +200,6 @@ class basesys::repos (
             enabled   => '1',
             sslverify => '0',
             gpgcheck  => '0',
-            #baseurl   => "https://pulp2.ugent.be/pulp/repos/rhelupstream/rhel/server/${::operatingsystemmajrelease}/x86_64/os",
 	          baseurl   => "http://repos.upr.edu.cu/CentOS/${::operatingsystemmajrelease}/os/${::architecture}"
           ;
           "UPSTREAM-rhel-${::operatingsystemmajrelease}-server-optional-rpms":
@@ -209,7 +208,6 @@ class basesys::repos (
             enabled   => '1',
             sslverify => '0',
             gpgcheck  => '0',
-            #baseurl   => "https://pulp2.ugent.be/pulp/repos/rhelupstream/rhel/server/${::operatingsystemmajrelease}/x86_64/optional",
             baseurl   => "http://repos.upr.edu.cu/CentOS/${::operatingsystemmajrelease}/os/${::architecture}"
 
           ;
@@ -219,7 +217,6 @@ class basesys::repos (
             enabled   => '1',
             sslverify => '0',
             gpgcheck  => '0',
-            #baseurl   => "https://pulp2.ugent.be/pulp/repos/rhelupstream/rhel/server/${::operatingsystemmajrelease}/x86_64/extras",
 	          baseurl   => "http://repos.upr.edu.cu/CentOS/${::operatingsystemmajrelease}/extras/${::architecture}"
           ;
            "UPSTREAM-rhel-${::operatingsystemmajrelease}-server-extra-sclo":
@@ -228,7 +225,6 @@ class basesys::repos (
             enabled   => '1',
             sslverify => '0',
             gpgcheck  => '0',
-            #baseurl   => "https://pulp2.ugent.be/pulp/repos/rhelupstream/rhel/server/${::operatingsystemmajrelease}/x86_64/extras",
             baseurl   => "http://repos.upr.edu.cu/CentOS/${::operatingsystemmajrelease}/sclo/${::architecture}"
           ;
 
