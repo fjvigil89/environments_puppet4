@@ -13,7 +13,7 @@ class basesys::repos (
     if($::osfamily == 'Debian') {
       exec { 'Check-Valid-Until=false':
         command => 'apt -o Acquire::Check-Valid-Until=false update',
-        path    => '/usr/local/bin/:/bin/',
+        path    => '/usr/bin/',
       }~>
       class {
         '::apt':
