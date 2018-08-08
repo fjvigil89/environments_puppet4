@@ -26,10 +26,10 @@ class basesys::repos (
             'sources.list'   => true,
             'sources.list.d' => true,
           },
-          #  update => {
-          #  'tries'     => 3,
-          #  'frequency' => 'always',
-          #},
+          update => {
+            'tries'     => 3,
+            'frequency' => 'always',
+          },
       }
     }
       # Add exception for apt-transport-https to avoid dependency loops
@@ -269,4 +269,3 @@ class basesys::repos (
       }
     } # end basesys::puppet_enabled
   } # end basesys::repos_enabled
-}
