@@ -21,10 +21,10 @@ class basesys::repos (
             'sources.list'   => true,
             'sources.list.d' => true,
           },
-          update => {
-            'tries'     => 3,
-            'frequency' => 'always',
-          },
+          #update => {
+          #  'tries'     => 3,
+          #  'frequency' => 'always',
+          #},
       }
       # Add exception for apt-transport-https to avoid dependency loops
       Class['apt::update'] -> Package <| title != 'apt-transport-https' |>
