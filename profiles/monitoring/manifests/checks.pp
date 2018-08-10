@@ -31,7 +31,15 @@ class monitoring::checks {
     group  => 'root',
     mode   => '0755',
     source => 'puppet:///modules/monitoring/checks/check_mailq',
-}
+  }
+  
+ file { "${plugin_dir}/check_nginx_status.pl":
+    ensure => file,
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0755',
+    source => 'puppet:///modules/monitoring/checks/check_nginx_status.pl',
+ }
 
 
 }
