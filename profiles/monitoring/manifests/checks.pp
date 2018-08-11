@@ -33,13 +33,22 @@ class monitoring::checks {
     source => 'puppet:///modules/monitoring/checks/check_mailq',
   }
   
- file { "${plugin_dir}/check_nginx_status.pl":
+  file { "${plugin_dir}/check_snmp":
     ensure => file,
     owner  => 'root',
     group  => 'root',
     mode   => '0755',
-    source => 'puppet:///modules/monitoring/checks/check_nginx_status.pl',
- }
+    source => 'puppet:///modules/monitoring/checks/check_snmp',
+  }
+  
+  file { "${plugin_dir}/check_amavis.pl":
+    ensure => file,
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0755',
+    source => 'puppet:///modules/monitoring/checks/check_amavis.pl',
+  }
+
 
 
 }
