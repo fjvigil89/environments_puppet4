@@ -182,7 +182,8 @@ class { 'apache':
 }
 
 class { 'apache::mod::php': }
-
+#Enable ModStatus
+class {'apache::mod::status': }
 case $::osfamily {
   'redhat': {
     package { 'php-mysql': }
