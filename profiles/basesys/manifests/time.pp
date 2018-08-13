@@ -9,16 +9,16 @@ class basesys::time {
       '::ntp':
         servers => $basesys::ntp_server,
         #config_template => $basesys::ntpconf,
-  config_epp    => $basesys::ntpconf,
+        config_epp    => $basesys::ntpconf,
     }
-  class {'::timezone':
-    region   => 'America',
-    locality => 'Havana',
+    class {'::timezone':
+      region   => 'America',
+      locality => 'Havana',
     }
 
     package {
         'chrony':
-        ensure => absent;
+          ensure => absent;
     }
   }
 }
