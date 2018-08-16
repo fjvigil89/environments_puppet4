@@ -16,10 +16,10 @@ node 'client-puppet.upr.edu.cu'{
 node 'puppet-test.upr.edu.cu'{
   package { 'lsb-release':
           ensure => installed,
-  }~>
-  class { '::basesys':
-    uprinfo_usage => 'servidor test',
-    application   => 'puppet',
-    repos_enabled  => true,
-  }
+  }#~>
+  #class { '::basesys':
+  #  uprinfo_usage => 'servidor test',
+  #  application   => 'puppet',
+  #  repos_enabled  => true,
+  #}
   }
