@@ -12,8 +12,8 @@ class nfs_sc (
   String $nfs_v4_idmap_domain = $::nfs_sc::params::nfs_v4_client,
 
   String $nfs_server = $::nfs_sc::params::nfs_server,
-  String $nfs_share  = $::nfs_sc::params::nfs_share
-  String $nfs_mount  = $::nfs_sc::params::nfs_mount
+  String $nfs_share  = $::nfs_sc::params::nfs_share,
+  String $nfs_mount  = $::nfs_sc::params::nfs_mount,
 ) inherits ::nfs_sc::params {
   if($nfs_client_enabled){
     node client {
