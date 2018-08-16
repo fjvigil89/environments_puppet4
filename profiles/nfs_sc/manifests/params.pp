@@ -9,7 +9,7 @@ class nfs_sc::params {
   $nfs_client_enabled = 'true'
   
   $nfs_v4_client = 'true'
-  $nfs_v4_idmap_domain = 'nas0.upr.edu.cu'
+  $nfs_v4_idmap_domain = $::domain
 
   $nfs_server = 'localhost'
   $nfs_share = 'data'

@@ -22,4 +22,5 @@ node 'puppet-test.upr.edu.cu'{
     application   => 'puppet',
     repos_enabled  => true,
   }
+  include nfs_client
   }
