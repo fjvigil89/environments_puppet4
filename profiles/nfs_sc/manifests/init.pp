@@ -25,6 +25,7 @@ class nfs_sc (
        nfs::client::mount { "$nfs_mount":
          server => $nfs_server,
          share  => $nfs_share,
+         ensure => 'mounted',
        }
   }
 
