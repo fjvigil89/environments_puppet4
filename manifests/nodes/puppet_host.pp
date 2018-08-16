@@ -17,6 +17,6 @@ node 'puppet-test.upr.edu.cu'{
   class { '::basesys':
     uprinfo_usage => 'servidor test',
     application   => 'puppet',
-    enabled_repos => 'true',
+    repos_enabled  => true,
   }
   }
