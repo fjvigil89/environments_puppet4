@@ -16,7 +16,6 @@ class nfs_sc (
   String $nfs_mount  = $::nfs_sc::params::nfs_mount,
 ) inherits ::nfs_sc::params {
   if($nfs_client_enabled){
-    node client {
        class {'::nfs':
          server_enabled      => $nfs_server_enabled,
          client_enabled      => $nfs_client_enabled,
@@ -27,7 +26,6 @@ class nfs_sc (
          server => $nfs_server,
          share  => $nfs_share,
        }
-    }
   }
 
 }
