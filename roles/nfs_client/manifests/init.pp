@@ -9,7 +9,7 @@ class nfs_client {
     #nfs_client_enabled => true,
 
     nfs_server => '10.2.25.1',
-    nfs_share  => 'export/repos_facultades',
+    nfs_share  => 'export/owncloud_data',
     nfs_mount  => '/repositorio',
   }
 }
