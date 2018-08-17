@@ -7,7 +7,6 @@ class gitlabserver{
   include git
   class { 'gitlab':
     external_url         => 'http://gitlab.upr.edu.cu',
-    skip_auto_migrations => false,
     nginx                => {
       redirect_http_to_https  => true
     },
