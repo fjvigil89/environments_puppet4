@@ -54,6 +54,7 @@ mod 'wyrie-spamassassin', '1.1.1'
 mod 'jmkeyes-razor', '0.0.7'
 mod 'puppet-dhcp', '3.2.0'
 mod 'derdanne-nfs', '2.0.8'
+mod 'millerjl1701-samba', '1.0.2'
 
 mod 'puppet/puppetboard',
   :git => 'https://github.com/voxpupuli/puppet-puppetboard.git',

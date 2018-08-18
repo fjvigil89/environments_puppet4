@@ -22,5 +22,15 @@ node 'puppet-test.upr.edu.cu'{
     application   => 'puppet',
     repos_enabled  => true,
   }
-  include nfs_client
+  #include nfs_client
+  class { 'samba':
+  share_definitions => {
+    'Informatica' => {
+      'comment'     => 'Repo Informatica',
+      'path'        => '/repositorio/Informatica',
+      'valid users' => [ 'info', 'arian', ],
+      'writable'    => 'yes',
+    },
+  }
+}
   }
