@@ -22,6 +22,5 @@ class { 'samba':
       'browseable'  => $browseable,
     },
   }
-
-
+}
 }
