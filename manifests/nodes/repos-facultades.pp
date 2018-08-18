@@ -1,7 +1,7 @@
 node 'repofct.upr.edu.cu' { 
   mount {'/repositorio':
    device  => '10.2.25.1:/export/repos_facultades', 
-   fstype  => 'nfs',
+   fstype  => 'nfs4',
    ensure  => mounted,
    options => 'default',
    atboot  => true,
