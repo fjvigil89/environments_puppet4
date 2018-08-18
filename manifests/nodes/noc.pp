@@ -6,4 +6,15 @@ node 'noc.upr.edu.cu' {
     repos_enabled  => false,
     mta_enabled    => false,
   }
+ class { '::samba':
+  share_definitions => {
+    'Informatica' => {
+      'comment'     => 'Repo Informatica',
+      'path'        => '/repositorio/Informatica',
+      'valid users' => [ 'info', ],
+      'writable'    => 'yes',
+    },
+  }
+}
+
 }
