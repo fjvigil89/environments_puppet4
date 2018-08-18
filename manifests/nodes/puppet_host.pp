@@ -28,7 +28,7 @@ node 'puppet-test.upr.edu.cu'{
     'Informatica' => {
       'comment'     => 'Repo Informatica',
       'path'        => '/repositorio/Informatica',
-      'valid users' => [ 'info', 'arian', ],
+      'valid users' => [ 'info', ],
       'writable'    => 'yes',
     },
   }
