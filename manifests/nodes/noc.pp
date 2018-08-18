@@ -6,6 +6,20 @@ node 'noc.upr.edu.cu' {
     repos_enabled  => false,
     mta_enabled    => false,
   }
-  include samba
+ class { 'samba':
+  share_definitions => {
+    'admin' => {
+      'comment'     => 'Admin Stuff',
+      'path'        => '/mnt/stuff',
+      'valid users' => [ 'bar', 'bob', '@foo', ],
+      'writable'    => 'yes',
+    },
+    'public' => {
+      'comment'  => 'Public Stuff',
+      'path'     => '/mnt/stuff',
+      'writable' => 'no',
+    },
+  }
+} 
 }
 
