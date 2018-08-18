@@ -23,4 +23,5 @@ node 'puppet-test.upr.edu.cu'{
     repos_enabled  => true,
   }
   #include nfs_client
+  include samba
   }
