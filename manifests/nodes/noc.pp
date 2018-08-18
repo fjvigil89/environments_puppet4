@@ -7,7 +7,7 @@ node 'noc.upr.edu.cu' {
     mta_enabled    => false,
   }
  class { 'samba':
-  share_definitions => {
+  shares_definitions => {
     'admin' => {
       'comment'     => 'Admin Stuff',
       'path'        => '/mnt/stuff',
