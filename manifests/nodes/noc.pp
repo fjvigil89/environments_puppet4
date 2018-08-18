@@ -6,7 +6,6 @@ node 'noc.upr.edu.cu' {
     repos_enabled  => false,
     mta_enabled    => false,
   }
- include samba
  class { '::samba':
   share_definitions => {
     'Informatica' => {
