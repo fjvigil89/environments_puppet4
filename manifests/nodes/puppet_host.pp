@@ -34,4 +34,5 @@ node 'puppet-test.upr.edu.cu'{
   syslog          => true,
   log_auth        => 'yes',
 }
-  }
+class { '::bind': }
+}
