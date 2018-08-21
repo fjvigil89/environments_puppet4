@@ -15,7 +15,7 @@ class dns_bind (
 bind::server::conf {
     zones => {
       $zone_name.each |String $value| {
-        $value => [
+        "$value" => [
         $zone_type,
         "file db.$value",
       ],
@@ -27,14 +27,14 @@ bind::server::conf {
       'match-clients' => $mymatch_clients,
       'zones'         => {
         $zone_name.each |String $value| {
-          $value => [
+          "$value" => [
             $zone_type,
             "file db.$zone_name",
           ],
         }
       },
       $zone_reverse.each |String $value| {
-        $value  => [
+        "$value"  => [
           $zone_type,
           "file db.$value",
         ],
