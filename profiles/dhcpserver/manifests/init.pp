@@ -44,7 +44,7 @@ class dhcpserver {
   interfaces   => ['eth0'],
   dnsupdatekey => '/etc/bind/keys.d/rndc.key',
   dnskeyname   => 'rndc-key',
-  require      => Bind::Key['rndc-key'],
+  #require      => Bind::Key['rndc-key'],
   omapi_port   => 7911,
 }
 
