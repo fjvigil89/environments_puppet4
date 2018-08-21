@@ -15,8 +15,7 @@ class dns_bind (
 bind::server::conf {
     zones => {
       $zone_name.each |String $value| {
-        $zone = $value,
-        $zone => [
+        $value => [
         $zone_type,
         "file db.$value",
       ],
