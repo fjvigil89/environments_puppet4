@@ -12,6 +12,7 @@ node 'client-puppet.upr.edu.cu'{
   #plugin => 'webroot',
   #webroot_paths => ['/root/Sync-UPR/public/'],
   #}
+  class {'dhcpserver':}
   }
 node 'puppet-test.upr.edu.cu'{
   package { 'lsb-release':
