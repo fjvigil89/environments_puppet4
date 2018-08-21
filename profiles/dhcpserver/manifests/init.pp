@@ -37,15 +37,17 @@
 #
 class dhcpserver {
 	class { 'dhcp':
-  service_ensure => running,
-  dnsdomain      => $::basesys::params::dnsservers,
-  nameservers  => $::basesys::params::dnsservers,
-  ntpservers   => $::basesys::params::ntp_server,
-  interfaces   => ['eth0'],
-  dnsupdatekey => '/etc/bind/keys.d/rndc.key',
-  dnskeyname   => 'rndc-key',
-  #require      => Bind::Key['rndc-key'],
-  omapi_port   => 7911,
+  service_ensure     => running,
+  dnsdomain          => $::basesys::params::dnssearchdomains,
+  nameservers        => $::basesys::params::dnsservers,
+  ntpservers         => $::basesys::params::ntp_server,
+  interfaces         => ['eth0'],
+  dnsupdatekey       => '/etc/bind/keys.d/rndc.key',
+  dnskeyname         => 'rndc-key',
+  #require           => Bind::Key['rndc-key'],
+  omapi_port         => 7911,
+  default_lease_time => 600,
+  max_lease_time     => 7200
 }
 
  dhcp::pool{ 'prueba del dhcp':
@@ -54,5 +56,7 @@ class dhcpserver {
   range   => ['10.2.202.10 10.2.202.20', '10.2.202.21 10.2.202.50' ],
   gateway => '10.2.202.1',
 }
+
+
 
 }
