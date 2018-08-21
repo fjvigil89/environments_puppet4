@@ -6,10 +6,10 @@
 class dns_bind (
   Array[String] $zone_name       = $::dns_bind::params::zone_name,
   Array[String] $zone_reverse    = $::dns_bind::params::zone_reverse,
-  String zone_type               = $::dns_bind::params::zone_name,
+  String zone_type               = $::dns_bind::params::zone_type,
   String recursion               = $::dns_bind::params::zone_name::recursion,
   String notify                  = $::dns_bind::params::zone_name::notify,
-  Array[String] $mymasters       = $::dns_bind::params::zone_name,
+  Array[String] $mymasters       = $::dns_bind::params::mymasters,
   Array[String] $mymatch_clients = $::dns_bind::params::mymatch_clients,
 ) inherits ::dns_bind::params {
 bind::server::conf {
