@@ -20,7 +20,7 @@ node 'dns2.upr.edu.cu'{
     repos_enabled  => true,
     mta_enabled    => false,
   }
-
+ include dns_secundary
 }
 
 node 'ns1.upr.edu.cu'{
