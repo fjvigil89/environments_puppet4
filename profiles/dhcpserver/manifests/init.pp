@@ -38,7 +38,7 @@
 class dhcpserver {
 	class { 'dhcp':
   service_ensure     => running,
-  dnsdomain          => [$::basesys::params::dnssearchdomains,]
+  dnsdomain          => [$::basesys::params::dnssearchdomains],
   nameservers        => $::basesys::params::dnsservers,
   ntpservers         => $::basesys::params::ntp_server,
   interfaces         => ['eth0'],
