@@ -13,14 +13,15 @@ class dns_bind (
   Array[String] $mymatch_clients = $::dns_bind::params::mymatch_clients,
 ) inherits ::dns_bind::params {
 bind::server::conf {
-  $zone_name.each |String $value| {
-  zones => {
-    $value => [
-      $zone_type,
-      "file db.$value",
-    ],
-  },
-  }
+    zones => {
+      $zone_name.each |String $value| {
+        $value => [
+        $zone_type,
+        "file db.$value",
+      ],
+      }
+    },
+
   views => {
     'trusted' => {
       'match-clients' => $mymatch_clients,
@@ -29,7 +30,7 @@ bind::server::conf {
           $value => [
             $zone_type,
             "file db.$zone_name",
-        ],
+          ],
         }
       },
       $zone_reverse.each |String $value| {
