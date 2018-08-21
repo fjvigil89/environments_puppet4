@@ -41,7 +41,7 @@ class dhcpserver {
   dnsdomain          => [$::basesys::params::dnssearchdomains],
   nameservers        => $::basesys::params::dnsservers,
   ntpservers         => $::basesys::params::ntp_server,
-  interfaces         => ['eth0'],
+  interfaces         => ['eth0.0'], # cambia para determinada nuves
   #dnsupdatekey       => '/etc/bind/keys.d/rndc.key',
   #dnskeyname         => 'rndc-key',
   #require           => Bind::Key['rndc-key'],
