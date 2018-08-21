@@ -48,4 +48,11 @@ class dhcpserver {
   omapi_port   => 7911,
 }
 
+ dhcp::pool{ 'prueba del dhcp':
+  network => '10.2.202.0',
+  mask    => '255.255.255.0',
+  range   => ['10.2.202.10 10.2.202.20', '10.2.202.21 10.2.202.50' ],
+  gateway => '10.2.202.1',
+}
+
 }
