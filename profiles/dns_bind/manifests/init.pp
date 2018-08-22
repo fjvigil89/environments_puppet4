@@ -19,7 +19,7 @@ bind::server::conf { '/etc/named.conf':
     'example.com' = [
       'type master',
       "file $zone",
-    ],
+    ]
     },
   },
   views => {
