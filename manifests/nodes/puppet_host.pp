@@ -13,7 +13,7 @@ node 'client-puppet.upr.edu.cu'{
   #webroot_paths => ['/root/Sync-UPR/public/'],
   #}
   class {'dhcpserver':
-      interfaces   => 'eth0',
+      interfaces   => ['eth0'],
       pool_enabled => true,
       pool         => ['BEKA'],
       network      => ['10.2.132.0'],
@@ -22,7 +22,15 @@ node 'client-puppet.upr.edu.cu'{
       gateway      => ['10.2.132.1']
     }
   }
-node 'puppet-test.upr.edu.cu'{
+
+  
+  
+  
+  
+  
+  
+  
+  node 'puppet-test.upr.edu.cu'{
   package { 'lsb-release':
           ensure => installed,
   }~>

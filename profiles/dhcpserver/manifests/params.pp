@@ -25,16 +25,16 @@ class dhcpserver::params{
 
 #ignoredsubnet
  $ignoredsubnet_enabled               = false
- $ignoredsubnets                      = [undef]
- $ignoredsubnet_networks              = [undef]
- $ignoredsubnet_masks                 = [undef]
+ $ignoredsubnets                      = ['identificadores'] 
+ $ignoredsubnet_networks              = ['0.0.0.0']
+ $ignoredsubnet_masks                 = ['255.255.255.255']
 
 #host
  $host_enabled          = false
- $hosts                 = [undef]
- $comments              = [undef]
- $macs                  = [undef]
- $ips                   =  [undef]
+ $hosts                 = ['0.0.0.0']
+ $comments              = ['identificadores']
+ $macs                  = ['00:50:56:00:00:01']
+ $ips                   = ['10.0.1.51']
 
  
 
