@@ -16,11 +16,11 @@ include bind
 bind::server::conf { '/etc/named.conf':
   zones => {
     each($zone_name) |$zone| {
-    $zone = [
+    'example.com' => [
       'type master',
-      'file "example.com"',
+      "file $zone",
     ],
-    },
+    }
   },
   views => {
     'trusted' => {
