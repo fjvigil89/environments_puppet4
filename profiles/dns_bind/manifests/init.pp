@@ -21,7 +21,7 @@ bind::server::conf { '/etc/named.conf':
       "file $zone",
     ]
     }
-  },
+  }
   views => {
     'trusted' => {
       'match-clients' => [ '192.168.23.0/24' ],
