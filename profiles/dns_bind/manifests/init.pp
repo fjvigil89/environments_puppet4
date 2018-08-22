@@ -13,7 +13,7 @@ class dns_bind (
   Array[String] $mymatch_clients = $::dns_bind::params::mymatch_clients,
 ) inherits ::dns_bind::params {
 include bind
-bind::server::conf {
+bind::server::conf { '/etc/named.conf':
   zones => {
     'example.com' => [
       'type master',
