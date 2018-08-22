@@ -15,10 +15,12 @@ class dns_bind (
 include bind
 bind::server::conf { '/etc/named.conf':
   zones => {
-    'example.com' => [
+    each($zone_name) |$zone| {
+    $zone => [
       'type master',
       'file "example.com"',
     ],
+    }
   },
   views => {
     'trusted' => {
