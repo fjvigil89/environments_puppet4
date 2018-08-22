@@ -40,8 +40,37 @@ bind::server::conf { '/etc/named.conf':
     ],
   },
 }
-bind::server::file { ['db.upr.edu.cu','db.1.2.10.in-addr.arpa','db.22.2.10.in-addr.arpa','db.24.2.10.in-addr.arpa','db.ceces.upr.edu.cu','db.progintec.upr.edu.cu']:
-  source => 'puppet:///modules/dns_secundary/dns/',
+bind::server::file { 'db.upr.edu.cu':
+  source => 'puppet:///modules/dns_secundary/dns/db.upr.edu.cu',
   mode   => '0770',
 }
+
+bind::server::file { 'db.1.2.10.in-addr.arpa':
+  source => 'puppet:///modules/dns_secundary/dns/db.1.2.10.in-addr.arpa',
+  mode   => '0770',
+}
+
+bind::server::file { 'db.22.2.10.in-addr.arpa':
+  source => 'puppet:///modules/dns_secundary/dns/db.22.2.10.in-addr.arpa',
+  mode   => '0770',
+}
+
+bind::server::file { 'db.24.2.10.in-addr.arpa':
+  source => 'puppet:///modules/dns_secundary/dns/db.24.2.10.in-addr.arpa',
+  mode   => '0770',
+}
+
+bind::server::file { 'db.ceces.upr.edu.cu':
+  source => 'puppet:///modules/dns_secundary/dns/db.ceces.upr.edu.cu',
+  mode   => '0770',
+}
+
+bind::server::file { 'db.progintec.upr.edu.cu':
+  source => 'puppet:///modules/dns_secundary/dns/db.progintec.upr.edu.cu',
+  mode   => '0770',
+}
+
+
+
+
 }
