@@ -35,7 +35,10 @@ node 'puppet-test.upr.edu.cu'{
   #log_auth        => 'yes',
   #}
   #class {'::dns_bind':}
-  $string = ['A','B','C']
-  each($string) |$value| {notice($value)}
-
+  $string = ['/usr/a','/usr/b','/usr/c']
+  each($string) |$value| {
+   file { $value:
+     ensure => present,
+   }
+  }
 }
