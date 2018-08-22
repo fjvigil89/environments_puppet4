@@ -15,8 +15,8 @@ class dns_bind (
 include bind
 bind::server::conf { '/etc/named.conf':
   zones => {
-    each($zone_name) |$zone| {
-    'example.com' = [
+    $zone_name.each |$zone| {
+      'example.com' = [
       'type master',
       "file $zone",
     ]
