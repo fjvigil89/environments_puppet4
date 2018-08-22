@@ -5,10 +5,10 @@ class dhcpserver::pool(){
   if($::dhcpserver::pool_enabled){
     each($::dhcpserver::pool) |Integer $index, String $value|{
         dhcp::pool{'${value}':
-          network => $::dhcpserver::network[${value}],
-          mask    => $::dhcpserver::mask[${value}],
-          range   => $::dhcpserver::range[${value}],
-          gateway => $::dhcpserver::gateway[${value}]
+          network => $::dhcpserver::network[$value],
+          mask    => $::dhcpserver::mask[$value],
+          range   => $::dhcpserver::range[$value],
+          gateway => $::dhcpserver::gateway[$value]
         }
       } 
   }
