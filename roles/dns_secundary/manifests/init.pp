@@ -18,12 +18,19 @@ bind::server::conf { '/etc/named.conf':
       'masters { 10.2.1.8; }',
       'file "db.1.2.10.in-addr.arpa"',
     ],
+    '22.2.10.in-addr.arpa' => [
+      'type slave',
+      'masters { 10.2.1.8; }',
+      'file "db.22.2.10.in-addr.arpa"',
+    ],
+    '24.2.10.in-addr.arpa' => [
+      'type slave',
+      'masters { 10.2.1.8; }',
+      'file "db.24.2.10.in-addr.arpa"',
+    ],
   },
 }
-bind::server::file { 'db.upr.edu.cu':
-  source => 'puppet:///modules/dns_secundary/dns/db.upr.edu.cu',
-}
-bind::server::file { 'db.1.168.192.in-addr.arpa':
-  source => 'puppet:///modules/dns_secundary/dns/db.1.2.10.in-addr.arpa',
+bind::server::file { ['db.upr.edu.cu','db.1.2.10.in-addr.arpa','db.22.2.10.in-addr.arpa','db.24.2.10.in-addr.arpa']:
+  source => 'puppet:///modules/dns_secundary/dns/',
 }
 }
