@@ -4,7 +4,7 @@
 class dhcpserver::pool(){
   if($::dhcpserver::pool_enabled){
     each($::dhcpserver::pool) |Integer $index, String $value|{
-        dhcp::pool{'${value}':
+        dhcp::pool{$::dhcpserver::pool[$index]:
           network => $::dhcpserver::network[$index],
           mask    => $::dhcpserver::mask[$index],
           range   => $::dhcpserver::range[$index],
