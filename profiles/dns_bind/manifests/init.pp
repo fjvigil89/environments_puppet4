@@ -20,7 +20,7 @@ bind::server::conf { '/etc/named.conf':
       'type master',
       "file $zone",
     ]
-    },
+    }
   },
   views => {
     'trusted' => {
