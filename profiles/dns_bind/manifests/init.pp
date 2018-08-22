@@ -12,37 +12,37 @@ class dns_bind (
   Array[String] $mymasters       = $::dns_bind::params::mymasters,
   Array[String] $mymatch_clients = $::dns_bind::params::mymatch_clients,
 ) inherits ::dns_bind::params {
-bind::server::conf {
-    zones => {
-      each($zone_name) |$value| {
-        $value = [
-        $zone_type,
-        "file db.$value",
-        ],
-      },
-    },
+  #bind::server::conf {
+  #  zones => {
+  #    each($zone_name) |$value| {
+  #      $value = [
+  #      $zone_type,
+  #      "file db.$value",
+  #      ],
+  #    },
+  #  },
 
-  views => {
-    'trusted' => {
-      'match-clients' => $mymatch_clients,
-      'zones'         => {
-        each($zone_name) |$value| {
-          $value = [
-            $zone_type,
-            "file db.$zone_name",
-          ],
-        }
-      },
-      each($zone_reverse) |$value| {
-        $value  = [
-          $zone_type,
-          "file db.$value",
-        ],
-      }
-    },
-    'default' => {
-      'match-clients' => [ 'any' ],
-    },
-  },
+  #views => {
+    #  'trusted' => {
+    #    'match-clients' => $mymatch_clients,
+    #  'zones'         => {
+      #    each($zone_name) |$value| {
+      #    $value = [
+      #      $zone_type,
+      #      "file db.$zone_name",
+      #    ],
+      #  }
+      #},
+      # each($zone_reverse) |$value| {
+      #  $value  = [
+      #    $zone_type,
+      #    "file db.$value",
+      #  ],
+      #}
+      #},
+      #'default' => {
+      #'match-clients' => [ 'any' ],
+      #},
+      # },
 }
 }
