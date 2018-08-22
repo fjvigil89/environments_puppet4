@@ -19,7 +19,7 @@ bind::server::conf {
         $zone_type,
         "file db.$value",
         ],
-      }
+      },
     },
 
   views => {
