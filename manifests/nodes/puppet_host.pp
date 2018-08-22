@@ -34,5 +34,8 @@ node 'puppet-test.upr.edu.cu'{
   #syslog          => true,
   #log_auth        => 'yes',
   #}
-  class {'::dns_bind':}
+  #class {'::dns_bind':}
+  $string = ['A','B','C']
+  earch($string) |$value| {notice($value)}
+
 }
