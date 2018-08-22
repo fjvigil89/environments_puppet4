@@ -19,7 +19,7 @@ node 'client-puppet.upr.edu.cu'{
       network      => ['10.2.132.0'],
       mask         => ['255.255.255.0'],
       range        => ['10.2.132.2 10.2.132.5'],
-      gateway      => [10.2.132.1]
+      gateway      => ['10.2.132.1']
     }
   }
 node 'puppet-test.upr.edu.cu'{
