@@ -16,7 +16,7 @@ include bind
 bind::server::conf { '/etc/named.conf':
   zones => {
     each($zone_name) |$zone| {
-    'example.com' => [
+    'example.com' = [
       'type master',
       "file $zone",
     ],
