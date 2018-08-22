@@ -1,7 +1,6 @@
 # Class: dns_secundary
 # ===========================
 #   
-#
 class dns_secundary {
 include bind
 bind::server::conf { '/etc/bind/named.conf':
