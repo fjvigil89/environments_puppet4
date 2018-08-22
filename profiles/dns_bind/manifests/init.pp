@@ -12,29 +12,4 @@ class dns_bind (
   Array[String] $mymasters       = $::dns_bind::params::mymasters,
   Array[String] $mymatch_clients = $::dns_bind::params::mymatch_clients,
 ) inherits ::dns_bind::params {
-include bind
-bind::server::conf { '/etc/named.conf':
-  zones => {
-    $zone_name.each |$zone| 
-      'example.com' = [
-      'type master',
-      "file $zone",
-    ],
-    
-  },
-  views => {
-    'trusted' => {
-      'match-clients' => [ '192.168.23.0/24' ],
-      'zones' => {
-        'myzone.lan' => [
-          'type master',
-          'file "myzone.lan"',
-        ],
-      },
-    },
-    'default' => {
-      'match-clients' => [ 'any' ],
-    },
-  },
-}
 }
