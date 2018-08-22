@@ -28,8 +28,8 @@ class dhcpserver (
  # lint:ignore:80chars
  Boolean $ignoredsubnet_enabled   = $::dhcpserver::params::ignoredsubnet_enabled,
  Array[String] $ignoredsubnet     = $::dhcpserver::params::ignoredsubnets,
- Array[String] $network           = $::dhcpserver::params::networks,
- Array[String] $mask              = $::dhcpserver::params::masks,
+ Array[String] $network           = $::dhcpserver::params::ignoredsubnet_networks,
+ Array[String] $mask              = $::dhcpserver::params::ignoredsubnet_masks,
  
  Boolean $host_enabled            = $::dhcpserver::params::host_enabled,
  Array[String] $host              = $::dhcpserver::params::hosts,

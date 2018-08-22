@@ -26,8 +26,8 @@ class dhcpserver::params{
 #ignoredsubnet
  $ignoredsubnet_enabled => false
  $ignoredsubnets         => [undef]
- $networks              => [undef]
- $masks                  => [undef]
+ $ignoredsubnet_networks              => [undef]
+ $ignoredsubnet_masks                  => [undef]
 
 #host
  $host_enabled          => false
