@@ -7,7 +7,7 @@
 # Copyright 2018 Your name here, unless otherwise noted.
 #
 class dhcpserver (
- String $service_ensure           = $::dhcpserver::params::service_ensure,
+  #String $service_ensure           = $::dhcpserver::params::service_ensure,
  
  Array[String] $dnsdomain         = $::dhcpserver::params::dnsdomain,
  Array[String] $nameservers       = $::dhcpserver::params::nameservers,

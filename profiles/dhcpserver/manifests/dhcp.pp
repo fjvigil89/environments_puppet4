@@ -4,7 +4,7 @@
 class dhcpserver::dhcp(){
 
  class { 'dhcp':
-  service_ensure     => $dhcpserver::service_ensure,
+  service_ensure     => running, #$dhcpserver::service_ensure,
   dnsdomain          => $dhcpserver::dnsdomain,
   nameservers        => $dhcpserver::nameservers,
   ntpservers         => $dhcpserver::ntpservers,

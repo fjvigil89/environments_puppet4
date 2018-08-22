@@ -2,7 +2,7 @@
 # This class is meant to be called from basesys
 # It set variable according to platform
 class dhcpserver::params{
- $service_ensure     => 'running'
+  #$service_ensure     => running
   
 #basesys
  $dnsdomain          => [$::basesys::params::dnssearchdomains]
