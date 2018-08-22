@@ -15,13 +15,13 @@ class dns_bind (
 include bind
 bind::server::conf { '/etc/named.conf':
   zones => {
-    $zone_name.each |$zone| {
+    $zone_name.each |$zone| 
       'example.com' = [
       'type master',
       "file $zone",
-    ]
-    }
-  }
+    ],
+    
+  },
   views => {
     'trusted' => {
       'match-clients' => [ '192.168.23.0/24' ],
