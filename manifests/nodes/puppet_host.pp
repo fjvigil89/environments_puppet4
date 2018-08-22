@@ -19,7 +19,12 @@ node 'client-puppet.upr.edu.cu'{
       network      => ['10.2.202.0'],
       mask         => ['255.255.255.0'],
       range        => ['10.2.202.2 10.2.202.5'],
-      gateway      => ['10.2.202.1']
+      gateway      => ['10.2.202.1'],
+      host_enabled => true,
+      host         => ['profes.upr.edu.cu'],
+      comment      => ['este es el host para el proxy de profesores'],
+      mac          => ['72:92:c5:24:74:e4'],
+      ip           => ['10.2.202.3']
     }
   }
 
