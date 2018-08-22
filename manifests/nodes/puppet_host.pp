@@ -34,11 +34,11 @@ node 'puppet-test.upr.edu.cu'{
   #syslog          => true,
   #log_auth        => 'yes',
   #}
-  #class {'::dns_bind':}
-  $string = ['/usr/a','/usr/b','/usr/c']
-  each($string) |$value| {
-   file { $value:
-     ensure => present,
-   }
-  }
+  class {'::dns_bind':}
+  #$string = ['/usr/a','/usr/b','/usr/c']
+  #each($string) |$value| {
+  # file { $value:
+  #   ensure => present,
+  # }
+  #}
 }
