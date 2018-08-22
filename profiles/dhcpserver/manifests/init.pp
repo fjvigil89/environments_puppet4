@@ -25,6 +25,7 @@ class dhcpserver (
  Array[String] $range             = $::dhcpserver::params::ranges,
  Array[String] $gateway           = $::dhcpserver::params::gateways,
 
+ # lint:ignore:80chars
  Boolean $ignoredsubnet_enabled   = $::dhcpserver::params::ignoredsubnet_enabled,
  Array[String] $ignoredsubnet     = $::dhcpserver::params::ignoredsubnets,
  Array[String] $network           = $::dhcpserver::params::networks,
@@ -35,6 +36,8 @@ class dhcpserver (
  Array[String] $comment           = $::dhcpserver::params::comments,
  Array[String] $mac               = $::dhcpserver::params::macs,
  Array[String] $ip                = $::dhcpserver::params::ips,
+
+ # lint:endignore
 
 )inherits ::dhcpserver::params {
 
