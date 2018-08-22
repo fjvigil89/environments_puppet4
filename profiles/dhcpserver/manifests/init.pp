@@ -2,61 +2,45 @@
 #
 # Full description of class dhcpserver here.
 #
-# === Parameters
-#
-# Document parameters here.
-#
-# [*sample_parameter*]
-#   Explanation of what this parameter affects and what it defaults to.
-#   e.g. "Specify one or more upstream ntp servers as an array."
-#
-# === Variables
-#
-# Here you should define a list of variables that this module would require.
-#
-# [*sample_variable*]
-#   Explanation of how this variable affects the funtion of this class and if
-#   it has a default. e.g. "The parameter enc_ntp_servers must be set by the
-#   External Node Classifier as a comma separated list of hostnames." (Note,
-#   global variables should be avoided in favor of class parameters as
-#   of Puppet 2.6.)
-#
-# === Examples
-#
-#  class { 'dhcpserver':
-#    servers => [ 'pool.ntp.org', 'ntp.local.company.com' ],
-#  }
-#
-# === Authors
-#
-# Author Name <author@domain.com>
-#
 # === Copyright
 #
 # Copyright 2018 Your name here, unless otherwise noted.
 #
-class dhcpserver {
-	class { 'dhcp':
-  service_ensure     => running,
-  dnsdomain          => [$::basesys::params::dnssearchdomains],
-  nameservers        => $::basesys::params::dnsservers,
-  ntpservers         => $::basesys::params::ntp_server,
-  interfaces         => ['eth0.0'], # cambia para determinada nuves
-  #dnsupdatekey       => '/etc/bind/keys.d/rndc.key',
-  #dnskeyname         => 'rndc-key',
-  #require           => Bind::Key['rndc-key'],
-  omapi_port         => 7911,
-  default_lease_time => 600,
-  max_lease_time     => 7200
-}
+class dhcpserver (
+ String $service_ensure           = $::dhcpserver::params::service_ensure,
+ 
+ Array[String] $dnsdomain         = $::dhcpserver::params::dnsdomain,
+ Array[String] $nameservers       = $::dhcpserver::params::nameservers,
+ Array[String] $ntpservers        = $::dhcpserver::params::ntpservers,
+ Array[String] $interfaces        = $::dhcpserver::params::interfaces,
+ 
+ $omapi_port                      = $::dhcpserver::params::omapi_port,
+ $default_lease_time              = $::dhcpserver::params::default_lease_time,
+ $max_lease_time                  = $::dhcpserver::params::max_lease_time,
 
- dhcp::pool{ 'prueba del dhcp':
-  network => '10.2.202.0',
-  mask    => '255.255.255.0',
-  range   => ['10.2.202.10 10.2.202.20', '10.2.202.21 10.2.202.50' ],
-  gateway => '10.2.202.1',
-}
+ Boolean $pool_enabled            = $::dhcpserver::params::pool_enabled,
+ Array[String] $pool              = $::dhcpserver::params::namepool,
+ Array[String] $network           = $::dhcpserver::params::networks,
+ Array[String] $mask              = $::dhcpserver::params::masks,
+ Array[String] $range             = $::dhcpserver::params::ranges,
+ Array[String] $gateway           = $::dhcpserver::params::gateways,
 
+ Boolean $ignoredsubnet_enabled   = $::dhcpserver::params::ignoredsubnet_enabled,
+ Array[String] $ignoredsubnet     = $::dhcpserver::params::ignoredsubnets,
+ Array[String] $network           = $::dhcpserver::params::networks,
+ Array[String] $mask              = $::dhcpserver::params::masks,
+ 
+ Boolean $host_enabled            = $::dhcpserver::params::host_enabled,
+ Array[String] $host              = $::dhcpserver::params::hosts,
+ Array[String] $comment           = $::dhcpserver::params::comments,
+ Array[String] $mac               = $::dhcpserver::params::macs,
+ Array[String] $ip                = $::dhcpserver::params::ips,
 
+)inherits ::dhcpserver::params {
+
+ class {'::dhcpserver::dhcp':;}
+ class {'::dhcpserver::pool':;}
+ class {'::dhcpserver::ignoredsubnet':;}
+ class {'::dhcpserver::host':;}
 
 }
