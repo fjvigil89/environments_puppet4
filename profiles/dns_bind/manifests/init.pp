@@ -44,5 +44,5 @@ class dns_bind (
       #'match-clients' => [ 'any' ],
       #},
       # },
-}
-}
+      #}
+      }
