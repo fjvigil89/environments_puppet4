@@ -18,10 +18,10 @@ class dhcpserver::params{
 #pool
  $pool_enabled => true
  $namepool  => ['identificadores']
- $networks  => [0.0.0.0]
- $masks     => [255.255.255.255]
- $ranges    => [0.0.0.0 255.255.255.255]
- $gateways  => [0.0.0.1]
+ $networks  => ['0.0.0.0']
+ $masks     => ['255.255.255.255']
+ $ranges    => ['0.0.0.0 255.255.255.255']
+ $gateways  => ['0.0.0.1']
 
 #ignoredsubnet
  $ignoredsubnet_enabled => false
