@@ -36,6 +36,6 @@ node 'puppet-test.upr.edu.cu'{
   #}
   #class {'::dns_bind':}
   $string = ['A','B','C']
-  earch($string) |$value| {notice($value)}
+  each($string) |$value| {notice($value)}
 
 }
