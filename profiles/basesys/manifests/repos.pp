@@ -232,7 +232,7 @@ class basesys::repos (
             enabled   => '1',
             sslverify => '0',
             gpgcheck  => '0',
-            baseurl   => "http://repos.upr.edu.cu/icinga2/epel/${::operatingsystemmajrelease}/${::architecture}"
+            baseurl   => "http://repos.upr.edu.cu/icinga/epel/${::operatingsystemmajrelease}/release/"
           ;
 
           'epel':
