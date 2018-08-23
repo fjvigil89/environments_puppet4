@@ -12,18 +12,18 @@ include bind
 #}
 bind::server::conf { '/etc/named.conf':
   zones => {
-    'example.com' => [
+    'tele4.upr.edu.cu' => [
       'type master',
-      'file "example.com"',
+      'file "db.upr.edu.cu"',
     ],
   },
   views => {
-    'trusted' => {
-      'match-clients' => [ '192.168.23.0/24' ],
+    'internal' => {
+      'match-clients' => [ '10.2.0.0/15' ],
       'zones' => {
-        'myzone.lan' => [
+        'tele4.upr.edu.cu' => [
           'type master',
-          'file "myzone.lan"',
+          'file "db.tele4.upr.edu.cu"',
         ],
       },
     },
