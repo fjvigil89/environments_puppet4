@@ -32,5 +32,8 @@ bind::server::conf { '/etc/named.conf':
     },
   },
 }
+bind::server::file { 'db.tele4.upr.edu.cu':
+  source => 'puppet:///modules/dns_secundary/dns/db.tele4.upr.edu.cu',
+}
 }
 
