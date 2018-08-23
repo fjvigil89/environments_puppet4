@@ -12,11 +12,11 @@ include bind
 #}
 bind::server::conf { '/etc/named.conf':
        allow_query => [ '10.2.0.0/15' ],
-       'zones'         => {
-        'tele4.upr.edu.cu' => [
-          'type master',
-          'file "db.tele4.upr.edu.cu"',
-        ],
+       'zones' => {
+         'tele4.upr.edu.cu' => [
+           'type master',
+           'file "db.tele4.upr.edu.cu"',
+         ],
       }, 
 }
 bind::server::file { 'db.tele4.upr.edu.cu':
