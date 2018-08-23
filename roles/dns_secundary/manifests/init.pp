@@ -17,9 +17,7 @@ bind::server::conf { '/etc/named.conf':
           'type master',
           'file "db.tele4.upr.edu.cu"',
         ],
-      },
-    },
-  },
+      }, 
 }
 bind::server::file { 'db.tele4.upr.edu.cu':
   source => 'puppet:///modules/dns_secundary/dns/db.tele4.upr.edu.cu',
