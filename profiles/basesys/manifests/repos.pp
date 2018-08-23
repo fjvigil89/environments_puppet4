@@ -29,16 +29,15 @@ class basesys::repos (
             'frequency' => 'always',
           },
       }
-    }
       # Add exception for apt-transport-https to avoid dependency loops
       Class['apt::update'] -> Package <| title != 'apt-transport-https' |>
-
       # apt-https-transport Add
       #(In debian 10/ubuntu 18.04 is this no longer necessary, but as a dummy package available)
-      # Managed by the Apt module from version 4.4.0 
-      ensure_packages(['apt-transport-https'], {
-        ensure => present,
-      })
+      # Managed by the Apt module from version 4.4.0
+        ensure_packages(['apt-transport-https'], {
+          ensure => present,
+          })
+    }
     }
 
     # Debs repository with packages created / hosted at UPR    

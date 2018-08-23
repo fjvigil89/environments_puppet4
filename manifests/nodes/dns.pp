@@ -10,9 +10,6 @@ node 'dns.upr.edu.cu'{
 }
 
 node 'dns2.upr.edu.cu'{
- package { 'lsb-release':
-          ensure => installed,
-          }~>
   class { '::basesys':
     uprinfo_usage  => 'servidor dns secundario',
     application    => 'DNS Bind9',

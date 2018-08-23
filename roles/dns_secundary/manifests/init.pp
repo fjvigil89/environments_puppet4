@@ -1,25 +1,13 @@
 # Class: dns_secundary
 # ===========================
-#   
-#
+####   
 class dns_secundary {
 include bind
-bind::server::conf { '/etc/named.conf':
-  listen_on_addr    => [ 'any' ],
-  forwarders        => [ '10.2.1.8', ],
-  allow_query       => [ 'any' ],
-  zones             => {
-    'upr.edu.cu' => [
-      'type slave',
-      'masters { 10.2.1.8; }',
-      'file "db.upr.edu.cu"',
-    ],
-    '1.2.10.in-addr.arpa' => [
-      'type slave',
-      'masters { 10.2.1.8; }',
-      'file "db.1.2.10.in-addr.arpa"',
-    ],
-  },
+bind::server::conf { '/etc/bind/named.conf.options':
+  listen_on_addr => [ '10.2.1.205','localhost' ],
+  forwarders     => [ '10.2.1.8' ], 
+  allow_query    => [ '10.2.0.0/15' ],
+  directory      => '/var/cache/bind',
+}
 }
 
-}

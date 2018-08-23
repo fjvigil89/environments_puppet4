@@ -37,6 +37,11 @@ node 'client-puppet.upr.edu.cu'{
   
   
   node 'puppet-test.upr.edu.cu'{
+=======
+
+  }
+node 'puppet-test.upr.edu.cu'{
+>>>>>>> puppetdb
   package { 'lsb-release':
           ensure => installed,
   }~>
@@ -58,4 +63,10 @@ node 'client-puppet.upr.edu.cu'{
   #log_auth        => 'yes',
   #}
   class {'::dns_bind':}
+  #$string = ['/usr/a','/usr/b','/usr/c']
+  #each($string) |$value| {
+  # file { $value:
+  #   ensure => present,
+  # }
+  #}
 }

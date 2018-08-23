@@ -48,8 +48,8 @@ class basesys::packages {
     case $::operatingsystem {
       'Debian', 'Ubuntu': {
 
-        $p_os_dependant = [ 'gnupg','gem','perl-doc', 'bind9-host',
-                            'ldap-utils', 'libwrap0-dev', 'arping', 'lsb-release',
+        $p_os_dependant = [ 'gem','perl-doc', 'bind9-host',
+                            'ldap-utils', 'libwrap0-dev', 'arping', 
                             'libconfig-general-perl', 'netcat',
                             'links2', 'dnsutils','python-apt', 'ifupdown-extra','monitoring-plugins','libwww-perl','tzdata','mlocate','libmonitoring-plugin-perl' ]
 
@@ -76,7 +76,7 @@ class basesys::packages {
       }
 
       'RedHat', 'CentOS': {
-        $p_os_dependant = [ 'dhcp', 'nc', 'libconfig', 'tzdata','nagios-plugins-all','ntp' ]
+        $p_os_dependant = [ 'dhcp', 'nc', 'libconfig', 'tzdata','nagios-plugins-all' ]
       }
     }
 
