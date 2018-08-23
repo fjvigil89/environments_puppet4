@@ -9,7 +9,6 @@ bind::server::conf { '/etc/named.conf':
   recursion      => 'yes',
   forwarders     => [ '10.2.1.8' ],
   allow_query    => [ '10.2.0.0/15' ],
-  forward        => 'only',
 
 }
 }
