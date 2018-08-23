@@ -36,9 +36,6 @@ class basesys (
   Enum['passwd', 'ldap'] $authenticationdb = 'passwd',
 
   ) inherits ::basesys::params{
-    #  exec {"Add Icinga Repo key":
-    #command  => '/usr/bin/sudo wget -O - http://repos.upr.edu.cu/icinga/icinga.key | apt-key add -',
-    #}~> 
   class {'::basesys::repos':;}
   class {'::basesys::dns':;}
   class {'::basesys::time':;}
@@ -57,9 +54,6 @@ class basesys (
   locales        =>  [
   'es_ES.UTF-8 UTF-8',
   'en_US.UTF-8 UTF-8',
-  'nl_BE.UTF-8 UTF-8',
-  'fr_BE.UTF-8 UTF-8',
-  'de_BE.UTF-8 UTF-8',
   ],
   }
 
