@@ -11,10 +11,7 @@ include bind
 #  allow_query    => [ '10.2.0.0/15' ],
 #}
 bind::server::conf { '/etc/named.conf':
-  views => {
-    'internal' => {
-       'match-clients' => [ '10.2.0.0/15' ],
-       'allow_query'   => [ '10.2.0.0/15' ],
+       allow_query => [ '10.2.0.0/15' ],
        'zones'         => {
         'tele4.upr.edu.cu' => [
           'type master',
