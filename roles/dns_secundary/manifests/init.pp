@@ -11,11 +11,11 @@ bind::server::conf { '/etc/named.conf':
   zones             => {
     'upr.edu.cu' => [
       'type master',
-      'file "myzone.lan"',
+      'file "upr.edu.cu"',
     ],
     '1.2.10.in-addr.arpa' => [
       'type master',
-      'file "1.168.192.in-addr.arpa"',
+      'file "1.2.10.in-addr.arpa"',
     ],
   },
 }
