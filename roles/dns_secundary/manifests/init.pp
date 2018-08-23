@@ -3,7 +3,7 @@
 #   
 class dns_secundary {
 include bind
-bind::server::conf {
+bind::server::conf { '/etc/named.conf':
   zones             => {
     'upr.edu.cu' => [
       'type slave',
