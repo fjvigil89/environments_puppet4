@@ -226,6 +226,14 @@ class basesys::repos (
             gpgcheck  => '0',
             baseurl   => "http://repos.upr.edu.cu/CentOS/${::operatingsystemmajrelease}/centosplus/${::architecture}"
           ;
+           "icinga-${::operatingsystemmajrelease}-server-icinga2":
+            descr     => "icinga2 ${::operatingsystemmajrelease} server icinga2",
+            name      => "icinga2-${::operatingsystemmajrelease}-server-icinga2",
+            enabled   => '1',
+            sslverify => '0',
+            gpgcheck  => '0',
+            baseurl   => "http://repos.upr.edu.cu/icinga/epel/${::operatingsystemmajrelease}/release/"
+          ;
 
           'epel':
             descr          => "Extra Packages for Enterprise Linux ${::operatingsystemmajrelease}",
