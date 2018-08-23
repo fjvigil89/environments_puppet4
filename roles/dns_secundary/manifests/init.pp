@@ -22,8 +22,8 @@ bind::server::conf { '/etc/named.conf':
 bind::server::file { 'db.upr.edu.cu':
   source => 'puppet:///modules/dns_secundary/dns/db.upr.edu.cu',
 }
-bind::server::file { '1.2.10.in-addr.arpa':
-  source => 'puppet:///modules/dns_secundary/dns/1.2.10.in-addr.arpa',
+bind::server::file { 'db.1.2.10.in-addr.arpa':
+  source => 'puppet:///modules/dns_secundary/dns/db.1.2.10.in-addr.arpa',
 }
 }
 
