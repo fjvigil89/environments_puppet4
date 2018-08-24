@@ -4,5 +4,5 @@
 # Full description of class dns_bind here.
 #
 class dns_bind {
-  include bind
+  class { '::bind': chroot =>  true }
 }
