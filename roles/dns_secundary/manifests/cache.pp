@@ -3,12 +3,13 @@
 #### 
 class dns_secundary::cache(){
 
-  $zones = $::dns_secundary::zone_name.each |String $value| {
+  $zones = each($::dns_secundary::zone_name) |String $value| {
     $value = [
         $::dns_secundary::zone_type,
         "file db.$value",
-      ],
-  };
+      ]
+  }
+  
 
  bind::server::conf { $::dns_secundary::config_file :
   listen_on_addr              => $::dns_secundary::listen_on_addr,
