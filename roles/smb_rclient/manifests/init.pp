@@ -1,6 +1,6 @@
 # Class: smbr_client
 # ===========================
-#
+##
 # Full description of class smb_rclient here.
 
 class smb_rclient {
