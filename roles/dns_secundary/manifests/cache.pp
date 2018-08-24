@@ -11,13 +11,13 @@ class dns_secundary::cache(){
   forwarders                  => $::dns_secundary::forwarders,
   allow_query                 => $::dns_secundary::allow_query,
   zones                      => {
-    'myzone.lan'             => [
+    'upr.edu.cu'             => [
       'type master',
-      'file "myzone.lan"',
+      'file "db.upr.edu.cu"',
     ],
-    '1.168.192.in-addr.arpa' => [
+    '1.2.10.in-addr.arpa' => [
       'type master',
-      'file "1.168.192.in-addr.arpa"',
+      'file "db.1.2.10.in-addr.arpa"',
     ],
   },
 }
