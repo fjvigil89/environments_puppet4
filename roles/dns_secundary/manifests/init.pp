@@ -13,8 +13,7 @@ class dns_secundary (
 
 )inherits ::dns_secundary::params {
 
-  include dns_bind~>
-  class {'::dns_secundary::cache':;}
+  class {'dns_bind':;} ~> class {'::dns_secundary::cache':;}
 
 }
 
