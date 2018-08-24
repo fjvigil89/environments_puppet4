@@ -3,9 +3,10 @@
 #
 # Full description of class dns_secundary::params here.
 #
-class dns_secundary:params{
-    $config_file     = '/etc/named.conf'
-    $listen_on_addr  = [ 'any' ]
+class dns_secundary::params{
+    $config_file        = '/etc/named.conf'
+    $listen_on_addr     = [ 'any' ]
+    $listen_on_v6_addr  = [ 'any' ]
     $forwarders      = [undef]
     $allow_query     = [ 'any' ]
     $zone_name       = ['upr.edu.cu','ceces.upr.edu.cu']
@@ -13,6 +14,6 @@ class dns_secundary:params{
     $zone_type       = 'type master'
     #$recursion       = 'yes'
     #$notify          = 'yes'
-    $mymasters       = [ '192.168.0.1', '192.168.0.2']
-    $mymatch_clients = [ '10.2.0.0/15', '200.14.49.0/24']
+    #$mymasters       = [ '192.168.0.1', '192.168.0.2']
+    #$mymatch_clients = [ '10.2.0.0/15', '200.14.49.0/24']
 }
