@@ -9,7 +9,7 @@ class dns_secundary::cache(){
   allow_query       => $::dns_secundary::allow_query,
 
   zones             => $::dns_secundary::zone_name.each |String $value| {
-    $value => [
+    $value = [
         $::dns_secundary::zone_type,
         "file db.$value",
       ],
