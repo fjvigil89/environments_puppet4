@@ -10,22 +10,16 @@ class dns_secundary::cache(){
   listen_on_v6_addr           => $::dns_secundary::listen_on_v6_addr,
   forwarders                  => $::dns_secundary::forwarders,
   allow_query                 => $::dns_secundary::allow_query,
-  zones                       => {
-    'myzone.lan' =>  [
+  zones                      => {
+    'myzone.lan'             => [
       'type master',
       'file "myzone.lan"',
     ],
+    '1.168.192.in-addr.arpa' => [
+      'type master',
+      'file "1.168.192.in-addr.arpa"',
+    ],
   },
-  #zones                      => {
-  #  'myzone.lan'             => [
-  #    'type master',
-  #    'file "myzone.lan"',
-  #  ],
-  #  '1.168.192.in-addr.arpa' => [
-  #    'type master',
-  #    'file "1.168.192.in-addr.arpa"',
-  #  ],
-  #},
 }
 
   bind::server::file { $::dns_secundary::zone_name :
