@@ -7,7 +7,7 @@ class dns_secundary::cache(){
     'myzone.lan' =>  [
       'type master',
       'file "myzone.lan"',
-    ],
+    ]
   },
   notice $zones
   
