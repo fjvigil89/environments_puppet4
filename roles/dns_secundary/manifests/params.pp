@@ -1,9 +1,13 @@
-# Class: dns_bind::params
+# Class: dns_secundary::params
 # ===========================
 #
-# Full description of class dns_bind::params here.
+# Full description of class dns_secundary::params here.
 #
-class dns_bind::params {
+class dns_secundary:params{
+    $config_file     = '/etc/named.conf'
+    $listen_on_addr  = [ 'any' ]
+    $forwarders      = [undef]
+    $allow_query     = [ 'any' ]
     $zone_name       = ['upr.edu.cu','ceces.upr.edu.cu']
     $zone_reverse    = ['1.2.10.in-addr.arpa','22.2.10.in-addr.arpa']
     $zone_type       = 'type master'

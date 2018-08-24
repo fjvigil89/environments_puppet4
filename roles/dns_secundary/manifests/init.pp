@@ -3,7 +3,7 @@
 #   
 #
 class dns_secundary {
-include bind
+include dns_bind 
 bind::server::conf { '/etc/named.conf':
   listen_on_addr    => [ 'any' ],
   forwarders        => [ '10.2.1.8', ],
