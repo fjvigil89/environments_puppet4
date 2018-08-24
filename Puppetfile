@@ -57,7 +57,6 @@ mod 'derdanne-nfs', '2.0.8'
 mod 'millerjl1701-samba', '1.0.2'
 mod 'jgazeley-freeradius', '3.7.0'
 mod 'puppet-logrotate', '3.3.0'
-mod 'thias-bind', '0.5.3'
 
 mod 'puppet/puppetboard',
   :git => 'https://github.com/voxpupuli/puppet-puppetboard.git',
@@ -89,3 +88,6 @@ mod 'voxpupuli/ssh_keygen',
   :git => 'https://github.com/voxpupuli/puppet-ssh_keygen.git',
   :ref => 'ca53363249b58af96f90cb810c7c51dda8ba803b'
 
+mod 'rgevaert/bind',
+  :git => 'https://github.com/rgevaert/puppet-bind.git',
+  :ref => '113c25a9cd0ec4749fb3505e9d215e6d29e3b483'
