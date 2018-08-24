@@ -3,13 +3,6 @@
 #### 
 class dns_secundary::cache(){
 
-  $zones = {
-    'myzone.lan' =>  [
-      'type master',
-      'file "myzone.lan"',
-    ]
-  },
-  notice $zones
   
 
  bind::server::conf { $::dns_secundary::config_file :
@@ -17,7 +10,12 @@ class dns_secundary::cache(){
   listen_on_v6_addr           => $::dns_secundary::listen_on_v6_addr,
   forwarders                  => $::dns_secundary::forwarders,
   allow_query                 => $::dns_secundary::allow_query,
-  zones                       => $zones,
+  zones                       => {
+    'myzone.lan' =>  [
+      'type master',
+      'file "myzone.lan"',
+    ],
+  },
   #zones                      => {
   #  'myzone.lan'             => [
   #    'type master',
