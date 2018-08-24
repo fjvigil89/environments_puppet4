@@ -9,6 +9,7 @@ class grafanaserver {
     uprinfo_usage  => 'servidor grafana',
     application    => 'Grafana Server',
     puppet_enabled =>   false,
+    repos_enabled  => true,
   }
   #include grafana_server
 
