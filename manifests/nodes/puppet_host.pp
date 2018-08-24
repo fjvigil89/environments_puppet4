@@ -28,20 +28,7 @@ node 'client-puppet.upr.edu.cu'{
   #  }
 
 }
-
-  
-  
-  
-  
-  
-  
-  
-  node 'puppet-test.upr.edu.cu'{
-=======
-
-  }
 node 'puppet-test.upr.edu.cu'{
->>>>>>> puppetdb
   package { 'lsb-release':
           ensure => installed,
   }~>
