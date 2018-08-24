@@ -8,6 +8,7 @@ class dns_secundary (
  Array[String] $forwarders      = $::dns_secundary::params::forwarders,
  Array[String] $allow_query     = $::dns_secundary::params::allow_query,
  Array[String] $zone_name       = $::dns_secundary::params::zone_name,
+ Array[String] $file_zone_name  = $::dns_secundary::params::file_zone_name,
  Array[String] $zone_reverse    = $::dns_secundary::params::zone_reverse,
  String $zone_type              = $::dns_secundary::params::zone_type,
 

@@ -10,6 +10,7 @@ class dns_secundary::params{
     $forwarders      = ['10.2.1.8']
     $allow_query     = [ 'any' ]
     $zone_name       = ['upr.edu.cu','ceces.upr.edu.cu']
+    $file_zone_name  = ['db.upr.edu.cu','db.ceces.upr.edu.cu']
     $zone_reverse    = ['1.2.10.in-addr.arpa','22.2.10.in-addr.arpa']
     $zone_type       = 'type master'
     #$recursion       = 'yes'

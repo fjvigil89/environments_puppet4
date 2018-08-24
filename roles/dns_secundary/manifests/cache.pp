@@ -22,7 +22,7 @@ class dns_secundary::cache(){
   },
 }
 
-  bind::server::file { $::dns_secundary::zone_name :
+  bind::server::file { $::dns_secundary::file_zone_name :
     source_base =>  'puppet:///modules/dns_secundary/dns/',
   }
 
