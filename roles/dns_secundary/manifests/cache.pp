@@ -8,7 +8,7 @@ class dns_secundary::cache(){
         $::dns_secundary::zone_type,
         "file db.$value",
       ],
-  }
+  };
 
  bind::server::conf { $::dns_secundary::config_file :
   listen_on_addr              => $::dns_secundary::listen_on_addr,
