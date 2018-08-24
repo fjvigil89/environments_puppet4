@@ -4,7 +4,7 @@
 class dns_secundary::cache(){
 
   $zones = each($::dns_secundary::zone_name) |String $value| {
-    join("${value}", '=', '[', "${::dns_secundary::zone_type},", "file db.${value}",',',']')    
+    join(["${value}", '=', '[', "${::dns_secundary::zone_type},", "file db.${value}",',',']'],'')    
   }
   notice $zones
   
