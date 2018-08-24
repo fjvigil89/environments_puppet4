@@ -14,6 +14,14 @@ class dns_secundary (
 
 )inherits ::dns_secundary::params {
 
+ class { '::basesys':
+    uprinfo_usage  => 'servidor dns cache',
+    application    => 'DNS Bind9',
+    puppet_enabled => false,
+    repos_enabled  => true,
+    mta_enabled    => false,
+  }
+
   class {'dns_bind':;} ~> class {'::dns_secundary::cache':;}
 
 }
