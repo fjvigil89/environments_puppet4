@@ -88,6 +88,6 @@ mod 'voxpupuli/ssh_keygen',
   :git => 'https://github.com/voxpupuli/puppet-ssh_keygen.git',
   :ref => 'ca53363249b58af96f90cb810c7c51dda8ba803b'
 
-mod 'dcenter/puppet-bind',
+mod 'puppet-bind',
   :git => 'http://gitlab.upr.edu.cu/dcenter/puppet-bind.git',
   :ref => '93f7a28ceb70ae59febb41cac62c9f1f7c471859'
