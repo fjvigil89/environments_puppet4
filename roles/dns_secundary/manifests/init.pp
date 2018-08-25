@@ -25,7 +25,7 @@ class dns_secundary (
     repos_enabled  => true,
     mta_enabled    => false,
     dns_enabled    => false,
-  }~> class {'::bind_server':;}~> class {'::dns_secundary::cache':;}
+  }~> class {'bind_server':;}~> class {'::dns_secundary::cache':;}
 
 }
 
