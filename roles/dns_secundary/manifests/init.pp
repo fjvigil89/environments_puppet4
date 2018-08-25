@@ -20,7 +20,7 @@ class dns_secundary (
     puppet_enabled => false,
     repos_enabled  => true,
     mta_enabled    => false,
-    dns_enabled    => true,
+    dns_enabled    => false,
   }
 
   class {'dns_bind':;} ~> class {'::dns_secundary::cache':;}
