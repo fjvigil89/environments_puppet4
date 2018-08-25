@@ -5,11 +5,14 @@
 #
 class dns_secundary::params{
     $config_file        = '/etc/named.conf'
-    $directory          = '/var/named'
     $listen_on_addr     = [ 'any' ]
     $listen_on_v6_addr  = [ 'any' ]
     $forwarders      = ['10.2.1.8']
     $allow_query     = [ 'any' ]
+    $directory          = '/etc/bind'
+    $dump_file          = 'cache_dump.db'
+    $statistics_file    = 'named_stats.txt'
+    $memstatistics_file =  'named_mem_stats.txt'
     #$zone_name       = ['upr.edu.cu','ceces.upr.edu.cu']
     #$file_zone_name  = ['db.upr.edu.cu','db.ceces.upr.edu.cu']
     #$zone_reverse    = ['1.2.10.in-addr.arpa','22.2.10.in-addr.arpa']
