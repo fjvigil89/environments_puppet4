@@ -11,10 +11,11 @@ node 'dns.upr.edu.cu'{
 
 node 'dns-cache1.upr.edu.cu'{
  class {'::dns_secundary':
+   config_file        => '/etc/bind/named.conf',
    directory          => '/etc/bind',
    dump_file          => 'cache_dump.db',
    statistics_file    => 'named_stats.txt',
-   memstatistics_file =>  'named_mem_stats.txt',
+   memstatistics_file => 'named_mem_stats.txt',
    }
 }
 
