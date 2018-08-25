@@ -92,5 +92,5 @@ mod 'voxpupuli/ssh_keygen',
 #  :git => 'https://github.com/rgevaert/puppet-bind.git',
 #  :ref => '113c25a9cd0ec4749fb3505e9d215e6d29e3b483'  
 
-mod 'frank.vigil/bind',
-   :git => 'http://gitlab.upr.edu.cu/frank.vigil/bind.git'
+#mod 'frank.vigil/bind',
+#   :git => 'http://gitlab.upr.edu.cu/frank.vigil/bind.git'
