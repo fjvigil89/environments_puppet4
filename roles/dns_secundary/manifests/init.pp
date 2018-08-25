@@ -3,6 +3,7 @@
 ####   
 class dns_secundary (
  String $config_file            = $::dns_secundary::params::config_file,
+ String $directory              = $::dns_secundary::params::directory,
  Array[String] $listen_on_addr  = $::dns_secundary::params::listen_on_addr,
  Array[String] $listen_on_v6_addr = $::dns_secundary::params::listen_on_v6_addr,
  Array[String] $forwarders      = $::dns_secundary::params::forwarders,

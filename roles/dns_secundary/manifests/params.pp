@@ -5,6 +5,7 @@
 #
 class dns_secundary::params{
     $config_file        = '/etc/bind/named.conf'
+    $directory          = '/var/cache/bind',
     $listen_on_addr     = [ 'any' ]
     $listen_on_v6_addr  = [ 'any' ]
     $forwarders      = ['10.2.1.8']

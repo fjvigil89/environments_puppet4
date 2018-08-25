@@ -6,12 +6,13 @@ class dns_secundary::cache(){
   
 
  bind::server::conf { $::dns_secundary::config_file :
-  listen_on_addr              => $::dns_secundary::listen_on_addr,
-  listen_on_v6_addr           => $::dns_secundary::listen_on_v6_addr,
-  forwarders                  => $::dns_secundary::forwarders,
-  allow_query                 => $::dns_secundary::allow_query,
-  #zones                      => {
-  #  'upr.edu.cu'             => [
+  listen_on_addr           => $::dns_secundary::listen_on_addr,
+  listen_on_v6_addr        => $::dns_secundary::listen_on_v6_addr,
+  forwarders               => $::dns_secundary::forwarders,
+  allow_query              => $::dns_secundary::allow_query,
+  directory                => $::dns_secundary::directory,
+  #zones                   => {
+  #  'upr.edu.cu'          => [
   #    'type master',
   #    'file "db.upr.edu.cu"',
   #  ],

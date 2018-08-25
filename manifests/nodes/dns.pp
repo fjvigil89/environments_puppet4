@@ -10,7 +10,10 @@ node 'dns.upr.edu.cu'{
 }
 
 node 'dns-cache0.upr.edu.cu'{
- include dns_secundary
+ class {'::dns_secundary':
+   config_file => '/etc/bind/named.conf',
+   directory   => '/var/cache/bind',
+ }
 }
 
 node 'ns1.upr.edu.cu'{
