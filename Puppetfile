@@ -90,4 +90,3 @@ mod 'voxpupuli/ssh_keygen',
 
 mod 'dcenter/puppet-bind',
   :git => 'http://gitlab.upr.edu.cu/dcenter/puppet-bind.git',
-  :ref => '93f7a28ceb70ae59febb41cac62c9f1f7c471859'
