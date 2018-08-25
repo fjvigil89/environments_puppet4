@@ -14,6 +14,7 @@ class dns_secundary::cache(){
   dump_file                => $::dns_secundary::dump_file,
   statistics_file          => $::dns_secundary::statistics_file,
   memstatistics_file       => $::dns_secundary::memstatistics_file,
+  
   #zones                   => {
   #  'upr.edu.cu'          => [
   #    'type master',
