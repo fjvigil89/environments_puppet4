@@ -4,7 +4,7 @@
 
 #forge 'forge.puppetlabs.com'
 
-# A module from the Puppet Forge
+# A module from the Puppet Forge #
 # Forge Modules Test Environments
 mod 'puppetlabs/ntp', '7.1.1'
 #mod 'kogitoapp-timezone', '2.1.1'
