@@ -43,6 +43,10 @@ class basesys::repos (
     # Debs repository with packages created / hosted at UPR    
      case $::osname {
        'Ubuntu': {
+         #Ubuntu 18.04 have a problem to add key
+         ensure_packages(['gnupg'], {
+           ensure => present,
+           })
         apt::source { 'debs':
             comment  => 'UPR debs repo',
             location => 'http://repos.upr.edu.cu/ubuntu/',
