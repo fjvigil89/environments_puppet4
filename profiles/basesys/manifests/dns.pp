@@ -17,7 +17,7 @@ class basesys::dns (
   else{
  		class {
       '::resolv_conf':
-        nameserver => $facts['ip'],
+        nameserver => $facts['ipaddress'],
         search     => $basesys::dnssearchdomains,
     }
 
