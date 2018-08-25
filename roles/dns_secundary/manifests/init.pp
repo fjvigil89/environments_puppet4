@@ -26,7 +26,7 @@ class dns_secundary (
     mta_enabled    => false,
     dns_enabled    => false,
   }
-  class {'bind_server':;}
+  #class {'bind_server':;}
   class {'::dns_secundary::cache':;}
 
 }
