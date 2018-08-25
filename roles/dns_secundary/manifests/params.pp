@@ -9,10 +9,10 @@ class dns_secundary::params{
     $listen_on_v6_addr  = [ 'any' ]
     $forwarders      = ['10.2.1.8']
     $allow_query     = [ 'any' ]
-    $zone_name       = ['upr.edu.cu','ceces.upr.edu.cu']
-    $file_zone_name  = ['db.upr.edu.cu','db.ceces.upr.edu.cu']
-    $zone_reverse    = ['1.2.10.in-addr.arpa','22.2.10.in-addr.arpa']
-    $zone_type       = 'type master'
+    #$zone_name       = ['upr.edu.cu','ceces.upr.edu.cu']
+    #$file_zone_name  = ['db.upr.edu.cu','db.ceces.upr.edu.cu']
+    #$zone_reverse    = ['1.2.10.in-addr.arpa','22.2.10.in-addr.arpa']
+    #$zone_type       = 'type master'
     #$recursion       = 'yes'
     #$notify          = 'yes'
     #$mymasters       = [ '192.168.0.1', '192.168.0.2']

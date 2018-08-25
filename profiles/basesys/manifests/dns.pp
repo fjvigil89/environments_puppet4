@@ -14,4 +14,12 @@ class basesys::dns (
         search     => $basesys::dnssearchdomains,
     }
   }
+  else{
+ 		class {
+      '::resolv_conf':
+        nameserver => $facts['ip'],
+        search     => $basesys::dnssearchdomains,
+    }
+
+  }
 }
