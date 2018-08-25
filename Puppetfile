@@ -87,6 +87,3 @@ mod 'saz/rsyslog',
 mod 'voxpupuli/ssh_keygen',
   :git => 'https://github.com/voxpupuli/puppet-ssh_keygen.git',
   :ref => 'ca53363249b58af96f90cb810c7c51dda8ba803b'
-
-mod 'dns-bind',
-  :git => 'http://gitlab.upr.edu.cu/arian/dns-bind.git'
