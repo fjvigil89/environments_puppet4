@@ -9,15 +9,14 @@ node 'dns.upr.edu.cu'{
 
 }
 
-node 'dns2.upr.edu.cu'{
+node 'dns-cache0.upr.edu.cu'{
   class { '::basesys':
-    uprinfo_usage  => 'servidor dns secundario',
+    uprinfo_usage  => 'servidor dns cache',
     application    => 'DNS Bind9',
     puppet_enabled => false,
     repos_enabled  => true,
     mta_enabled    => false,
   }
- include dns_secundary
 }
 
 node 'ns1.upr.edu.cu'{
