@@ -15,7 +15,7 @@ class basesys::ssh(
 
   Ssh_authorized_key <| title == 'frank@frank-PC' |>
   Ssh_authorized_key <| title == 'arian@Nazgul' |>
-
+  Ssh_authorized_key <| title == 'Rene@DIR-INFO-15' |>
   $partial_hostname = regsubst($::fqdn, '\.upr\.edu\.cu$', '')
   if $partial_hostname == $::hostname {
     $host_aliases = [ $::ipaddress, $::hostname ]
