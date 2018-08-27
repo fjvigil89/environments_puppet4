@@ -17,7 +17,7 @@ basesys::system_users:
     shell      : '/bin/bash'
     groups     : 'adm'
     managehome : true 
-'rene':
+  'rene':
     ensure     : present
     uid        : '510'
     comment    : 'System Admin'
@@ -25,7 +25,6 @@ basesys::system_users:
     shell      : '/bin/bash'
     groups     : 'adm'
     managehome : true
- 
   'www':
     ensure     : present
     uid        : 900
