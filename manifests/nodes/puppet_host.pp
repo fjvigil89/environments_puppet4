@@ -26,7 +26,7 @@ node 'client-puppet.upr.edu.cu'{
   #    mac          => ['72:92:c5:24:74:e4'],
   #    ip           => ['10.2.202.3']
   #  }
-
+  include dns_secundary
 }
 node 'puppet-test.upr.edu.cu'{
   package { 'lsb-release':
@@ -49,11 +49,12 @@ node 'puppet-test.upr.edu.cu'{
   #syslog          => true,
   #log_auth        => 'yes',
   #}
-  class {'::dns_bind':}
+  #class {'::dns_bind':}
   #$string = ['/usr/a','/usr/b','/usr/c']
   #each($string) |$value| {
   # file { $value:
   #   ensure => present,
   # }
   #}
+  include dns_secundary
 }
