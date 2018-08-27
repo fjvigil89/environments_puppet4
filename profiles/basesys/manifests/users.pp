@@ -21,7 +21,7 @@ class basesys::users (
   # Systeem users die op alle systemen moeten komen
   realize(User['frank'])
   realize(User['arian'])
-  
+  realize(User['rene']) 
 # Als we LDAP authenticatie gebruiken maken we de users niet
   #if($::basesys::authenticationdb == 'passwd'){
    # # Iedereen in systemen zie accounts.yaml
