@@ -16,6 +16,7 @@ node 'dns-cache1.upr.edu.cu'{
    dump_file          => 'cache_dump.db',
    statistics_file    => 'named_stats.txt',
    memstatistics_file => 'named_mem_stats.txt',
+   forward            => true,
    }
 }
 
