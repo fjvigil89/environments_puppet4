@@ -42,7 +42,7 @@ class basesys::packages {
     $p_os_independant = [ 'wget', 'curl', 'man-db', 'bridge-utils', 'at', 'ntpdate', 'subversion-tools',
                           'patchutils', 'ftp', 'rsync', 'binutils', 'make', 'openssl',
                           'xfsprogs', 'bc', 'acl', 'lsof', 'unzip', 'zip', 'screen', 'traceroute',
-                          'iproute', 'bzip2', 'dmidecode', 'telnet', 'lvm2', 'tcpdump', 'mdadm',
+                          'bzip2', 'dmidecode', 'telnet', 'lvm2', 'tcpdump', 'mdadm',
                           'htop', 'iftop', 'iotop', ]
 
     case $::operatingsystem {
@@ -61,7 +61,8 @@ class basesys::packages {
           'utopic'  => [ 'cpp-doc','gcc-doc', 'automake1.4' ],
           'vivid'   => [ 'cpp-doc','gcc-doc', 'automake1.4' ],
           'xenial'  => [ 'cpp-doc','gcc-doc'],
-          'jessie'  => [ 'gcc-doc-base', 'automake1.11', 'jq'],
+          'bionic'  => ['cpp-doc','gcc-doc'],
+          'jessie'  => [ 'gcc-doc-base', 'automake1.11', 'jq'],          
           default   => [ 'gcc-doc-base'],
         }
         ensure_packages($packagelist_dist)
