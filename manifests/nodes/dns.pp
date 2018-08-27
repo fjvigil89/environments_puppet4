@@ -9,7 +9,7 @@ node 'dns.upr.edu.cu'{
 
 }
 
-node '/^dns-cache\d+$/'{
+node 'dns-cache0.upr.edu.cu','dns-cache1.upr.edu.cu'{
  class {'::dns_secundary':
    config_file        => '/etc/bind/named.conf',
    directory          => '/etc/bind',
