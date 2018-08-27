@@ -3,7 +3,7 @@ node 'dns.upr.edu.cu'{
     uprinfo_usage  => 'servidor dns',
     application    => 'DNS Bind9',
     puppet_enabled => false,
-    repos_enabled  => false,
+    repos_enabled  => true,
     mta_enabled    => false,
   }
 
@@ -31,6 +31,7 @@ node 'ns1.upr.edu.cu'{
     puppet_enabled => false,
     repos_enabled  => true,
     mta_enabled    => false,
+    dns_enabled    => false,
   }
 }
 
