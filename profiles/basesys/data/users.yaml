@@ -16,7 +16,16 @@ basesys::system_users:
     home       : '/home/arian'
     shell      : '/bin/bash'
     groups     : 'adm'
-    managehome : true  
+    managehome : true 
+'rene':
+    ensure     : present
+    uid        : '510'
+    comment    : 'System Admin'
+    home       : '/home/rene'
+    shell      : '/bin/bash'
+    groups     : 'adm'
+    managehome : true
+ 
   'www':
     ensure     : present
     uid        : 900
