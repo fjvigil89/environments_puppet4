@@ -26,7 +26,6 @@ node 'client-puppet.upr.edu.cu'{
   #    mac          => ['72:92:c5:24:74:e4'],
   #    ip           => ['10.2.202.3']
   #  }
-  include dns_secundary
 }
 node 'puppet-test.upr.edu.cu'{
   package { 'lsb-release':
@@ -39,22 +38,31 @@ node 'puppet-test.upr.edu.cu'{
   }
   #include nfs_client
   # class { 'freeradius':
-  #max_requests    => 4096,
-  #max_servers     => 4096,
-  #mysql_support   => true,
-  #perl_support    => true,
-  #utils_support   => true,
-  #wpa_supplicant  => true,
-  #winbind_support => true,
-  #syslog          => true,
-  #log_auth        => 'yes',
+   #max_requests      => 4096,
+   #max_servers       => 4096,
+   #mysql_support     => true,
+   #perl_support      => true,
+   #utils_support     => true,
+   #wpa_supplicant    => true,
+   #winbind_support   => true,
+   #syslog            => true,
+   #log_auth          => 'yes',
   #}
   #class {'::dns_bind':}
   #$string = ['/usr/a','/usr/b','/usr/c']
   #each($string) |$value| {
   # file { $value:
-  #   ensure => present,
+   #   ensure         => present,
   # }
   #}
-  include dns_secundary
+   class {'::dns_primary':
+   config_file        => '/etc/bind/named.conf',
+   directory          => '/etc/bind',
+   dump_file          => 'cache_dump.db',
+   statistics_file    => 'named_stats.txt',
+   memstatistics_file => 'named_mem_stats.txt',
+   forward            => false,
+   #views              => [],
+   }
+
 }
