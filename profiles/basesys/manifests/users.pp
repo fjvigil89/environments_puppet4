@@ -18,17 +18,17 @@ class basesys::users (
   $accounts = lookup('basesys::accounts', {merge => hash, default_value => {}})
   create_resources('@accounts::user', $accounts)
 
-  # Systeem users die op alle systemen moeten komen
-  realize(User['frank'])
-  realize(User['arian'])
-  realize(User['rene']) 
-# Als we LDAP authenticatie gebruiken maken we de users niet
-  #if($::basesys::authenticationdb == 'passwd'){
-   # # Iedereen in systemen zie accounts.yaml
-  #  Accounts::User<|tag=='systemen'|> {
-  #    purge_sshkeys => true,
-  #  }
-  #}
+  # Los usuarios del sistema que tienen que entrar en todos los sistemas
+  #  
+ #realize(User['root'])
+
+ #Si utilizamos la autenticación LDAP, no hacemos que los usuarios
+  if($::basesys::authenticationdb == 'passwd'){
+   ## Todos en los sistemas ver accounts.yaml
+    Accounts::User<|tag=='systemen'|> {
+      purge_sshkeys => true,
+    }
+  }
 
   sudo::conf { 'basesys':
     priority => 99,
