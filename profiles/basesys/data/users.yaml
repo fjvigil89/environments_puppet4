@@ -18,7 +18,7 @@ basesys::system_users:
   'adiest':
     ensure     : present
     uid        : 1036
-    password   : 'Vru5VK7x7XM5.'
+    password   : '123'
     groups     : ['users']
     comment    : 'Adiestrados'
     home       : '/home/TST'
