@@ -9,37 +9,21 @@ basesys::system_users:
         #shell      : '/bin/bash'
         #groups     : 'adm'
         #managehome : true
-  'arian':
-    ensure     : present
-    uid        : '509'
-    comment    : 'System Admin'
-    home       : '/home/arian'
-    shell      : '/bin/bash'
-    groups     : 'adm'
-    managehome : true 
-  'rene':
-    ensure     : present
-    uid        : '510'
-    comment    : 'System Admin'
-    home       : '/home/rene'
-    shell      : '/bin/bash'
-    groups     : 'adm'
-    managehome : true
   'www':
     ensure     : present
     uid        : 900
     comment    : 'Apache httpd'
     home       : '/home/www'
     managehome : true
-#  'oratst':
-#    ensure     : present
-#    uid        : 1036
-#    gid        : 15003
-#    password   : 'Vru5VK7x7XM5.'
-#    groups     : ['oper' , 'sapinst']
-#    comment    : 'SAP Database Administrator'
-#    home       : '/oracle/TST'
-#    managehome : false
+  'adiest':
+    ensure     : present
+    uid        : 1036
+    gid        : 15003
+    password   : 'Vru5VK7x7XM5.'
+    groups     : ['oper' , 'sapinst']
+    comment    : 'Adiestrados'
+    home       : '/home/TST'
+    managehome : false
 #  'oratrn':
 #    ensure     : present
 #    uid        : 1036

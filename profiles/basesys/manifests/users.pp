@@ -21,9 +21,8 @@ class basesys::users (
   # Los usuarios del sistema que tienen que entrar en todos los sistemas
   #  
   #realize(User['frank'])
-  realize(User['arian'])
-  realize(User['rene']) 
-# Si utilizamos la autenticación LDAP, no hacemos que los usuarios
+
+ #Si utilizamos la autenticación LDAP, no hacemos que los usuarios
   if($::basesys::authenticationdb == 'passwd'){
    ## Todos en los sistemas ver accounts.yaml
     Accounts::User<|tag=='systemen'|> {
