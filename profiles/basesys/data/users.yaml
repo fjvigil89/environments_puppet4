@@ -18,11 +18,12 @@ basesys::system_users:
   'adiest':
     ensure     : present
     uid        : 1036
-    password   : '123'
+    password   : '1234'
     groups     : ['users']
     comment    : 'Adiestrados'
-    home       : '/home/TST'
+    home       : '/home/adiest'
     managehome : false
+    shell      : '/bin/bash'
 #  'oratrn':
 #    ensure     : present
 #    uid        : 1036
