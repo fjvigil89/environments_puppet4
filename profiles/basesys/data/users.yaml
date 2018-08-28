@@ -1,14 +1,14 @@
 ---
 # System users
 basesys::system_users:
-  'frank':
-    ensure     : present
-    uid        : '508'
-    comment    : 'System Admin'
-    home       : '/home/frank'
-    shell      : '/bin/bash'
-    groups     : 'adm'
-    managehome : true
+        #'frank':
+        #ensure     : present
+        #uid        : '508'
+        #comment    : 'System Admin'
+        #home       : '/home/frank'
+        #shell      : '/bin/bash'
+        #groups     : 'adm'
+        #managehome : true
   'arian':
     ensure     : present
     uid        : '509'
