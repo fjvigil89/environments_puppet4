@@ -16,7 +16,7 @@ class basesys::users (
 
   # accounts::user komt uit Hiera. zie data/common.yaml
   $accounts = lookup('basesys::accounts::user', {merge => hash, default_value => {}})
-  notice($accounts)
+  notice('HOLA ACCOUNT')
   #create_resources('@accounts::user', $accounts)
 
   # Los usuarios del sistema que tienen que entrar en todos los sistemas
