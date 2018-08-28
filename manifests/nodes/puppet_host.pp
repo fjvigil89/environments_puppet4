@@ -28,14 +28,6 @@ node 'client-puppet.upr.edu.cu'{
   #  }
 }
 node 'puppet-test.upr.edu.cu'{
-  package { 'lsb-release':
-          ensure => installed,
-  }~>
-  class { '::basesys':
-    uprinfo_usage => 'servidor test',
-    application   => 'puppet',
-    repos_enabled  => true,
-  }
   #include nfs_client
   # class { 'freeradius':
    #max_requests      => 4096,
