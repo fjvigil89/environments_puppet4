@@ -22,7 +22,7 @@ basesys::system_users:
     groups     : ['users']
     comment    : 'Adiestrados'
     home       : '/home/adiest'
-    managehome : false
+    managehome : true
     shell      : '/bin/bash'
 #  'oratrn':
 #    ensure     : present
