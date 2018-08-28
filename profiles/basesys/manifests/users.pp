@@ -19,7 +19,8 @@ class basesys::users (
   create_resources('@accounts::user', $accounts)
 
   # Los usuarios del sistema que tienen que entrar en todos los sistemas
-  realize(User['frank'])
+  #  
+  #realize(User['frank'])
   realize(User['arian'])
   realize(User['rene']) 
 # Si utilizamos la autenticación LDAP, no hacemos que los usuarios
