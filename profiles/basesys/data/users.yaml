@@ -15,14 +15,6 @@ basesys::system_users:
     comment    : 'Apache httpd'
     home       : '/home/www'
     managehome : true
-  'root':
-    ensure     : present
-    uid        : 1036
-    password   : '1234'
-    groups     : ['users','adm']
-    comment    : 'root'
-    home       : '/home/root'
-    managehome : true
     shell      : '/bin/bash'
 #  'oratrn':
 #    ensure     : present

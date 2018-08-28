@@ -20,7 +20,7 @@ class basesys::users (
 
   # Los usuarios del sistema que tienen que entrar en todos los sistemas
   #  
- realize(User['root'])
+ #realize(User['root'])
 
  #Si utilizamos la autenticación LDAP, no hacemos que los usuarios
   if($::basesys::authenticationdb == 'passwd'){
