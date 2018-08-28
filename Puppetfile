@@ -90,4 +90,4 @@ mod 'voxpupuli/ssh_keygen',
 
 mod 'dns-bind',
   :git => 'http://gitlab.upr.edu.cu/arian/dns-bind.git',
-  :ref => '96ede6de4ba61fff66e6188d5a12072fdbc667bd'
+  :ref => 'b1282f1bced93ba8c78026d228320b84aa8fd8b9'
