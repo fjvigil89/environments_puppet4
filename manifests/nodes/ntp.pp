@@ -1,7 +1,7 @@
-node 'ntp.upr.edu.cu' {  
+node /^ntp\d+$/{  
   class { '::basesys':
     uprinfo_usage  => 'servidor ntp',
-    application    => 'NTP Service',
+    application    => 'NTP Server ',
     puppet_enabled => false,
     repos_enabled  => true,
     mta_enabled    => false,
