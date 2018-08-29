@@ -39,7 +39,8 @@ class basesys::time {
     }
     
      # Configure firewall settings
-    firewall {
+    resources {'firewall': purge => true,}
+    firewall {     
      '010 accept for ntp':       
        dport  => '123',
        proto  => 'udp',
