@@ -37,6 +37,21 @@ class basesys::time {
         'chrony':
           ensure => absent;
     }
+    
+     # Configure firewall settings
+    firewall {
+     '010 accept for ntp':
+       source => 'ntpd',
+       dport  => '123'
+       proto  => 'udp',
+       action => 'accept';
+
+     '011 accept for ntp':
+       source => 'ntpd',
+       dport  => '123',
+       proto  => 'tcp',
+       action => 'accept';
+    } 
 
  }
 }
