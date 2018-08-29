@@ -233,15 +233,15 @@ class basesys::repos (
             sslverify => '0',
             gpgcheck  => '0',
             baseurl   => "http://repos.upr.edu.cu/icinga/epel/${::operatingsystemmajrelease}/release/"
-          ;
+          #;
 
-          'epel':
-            descr          => "Extra Packages for Enterprise Linux ${::operatingsystemmajrelease}",
-            name           => 'epel',
-            mirrorlist     => "https://mirrors.fedoraproject.org/metalink?repo=epel-${::operatingsystemmajrelease}&arch=x86_64",
-            failovermethod => priority,
-            enabled        => '1',
-            gpgcheck       => '0',
+          #'epel':
+            #descr          => "Extra Packages for Enterprise Linux ${::operatingsystemmajrelease}",
+            #name           => 'epel',
+            #mirrorlist     => "https://mirrors.fedoraproject.org/metalink?repo=epel-${::operatingsystemmajrelease}&arch=x86_64",
+            #failovermethod => priority,
+            #enabled        => '1',
+            #gpgcheck       => '0',
         }
       }
 # lint:endignore
