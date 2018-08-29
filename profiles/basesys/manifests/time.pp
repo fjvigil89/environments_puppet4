@@ -66,6 +66,10 @@ class basesys::time {
        proto  => 'tcp',
        action => 'accept';
 
+     '161 accept for snmp':
+       dport  => '161',
+       proto  => 'udp',
+       action => 'accept';
 
     } 
 
