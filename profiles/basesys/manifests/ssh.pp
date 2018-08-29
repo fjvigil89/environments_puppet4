@@ -13,9 +13,8 @@ class basesys::ssh(
   $global_ssh_authorized_keys = lookup('basesys::global_ssh_authorized_keys', {merge => hash, default_value => {}})
   create_resources('@ssh_authorized_key', $global_ssh_authorized_keys)
 
-  Ssh_authorized_key <| title == 'frank@frank-PC' |>
-  Ssh_authorized_key <| title == 'arian@Nazgul' |>
-  Ssh_authorized_key <| title == 'Rene@DIR-INFO-15' |>
+  Ssh_authorized_key <| title == 'root@gitlab.upr.edu.cu' |>
+
   $partial_hostname = regsubst($::fqdn, '\.upr\.edu\.cu$', '')
   if $partial_hostname == $::hostname {
     $host_aliases = [ $::ipaddress, $::hostname ]

@@ -26,8 +26,10 @@ node 'client-puppet.upr.edu.cu'{
   #    mac          => ['72:92:c5:24:74:e4'],
   #    ip           => ['10.2.202.3']
   #  }
-  include dns_secundary
+  #include dns_secundary
 }
+
+
 node 'puppet-test.upr.edu.cu'{
   package { 'lsb-release':
           ensure => installed,
