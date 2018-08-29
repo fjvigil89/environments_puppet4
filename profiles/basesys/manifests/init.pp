@@ -14,6 +14,7 @@ class basesys (
 
   Boolean $time_enabled               = true,
   Array[String] $ntp_server           = $::basesys::params::ntp_server,
+  Array[String] $ntp_server_upr       = $::basesys::params::ntp_server_upr,
   String $ntpconf                     = $::basesys::params::ntpconf,
 
   Boolean $puppet_enabled        = $::basesys::params::puppet_enabled,

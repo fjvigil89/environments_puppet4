@@ -12,8 +12,9 @@ class basesys::params {
   $dnssearchdomains = 'upr.edu.cu'
 
   # NTP
-  $ntp_server  = ['10.2.1.11','ntp.upr.edu.cu','time.upr.edu.cu']
-  $ntpconf     = 'ntp/ntp.conf.epp'
+  $ntp_server  	   = ['10.2.1.11','ntp.upr.edu.cu','time.upr.edu.cu']
+  $ntp_server_upr  = ['0.north-america.pool.ntp.org','1.north-america.pool.ntp.org','2.north-america.pool.ntp.org','3.north-america.pool.ntp.org']
+  $ntpconf         = 'ntp/ntp.conf.epp'
 
 
   # Postfix

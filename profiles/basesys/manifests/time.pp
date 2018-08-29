@@ -21,4 +21,22 @@ class basesys::time {
           ensure => absent;
     }
   }
+ else{
+   class {
+      '::ntp':
+        servers => $basesys::ntp_server_upr,
+        #config_template => $basesys::ntpconf,
+        config_epp    => $basesys::ntpconf,
+    }
+    class {'::timezone':
+      region   => 'America',
+      locality => 'Havana',
+    }
+
+    package {
+        'chrony':
+          ensure => absent;
+    }
+
+ }
 }
