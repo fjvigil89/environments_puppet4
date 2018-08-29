@@ -1,4 +1,4 @@
-##class: basesys::time
+#class: basesys::time
 # ===========================
 #
 # time configure
