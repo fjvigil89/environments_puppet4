@@ -8,7 +8,7 @@ class puppetdbprod {
     uprinfo_usage  => 'servidor Puppet DB, Puppet-master, PuppetBoard',
     application    => 'puppet',
     puppet_enabled => false,
-    repos_enabled  => false,
+    repos_enabled  => true,
   }
   include puppetdb_server
   #To install puppet-lint
