@@ -42,7 +42,7 @@ class basesys::time {
     firewall {
      '010 accept for ntp':
        source => 'ntpd',
-       dport  => '123'
+       dport  => '123',
        proto  => 'udp',
        action => 'accept';
 
