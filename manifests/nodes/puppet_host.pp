@@ -27,11 +27,10 @@ node 'client-puppet.upr.edu.cu'{
   #    ip           => ['10.2.202.3']
   #  }
   #include dns_secundary
-
-  include pwgen
-$password = $fqdn ? {
-   default                => pwgen(),
+ sysctl::configuration { 'vm.swappiness':
+  ensure => absent
 }
+
 }
 
 
