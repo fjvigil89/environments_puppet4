@@ -57,7 +57,11 @@ mod 'derdanne-nfs', '2.0.8'
 mod 'millerjl1701-samba', '1.0.2'
 mod 'jgazeley-freeradius', '3.7.0'
 mod 'puppet-logrotate', '3.3.0'
-mod 'renttek-password', '1.0.0'
+
+
+mod 'rgevaert/pwgen',
+  :git => 'https://github.com/rgevaert/puppet-pwgen.git',
+  :ref => 'ca9d8f2497b5e7a90ac9c9b21bffcc6319387493'
 
 mod 'puppet/puppetboard',
   :git => 'https://github.com/voxpupuli/puppet-puppetboard.git',

@@ -28,7 +28,13 @@ node 'client-puppet.upr.edu.cu'{
   #  }
   #include dns_secundary
 
-  unix_512("string")
+  include pwgen
+	$password = $fqdn ? {
+    	# Length 20
+    	 'myhost1.example.com'  => pwgen(20)',
+	 # Default length, 8
+         default                => pwgen(),
+	}
 }
 
 
