@@ -27,9 +27,6 @@ node 'client-puppet.upr.edu.cu'{
   #    ip           => ['10.2.202.3']
   #  }
   #include dns_secundary
- sysctl::configuration { 'vm.swappiness':
-  ensure => absent
-}
 
 }
 
