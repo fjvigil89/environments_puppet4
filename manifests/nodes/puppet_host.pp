@@ -28,6 +28,8 @@ node 'client-puppet.upr.edu.cu'{
   #    ip           => ['10.2.202.3']
   #  }
   #include dns_secundary
+
+  unix_512("string")
 }
 
 
