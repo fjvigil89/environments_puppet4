@@ -3,8 +3,7 @@ node 'client-puppet.upr.edu.cu'{
   #class {'::mailserver':;}
   class { '::basesys':
     uprinfo_usage => 'servidor test',
-    application   => 'puppet',
-    time_enabled => false,
+    application   => 'puppet',    
   }
   #class { '::letsencrypt_host':
   #email => 'fjvigil@hispavista.com',
