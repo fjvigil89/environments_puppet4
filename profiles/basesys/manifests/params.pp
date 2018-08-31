@@ -37,11 +37,12 @@ class basesys::params {
   $puppet_environment    = 'production'
   $runmode               = 'cron'
   $manage_packages       = 'agent'
+  $puppet_version	 = 'latest'
   #$autosign              = '/etc/puppetlabs/code/environments/production/bin/autosign-dns'
-  $puppet_version        = $::osfamily ? {
-    /Debian/ => "1.10.9-1${::lsbdistcodename}",
-    /RedHat/ => '1.10.9',
-    default  => 'latest'
-  }
+  #$puppet_version        = $::osfamily ? {
+  #  /Debian/ => "1.10.9-1${::lsbdistcodename}",
+  #  /RedHat/ => '1.10.9',
+  #  default  => 'latest'
+  #}
 
 }

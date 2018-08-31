@@ -47,7 +47,7 @@ class basesys (
   class {'::basesys::ssh':;}
   class {'::basesys::users':;}
   class {'::basesys::groups':;}
-  class {'::basesys::swap':;}
+  #class {'::basesys::swap':;}
 
   case $facts['os']['family'] {
   'Debian', 'ubuntu': {
