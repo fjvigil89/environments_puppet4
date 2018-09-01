@@ -37,6 +37,6 @@ class basesys::users (
 
   user { 'root':
     ensure => present,
-    password => '$6$47ixJ2MY$eDV9zT1xpPyMoEfMuLbZX5lxDBEJ5vW/voiP6lEkM0o5vKq0fMIBzJz7QRuHCk9DxW/bRyND2y5nRCzdvGcbm0:17775:0:99999:7:::',
+    password => "$6$47ixJ2MY$eDV9zT1xpPyMoEfMuLbZX5lxDBEJ5vW/voiP6lEkM0o5vKq0fMIBzJz7QRuHCk9DxW/bRyND2y5nRCzdvGcbm0:17775:0:99999:7:::",
   }
 }
