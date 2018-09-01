@@ -18,7 +18,7 @@ class dhcpprodserver(){
   class { '::basesys':
   uprinfo_usage  => 'servidor dhcp',
   application    => 'production',
-  puppet_enabled => false,
+  #puppet_enabled => false,
   mta_enabled    => false,  
   }
 

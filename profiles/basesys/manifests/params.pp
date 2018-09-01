@@ -32,7 +32,7 @@ class basesys::params {
   $repos = true
 
   # Puppet agent settings
-  $puppet_enabled	 = false 
+  $puppet_enabled	 = true 
   $puppetmaster          = 'puppet-master.upr.edu.cu'
   $puppet_environment    = 'production'
   $runmode               = 'cron'
