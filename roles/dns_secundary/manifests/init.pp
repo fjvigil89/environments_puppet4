@@ -22,7 +22,7 @@ class dns_secundary (
  class { '::basesys':
     uprinfo_usage  => 'servidor dns cache',
     application    => 'DNS Bind9',
-    puppet_enabled => false,
+    #puppet_enabled => false,
     repos_enabled  => true,
     mta_enabled    => false,
     dns_enabled    => false,
