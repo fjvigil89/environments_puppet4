@@ -34,21 +34,21 @@ class basesys::puppet{
       environment          => $basesys::puppet_environment,
     }
     # For the network puppet module
-    package { 'ipaddress':
-      ensure   => installed,
-      provider => 'puppet_gem',
-      require  => Class['::puppet'];
-    }
-    # Delete old puppet config
+    #package { 'ipaddress':
+    #  ensure   => installed,
+    #  provider => 'puppet_gem',
+    #  require  => Class['::puppet'];
+    #}
+    # copy Readme puppet config
     file {
-      '/etc/puppetlabs/puppet/puppet.conf':
-        ensure => 'absent';
-      '/etc/puppetlabs/puppet/puppet.conf.pre_fcopy':
-        ensure => 'absent';
-      '/etc/puppetlabs/puppet/etckeeper-commit-pre':
-        ensure => 'absent';
-      '/etc/puppetlabs/puppet/etckeeper-commit-post':
-        ensure => 'absent';
+      #'/etc/puppetlabs/puppet/puppet.conf':
+      #  ensure => 'absent';
+      #'/etc/puppetlabs/puppet/puppet.conf.pre_fcopy':
+      #  ensure => 'absent';
+      #'/etc/puppetlabs/puppet/etckeeper-commit-pre':
+      #  ensure => 'absent';
+      #'/etc/puppetlabs/puppet/etckeeper-commit-post':
+      #  ensure => 'absent';
       '/etc/puppetlabs/puppet/README':
         ensure => present,
         source => 'puppet:///modules/basesys/README';
