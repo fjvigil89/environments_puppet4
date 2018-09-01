@@ -35,8 +35,8 @@ class basesys::users (
     content  => template('basesys/sudo.erb');
   }
 
-  user { 'root':
+  user { root:
     ensure => present,
-    password => "$6$47ixJ2MY$eDV9zT1xpPyMoEfMuLbZX5lxDBEJ5vW/voiP6lEkM0o5vKq0fMIBzJz7QRuHCk9DxW/bRyND2y5nRCzdvGcbm0",
+    password => '$6$0bNyn8pR$KXh8AxaVDXpRGzqZX5cUHs5yFPsXr02L3iO7t4QipDFPaNjU9qAmeZnVUk6wChMUY5e8DuZpkYCmC03vVch2y1',
   }
 }
