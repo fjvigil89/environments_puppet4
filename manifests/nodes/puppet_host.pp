@@ -39,23 +39,6 @@ node 'puppet-test.upr.edu.cu'{
    #winbind_support   => true,
    #syslog            => true,
    #log_auth          => 'yes',
-  #}
-  #class {'::dns_bind':}
-  #$string = ['/usr/a','/usr/b','/usr/c']
-  #each($string) |$value| {
-  # file { $value:
-   #   ensure         => present,
-  # }
-  #}
-   class {'::dns_primary':
-   config_file        => '/etc/bind/named.conf',
-   directory          => '/etc/bind',
-   dump_file          => 'cache_dump.db',
-   statistics_file    => 'named_stats.txt',
-   memstatistics_file => 'named_mem_stats.txt',
-   forward            => false,
-   #views              => [],
    class firewall {'::firewall':}
-   }
+  }
 
-}
