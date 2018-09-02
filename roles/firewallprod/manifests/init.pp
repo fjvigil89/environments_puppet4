@@ -25,11 +25,11 @@ class firewallprod (
     policy => accept,
     before => undef,
   }
-  firewallchain { $chain_to :
-    ensure => present,
-    policy => accept,
-    before => undef,
-  }
+  #  firewallchain { $chain_to :
+  #  ensure => present,
+  #  policy => accept,
+  #  before => undef,
+  #}
 
   class { '::server_firewall':; }
   class { '::firewallprod::drops':;}
