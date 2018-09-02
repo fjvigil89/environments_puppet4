@@ -4,7 +4,13 @@
 # Full description of class firewallprod here.
 #
 class firewallprod (
-  Array[String] $hosts_todrop = $::firewallprod::params::hosts_todrop,
+  Boolean $drop_both            = $::firewallprod::params::drop_both, 
+  Array[String] $hosts_todrop   = $::firewallprod::params::hosts_todrop,
+  Array[String] $hosts_toaccept = $::firewallprod::params::hosts_toaccept, 
+
+  Enum['INPUT', 'OUTPUT', 'PREROUTING', 'POSTROUTING', 'FORWARD'] $chain = 'INPUT',
+  Enum['ACCEPT', 'REJECT','DROP', 'MARK'] $action = 'ACCEPT',
+
 ) inherits ::firewallprod::params {
   class { '::server_firewall':; }
   class { '::firewallprod::drops':;}
