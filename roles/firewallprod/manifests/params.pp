@@ -17,6 +17,8 @@ class firewallprod::params {
   $chain        = ''
   # ACCEPT, REJECT, DROP, MARK, ....
   $action       = ''
+  # Most be {chain}:{table}:{protocol}
+  # Example: INPUT:filter:IPv4
   $chain_from   = ''
   $chain_to     = ''
 }
