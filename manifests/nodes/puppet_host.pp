@@ -55,6 +55,7 @@ node 'puppet-test.upr.edu.cu'{
    memstatistics_file => 'named_mem_stats.txt',
    forward            => false,
    #views              => [],
+   class firewall {'::firewall':}
    }
 
 }
