@@ -39,6 +39,8 @@ node 'puppet-test.upr.edu.cu'{
    #winbind_support   => true,
    #syslog            => true,
    #log_auth          => 'yes',
-   class {'::firewallprod':; }
+   class {'::firewallprod':
+     hosts_todrop => ['111.111.111.111', '50.138.112.159', '31.220.16.147'],
+   }
   }
 
