@@ -6,12 +6,12 @@
 class firewallprod::drops {
 if($::firewallprod::drop_both){
   $::firewallprod::hosts_todrop.each |String $host|{
-    firewall { $host:
+    firewall { "Source DROP $host":
       chain  => 'INPUT',
       action => 'drop',
       source => $host,
     }
-    firewall { $host:
+    firewall { "Destination DROP $host":
       chain       => 'INPUT',
       action      => 'drop',
       destination => $host,
@@ -20,4 +20,4 @@ if($::firewallprod::drop_both){
   }
 
 }
-}
+
