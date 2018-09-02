@@ -4,10 +4,11 @@
 # Full description of class firewallprod::drops here.
 #
 class firewallprod::drops {
-    each($host_todrop) |String $host|{
-      firewall{'Drop $host':
+    each($host_todrop) |Integer $index, String $host|{
+      firewall { $host :
+        chain  => 'INPUT',
         action => 'drop',
-        source => $host,
+        source => $index,
       }
     }
 }
