@@ -7,17 +7,17 @@ class firewallprod::accepts {
   # FROM Reduniv ACCEPT
   $::firewallprod::hosts_toaccept.each |String $host|{
     firewall { "$host ACCEPT FROM RedUni":
-      chain     => $::firewallprod::chain_from,
-      action    => 'accept',
-      src_range => $host,
+      chain  => $::firewallprod::chain_from,
+      action => 'accept',
+      source => $host,
     }
   }
   #To RedUniv ACCEPT
   $::firewallprod::hosts_toaccept.each |String $host|{
     firewall { "$host ACCEPT to RedUniv":
-      chain     => $::firewallprod::chain_from,
-      action    => 'accept',
-      dst_range => $host,
+      chain       => $::firewallprod::chain_from,
+      action      => 'accept',
+      destination => $host,
     }
   }
 
