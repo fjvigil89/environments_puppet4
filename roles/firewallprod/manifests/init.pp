@@ -8,6 +8,4 @@ class firewallprod (
 ) inherits ::firewallprod::params {
   class { '::server_firewall':; }
   class { '::firewallprod::drops':;}
-
-}
 }
