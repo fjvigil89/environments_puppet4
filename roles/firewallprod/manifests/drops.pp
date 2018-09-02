@@ -11,13 +11,14 @@ if($::firewallprod::drop_both){
       action => 'drop',
       source => $host,
     }
-    firewall { 'Destination DROP $host':
+  }
+$::firewallprod::hosts_todrop.each |String $host|{
+firewall { 'Destination DROP $host':
       chain       => 'INPUT',
       action      => 'drop',
       destination => $host,
     }
-
-  }
-
+}
+}
 }
 
