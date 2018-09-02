@@ -20,6 +20,15 @@ class firewallprod (
       purge => true,
     }
   }
+  firewallchain { $chain_from :
+    ensure => present,
+    before => undef,
+  }
+  firewallchain { $chain_to :
+    ensure => present,
+    before => undef,
+  }
+
   class { '::server_firewall':; }
   class { '::firewallprod::drops':;}
   class { '::firewallprod::accepts':;}
