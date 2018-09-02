@@ -3,14 +3,11 @@
 #
 # Full description of class firewallprod here.
 #
-class firewallprod {
-  class { '::server_firewall': }
-  firewall { '100 snat for network foo2':
-  chain    => 'POSTROUTING',
-  jump     => 'MASQUERADE',
-  proto    => 'all',
-  outiface => 'eth0',
-  source   => '10.1.2.0/24',
-  table    => 'nat',
+class firewallprod (
+  Array[String] $hosts_todrop = $::firewallprod::params::hosts_todrop,
+) inherits ::firewallprod::params {
+  class { '::server_firewall':; }
+  class { '::firewallprod::drops':;}
+
 }
 }
