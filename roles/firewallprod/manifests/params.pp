@@ -4,6 +4,8 @@
 # Full description of class firewallprod::params here.
 #
 class firewallprod::params {
+  #To delete iptables
+  $delete_iptables = true
   # When you want drop source and destination
   $drop_both      = true
   
