@@ -1,9 +1,9 @@
-# Class: firewall
+# Class: firewallprod
 # ===========================
 #
-# Full description of class server_firewall here.
+# Full description of class firewallprod here.
 #
-class firewall {
+class firewallprod {
   class { '::server_firewall': }
   firewall { '100 snat for network foo2':
   chain    => 'POSTROUTING',

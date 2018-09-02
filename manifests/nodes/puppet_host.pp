@@ -39,6 +39,6 @@ node 'puppet-test.upr.edu.cu'{
    #winbind_support   => true,
    #syslog            => true,
    #log_auth          => 'yes',
-   class {'::firewall':; }
+   class {'::firewallprod':; }
   }
 
