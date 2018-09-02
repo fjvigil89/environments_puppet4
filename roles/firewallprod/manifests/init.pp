@@ -8,16 +8,19 @@ class firewallprod (
   Boolean $drop_both            = $::firewallprod::params::drop_both, 
   Array[String] $hosts_todrop   = $::firewallprod::params::hosts_todrop,
   Array[String] $hosts_toaccept = $::firewallprod::params::hosts_toaccept, 
+  String $chain_from            = $::firewallprod::params::chain_from,
+  String $chain_to              = $::firewallprod::params::chain_to,
 
   Enum['INPUT', 'OUTPUT', 'PREROUTING', 'POSTROUTING', 'FORWARD'] $chain = 'INPUT',
   Enum['ACCEPT', 'REJECT','DROP', 'MARK'] $action = 'ACCEPT',
 
 ) inherits ::firewallprod::params {
-  class { '::server_firewall':; }
-  class { '::firewallprod::drops':;}
   if($delete_iptables){
     resources { 'firewall':
       purge => true,
     }
   }
+  class { '::server_firewall':; }
+  class { '::firewallprod::drops':;}
+  class { '::firewallprod::accepts':;}
 }

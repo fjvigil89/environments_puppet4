@@ -17,5 +17,6 @@ class firewallprod::params {
   $chain        = ''
   # ACCEPT, REJECT, DROP, MARK, ....
   $action       = ''
-
+  $chain_from   = ''
+  $chain_to     = ''
 }
