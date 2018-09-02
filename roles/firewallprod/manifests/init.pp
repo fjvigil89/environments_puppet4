@@ -22,10 +22,12 @@ class firewallprod (
   }
   firewallchain { $chain_from :
     ensure => present,
+    policy => accept,
     before => undef,
   }
   firewallchain { $chain_to :
     ensure => present,
+    policy => accept,
     before => undef,
   }
 
