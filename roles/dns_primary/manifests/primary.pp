@@ -26,12 +26,15 @@ class dns_primary::primary(){
     views => {
      'internal' => {
        'match-clients' => [ '127.0.0.1','200.14.49.0/27','200.55.143.8/29','152.207.173.40/29','10.2.1.8/32' ],
-       'allow-query'   => [ '127.0.0.1','200.14.49.0/27','200.55.143.8/29','152.207.173.40/29','10.2.1.8/32' ],
-       'recursion'     => 'yes',
+       'allow-query'   => [ '127.0.0.1','200.14.49.0/27','200.55.143.8/29','152.207.173.40/29','10.2.1.8/32' ],       
        'zones' => {
-         'myzone.lan' => [
+         'upr.edu.cu' => [
            'type master',
-           'file "myzone.lan"',
+           'file "/etc/bind/upr.edu.cu.internal"',
+	   'allow-update { 200.55.143.10; }',	
+           'allow-transfer { 200.55.143.10; }',
+           'also-notify { 200.55.143.10; }',
+           'notify yes',
          ],
        },
     },
