@@ -7,7 +7,7 @@ class dns_secundary (
  Array[String] $listen_on_addr  = $::dns_secundary::params::listen_on_addr,
  Array[String] $listen_on_v6_addr = $::dns_secundary::params::listen_on_v6_addr,
  Array[String] $forwarders      = $::dns_secundary::params::forwarders,
- Boolean $forward      = $::dns_secundary::params::forward,
+ Boolean $forward      		= $::dns_secundary::params::forward,
  Array[String] $allow_query     = $::dns_secundary::params::allow_query,
  String $dump_file              = $::dns_secundary::params::dump_file,
  String $statistics_file        = $::dns_secundary::params::statistics_file,
