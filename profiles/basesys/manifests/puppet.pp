@@ -53,5 +53,11 @@ class basesys::puppet{
         ensure => present,
         source => 'puppet:///modules/basesys/README';
     }
+
+    cron{'puppet_cheking':
+     ensure  => present,
+     command => '/opt/puppetlabs/bin/puppet agent -t',
+     minute    => ['*/30'],
+    }
   }
 }
