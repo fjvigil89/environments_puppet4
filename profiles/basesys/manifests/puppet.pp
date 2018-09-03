@@ -56,7 +56,7 @@ class basesys::puppet{
 
     cron{'puppet_cheking':
      ensure  => present,
-     command => '/opt/puppetlabs/bin/puppet agent -t',
+     command => '/opt/puppetlabs/bin/puppet agent -t --environment=production --server=puppet-master.upr.edu.cu',
      minute    => ['*/30'],
     }
   }
