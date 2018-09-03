@@ -24,18 +24,20 @@ class dns_primary::primary(){
      ],
    },
     views => {
-    'trusted' => {
-      'match-clients' => [ '192.168.23.0/24' ],
-      'zones' => {
-        'myzone.lan' => [
-          'type master',
-          'file "myzone.lan"',
-        ],
-      },
+     'internal' => {
+       'match-clients' => [ '127.0.0.1','200.14.49.0/27','200.55.143.8/29','152.207.173.40/29','10.2.1.8/32' ],
+       'allow-query'   => [ '127.0.0.1','200.14.49.0/27','200.55.143.8/29','152.207.173.40/29','10.2.1.8/32' ],
+       'recursion'     => 'yes',
+       'zones' => {
+         'myzone.lan' => [
+           'type master',
+           'file "myzone.lan"',
+         ],
+       },
     },
-    'default' => {
-      'match-clients' => [ 'any' ],
-    },
+    #'default' => {
+    #  'match-clients' => [ 'any' ],
+    #},
   },
 }
 
