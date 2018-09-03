@@ -12,7 +12,7 @@ class dns_primary::primary(){
     dump_file          => $::dns_primary::dump_file,
     statistics_file    => $::dns_primary::statistics_file,
     memstatistics_file => $::dns_primary::memstatistics_file,
-    views              => $::dns_primary::views,
+    #views              => $::dns_primary::views,
     zones                   => {
      'upr.edu.cu'          => [
        'type master',
@@ -23,6 +23,20 @@ class dns_primary::primary(){
        'file "db.1.2.10.in-addr.arpa"',
      ],
    },
+    views => {
+    'trusted' => {
+      'match-clients' => [ '192.168.23.0/24' ],
+      'zones' => {
+        'myzone.lan' => [
+          'type master',
+          'file "myzone.lan"',
+        ],
+      },
+    },
+    'default' => {
+      'match-clients' => [ 'any' ],
+    },
+  },
 }
 
  bind::server::file { $::dns_primary::file_zone_name :
