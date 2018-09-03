@@ -13,21 +13,21 @@ class dns_primary::primary(){
     statistics_file    => $::dns_primary::statistics_file,
     memstatistics_file => $::dns_primary::memstatistics_file,
     views              => $::dns_primary::views,
-  #zones                   => {
-  #  'upr.edu.cu'          => [
-  #    'type master',
-  #    'file "db.upr.edu.cu"',
-  #  ],
-  #  '1.2.10.in-addr.arpa' => [
-  #    'type master',
-  #    'file "db.1.2.10.in-addr.arpa"',
-  #  ],
-  #},
+    zones                   => {
+     'upr.edu.cu'          => [
+       'type master',
+       'file "db.upr.edu.cu"',
+     ],
+     '1.2.10.in-addr.arpa' => [
+       'type master',
+       'file "db.1.2.10.in-addr.arpa"',
+     ],
+   },
 }
 
-#bind::server::file { $::dns_primary::file_zone_name :
-#    source_base =>  'puppet:///modules/dns_primary/dns/',
-#  }
+ bind::server::file { $::dns_primary::file_zone_name :
+     source_base =>  'puppet:///modules/dns_primary/dns/',
+  }
 
 }
 
