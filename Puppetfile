@@ -1,4 +1,4 @@
-##!/usr/bin/env ruby
+#!/usr/bin/env ruby
 
 #forge 'https://forgeapi.puppetlabs.com'
 
@@ -95,7 +95,7 @@ mod 'voxpupuli/ssh_keygen',
 
 mod 'dns-bind',
   :git => 'http://gitlab.upr.edu.cu/arian/dns-bind.git',
-  :ref => 'a29b6e78f7bbd41a603e1c1be7e42245dbee2152'
+  :ref => '3e8335af65cf27b3eae61976285743394ed4a001'
 
 mod 'rgevaert/accounts',
   :git => 'https://github.com/rgevaert/puppetlabs-accounts.git',

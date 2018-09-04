@@ -13,21 +13,21 @@ class dns_primary::primary(){
     statistics_file    => $::dns_primary::statistics_file,
     memstatistics_file => $::dns_primary::memstatistics_file,
     #views              => $::dns_primary::views,
-    zones                   => {
-     'upr.edu.cu'          => [
-       'type master',
-       'file "db.upr.edu.cu"',
-       'allow-update { 200.55.143.10; }',
-       'allow-transfer { 200.55.143.10; }',
-       'also-notify { 200.55.143.10; }',
-       'notify yes',
+   # zones                   => {
+     #'upr.edu.cu'          => [
+      # 'type master',
+      # 'file "db.upr.edu.cu"',
+      # 'allow-update { 200.55.143.10; }',
+      # 'allow-transfer { 200.55.143.10; }',
+      # 'also-notify { 200.55.143.10; }',
+      # 'notify yes',
 
-     ],
-     '1.2.10.in-addr.arpa' => [
-       'type master',
-       'file "db.1.2.10.in-addr.arpa"',
-     ],
-   },
+     #],
+     #'1.2.10.in-addr.arpa' => [
+     #  'type master',
+     #  'file "db.1.2.10.in-addr.arpa"',
+     #],
+   #},
     views => {
      'internal' => {
        'match-clients' => [ '127.0.0.1','200.14.49.0/27','200.55.143.8/29','152.207.173.40/29','10.2.1.8/32' ],
