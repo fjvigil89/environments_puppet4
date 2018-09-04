@@ -5,7 +5,7 @@
 #
 class firewallprod::accepts {
   # FROM Reduniv ACCEPT
-  $::firewallprod::hosts_toaccept.each |String $host, Integer $index|{
+  $::firewallprod::hosts_toaccept.each |Integer $index, String $host|{
     firewall { "$index $host ACCEPT FROM RedUniv":
       chain  => $::firewallprod::chain_from,
       action => 'accept',
@@ -13,7 +13,7 @@ class firewallprod::accepts {
     }
   }
   #To RedUniv ACCEPT
-  $::firewallprod::hosts_toaccept.each |String $host, Integer $index|{
+  $::firewallprod::hosts_toaccept.each |Integer $index, String $host|{
     firewall { "$index $host ACCEPT to RedUniv":
       chain       => $::firewallprod::chain_to,
       action      => 'accept',
