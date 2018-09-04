@@ -95,7 +95,7 @@ mod 'voxpupuli/ssh_keygen',
 
 mod 'dns-bind',
   :git => 'http://gitlab.upr.edu.cu/arian/dns-bind.git',
-  :ref => '3e8335af65cf27b3eae61976285743394ed4a001'
+  :ref => '76355ca4e4c9c8ede5ad8ad98d1e95f64897b51b'
 
 mod 'rgevaert/accounts',
   :git => 'https://github.com/rgevaert/puppetlabs-accounts.git',
