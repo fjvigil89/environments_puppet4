@@ -12,7 +12,6 @@ class dns_primary::primary(){
     dump_file          => $::dns_primary::dump_file,
     statistics_file    => $::dns_primary::statistics_file,
     memstatistics_file => $::dns_primary::memstatistics_file,
-    #views              => $::dns_primary::views,
    # zones                   => {
      #'upr.edu.cu'          => [
       # 'type master',
@@ -30,15 +29,15 @@ class dns_primary::primary(){
    #},
     views => {
      'internal' => {
-       'match-clients' => [ '127.0.0.1','200.14.49.0/27','200.55.143.8/29','152.207.173.40/29','10.2.1.8/32' ],
-       'allow-query'   => [ '127.0.0.1','200.14.49.0/27','200.55.143.8/29','152.207.173.40/29','10.2.1.8/32' ],       
+       'match-clients' => [ '10.2.0.0/15' ],
+       'allow-query'   => [ '10.2.0.0/15' ],       
        'zones' => {
-         'upr.edu.cu' => [
+         'tele4.upr.edu.cu' => [
            'type master',
-           'file "/etc/bind/upr.edu.cu.internal"',
-	   'allow-update { 200.55.143.10; }',	
-           'allow-transfer { 200.55.143.10; }',
-           'also-notify { 200.55.143.10; }',
+           'file "/etc/bind/db.tele4.upr.edu.cu"',
+	   'allow-update { 10.2.1.8; }',	
+           'allow-transfer { 10.2.1.8; }',
+           'also-notify { 10.2.1.8; }',
            'notify yes',
          ],
        },
