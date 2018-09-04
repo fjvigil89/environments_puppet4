@@ -44,7 +44,7 @@ node 'puppet-test.upr.edu.cu'{
      hosts_toaccept => ['200.55.143.160/29','200.55.153.64/28'],
      chain_from     => 'from-reduniv',
      chain_to       => 'to-reduniv',
-     open_ports     => ['8080','443','53','22'],
+     open_ports     => [8080,443,53,22],
    }
   }
 

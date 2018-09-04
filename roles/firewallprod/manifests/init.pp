@@ -8,7 +8,7 @@ class firewallprod (
   Boolean $drop_both            = $::firewallprod::params::drop_both, 
   Array[String] $hosts_todrop   = $::firewallprod::params::hosts_todrop,
   Array[String] $hosts_toaccept = $::firewallprod::params::hosts_toaccept, 
-  Array[String] $open_ports     = $::firewallprod::params::open_ports,
+  Array[Integer] $open_ports     = $::firewallprod::params::open_ports,
   String $chain_from            = $::firewallprod::params::chain_from,
   String $chain_to              = $::firewallprod::params::chain_to,
 
