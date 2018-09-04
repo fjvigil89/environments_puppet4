@@ -20,16 +20,12 @@ class firewallprod (
       purge => true,
     }
   }
-  firewallchain { $chain_from :
+  firewallchain { "$chain_from:filter:IPv4" :
     ensure => present,
-    policy => accept,
-    before => undef,
   }
-  #  firewallchain { $chain_to :
-  #  ensure => present,
-  #  policy => accept,
-  #  before => undef,
-  #}
+  firewallchain { "$chain_to:filter:IPv4" :
+    ensure => present,
+  }
 
   class { '::server_firewall':; }
   class { '::firewallprod::drops':;}

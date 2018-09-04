@@ -42,8 +42,8 @@ node 'puppet-test.upr.edu.cu'{
    class {'::firewallprod':
      hosts_todrop   => ['111.111.111.111', '50.138.112.159', '31.220.16.147'],
      hosts_toaccept => ['200.55.143.160/29','200.55.153.64/28'],
-     chain_from     => 'INPUT:filter:IPv4',
-     chain_to       => 'INPUT:filter:IPv4',
+     chain_from     => 'from-reduniv',
+     chain_to       => 'to-reduniv',
    }
   }
 
