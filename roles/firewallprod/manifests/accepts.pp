@@ -15,7 +15,7 @@ class firewallprod::accepts {
   #To RedUniv ACCEPT
   $::firewallprod::hosts_toaccept.each |String $host|{
     firewall { "$host ACCEPT to RedUniv":
-      chain       => $::firewallprod::chain_from,
+      chain       => $::firewallprod::chain_to,
       action      => 'accept',
       destination => $host,
     }

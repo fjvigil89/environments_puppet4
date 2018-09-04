@@ -12,7 +12,9 @@ class firewallprod::params {
   #list of hosts to drop or accept 
   $hosts_todrop   = []
   $hosts_toaccept = []
-
+  
+  #list of ports to open
+  $open_ports    =  []
   # INPUT, OUTPUT, PREROUTING, POSTROUTING, FORWARD
   $chain        = ''
   # ACCEPT, REJECT, DROP, MARK, ....
