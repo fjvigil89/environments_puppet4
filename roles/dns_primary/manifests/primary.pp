@@ -17,6 +17,11 @@ class dns_primary::primary(){
      'upr.edu.cu'          => [
        'type master',
        'file "db.upr.edu.cu"',
+       'allow-update { 200.55.143.10; }',
+       'allow-transfer { 200.55.143.10; }',
+       'also-notify { 200.55.143.10; }',
+       'notify yes',
+
      ],
      '1.2.10.in-addr.arpa' => [
        'type master',
