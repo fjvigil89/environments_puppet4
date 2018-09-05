@@ -37,6 +37,14 @@ basesys::accounts:
     tag: 'systemen'
     sshkeys:
       - 'ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAmqtIEzrcglhKTqnPZKAUBDhQl3fM+sosH9VYveM1ysuyXueyD93DMMjx42QQJ+bXN1EXkBF8gKkBymL8pAQAV6ZZOPjL+G78lIynPlwLvm4tkZycE1kUGzYbL47vCxTBc0gsW3RVIx24BTpZBXdqv1hoI1rCOeV4tCvGsCpHkpThsFPyjcUPuIx7JtosgW9BYcoRQvuxYbYhObZY1icJFz7FMNlxFZe0fxvyBc8gv3XtQB32H6joi6p7rdZi9zmW9nhYu9r4dVnjeSabgpDgz88xTGc0Uo3iQTzokJwsmREyPV45yVA/eBHsvmaL83LwnI0JPLBAb7WgDjgl5iTRPw== rsa-key-20180828'
+  'yandy':
+    comment: 'Yandilier Rojas'
+    uid: '514'
+    manage_primary_group: false
+    gid: '100'
+    tag: 'systemen'
+    sshkeys:
+      - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDsjp8aIgR9IBIaU631A7uL61T0fSzkQqX4lTBVbEU14g64YeqAIEtXlfmXIZ7tZ5C1Zzlkql8BmThvqoTnA5O03PkMS3vaYvUdURXpoFqcRXMMtsSdp+SLD5LAw03VNuTEn20hjDbI69z6nrEdUF1e6GQjiTlwULxiHo07cCuz8MiEKrJH5tnBZ08mHX5xVkTSxz5Q66XgWH5luj5CeI5WmV4Ga8RtqkiyzHmoKWg3chmoaftx+QaP812IhFwMLwpEMJOROyKVA9A6FGq3OEiD58re5Xu6kcY1ISEOo3VDDx4wHlWt9jgqyz6ZrJdefrIxyZjK0FE5UKIRvcIPi6Zl root@yandy-desktop'      
   'luis.mendez':
     comment: 'Luis Mendez'
     uid: '512'
