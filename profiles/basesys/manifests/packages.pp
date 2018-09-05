@@ -48,7 +48,7 @@ class basesys::packages {
     case $::operatingsystem {
       'Debian', 'Ubuntu': {
 
-        $p_os_dependant = [ 'gem','perl-doc', 'bind9-host',
+        $p_os_dependant = [ 'gem','perl-doc', 'bind9-host','gnupg',
                             'ldap-utils', 'libwrap0-dev', 'arping', 
                             'libconfig-general-perl', 'netcat',
                             'links2', 'dnsutils','python-apt', 'ifupdown-extra','monitoring-plugins','libwww-perl','tzdata','mlocate','libmonitoring-plugin-perl' ]

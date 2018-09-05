@@ -18,8 +18,7 @@ class dns_secundary (
  #String $zone_type              = $::dns_secundary::params::zone_type,
 
 )inherits ::dns_secundary::params {
-
- class { '::basesys':
+  class { '::basesys':
     uprinfo_usage  => 'servidor dns cache',
     application    => 'DNS Bind9',
     #puppet_enabled => false,

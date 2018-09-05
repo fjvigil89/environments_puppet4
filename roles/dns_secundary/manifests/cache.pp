@@ -2,8 +2,6 @@
 # ===========================
 #### 
 class dns_secundary::cache(){
-
-  
   bind::server::conf { $::dns_secundary::config_file :
   listen_on_addr           => $::dns_secundary::listen_on_addr,
   listen_on_v6_addr        => $::dns_secundary::listen_on_v6_addr,
@@ -31,4 +29,3 @@ class dns_secundary::cache(){
 #    source_base =>  'puppet:///modules/dns_secundary/dns/',
 #  }
 
-}
