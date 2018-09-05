@@ -59,7 +59,7 @@ class {'::icingaweb2':
 #Configure Resourse Authentication
 icingaweb2::config::resource {'ad-upr':
   type            =>  'ldap',
-  host            =>  'upr.edu.cu',
+  host            =>  '10.2.24.35',
   port            =>  389,
   ldap_root_dn    =>  $monitoring::icingaweb2::ad_base_dn,
   ldap_bind_dn    =>  $monitoring::icingaweb2::ad_bind_dn,

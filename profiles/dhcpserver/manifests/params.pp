@@ -12,8 +12,8 @@ class dhcpserver::params{
 #dhcp
  $interfaces         = ['eth0']
  $omapi_port         = 7911
- $default_lease_time = 600
- $max_lease_time     = 7200
+ $default_lease_time = 30
+ $max_lease_time     = 60
  
 #pool
  $pool_enabled = true
