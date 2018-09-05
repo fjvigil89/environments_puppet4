@@ -7,7 +7,7 @@ tele4.upr.edu.cu        IN SOA  tele4.upr.edu.cu. postmaster.upr.edu.cu. (
                                 3h         ; expire
                                 1h         ; TTL
                                 )
-                        NS      tele4.upr.edu.cu.
+                        NS      dns.tele4.upr.edu.cu.
 
 ; Public servers bloque REDUNIV
 assets-server                  IN      A       10.2.132.101
