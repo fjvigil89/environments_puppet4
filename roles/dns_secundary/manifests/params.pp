@@ -8,6 +8,7 @@ class dns_secundary::params{
     $listen_on_addr     = [ 'any' ]
     $listen_on_v6_addr  = [ 'any' ]
     $forwarders      = ['10.2.1.8']
+    $forward		= true
     $allow_query     = [ 'any' ]
     $directory          = '/etc/bind'
     $dump_file          = 'cache_dump.db'

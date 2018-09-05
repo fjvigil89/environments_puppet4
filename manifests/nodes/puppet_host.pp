@@ -3,7 +3,8 @@ node 'client-puppet.upr.edu.cu'{
   #class {'::mailserver':;}
   class { '::basesys':
     uprinfo_usage => 'servidor test',
-    application   => 'puppet',   
+    application   => 'puppet',  
+    repos_enabled => false, 
      
   }
   #class { '::letsencrypt_host':
@@ -27,7 +28,7 @@ node 'client-puppet.upr.edu.cu'{
   #    mac          => ['72:92:c5:24:74:e4'],
   #    ip           => ['10.2.202.3']
   #  }
-  #include dns_secundary
+  include dns_primary
 
 }
 
