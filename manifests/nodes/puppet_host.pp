@@ -28,7 +28,14 @@ node 'client-puppet.upr.edu.cu'{
   #    mac          => ['72:92:c5:24:74:e4'],
   #    ip           => ['10.2.202.3']
   #  }
-  include dns_primary
+  #include dns_primary
+
+  class {'foreman':
+ 	puppetrun => false,
+        db_manage => false,
+	admin_username => 'admin',
+	admin_password => 'admin',
+  }
 
 }
 
