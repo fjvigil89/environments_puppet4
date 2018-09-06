@@ -1,5 +1,5 @@
 node 'repofct.upr.edu.cu' {
-  include repoFacult_server
+  class { 'repoFacult_server':;}
  
   file { "/repositorio" :
  		ensure => 'directory',
