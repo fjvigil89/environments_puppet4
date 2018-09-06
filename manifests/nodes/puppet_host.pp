@@ -36,7 +36,7 @@ node 'client-puppet.upr.edu.cu'{
   user     => 'roundcube',
   password => postgresql_password('roundcube', 'secret'),
  }
- class { 'roundcube':}
+ include roundcube 
 
 }
 
