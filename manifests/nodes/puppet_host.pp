@@ -29,7 +29,14 @@ node 'client-puppet.upr.edu.cu'{
   #  }
  
   #include dns_primary
- 
+  
+  class { 'cas': 
+    #ldap_url           => 'ad.upr.edu.cu',
+    #ldap_root_dn       => 'upr.edu.cu',
+    #ldap_base_dn       => 'DC=upr,DC=edu,DC=cu',
+    #ldap_search_filter => 'sAMAccountName',
+    
+  }
 
 }
 
