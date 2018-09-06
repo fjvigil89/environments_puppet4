@@ -2,12 +2,12 @@ node 'repofct.upr.edu.cu' {
   class {'::repoFacult_server':;}
  
   class { '::samba_client':
-  ¦ ¦shares_name    => 'Telecomunicaciones',
-  ¦ ¦shares_comment => 'Repositorio de Telecomunicaciones',
-  ¦ ¦shares_path    => '/repositorio/Telecomunicaciones',
-  ¦ ¦valid_users    => ['tele',],
-  ¦ ¦writable       => 'yes',
-  ¦ ¦browseable     => 'yes',
+  ¦shares_name    => 'Telecomunicaciones',
+  ¦shares_comment => 'Repositorio de Telecomunicaciones',
+  ¦shares_path    => '/repositorio/Telecomunicaciones',
+  ¦valid_users    => ['tele',],
+  ¦writable       => 'yes',
+  ¦browseable     => 'yes',
   }
   
   class { '::apache':
