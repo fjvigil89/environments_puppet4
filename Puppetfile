@@ -58,8 +58,7 @@ mod 'millerjl1701-samba', '1.0.2'
 mod 'jgazeley-freeradius', '3.7.0'
 mod 'puppet-logrotate', '3.3.0'
 mod 'tpdownes-sysctl', '2.1.0'
-mod 'aneesh-roundcube', '1.0.0'
-
+mod 'soli-cas', '1.0.1'
 
 mod 'rgevaert/pwgen',
   :git => 'https://github.com/rgevaert/puppet-pwgen.git',

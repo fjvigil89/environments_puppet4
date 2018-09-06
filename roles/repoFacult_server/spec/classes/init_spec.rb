@@ -1,6 +1,6 @@
 require 'spec_helper'
-describe 'client' do
+describe 'repoFacult_server' do
   context 'with default values for all parameters' do
-    it { should contain_class('client') }
+    it { should contain_class('repoFacult_server') }
   end
 end

@@ -30,13 +30,6 @@ node 'client-puppet.upr.edu.cu'{
  
   #include dns_primary
  
- class { 'postgresql::server':
-	}
- postgresql::server::db { 'roundcube':
-  user     => 'roundcube',
-  password => postgresql_password('roundcube', 'secret'),
- }
- include roundcube 
 
 }
 
