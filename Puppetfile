@@ -37,7 +37,6 @@ mod 'puppetlabs-puppet_authorization', '0.4.0'
 mod 'puppetlabs-hocon', '1.0.0'
 mod 'puppet-extlib', '2.0.1'
 mod 'theforeman-puppet', '8.2.0'
-mod 'theforeman-foreman', '9.2.0'
 mod 'puppetlabs-apt', '5.0.1'
 mod 'icinga-icinga2', '1.3.6'
 mod 'icinga-icingaweb2', '2.2.0'
@@ -59,6 +58,8 @@ mod 'millerjl1701-samba', '1.0.2'
 mod 'jgazeley-freeradius', '3.7.0'
 mod 'puppet-logrotate', '3.3.0'
 mod 'tpdownes-sysctl', '2.1.0'
+mod 'tohuwabohu-roundcube', '3.4.1'
+
 
 mod 'rgevaert/pwgen',
   :git => 'https://github.com/rgevaert/puppet-pwgen.git',

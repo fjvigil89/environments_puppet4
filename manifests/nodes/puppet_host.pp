@@ -1,6 +1,5 @@
 node 'client-puppet.upr.edu.cu'{
   #class {'::talkserver':;}
-  #class {'::mailserver':;}
   class { '::basesys':
     uprinfo_usage => 'servidor test',
     application   => 'puppet',  
@@ -28,13 +27,20 @@ node 'client-puppet.upr.edu.cu'{
   #    mac          => ['72:92:c5:24:74:e4'],
   #    ip           => ['10.2.202.3']
   #  }
+ 
   #include dns_primary
 
-  class {'foreman':
- 	puppetrun => false,
-        db_manage => false,
-	admin_username => 'admin',
-	admin_password => 'admin',
+  class { 'roundcube':
+    db_type     => 'pgsql',
+    db_name     => 'roundcube',
+    db_host     => 'localhost',
+    db_username => 'roundcube',
+    db_password => 'secret',
+    plugins => [
+      'emoticons',
+      'markasjunk',
+      'password',
+    ],
   }
 
 }
@@ -47,7 +53,7 @@ node 'puppet-test.upr.edu.cu'{
   class { '::basesys':
     uprinfo_usage => 'servidor test',
     application   => 'puppet',
-    repos_enabled  => true,
+    epos_enabled  => true,
   }
   #include nfs_client
   # class { 'freeradius':
