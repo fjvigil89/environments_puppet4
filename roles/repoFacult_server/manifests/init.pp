@@ -12,14 +12,14 @@ class repoFacult_server {
   }
 
   file { '/repositorio':
-  ¦ ensure => directory,
+  ¦ ensure => 'directory',
   ¦ owner  => 'root',
   ¦ mode   => '0777',
   }
   mount {'/repositorio':
     ¦device  => '10.2.25.1:/export/repos_facultades',
     ¦fstype  => 'nfs4',
-    ¦ensure  => mounted,
+    ¦ensure  => 'mounted',
     ¦options => 'default',
     ¦atboot  => true,
   }
