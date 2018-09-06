@@ -36,18 +36,18 @@ node 'client-puppet.upr.edu.cu'{
   user     => 'roundcube',
   password => postgresql_password('roundcube', 'secret'),
  }
- class { 'roundcube':
+ #class { 'roundcube':
  #   db_type     => 'pgsql',
  #   db_name     => 'roundcube',
  #   db_host     => 'localhost',
  #   db_username => 'roundcube',
  #   db_password => 'secret',
-    plugins => [
-      'emoticons',
-      'markasjunk',
-      'password',
-    ],
-  }
+ #  plugins => [  
+ #    'emoticons',
+ #     'markasjunk',
+ #     'password',
+ #   ],
+ # }
 
 }
 
