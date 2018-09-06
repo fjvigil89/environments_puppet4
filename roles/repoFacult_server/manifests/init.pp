@@ -11,7 +11,7 @@ class repoFacult_server {
     mta_enabled    => false,
   }
 
-  file { "/repositorio":
+  file { '/repositorio':
   ¦ ensure => directory,
   ¦ owner  => 'root',
   ¦ mode   => '0777',

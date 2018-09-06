@@ -1,5 +1,5 @@
 node 'repofct.upr.edu.cu' {
-  class {'::repoFacult_server':;}
+  include repoFacult_server
  
   class { '::samba_client':
   ¦shares_name    => 'Telecomunicaciones',
