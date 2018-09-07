@@ -7,6 +7,10 @@ node 'cas.upr.edu.cu' {
     application    => 'Servidor CAS para authentication',
     repos_enabled  => true,
   }
-
+  
+  class { "cas::war":
+    maven_dir => "/srv/cas-maven",
+    build => true
+  }
   class {'::casserver':;}
 }
