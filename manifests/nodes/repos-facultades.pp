@@ -21,14 +21,34 @@ node 'repos-fact.upr.edu.cu' {
   	atboot  => true,
   }  
  
-  class { '::samba_client':
-  	shares_name    => 'Telecomunicaciones',
-  	shares_comment => 'Repositorio de Telecomunicaciones',
-  	shares_path    => '/repositorio/Telecomunicaciones',
-  	valid_users    => ['tele',],
-  	writable       => 'yes',
-  	browseable     => 'yes',
-  }
+ smb_user { 'tele':                       # * user name
+  ensure         => present,                  # * absent | present
+  password       => 'QwertyP455aaa',          # * user password (default: random)
+  force_password => true,                     # * force password value, if false   #   only set at creation (default: true)
+  groups         => ['domain users',          # * list of groups (default: [])    'administrators'],
+  given_name     => 'Tele',           # * user given name (default: '')
+  use_username_as_cn => true,                 # * use username as cn (default: false)
+  attributes     => {                         # * hash of attributes
+     uidNumber   => '15222',                  #   use list for multivalued attributes
+     gidNumber   => '10001',                  #   (default: {} (no attributes))
+     msSFU30NisDomain => 'dc',
+     mail => ['test@toto.fr'],
+  },
+}
+
+ ::samba::share { 'Repositorio de Telecomunicaciones':
+  path            => '/repositorio/Telecomunicaciones',  # Optionnal parameters
+  manage_directory  => true,        # * let the resource handle the shared               #   directory creation (default: true)
+  owner             => 'root',      # * owner of the share directory                                    #   (default: root)
+  group             => 'root',      # * group of the share directory                                    #   (default: root)
+  mode              => '0775',      # * mode of the share directory                                    #   (default: 0777)
+  acl               => [],          # * list of posix acls (default: undef)
+  options           => {            # * Custom options in section [Test Share]
+    'browsable'       => 'Yes',
+    'root preexec'    => 'mkdir -p \'/home/home_%U\'',
+  },
+  absentoptions     => ['path'],    # * Remove default settings put by this resource                                    #   default?: []
+ } 
   
   class { '::apache':
   	default_vhost => false,
