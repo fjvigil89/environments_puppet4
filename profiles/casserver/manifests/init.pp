@@ -5,7 +5,7 @@
 class casserver {
 
   class { "tomcat":
-    version => "888888888"
+    version => "8"
   } ->
   tomcat::instance { "cas":
     ensure => present,
