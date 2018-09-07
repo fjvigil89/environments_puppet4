@@ -42,9 +42,10 @@ class casserver {
   }
 
   class { "cas::server":
-    war => "/srv/cas-maven/target/cas.war",
+    group     => 'root',
+    war       => "/srv/cas-maven/target/cas.war",
     deploy_to => "$tomcat::instance_basedir/cas/webapps/cas.war",
-    ldap_url => "ldap://ad.upr.edu.cu",
+    ldap_url  => "ldap://ad.upr.edu.cu",
    # ldap_trustedcert => "/path/to/your.ldap.crt",
     ldap_basedn => "dc=upr,dc=edu,dc=cu",
     ldap_managerdn => "cn=Administrator,dc=upr,dc=edu,dc=cu",
