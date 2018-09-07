@@ -3,7 +3,7 @@ node 'cas.upr.edu.cu' {
           ensure => installed,
   }~>
   class { '::basesys':
-    uprinfo_usage  => 'Servidor CAS'
+    uprinfo_usage  => 'Servidor CAS',
     application    => 'Servidor CAS para authentication',
     repos_enabled  => true,
   }
