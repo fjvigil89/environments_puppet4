@@ -24,7 +24,7 @@ class casserver {
     country => "CU",
     organization => "UPR",
     commonname => $::fqdn,
-    days => "3650",
+    days => 365,
     force => false,
     cnf_tpl => "openssl/cert.cnf.erb",
     base_dir => "/etc/ssl/certs"

@@ -36,21 +36,6 @@ node 'repos-fact.upr.edu.cu' {
   },
 }
 
- class { '::samba::dc':;}
-
- ::samba::share { 'Repositorio de Telecomunicaciones':
-  path            => '/repositorio/Telecomunicaciones',  # Optionnal parameters
-  manage_directory  => true,        # * let the resource handle the shared               #   directory creation (default: true)
-  owner             => 'root',      # * owner of the share directory                                    #   (default: root)
-  group             => 'root',      # * group of the share directory                                    #   (default: root)
-  mode              => '0775',      # * mode of the share directory                                    #   (default: 0777)
-  acl               => [],          # * list of posix acls (default: undef)
-  options           => {            # * Custom options in section [Test Share]
-    'browsable'       => 'Yes',
-    'root preexec'    => 'mkdir -p \'/home/home_%U\'',
-  },
-  absentoptions     => ['path'],    # * Remove default settings put by this resource                                    #   default?: []
- } 
   
   class { '::apache':
   	default_vhost => false,
