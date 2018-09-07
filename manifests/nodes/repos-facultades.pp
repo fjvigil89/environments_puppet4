@@ -10,7 +10,7 @@ node 'repos-fact.upr.edu.cu' {
 
   file { "/repositorio" :
   	ensure => 'directory',
-  	owner  => 'root',
+  	owner  => 'users',
   	mode   => '2777',
   }
   mount {'/repositorio':
