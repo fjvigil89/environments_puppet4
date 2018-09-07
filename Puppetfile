@@ -60,7 +60,7 @@ mod 'puppet-logrotate', '3.3.0'
 mod 'tpdownes-sysctl', '2.1.0'
 #mod 'soli-cas', '1.0.1'
 mod 'dmcnicks-cas', '0.1.0'
-mod 'puppetlabs-tomcat', '2.3.0'
+mod 'camptocamp-tomcat', '1.1.0'
 
 mod 'rgevaert/pwgen',
   :git => 'https://github.com/rgevaert/puppet-pwgen.git',

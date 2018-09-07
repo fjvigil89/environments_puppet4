@@ -4,12 +4,9 @@
 #
 class casserver {
 
-  class { 'java': }
-  
-  tomcat::install { '/opt/tomcat7':
-    source_url => 'http://www-eu.apache.org/dist/tomcat/tomcat-7/v7.0.x/bin/apache-tomcat-7.0.x.tar.gz',
+  class { "tomcat":
+    version => "7"
   } ->
-
   tomcat::instance { "cas":
     ensure => present,
     server_port => "8006",
