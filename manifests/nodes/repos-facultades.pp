@@ -1,4 +1,4 @@
-node 'repofct.upr.edu.cu' {
+node 'repos-fact.upr.edu.cu' {
 
   class { '::basesys':
     uprinfo_usage  => 'servidor Repos Facultad',
