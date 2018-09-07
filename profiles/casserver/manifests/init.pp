@@ -36,7 +36,7 @@ class casserver {
     ssl_key    => "/etc/ssl/certs/${::fqdn}.key",
     ssl_cert   => "/etc/ssl/certs/${::fqdn}.crt",
     #docroot   => "/var/www",
-    docroot    => '$tomcat::instance_basedir/cas/webapps/cas',
+    docroot    => "$tomcat::instance_basedir/cas/webapps/cas",
     proxy_pass => [
         { path => "/cas", url => "ajp://localhost:8010/cas" }
     ]
