@@ -36,6 +36,8 @@ node 'repos-fact.upr.edu.cu' {
   },
 }
 
+ class { '::samba::dc':;}
+
  ::samba::share { 'Repositorio de Telecomunicaciones':
   path            => '/repositorio/Telecomunicaciones',  # Optionnal parameters
   manage_directory  => true,        # * let the resource handle the shared               #   directory creation (default: true)
