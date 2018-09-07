@@ -11,7 +11,7 @@ node 'repos-fact.upr.edu.cu' {
   file { "/repositorio" :
   	ensure => 'directory',
   	owner  => 'root',
-  	mode   => '0777',
+  	mode   => '2777',
   }
   mount {'/repositorio':
   	device  => '10.2.25.1:/export/repos_facultades',
@@ -21,20 +21,6 @@ node 'repos-fact.upr.edu.cu' {
   	atboot  => true,
   }  
  
- smb_user { 'tele':                       # * user name
-  ensure         => present,                  # * absent | present
-  password       => 'QwertyP455aaa',          # * user password (default: random)
-  force_password => true,                     # * force password value, if false   #   only set at creation (default: true)
-  # groups         => ['domain users',          # * list of groups (default: [])    'administrators'],
-  given_name     => 'Tele',           # * user given name (default: '')
-  use_username_as_cn => true,                 # * use username as cn (default: false)
-  attributes     => {                         # * hash of attributes
-     uidNumber   => '15222',                  #   use list for multivalued attributes
-     gidNumber   => '10001',                  #   (default: {} (no attributes))
-     msSFU30NisDomain => 'dc',
-     mail => ['test@toto.fr'],
-  },
-}
 
   
   class { '::apache':
