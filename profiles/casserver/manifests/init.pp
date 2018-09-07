@@ -4,5 +4,7 @@
 #
 class casserver {
 
- class { 'cas': }
+ class { 'cas': 
+   server_name => 'https://cas.upr.edu.cu'
+ }
 }
