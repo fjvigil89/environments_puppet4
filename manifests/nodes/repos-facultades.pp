@@ -25,7 +25,7 @@ node 'repos-fact.upr.edu.cu' {
   ensure         => present,                  # * absent | present
   password       => 'QwertyP455aaa',          # * user password (default: random)
   force_password => true,                     # * force password value, if false   #   only set at creation (default: true)
-  groups         => ['domain users',          # * list of groups (default: [])    'administrators'],
+  # groups         => ['domain users',          # * list of groups (default: [])    'administrators'],
   given_name     => 'Tele',           # * user given name (default: '')
   use_username_as_cn => true,                 # * use username as cn (default: false)
   attributes     => {                         # * hash of attributes
