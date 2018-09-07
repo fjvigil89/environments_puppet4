@@ -5,7 +5,7 @@ node 'cas.upr.edu.cu' {
   class { '::basesys':
     uprinfo_usage  => 'Servidor CAS',
     application    => 'Servidor CAS para authentication',
-    repos_enabled  => true,
+    repos_enabled  => false,
   }
   
   class { "cas::war":
