@@ -1,6 +1,5 @@
 node 'client-puppet.upr.edu.cu'{
   #class {'::talkserver':;}
-  #class {'::mailserver':;}
   class { '::basesys':
     uprinfo_usage => 'servidor test',
     application   => 'puppet',  
@@ -28,12 +27,21 @@ node 'client-puppet.upr.edu.cu'{
   #    mac          => ['72:92:c5:24:74:e4'],
   #    ip           => ['10.2.202.3']
   #  }
-  include dns_primary
+ 
+  #include dns_primary
 
 }
 
 
 node 'puppet-test.upr.edu.cu'{
+  package { 'lsb-release':
+          ensure => installed,
+  }~>
+  class { '::basesys':
+    uprinfo_usage => 'servidor test',
+    application   => 'puppet',
+    epos_enabled  => true,
+  }
   #include nfs_client
   # class { 'freeradius':
    #max_requests      => 4096,

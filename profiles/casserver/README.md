@@ -1,12 +1,12 @@
-# client
+# casserver
 
 #### Table of Contents
 
 1. [Description](#description)
-1. [Setup - The basics of getting started with client](#setup)
-    * [What client affects](#what-client-affects)
+1. [Setup - The basics of getting started with casserver](#setup)
+    * [What casserver affects](#what-casserver-affects)
     * [Setup requirements](#setup-requirements)
-    * [Beginning with client](#beginning-with-client)
+    * [Beginning with casserver](#beginning-with-casserver)
 1. [Usage - Configuration options and additional functionality](#usage)
 1. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
 1. [Limitations - OS compatibility, etc.](#limitations)
@@ -25,7 +25,7 @@ management, etc.), this is the time to mention it.
 
 ## Setup
 
-### What client affects **OPTIONAL**
+### What casserver affects **OPTIONAL**
 
 If it's obvious what your module touches, you can skip this section. For
 example, folks can probably figure out that your mysql_instance module affects
@@ -47,7 +47,7 @@ If your most recent release breaks compatibility or requires particular steps
 for upgrading, you might want to include an additional "Upgrading" section
 here.
 
-### Beginning with client
+### Beginning with casserver
 
 The very basic steps needed for a user to get the module up and running. This
 can include setup steps, if necessary, or it can be an example of the most

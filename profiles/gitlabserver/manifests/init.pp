@@ -13,10 +13,10 @@ class gitlabserver{
       redirect_http_to_https  => true
     },
     gitlab_rails         => {
-      'webhook_timeout'      => 10,
-      'gitlab_default_theme' => 2,
-      'ldap_enabled'         => true,
-      'ldap_servers'         => {
+       'webhook_timeout'                   => 10,
+       'gitlab_default_theme'              => 2,
+			 'ldap_enabled'         => true,
+       'ldap_servers'         => {
         'main' => {
           label                         => 'LDAP',
           host                          => 'ad.upr.edu.cu',
@@ -30,7 +30,8 @@ class gitlabserver{
           block_auto_created_users      => false,
           base                          => 'DC=upr,DC=edu,DC=cu',
         }
-      },
+
+    },
   },
   logging      => {
     'svlogd_size' => '200 * 1024 * 1024',

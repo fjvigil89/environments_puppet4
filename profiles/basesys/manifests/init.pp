@@ -41,12 +41,12 @@ class basesys (
   class {'::basesys::dns':;}
   class {'::basesys::time':;}
   class {'::basesys::packages':;}
-  class {'::basesys::monitoring':;}
   class {'::basesys::puppet':;}
   class {'::basesys::mta':;}
   class {'::basesys::ssh':;}
   class {'::basesys::users':;}
   class {'::basesys::groups':;}
+  class {'::basesys::monitoring':;}
   #class {'::basesys::swap':;}
 
   case $facts['os']['family'] {
