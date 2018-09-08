@@ -46,8 +46,8 @@ class gitlabserver{
           }
 
        }
-    },
-  }
+    }
+  },
   logging      => {
     'svlogd_size' => '200 * 1024 * 1024',
     }, 
