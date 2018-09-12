@@ -23,8 +23,8 @@ class monitoring::icinga2_agent(
     pki             => 'puppet',
     accept_config   => true,
     accept_commands => true,
-    endpoints       =>  {},
-    zones           =>  {},
+    endpoints       => {},
+    zones           => {},
   }
   icinga2::object::endpoint { $::fqdn:
     host => $::ipaddress,
