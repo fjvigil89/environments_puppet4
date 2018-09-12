@@ -1,6 +1,6 @@
 node 'correo-profe.upr.edu.cu' {  
   class { '::basesys':
-    uprinfo_usage  => 'servidor correo profesores fisico',
+    uprinfo_usage  => 'servidor correo prof fisico',
     application    => 'Zimbra',
     puppet_enabled => true,
     repos_enabled  => true,
@@ -10,11 +10,11 @@ node 'correo-profe.upr.edu.cu' {
 
 node 'correo-est.upr.edu.cu' {
   class { '::basesys':
-  ¦ uprinfo_usage  => 'servidor correo estudiantes KVM',
-  ¦ application    => 'Zimbra',
-  ¦ puppet_enabled => true,
+    uprinfo_usage  => 'servidor correo est KVM',
+    application    => 'Zimbra',
+    puppet_enabled => true,
     repos_enabled  => true,
-  ¦ mta_enabled    => false,
+    mta_enabled    => false,
   }
 }
 
