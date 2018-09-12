@@ -10,6 +10,7 @@ basesys::accounts:
     manage_primary_group: false
     gid: '100'
     tag: 'systemen'
+    password: '!!'
     sshkeys:
       - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD0ZVH5uXCM9/gZhhDApFoshRH86kHqWFpuBrHAQUB8mNBMwI8lQbfwSrVsMv3UcdsvCjYzxPRv7/9Y73zuT32246sJo1Wm0fVZw4gG6p9Pcfc5f4gwo+KDJKcqb0qo5WfgD1xpGfprOBVmlGhGKm5xxRH6qg36Lgxj84oAFL10CK2cb63hw03XNpd4VLWSX9gOyFVyJLLwW+T6mdll2tICvGCAxVkqfBE4PiXS8Eg5m/stnIf1BvKqR9fsq2fmy8MWjaC7sW0xyIli9zJsC7bMWhL2apOiOObOUdndxGejKR0bxtALhywhGpJd7REIJiwnYkT/a2S482nJZ4ppaunJ frank@frank-PC'
       - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDggU4CwEb2RUNZdlGisPryiNb6rBHOMU/w3kG+u7XwEEQ56GTOTzL7+43YFsxtAKSU7kFvyd8ey2OjGc/3ZFUfNrfElzOOfAheoeOwqbHWrp29CEhz6DkLpsDDr9BIl8xc1vAxfP/nV4dn9X9HpwBDiY7q2Ast8WY9DE4QVr+tT2tS59zYuqMV347S8pek2uNcwEbPlhW4lZnhGe9XWqwvVJIkVV39tgT44u0YwPO46WebCnBsswJVggex+mA9xFlu0YBheK/OUfIcwADQ2VfDez3LzxifF+vEAFpCwSRVnn6JoO9d1VKFnbtB7iEHJkxUZdK7dGJ+V3k8HMgdKRHt frank@frank-UPRedes' 
@@ -51,6 +52,7 @@ basesys::accounts:
     manage_primary_group: false
     gid: '100'
     tag: 'systemen'
+    locked: true
     sshkeys:
       - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDIExJZjyIG5pDhLetMCLovrancKnhbxDyVZCIkyt2vaknzDiYHTRmSvFZ3RZWP0eVA15HLIjxtpGWPSxfKkuDDrr/i/pp6A7h0WSw5zLZrvU6R9O2s7C37+ila5bBlGhQ3HAuQwuJ9IgUdiXwwh2C7bM/zOgLBX3qca/yyDzKC+hI3nSuh7f0s7LH0GMBKQ+YXJlDs9F0EAOBDEOp2FRerVfkxsAmIJwomCN4oy5rm1TZQ7FsFI8zekmmAm+IiwKk94INI3oCPfs9eMbwGfnifTvaQ92zO7CM5czdKc9AP1JzicFOdzDolsNgwvLzGXbsMSg4mBqTnOwVLgJoRi6rJhkt7rdFBKswr4tdiYVTgR5QhsYupPFsQVoWrmSP0W1Qs6Ru+UqLeffbxtqN65T0f3p4Q4wfAsSFJXR08rk/SG9ouDItPPfRE6AG0lO9GTvG3xGvflwQA+WTejTcMrCaSej5/WM1KIiHxelfdPGS5UX+ewfBNAz8XMAe2IYHRuIMLNwUYj9VCw1uki3evmbPv4VpfGDN0ftkOALjQRVsFb33vX/MWtM5zXKl0hJfZRU+xT66GAU5nOnPiCW9VCP+EikeGmR0I+1exfJ9OjvIm/ZBqykL4SdT6oQgexcJPmYELeb4tJncuGjWp47nBxGoBrJAuUmnUd/lq3TKIsV7QiQ=='
       

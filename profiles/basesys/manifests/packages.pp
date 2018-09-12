@@ -44,7 +44,10 @@ class basesys::packages {
                           'xfsprogs', 'bc', 'acl', 'lsof', 'unzip', 'zip', 'screen', 'traceroute',
                           'bzip2', 'dmidecode', 'telnet', 'lvm2', 'tcpdump', 'mdadm',
                           'htop', 'iftop', 'iotop', ]
-
+    case $::virtual{
+      $qmu_agent =['qemu-guest-agent']
+      ensure_packages($qmu_agent)
+    }
     case $::operatingsystem {
       'Debian', 'Ubuntu': {
 
