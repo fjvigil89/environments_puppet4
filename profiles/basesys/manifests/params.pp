@@ -44,5 +44,5 @@ class basesys::params {
   #  /RedHat/ => '1.10.9',
   #  default  => 'latest'
   #}
-
+  $puppet_users   = true 
 }

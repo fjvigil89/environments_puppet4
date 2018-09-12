@@ -35,6 +35,7 @@ class basesys (
 
   Boolean $monitoring_enabled    = $::basesys::params::monitoring_enabled,
   Enum['passwd', 'ldap'] $authenticationdb = 'passwd',
+  Boolean $puppet_users         = $::basesys::params::puppet_users,
 
   ) inherits ::basesys::params{
   class {'::basesys::repos':;}
