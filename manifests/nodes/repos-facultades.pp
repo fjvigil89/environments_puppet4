@@ -58,16 +58,16 @@ node 'repos-fact.upr.edu.cu' {
   	servername    => 'repotele.upr.edu.cu',
   	serveraliases =>  ['www.repotele.upr.edu.cu'],
   	port          => '443',
-  	docroot       => '/repositorio/repo-fct/Telecomunicaciones',
+  	docroot       => '/repositorio/',
   	ssl           => true,
   	directories =>  [ {
-      'path'           => '/repositorio/repo-fct/Telecomunicaciones',
+      'path'           => '/repositorio/',
       'options'        => ['Indexes','FollowSymLinks','MultiViews'],
       'allow_override' => 'All',    
       'directoryindex' => 'index.php',
       'suphp'          => {
-        user  => '1001',
-        group => '1001',
+        user  => 'root',
+        group => 'users',
       },
   	},],
   } 
