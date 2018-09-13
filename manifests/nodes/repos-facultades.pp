@@ -24,7 +24,7 @@ node 'repos-fact.upr.edu.cu' {
   class { '::samba_client':
      shares_name    => 'Tele',
      shares_comment => 'Repositorio de Tele',
-     shares_path    => '/repositorio/repo-fct/Telecomunicaciones',
+     shares_path    => '/repositorio/repo-fct/Telecomunicaciones/',
      valid_users    => ['tele',],
      writable       => 'yes',
      browseable     => 'yes',
@@ -40,7 +40,7 @@ node 'repos-fact.upr.edu.cu' {
   	servername    => 'repotele.upr.edu.cu',
   	serveraliases => ['www.repotele.upr.edu.cu'], 
   	port          => '80',
-  	docroot           => '/repositorio/repo-fct/Telecomunicaciones',
+  	docroot           => '/repositorio/repo-fct/Telecomunicaciones/',
   	directories   => [ {
       'path'           => '/repositorio/repo-fct/Telecomunicaciones',
       'options'        => ['Indexes','FollowSymLinks','MultiViews'],
