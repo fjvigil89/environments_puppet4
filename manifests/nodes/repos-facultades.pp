@@ -20,19 +20,22 @@ node 'repos-fact.upr.edu.cu' {
   	options => 'default',
   	atboot  => true,
   }  
- 
-  class {'samba':
-    ensure         => running,
-    enable         => true,
-    user_name      => 'tele',
-    user_password  => '123456',
-    share_name     => 'Telecomunicaciones',
-    share_comment  => 'Folder comment',
-    share_path     => '/repositorio/repo-fct/Telecomunicaciones',
-    share_readonly => 'no',
-    share_public   => 'yes',
-    share_user     => 'tele',
+
+  class {'samba::server':
+    workgroup     => 'example',
+    server_string => "Example Samba Server",
+    interfaces    => "eth0 lo",
+    security      => 'share'
   }
+
+  samba::server::share {'example-share':
+    comment    => 'Example Share',
+    path       => '/repositorio/repo-fct/Telecomunicaciones',
+    browsable  => true,
+    force_user => 'tele',
+    writable   => true,
+  }
+
   
   class { '::apache':
   	default_vhost => false,
