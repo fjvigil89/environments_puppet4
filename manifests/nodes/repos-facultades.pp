@@ -37,6 +37,7 @@ node 'repos-fact.upr.edu.cu' {
     create_mask          => 0777,
     force_create_mask    => 0777,
     directory_mask       => 0777,
+
   }
 
   
