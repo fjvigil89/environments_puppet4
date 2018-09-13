@@ -79,4 +79,10 @@ class wh_php_apache {
     hour    => [9],
   }
 
+  cron {'sync_upr_newStudent':
+    ensure  => present,
+    command => 'wget -q -d  --no-check-certificate "https://sync.upr.edu.cu/crear_student" > /var/log/sync_upr_newStudent.log',
+    hour    => [8],
+  }
+
 }
