@@ -52,13 +52,17 @@ node 'repos-fact.upr.edu.cu' {
   	port          => '80',
   	docroot           => '/repositorio/repo-fct/Telecomunicaciones',
   	directories   => [ {
-  		'path'           => '/repositorio/repo-fct/Telecomunicaciones',
-  		'options'        => ['Indexes','FollowSymLinks','MultiViews'],
-  		'allow_override' => 'All',
-  		'directoryindex' => 'index.php',
-  	},],
-  		redirect_status  => 'permanent',
-  		redirect_dest    => 'https://repotele.upr.edu.cu/',
+      'path'           => '/repositorio/repo-fct/Telecomunicaciones',
+      'options'        => ['Indexes','FollowSymLinks','MultiViews'],
+      'allow_override' => 'All',
+      'directoryindex' => 'index.php',
+      'suphp'          => {
+        user  => 'users',
+        group => 'root',
+      },
+      },],
+      redirect_status  => 'permanent',
+      redirect_dest    => 'https://repotele.upr.edu.cu/',
   }~>
   apache::vhost { 'repotele.upr.edu.cu ssl':
   	servername    => 'repotele.upr.edu.cu',
@@ -67,10 +71,14 @@ node 'repos-fact.upr.edu.cu' {
   	docroot       => '/repositorio/repo-fct/Telecomunicaciones',
   	ssl           => true,
   	directories =>  [ {
-  		'path'           => '/repositorio/repo-fct/Telecomunicaciones',
-  		'options'        => ['Indexes','FollowSymLinks','MultiViews'],
-  		'allow_override' => 'All',    
-  		'directoryindex' => 'index.php',
+      'path'           => '/repositorio/repo-fct/Telecomunicaciones',
+      'options'        => ['Indexes','FollowSymLinks','MultiViews'],
+      'allow_override' => 'All',    
+      'directoryindex' => 'index.php',
+      'suphp'          => {
+        user  => 'users',
+        group => 'root',
+      },
   	},],
   } 
 
