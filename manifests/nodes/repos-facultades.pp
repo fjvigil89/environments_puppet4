@@ -47,8 +47,8 @@ node 'repos-fact.upr.edu.cu' {
       'allow_override' => 'All',
       'directoryindex' => 'index.php',
       'suphp'          => {
-        user  => 'root',
-        group => 'users',
+        user  => '1001',
+        group => '1001',
       },
       },],
       redirect_status  => 'permanent',
@@ -66,8 +66,8 @@ node 'repos-fact.upr.edu.cu' {
       'allow_override' => 'All',    
       'directoryindex' => 'index.php',
       'suphp'          => {
-        user  => 'root',
-        group => 'users',
+        user  => '1001',
+        group => '1001',
       },
   	},],
   } 
