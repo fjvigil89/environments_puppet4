@@ -10,7 +10,7 @@ node 'repos-fact.upr.edu.cu' {
 
   file { "/repositorio" :
   	ensure => 'directory',
-  	owner  => 'users',
+  	owner  => 'root',
   	mode   => '2777',
   }
   mount {'/repositorio':
@@ -29,11 +29,15 @@ node 'repos-fact.upr.edu.cu' {
   }
 
   samba::server::share {'example-share':
-    comment    => 'Example Share',
-    path       => '/repositorio/repo-fct/Telecomunicaciones',
-    browsable  => true,
-    force_user => 'tele',
-    writable   => true,
+    comment              => 'Example Share',
+    path                 => '/repositorio/repo-fct/Telecomunicaciones',
+    browsable            => true,
+    force_user           => 'tele',
+    writable             => true,
+    create_mask          => 0777,
+    force_create_mask    => 0777,
+    directory_mask       => 0777,
+    force_directory_mask => 0777,
   }
 
   
