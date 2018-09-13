@@ -21,23 +21,13 @@ node 'repos-fact.upr.edu.cu' {
   	atboot  => true,
   }  
 
-  class {'samba::server':
-    workgroup     => 'example',
-    server_string => "Example Samba Server",
-    interfaces    => "eth0 lo",
-    security      => 'share'
-  }
-
-  samba::server::share {'example-share':
-    comment              => 'Example Share',
-    path                 => '/repositorio/repo-fct/Telecomunicaciones',
-    browsable            => true,
-    force_user           => 'tele',
-    writable             => true,
-    create_mask          => 0777,
-    force_create_mask    => 0777,
-    directory_mask       => 0777,
-
+  class { '::samba_client':
+     shares_name    => 'Tele',
+     shares_comment => 'Repositorio de Tele',
+     shares_path    => '/repositorio/repo-fct/Telecomunicaciones',
+     valid_users    => ['tele',],
+     writable       => 'yes',
+     browseable     => 'yes',
   }
 
   
