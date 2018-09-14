@@ -32,7 +32,7 @@ node 'repos-fact.upr.edu.cu' {
 
   
   class { '::apache':
-  	default_vhost => false,
+  	default_vhost => true,
   	mpm_module    => 'prefork',
   }
 
