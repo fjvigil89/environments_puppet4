@@ -16,6 +16,7 @@ class { ::letsencrypt:
 }
 letsencrypt::certonly { 'upr':
  domains => ['contable.upr.edu.cu','sync.upr.edu.cu'],
- plugin  => 'apache',
+ plugin  => 'webroot',
+ webroot_paths => ['/home/Contable/master/web', '/home/Sync-UPR/master/public'],
 }
 }
