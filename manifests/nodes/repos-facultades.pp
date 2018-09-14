@@ -71,6 +71,51 @@ node 'repos-fact.upr.edu.cu' {
       },
   	},],
   } 
+  
+# Configure firewall settings
+resources {'firewall': purge => true,}
+firewall {
+  '010 accept for ntp':
+    dport  => '123',
+    proto  => 'udp',
+    action => 'accept';
+  
+  '011 accept for ntp':
+    dport  => '123',
+    proto  => 'tcp',
+    action => 'accept';
+
+  '022 accept for ssh':
+    dport  => '22',
+    proto  => 'tcp',
+    action => 'accept';
+
+  '053 accept for dns':
+    dport  => '53',
+    proto  => 'udp',
+    action => 'accept';
+
+  '056 accept for Icinga':
+    dport  => '5665',
+    proto  => 'tcp',
+    action => 'accept';
+
+  '161 accept for snmp':
+    dport  => '161',
+    proto  => 'udp',
+    action => 'accept';
+
+  '080 accept for apache':
+    dport  => '80',
+    proto  => 'tcp',
+    action => 'accept';
+
+  '443 accept for apache':
+    dport  => '443',
+    proto  => 'tcp',
+    action => 'accept';
+}
+
 
 }
 
