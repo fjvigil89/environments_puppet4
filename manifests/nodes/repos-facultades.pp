@@ -45,14 +45,14 @@ node 'repos-fact.upr.edu.cu' {
       'path'           => '/repositorio',
       'options'        => ['Indexes','FollowSymLinks','MultiViews'],
       'allow_override' => 'All',
-      # 'directoryindex' => 'index.php',
+      'directoryindex' => 'index.php',
       'suphp'          => {
         user  => 'root',
         group => 'users',
       },
       },],
       redirect_status  => 'permanent',
-      redirect_dest    => 'https://repotele.upr.edu.cu/',
+      redirect_dest    => 'https://repotele.upr.edu.cu/repo-fct/',
   }~>
   apache::vhost { 'repotele.upr.edu.cu ssl':
   	servername    => 'repotele.upr.edu.cu',
