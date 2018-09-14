@@ -72,4 +72,17 @@ class wh_php_apache {
     command => 'wget -q -d  --no-check-certificate "https://sync.upr.edu.cu/upredes" > /var/log/sync_upr_UPRedes.log',
     hour    => [5],
   }
+
+  cron{'sync_upr_Student':
+    ensure  => present,
+    command => 'wget -q -d  --no-check-certificate "https://sync.upr.edu.cu/saber_ldap_student" > /var/log/sync_upr_Student.log',
+    hour    => [9],
+  }
+
+  cron {'sync_upr_newStudent':
+    ensure  => present,
+    command => 'wget -q -d  --no-check-certificate "https://sync.upr.edu.cu/crear_student" > /var/log/sync_upr_newStudent.log',
+    hour    => [8],
+  }
+
 }
