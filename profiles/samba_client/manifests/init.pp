@@ -32,8 +32,8 @@ class samba_client (
   class { 'samba':
     shares_definitions => { #$::samba_client::shares_name.each |Integer $index, String $value|{
       $shares_name[0] => { 
-        'comment'     => "$shares_comment+$shares_name[0]",
-        'path'        => "$path_nfs+$shares_path[0]",
+        'comment'     => $shares_comment+$shares_name[0],
+        'path'        => $path_nfs+$shares_path[0],
         'valid users' => $valid_users[0],
         'writable'    => $writable,
         'browseable'  => $browseable,
