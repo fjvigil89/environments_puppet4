@@ -40,9 +40,9 @@ node 'repos-fact.upr.edu.cu' {
   	servername    => 'repotele.upr.edu.cu',
   	serveraliases => ['www.repotele.upr.edu.cu'], 
   	port          => '80',
-  	docroot           => '/repositorio/repo-fct/',
+  	docroot           => '/repositorio/',
   	directories   => [ {
-      'path'           => '/repositorio/repo-fct',
+      'path'           => '/repositorio',
       'options'        => ['Indexes','FollowSymLinks','MultiViews'],
       'allow_override' => 'All',
       # 'directoryindex' => 'index.php',
