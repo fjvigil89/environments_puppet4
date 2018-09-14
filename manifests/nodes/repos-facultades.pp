@@ -10,7 +10,7 @@ node 'repos-fact.upr.edu.cu' {
 
   file { "/repositorio" :
   	ensure => 'directory',
-  	owner  => 'users',
+  	owner  => 'root',
   	mode   => '2777',
   }
   mount {'/repositorio':
@@ -20,19 +20,16 @@ node 'repos-fact.upr.edu.cu' {
   	options => 'default',
   	atboot  => true,
   }  
- 
-  class {'samba':
-    ensure         => running,
-    enable         => true,
-    user_name      => 'tele',
-    user_password  => '123456',
-    share_name     => 'Telecomunicaciones',
-    share_comment  => 'Folder comment',
-    share_path     => '/repositorio/repo-fct/Telecomunicaciones',
-    share_readonly => 'no',
-    share_public   => 'yes',
-    share_user     => 'tele',
+
+  class { '::samba_client':
+     shares_name    => 'Tele',
+     shares_comment => 'Repositorio de Tele',
+     shares_path    => '/repositorio/repo-fct/Telecomunicaciones/',
+     valid_users    => ['tele',],
+     writable       => 'yes',
+     browseable     => 'yes',
   }
+
   
   class { '::apache':
   	default_vhost => false,
@@ -43,29 +40,84 @@ node 'repos-fact.upr.edu.cu' {
   	servername    => 'repotele.upr.edu.cu',
   	serveraliases => ['www.repotele.upr.edu.cu'], 
   	port          => '80',
-  	docroot           => '/repositorio/repo-fct/Telecomunicaciones',
+  	docroot           => '/repositorio/',
   	directories   => [ {
-  		'path'           => '/repositorio/repo-fct/Telecomunicaciones',
-  		'options'        => ['Indexes','FollowSymLinks','MultiViews'],
-  		'allow_override' => 'All',
-  		'directoryindex' => 'index.php',
-  	},],
-  		redirect_status  => 'permanent',
-  		redirect_dest    => 'https://repotele.upr.edu.cu/',
+      'path'           => '/repositorio',
+      'options'        => ['Indexes','FollowSymLinks','MultiViews'],
+      'allow_override' => 'All',
+      'directoryindex' => 'index.php',
+      'suphp'          => {
+        user  => 'root',
+        group => 'users',
+      },
+      },],
+      redirect_status  => 'permanent',
+      redirect_dest    => 'https://repotele.upr.edu.cu/',
   }~>
   apache::vhost { 'repotele.upr.edu.cu ssl':
   	servername    => 'repotele.upr.edu.cu',
   	serveraliases =>  ['www.repotele.upr.edu.cu'],
   	port          => '443',
-  	docroot       => '/repositorio/repo-fct/Telecomunicaciones',
+  	docroot       => '/repositorio/repo-fct/Telecomunicaciones/',
+    docroot_owner => 'root',
+    docroot_group => 'users',
   	ssl           => true,
   	directories =>  [ {
-  		'path'           => '/repositorio/repo-fct/Telecomunicaciones',
-  		'options'        => ['Indexes','FollowSymLinks','MultiViews'],
-  		'allow_override' => 'All',    
-  		'directoryindex' => 'index.php',
+      'path'           => '/repositorio/repo-fct/Telecomunicaciones',
+      'options'        => ['Indexes','FollowSymLinks','MultiViews'],
+      'allow_override' => 'All',    
+      'directoryindex' => 'index.php',
+      #'suphp'          => {
+      #  user  => 'root',
+      #  group => 'users',
+      #},
   	},],
   } 
+  
+# Configure firewall settings
+resources {'firewall': purge => true,}
+firewall {
+  '010 accept for ntp':
+    dport  => '123',
+    proto  => 'udp',
+    action => 'accept';
+  
+  '011 accept for ntp':
+    dport  => '123',
+    proto  => 'tcp',
+    action => 'accept';
+
+  '022 accept for ssh':
+    dport  => '22',
+    proto  => 'tcp',
+    action => 'accept';
+
+  '053 accept for dns':
+    dport  => '53',
+    proto  => 'udp',
+    action => 'accept';
+
+  '056 accept for Icinga':
+    dport  => '5665',
+    proto  => 'tcp',
+    action => 'accept';
+
+  '161 accept for snmp':
+    dport  => '161',
+    proto  => 'udp',
+    action => 'accept';
+
+  '080 accept for apache':
+    dport  => '80',
+    proto  => 'tcp',
+    action => 'accept';
+
+  '443 accept for apache':
+    dport  => '443',
+    proto  => 'tcp',
+    action => 'accept';
+}
+
 
 }
 
