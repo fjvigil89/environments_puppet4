@@ -32,7 +32,7 @@ node 'repos-fact.upr.edu.cu' {
 
   
   class { '::apache':
-  	default_vhost => true,
+  	default_vhost => false,
   	mpm_module    => 'prefork',
   }
 
@@ -64,11 +64,11 @@ node 'repos-fact.upr.edu.cu' {
       'path'           => '/repositorio/repo-fct/Telecomunicaciones',
       'options'        => ['Indexes','FollowSymLinks','MultiViews'],
       'allow_override' => 'All',    
-      'directoryindex' => 'index.php',
-      'suphp'          => {
-        user  => 'root',
-        group => 'users',
-      },
+      #'directoryindex' => 'index.php',
+      #'suphp'          => {
+      #  user  => 'root',
+      #  group => 'users',
+      #},
   	},],
   } 
   
