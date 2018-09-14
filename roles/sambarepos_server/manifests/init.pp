@@ -2,8 +2,8 @@
 # ===========================
 #
 class sambarepos_server (
-  Array[String] shares_name = $::sambarepos_server::params::shares_name,
-  Array[String] valid_users = $::sambarepos_server::params::valid_users,
+  Array[String] $shares_name = $::sambarepos_server::params::shares_name,
+  Array[String] $valid_users = $::sambarepos_server::params::valid_users,
   String $path_nfs          = $::sambarepos_server::params::path_nfs, 
 )inherits sambarepos_server::params {
 
