@@ -8,9 +8,9 @@ define samba_client::share (
 ){
  
   #include ::samba_client::params
-  #class { 'samba':
+  class { 'samba':
 
-   $shares_definitions ={  
+   shares_definitions => {  
      $shares_name => {
        'comment'     => "'Repositorio de '${shares_name}",
        'path'        => "${path_nfs}${shares_name}",
@@ -20,6 +20,7 @@ define samba_client::share (
      },
     
     }
+  }
 }
 
 
