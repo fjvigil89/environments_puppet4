@@ -23,19 +23,21 @@ class samba_client (
   #    'browseable'  => $browseable,
      
   #  }
-   
-   
- class { 'samba': 
-   shares_definitions =>  $::samba_client::shares_name.each |Integer $index, String $value|{
+  
+  $shares = $::samba_client::shares_name.each |Integer $index, String $value|{
      samba_client::share{$shares_name[$index]:
-       
+
          shares_name => $shares_name[$index],
          valid_users => $valid_users[$index],
          path_nfs    => $path_nfs,
-       
-       } 
 
+       }
   }
+  
+
+   
+ class { 'samba': 
+   shares_definitions => $shares 
 
   }
 }
