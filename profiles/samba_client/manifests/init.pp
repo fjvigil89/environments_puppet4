@@ -24,14 +24,14 @@ class samba_client (
      
   #  }
   
-  $shares = $::samba_client::shares_name.each |Integer $index, String $value|
-    {
-      samba_client::share{$shares_name[$index]:
+  # $shares = $::samba_client::shares_name.each |Integer $index, String $value|
+  #  {
+      $shares = samba_client::share{$shares_name[$index]:
         shares_name => $shares_name[$index],
         valid_users => $valid_users[$index],
         path_nfs    => $path_nfs,
       }
-    }
+      #  }
   
  notice ($shares)  
 #class { 'samba': 
