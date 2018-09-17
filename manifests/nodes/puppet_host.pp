@@ -40,7 +40,6 @@ node 'puppet-test.upr.edu.cu'{
   class { '::basesys':
     uprinfo_usage => 'servidor test',
     application   => 'puppet',
-    epos_enabled  => true,
   }
   #include nfs_client
   class { 'freeradius':
