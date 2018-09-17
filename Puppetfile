@@ -55,7 +55,6 @@ mod 'puppet-dhcp', '3.2.0'
 mod 'derdanne-nfs', '2.0.8'
 mod 'millerjl1701-samba', '1.0.2'
 mod 'herculesteam-augeasproviders_pam', '2.1.1'
-mod 'jgazeley-freeradius', '3.7.0'
 mod 'puppet-logrotate', '3.3.0'
 mod 'tpdownes-sysctl', '2.1.0'
 mod 'dmcnicks-cas', '0.1.0'
@@ -64,6 +63,7 @@ mod 'camptocamp-openssl', '1.10.0'
 mod 'camptocamp-systemd', '2.1.0'
 mod 'herculesteam-augeasproviders_core', '2.1.5'
 mod 'herculesteam-augeasproviders_shellvar', '3.0.0'
+mod 'example42-freeradius', '2.0.12'
 
 mod 'rgevaert/pwgen',
   :git => 'https://github.com/rgevaert/puppet-pwgen.git',
