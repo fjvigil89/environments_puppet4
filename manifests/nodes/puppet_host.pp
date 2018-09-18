@@ -41,7 +41,11 @@ node 'puppet-test.upr.edu.cu'{
     uprinfo_usage => 'servidor test',
     application   => 'puppet',
   }
-  class { 'freeradius': }
+  $package = ['freeradius', 'freeradius-mysql']
+  package { $package:
+    ensure => installed,
+  }
+
   #include nfs_client
    #class {'::firewallprod':
    #  hosts_todrop   => ['111.111.111.111', '50.138.112.159', '31.220.16.147'],
