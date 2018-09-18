@@ -4,8 +4,8 @@
 # Full description of class freedaruis_server here.
 #
 class freeradius_server {
-$package = ['freeradius', 'freeradius-mysql','freeradius-utils'],
-$conf_path = '/etc/freeradius/3.0',
+$package = ['freeradius', 'freeradius-mysql','freeradius-utils']
+$conf_path = '/etc/freeradius/3.0'
  package { $package:
 ensure => installed,
 }
