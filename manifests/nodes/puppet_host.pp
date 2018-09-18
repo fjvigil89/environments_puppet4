@@ -41,10 +41,18 @@ node 'puppet-test.upr.edu.cu'{
     uprinfo_usage => 'servidor test',
     application   => 'puppet',
   }
-  $package = ['freeradius', 'freeradius-mysql']
+  $package = ['freeradius', 'freeradius-mysql','freeradius-utils']
   package { $package:
     ensure => installed,
   }
+include '::mysql::server'
+mysql::db { 'radius':
+user     => 'root',
+password => 'freeradius.upr2k18',
+host     => '127.0.0.1',
+grant    => ['SELECT', 'INSERT', 'UPDATE', 'DELETE', 'DROP', 'CREATE VIEW', 'CREATE', 'INDEX', 'EXECUTE', 'ALTER'],
+sql      => '/etc/freeradius/3.0/mods-config/sql/main/mysql/schema.sql',
+ }
 
   #include nfs_client
    #class {'::firewallprod':
