@@ -9,6 +9,7 @@ $conf_path = '/etc/freeradius/3.0'
  package { $package:
 ensure => installed,
 }
+include '::php'
 include '::mysql::server'
 mysql::db { 'radius':
 user     => 'root',
@@ -34,6 +35,18 @@ owner  => 'freerad',
 group  => 'freerad',
 mode   => '0640',
 source => 'puppet:///modules/freeradius_server/conf/sql',
+}
+file { '/usr/share/ad-to-pap.php': 
+  ensure => file,
+  owner  => 'root',
+  group  => 'root',
+  mode   => '0774',
+  source => 'puppet:///modules/freeradius_server/sync/ad-to-pap.php',
+}
+cron{'sync_ad_pap':
+  ensure  => present,
+  command => 'php /usr/share/upr/ad-to-pap.php >> /var/log/sync_ad_pap.log',
+  hour    => ['0','12','17'],
 }
 
 
