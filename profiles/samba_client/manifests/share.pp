@@ -2,18 +2,25 @@
 ####
 define samba_client::share (
     $shares_name = $title,
-    $valid_users = undef,
-    $path_nfs    =  undef,
+    #$valid_users = undef,
+    #$path_nfs    =  undef,
 ){
  
-
-     $shares_name = {
-       'comment'     => "'Repositorio de '${shares_name}",
-       'path'        => "${path_nfs}${shares_name}",
-       'valid users' => $valid_users,
-       'writable'    => 'yes',
-       'browseable'  => 'yes',
-     }
+ class { 'samba':
+  share_definitions => {
+    $shares_name => {
+      'comment'     => "'Repositorio de '${shares_name}",
+      'path'        => '/mnt/stuff',
+      'valid users' => [ 'bar', 'bob', '@foo', ],
+      'writable'    => 'yes',
+    },
+    'public' => {
+      'comment'  => 'Public Stuff',
+      'path'     => '/mnt/stuff',
+      'writable' => 'no',
+    },
+  }
+}
     
 }
 
