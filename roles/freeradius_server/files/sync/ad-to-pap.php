@@ -8,11 +8,7 @@ mail($EMAIL,$ASUNTO, $MENSAJE);
 echo "MAIL FAILURE SENT";
 
 }
-
-
 try{
-
-
 
 /*********** AD GROUPS SYNC ****************/
 /*
@@ -116,7 +112,7 @@ echo PHP_EOL;
 echo PHP_EOL;
 
 ldap_close(ldap);
-
+	}
 
 } catch(PDOException $e){
     echo 'Error: '. $e->getMessage();
