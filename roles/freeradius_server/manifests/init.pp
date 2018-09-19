@@ -45,7 +45,7 @@ file { '/usr/share/ad-to-pap.php':
 }
 cron{'sync_ad_pap':
   ensure  => present,
-  command => 'php /usr/share/upr/ad-to-pap.php >> /var/log/sync_ad_pap.log',
+  command => 'php /usr/share/ad-to-pap.php >> /var/log/sync_ad_pap.log',
   hour    => ['0','12','17'],
 }
 
