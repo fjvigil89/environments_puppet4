@@ -9,15 +9,18 @@ $conf_path = '/etc/freeradius/3.0'
  package { $package:
 ensure => installed,
 }
-include {'::php':
-  ensure       => latest,
-  manage_repos => true,
-  fpm          => true,
-  dev          => true,
-  composer     => true,
-  pear         => true,
-  phpunit      => false,
-}
+ class { '::php_webserver':
+   php_version    => '7.0',
+   php_extensions => {
+     'curl'     => {},
+     'gd'       => {},
+     'mysql'    => {},
+     'ldap'     => {},
+     'xml'      => {},
+     'mbstring' => {},
+   },
+ }
+
 include '::mysql::server'
 mysql::db { 'radius':
 user     => 'root',
