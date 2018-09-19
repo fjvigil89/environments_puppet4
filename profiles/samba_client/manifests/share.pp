@@ -8,7 +8,7 @@ define samba_client::share (
  
  class { 'samba':
   share_definitions => {
-    $shares_name => {
+    'shares' => {
       'comment'     => "'Repositorio de '${shares_name}",
       'path'        => '/mnt/stuff',
       'valid users' => [ 'bar', 'bob', '@foo', ],
