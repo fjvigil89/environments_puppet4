@@ -47,7 +47,7 @@ basesys::accounts:
     gid: '100'
     tag: 'systemen'
     sshkeys:
-      - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDKKTdmrN3nWu4Z0ida50pr8AjwzHMHetsesy58omhJwMPpfqjDPtK3iI7KRnaJenFY6RKPHFf9Q4MwRZzJQDAyvMObn9lB8M/uPWi8L6mRXQzSUVP48ThlsqNigQsm6PBzH3GllOg4quSHq1JYaHKOEXyQrjLMyMv7Zj/PK7e6s6f+A27342xZ6NoAksZ+mP2dyiE5lTaB2myh4WT+Yj64vdTTqh5dNIZia7qXYNTVrLn2EY4q8eRcm1G6YyZbxBLrnD+0ifpYxDCJwXqNErb22prIZk26HuxLD2+uPmj/auqkW7aQuRuscjGAzc4FH5Qxc690WZ9nEcPMl6b96ji1 yandy@yandy-desktop'      
+      - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDf93JhwknoP9f1NKrvD9Y5ja0JBu8ucpPsZCO+pZUJRHgryeWZb8w+CXQd7VhQnBp0/FtlAT1mroP86BGDmysQ6+u6D26mGPZhhpRX6WK4KKn+8c0OHTmzolY3hiqjiEvMbHaXtlPQWEbUuZHgExGul8f+mWNuoMxG5eUw8ojej7IfKBd2TISqUQA7LFFcWKLOQYKgtxkMn++HaLKJYX+dFgVoBf76hkPsdTAxs8WESlLkgR7nqdt1zIAdMUe1RbCEOwYgY7YjxntJEECi4pO/RVOcB04LLAAMrloP6gqhMI9LtnktkeLdOcuko/PYGcACUVGRRQChxVoLJ0u5X63p yandy@yandy-desktop' 
   'luis.mendez':
     comment: 'Luis Mendez'
     uid: '512'
