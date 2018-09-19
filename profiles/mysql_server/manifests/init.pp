@@ -58,7 +58,7 @@ class mysql_server (
 ) inherits ::mysql_server::params {
 
   # Add mysqldba account's
-  Accounts::User<| tag == 'mysqldba' |>
+  #Accounts::User<| tag == 'mysqldba' |>
 
   case $provider {
     'percona': {
