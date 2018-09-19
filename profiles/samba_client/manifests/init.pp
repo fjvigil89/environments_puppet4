@@ -14,17 +14,17 @@ class samba_client (
   String $path_nfs                  = $::samba_client::params::path_nfs,
 ) inherits samba_client::params {
  
-  $val =  $::samba_client::shares_name.each |Integer $index, String $value|{
-    samba_client::share{$value :
-      path_nfs    => $path_nfs,
-      valid_users => $valid_users[$index],
+  $val = $::samba_client::shares_name.each |Integer $index, String $value|{
+      samba_client::share{$value :
+        path_nfs    => $path_nfs,
+        valid_users => $valid_users[$index],
+      }
     }
-  }
+  
   
 
-
-  class { 'samba':
-    share_definitions => $val, 
-    
-  }
+notice ($val)
+    #  class { 'samba':
+    #share_definitions => $val       
+    #}
 }
