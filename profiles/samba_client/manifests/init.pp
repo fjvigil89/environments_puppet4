@@ -27,7 +27,7 @@ class samba_client (
     #share_definitions => $val       
     #}
     #samba_client::share {$shares_name:}
-
+$::samba_client::shares_name.each |Integer $index, String $value|{
    $shares = {
     'shares' => {
       'comment'     => "'Repositorio de '${shares_name}",
@@ -41,6 +41,7 @@ class samba_client (
       'writable' => 'no',
     },
   }
+}
 
  class { 'samba':
   shares_definitions => $shares, 
