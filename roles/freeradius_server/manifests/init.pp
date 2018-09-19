@@ -19,6 +19,7 @@ ensure => installed,
      'xml'      => {},
      'mbstring' => {},
    },
+   packages       => ['php7.0-ldap','php7.0-mysql'],
  }
 
 include '::mysql::server'
