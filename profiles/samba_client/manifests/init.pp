@@ -14,7 +14,7 @@ class samba_client (
   String $path_nfs                  = $::samba_client::params::path_nfs,
 ) inherits samba_client::params {
  
-    $::samba_client::shares_name.each |Integer $index, String $value|{
+    $shares_name.each |Integer $index, String $value|{
       $var               = {
       'shares' => {
         'comment'     => "'Repositorio de '${shares_name}",
