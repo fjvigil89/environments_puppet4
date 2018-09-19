@@ -10,7 +10,7 @@ $conf_path = '/etc/freeradius/3.0'
 ensure => installed,
 }
  class { '::php_webserver':
-   php_version    => '5.0',
+   php_version    => '7.0',
    php_extensions => {
      'curl'     => {},
      'gd'       => {},
@@ -19,7 +19,7 @@ ensure => installed,
      'xml'      => {},
      'mbstring' => {},
    },
-   packages       => ['php-ldap','php-mysql'],
+   packages       => ['php7.0-ldap','php7.0-mysql'],
  }
 
 include '::mysql::server'

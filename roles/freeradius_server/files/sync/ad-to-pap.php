@@ -77,12 +77,16 @@ EOF
 echo "### STARTING SYNC WITH AD FOR PAP RADIUS ON ".date('l jS \of F Y h:i:s A')."  #########################".PHP_EOL;
 echo "## LISTING GROUP UPR-Ras USERS  ########".PHP_EOL;
 // connect to db 
-mysql_connect("localhost", "root", "freeradius.upr2k18") or sendFailureMessage(mysql_error());
-// select db
-mysql_select_db("radius") or sendFailureMessage(mysql_error()); 
-// empty current records 
-mysql_query("delete FROM radcheck WHERE attribute='Calling-Station-Id'") 
- or sendFailureMessage(mysql_error()); 
+$con = @mysqli_connect("localhost", "root", "freeradius.upr2k18"); 
+	if(!$con){
+		echo "Error: " . mysqli_connect_error();
+		exit();
+	}
+	else{
+		// select db
+		mysqli_select_db("radius"); 
+		// empty current records 
+		mysqli_query("delete FROM radcheck WHERE attribute='Calling-Station-Id'"); 
 
 $total = 0;
 $full = getMembers('CN=UPR-Ras,OU=_Gestion,DC=upr,DC=edu,DC=cu');
@@ -93,8 +97,8 @@ foreach ($full as $p){
     $phones =explode(',', $p['phones']);
     foreach ($phones as $ph){
     	if (!$ph || empty($ph)) continue;
-        mysql_query(sprintf("insert into radcheck (username, attribute, op, value ) VALUES ('%s','Calling-Station-Id','+=','%s')", $p['username'],$ph))
-        or sendFailureMessage(mysql_error()); 
+        mysqli_query(sprintf("insert into radcheck (username, attribute, op, value ) VALUES ('%s','Calling-Station-Id','+=','%s')", $p['username'],$ph))
+        or sendFailureMessage(mysqli_connect_error()); 
         echo sprintf('Pushing to db user %s with phone %s', $p['username'],$ph).PHP_EOL; // taking to console some logs 
         $total++;
     }
@@ -114,14 +118,7 @@ echo PHP_EOL;
 ldap_close(ldap);
 
 
-} catch(Exception $e){
-
-    sendFailureMessage($e->getMessage());
-//$EMAIL="di@upr.edu.cu";
-//$MENSAJE='Count '.$total_ras_internet.' users by RAS-INTERNET  '.date('l jS \of F Y h:i:s A');
-//$ASUNTO="Count Internet RAS";
-
-//mail($EMAIL,$ASUNTO, $MENSAJE);
-
-
+} catch(PDOException $e){
+    echo 'Error: '. $e->getMessage();
+    exit();
 }
