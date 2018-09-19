@@ -43,9 +43,8 @@ class samba_client (
     }
   }
   
-  notice ($val)
-  #class { 'samba':
-  #shares_definitions => $var, 
-  #}
+  class { 'samba':
+   shares_definitions => $var, 
+  }
 
 }
