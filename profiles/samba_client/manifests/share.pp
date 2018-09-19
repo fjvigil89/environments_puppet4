@@ -5,9 +5,8 @@ define samba_client::share (
     #$valid_users = undef,
     #$path_nfs    =  undef,
 ){
- 
-class { 'samba':
-  shares_definitions => {
+  
+ $shares = {
     'shares' => {
       'comment'     => "'Repositorio de '${shares_name}",
       'path'        => '/mnt/stuff',
@@ -20,7 +19,6 @@ class { 'samba':
       'writable' => 'no',
     },
   }
-}
     
 }
 
