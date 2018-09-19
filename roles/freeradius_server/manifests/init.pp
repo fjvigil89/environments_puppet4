@@ -10,7 +10,7 @@ $conf_path = '/etc/freeradius/3.0'
 ensure => installed,
 }
  class { '::php_webserver':
-   php_version    => '7.0',
+   php_version    => '5.0',
    php_extensions => {
      'curl'     => {},
      'gd'       => {},
