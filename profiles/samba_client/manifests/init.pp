@@ -27,24 +27,25 @@ class samba_client (
     #share_definitions => $val       
     #}
     #samba_client::share {$shares_name:}
-$var = $::samba_client::shares_name.each |Integer $index, String $value|{
-   $shares = {
-    'shares' => {
-      'comment'     => "'Repositorio de '${shares_name}",
-      'path'        => '/mnt/stuff',
-      'valid users' => [ 'bar', 'bob', '@foo', ],
-      'writable'    => 'yes',
-    },
-    'public' => {
-      'comment'  => 'Public Stuff',
-      'path'     => '/mnt/stuff',
-      'writable' => 'no',
-    },
+  $val = $::samba_client::shares_name.each |Integer $index, String $value|{
+    $shares = {
+      'shares' => {
+        'comment'     => "'Repositorio de '${shares_name}",
+        'path'        => '/mnt/stuff',
+        'valid users' => [ 'bar', 'bob', '@foo', ],
+        'writable'    => 'yes',
+      },
+      'public' => {
+        'comment'  => 'Public Stuff',
+        'path'     => '/mnt/stuff',
+        'writable' => 'no',
+      },
+    }
   }
-}
-
- class { 'samba':
-  shares_definitions => $var, 
-  }
+  
+  notice ($val[share])
+  #class { 'samba':
+  #shares_definitions => $var, 
+  #}
 
 }
