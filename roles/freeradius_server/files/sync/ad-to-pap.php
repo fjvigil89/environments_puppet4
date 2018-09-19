@@ -77,7 +77,7 @@ EOF
 echo "### STARTING SYNC WITH AD FOR PAP RADIUS ON ".date('l jS \of F Y h:i:s A')."  #########################".PHP_EOL;
 echo "## LISTING GROUP UPR-Ras USERS  ########".PHP_EOL;
 // connect to db 
-mysql_connect("localhost", "radius", "radius2014") or sendFailureMessage(mysql_error());
+mysql_connect("localhost", "root", "freeradius.upr2k18") or sendFailureMessage(mysql_error());
 // select db
 mysql_select_db("radius") or sendFailureMessage(mysql_error()); 
 // empty current records 
