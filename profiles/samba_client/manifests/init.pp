@@ -26,5 +26,22 @@ class samba_client (
     #  class { 'samba':
     #share_definitions => $val       
     #}
-   samba_client::share {$shares_name:}
+    #samba_client::share {$shares_name:}
+
+   $shares = {
+    'shares' => {
+      'comment'     => "'Repositorio de '${shares_name}",
+      'path'        => '/mnt/stuff',
+      'valid users' => [ 'bar', 'bob', '@foo', ],
+      'writable'    => 'yes',
+    },
+    'public' => {
+      'comment'  => 'Public Stuff',
+      'path'     => '/mnt/stuff',
+      'writable' => 'no',
+    },
+  }
+
+  notice($shares)
+
 }
