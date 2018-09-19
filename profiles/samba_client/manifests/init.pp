@@ -42,6 +42,8 @@ class samba_client (
     },
   }
 
-  notice($shares)
+ class { 'samba':
+  shares_definitions => $shares, 
+  }
 
 }
