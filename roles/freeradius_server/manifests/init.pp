@@ -24,7 +24,7 @@ ensure => installed,
 
 include '::mysql::server'
 mysql::db { 'radius':
-user     => 'root',
+user     => 'radius',
 password => 'freeradius.upr2k18',
 host     => 'localhost',
 grant    => ['SELECT', 'INSERT', 'UPDATE', 'DELETE', 'DROP', 'CREATE VIEW', 'CREATE', 'INDEX', 'EXECUTE', 'ALTER'],
