@@ -62,3 +62,11 @@ node 'puppet-test.upr.edu.cu'{
    }
   }
 
+node 'puppet-henry.upr.edu.cu'{
+  class { '::basesys':
+    uprinfo_usage => 'servidor test',
+    application   => 'puppet',
+    repos_enabled => false,
+
+  }
+
