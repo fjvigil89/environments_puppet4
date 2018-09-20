@@ -13,15 +13,18 @@ class samba_client (
   String $browseable                = $::samba_client::params::browseable,
   String $path_nfs                  = $::samba_client::params::path_nfs,
 ) inherits samba_client::params {
-  #$var = $shares_name.each |Integer $index, String $value|{      
+
+
    $var = {
-     $shares_name     =>{
-       'comment'     => "'Repositorio de '${shares_name}",
-       'path'        => '/mnt/stuff',
-       'valid users' => [ 'bar', 'bob', '@foo', ],
-       'writable'    => 'yes',
-       }
-   }
+     #$shares_name.each |Integer $index, String $value|{
+       $value  =>{
+         'comment'     => "'Repositorio de '${shares_name}",
+         'path'        => '/mnt/stuff',
+         'valid users' => [ 'bar', 'bob', '@foo', ],
+         'writable'    => 'yes',
+       },
+     }
+     # }
     
    
   
