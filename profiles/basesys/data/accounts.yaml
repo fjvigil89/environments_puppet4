@@ -47,7 +47,7 @@ basesys::accounts:
     gid: '100'
     tag: 'systemen'
     sshkeys:
-      - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDKKTdmrN3nWu4Z0ida50pr8AjwzHMHetsesy58omhJwMPpfqjDPtK3iI7KRnaJenFY6RKPHFf9Q4MwRZzJQDAyvMObn9lB8M/uPWi8L6mRXQzSUVP48ThlsqNigQsm6PBzH3GllOg4quSHq1JYaHKOEXyQrjLMyMv7Zj/PK7e6s6f+A27342xZ6NoAksZ+mP2dyiE5lTaB2myh4WT+Yj64vdTTqh5dNIZia7qXYNTVrLn2EY4q8eRcm1G6YyZbxBLrnD+0ifpYxDCJwXqNErb22prIZk26HuxLD2+uPmj/auqkW7aQuRuscjGAzc4FH5Qxc690WZ9nEcPMl6b96ji1 yandy@yandy-desktop'      
+      - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDf93JhwknoP9f1NKrvD9Y5ja0JBu8ucpPsZCO+pZUJRHgryeWZb8w+CXQd7VhQnBp0/FtlAT1mroP86BGDmysQ6+u6D26mGPZhhpRX6WK4KKn+8c0OHTmzolY3hiqjiEvMbHaXtlPQWEbUuZHgExGul8f+mWNuoMxG5eUw8ojej7IfKBd2TISqUQA7LFFcWKLOQYKgtxkMn++HaLKJYX+dFgVoBf76hkPsdTAxs8WESlLkgR7nqdt1zIAdMUe1RbCEOwYgY7YjxntJEECi4pO/RVOcB04LLAAMrloP6gqhMI9LtnktkeLdOcuko/PYGcACUVGRRQChxVoLJ0u5X63p yandy@yandy-desktop' 
   'luis.mendez':
     comment: 'Luis Mendez'
     uid: '512'
@@ -57,6 +57,16 @@ basesys::accounts:
     locked: true
     sshkeys:
       - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDIExJZjyIG5pDhLetMCLovrancKnhbxDyVZCIkyt2vaknzDiYHTRmSvFZ3RZWP0eVA15HLIjxtpGWPSxfKkuDDrr/i/pp6A7h0WSw5zLZrvU6R9O2s7C37+ila5bBlGhQ3HAuQwuJ9IgUdiXwwh2C7bM/zOgLBX3qca/yyDzKC+hI3nSuh7f0s7LH0GMBKQ+YXJlDs9F0EAOBDEOp2FRerVfkxsAmIJwomCN4oy5rm1TZQ7FsFI8zekmmAm+IiwKk94INI3oCPfs9eMbwGfnifTvaQ92zO7CM5czdKc9AP1JzicFOdzDolsNgwvLzGXbsMSg4mBqTnOwVLgJoRi6rJhkt7rdFBKswr4tdiYVTgR5QhsYupPFsQVoWrmSP0W1Qs6Ru+UqLeffbxtqN65T0f3p4Q4wfAsSFJXR08rk/SG9ouDItPPfRE6AG0lO9GTvG3xGvflwQA+WTejTcMrCaSej5/WM1KIiHxelfdPGS5UX+ewfBNAz8XMAe2IYHRuIMLNwUYj9VCw1uki3evmbPv4VpfGDN0ftkOALjQRVsFb33vX/MWtM5zXKl0hJfZRU+xT66GAU5nOnPiCW9VCP+EikeGmR0I+1exfJ9OjvIm/ZBqykL4SdT6oQgexcJPmYELeb4tJncuGjWp47nBxGoBrJAuUmnUd/lq3TKIsV7QiQ=='
+  'henry':
+    comment: 'Henry Fleita'
+    uid: '515'
+    manage_primary_group: false
+    gid: '100'
+    tag: 'systemen'
+    locked: true
+    sshkeys:
+      - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC+KWlgf6YAfDtFcvYYLIGexkyUUhAqVamXE3FvPbeLsawci652yXj5ZMOQBZfaeEuU+arvkoQfRo8dsWmiIkM3btQwSjg1JiH53cw/egxDimtPTBCErJJtmypoDedzvZWKP2DhHIKY3SSWwVR1UN79YMK7eSNFU61jTBptkh2dOttHo8sqrb0BdYZR4zVC7ZulKedGZk2BmyvSs84OoDpUZSyTD+WcKONE1FzHfcBIBXHl4OMlEbyNZjKZ+dLkA4UT8wWzNPEZjHa5yjKMpbKTxBz/BHfa7i6Li87QIHar78Cjq22lzb1MZTTO64w8Dt0Wu/PCMK1sU0rJfGOP5NW0AV+Lg21tqh+xGkL6grSqd4pEWLCapqB7N2cK6WwqkDyNULTybcRfiCtL8p00udBVIcTJz3JF/vgnArui2tGqNk5AvuW53MMskaIczxzEbkdDXDQPEoa6UghZU9xU01DMSCxvN8q0pfApSC6sx9BZlB9U6n4xcIgUofpe9G6v96A9gdMof9MWWTyyr0bRWqY00SFr05LUw1PvJEGnLlUYFdOPO9oKB6XzixiGUl1DIxQIOiR/g7l1omrWfWWpfV24kqyQP6175tRpR/FQgW4Ys1sB9F2bCCnDd4Ivl0Ht+ej5FfgDcOACU/ov9wBf07+4o/v7L/DNjorSw038arVJUw== henry@henry-HP-Pavilion-Notebook'      
+
       
 
 
