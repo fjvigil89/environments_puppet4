@@ -80,9 +80,9 @@ $con = @mysqli_connect("localhost", "root", "freeradius.upr2k18");
 	}
 	else{
 		// select db
-		mysqli_select_db("radius"); 
+		mysqli_select_db($con,"radius"); 
 		// empty current records 
-		mysqli_query("delete FROM radcheck WHERE attribute='Calling-Station-Id'"); 
+		mysqli_query($con,"delete FROM radcheck WHERE attribute='Calling-Station-Id'"); 
 
 $total = 0;
 $full = getMembers('CN=UPR-Ras,OU=_Gestion,DC=upr,DC=edu,DC=cu');
@@ -93,7 +93,7 @@ foreach ($full as $p){
     $phones =explode(',', $p['phones']);
     foreach ($phones as $ph){
     	if (!$ph || empty($ph)) continue;
-        mysqli_query(sprintf("insert into radcheck (username, attribute, op, value ) VALUES ('%s','Calling-Station-Id','+=','%s')", $p['username'],$ph))
+        mysqli_query($con,"insert into radcheck (username, attribute, op, value ) VALUES ('$p[username]','Calling-Station-Id','+=','$ph')" )
         or sendFailureMessage(mysqli_connect_error()); 
         echo sprintf('Pushing to db user %s with phone %s', $p['username'],$ph).PHP_EOL; // taking to console some logs 
         $total++;
