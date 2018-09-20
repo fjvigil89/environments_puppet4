@@ -122,6 +122,34 @@ firewall {
     dport  => '443',
     proto  => 'tcp',
     action => 'accept';
+
+  '135 accept samba':
+    dport  => '135',
+    proto  => 'tcp',
+    action => 'accept';
+
+  '139 accept samba':
+    dport  => '139',
+    proto  => 'tcp',
+    action => 'accept';
+
+  '445 accept samba':
+    dport  => '445',
+    proto  => 'tcp',
+    action => 'accept';
+
+  '137 accept samba':
+    dport  => '137',
+    proto  => 'udp',
+    action => 'accept';
+
+  '138 accept samba':
+    dport  => '138',
+    proto  => 'udp',
+    action => 'accept';
+
+
+
 }
 
 
