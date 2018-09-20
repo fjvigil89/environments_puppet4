@@ -4,7 +4,7 @@
 # Full description of class freedaruis_server here.
 #
 class freeradius_server ( 
-  Array[String] $package = $::freeradius_server::params::$package,
+  Array[String] $package = $::freeradius_server::params::package,
   String $conf_path      = $::freeradius_server::params::conf_path, 
 
 )inherits freeradius_server::params {
