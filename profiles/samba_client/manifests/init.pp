@@ -21,14 +21,16 @@ class samba_client (
      interfaces    => "eth0 lo",
      security      => 'share'
    }
-
-   samba::server::share {'ri-storage':
-     comment           => 'RBTH User Storage',
-     path              => "$path_nfs",
+  
+  $shares_name.each |Integer $index, String $value|{
+   samba::server::share {"$value":
+     comment           => "Repositorio de ${value}",
+     path              => "${path_nfs}${value}",
      browsable         => $browseable,
-     writable          => writable,
+     writable          => $writable,
      create_mask       => 0770,
      directory_mask    => 0770,
-   } 
+   }
+  }
 
 }
