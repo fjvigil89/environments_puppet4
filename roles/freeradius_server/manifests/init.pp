@@ -8,7 +8,7 @@ class freeradius_server (
   String $conf_path      = $::freeradius_server::params::conf_path, 
 
 )inherits freeradius_server::params {
-  {'::freeradius_server::conf':;}
+ class {'::freeradius_server::conf':;}
   package { $package:
     ensure => installed,
   }
