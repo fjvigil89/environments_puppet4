@@ -15,21 +15,20 @@ class samba_client (
 ) inherits samba_client::params {
 
 
-   $var = {
-     #$shares_name.each |Integer $index, String $value|{
-       $value  =>{
-         'comment'     => "'Repositorio de '${shares_name}",
-         'path'        => '/mnt/stuff',
-         'valid users' => [ 'bar', 'bob', '@foo', ],
-         'writable'    => 'yes',
-       },
-     }
-     # }
-    
-   
-  
-  class { 'samba':
-   shares_definitions => $var, 
-  }
+   class {'samba::server':
+     workgroup     => 'example',
+     server_string => "Example Samba Server",
+     interfaces    => "eth0 lo",
+     security      => 'share'
+   }
+
+   samba::server::share {'ri-storage':
+     comment           => 'RBTH User Storage',
+     path              => "$path_nfs",
+     browsable         => $browseable,
+     writable          => writable,
+     create_mask       => 0770,
+     directory_mask    => 0770,
+   } 
 
 }
