@@ -16,6 +16,12 @@ class nfs_sc (
   String $nfs_mount  = $::nfs_sc::params::nfs_mount,
 ) inherits ::nfs_sc::params {
   if($nfs_client_enabled){
+        file { "${nfs_mount}" :
+          ensure => 'directory',
+          owner  => 'root',
+          mode   => '2777',
+        }
+
        class {'::nfs':
          server_enabled      => $nfs_server_enabled,
          client_enabled      => $nfs_client_enabled,
@@ -27,6 +33,7 @@ class nfs_sc (
          share  => $nfs_share,
          ensure => 'mounted',
        }
+
   }
 
 }
