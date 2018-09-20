@@ -4,18 +4,18 @@
 # Full description of class freedaruis_server::conf here.
 #
 class freeradius_server::conf { 
-  file {"$conf_path/mods-enabled/sql":
+  file {"${::freeradius_server::params::conf_path}/mods-enabled/sql":
     ensure => 'link',
-    target => "${conf_path}/mods-available/sql",
+    target => "${::freeradius_server::params::conf_path}/mods-available/sql",
   }
-  file { "${conf_path}/sites-available/default":
+  file { "${::freeradius_server::params::conf_path}/sites-available/default":
     ensure => file,
     owner  => 'freerad',
     group  => 'freerad',
     mode   => '0640',
     source => 'puppet:///modules/freeradius_server/conf/default',
   }
-  file { "${conf_path}/mods-available/sql":
+  file { "${$::freeradius_server::params::conf_path}/mods-available/sql":
     ensure => file,
     owner  => 'freerad',
     group  => 'freerad',
