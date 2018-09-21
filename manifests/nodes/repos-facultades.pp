@@ -8,27 +8,6 @@ node 'repos-fact.upr.edu.cu' {
     mta_enabled    => false,
   }
 
-  #file { "/repositorio" :
-  #	ensure => 'directory',
-  #	owner  => 'root',
-  #	mode   => '2777',
-  #}
-
-  #mount {'/repositorio':
-  #	device  => '10.2.25.1:/export/repos_facultades',
-  #	fstype  => 'nfs4',
-  #	ensure  => 'mounted',
-  #	options => 'default',
-  #	atboot  => true,
-  #}  
-
-
-  class {'::nfs_client':
-     nfs_server     => '10.2.25.1',
-     nfs_share      => 'export/repos_facultades',
-     nfs_mount      => '/repositorio',
-     nfs_v4_client => true,
-  }
 
   class { '::sambarepos_server':
      shares_name     => ['Informatica','Telecomunicaciones','Geologia','Mecanica','Fisica','DBIA','VLIR','PEIEL'],
