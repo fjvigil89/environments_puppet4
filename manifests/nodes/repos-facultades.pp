@@ -1,12 +1,10 @@
 node 'repos-facultades.upr.edu.cu' {
 
-  #class { '::basesys':
-  #  uprinfo_usage  => 'servidor Repos Facultad',
-  #  application    => 'Repos Server UPR',
-  #  puppet_enabled => false,
-  #  repos_enabled  => true,
-  #  mta_enabled    => false,
-  # }
+  class { '::basesys':
+    uprinfo_usage  => 'servidor Repos Facultad',
+    application    => 'Repos Server UPR',
+    mta_enabled    => false,
+   }
 # Configure firewall settings
 resources {'firewall': purge => true,}
 firewall {
