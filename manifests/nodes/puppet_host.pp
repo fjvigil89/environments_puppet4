@@ -33,7 +33,7 @@ node 'client-puppet.upr.edu.cu'{
 }
 
 
-node 'puppet-test.upr.edu.cu'{
+node 'test.upr.edu.cu'{
   package { 'lsb-release':
           ensure => installed,
   }~>
