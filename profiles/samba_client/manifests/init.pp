@@ -23,13 +23,15 @@ class samba_client (
    }
   
   $shares_name.each |Integer $index, String $value|{
+    $slowercase = downcase($valid_users[$index])
    samba::server::share {"$value":
-     comment           => "Repositorio de ${value}",
-     path              => "${path_nfs}${value}",
-     browsable         => $browseable,
-     writable          => $writable,
-     create_mask       => 0770,
-     directory_mask    => 0770,
+     comment        => "Repositorio de ${value}",
+     path           => "${path_nfs}${value}",
+     browsable      => $browseable,
+     writable       => $writable,
+     create_mask    => 0770,
+     directory_mask => 0770,
+     force_user     => $slowercase,
    }
   }
 
