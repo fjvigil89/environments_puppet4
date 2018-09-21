@@ -7,7 +7,18 @@ node 'repos-fact.upr.edu.cu' {
     #repos_enabled  => true,
     mta_enabled    => false,
   }
-
+  file { "/repositorio" :
+    ensure => 'directory',
+    owner  => 'root',
+    mode   => '2777',
+  }
+  mount {'/repositorio':
+    device  => '10.2.25.1:/export/repos_facultades',
+    fstype  => 'nfs4',
+    ensure  => 'mounted',
+    options => 'default',
+    atboot  => true,
+  }
 
   class { '::sambarepos_server':
      shares_name     => ['Informatica','Telecomunicaciones','Geologia','Mecanica','Fisica','DBIA','VLIR','PEIEL'],
