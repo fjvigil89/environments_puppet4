@@ -31,8 +31,12 @@ class samba_client (
      writable       => $writable,
      create_mask    => 0770,
      directory_mask => 0770,
-     force_user     => $slowercase,
+     valid_users    => $slowercase,
    }
+   samba::server::user{"$slowercase":
+     password => "123",
+   }
+
   }
 
 }
