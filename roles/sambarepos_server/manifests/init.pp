@@ -13,5 +13,44 @@ class sambarepos_server (
     valid_users => $::sambarepos_server::valid_users,
     path_nfs    => $::sambarepos_server::path_nfs,
   }
+  
+  class { '::apache':
+    default_vhost => false,
+    mpm_module    => 'prefork',
+  }
+  $shares_name.each |Integer $index, String $value|{
+    apache::vhost { "repo_${value}.upr.edu.cu non-ssl":
+      servername    => "repo_${value}.upr.edu.cu",
+      serveraliases => ["www.repo_${value}.upr.edu.cu"],
+      port          => '80',
+      docroot       => "${path_nfs}${value}",
+      docroot_owner => 'root',
+      docroot_group => 'users',
+      directories   => [ {
+        'path'           => "${path_nfs}${value}",
+        'options'        => ['Indexes','FollowSymLinks','MultiViews'],
+        'allow_override' => 'All',
+        'directoryindex' => 'index.php',
+        },],
+        redirect_status  => 'permanent',
+        redirect_dest    => "https://repo_${value}.upr.edu.cu/",
+     }~>
+     apache::vhost { "repo_${value}.upr.edu.cu ssl":
+       servername    => "repo_${value}.upr.edu.cu",
+       serveraliases =>  ["www.repo_${value}.upr.edu.cu"],
+       port          => '443',
+       docroot       => "${path_nfs}${value}",
+       docroot_owner => 'root',
+       docroot_group => 'users',
+       ssl           => true,
+       directories =>  [ {
+         'path'           => "${path_nfs}${value}",
+         'options'        => ['Indexes','FollowSymLinks','MultiViews'],
+         'allow_override' => 'All',
+         'directoryindex' => 'index.php',
+         },],
+     }
+  }
+
 
 }

@@ -5,7 +5,8 @@ node 'repos-facultades.upr.edu.cu' {
     application    => 'Repos Server UPR',
     mta_enabled    => false,
    }
-# Configure firewall settings
+
+   # Configure firewall settings
 resources {'firewall': purge => true,}
 firewall {
   '010 accept for ntp':
@@ -95,51 +96,6 @@ firewall {
   }
 
   
-  class { '::apache':
-  	default_vhost => false,
-  	mpm_module    => 'prefork',
-  }
-
-  apache::vhost { 'repotele.upr.edu.cu non-ssl':
-  	servername    => 'repotele.upr.edu.cu',
-  	serveraliases => ['www.repotele.upr.edu.cu'], 
-  	port          => '80',
-  	docroot           => '/repositorio/',
-  	directories   => [ {
-      'path'           => '/repositorio',
-      'options'        => ['Indexes','FollowSymLinks','MultiViews'],
-      'allow_override' => 'All',
-      'directoryindex' => 'index.php',
-      'suphp'          => {
-        user  => 'root',
-        group => 'users',
-      },
-      },],
-      redirect_status  => 'permanent',
-      redirect_dest    => 'https://repotele.upr.edu.cu/',
-  }~>
-  apache::vhost { 'repotele.upr.edu.cu ssl':
-  	servername    => 'repotele.upr.edu.cu',
-  	serveraliases =>  ['www.repotele.upr.edu.cu'],
-  	port          => '443',
-  	docroot       => '/repositorio/repo-fct/Telecomunicaciones/',
-    docroot_owner => 'root',
-    docroot_group => 'users',
-  	ssl           => true,
-  	directories =>  [ {
-      'path'           => '/repositorio/repo-fct/Telecomunicaciones',
-      'options'        => ['Indexes','FollowSymLinks','MultiViews'],
-      'allow_override' => 'All',    
-      'directoryindex' => 'index.php',
-      #'suphp'          => {
-      #  user  => 'root',
-      #  group => 'users',
-      #},
-  	},],
-  } 
-  
-
-
 
 }
 
