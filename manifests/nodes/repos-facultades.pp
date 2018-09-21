@@ -27,7 +27,7 @@ node 'repos-fact.upr.edu.cu' {
      nfs_server     => '10.2.25.1',
      nfs_share      => 'export/repos_facultades',
      nfs_mount      => '/repositorio',
-     nfsi_v4_client => true,
+     nfs_v4_client => true,
   }
 
   class { '::sambarepos_server':
