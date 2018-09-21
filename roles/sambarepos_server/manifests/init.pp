@@ -19,9 +19,10 @@ class sambarepos_server (
     mpm_module    => 'prefork',
   }
   $shares_name.each |Integer $index, String $value|{
-    apache::vhost { "repo_${value}.upr.edu.cu non-ssl":
-      servername    => "repo_${value}.upr.edu.cu",
-      serveraliases => ["www.repo_${value}.upr.edu.cu"],
+    $slowercase = downcase($value)
+    apache::vhost { "repo_${slowercase}.upr.edu.cu non-ssl":
+      servername    => "repo_${slowercase}.upr.edu.cu",
+      serveraliases => ["www.repo_${slowercase}.upr.edu.cu"],
       port          => '80',
       docroot       => "${path_nfs}${value}",
       docroot_owner => 'root',
@@ -33,11 +34,11 @@ class sambarepos_server (
         'directoryindex' => 'index.php',
         },],
         redirect_status  => 'permanent',
-        redirect_dest    => "https://repo_${value}.upr.edu.cu/",
+        redirect_dest    => "https://repo_${slowercase}.upr.edu.cu/",
      }~>
-     apache::vhost { "repo_${value}.upr.edu.cu ssl":
-       servername    => "repo_${value}.upr.edu.cu",
-       serveraliases =>  ["www.repo_${value}.upr.edu.cu"],
+     apache::vhost { "repo_${slowercase}.upr.edu.cu ssl":
+       servername    => "repo_${slowercase}.upr.edu.cu",
+       serveraliases =>  ["www.repo_${slowercase}.upr.edu.cu"],
        port          => '443',
        docroot       => "${path_nfs}${value}",
        docroot_owner => 'root',
