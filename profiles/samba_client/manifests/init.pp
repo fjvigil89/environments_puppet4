@@ -1,4 +1,4 @@
-## Class: samba_client
+# Class: samba_client
 # ===========================
 #
 # Configuration  of class samba_client here.
