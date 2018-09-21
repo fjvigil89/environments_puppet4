@@ -4,7 +4,6 @@ node 'client-puppet.upr.edu.cu'{
     uprinfo_usage => 'servidor test',
     application   => 'puppet',  
     repos_enabled => false, 
-     
   }
   #class { '::letsencrypt_host':
   #email => 'fjvigil@hispavista.com',
@@ -67,15 +66,15 @@ node 'puppet-henry.upr.edu.cu'{
     uprinfo_usage => 'servidor test',
     application   => 'puppet',
     repos_enabled => false,
-  }
-
-  class talk_prodserver{
-    $user           = 'prosody'
-    $group          = 'prosody'
-    $authentication = 'ldap'
-    $ldap_base      = '"DC=upr,DC=edu,DC=cu"'
-    $ldap_server    = '"ad.upr.edu.cu:636"'
-    $ldap_rootdn    = '"DN=talk,OU=_Servicios,DC=upr,DC=edu,DC=cu"'
-    $ldap_password  = '"40a*talk.2k12"'
+  }  
+  #class {'::talkserver':;}
+  class {'talk_prodserver':
+    user           => 'prosody',
+    group          => 'prosody',
+    authentication => 'ldap',
+    ldap_base      => '"DC=upr,DC=edu,DC=cu"',
+    ldap_server    => '"ad.upr.edu.cu:636"',
+    ldap_rootdn    => '"DN=talk,OU=_Servicios,DC=upr,DC=edu,DC=cu"',
+    ldap_password  => '"40a*talk.2k12"',
   }
 }
