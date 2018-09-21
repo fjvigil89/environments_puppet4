@@ -1,4 +1,4 @@
-node 'repos-fact.upr.edu.cu','puppet-test.upr.edu.cu' {
+node 'repos-facultades.upr.edu.cu' {
 
   #class { '::basesys':
   #  uprinfo_usage  => 'servidor Repos Facultad',
