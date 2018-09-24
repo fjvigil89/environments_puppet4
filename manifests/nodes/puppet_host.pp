@@ -61,14 +61,10 @@ node 'puppet-test.upr.edu.cu'{
    }
   }
 
-node 'puppet-henry.upr.edu.cu'{
-  class { '::basesys':
-    uprinfo_usage => 'servidor test',
-    application   => 'puppet',
-    repos_enabled => false,
-  }  
-  #class {'::talkserver':;}
-  class {'talk_prodserver':
+node 'puppet-henry.upr.edu.cu'{  
+  #Clase Talk_Server
+  
+  class {'talkserver':
     user           => 'prosody',
     group          => 'prosody',
     authentication => 'ldap',
