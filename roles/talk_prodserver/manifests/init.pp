@@ -19,7 +19,7 @@ class { '::talkserver':
   authentication => $::talkserver::params::authentication,
   ldap_base      => $::talkserver::params::ldap_base,
   ldap_server    => $::talkserver::params::ldap_server,
-  ldap_rootdn    => $::talkserver::params::ldaprootdn,
+  ldap_rootdn    => $::talkserver::params::ldap_rootdn,
   ldap_password  => $::talkserver::params::ldap_password,
 }
 }

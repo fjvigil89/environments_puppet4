@@ -10,7 +10,7 @@ class talkserver (
   String $authentication    = $::talkserver::params::authentication,
   String $ldap_base         = $::talkserver::params::ldap_base,
   String $ldap_server       = $::talkserver::params::ldap_server,
-  String $ldap_rootdn       = $::talkserver::params::ldaprootdn,
+  String $ldap_rootdn       = $::talkserver::params::ldap_rootdn,
   String $ldap_password     = $::talkserver::params::ldap_password,
 )
 inherits talkserver::params {
