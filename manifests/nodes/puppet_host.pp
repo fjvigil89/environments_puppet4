@@ -61,7 +61,9 @@ node 'puppet-test.upr.edu.cu'{
    }
   }
 node 'puppet-henry.upr.edu.cu'{
-  class { '::talk_prodserver':
+  include talk_proderver
+
+  class { 'talk_prodserver':
     user           => 'prosody',
     group          => 'prosody',
     authentication => 'ldap',
