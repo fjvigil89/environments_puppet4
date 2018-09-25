@@ -61,7 +61,10 @@ node 'puppet-test.upr.edu.cu'{
    }
   }
 node 'puppet-henry.upr.edu.cu'{
-  include talk_prodserver
+  package { 'lsb-release':
+    ensure => installed,
+  }
+  #include talk_prodserver
 
   # class { 'talkserver':
   #   user           => 'prosody',

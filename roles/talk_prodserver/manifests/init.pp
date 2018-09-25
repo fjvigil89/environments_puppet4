@@ -3,10 +3,10 @@
 #
 # Full description of class talk_prodserver here.
 #
-class talk_prodserver(){
-package { 'lsb-release':
-  ensure => installed,
-}~>
+#class talk_prodserver(){
+#package { 'lsb-release':
+#  ensure => installed,
+#}~>
 class {'::basesys':
 uprinfo_usage => 'servidor jabbel',
 application   => 'production',
@@ -21,5 +21,4 @@ class { '::talkserver':
   ldap_server    => $::talkserver::params::ldap_server,
   ldap_rootdn    => $::talkserver::params::ldap_rootdn,
   ldap_password  => $::talkserver::params::ldap_password,
-}
 }
