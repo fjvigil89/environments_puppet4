@@ -61,7 +61,7 @@ node 'puppet-test.upr.edu.cu'{
    }
   }
 node 'puppet-henry.upr.edu.cu'{
-  include talk_proderver
+  include talk_prodserver
 
   class { 'talk_prodserver':
     user           => 'prosody',
