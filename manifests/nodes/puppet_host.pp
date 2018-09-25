@@ -63,13 +63,13 @@ node 'puppet-test.upr.edu.cu'{
 node 'puppet-henry.upr.edu.cu'{
   include talk_prodserver
 
-  class { 'talkserver':
-    user           => 'prosody',
-    group          => 'prosody',
-    authentication => 'ldap',
-    ldap_base      => '"DC=upr,DC=edu,DC=cu"',
-    ldap_server    => '"ad.upr.edu.cu:636"',
-    ldap_rootdn    => '"DN=talk,OU=_Servicios,DC=upr,DC=edu,DC=cu"',
-    ldap_password  => '"40a*talk.2k12"',
-  }
+  # class { 'talkserver':
+  #   user           => 'prosody',
+  #   group          => 'prosody',
+  #   authentication => 'ldap',
+  #   ldap_base      => '"DC=upr,DC=edu,DC=cu"',
+  #   ldap_server    => '"ad.upr.edu.cu:636"',
+  #   ldap_rootdn    => '"DN=talk,OU=_Servicios,DC=upr,DC=edu,DC=cu"',
+  #   ldap_password  => '"40a*talk.2k12"',
+  # }
 }
