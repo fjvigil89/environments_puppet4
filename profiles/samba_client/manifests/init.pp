@@ -14,6 +14,7 @@ class samba_client (
   String $path_nfs                  = $::samba_client::params::path_nfs,
 ) inherits samba_client::params {
 
+  
 
    class {'samba::server':
      workgroup     => 'example',
@@ -33,9 +34,9 @@ class samba_client (
      directory_mask => 0770,
      valid_users    => $slowercase,
    }
-   samba::server::user{"$slowercase":
+   user {"$slowercase":
      user_name => $slowercase,
-     password  => "123",
+     password  => "!!",
    }
 
   }
