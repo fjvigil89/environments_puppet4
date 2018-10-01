@@ -33,8 +33,8 @@ class sambarepos_server (
         'allow_override' => 'All',
         'directoryindex' => 'index.php',
         },],
-        # redirect_status  => 'permanent',
-        #redirect_dest    => "https://repo-${slowercase}.upr.edu.cu/",
+        redirect_status  => 'permanent',
+        redirect_dest    => "https://repo-${slowercase}.upr.edu.cu/",
      }~>
      apache::vhost { "repo-${slowercase}.upr.edu.cu ssl":
        servername    => "repo-${slowercase}.upr.edu.cu",
