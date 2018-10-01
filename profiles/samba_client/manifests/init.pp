@@ -35,8 +35,8 @@ class samba_client (
      valid_users    => $slowercase,
    }
    user {"$slowercase":
-     user_name => $slowercase,
-     password  => "!!",
+     ensure   => present,
+     password => "!!",
    }
 
   }
