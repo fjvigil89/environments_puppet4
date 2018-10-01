@@ -85,4 +85,17 @@ class wh_php_apache {
     hour    => [20],
   }
 
+ cron {'sync_upr_GrupoPassword':
+   ensure  => present,
+   command => 'wget -q -d  --no-check-certificate "https://sync.upr.edu.cu/password/ADD" > /var/log/sync_upr_GrupoPassword.log',
+   hour    => [11],
+ }
+
+ cron {'sync_upr_GrupoPassword':
+   ensure  => present,
+   command => 'wget -q -d  --no-check-certificate "https://sync.upr.edu.cu/password/REMOVE" > /var/log/sync_upr_GrupoPassword.log',
+   hour    => [14],
+ }
+
+
 }
