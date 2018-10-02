@@ -37,7 +37,7 @@ prosody::virtualhost {
 }
 
 prosody::user { 'admin':
-  host => 'chat.upr.edu.cu',
+  host => 'upr.edu.cu',
   pass => 'admin',
   }
 }
