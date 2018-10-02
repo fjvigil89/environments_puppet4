@@ -6,10 +6,11 @@
 
 class samba_client::params {
   
-  $shares_comment = 'Share Stuff'
-  $shares_name    = 'Share'
-  $shares_path    = '/mnt'
+  $shares_comment = 'Respos de '
+  $shares_name    = []
+  $shares_path    = ['/mnt']
   $valid_users    = ['user1','user2',]
   $writable       = 'yes'
   $browseable     = 'yes'
+  $path_nfs       = '/repositorio/repo-fct/'
 }

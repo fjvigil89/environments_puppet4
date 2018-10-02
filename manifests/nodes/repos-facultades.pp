@@ -21,13 +21,10 @@ node 'repos-fact.upr.edu.cu' {
   	atboot  => true,
   }  
 
-  class { '::samba_client':
-     shares_name    => 'Tele',
-     shares_comment => 'Repositorio de Tele',
-     shares_path    => '/repositorio/repo-fct/Telecomunicaciones/',
-     valid_users    => ['tele',],
-     writable       => 'yes',
-     browseable     => 'yes',
+  class { '::sambarepos_server':
+     shares_name     => ['Informatica','Telecomunicaciones','Geologia','Mecanica','Fisica','DBIA','VLIR','PEIEL'],
+     valid_users     => ['info','tele','geo','meca','fisica','dbia','vlir','peiel'],
+     path_nfs        => '/repositorio/repo-fct/',
   }
 
   
