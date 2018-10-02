@@ -16,7 +16,7 @@ class { '::logrotate':
   ensure => 'latest',
   config => {
     dateext      => true,
-    compress     => $compress,
+    compress     => true,
     rotate       => 5,
     rotate_every => 'week',
     ifempty      => true,
