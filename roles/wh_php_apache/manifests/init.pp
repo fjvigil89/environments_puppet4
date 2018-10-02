@@ -94,7 +94,7 @@ class wh_php_apache {
  cron {'sync_upr_REMOVEGrupoPassword':
    ensure  => present,
    command => 'wget -q -d  --no-check-certificate "https://sync.upr.edu.cu/password/REMOVE" > /var/log/sync_upr_GrupoPassword.log',
-   hour    => [14],
+   hour    => [15],
  }
 
 
