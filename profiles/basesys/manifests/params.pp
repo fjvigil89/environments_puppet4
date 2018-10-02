@@ -18,7 +18,7 @@ class basesys::params {
 
 
   # Postfix
-  $mta_enabled		 = false
+  $mta_enabled		       = false
   $root_alias            = 'master@upr.edu.cu'
   $postmaster            = 'master@upr.edu.cu'
   $inet_interfaces       = 'loopback-only'
@@ -27,7 +27,10 @@ class basesys::params {
   
   #monitoring
   $monitoring_enabled = true
-
+  
+  #Proxmox
+  $proxmox_enabled    = false
+  
   #repos 
   $repos = true
 
