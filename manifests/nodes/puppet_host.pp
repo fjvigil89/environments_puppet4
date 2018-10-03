@@ -33,7 +33,7 @@ node 'client-puppet.upr.edu.cu'{
 }
 
 
-node 'test.upr.edu.cu'{
+node 'puppet-test.upr.edu.cu'{
   package { 'lsb-release':
           ensure => installed,
   }~>
@@ -41,7 +41,14 @@ node 'test.upr.edu.cu'{
     uprinfo_usage => 'servidor test',
     application   => 'puppet',
   }
-  include freeradius_server 
+  class {'::serv_logrotate':
+    compress         => true, 
+    filelog_numbers  => 5,
+    rotate_frecuency => 'week',
+    rule_list        => ['messages', 'apache'],
+    log_path         => ['/var/log/messages', '/var/log/apache2/*.log'],
+  }
+  #include freeradius_server 
   #include nfs_client
    #class {'::firewallprod':
    #  hosts_todrop   => ['111.111.111.111', '50.138.112.159', '31.220.16.147'],
@@ -50,5 +57,6 @@ node 'test.upr.edu.cu'{
    #  chain_to       => 'to-reduniv',
    #  open_ports     => [8080,443,53,22],
    #}
+
   }
 
