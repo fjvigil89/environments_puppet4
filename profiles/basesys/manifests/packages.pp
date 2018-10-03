@@ -49,6 +49,11 @@ class basesys::packages {
       $qmu_agent = ['qemu-guest-agent']
       ensure_packages($qmu_agent)
     }
+    #Apparmor Proxmox 5.1 problem
+    if($::basesys::proxmox_enabled == true ){
+      $apparmor_proxmox = ['apparmor-profiles', 'apparmor-profiles-extra', 'apparmor-utils']
+      ensure_packages($apparmor_proxmox)
+    }
     case $::operatingsystem {
       'Debian', 'Ubuntu': {
 
@@ -65,7 +70,7 @@ class basesys::packages {
           'utopic'  => [ 'cpp-doc','gcc-doc', 'automake1.4' ],
           'vivid'   => [ 'cpp-doc','gcc-doc', 'automake1.4' ],
           'xenial'  => [ 'cpp-doc','gcc-doc'],
-          'bionic'  => ['cpp-doc','gcc-doc'],
+          'bionic'  => [ 'cpp-doc','gcc-doc'],
           'jessie'  => [ 'gcc-doc-base', 'automake1.11', 'jq'],          
           default   => [ 'gcc-doc-base'],
         }

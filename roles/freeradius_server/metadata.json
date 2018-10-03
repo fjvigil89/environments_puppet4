@@ -1,8 +1,8 @@
 {
-  "name": "nfs-sc",
+  "name": "arian-freedaruis_server",
   "version": "0.1.0",
-  "author": "Arian Trujillo Díaz",
-  "summary": "Configure NFS Server & client",
+  "author": "arian",
+  "summary": null,
   "license": "Apache-2.0",
   "source": "",
   "project_page": null,

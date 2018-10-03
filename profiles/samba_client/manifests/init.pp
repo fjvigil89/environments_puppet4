@@ -1,4 +1,4 @@
-# Class: samba_client
+## Class: samba_client
 # ===========================
 #
 # Configuration  of class samba_client here.
@@ -14,22 +14,31 @@ class samba_client (
   String $path_nfs                  = $::samba_client::params::path_nfs,
 ) inherits samba_client::params {
 
-
-   $var = {
-     #$shares_name.each |Integer $index, String $value|{
-       $value  =>{
-         'comment'     => "'Repositorio de '${shares_name}",
-         'path'        => '/mnt/stuff',
-         'valid users' => [ 'bar', 'bob', '@foo', ],
-         'writable'    => 'yes',
-       },
-     }
-     # }
-    
-   
   
-  class { 'samba':
-   shares_definitions => $var, 
+
+   class {'samba::server':
+     workgroup     => 'example',
+     server_string => "Example Samba Server",
+     interfaces    => "eth0 lo",
+     security      => 'share'
+   }
+  
+  $shares_name.each |Integer $index, String $value|{
+    $slowercase = downcase($valid_users[$index])
+   samba::server::share {"$value":
+     comment        => "Repositorio de ${value}",
+     path           => "${path_nfs}${value}",
+     browsable      => $browseable,
+     writable       => $writable,
+     create_mask    => 0770,
+     directory_mask => 0770,
+     valid_users    => $slowercase,
+   }
+   user {"$slowercase":
+     ensure   => present,
+     password => "!!",
+   }
+
   }
 
 }

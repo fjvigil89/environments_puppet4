@@ -3,10 +3,10 @@ node /^nodo\d+$/ {
           ensure => installed,
   }~>
   class { '::basesys':
-    uprinfo_usage  => 'servidor de Servicios',
-    application    => 'Proxmox Servicios',
-    puppet_enabled => false,
-    repos_enabled  => true,
-    mta_enabled    => false,
+    uprinfo_usage   => 'servidor de Servicios',
+    application     => 'Proxmox Servicios',
+    proxmox_enabled => true,
+    repos_enabled   => true,
+    mta_enabled     => false,
   }
 }

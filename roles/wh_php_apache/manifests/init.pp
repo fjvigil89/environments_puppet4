@@ -31,24 +31,24 @@ class wh_php_apache {
   cron{'sync_upr_NoDocentes':
     ensure  => present,
     command => 'wget -q -d  --no-check-certificate "https://sync.upr.edu.cu/saber_ldap/NoDocentes" > /var/log/sync_upr_NoDocentes.log',
-    hour    => ['2'],
+    hour    => ['14'],
   }
   
   cron{'sync_upr_Docentes':
   ensure  => present,
   command => 'wget -q -d  --no-check-certificate "https://sync.upr.edu.cu/saber_ldap/Docentes" > /var/log/sync_upr_Docentes.log',
-  hour    => ['3'],
+  hour    => ['15'],
   }
   cron{'sync_upr_Bajas':
   ensure  => present,
   command => 'wget -q -d  --no-check-certificate "https://sync.upr.edu.cu/actualizar_bajas_profesores" > /var/log/sync_upr_Bajas.log',
-  hour    => ['1'],
+  hour    => ['13'],
   }
  
   cron{'sync_upr_User_Bajas':
   ensure  => present,
   command => 'wget -q -d  --no-check-certificate "https://sync.upr.edu.cu/saber_ldap/Bajas" > /var/log/sync_upr_User_Bajas.log',
-  hour    => ['4'],
+  hour    => ['16'],
   }
   
   cron{'sync_upr_Actualizar_OU':
@@ -70,19 +70,32 @@ class wh_php_apache {
   cron{'sync_upr_UPRedes':
     ensure  => present,
     command => 'wget -q -d  --no-check-certificate "https://sync.upr.edu.cu/upredes" > /var/log/sync_upr_UPRedes.log',
-    hour    => [5],
+    hour    => [17],
   }
 
   cron{'sync_upr_Student':
     ensure  => present,
     command => 'wget -q -d  --no-check-certificate "https://sync.upr.edu.cu/saber_ldap_student" > /var/log/sync_upr_Student.log',
-    hour    => [9],
+    hour    => [21],
   }
 
   cron {'sync_upr_newStudent':
     ensure  => present,
     command => 'wget -q -d  --no-check-certificate "https://sync.upr.edu.cu/crear_student" > /var/log/sync_upr_newStudent.log',
-    hour    => [8],
+    hour    => [20],
   }
+
+ cron {'sync_upr_ADDGrupoPassword':
+   ensure  => present,
+   command => 'wget -q -d  --no-check-certificate "https://sync.upr.edu.cu/password/ADD" > /var/log/sync_upr_GrupoPassword.log',
+   hour    => [11],
+ }
+
+ cron {'sync_upr_REMOVEGrupoPassword':
+   ensure  => present,
+   command => 'wget -q -d  --no-check-certificate "https://sync.upr.edu.cu/password/REMOVE" > /var/log/sync_upr_GrupoPassword.log',
+   hour    => [15],
+ }
+
 
 }
