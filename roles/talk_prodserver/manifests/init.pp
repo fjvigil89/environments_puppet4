@@ -2,11 +2,12 @@
 # ===========================
 #
 # Full description of class talk_prodserver here.
-#
+
 #class talk_prodserver(){
 #package { 'lsb-release':
 #  ensure => installed,
 #}~>
+
 class {'::basesys':
 uprinfo_usage => 'Servidor jabber',
 application   => 'Production',

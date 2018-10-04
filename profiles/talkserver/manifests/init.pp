@@ -21,36 +21,15 @@ class talkserver (
   Boolean $use_libevent   = $::talkserver::params::use_libevent,
 )
 inherits talkserver::params {
-class { 'prosody':
-  user              => $user,
-  group             => $group,
-  community_modules => ['mod_auth_ldap'],
-  authentication    => $authentication,
-  custom_options    => {
-    'ldap_base'     => $ldap_base,
-    'ldap_server'   => $ldap_server,
-    'ldap_rootdn'   => $ldap_rootdn,
-    'ldap_password' => $ldap_password,
-    'ldap_scope'    => 'subtree',
-    'ldap_tls'      => 'false',
-  },
-}
 
-prosody::virtualhost {
-  'upr.edu.cu' :
-    ensure   => present,
-#ssl_key  => '/etc/ssl/key/sync.upr.edu.cu.key',
-#ssl_cert => '/etc/ssl/crt/sync.upr.edu.cu.crt',
-}
+  class {'::talkserver::prosody':;}
+  class {'::talkserver::package':;}
+  class {'::talkserver::config':;}
+  class {'::talkserver::service':;}
+  class {'::talkserver::user_admin':;}
+  class {'::talkserver::community_modules':;}
+  class {'::talkserver::virtualhost':;}
 
-prosody::user { 'admin':
-  host => 'upr.edu.cu',
-  pass => 'admin',
-  }
 }
-
-class { 'prosody::package': }
-class { 'prosody::config': }
-class { 'prosody::service': }
 
 #Fin del jabber
