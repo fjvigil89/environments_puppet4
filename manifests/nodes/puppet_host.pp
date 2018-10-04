@@ -29,7 +29,7 @@ node 'puppet-test.upr.edu.cu'{
   }
   class {'::serv_logrotate':
     compress         => true, 
-    filelog_numbers  => 5,
+    filelog_numbers  => [5,7],
     rotate_frecuency => ['week'],
     rule_list        => ['messages', 'apache'],
     log_path         => ['/var/log/messages', '/var/log/apache2/*.log'],
