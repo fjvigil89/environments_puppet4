@@ -21,7 +21,6 @@ class talkserver (
   Boolean $use_libevent   = $::talkserver::params::use_libevent,
 )
 inherits talkserver::params {
-
   class {'::talkserver::prosody':;}
   class {'::talkserver::package':;}
   class {'::talkserver::config':;}
@@ -31,5 +30,16 @@ inherits talkserver::params {
   class {'::talkserver::virtualhost':;}
 
 }
+talkserver::virtualhost {
+    'upr.edu.cu' :
+      ensure   => present,
+      ssl_key  => '/etc/ssl/key/mydomain.com.key',
+      ssl_cert => '/etc/ssl/crt/mydomain.com.crt',
+  }
+
+  talkserver::user { 'admin':
+    host => 'mydomain.com',
+    pass => 'itsasecret',
+  }
 
 #Fin del jabber
