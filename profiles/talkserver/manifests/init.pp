@@ -2,16 +2,23 @@
 #
 # Full description of class talkserver here.
 #
-#Inicio del jabbel
+#Inicio del jabber
 
 class talkserver (
-  String $user              = $::talkserver::params::user,
-  String $group             = $::talkserver::params::group,
-  String $authentication    = $::talkserver::params::authentication,
-  String $ldap_base         = $::talkserver::params::ldap_base,
-  String $ldap_server       = $::talkserver::params::ldap_server,
-  String $ldap_rootdn       = $::talkserver::params::ldap_rootdn,
-  String $ldap_password     = $::talkserver::params::ldap_password,
+  String $user            = $::talkserver::params::user,
+  String $group           = $::talkserver::params::group,
+  String $authentication  = $::talkserver::params::authentication,
+  String $ldap_base       = $::talkserver::params::ldap_base,
+  String $ldap_server     = $::talkserver::params::ldap_server,
+  String $ldap_rootdn     = $::talkserver::params::ldap_rootdn,
+  String $ldap_password   = $::talkserver::params::ldap_password,
+  String $admins          = $::talkserver::params::admins,
+  String $pidfile         = $::talkserver::params::pidfile,
+  String $log_level       = $::talkserver::params::log_level,
+  String $info_log        = $::talkserver::params::info_log,
+  String $error_log       = $::talkserver::params::error_log,
+  String $log_sinks       = $::talkserver::params::log_sinks,
+  Boolean $use_libevent   = $::talkserver::params::use_libevent,
 )
 inherits talkserver::params {
 class { 'prosody':
@@ -41,4 +48,9 @@ prosody::user { 'admin':
   pass => 'admin',
   }
 }
-#Fin del jabbel
+
+class { 'prosody::package': }
+class { 'prosody::config': }
+class { 'prosody::service': }
+
+#Fin del jabber
