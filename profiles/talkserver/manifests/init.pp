@@ -25,9 +25,9 @@ inherits talkserver::params {
   class {'::talkserver::package':;}
   class {'::talkserver::config':;}
   class {'::talkserver::service':;}
-  class {'::talkserver::user_admin':;}
+  # class {'::talkserver::user_admin':;}
   class {'::talkserver::community_modules':;}
-  class {'::talkserver::virtualhost':;}
+  # class {'::talkserver::virtualhost':;}
 
 }
 talkserver::virtualhost {
