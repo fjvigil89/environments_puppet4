@@ -67,12 +67,6 @@ port      			=> '1645-1646',
 firewall  			=> true,
 max_connections => 0,
 }
-freeradius::module::eap { 'pap':
-default_eap_type    => 'md5',
-gtc_auth_type       => 'PAP',
-peap_soh            => 'yes',
-mschapv2_send_error => 'no',
-}
   #include freeradius_server 
    #class {'::firewallprod':
    #  hosts_todrop   => ['111.111.111.111', '50.138.112.159', '31.220.16.147'],
