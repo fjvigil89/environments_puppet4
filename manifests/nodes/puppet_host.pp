@@ -73,13 +73,13 @@ node 'puppet-henry.upr.edu.cu'{
       'ldap_tls'      => 'true',
     },
   }
-  talkserver::virtualhost {
+  prosody::virtualhost {
     'talk.upr.edu.cu' :
       ensure   => present,
       ssl_key  => '/etc/ssl/key/talk.upr.edu.cu.key',
       ssl_cert => '/etc/ssl/crt/talk.upr.edu.cu.crt',
   }
-  talkserver::user { 'admin':
+  prosody::user { 'admin':
     host => 'talk.upr.edu.cu',
     pass => 'admin',
   }
