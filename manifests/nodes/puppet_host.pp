@@ -34,7 +34,7 @@ node 'puppet-test.upr.edu.cu'{
     rule_list        => ['messages', 'apache'],
     log_path         => ['/var/log/messages', '/var/log/apache2/*.log'],
   }
-  class { 'freeradius':
+class { 'freeradius':
   max_requests    => 4096,
   max_servers     => 4096,
   mysql_support   => true,
@@ -42,12 +42,21 @@ node 'puppet-test.upr.edu.cu'{
   syslog          => true,
   log_auth        => 'yes',
   }
-  freeradius::sql { 'radius':
+class { 'freeradius::status_server':
+  port   => '18120',
+  secret => 't0pSecret!',
+}
+freeradius::sql { 'radius':
   database  => 'mysql',
   server    => 'localhost',
   login     => 'radius',
   password  => 'topsecret',
   radius_db => 'radius',
+}
+class { 'freeradius::listen':
+type      => 'auth',
+ip        => '*',
+interface => 'eth0',
 }
   #include freeradius_server 
    #class {'::firewallprod':
