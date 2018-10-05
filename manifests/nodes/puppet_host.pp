@@ -55,8 +55,9 @@ node 'puppet-henry.upr.edu.cu'{
     ensure => installed,
   }
   class { '::basesys':
-    uprinfo_usage => 'Servidor test',
-    application   => 'puppet',
+    uprinfo_usage   => 'Servidor test',
+    application     => 'puppet',
+    proxmox_enabled => false,
   }
   class { 'talkserver':
     user              => 'prosody',
