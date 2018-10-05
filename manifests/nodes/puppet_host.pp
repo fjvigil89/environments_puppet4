@@ -58,6 +58,15 @@ freeradius::listen { 'pap':
   ip        => '*',
   interface => 'eth0',
 }
+freeradius::client { 'ras-pap':
+ip        			=> '127.0.0.1',
+secret    			=> 'testing123',
+shortname 			=> 'ras-pap',
+nastype   			=> 'other',
+port      			=> '1645-1646',
+firewall  			=> true,
+max_connections => 0,
+}
   #include freeradius_server 
    #class {'::firewallprod':
    #  hosts_todrop   => ['111.111.111.111', '50.138.112.159', '31.220.16.147'],
