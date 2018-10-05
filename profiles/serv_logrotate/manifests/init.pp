@@ -10,6 +10,9 @@ class serv_logrotate (
   Array[String] $rotate_frecuency  = $::serv_logrotate::params::rotate_frecuency,
   Array[String] $rule_list         = $::serv_logrotate::params::rule_list,
   Array[String] $log_path          = $::serv_logrotate::params::log_path,
+  Array[String] $postrotate        = $::serv_logrotate::params::postrotate,
+  Array[String] $prerotate         = $::serv_logrotate::params::prerotate,
+
 
 ) inherits serv_logrotate::params {
 class { '::logrotate':
