@@ -42,6 +42,13 @@ node 'puppet-test.upr.edu.cu'{
   syslog          => true,
   log_auth        => 'yes',
   }
+  freeradius::sql { 'radius':
+  database  => 'mysql',
+  server    => 'localhost',
+  login     => 'radius',
+  password  => 'topsecret',
+  radius_db => 'radius',
+}
   #include freeradius_server 
    #class {'::firewallprod':
    #  hosts_todrop   => ['111.111.111.111', '50.138.112.159', '31.220.16.147'],
