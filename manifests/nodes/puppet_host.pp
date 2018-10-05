@@ -52,10 +52,10 @@ freeradius::sql { 'radius':
   password  => 'topsecret',
   radius_db => 'radius',
 }
-class { 'freeradius::listen':
-type      => 'auth',
-ip        => '*',
-interface => 'eth0',
+freeradius::listen { 'pap':
+  type      => 'auth',
+  ip        => '*',
+  interface => 'eth0',
 }
   #include freeradius_server 
    #class {'::firewallprod':
