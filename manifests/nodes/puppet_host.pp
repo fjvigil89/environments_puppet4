@@ -69,7 +69,7 @@ max_connections => 0,
 }
 freeradius::module::eap { 'pap':
 default_eap_type    => 'md5',
-auth_type           => 'PAP',
+gtc_auth_type       => 'PAP',
 peap_soh            => 'yes',
 mschapv2_send_error => 'no',
 }
