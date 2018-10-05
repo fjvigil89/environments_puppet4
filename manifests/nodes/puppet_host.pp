@@ -59,7 +59,7 @@ node 'puppet-henry.upr.edu.cu'{
     application     => 'puppet',
     proxmox_enabled => false,
   }
-  class { 'talkserver':
+  class {'talkserver':
     user              => 'prosody',
     group             => 'prosody',
     community_modules => ['mod_auth_ldap'],
