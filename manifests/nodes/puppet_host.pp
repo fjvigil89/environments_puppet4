@@ -44,7 +44,6 @@ class { 'freeradius':
   }
 class { 'freeradius::status_server':
   port   => '18120',
-  secret => 't0pSecret!',
 }
 freeradius::sql { 'radius':
   database  => 'mysql',
