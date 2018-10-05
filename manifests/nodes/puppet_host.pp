@@ -45,6 +45,7 @@ class { 'freeradius':
 class { 'freeradius::status_server':
   port   => '18120',
 }
+include '::mysql::server'
 freeradius::sql { 'radius':
   database  => 'mysql',
   server    => 'localhost',
