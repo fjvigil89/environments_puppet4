@@ -67,7 +67,7 @@ node 'puppet-henry.upr.edu.cu'{
       'ldap_base'     => 'OU="Servicio",DC="ad",DC="upr",DC="edu",DC="cu"',
       'ldap_server'   => 'ldapserver1:636 ldapserver2:636',
       'ldap_rootdn'   => 'DN="prosody",OU="Servicio",DC="ad",DC="upr",DC="edu",DC="com"',
-      'ldap_password' => hiera(prosody-ldap-password),
+      'ldap_password' => '"40a*talk.2k12"',
       'ldap_scope'    => 'subtree',
       'ldap_tls'      => 'true',
     },
@@ -75,8 +75,8 @@ node 'puppet-henry.upr.edu.cu'{
   talkserver::virtualhost {
     'talk.upr.edu.cu' :
       ensure   => present,
-      ssl_key  => '/etc/ssl/key/mydomain.com.key',
-      ssl_cert => '/etc/ssl/crt/mydomain.com.crt',
+      ssl_key  => '/etc/ssl/key/talk.upr.edu.cu.key',
+      ssl_cert => '/etc/ssl/crt/talk.upr.edu.cu.crt',
   }
   talkserver::user { 'admin':
     host => 'talk.upr.edu.cu',
