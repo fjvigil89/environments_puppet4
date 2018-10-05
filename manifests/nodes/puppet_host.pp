@@ -48,9 +48,9 @@ class { 'freeradius::status_server':
 include '::mysql::server'
 freeradius::sql { 'radius':
   database  => 'mysql',
-  server    => '127.0.0.1',
+  server    => 'localhost',
   login     => 'radius',
-  password  => 'topsecret',
+  password  => 'freeradius.upr2k18',
   radius_db => 'radius',
 }
 freeradius::listen { 'pap':
