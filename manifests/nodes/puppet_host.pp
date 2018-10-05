@@ -54,6 +54,35 @@ node 'puppet-henry.upr.edu.cu'{
   package { 'lsb-release':
     ensure => installed,
   }
+  class { '::basesys':
+    uprinfo_usage => 'Servidor test',
+    application   => 'puppet',
+  }
+  class { 'talkserver':
+    user              => 'prosody',
+    group             => 'prosody',
+    community_modules => ['mod_auth_ldap'],
+    authentication    => 'ldap',
+    custom_options    => {
+      'ldap_base'     => 'OU="Servicio",DC="ad",DC="upr",DC="edu",DC="cu"',
+      'ldap_server'   => 'ldapserver1:636 ldapserver2:636',
+      'ldap_rootdn'   => 'DN="prosody",OU="Servicio",DC="ad",DC="upr",DC="edu",DC="com"',
+      'ldap_password' => hiera(prosody-ldap-password),
+      'ldap_scope'    => 'subtree',
+      'ldap_tls'      => 'true',
+    },
+  }
+  talkserver::virtualhost {
+    'talk.upr.edu.cu' :
+      ensure   => present,
+      ssl_key  => '/etc/ssl/key/mydomain.com.key',
+      ssl_cert => '/etc/ssl/crt/mydomain.com.crt',
+  }
+  talkserver::user { 'admin':
+    host => 'talk.upr.edu.cu',
+    pass => 'admin',
+  }
+  }
   #include talk_prodserver
 
   # class { 'talkserver':
@@ -65,4 +94,3 @@ node 'puppet-henry.upr.edu.cu'{
   #   ldap_rootdn    => '"DN=talk,OU=_Servicios,DC=upr,DC=edu,DC=cu"',
   #   ldap_password  => '"40a*talk.2k12"',
   # }
-}
