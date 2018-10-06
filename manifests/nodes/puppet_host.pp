@@ -64,7 +64,7 @@ node 'puppet-test.upr.edu.cu'{
     password => 'freeradius.upr2k18',
     host     => 'localhost',
     grant    => ['SELECT', 'INSERT', 'UPDATE', 'DELETE', 'DROP', 'CREATE VIEW', 'CREATE', 'INDEX', 'EXECUTE', 'ALTER'],
-    sql      => '/etc/freeradius/3.0/mods-config/sql/main/mysql/schema.sql',
+    #sql      => '/etc/freeradius/3.0/mods-config/sql/main/mysql/schema.sql',
   }
 
   freeradius::sql { 'radius':
@@ -74,11 +74,17 @@ node 'puppet-test.upr.edu.cu'{
     password  => 'freeradius.upr2k18',
     radius_db => 'radius',
   }
-  freeradius::listen { 'pap':
+  freeradius::listen { 'pap-auth':
     type      => 'auth',
     ip        => '*',
     interface => 'eth0',
   }
+  freeradius::listen { 'pap-acct':
+    type      => 'acct',
+    ip        => '*',
+    interface => 'eth0',
+  }
+
   freeradius::client { 'ras-pap':
     ip        			=> '192.168.25.0/24',
     secret    			=> 'testing123',
