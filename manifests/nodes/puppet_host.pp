@@ -34,39 +34,39 @@ node 'puppet-test.upr.edu.cu'{
   #  rule_list        => ['messages', 'apache'],
   #  log_path         => ['/var/log/messages', '/var/log/apache2/*.log'],
   #}
-class { 'freeradius':
-  max_requests    => 4096,
-  max_servers     => 4096,
-  mysql_support   => true,
-  utils_support   => true,
-  syslog          => true,
-  log_auth        => 'yes',
-  }
-class { 'freeradius::status_server':
-  port   => '18120',
-}
-include '::mysql::server'
-freeradius::sql { 'radius':
-  database  => 'mysql',
-  server    => 'localhost',
-  login     => 'radius',
-  password  => 'freeradius.upr2k18',
-  radius_db => 'radius',
-}
-freeradius::listen { 'pap':
-  type      => 'auth',
-  ip        => '*',
-  interface => 'eth0',
-}
-freeradius::client { 'ras-pap':
-ip        			=> '192.168.25.0/24',
-secret    			=> 'testing123',
-shortname 			=> 'ras-pap',
-nastype   			=> 'other',
-port      			=> '1645-1646',
-firewall  			=> true,
-max_connections => 0,
-}
+  #class { 'freeradius':
+  #max_requests    => 4096,
+  #max_servers     => 4096,
+  #mysql_support   => true,
+  #utils_support   => true,
+  #syslog          => true,
+  #log_auth        => 'yes',
+  #}
+  #class { 'freeradius::status_server':
+  #port   => '18120',
+  #}
+  #include '::mysql::server'
+  #freeradius::sql { 'radius':
+  #database  => 'mysql',
+  #server    => 'localhost',
+  #login     => 'radius',
+  #password  => 'freeradius.upr2k18',
+  #radius_db => 'radius',
+  #}
+  #freeradius::listen { 'pap':
+  #type      => 'auth',
+  #ip        => '*',
+  #interface => 'eth0',
+  #}
+  #freeradius::client { 'ras-pap':
+  #ip        			=> '192.168.25.0/24',
+  #secret    			=> 'testing123',
+  #shortname 			=> 'ras-pap',
+  #nastype   			=> 'other',
+  #port      			=> '1645-1646',
+  #firewall  			=> true,
+  #max_connections => 0,
+  #}
   #include freeradius_server 
    #class {'::firewallprod':
    #  hosts_todrop   => ['111.111.111.111', '50.138.112.159', '31.220.16.147'],
