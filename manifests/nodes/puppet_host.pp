@@ -34,6 +34,19 @@ node 'puppet-test.upr.edu.cu'{
   #  rule_list        => ['messages', 'apache'],
   #  log_path         => ['/var/log/messages', '/var/log/apache2/*.log'],
   #}
+  class { '::php_webserver':
+    php_version    => '7.0',
+    php_extensions => {
+      'curl'     => {},
+      'gd'       => {},
+      'mysql'    => {},
+      'ldap'     => {},
+      'xml'      => {},
+      'mbstring' => {},
+    },
+    packages       => ['php7.0-ldap','php7.0-mysql'],
+  }
+  class {'::freeradius_server::conf':;}
   class { 'freeradius':
     max_requests    => 4096,
     max_servers     => 4096,
