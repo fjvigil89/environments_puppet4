@@ -64,7 +64,7 @@ node 'puppet-test.upr.edu.cu'{
     password => 'freeradius.upr2k18',
     host     => 'localhost',
     grant    => ['SELECT', 'INSERT', 'UPDATE', 'DELETE', 'DROP', 'CREATE VIEW', 'CREATE', 'INDEX', 'EXECUTE', 'ALTER'],
-    sql      => "${conf_path}/mods-config/sql/main/mysql/schema.sql",
+    sql      => '/etc/freeradius/3.0/mods-config/sql/main/mysql/schema.sql',
   }
 
   freeradius::sql { 'radius':
