@@ -59,6 +59,14 @@ node 'puppet-test.upr.edu.cu'{
     port   => '18120',
   }
   include '::mysql::server'
+  mysql::db { 'radius':
+    user     => 'radius',
+    password => 'freeradius.upr2k18',
+    host     => 'localhost',
+    grant    => ['SELECT', 'INSERT', 'UPDATE', 'DELETE', 'DROP', 'CREATE VIEW', 'CREATE', 'INDEX', 'EXECUTE', 'ALTER'],
+    sql      => "${conf_path}/mods-config/sql/main/mysql/schema.sql",
+  }
+
   freeradius::sql { 'radius':
     database  => 'mysql',
     server    => 'localhost',
