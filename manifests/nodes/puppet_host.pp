@@ -46,7 +46,14 @@ node 'puppet-test.upr.edu.cu'{
     },
     packages       => ['php7.0-ldap','php7.0-mysql'],
   }
-  class {'::freeradius_server::conf':;}
+file { '/usr/share/ad-to-pap.php':
+ensure => file,
+owner  => 'root',
+group  => 'root',
+mode   => '0774',
+source => 'puppet:///modules/freeradius_server/sync/ad-to-pap.php',
+}
+
   class { 'freeradius':
     max_requests    => 1024,
     max_servers     => 1024,
