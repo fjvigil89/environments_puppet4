@@ -48,12 +48,15 @@ node 'puppet-test.upr.edu.cu'{
   }
   class {'::freeradius_server::conf':;}
   class { 'freeradius':
-    max_requests    => 4096,
+    max_requests    => 1096,
     max_servers     => 4096,
     mysql_support   => true,
     utils_support   => true,
     syslog          => true,
     log_auth        => 'yes',
+  }
+  package { 'freeradius-ldap':
+    ensure => installed,
   }
   class { 'freeradius::status_server':
     port   => '18120',
