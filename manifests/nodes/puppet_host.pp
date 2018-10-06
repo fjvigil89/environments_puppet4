@@ -49,7 +49,7 @@ node 'puppet-test.upr.edu.cu'{
   class {'::freeradius_server::conf':;}
   class { 'freeradius':
     max_requests    => 1096,
-    max_servers     => 4096,
+    max_servers     => 1096,
     mysql_support   => true,
     utils_support   => true,
     syslog          => true,
