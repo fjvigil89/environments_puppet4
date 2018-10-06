@@ -94,15 +94,16 @@ node 'puppet-test.upr.edu.cu'{
     firewall  			=> true,
     max_connections => 0,
   }
-  #freeradius::module::ldap {'ad-pap':
-  #  server               => '10.2.24.35',
-  #  basedn               => 'CN=UPR-Ras,OU=_Gestion,DC=upr,DC=edu,DC=cu',
-  #  identity             => 'ras',
-  #  password             => 'freeradius.upr2k18',
-  #  port                 => 389,
-  #  user_access_attibute => 'UPR-Ras',
-  #  user_access_positive => 'telephonenumber',
-  #}
+  freeradius::module::ldap {'ad-pap':
+    server       => '10.2.24.35',
+    port         => 389,
+    basedn       => 'DC=upr,DC=edu,DC=cu',
+    identity     => 'ras@upr.edu.cu',
+    password     => 'freeradius.upr2k18',
+    user_filter  => "(&(memberOf=cn=UPR-Ras,ou=_Gestion,dc=upr,dc=edu,dc=cu)(samAccountName=%{%{Stripped-User-Name}:-%{User-Name}})(objectclass=person))",
+    timeout      => 20,
+    group_filter => "(objectclass=radiusprofile)",
+  }
   #include freeradius_server 
   #class {'::firewallprod':
    #  hosts_todrop   => ['111.111.111.111', '50.138.112.159', '31.220.16.147'],
