@@ -27,13 +27,13 @@ node 'puppet-test.upr.edu.cu'{
     application   => 'puppet',
     #proxmox_enabled => false,
   }
-  class {'::serv_logrotate':
-    compress         => true, 
-    filelog_numbers  => [5,7],
-    rotate_frecuency => ['week'],
-    rule_list        => ['messages', 'apache'],
-    log_path         => ['/var/log/messages', '/var/log/apache2/*.log'],
-  }
+  #class {'::serv_logrotate':
+  # compress         => true, 
+  #  filelog_numbers  => [5,7],
+  #  rotate_frecuency => ['week'],
+  #  rule_list        => ['messages', 'apache'],
+  #  log_path         => ['/var/log/messages', '/var/log/apache2/*.log'],
+  #}
 class { 'freeradius':
   max_requests    => 4096,
   max_servers     => 4096,
@@ -59,7 +59,7 @@ freeradius::listen { 'pap':
   interface => 'eth0',
 }
 freeradius::client { 'ras-pap':
-ip        			=> '127.0.0.1',
+ip        			=> '192.168.25.0/24',
 secret    			=> 'testing123',
 shortname 			=> 'ras-pap',
 nastype   			=> 'other',
