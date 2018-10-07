@@ -114,7 +114,7 @@ node 'puppet-test.upr.edu.cu'{
     timeout      => 20,
     group_filter => "(objectclass=radiusprofile)",
   }
-  freeradius::module::eap { 'PAP':
+  freeradius::module::eap { 'eap':
     gtc_auth_type => 'PAP',
   }
   #include freeradius_server 
