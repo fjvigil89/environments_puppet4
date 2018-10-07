@@ -46,13 +46,13 @@ node 'puppet-test.upr.edu.cu'{
     },
     packages       => ['php7.0-ldap','php7.0-mysql'],
   }
-file { '/usr/share/ad-to-pap.php':
-ensure => file,
-owner  => 'root',
-group  => 'root',
-mode   => '0774',
-source => 'puppet:///modules/freeradius_server/sync/ad-to-pap.php',
-}
+  file { '/usr/share/ad-to-pap.php':
+    ensure => file,
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0774',
+    source => 'puppet:///modules/freeradius_server/sync/ad-to-pap.php',
+  }
 
   class { 'freeradius':
     max_requests    => 1024,
@@ -96,12 +96,12 @@ source => 'puppet:///modules/freeradius_server/sync/ad-to-pap.php',
   }
 
   freeradius::client { 'ras-pap':
-    ip        			=> '192.168.25.0/24',
-    secret    			=> 'testing123',
-    shortname 			=> 'ras-pap',
-    nastype   			=> 'other',
-    port      			=> '1645-1646',
-    firewall  			=> true,
+    ip              => '192.168.25.0/24',
+    secret          => 'testing123',
+    shortname       => 'ras-pap',
+    nastype         => 'other',
+    port            => '1645-1646',
+    firewall        => true,
     max_connections => 0,
   }
   freeradius::module::ldap {'ad-pap':
@@ -114,6 +114,7 @@ source => 'puppet:///modules/freeradius_server/sync/ad-to-pap.php',
     timeout      => 20,
     group_filter => "(objectclass=radiusprofile)",
   }
+  freeradius::blank { 'sites-enabled/default': }
   #include freeradius_server 
   #class {'::firewallprod':
    #  hosts_todrop   => ['111.111.111.111', '50.138.112.159', '31.220.16.147'],
