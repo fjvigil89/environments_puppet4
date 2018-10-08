@@ -114,6 +114,9 @@ node 'puppet-test.upr.edu.cu'{
     timeout      => 20,
     group_filter => "(objectclass=radiusprofile)",
   }
+  freeradius::module { 'pap':
+    preserve => true,
+  }
   #freeradius::module::eap { 'eap':
   #  default_eap_type    => 'md5',
   #  gtc_auth_type       => 'PAP',
