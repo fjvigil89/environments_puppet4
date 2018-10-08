@@ -74,13 +74,13 @@ node 'puppet-henry.upr.edu.cu'{
     },
   }
   prosody::virtualhost {
-    'talk.upr.edu.cu' :
+    'puppet-henry.upr.edu.cu' :
       ensure   => present,
       #ssl_key  => '/etc/ssl/key/talk.upr.edu.cu.key',
       #ssl_cert => '/etc/ssl/crt/talk.upr.edu.cu.crt',
   }
   prosody::user { 'admin':
-    host => 'talk.upr.edu.cu',
+    host => 'puppet-henry.upr.edu.cu',
     pass => 'admin',
   }
   }
