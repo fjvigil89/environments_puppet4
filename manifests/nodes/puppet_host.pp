@@ -115,7 +115,11 @@ node 'puppet-test.upr.edu.cu'{
     group_filter => "(objectclass=radiusprofile)",
   }
   freeradius::module::eap { 'eap':
-    gtc_auth_type => 'PAP',
+    default_eap_type    => 'md5',
+    gtc_auth_type       => 'PAP',
+    eap_peap            => true,
+    eap_gtc             => true,
+    peap_virtual_server => 'inner-tunnel',
   }
   #include freeradius_server 
   #class {'::firewallprod':
