@@ -121,9 +121,9 @@ node 'puppet-test.upr.edu.cu'{
     port   => 1812,
     proto  => 'udp',
   }
-  freeradius::home_server_pool { 'failover_localhost':
+  freeradius::home_server_pool { 'failover':
     type        => 'fail-over',
-    home_server => 'localhost',
+    home_server => 'homeserver-localhost',
   }
   freeradius::realm { 'pap.upr.edu.cu':
     auth_pool => 'failover_localhost',
