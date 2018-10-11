@@ -96,7 +96,7 @@ node 'puppet-test.upr.edu.cu'{
   }
   freeradius::client { 'ras-pap':
     ip              => '192.168.25.0/24',
-    secret          => 'testing123',
+    secret          => 'upradius2k9',
     shortname       => 'ras-pap',
     nastype         => 'other',
     port            => '1645-1646',
