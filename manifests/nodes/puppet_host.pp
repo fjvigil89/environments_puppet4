@@ -67,7 +67,7 @@ node 'puppet-henry.upr.edu.cu'{
     custom_options    => {
       'ldap_base'     => 'OU="Servicio",DC="ad",DC="upr",DC="edu",DC="cu"',
       'ldap_server'   => 'ldapserver1:636 ldapserver2:636',
-      'ldap_rootdn'   => 'DN="prosody",OU="Servicio",DC="ad",DC="upr",DC="edu",DC="com"',
+      'ldap_rootdn'   => 'DN="prosody",OU="Servicio",DC="ad",DC="upr",DC="edu",DC="cu"',
       'ldap_password' => '"40a*talk.2k12"',
       'ldap_scope'    => 'subtree',
       'ldap_tls'      => 'true',
