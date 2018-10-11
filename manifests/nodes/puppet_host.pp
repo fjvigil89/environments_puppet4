@@ -114,16 +114,16 @@ node 'puppet-test.upr.edu.cu'{
     timeout      => 20,
     group_filter => "(objectclass=radiusprofile)",
   }
-  freeradius::home_server { 'localhost':
-    secret => 'testing123',
-    type   => 'auth',
-    ipaddr => '127.0.0.1',
-    port   => 1812,
-    proto  => 'udp',
-  }
-  freeradius::realm { 'pap.upr.edu.cu':
-    acct_pool => 'localhost',
-  }
+  #freeradius::home_server { 'localhost':
+  #  secret => 'testing123',
+  #  type   => 'auth',
+  #  ipaddr => '127.0.0.1',
+  #  port   => 1812,
+  #  proto  => 'udp',
+  #}
+  #freeradius::realm { 'pap.upr.edu.cu':
+  #  acct_pool => 'localhost',
+  #}
   #freeradius::module::eap { 'eap':
   #  default_eap_type    => 'md5',
   #  gtc_auth_type       => 'PAP',
