@@ -46,6 +46,7 @@ node 'puppet-test.upr.edu.cu'{
     },
     packages       => ['php7.0-ldap','php7.0-mysql'],
   }
+  class { 'apache': }
   file { '/usr/share/ad-to-pap.php':
     ensure => file,
     owner  => 'root',
