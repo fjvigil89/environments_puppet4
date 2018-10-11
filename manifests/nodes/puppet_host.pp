@@ -123,14 +123,14 @@ node 'puppet-test.upr.edu.cu'{
   #freeradius::realm { 'pap.upr.edu.cu':
   #  acct_pool => 'localhost',
   #}
-  freeradius::module::eap { 'eap':
-    default_eap_type      => 'md5',
-    gtc_auth_type         => 'PAP',
-    eap_peap              => true,
-    eap_gtc               => true,
-    ttls_default_eap_type => 'md5',
-    peap_virtual_server   => 'inner-tunnel',
-  }
+  #freeradius::module::eap { 'eap':
+  #  default_eap_type      => 'md5',
+  #  gtc_auth_type         => 'PAP',
+  #  eap_peap              => true,
+  #  eap_gtc               => true,
+  #  ttls_default_eap_type => 'md5',
+  #  peap_virtual_server   => 'inner-tunnel',
+  #}
   #include freeradius_server 
   #class {'::firewallprod':
    #  hosts_todrop   => ['111.111.111.111', '50.138.112.159', '31.220.16.147'],
