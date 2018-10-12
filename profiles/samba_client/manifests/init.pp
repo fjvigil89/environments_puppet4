@@ -29,7 +29,7 @@ class samba_client (
      comment        => "Repositorio de ${value}",
      path           => "${path_nfs}${value}",
      browsable      => $browseable,
-     read_only      => $read_only,
+     read_only      => 'no',
      valid_users    => $slowercase,
    }
    user {"$slowercase":
