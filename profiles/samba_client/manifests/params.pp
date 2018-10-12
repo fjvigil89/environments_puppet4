@@ -10,7 +10,7 @@ class samba_client::params {
   $shares_name    = []
   $shares_path    = ['/mnt']
   $valid_users    = ['user1','user2',]
-  $writable       = 'yes'
+  $read_only      = 'no'
   $browseable     = 'yes'
   $path_nfs       = '/repositorio/repo-fct/'
 }
