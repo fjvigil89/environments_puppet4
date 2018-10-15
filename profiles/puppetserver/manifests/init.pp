@@ -35,7 +35,7 @@ class puppetserver (String $puppetdb_server = 'localhost') {
     hiera_config                => '$codedir/hiera.yaml',
     # Staat op agent omdat we de server manueel upgraden!
     manage_packages             => 'agent',
-    # runmode                     => 'cron',
+    runmode                     => 'cron',
   }
   # lint:ignore:140chars
   cron {
