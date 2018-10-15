@@ -29,7 +29,8 @@ node 'client-puppet.upr.edu.cu'{
   #  }
  
   #include dns_primary
- include puppetdevserver
+  #include puppetdevserver
+  include puppetprodserver
 }
 
 
