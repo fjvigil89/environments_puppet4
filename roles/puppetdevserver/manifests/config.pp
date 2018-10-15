@@ -14,15 +14,6 @@
 #      'key2' => 'value2',
 #    }
 #  }
-class puppetdevserver::config(){
-    #$servers=$puppetdevserver::servers,
-    #$options=$puppetdevserver::options,
-    #) {
-  #include puppetdevserver::params
-  #file { $puppetdevserver::params::conffile:
-  #  ensure  => present,
-  #  mode    => '0440',
-  #  content => template('puppetdevserver/puppetdevserver.conf.erb')
-  #}
+class puppetdevserver::config{
 }
 

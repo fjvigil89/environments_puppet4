@@ -14,7 +14,7 @@ class puppetdevserver{
   class { '::puppetdb_server':;}
 
   class { '::puppetserver':
-    #puppetdb_server => $::fqdn;
-    puppetdb_server => 'puppetdb.upr.edu.cu';
+    puppetdb_server => $::fqdn;
+    #puppetdb_server => 'puppetdb.upr.edu.cu';
   }
 }
