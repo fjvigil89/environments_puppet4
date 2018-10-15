@@ -7,7 +7,7 @@
 class puppetserver (String $puppetdb_server = 'localhost') {
 ::apt::source { 'puppetlabs-pc1-server':
     comment  => 'Puppetlabs PC1 jessie Repository',
-    location => 'http://repos.upr.edu.cu',
+    location => 'http://repos.upr.edu.cu/puppet5/apt',
     repos    => 'puppet5',
     key      => {
       id     => '6F6B15509CF8E59E6E469F327F438280EF8D349F',
