@@ -33,6 +33,6 @@ class puppetprodserver  {
   }
 
   class { '::puppetserver':
-    puppetdb_server => 'pupppetdb.upr.edu.cu';
+    puppetdb_server => 'pupppet-master.upr.edu.cu';
   }
 }
