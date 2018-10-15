@@ -60,45 +60,13 @@ class puppetserver (String $puppetdb_server = 'localhost') {
     require  => Class['::puppet'];
   }
   file {
-    '/var/lib/serverbeheer':
-      ensure => 'directory',
-      owner  => 'root',
-      group  => 'root',
-      mode   => '0755',
-      before => File['/var/lib/serverbeheer/data'],
-  }
-  file {
-    '/var/lib/serverbeheer/data':
-      ensure => 'directory',
-      owner  => 'root',
-      group  => 'root',
-      mode   => '0755',
-  }
-  file {
     '/etc/puppetlabs/code/hiera.yaml':
       ensure => 'file',
       owner  => 'root',
       group  => 'root',
       mode   => '0644',
-      source => 'puppet:///modules/puppet4server/hiera.yaml',
+      source => 'puppet:///modules/puppetserver/hiera.yaml',
       notify => Exec['restart-puppet-server'];
-  }
-
-  file {
-    '/etc/puppetlabs/eyaml/private_key.pkcs7.pem':
-      ensure => 'file',
-      owner  => 'puppet',
-      group  => 'root',
-      mode   => '0440',
-  }
-
-  file {
-    '/etc/puppetlabs/eyaml':
-      ensure => 'directory',
-      owner  => 'root',
-      group  => 'root',
-      mode   => '0755',
-      before => File['/etc/puppetlabs/eyaml/private_key.pkcs7.pem'],
   }
 
   exec {
