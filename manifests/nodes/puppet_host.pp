@@ -1,11 +1,11 @@
 node 'client-puppet.upr.edu.cu'{
   #class {'::talkserver':;}
-  class { '::basesys':
-    uprinfo_usage => 'servidor test',
-    application   => 'puppet',  
-    repos_enabled => false, 
+  #class { '::basesys':  
+  #uprinfo_usage => 'servidor test',
+  # application   => 'puppet',  
+  #  repos_enabled => false, 
      
-  }
+  #}
   #class { '::letsencrypt_host':
   #email => 'fjvigil@hispavista.com',
   #webroot_enable => true,
@@ -14,7 +14,8 @@ node 'client-puppet.upr.edu.cu'{
   #webroot_paths => ['/root/Sync-UPR/public/'],
   #}
   #include dns_primary
-
+  #include puppetdevserver
+  include puppetprodserver
 }
 
 

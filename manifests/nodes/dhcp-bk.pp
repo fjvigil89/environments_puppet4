@@ -5,6 +5,7 @@ node 'dhcp-bk.upr.edu.cu' {
   #este desde profile
   class {'dhcpserver':
       interfaces   => ['eth0'],
+      nameservers  => ['10.2.1.14','10.2.1.13'],
       pool_enabled => true,
       pool         => ['Gestion','Assets','Trabajadores','Estudiantes','wifi-bk'],
       network      => ['10.2.128.0','10.2.132.0','10.2.133.0','10.2.134.0','10.2.30.64'],

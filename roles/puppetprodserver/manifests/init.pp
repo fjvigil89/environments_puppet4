@@ -24,20 +24,15 @@
 #
 # Copyright 2013 Your name here, unless otherwise noted.
 #
-class puppetprodserver () {
-  #anchor { "${module_name}::begin": } ->
-  #class {"${module_name}::install": } ->
-  #class {"${module_name}::config": } ~>
-  #class {"${module_name}::service": } ~>
-  #anchor { "${module_name}::end": }
+class puppetprodserver  {
   class {'::basesys':
     uprinfo_usage  => 'Puppet Server UPR',
-  application      => 'puppetserver',
-  application_tier => 'prd',
-  puppet_enabled   => false,
+    application      => 'puppetserver',
+    application_tier => 'prd',
+    puppet_enabled   => false,
   }
 
   class { '::puppetserver':
-    puppetdb_server => 'pupppetdb.upr.edu.cu';
+    puppetdb_server => 'pupppet-master.upr.edu.cu';
   }
 }

@@ -29,7 +29,7 @@ class basesys (
   String $relayhost                        = $::basesys::params::relayhost,
   String $mailname                         = $::basesys::params::mailname,
 
-  Boolean $proxmox_enabled                 = false,
+  Boolean $proxmox_enabled                 = $::basesys::params::proxmox_enabled,
 
   Boolean $repos_enabled                   = $::basesys::params::repos,
 

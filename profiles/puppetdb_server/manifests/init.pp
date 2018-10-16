@@ -10,7 +10,7 @@ class puppetdb_server {
   class { 'puppetdb::master::config':
     manage_report_processor => true,
     enable_reports          => true,
-  }
+   }
 
   include puppetboardserver
 
