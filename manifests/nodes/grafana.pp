@@ -1,3 +1,3 @@
-node 'pgrafana.upr.edu.cu' {
+node 'grafana.upr.edu.cu' {
   include grafanaserver
 }

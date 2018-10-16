@@ -18,7 +18,7 @@ mod 'puppetlabs-apache', '3.2.0'
 mod 'puppetlabs-mysql', '6.2.0'
 mod 'puppetlabs-translate', '1.1.0'
 mod 'puppet-staging', '3.2.0'
-mod 'puppetlabs-postgresql', '5.4.0'
+mod 'puppetlabs-postgresql', '5.10.0'
 mod 'puppetlabs-firewall', '1.12.0'
 mod 'puppetlabs-inifile', '2.2.1'
 mod 'puppetlabs-passenger', '0.4.1'
@@ -64,6 +64,7 @@ mod 'camptocamp-openssl', '1.10.0'
 mod 'camptocamp-systemd', '2.1.0'
 mod 'herculesteam-augeasproviders_core', '2.1.5'
 mod 'herculesteam-augeasproviders_shellvar', '3.0.0'
+mod 'jgazeley-freeradius', '3.7.0'
 
 mod 'rgevaert/pwgen',
   :git => 'https://github.com/rgevaert/puppet-pwgen.git',

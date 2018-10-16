@@ -24,7 +24,7 @@ define('ldap_dom',"@upr.edu.cu");
 define('ldap_dn',"DC=upr,DC=edu,DC=cu");
 
 define('user','ras');
-define('password','P@ssword');
+define('password','freeradius.upr2k18');
 
 $totalUsersWithRas = 0;
 
