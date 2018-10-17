@@ -15,7 +15,7 @@ node 'client-puppet.upr.edu.cu'{
   #}
   #include dns_primary
   #include puppetdevserver
-  include puppetprodserver
+  #include puppetprodserver
 }
 
 
