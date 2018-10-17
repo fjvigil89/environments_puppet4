@@ -30,12 +30,6 @@ class monitoring (
   String $ad_group_base_dn          = $::monitoring::params::ad_group_base_dn,
   String $ad_bind_dn                = $::monitoring::params::ad_bind_dn,
   String $ad_bind_pw                = $::monitoring::params::ad_bind_pw,
-  String $director_apipass          = $::monitoring::params::director_apipass,
-  String $director_apiuser          = $::monitoring::params::director_apiuser,
-  String $icinga2_dbuser            = $::monitoring::params::icinga2_dbuser,
-  String $icinga2_dbname            = $::monitoring::params::icinga2_dbname,
-  String $icinga2_dbpass            = $::monitoring::params::icinga2_dbpass,
-  String $icinga2_dbhost            = $::monitoring::params::icinga2_dbhost,
 
 ) inherits ::monitoring::params {
   if($icinga2server_enabled){
