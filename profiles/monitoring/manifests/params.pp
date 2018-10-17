@@ -13,7 +13,7 @@ class monitoring::params {
   $icinga2_dbhost         = '127.0.0.1',
   $director_apipass       = '123456',
   $director_apiuser       = 'director',
-  $api_users              = {},
+  #$api_users              = {},
 
   #icingaweb2 params
   $icingaweb2server_enabled = true,
