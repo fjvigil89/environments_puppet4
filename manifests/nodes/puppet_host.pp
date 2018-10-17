@@ -76,8 +76,8 @@ node 'puppet-henry.upr.edu.cu'{
   prosody::virtualhost {
     'puppet-henry.upr.edu.cu' :
       ensure   => present,
-      ssl_key  => '/etc/ssl/key/puppet-henry.upr.edu.cu.key',
-      ssl_cert => '/etc/ssl/crt/puppet-henry.upr.edu.cu.cert',
+      #ssl_key  => '/etc/ssl/key/puppet-henry.upr.edu.cu.key',
+      #ssl_cert => '/etc/ssl/crt/puppet-henry.upr.edu.cu.cert',
   }
   prosody::user { 'admin':
     host => 'puppet-henry.upr.edu.cu',
