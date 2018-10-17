@@ -9,5 +9,8 @@ node 'master-icinga1.upr.edu.cu'{
     mta_enabled        => false,
     monitoring_enabled => false;
   }
+  class {'::monitoring':
+    icingaweb2server_enabled => false,
+  }
 }
 

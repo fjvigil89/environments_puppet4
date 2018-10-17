@@ -27,7 +27,7 @@ class basesys::params {
   
   #monitoring
   $monitoring_enabled = true
-  
+  $icinga_servers     = ['master-icinga0.upr.edu.cu','master-icinga1.upr.edu.cu'] 
   #Proxmox
   $proxmox_enabled    = false
   
