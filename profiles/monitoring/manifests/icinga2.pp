@@ -36,9 +36,11 @@ class { '::icinga2::feature::idomysql':
 }
 
 class { '::icinga2::feature::api':
-  accept_commands   => true,
-  accept_config     => true,
-  pki               => 'puppet',
+  accept_commands => true,
+  accept_config   => true,
+  pki             => 'puppet',
+  endpoints       => {},
+  zones           => {},
 }
 #Configure EndPoints
 each($::monitoring::icinga_servers) |Integer $index, String $value|{
