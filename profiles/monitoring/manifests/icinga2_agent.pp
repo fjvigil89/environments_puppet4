@@ -26,18 +26,21 @@ class monitoring::icinga2_agent(
     endpoints       => {},
     zones           => {},
   }
+  #Configure EndPoints
   icinga2::object::endpoint { $::fqdn:
     host => $::ipaddress,
   }
+  each($::monitoring::icinga_servers) |Integer $index, String $value|{
+    icinga2::object::endpoint { $::monitoring::icinga_servers[$index]:
+      host => $::monitoring::icinga_ipservers[$index],
+    }
+  }
+  #Configure Zones
   icinga2::object::zone { $::fqdn:
     endpoints => [ $fqdn ],
     parent    => 'master',
   }
-
-  icinga2::object::endpoint { 'master-icinga0.upr.edu.cu':
-    host => '10.2.1.49',
-  }
   icinga2::object::zone { 'master':
-    endpoints => [ 'master-icinga0.upr.edu.cu' ],
+    endpoints => $::monitoring::icinga_servers,
   }
 }
