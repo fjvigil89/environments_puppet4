@@ -18,7 +18,7 @@ node 'client-puppet.upr.edu.cu'{
   #include puppetprodserver
 
   class { 'openldap::server':
-    provider => 'augeas',
+    provider => 'ldap',
   }
   openldap::server::globalconf { 'security':
     ensure => present,
