@@ -15,7 +15,9 @@ class monitoring (
   String $icinga2_dbhost          = $::monitoring::params::icinga2_dbhost,
   String $director_apipass        = $::monitoring::params::director_apipass,
   String $director_apiuser        = $::monitoring::params::director_apiuser,
-  #String $api_users               = $::monitoring::params::api_users,
+  
+  
+  Boolean $manage_repo            = $::monitoring::params::manage_repo,
   
   #icingaweb2 params
   Boolean $icingaweb2server_enabled = $::monitoring::params::icingaweb2server_enabled,

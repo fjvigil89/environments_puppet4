@@ -5,11 +5,10 @@
 # Configure icinga2_agent
 #
 
-class monitoring::icinga2_agent(
-  $manage_repo = false,
-) {
+class monitoring::icinga2_agent {
+  include ::monitoring::params
   class {'::icinga2':
-    manage_repo => $manage_repo,
+    manage_repo => $monitoring::manage_repo,
     features    => ['checker','mainlog'],
   }
   icinga2::object::zone { 'global-templates':
