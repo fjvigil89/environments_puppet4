@@ -18,20 +18,14 @@ node 'client-puppet.upr.edu.cu'{
   #include puppetprodserver
 
   class { 'openldap::server':
-    databases => {
-      'dc=foo,dc=example,dc=com' => {
-        directory => '/var/lib/ldap/foo',
-      },
-    },
-    # provider => 'augeas',
   }
   openldap::server::globalconf { 'security':
     ensure => present,
     value  => 'tls=128',
   }
-  #openldap::server::overlay { 'memberof on dc=upr,dc=edu,dc=cu':
-  #  ensure => present,
-  #}
+  openldap::server::overlay { 'memberof on dc=upr,dc=edu,dc=cu':
+    ensure => present,
+  }
 
 }
 
