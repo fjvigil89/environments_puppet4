@@ -5,6 +5,7 @@
 # Configure monitoring::params
 
 class monitoring::params {
+  $icinga_servers     = ['master-icinga0.upr.edu.cu','master-icinga1.upr.edu.cu']
   #icinga2 params
   $icinga2server_enabled  = true
   $icinga2_dbuser         = 'icinga2'

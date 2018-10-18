@@ -37,7 +37,6 @@ class basesys (
   Boolean $backports_enabled               = false,
 
   Boolean $monitoring_enabled              = $::basesys::params::monitoring_enabled,
-  Array[String]$icinga_servers             = $::basesys::params::icinga_servers,
   Enum['passwd', 'ldap'] $authenticationdb = 'passwd',
   Boolean $puppet_users                    = $::basesys::params::puppet_users,
 

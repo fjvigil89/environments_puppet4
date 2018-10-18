@@ -5,6 +5,7 @@
 #
 #
 class monitoring (
+  Array[String]$icinga_servers    = $::monitoring::params::icinga_servers,
   #icinga2 params
   Boolean $icinga2server_enabled  = $::monitoring::params::icinga2server_enabled,
   String $icinga2_dbuser          = $::monitoring::params::icinga2_dbuser,

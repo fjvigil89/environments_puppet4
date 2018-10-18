@@ -36,21 +36,34 @@ class { '::icinga2::feature::idomysql':
 }
 
 # Configure API
+  #$endpoints = each($::monitoring::icinga_servers) |Integer $index, String $value|{
+  #  $::monitoring::icinga_servers[$index] => {
+  #    'host' => '10.2.1.49',
+  #  }
+  #}
+  #}
+
 class { '::icinga2::feature::api':
-  accept_commands => true,
-  accept_config   => true,
-  pki             => 'puppet',
-  endpoints       => {
-    $facts['fqdn'] => {
-      'host' =>  $facts['ipaddress'],
-    }
-  },
-  zones           => {
+  accept_commands   => true,
+  accept_config     => true,
+  pki               => 'puppet',
+  #endpoint          => $endpoints,
+  #endpoints        => {
+  #  $facts['fqdn'] => {
+  #    'host'       => $facts['ipaddress'],
+  #  }
+  #},
+  zones             => {
     'master' => {
       'endpoints' =>  [$facts['fqdn']],
     }
   }
 }
+#Configure EndPoints
+each($::monitoring::icinga_servers) |Integer $index, String $value|{
+icinga2::object::endpoint { $::monitoring::icinga_servers[$index]:
+  host => '10.2.1.50',
+
 #Configure Command
 include ::icinga2::feature::command
 #Configure livestatus
