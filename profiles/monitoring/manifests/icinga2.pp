@@ -19,8 +19,8 @@ class { '::icinga2':
   manage_repo => false,
   features    => ['checker','mainlog','notification','statusdata','compatlog','perfdata'],
   constants   => {
-    'ZoneName' => 'master',
-    'NodeName' => $facts['fqdn'],
+    #'ZoneName' => 'master',
+    #'NodeName' => $facts['fqdn'],
     ticketsalt => '5a3d695b8aef8f18452fc494593056a4',
   },
 }
@@ -35,29 +35,10 @@ class { '::icinga2::feature::idomysql':
   require       => Mysql::Db[$monitoring::icinga2_dbname],
 }
 
-# Configure API
-  #$endpoints = each($::monitoring::icinga_servers) |Integer $index, String $value|{
-  #  $::monitoring::icinga_servers[$index] => {
-  #    'host' => '10.2.1.49',
-  #  }
-  #}
-  #}
-
 class { '::icinga2::feature::api':
   accept_commands   => true,
   accept_config     => true,
   pki               => 'puppet',
-  #endpoint          => $endpoints,
-  #endpoints        => {
-  #  $facts['fqdn'] => {
-  #    'host'       => $facts['ipaddress'],
-  #  }
-  #},
-  #zones             => {
-  #  'master' => {
-  #    'endpoints' =>  [$facts['fqdn']],
-  #  }
-  #}
 }
 #Configure EndPoints
 each($::monitoring::icinga_servers) |Integer $index, String $value|{
@@ -66,7 +47,7 @@ icinga2::object::endpoint { $::monitoring::icinga_servers[$index]:
 }
 }
 #Configure Zones
-icinga2::object::zone {'master':
+icinga2::object::zone { 'master':
   endpoints => $::monitoring::icinga_servers,
 }
 #Configure Command
