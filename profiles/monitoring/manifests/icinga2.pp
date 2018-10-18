@@ -62,7 +62,7 @@ class { '::icinga2::feature::api':
 #Configure EndPoints
 each($::monitoring::icinga_servers) |Integer $index, String $value|{
 icinga2::object::endpoint { $::monitoring::icinga_servers[$index]:
-  host => '10.2.1.50',
+  host => $::monitoring::icinga_ipservers[$index],
 }
 }
 
