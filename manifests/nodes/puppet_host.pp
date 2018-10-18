@@ -23,7 +23,7 @@ node 'client-puppet.upr.edu.cu'{
         directory => '/var/lib/ldap/foo',
       },
     },
-    provider => 'augeas',
+    # provider => 'augeas',
   }
   openldap::server::globalconf { 'security':
     ensure => present,
