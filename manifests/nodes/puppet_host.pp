@@ -16,6 +16,18 @@ node 'client-puppet.upr.edu.cu'{
   #include dns_primary
   #include puppetdevserver
   #include puppetprodserver
+
+  class { 'openldap::server':
+    provider => 'augeas',
+  }
+  openldap::server::globalconf { 'security':
+    ensure => present,
+    value  => 'tls=128',
+  }
+  #openldap::server::overlay { 'memberof on dc=upr,dc=edu,dc=cu':
+  #  ensure => present,
+  #}
+
 }
 
 
