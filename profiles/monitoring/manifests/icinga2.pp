@@ -53,11 +53,11 @@ class { '::icinga2::feature::api':
   #    'host'       => $facts['ipaddress'],
   #  }
   #},
-  zones             => {
-    'master' => {
-      'endpoints' =>  [$facts['fqdn']],
-    }
-  }
+  #zones             => {
+  #  'master' => {
+  #    'endpoints' =>  [$facts['fqdn']],
+  #  }
+  #}
 }
 #Configure EndPoints
 each($::monitoring::icinga_servers) |Integer $index, String $value|{
@@ -65,7 +65,10 @@ icinga2::object::endpoint { $::monitoring::icinga_servers[$index]:
   host => $::monitoring::icinga_ipservers[$index],
 }
 }
-
+#Configure Zones
+icinga2::object::zone {'master':
+  endpoints => $::monitoring::icinga_servers,
+}
 #Configure Command
 include ::icinga2::feature::command
 #Configure livestatus
