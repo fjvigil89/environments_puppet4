@@ -8,7 +8,7 @@
 class monitoring::icinga2_agent {
   include ::monitoring::params
   class { '::icinga2':
-    manage_repo => $monitoring::manage_repo,
+    manage_repo => $monitoring::params::manage_repo,
     features    => ['checker','mainlog'],
   }
   icinga2::object::zone { 'global-templates':
@@ -40,6 +40,6 @@ class monitoring::icinga2_agent {
     parent    => 'master',
   }
   icinga2::object::zone { 'master':
-    endpoints => $::monitoring::icinga_servers,
+    endpoints => $::monitoring::params::icinga_servers,
   }
 }
