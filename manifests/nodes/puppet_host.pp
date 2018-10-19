@@ -23,7 +23,10 @@ node 'client-puppet.upr.edu.cu'{
     ensure => present,
     value  => 'tls=128',
   }
-  openldap::server::overlay { 'memberof on dc=upr,dc=edu,dc=cu':
+  openldap::server::module { 'syncprov':
+    ensure => present,
+  }
+  openldap::server::overlay { 'syncprov on dc=upr,dc=edu,dc=cu':
     ensure => present,
   }
 
