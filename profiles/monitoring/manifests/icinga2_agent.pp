@@ -6,8 +6,7 @@
 #
 
 class monitoring::icinga2_agent {
-  include ::monitoring::params
-  class {'::icinga2':
+  class { '::icinga2':
     manage_repo => $monitoring::manage_repo,
     features    => ['checker','mainlog'],
   }
@@ -29,7 +28,7 @@ class monitoring::icinga2_agent {
   icinga2::object::endpoint { $::fqdn:
     host => $::ipaddress,
   }
-  each($::monitoring::icinga_servers) |Integer $index, String $value|{
+  each($::monitoring::icinga_servers) |$index,$value| {
     icinga2::object::endpoint { $::monitoring::icinga_servers[$index]:
       host => $::monitoring::icinga_ipservers[$index],
     }
