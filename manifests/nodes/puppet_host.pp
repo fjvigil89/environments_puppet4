@@ -59,39 +59,93 @@ node 'puppet-henry.upr.edu.cu'{
     application     => 'puppet',
     proxmox_enabled => false,
   }
-  class { 'prosody':
-    user              => 'prosody',
-    group             => 'prosody',
-    community_modules => ['mod_auth_ldap'],
-    authentication    => 'ldap',
-    custom_options    => {
-      'ldap_base'     => "'dc=upr','dc=edu','dc=cu'",
-      'ldap_server'   => "'10.2.24.35:389'",
-      'ldap_rootdn'   => "'CN=talk','OU=_Servicios','DC=upr','DC=edu','DC=cu'",
-      'ldap_password' => "'40a*talk.2k12'",
-      'ldap_scope'    => "subtree",
-      'ldap_tls'      => 'true',
-    },
+  class { '::smokeping':
+    mode   => 'master',
+    probes => [
+      { name => 'FPing', binary => '/usr/bin/fping' },
+      { name => 'FPing6', binary => '/usr/bin/fping6' },
+    ],
+    alerts => [
+      {
+        name       => 'bigloss',
+        alert_type => 'loss',
+        pattern    => '==0%,==0%,==0%,==0%,>0%,>0%,>0%',
+        comment    => 'suddenly there is packet loss',
+      },
+      {
+        name       => 'startloss',
+        alert_type => 'loss',
+        pattern    => '==S,>0%,>0%,>0%',
+        comment    => 'loss at startup',
+      },
+      {
+        name        => 'noloss',
+        alert_type  => 'loss',
+        pattern     => '>0%,>0%,>0%,==0%,==0%,==0%,==0%',
+        edgetrigger => true,
+        comment     => 'there was loss and now its reachable again',
+      },
+    ],
   }
-  prosody::virtualhost {
-    'puppet-henry.upr.edu.cu' :
-      ensure   => present,
-      #ssl_key  => '/etc/ssl/key/puppet-henry.upr.edu.cu.key',
-      #ssl_cert => '/etc/ssl/crt/puppet-henry.upr.edu.cu.cert',
+    smokeping::target { 'World':
+      menu      => 'World',
+      pagetitle => 'Connection to the World',
+      alerts    => [ 'bigloss', 'noloss' ],
+    }
+    smokeping::target { 'GoogleCH':
+      hierarchy_parent => 'World',
+      hierarchy_level  => 2,
+      menu             => 'google.ch',
+      pagetitle        => 'Google',
+    }
+    smokeping::target { 'GoogleCHIPv4':
+      hierarchy_parent => 'GoogleCH',
+      hierarchy_level  => 3,
+      menu             => 'google.ch IPv4',
+      host             => 'google.ch',
+      slaves           => ['slave1'],
+    }
+    smokeping::target { 'GoogleCHIPv6':
+      hierarchy_parent => 'GoogleCH',
+      hierarchy_level  => 3,
+      menu             => 'google.ch IPv6',
+      host             => 'google.ch',
+      probe            => 'FPing6',
+      slaves           => ['slave1'],
+    }
+    smokeping::target { 'GoogleCHCurl':
+      hierarchy_parent => 'GoogleCH',
+      hierarchy_level  => 3,
+      menu             => 'google.ch Curl',
+      host             => 'google.ch',
+      probe            => 'Curl',
+      options          => {
+        urlformat => 'http://%host%/',
+      }
+    }
   }
-  prosody::user { 'admin':
-    host => 'puppet-henry.upr.edu.cu',
-    pass => 'admin',
-  }
-  }
-  #include talk_prodserver
-
-  # class { 'talkserver':
-  #   user           => 'prosody',
-  #   group          => 'prosody',
-  #   authentication => 'ldap',
-  #   ldap_base      => '"DC=upr,DC=edu,DC=cu"',
-  #   ldap_server    => '"ad.upr.edu.cu:636"',
-  #   ldap_rootdn    => '"DN=talk,OU=_Servicios,DC=upr,DC=edu,DC=cu"',
-  #   ldap_password  => '"40a*talk.2k12"',
-  # 
+  # class { 'prosody':
+  #   user              => 'prosody',
+  #    group             => 'prosody',
+  #  community_modules => ['mod_auth_ldap'],
+  #  authentication    => 'ldap',
+  #  custom_options    => {
+  #    'ldap_base'     => "'dc=upr','dc=edu','dc=cu'",
+  #    'ldap_server'   => "'10.2.24.35:389'",
+  #    'ldap_rootdn'   => "'CN=talk','OU=_Servicios','DC=upr','DC=edu','DC=cu'",
+  #    'ldap_password' => "'40a*talk.2k12'",
+  #    'ldap_scope'    => "subtree",
+  #    'ldap_tls'      => 'true',
+  #  },
+  #}
+  #prosody::virtualhost {
+  #  'puppet-henry.upr.edu.cu' :
+  #    ensure   => present,
+  #    #ssl_key  => '/etc/ssl/key/puppet-henry.upr.edu.cu.key',
+  #    #ssl_cert => '/etc/ssl/crt/puppet-henry.upr.edu.cu.cert',
+  #}
+  #prosody::user { 'admin':
+  #  host => 'puppet-henry.upr.edu.cu',
+  #  pass => 'admin',
+  #}
+  #}
