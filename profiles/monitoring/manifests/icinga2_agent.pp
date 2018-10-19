@@ -28,7 +28,7 @@ class monitoring::icinga2_agent {
   icinga2::object::endpoint { $::fqdn:
     host => $::ipaddress,
   }
-  each($::monitoring::icinga_servers) |$index,$value| {
+  $::monitoring::icinga_servers.each |Integer $index, String $value| {
     icinga2::object::endpoint { $::monitoring::icinga_servers[$index]:
       host => $::monitoring::icinga_ipservers[$index],
     }
