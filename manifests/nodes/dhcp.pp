@@ -5,7 +5,7 @@ node 'dhcp.upr.edu.cu' {
   #este desde profile
   class {'dhcpserver':
       interfaces   => ['eth0'],
-      nameservers  => ['10.2.1.14','10.2.1.13'],
+      nameservers  => ['10.2.1.8','10.2.1.13'],
       pool_enabled => true,
       pool         => ['Gestion','ICT','CECES','NODO','Servidores-Fisicos','Serv-Virtuales','Edificio Rectoria','Wifi-FCF-Docente','Wifi-Rectoria','Lab-EstGeologia',
       'Lab-EstMecanica','Lab-Mecalografia','Rectorado-SecGral'],
