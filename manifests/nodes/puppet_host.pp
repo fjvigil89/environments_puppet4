@@ -103,7 +103,7 @@ node 'puppet-henry.upr.edu.cu'{
       hierarchy_level  => 3,
       menu             => 'google.ch IPv4',
       host             => 'google.ch',
-      slaves           => ['slave1'],
+      # slaves           => ['slave1'],
     }
     smokeping::target { 'GoogleCHIPv6':
       hierarchy_parent => 'GoogleCH',
@@ -111,7 +111,7 @@ node 'puppet-henry.upr.edu.cu'{
       menu             => 'google.ch IPv6',
       host             => 'google.ch',
       probe            => 'FPing6',
-      slaves           => ['slave1'],
+      # slaves           => ['slave1'],
     }
     smokeping::target { 'GoogleCHCurl':
       hierarchy_parent => 'GoogleCH',
