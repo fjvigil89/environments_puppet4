@@ -64,6 +64,7 @@ node 'puppet-henry.upr.edu.cu'{
     probes => [
       { name => 'FPing', binary => '/usr/bin/fping' },
       { name => 'FPing6', binary => '/usr/bin/fping6' },
+      { name => 'Curl',  binary => '/usr/bin/curl'},
     ],
     alerts => [
       {
