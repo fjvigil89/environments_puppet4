@@ -60,7 +60,7 @@ node 'puppet-henry.upr.edu.cu'{
     proxmox_enabled => false,
   }
   class { '::smokeping':
-    mode   => 'master',
+    mode   => 'standalone',
     probes => [
       { name => 'FPing', binary => '/usr/bin/fping' },
       { name => 'FPing6', binary => '/usr/bin/fping6' },
