@@ -120,9 +120,6 @@ node 'puppet-henry.upr.edu.cu'{
       menu             => 'google.ch Curl',
       host             => 'google.ch',
       probe            => 'Curl',
-      options          => {
-        urlformat => 'http://%host%/',
-      }
     }
   }
   # class { 'prosody':
