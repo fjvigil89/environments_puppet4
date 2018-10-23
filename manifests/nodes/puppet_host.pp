@@ -114,7 +114,7 @@ node 'puppet-test.upr.edu.cu'{
     timeout      => 20,
     group_filter => "(objectclass=radiusprofile)",
   }
-  freeradius::blank { ['sites-enabled/default','eap.conf',]:}
+  freeradius::blank { ['eap.conf',]:}
   #freeradius::home_server { 'localhost':
   #  secret => 'testing123',
   #  type   => 'auth',
