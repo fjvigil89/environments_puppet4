@@ -1,11 +1,10 @@
 node 'client-puppet.upr.edu.cu'{
   #class {'::talkserver':;}
-  #class { '::basesys':  
-  #uprinfo_usage => 'servidor test',
-  # application   => 'puppet',  
-  #  repos_enabled => false, 
-     
-  #}
+  class { '::basesys':  
+    uprinfo_usage => 'servidor test',
+    application   => 'puppet',  
+    # repos_enabled => false,      
+  }
   #class { '::letsencrypt_host':
   #email => 'fjvigil@hispavista.com',
   #webroot_enable => true,
@@ -15,7 +14,21 @@ node 'client-puppet.upr.edu.cu'{
   #}
   #include dns_primary
   #include puppetdevserver
-  include puppetprodserver
+  #include puppetprodserver
+
+  #class { 'openldap::server':
+  #}
+  #openldap::server::globalconf { 'security':
+  #  ensure => present,
+  #  value  => 'tls=128',
+  #}
+  #openldap::server::module { 'syncprov':
+  #  ensure => present,
+  #}
+  #openldap::server::overlay { 'syncprov on dc=upr,dc=edu,dc=cu':
+  #  ensure => present,
+  #}
+
 }
 
 
