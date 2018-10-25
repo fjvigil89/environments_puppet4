@@ -111,6 +111,7 @@ node 'puppet-test.upr.edu.cu'{
     identity              => 'ras@upr.edu.cu',
     password              => 'freeradius.upr2k18',
     user_filter           => "(&(memberOf=cn=UPR-Ras,ou=_Gestion,dc=upr,dc=edu,dc=cu)(samAccountName=%{%{Stripped-User-Name}:-%{User-Name}})(objectclass=person))",
+    user_access_positive  => true,
     user_access_attribute => 'telephoneNumber',
     timeout               => 20,
     group_filter          => "(objectclass=radiusprofile)",
