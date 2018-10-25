@@ -105,14 +105,15 @@ node 'puppet-test.upr.edu.cu'{
     max_connections => 0,
   }
   freeradius::module::ldap { 'ad-pap':
-    server       => '10.2.24.35',
-    port         => 389,
-    basedn       => 'DC=upr,DC=edu,DC=cu',
-    identity     => 'ras@upr.edu.cu',
-    password     => 'freeradius.upr2k18',
-    user_filter  => "(&(memberOf=cn=UPR-Ras,ou=_Gestion,dc=upr,dc=edu,dc=cu)(samAccountName=%{%{Stripped-User-Name}:-%{User-Name}})(objectclass=person))",
-    timeout      => 20,
-    group_filter => "(objectclass=radiusprofile)",
+    server                => '10.2.24.35',
+    port                  => 389,
+    basedn                => 'DC=upr,DC=edu,DC=cu',
+    identity              => 'ras@upr.edu.cu',
+    password              => 'freeradius.upr2k18',
+    user_filter           => "(&(memberOf=cn=UPR-Ras,ou=_Gestion,dc=upr,dc=edu,dc=cu)(samAccountName=%{%{Stripped-User-Name}:-%{User-Name}})(objectclass=person))",
+    user_access_attribute => 'telephoneNumber',
+    timeout               => 20,
+    group_filter          => "(objectclass=radiusprofile)",
   }
   freeradius::blank { ['eap.conf',]:}
   #freeradius::home_server { 'localhost':
