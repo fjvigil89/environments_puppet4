@@ -56,9 +56,9 @@ node 'puppet-henry.upr.edu.cu'{
     target           => ['Router','Cisco','primero','segundo','TP'],
     pagetitle        => ['Conexión de la UPR','Cisco','primero','segundo','TP'],
     hierarchy_parent => ['','Router','Cisco','Cisco','Router'],
-    hierarchy_level  => [1,2,3,3,2],
+    hierarchy_level  => [2,2,3,3,2],
     host             => ['10.2.1.1','10.2.1.8','10.2.1.13','10.2.1.140','10.2.1.14'],
-    probe            => $probe,
+    probe            => 'FPing',
   }
 }
   #  class { '::smokeping':

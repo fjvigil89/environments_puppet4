@@ -6,8 +6,8 @@ class smokeserver::target {
     smokeping::target{ $value:
       menu             => $value,
       pagetitle        => $::smokeserver::params::pagetitle[$index],
-      hierarchy_parent => $::smokeserver::params::hierarchy_parent[$index],
       hierarchy_level  => $::smokeserver::params::hierarchy_level[$index],
+      hierarchy_parent => $::smokeserver::params::hierarchy_parent[$index],
       host             => $::smokeserver::params::host[$index],
     }
   }
