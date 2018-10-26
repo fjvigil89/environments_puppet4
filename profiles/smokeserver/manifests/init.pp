@@ -15,7 +15,7 @@ class smokeserver(
   Array[String] $menu               = $::smokeserver::params::menu,
   Array[String] $pagetitle          = $::smokeserver::params::pagetitle,
   Array[String] $hierarchy_parent   = $::smokeserver::params::hierarchy_parent,
-  Array[Integer] $hierarchy_level    = $::smokeserver::params::hierarchy_level,
+  Array[Integer] $hierarchy_level   = $::smokeserver::params::hierarchy_level,
   Array[String] $host               = $::smokeserver::params::host,
 )inherits ::smokeserver::params {
   class { '::smokeping':
