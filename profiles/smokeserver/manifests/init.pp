@@ -28,7 +28,7 @@ class smokeserver(
     alerts_to      => $alerts_to,
     alerts_from    => $alerts_from,
     alerts         => $alerts,
-    probes         => $probes
+    probes         => $probes,
   }
   class {'::smokeserver::target':;}
 }
