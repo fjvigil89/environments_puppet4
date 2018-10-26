@@ -1,7 +1,8 @@
 # Class: smokeserver:target
 #
 #
-class smokeserver::target(){
+class smokeserver::target {
+  include smokeserver::params
   each($::smokeserver::target) |Integer $index, String $value|{
     smokeping::target{ $value:
       menu             => $::smokeserver::params::menu[$index],
