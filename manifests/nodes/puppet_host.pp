@@ -52,7 +52,7 @@ node 'test.upr.edu.cu'{
   }
 node 'puppet-henry.upr.edu.cu'{
   include smokeprodserver
-  class { 'smokeserver':
+  class { '::smokeserver':
     target           => ['Router','Cisco','primero','segundo','TP'],
     #menu             => ['Router','Cisco','primero','segundo','TP'],
     pagetitle        => ['Conexión de la UPR','Cisco','primero','segundo','TP'],
