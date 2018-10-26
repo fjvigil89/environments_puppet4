@@ -38,7 +38,7 @@ class smokeserver::params {
     },
   ]
 
-  #  $target            = []
+  $target            = []
   $menu              = []
   $pagetitle         = []
   $hierarchy_parent  = []
