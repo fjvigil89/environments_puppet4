@@ -3,7 +3,7 @@
 #
 class smokeserver::target {
   each($::smokeserver::target) |Integer $index, String $value|{
-    smokeping::target{$::smokeserver::target[$index]:
+    smokeping::target{$value:
       menu             => $::smokeserver::params::target[$index],
       pagetitle        => $::smokeserver::params::pagetitle[$index],
       hierarchy_level  => $::smokeserver::params::hierarchy_level[$index],
