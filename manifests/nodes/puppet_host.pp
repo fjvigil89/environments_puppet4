@@ -52,8 +52,9 @@ node 'test.upr.edu.cu'{
   }
 node 'puppet-henry.upr.edu.cu'{
   include smokeprodserver
-  class {'smokeserver':
-    menu             => ['Router','Cisco','primero','segundo','TP'],
+  class { 'smokeserver':
+    target           => ['Router','Cisco','primero','segundo','TP'],
+    #menu             => ['Router','Cisco','primero','segundo','TP'],
     pagetitle        => ['Conexión de la UPR','Cisco','primero','segundo','TP'],
     hierarchy_parent => ['','Router','Cisco','Cisco','Router'],
     hierarchy_level  => ['1','2','3','3','2'],
