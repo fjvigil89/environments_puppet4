@@ -55,74 +55,76 @@ node 'puppet-henry.upr.edu.cu'{
     ensure => installed,
   }
   class { '::basesys':
-    uprinfo_usage   => 'Servidor test',
-    application     => 'puppet',
-    proxmox_enabled => false,
+    uprinfo_usage => 'Servidor test',
+    application   => 'puppet',
+    # proxmox_enabled => false,
   }
-  class { '::smokeping':
-    mode   => 'standalone',
-    probes => [
-      { name => 'FPing', binary => '/usr/bin/fping' },
-      { name => 'FPing6', binary => '/usr/bin/fping6' },
-      { name => 'Curl',  binary => '/usr/bin/curl'},
-    ],
-    alerts => [
-      {
-        name       => 'bigloss',
-        alert_type => 'loss',
-        pattern    => '==0%,==0%,==0%,==0%,>0%,>0%,>0%',
-        comment    => 'suddenly there is packet loss',
-      },
-      {
-        name       => 'startloss',
-        alert_type => 'loss',
-        pattern    => '==S,>0%,>0%,>0%',
-        comment    => 'loss at startup',
-      },
-      {
-        name        => 'noloss',
-        alert_type  => 'loss',
-        pattern     => '>0%,>0%,>0%,==0%,==0%,==0%,==0%',
-        edgetrigger => true,
-        comment     => 'there was loss and now its reachable again',
-      },
-    ],
-  }
-    smokeping::target { 'World':
-      menu      => 'World',
-      pagetitle => 'Connection to the World',
-      alerts    => [ 'bigloss', 'noloss' ],
-    }
-    smokeping::target { 'GoogleCH':
-      hierarchy_parent => 'World',
-      hierarchy_level  => 2,
-      menu             => 'google.ch',
-      pagetitle        => 'Google',
-    }
-    smokeping::target { 'GoogleCHIPv4':
-      hierarchy_parent => 'GoogleCH',
-      hierarchy_level  => 3,
-      menu             => 'google.ch IPv4',
-      host             => 'google.ch',
-    }
-    smokeping::target { 'GoogleCHIPv6':
-      hierarchy_parent => 'GoogleCH',
-      hierarchy_level  => 3,
-      menu             => 'google.ch IPv6',
-      host             => 'google.ch',
-      probe            => 'FPing6',
-    }
-    smokeping::target { 'GoogleCHCurl':
-      hierarchy_parent => 'GoogleCH',
-      hierarchy_level  => 3,
-      menu             => 'google.ch Curl',
-      host             => 'google.ch',
-      probe            => 'Curl',
-      options          => {
-        urlformat => 'http://%host%/',
-      }
-    }
-  }
+  include smokeprodserver
+}
+  #  class { '::smokeping':
+  #   mode   => 'standalone',
+  #   probes => [
+  #     { name => 'FPing', binary => '/usr/bin/fping' },
+  #     { name => 'FPing6', binary => '/usr/bin/fping6' },
+  #     { name => 'Curl',  binary => '/usr/bin/curl'},
+  #   ],
+  #   alerts => [
+  #     {
+  #       name       => 'bigloss',
+  #       alert_type => 'loss',
+  #       pattern    => '==0%,==0%,==0%,==0%,>0%,>0%,>0%',
+  #       comment    => 'suddenly there is packet loss',
+  #     },
+  #     {
+  #       name       => 'startloss',
+  #       alert_type => 'loss',
+  #       pattern    => '==S,>0%,>0%,>0%',
+  #       comment    => 'loss at startup',
+  #     },
+  #     {
+  #       name        => 'noloss',
+  #       alert_type  => 'loss',
+  #       pattern     => '>0%,>0%,>0%,==0%,==0%,==0%,==0%',
+  #       edgetrigger => true,
+  #       comment     => 'there was loss and now its reachable again',
+  #     },
+  #   ],
+  # }
+  #   smokeping::target { 'World':
+  #     menu      => 'World',
+  #     pagetitle => 'Connection to the World',
+  #     alerts    => [ 'bigloss', 'noloss' ],
+  #   }
+  #   smokeping::target { 'GoogleCH':
+  #     hierarchy_parent => 'World',
+  #     hierarchy_level  => 2,
+  #     menu             => 'google.ch',
+  #     pagetitle        => 'Google',
+  #   }
+  #   smokeping::target { 'GoogleCHIPv4':
+  #     hierarchy_parent => 'GoogleCH',
+  #     hierarchy_level  => 3,
+  #     menu             => 'google.ch IPv4',
+  #     host             => 'google.ch',
+  #   }
+  #   smokeping::target { 'GoogleCHIPv6':
+  #     hierarchy_parent => 'GoogleCH',
+  #     hierarchy_level  => 3,
+  #     menu             => 'google.ch IPv6',
+  #     host             => 'google.ch',
+  #     probe            => 'FPing6',
+  #   }
+  #   smokeping::target { 'GoogleCHCurl':
+  #     hierarchy_parent => 'GoogleCH',
+  #     hierarchy_level  => 3,
+  #     menu             => 'google.ch Curl',
+  #     host             => 'google.ch',
+  #     probe            => 'Curl',
+  #     options          => {
+  #       urlformat => 'http://%host%/',
+  #     }
+  #   }
+  # }
   # class { 'prosody':
   #   user              => 'prosody',
   #    group             => 'prosody',
