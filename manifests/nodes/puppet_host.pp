@@ -57,7 +57,7 @@ node 'puppet-henry.upr.edu.cu'{
   class { '::basesys':
     uprinfo_usage => 'Servidor test',
     application   => 'puppet',
-    # proxmox_enabled => false,
+    proxmox_enabled => false,
   }
   include smokeprodserver
 }
