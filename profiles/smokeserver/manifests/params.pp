@@ -13,7 +13,6 @@ class smokeserver::params {
 
   $cgi_remark_top     = 'Bienvenidos al sitio SmokePing de la UPR.'
   $cgi_title_top      = 'Gráficos de latencia de nuestra red.'
-  $probes             = [ { name => 'FPing', binary => '/usr/sbin/fping', step => '300' } ]
   $alerts_to          = 'upredes@upr.edu.cu'
   $alerts_from        = 'upredes@upr.edu.cu'
   $alerts             = [
