@@ -29,5 +29,10 @@ class smokeserver(
     alerts_from    => $alerts_from,
     alerts         => $alerts,
   }
+  smokeping::target { 'World':
+    menu      => 'World',
+    pagetitle => 'Connection to the World',
+    alerts    => [ 'bigloss', 'noloss' ],
+  }
   class {'::smokeserver::target':;}
 }
