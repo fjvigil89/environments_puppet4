@@ -9,7 +9,6 @@ class smokeserver::target {
       hierarchy_parent => $::smokeserver::params::hierarchy_parent[$index],
       hierarchy_level  => $::smokeserver::params::hierarchy_level[$index],
       host             => $::smokeserver::params::host[$index],
-      probe            => $::smokeserver::params::probes,
     }
   }
 }
