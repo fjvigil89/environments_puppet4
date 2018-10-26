@@ -58,6 +58,7 @@ node 'puppet-henry.upr.edu.cu'{
     hierarchy_parent => ['','Router','Cisco','Cisco','Router'],
     hierarchy_level  => [1,2,3,3,2],
     host             => ['10.2.1.1','10.2.1.8','10.2.1.13','10.2.1.140','10.2.1.14'],
+    probe            => $probe,
   }
 }
   #  class { '::smokeping':
