@@ -19,7 +19,15 @@ class smokeserver(
   Array[String] $host               = $::smokeserver::params::host,
 )inherits ::smokeserver::params {
   class { '::smokeping':
-    mode => $mode,
+    mode           => $mode,
+    owner          => $owner,
+    cgiurl         => $cgiurl,
+    cgi_remark_top => $cgi_remark_top,
+    cgi_title_top  => $cgi_title_top,
+    probes         => $probes,
+    alerts_to      => $alerts_to,
+    alerts_from    => $alerts_from,
+    alerts         => $alerts,
   }
   class {'::smokeserver::target':;}
 }
