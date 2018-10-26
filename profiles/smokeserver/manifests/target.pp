@@ -2,8 +2,7 @@
 #
 #
 class smokeserver::target {
-  include smokeserver::params
-  each($::smokeserver::params::target) |Integer $index, String $value|{
+  each($::smokeserver::target) |Integer $index, String $value|{
     smokeping::target{ $value:
       menu             => $value,
       pagetitle        => $::smokeserver::params::pagetitle[$index],
