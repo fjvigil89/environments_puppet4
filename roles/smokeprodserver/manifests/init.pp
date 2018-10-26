@@ -2,7 +2,7 @@
 #  Class smokeprodserver_server
 #================================
 #
-class {'smokeserver':
+class smokeprodserver(){
   menu             => ['Router','Cisco','primero','segundo','TP'],
   pagetitle        => ['Conexión de la UPR','Cisco','primero','segundo','TP'],
   hierarchy_parent => ['','Router','Cisco','Cisco','Router'],
