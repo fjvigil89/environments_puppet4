@@ -31,59 +31,69 @@ class wh_php_apache {
   cron{'ActualizaLosNoDocentes':
     ensure  => present,
     command => 'wget -q -d  --no-check-certificate "https://sync.upr.edu.cu/saber_ldap/NoDocentes" > /var/log/sync_upr_NoDocentes.log',
-    hour    => ['14'],
+    hour    => '14',
+    minute  => 0,
   }
   
   cron{'ActualizarDocentes':
-  ensure  => present,
-  command => 'wget -q -d  --no-check-certificate "https://sync.upr.edu.cu/saber_ldap/Docentes" > /var/log/sync_upr_Docentes.log',
-  hour    => ['15'],
+    ensure  => present,
+    command => 'wget -q -d  --no-check-certificate "https://sync.upr.edu.cu/saber_ldap/Docentes" > /var/log/sync_upr_Docentes.log',
+    hour    => '15',
+    minute  => 0,
   }
   cron{'ActualizarLosProfesoresQueSonBajasHoy':
-  ensure  => present,
-  command => 'wget -q -d  --no-check-certificate "https://sync.upr.edu.cu/actualizar_bajas_profesores" > /var/log/sync_upr_Bajas.log',
-  hour    => ['13'],
+    ensure  => present,
+    command => 'wget -q -d  --no-check-certificate "https://sync.upr.edu.cu/actualizar_bajas_profesores" > /var/log/sync_upr_Bajas.log',
+    hour    => '13',
+    minute  => 0,
   }
  
   cron{'ActualizarLosQueDejaronDeSerBajasHoy':
-  ensure  => present,
-  command => 'wget -q -d  --no-check-certificate "https://sync.upr.edu.cu/saber_ldap/Bajas" > /var/log/sync_upr_User_Bajas.log',
-  hour    => ['16'],
+    ensure  => present,
+    command => 'wget -q -d  --no-check-certificate "https://sync.upr.edu.cu/saber_ldap/Bajas" > /var/log/sync_upr_User_Bajas.log',
+    hour    => '16',
+    minute  => 0,
   }
   
   cron{'CrearTrabajadoresQueSonAltaHoy':
     ensure  => present,
     command => 'wget -q -d  --no-check-certificate "https://sync.upr.edu.cu/actualizar_altas_profesores" > /var/log/sync_upr_CrearUsuario.log',
     hour    => [12,18],
+    minute  => 0,
   }
   cron{'ActualizarLosQueSonDeDI':
     ensure  => present,
     command => 'wget -q -d  --no-check-certificate "https://sync.upr.edu.cu/upredes" > /var/log/sync_upr_UPRedes.log',
-    hour    => [17],
+    hour    => 17,
+    minute  => 0,
   }
 
   cron{'ActualizarLosEstudiantes':
     ensure  => present,
     command => 'wget -q -d  --no-check-certificate "https://sync.upr.edu.cu/saber_ldap_student" > /var/log/sync_upr_Student.log',
-    hour    => [21],
+    hour    => 21,
+    minute  => 0,
   }
 
   cron {'CrearLosNuevosEstudiantesDeIngreso':
     ensure  => present,
     command => 'wget -q -d  --no-check-certificate "https://sync.upr.edu.cu/crear_student" > /var/log/sync_upr_newStudent.log',
-    hour    => [20],
+    hour    => 20,
+    minute  => 0,
   }
 
  cron {'ADDGrupoPasswordAlosCompanerosDeSoftUPR':
    ensure  => present,
    command => 'wget -q -d  --no-check-certificate "https://sync.upr.edu.cu/password/ADD" > /var/log/sync_upr_GrupoPassword.log',
-   hour    => [11],
+   hour    => 11,
+   minute  => 0,
  }
 
  cron {'REMOVEGrupoPasswordAlosCompanerosDeSftUPR':
    ensure  => present,
    command => 'wget -q -d  --no-check-certificate "https://sync.upr.edu.cu/password/REMOVE" > /var/log/sync_upr_GrupoPassword.log',
-   hour    => [15],
+   hour    => 15,
+   minute  => 0,
  }
 
 class {'::serv_logrotate':
