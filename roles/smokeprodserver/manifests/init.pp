@@ -16,45 +16,28 @@ class smokeprodserver(){
     pagetitle        => "Switch L3 Nodo Central",
     host             => '10.2.1.1',
   }
-  smokeping::target { 'Cisco':
+  smokeping::target { 'Router_PAP':
     hierarchy_parent => 'Routers',
     hierarchy_level  => 2,
-    menu             => 'Cisco',
-    pagetitle        => 'Cisco',
-    host             => '10.2.1.7',
-    }
-  smokeping::target { 'TP':
+    menu             => "Router PAP",
+    pagetitle        => "Router PAP",
+    host             => '10.2.1.5',
+  }
+  smokeping::target{ 'Router_FCP':
     hierarchy_parent => 'Routers',
     hierarchy_level  => 2,
-    menu             => 'TP',
-    pagetitle        => 'TP',
-    host             => '10.2.1.14',
-    }
-  smokeping::target { 'Primero':
-    hierarchy_parent => 'Cisco',
-    hierarchy_level  => 3,
-    menu             => 'Primero',
-    host             => '10.2.1.8',
-    probe            => 'FPing',
-    }
-  smokeping::target { 'Segundo':
-    hierarchy_parent => 'TP',
-    hierarchy_level  => 3,
-    menu             => 'Segundo',
-    host             => '10.2.1.13',
-    probe            => 'FPing',
-    }
-    #  smokeping::target { "Switch L3 Nodo Central":
-    #   hierarchy_parent => 'Routers',
-    #   hierarchy_level  => 2,
-    #    menu             => "Switch L3 Nodo Central",
-    #    pagetitle        => "Switch L3 Nodo Central",
-    #   host             => '10.2.1.1',
-    #   probe            => 'FPing',
-    #   }
+    menu             => "Router FCP",
+    pagetitle        => "Ruoter FCP",
+    host             => '10.2.8.150',
+  }
+  smokeping::target {'Router_FCF':
+    hierarchy_parent => 'Routers',
+    hierarchy_level  => 2,
+    menu             => "Router FCF",
+    pagetitle        => "Router FCF",
+    host             => '10.2.8.200',
+  }
 }
-
-
   #  package { 'lsb-release':
   #  ensure => installed,
   #    }~> 
