@@ -12,8 +12,8 @@ class smokeprodserver(){
   smokeping::target { 'Switch_L3_Nodo_Central':
     hierarchy_parent => 'Routers',
     hierarchy_level  => 2,
-    menu             => 'Switch_L3_Nodo_Central',
-    pagetitle        => 'Switch_L3_Nodo_Central',
+    menu             => "Switch L3 Nodo Central",
+    pagetitle        => "Switch L3 Nodo Central",
     host             => '10.2.1.1',
   }
   smokeping::target { 'Cisco':
