@@ -9,7 +9,7 @@ class smokeprodserver(){
     pagetitle => 'Routers de la UPR',
     alerts    => [ 'bigloss', 'noloss','startloss' ],
   }
-  smokeping::target { 'Switch_L3_Nodo_Central':
+  smokeping::target { "Switch L3 Nodo Central":
     hierarchy_parent => 'Routers',
     hierarchy_level  => 2,
     menu             => "Switch L3 Nodo Central",
