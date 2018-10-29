@@ -14,11 +14,13 @@ class smokeprodserver(){
       hierarchy_level  => 2,
       menu             => 'Cisco',
       pagetitle        => 'Cisco',
+      host             => '10.2.1.7',
     }
     smokeping::target { 'TP':
       hierarchy_parent => 'Routers',
       hierarchy_level  => 2,
       menu             => 'TP',
+      pagetitle        => 'TP',
       host             => '10.2.1.1',
     }
     smokeping::target { 'Primero':
