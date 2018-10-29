@@ -10,7 +10,7 @@ class smokeprodserver(){
     alerts    => [ 'bigloss', 'noloss','startloss' ],
   }
   smokeping::target { 'Switch_L3_Nodo_Central':
-    hierarchy_parent => 'Router',
+    hierarchy_parent => 'Routers',
     hierarchy_level  => 2,
     menu             => 'Switch_L3_Nodo_Central',
     pagetitle        => 'Switch_L3_Nodo_Central',
