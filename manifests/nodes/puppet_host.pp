@@ -16,8 +16,8 @@ node 'client-puppet.upr.edu.cu'{
   #include puppetdevserver
   #include puppetprodserver
 
-  class { 'openldap::server':
-  }
+  #class { 'openldap::server':
+  #}
   openldap::server::globalconf { 'security':
     ensure => present,
     value  => 'tls=128',
