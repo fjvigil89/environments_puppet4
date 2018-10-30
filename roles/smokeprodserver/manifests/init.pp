@@ -3,14 +3,24 @@
 #================================
 #
 class smokeprodserver(){
-  include smokeserver
-  smokeping::target { 'Routers':
-    menu      => 'Routers',
-    pagetitle => 'Routers de la UPR',
-    alerts    => [ 'bigloss', 'noloss','startloss' ],
-  }
-  smokeping::target { 'Switch_L3_Nodo_Central':
+  package { 'lsb-release':
+    ensure => installed,
+    }~>
+    class { '::basesys':
+      uprinfo_usage => 'Servidor test',
+      application   => 'puppet',
+      proxmox_enabled => false,
+    }
+}
+  smokeserver::target { ['Switch_L3_Nodo_Central','Router_PAP','Router_FCP','Router_FCF']:
+    pagetitle        => ["Switch L3 Nodo Central","Router PAP","Router FCP","Router FCF"],
+    hierarchy_level  => 2,
     hierarchy_parent => 'Routers',
+    host             => ['10.2.1.1','10.2.1.8','10.2.1.13','10.2.1.140','10.2.1.14'],
+  }
+
+  smokeping::target { ['Switch_L3_Nodo_Central','Router_PAP','Router_FCP','Router_FCF']:
+    hierarchy_parent => ['Routers','Routers',
     hierarchy_level  => 2,
     menu             => "Switch L3 Nodo Central",
     pagetitle        => "Switch L3 Nodo Central",
@@ -28,9 +38,9 @@ class smokeprodserver(){
     hierarchy_level  => 2,
     menu             => "Router FCP",
     pagetitle        => "Ruoter FCP",
-    host             => '10.2.8.150',
+    host             => '10.2.0.10',
   }
-  smokeping::target {'Router_FCF':
+  smokeping::target { 'Router_FCF':
     hierarchy_parent => 'Routers',
     hierarchy_level  => 2,
     menu             => "Router FCF",
@@ -38,12 +48,3 @@ class smokeprodserver(){
     host             => '10.2.8.200',
   }
 }
-  #  package { 'lsb-release':
-  #  ensure => installed,
-  #    }~> 
-  #   class { '::basesys':
-  #    uprinfo_usage => 'Servidor test',
-  #    application   => 'puppet',
-  #    proxmox_enabled => false,
-  #  }
-  #}

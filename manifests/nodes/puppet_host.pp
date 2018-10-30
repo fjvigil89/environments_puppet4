@@ -50,19 +50,18 @@ node 'test.upr.edu.cu'{
    #  open_ports     => [8080,443,53,22],
    #}
   }
+
+
 node 'puppet-henry.upr.edu.cu'{
   include smokeprodserver
-  package { 'lsb-release':
-    ensure => installed,
-    }~> 
-    class { '::basesys':
-      uprinfo_usage => 'Servidor test',
-      application   => 'puppet',
-      proxmox_enabled => false,
-    }
+  class {'smokeserver':
+    target           => ['L3','PAP','FCP','FCF'],
+    menu             => ['Switch L3 Nodo Central','Router PAP','Router FCP','Router FCF'],
+    hierarchy_level  => 2,
+    hierarchy_parent => 'Routers',
+    host             => ['10.2.1.1','10.2.1.5','10.2.0.10','10.2.8.200'],
+  }
 }
-  
-  
 # class { 'smokeserver':
 #    target           => ['Router','Cisco','primero','segundo','TP'],
 #    pagetitle        => ['Conexión de la UPR','Cisco','primero','segundo','TP'],
