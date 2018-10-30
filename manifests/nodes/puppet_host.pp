@@ -16,18 +16,18 @@ node 'client-puppet.upr.edu.cu'{
   #include puppetdevserver
   #include puppetprodserver
 
-  #class { 'openldap::server':
-  #}
-  #openldap::server::globalconf { 'security':
-  #  ensure => present,
-  #  value  => 'tls=128',
-  #}
-  #openldap::server::module { 'syncprov':
-  #  ensure => present,
-  #}
-  #openldap::server::overlay { 'syncprov on dc=upr,dc=edu,dc=cu':
-  #  ensure => present,
-  #}
+  class { 'openldap::server':
+  }
+  openldap::server::globalconf { 'security':
+    ensure => present,
+    value  => 'tls=128',
+  }
+  openldap::server::module { 'syncprov':
+    ensure => present,
+  }
+  openldap::server::overlay { 'syncprov on dc=upr,dc=edu,dc=cu':
+    ensure => present,
+  }
 
 }
 
