@@ -21,4 +21,11 @@ class smokeserver::target {
     }
     }
   }
+  smokeping::target { 'Multihost_Routers' :
+    pagetitle        => 'Routers',
+    hierarchy_parent => 'Routers',
+    hierarchy_level  => 2,
+    menu             => 'Multihost',
+    host             => ['10.2.1.1','10.2.1.8']
+  }
 }
