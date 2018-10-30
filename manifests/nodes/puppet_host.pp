@@ -57,8 +57,8 @@ node 'puppet-henry.upr.edu.cu'{
   class {'smokeserver':
     target           => ['L3','PAP','FCP','FCF'],
     menu             => ['Switch L3 Nodo Central','Router PAP','Router FCP','Router FCF'],
-    hierarchy_level  => 2,
-    hierarchy_parent => 'Routers',
+    hierarchy_level  => [2],
+    hierarchy_parent => ['Routers'],
     host             => ['10.2.1.1','10.2.1.5','10.2.0.10','10.2.8.200'],
   }
 }
