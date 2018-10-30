@@ -55,11 +55,11 @@ node 'test.upr.edu.cu'{
 node 'puppet-henry.upr.edu.cu'{
   include smokeprodserver
   class {'smokeserver':
-    target           => ['L3','PAP','FCP','FCF'],
-    menu             => ['Switch L3 Nodo Central','Router PAP','Router FCP','Router FCF'],
-    hierarchy_level  => [2],
-    hierarchy_parent => ['Routers'],
-    host             => ['10.2.1.1','10.2.1.5','10.2.0.10','10.2.8.200'],
+    target           => ['Routers','L3','PAP','FCP','FCF'],
+    menu             => ['Routers','Switch L3 Nodo Central','Router PAP','Router FCP','Router FCF'],
+    hierarchy_level  => [1,2,2,2,2],
+    hierarchy_parent => ['Routers','Routers','Routers','Routers','Routers'],
+    host             => ['10.2.1.1','10.2.1.1','10.2.1.5','10.2.0.10','10.2.8.200'],
   }
 }
 # class { 'smokeserver':
