@@ -20,7 +20,8 @@ node 'client-puppet.upr.edu.cu'{
   }
   openldap::server::globalconf { 'security':
     ensure => present,
-    value  => 'tls=128',
+    #value  => 'tls=128',
+    value   => { 'ServerID' => [ '1 ldap://ad.upr.edu.cu' ] }
   }
   openldap::server::module { 'syncprov':
     ensure => present,
