@@ -9,11 +9,11 @@ class smokeserver::target {
   }
   each($::smokeserver::target) |Integer $index, String $value|{
     smokeping::target{$value :
-      menu             => $::smokeserver::params::menu[$index],
-      pagetitle        => $::smokeserver::params::menu[$index],
-      hierarchy_level  => $::smokeserver::params::hierarchy_level[$index],
-      hierarchy_parent => $::smokeserver::params::hierarchy_parent[$index],
-      host             => $::smokeserver::params::host[$index],
+      menu             => $::smokeserver::menu[$index],
+      pagetitle        => $::smokeserver::menu[$index],
+      hierarchy_level  => $::smokeserver::hierarchy_level[$index],
+      hierarchy_parent => $::smokeserver::hierarchy_parent[$index],
+      host             => $::smokeserver::host[$index],
     }
   }
 }
