@@ -52,7 +52,7 @@ node 'test.upr.edu.cu'{
   }
 
 node 'puppet-henry.upr.edu.cu'{
-  include smokeprodserver
+  #  include smokeprodserver
   class {'smokeserver':
     target           => ['Routers','L3','PAP','FCP','FCF','CUM','Vinales','Palacios','San_Luis','Minas','Guane','Mantua','La_Palma','Sandino','Consolacion'],
     menu             => ['Routers','Switch L3 Nodo Central','Router PAP','Router FCP','Router FCF','CUM','Viñales','Los Palacios','San Luis','Minas','Guane','Mantua','La Palma','Sandino','Consolacion'],
