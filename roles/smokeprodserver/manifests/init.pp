@@ -2,15 +2,15 @@
 #  Class smokeprodserver_server
 #================================
 #
-class smokeprodserver(){
-  package { 'lsb-release':
-    ensure => installed,
-    }~>
-    class { '::basesys':
-      uprinfo_usage => 'Servidor test',
-      application   => 'puppet',
-      proxmox_enabled => false,
-    }
+#class smokeprodserver(){
+#  package { 'lsb-release':
+#    ensure => installed,
+#    }~>
+#    class { '::basesys':
+#      uprinfo_usage => 'Servidor test',
+#      application   => 'puppet',
+#      proxmox_enabled => false,
+#    }
     #  smokeserver::target { ['Switch_L3_Nodo_Central','Router_PAP','Router_FCP','Router_FCF']:
     #pagetitle        => ["Switch L3 Nodo Central","Router PAP","Router FCP","Router FCF"],
     #  hierarchy_level  => 2,

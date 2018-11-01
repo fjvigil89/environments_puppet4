@@ -74,7 +74,6 @@ node 'puppet-henry.upr.edu.cu'{
       'allow_override' => 'All',
       },],
   }
-
 }
 # class { 'smokeserver':
 #    target           => ['Router','Cisco','primero','segundo','TP'],
