@@ -9,7 +9,6 @@ class wh_php_apache {
     application    => 'puppet',
     #puppet_enabled => false,
     mta_enabled    => false,
-    proxmox_enabled => false,
   }
   
  include git
