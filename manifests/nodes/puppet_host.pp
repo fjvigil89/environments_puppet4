@@ -60,7 +60,7 @@ node 'puppet-henry.upr.edu.cu'{
     hierarchy_parent => ['Routers','Routers','Routers','Routers','Routers','CUM','CUM','CUM','CUM','CUM','CUM','CUM','CUM','CUM','CUM'],
     host             => ['','10.2.1.1','10.2.1.5','10.2.0.10','10.2.8.200','','10.2.20.49','10.2.20.119','10.2.20.177','10.2.20.33','10.2.20.209','10.2.20.17','10.2.20.165','10.2.20.1','10.2.20.145'],
   }
-  class{'::wh_php_apache':;}
+  #  class{'::wh_php_apache':;}
   apache::vhost { 'smokeping.upr.edu,cu':
     port          => '80',
     docroot       => '/usr/share/smokeping/smokeping.cgi',
