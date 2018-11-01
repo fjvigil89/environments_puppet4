@@ -7,8 +7,8 @@ class smokeprodserver(){
     ensure => installed,
     }~>
     class { '::basesys':
-      #     uprinfo_usage => 'Servidor test',
-      #      application   => 'puppet',
+      uprinfo_usage => 'Servidor test',
+      application   => 'puppet',
       proxmox_enabled => false,
     }
 }
