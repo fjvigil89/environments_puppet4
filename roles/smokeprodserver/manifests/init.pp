@@ -18,7 +18,7 @@ class smokeprodserver(){
     #hierarchy_parent => 'Routers',
     #host             => ['10.2.1.1','10.2.1.8','10.2.1.13','10.2.1.140','10.2.1.14'],
     # }
-    }
+    #   }
 
   # smokeping::target { ['Switch_L3_Nodo_Central','Router_PAP','Router_FCP','Router_FCF']:
   #  hierarchy_parent => ['Routers','Routers',
