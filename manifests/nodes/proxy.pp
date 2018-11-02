@@ -17,7 +17,7 @@ node 'proxy-go.upr.edu.cu'{
     uprinfo_usage => 'Servidor Proxy',
     application   => 'Servidor Proxy Squid',
     mta_enabled   => false,
-    puppet_users  => false,
+     
   }
 
 }
