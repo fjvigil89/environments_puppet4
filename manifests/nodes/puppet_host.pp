@@ -29,14 +29,6 @@ node 'client-puppet.upr.edu.cu'{
   #  ensure => present,
   #}
 
-  class { '::go::agent':
-    manage_package_repo => true
-  } ->
-  ::go::agent::instance { 'agent1':
-    path            => '/tmp/pmproxy-prod/',
-    go_server_host  => 'localhost',
-    go_server_port  => 8153
-  }
 
 }
 
