@@ -4,8 +4,7 @@
 class smokeserver::params {
   $owner          = 'SysAdmin'
   $mode           = 'standalone'
-  $cgiurl         = 'http://10.2.1.18'
-  #$cgiurl         = 'http://10.2.1.140/cgi-bin/smokeping.cgi'
+  $cgiurl         = 'http://10.2.1.18/cgi-bin/smokeping.cgi'
   $probes         = [ { name => 'FPing', binary => '/usr/bin/fping', step => '300' } ]
   # $contact            = 'upredes@upr.edu.cu'
   # $mailhost           = 'my.mail.host'
