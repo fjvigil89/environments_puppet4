@@ -36,6 +36,11 @@ class smokeserver::params {
       comment     => 'Hubo pérdida y ahora es alcanzable de nuevo',
     },
   ]
+<<<<<<< HEAD
+=======
+  # $servername        = 'smokeping.upr.edu.cu'
+  # $manage_apache     = true
+>>>>>>> d9d7cba0cdf5e27271412cbf345fee527b1e8623
   $target            = []
   $menu              = []
   $pagetitle         = []
