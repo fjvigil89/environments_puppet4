@@ -37,7 +37,7 @@ class smokeserver::params {
     },
   ]
   $servername        = 'smokeping.upr.edu.cu'
-  $manage_apache     = true
+  # $manage_apache     = true
   $target            = []
   $menu              = []
   $pagetitle         = []
