@@ -11,11 +11,6 @@ class smokeserver(
   $alerts_from        = $::smokeserver::params::alerts_from,
   $alerts                           = $::smokeserver::params::alerts,
   $probes                           = $::smokeserver::params::probes,
-<<<<<<< HEAD
-=======
-  #  $manage_apache                    = $::smokeping::params::manage_apache,
-  #  $servername                       = $::smokeping::params::servername,
->>>>>>> d9d7cba0cdf5e27271412cbf345fee527b1e8623
   Array[String] $target             = $::smokeserver::params::target,
   Array[String] $menu               = $::smokeserver::params::menu,
   Array[String] $pagetitle          = $::smokeserver::params::pagetitle,
@@ -34,9 +29,6 @@ class smokeserver(
     alerts_from    => $alerts_from,
     alerts         => $alerts,
   }
-<<<<<<< HEAD
   include ::smokeping::apache
-=======
->>>>>>> d9d7cba0cdf5e27271412cbf345fee527b1e8623
   class {'::smokeserver::target':;}
 }
