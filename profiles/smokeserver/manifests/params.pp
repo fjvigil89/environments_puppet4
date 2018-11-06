@@ -36,7 +36,6 @@ class smokeserver::params {
       comment     => 'Hubo pérdida y ahora es alcanzable de nuevo',
     },
   ]
-  $manage_apache     = true
   $target            = []
   $menu              = []
   $pagetitle         = []
