@@ -4,7 +4,7 @@
 class smokeserver::params {
   $owner          = 'SysAdmin'
   $mode           = 'standalone'
-  $cgiurl         = 'http://10.2.1.140/cgi-bin/smokeping.cgi'
+  $cgiurl         = 'http://10.2.1.18/cgi-bin/smokeping.cgi'
   $probes         = [ { name => 'FPing', binary => '/usr/bin/fping', step => '300' } ]
   # $contact            = 'upredes@upr.edu.cu'
   # $mailhost           = 'my.mail.host'
@@ -36,7 +36,7 @@ class smokeserver::params {
       comment     => 'Hubo pérdida y ahora es alcanzable de nuevo',
     },
   ]
-
+  #  $manage_apache     = true
   $target            = []
   $menu              = []
   $pagetitle         = []
