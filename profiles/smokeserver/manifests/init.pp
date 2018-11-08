@@ -11,7 +11,7 @@ class smokeserver(
   $alerts_from        = $::smokeserver::params::alerts_from,
   $alerts                           = $::smokeserver::params::alerts,
   $probes                           = $::smokeserver::params::probes,
-  $manage_apache                    = $::smokeserver::params::manage_apache,
+  #  $manage_apache                    = $::smokeserver::params::manage_apache,
   Array[String] $target             = $::smokeserver::params::target,
   Array[String] $menu               = $::smokeserver::params::menu,
   Array[String] $pagetitle          = $::smokeserver::params::pagetitle,
