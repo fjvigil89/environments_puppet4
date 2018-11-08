@@ -31,5 +31,4 @@ class smokeserver(
     alerts         => $alerts,
   }
   include ::smokeping::apache
-  class {'::smokeserver::target':;}
 }
