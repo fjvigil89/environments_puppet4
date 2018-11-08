@@ -1,6 +1,5 @@
 # Class: smokeserver
 #
-#
 class smokeserver(
   $owner              = $::smokeserver::params::owner,
   $mode               = $::smokeserver::params::mode,
