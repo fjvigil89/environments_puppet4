@@ -27,7 +27,7 @@ mysql::db { 'icinga2':
 class { '::icinga2':
   confd       => false,
   manage_repo => false,
-  features    => ['checker','mainlog','notification','statusdata','compatlog','perfdata'],
+  features    => ['checker','mainlog','notification','statusdata','compatlog'],
   constants   => {
     'ZoneName' => 'master',
     'NodeName' => $facts['fqdn'],
