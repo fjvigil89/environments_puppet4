@@ -253,6 +253,10 @@ class { 'icingaweb2::module::fileshipper':
     }
   }
 }
+# Cube Module
+class { 'icingaweb2::module::cube':
+  git_revision => 'v1.0.0'
+}
 #Copy Logo & Icon Image
 #file { '/usr/share/icingaweb2/public/img/icons/host_logos':
 #  ensure  => 'directory',
