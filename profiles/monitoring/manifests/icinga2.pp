@@ -23,9 +23,18 @@ mysql::db { 'icinga2':
   host     => $monitoring::icinga2::icinga2_dbhost,
   grant    => ['SELECT', 'INSERT', 'UPDATE', 'DELETE', 'DROP', 'CREATE VIEW', 'CREATE', 'INDEX', 'EXECUTE', 'ALTER'],
 }
+
+file { '/etc/icinga2/conf.d':
+  ensure => directory,
+  owner  => 'root',
+  group  => 'root',
+  mode   => '0755',
+  purge  => true,
+}
+
 # Configure icinga2 
 class { '::icinga2':
-  confd       => false,
+  confd       => true,
   manage_repo => false,
   features    => ['checker','mainlog','notification','statusdata','compatlog'],
   constants   => {
