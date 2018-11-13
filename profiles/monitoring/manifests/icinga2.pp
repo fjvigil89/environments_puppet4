@@ -46,6 +46,7 @@ icinga2::object::apiuser { 'aNag':
   apiuser_name => 'arian',
   password     => 'icingaweb',
   permissions  => ["*"],
+  target       => '/etc/icinga2/conf.d/apiuser.conf',
 }
 #Configure EndPoints
 each($::monitoring::icinga_servers) |Integer $index, String $value|{
