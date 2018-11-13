@@ -22,4 +22,3 @@ node 'ircportal.upr.edu.cu' {
     mta_enabled    => false,
   }
 }
-

@@ -45,7 +45,7 @@ mod 'Slashbunny-phpfpm', '0.0.16'
 mod 'puppet-nginx', '0.11.0'
 mod 'puppet-gitlab', '2.1.0'
 mod 'puppet-letsencrypt', '2.4.0'
-mod 'mayflower-prosody', '0.3.1'
+mod 'mayflower-prosody', '0.3.2'
 mod 'dwerder-graphite', '7.3.0'
 mod 'puppet-grafana', '4.4.1'
 mod 'vpgrp-snmpd', '1.0.7'
@@ -66,7 +66,7 @@ mod 'camptocamp-openldap', '1.17.0'
 mod 'herculesteam-augeasproviders_core', '2.1.5'
 mod 'herculesteam-augeasproviders_shellvar', '3.0.0'
 mod 'jgazeley-freeradius', '3.7.0'
-
+mod 'puppet-smokeping', '4.0.0'
 
 mod 'rgevaert/pwgen',
   :git => 'https://github.com/rgevaert/puppet-pwgen.git',
