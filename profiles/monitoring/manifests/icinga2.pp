@@ -72,7 +72,7 @@ class { '::icinga2::feature::api':
   }
 }
 icinga2::object::apiuser { 'aNag':
-  apiuser_name => 'arian',
+  apiuser_name => 'icinga',
   password     => 'icingaweb',
   permissions  => ["*"],
   target       => '/etc/icinga2/conf.d/apiuser.conf',
