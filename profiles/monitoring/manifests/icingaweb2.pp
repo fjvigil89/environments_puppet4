@@ -36,24 +36,11 @@ class { 'icingaweb2::module::graphite':
   git_revision => 'v1.1.0',
   url          => 'http://graphite.upr.edu.cu'
 }
-#Fileshippet Module
-class { 'icingaweb2::module::fileshipper':
-  git_revision     => 'master',
-  base_directories => {
-    basedir => '/var/cache/icinga2',
-  },
-  directories      => {
-    'test' => {
-      'source'     => '/usr/local/src/custom-rules.git',
-      'target'     => '/zones.d/director-global/custom-rules',
-      'extensions' => '.conf, .md',
-    }
-  }
-}
 # Cube Module
 class { 'icingaweb2::module::cube':
   git_revision => 'v1.0.0'
 }
+#File Shipper conf
 class {'::monitoring::module_fileshipper':;}
 
 }
