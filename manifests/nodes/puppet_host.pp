@@ -29,9 +29,7 @@ node 'client-puppet.upr.edu.cu'{
   #  ensure => present,
   #}
 
- class {'kubernetes':
-   controller => true,
- }
+  class { 'ansible': }
 }
 
 

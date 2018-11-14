@@ -62,10 +62,13 @@ mod 'dmcnicks-cas', '0.1.0'
 mod 'camptocamp-tomcat', '1.1.0'
 mod 'camptocamp-openssl', '1.10.0'
 mod 'camptocamp-systemd', '2.1.0'
-mod 'camptocamp-openldap', '1.17.0'
 mod 'herculesteam-augeasproviders_core', '2.1.5'
 mod 'herculesteam-augeasproviders_shellvar', '3.0.0'
 mod 'jgazeley-freeradius', '3.7.0'
+#ldap
+mod 'camptocamp-openldap', '1.17.0'
+#Ansible
+mod 'eyp-ansible', '0.1.0'
 #kubernet
 mod 'puppetlabs-kubernetes', '3.0.1'
 #Go
