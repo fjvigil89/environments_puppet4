@@ -66,6 +66,8 @@ mod 'camptocamp-openldap', '1.17.0'
 mod 'herculesteam-augeasproviders_core', '2.1.5'
 mod 'herculesteam-augeasproviders_shellvar', '3.0.0'
 mod 'jgazeley-freeradius', '3.7.0'
+#kubernet
+mod 'puppetlabs-kubernetes', '3.0.1'
 #Go
 
 mod 'rgevaert/pwgen',
