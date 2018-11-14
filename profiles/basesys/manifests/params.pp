@@ -27,7 +27,6 @@ class basesys::params {
   
   #monitoring
   $monitoring_enabled = true
-  
   #Proxmox
   $proxmox_enabled    = false
   
