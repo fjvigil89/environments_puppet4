@@ -17,27 +17,27 @@ icingaweb2::config::resource {'ad-upr':
 }
 
 # Configure Autentication Method
-icingaweb2::config::authmethod {'ad-auth':
+icingaweb2::config::authmethod { 'ad-auth':
   backend  => 'msldap',
   resource => 'ad-upr',
   order    => '02',
 }
 
 #Configure Manage Group Backends
-icingaweb2::config::groupbackend {'ad-group-backend':
+icingaweb2::config::groupbackend { 'ad-group-backend':
   backend  => 'msldap',
   resource => 'ad-upr',
 }
 
 #Manage Roles
-icingaweb2::config::role {'SysAdmins':
-  users       => 'icingaadmin, arian, frank.vigil, rene, ymtnez, ysantalla, yandy',
+icingaweb2::config::role { 'SysAdmins':
+  users       => 'icingaadmin, arian, frank.vigil, rene, ymtnez, henry.fleitas, yandy',
   groups      => 'SysAdmins',
   permissions => '*',
 }
 
-icingaweb2::config::role {'Develops':
-  users       => 'irlenys.ibarra, luis.junco, manuel.diaz, osmay, serrano',
+icingaweb2::config::role { 'Develops':
+  users       => 'irlenys.ibarra, manuel.diaz, osmay, serrano',
   groups      => 'Develops',
   permissions => 'module/monitoring, module/doc',
 }
