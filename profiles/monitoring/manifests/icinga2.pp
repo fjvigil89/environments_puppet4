@@ -59,9 +59,9 @@ icinga2::object::apiuser { 'aNag':
   target       => '/etc/icinga2/conf.d/apiuser.conf',
 }
 #Configure EndPoints
-each($::monitoring::icinga_servers) |Integer $index, String $value|{
-icinga2::object::endpoint { $::monitoring::icinga_servers[$index]:
-  host => $::monitoring::icinga_ipservers[$index],
+each($::monitoring::params::icinga_servers) |Integer $index, String $value|{
+icinga2::object::endpoint { $value:
+  host => $::monitoring::params::icinga_ipservers[$index],
 }
 }
 #Configure Zones
