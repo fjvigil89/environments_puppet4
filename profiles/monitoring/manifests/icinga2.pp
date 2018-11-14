@@ -5,6 +5,7 @@
 # Configure icinga2
 
 class monitoring::icinga2 {
+include ::monitoring::params
 # Create a DB icinga2 (IDO)
 include '::mysql::server'
 mysql::db { 'icinga2':
@@ -53,7 +54,7 @@ class { '::icinga2::feature::api':
   zones           => {},
 }
 icinga2::object::apiuser { 'aNag':
-  apiuser_name => 'arian',
+  apiuser_name => 'icinga',
   password     => 'icingaweb',
   permissions  => ["*"],
   target       => '/etc/icinga2/conf.d/apiuser.conf',
