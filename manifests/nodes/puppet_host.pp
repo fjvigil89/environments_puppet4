@@ -31,19 +31,24 @@ node 'client-puppet.upr.edu.cu'{
 
 
   class { 'squid':
-    # http_access  => { 'our_networks hosts' => { action => 'allow', }},
+    http_access  => { 'UPR' => { action => 'allow', }},
     http_ports   => {'8080' => { #options => 'accel vhost', 
         }},
     https_ports   => {'8443' => { #options => 'accel vhost',
         }},
   }
+  squid::acl { 'CONNECT':
+    type    => method,
+    entries => ['CONNECT'],
+  }
   squid::acl { 'Safe_ports':
     type    => port,
     entries => ['80','443','21','70','210','1025-65535','280','488','591','777'],
   }
-  squid::acl { 'CONNECT':
-    type    => method,
-    entries => ['CONNECT'],
+  squid::acl { 'UPR':
+    type    => src,
+    entries => ['10.2.0.0/15'],
+
   }
   squid::refresh_pattern { '^ftp:':
     min     => 1440,
