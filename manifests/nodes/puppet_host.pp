@@ -43,7 +43,7 @@ node 'client-puppet.upr.edu.cu'{
   }
   squid::acl { 'CONNECT':
     type    => method,
-    entries => 'CONNECT',
+    entries => ['CONNECT'],
   }
   squid::refresh_pattern { '^ftp:':
     min     => 1440,
