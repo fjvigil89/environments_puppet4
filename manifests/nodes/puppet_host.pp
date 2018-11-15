@@ -30,11 +30,15 @@ node 'client-puppet.upr.edu.cu'{
   #}
 
 
-  class { 'squid': }
+  class { 'squid':
+    http_access  => { 'our_networks hosts' => { action => 'allow', }},
+    http_ports   => { '8080' => { options => 'accel vhost', }},
+  }
   squid::acl { 'Safe_ports':
     type    => port,
     entries => ['80'],
   }
+
   squid::http_access { 'Safe_ports':
     action => allow,
   }
