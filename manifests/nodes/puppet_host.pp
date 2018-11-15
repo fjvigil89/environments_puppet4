@@ -51,7 +51,7 @@ node 'client-puppet.upr.edu.cu'{
     order   => '61',
   }
   squid::refresh_pattern { '(/cgi-bin/|\?)':
-    case_sensitive => falke,
+    #case_sensitive => falke,
     min            => 0,
     max            => 0,
     percent        => 0,
