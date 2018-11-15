@@ -78,6 +78,9 @@ node 'client-puppet.upr.edu.cu'{
   squid::dns{'DNS':
     value => '10.2.1.14 10.2.1.13',
   }
+  squid::tcp_outgoing_address {'OutGoing':
+    value => ['200.14.49.29','152.207.173.41'],
+  }
 
 }
 
