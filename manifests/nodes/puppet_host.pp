@@ -38,16 +38,18 @@ node 'client-puppet.upr.edu.cu'{
         }
     },
   }
-  squid::acl { 'Safe_ports':
-    type    => port,
-    entries => ['80'],
+  squid::refresh_pattern { '^ftp:':
+    min     => 1440,
+    max     => 10080,
+    percent => 20,
+    order   => 60,
   }
-
-  squid::http_access { 'Safe_ports':
-    action => allow,
-  }
-  squid::http_access{ '!Safe_ports':
-    action => deny,
+  squid::refresh_pattern { '(/cgi-bin/|\?)':
+    case_sensitive => falke,
+    min            => 0,
+    max            => 0,
+    percent        => 0,
+    order          => 61,
   }
 }
 
