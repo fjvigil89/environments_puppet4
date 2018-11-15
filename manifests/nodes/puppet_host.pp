@@ -75,6 +75,9 @@ node 'client-puppet.upr.edu.cu'{
     percent => 20,
     order   => '63',
   }
+  squid::dns{'DNS':
+    value => ['10.2.1.14','10.2.1.13'],
+  }
 
 }
 
