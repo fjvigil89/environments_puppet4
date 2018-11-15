@@ -118,26 +118,30 @@ node 'puppet-test.upr.edu.cu'{
     max_connections => 0,
   }
   freeradius::module::ldap { 'ad-pap':
-    server       => '10.2.24.35',
-    port         => 389,
-    basedn       => 'DC=upr,DC=edu,DC=cu',
-    identity     => 'ras@upr.edu.cu',
-    password     => 'freeradius.upr2k18',
-    user_filter  => "(&(memberOf=cn=UPR-Ras,ou=_Gestion,dc=upr,dc=edu,dc=cu)(samAccountName=%{%{Stripped-User-Name}:-%{User-Name}})(objectclass=person))",
-    timeout      => 20,
-    group_filter => "(objectclass=radiusprofile)",
+    server                => '10.2.24.35',
+    port                  => 389,
+    basedn                => 'DC=upr,DC=edu,DC=cu',
+    identity              => 'ras@upr.edu.cu',
+    password              => 'freeradius.upr2k18',
+    user_filter           => "(&(memberOf=cn=UPR-Ras,ou=_Gestion,dc=upr,dc=edu,dc=cu)(samAccountName=%{%{Stripped-User-Name}:-%{User-Name}})(objectclass=person))",
+    timeout               => 20,
+    group_filter          => "(objectclass=radiusprofile)",
   }
-  freeradius::blank { ['sites-enabled/default','eap.conf',]:}
-  #freeradius::home_server { 'localhost':
-  #  secret => 'testing123',
-  #  type   => 'auth',
-  #  ipaddr => '127.0.0.1',
-  #  port   => 1812,
-  #  proto  => 'udp',
+  freeradius::blank { ['eap.conf',]:}
+  freeradius::home_server { 'localhost':
+    secret => 'testing123',
+    type   => 'auth',
+    ipaddr => '127.0.0.1',
+    port   => 1812,
+    proto  => 'udp',
+  }
+  #freeradius::home_server_pool { 'auth_failover':
+  #  home_server => 'localhost',
+  #  type        => 'fail-over',
   #}
-  #freeradius::realm { 'pap.upr.edu.cu':
-  #  acct_pool => 'localhost',
-  #}
+  freeradius::realm { 'pap.upr.edu.cu':
+    acct_pool => 'localhost',
+  }
   #freeradius::module::eap { 'eap':
   #  default_eap_type      => 'md5',
   #  gtc_auth_type         => 'PAP',

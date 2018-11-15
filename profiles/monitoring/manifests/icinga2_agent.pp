@@ -5,11 +5,10 @@
 # Configure icinga2_agent
 #
 
-class monitoring::icinga2_agent(
-  $manage_repo = false,
-) {
-  class {'::icinga2':
-    manage_repo => $manage_repo,
+class monitoring::icinga2_agent {
+  include ::monitoring::params
+  class { '::icinga2':
+    manage_repo => $monitoring::params::manage_repo,
     features    => ['checker','mainlog'],
   }
   icinga2::object::zone { 'global-templates':
@@ -26,18 +25,21 @@ class monitoring::icinga2_agent(
     endpoints       => {},
     zones           => {},
   }
+  #Configure EndPoints
   icinga2::object::endpoint { $::fqdn:
     host => $::ipaddress,
   }
+  each($::monitoring::params::icinga_servers) |Integer $index, String $value| {
+    icinga2::object::endpoint { $value:
+      host => $::monitoring::params::icinga_ipservers[$index],
+    }
+  }
+  #Configure Zones
   icinga2::object::zone { $::fqdn:
     endpoints => [ $fqdn ],
     parent    => 'master',
   }
-
-  icinga2::object::endpoint { 'master-icinga0.upr.edu.cu':
-    host => '10.2.1.49',
-  }
   icinga2::object::zone { 'master':
-    endpoints => [ 'master-icinga0.upr.edu.cu' ],
+    endpoints => $::monitoring::params::icinga_servers,
   }
 }
