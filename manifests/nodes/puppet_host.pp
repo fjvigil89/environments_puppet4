@@ -76,7 +76,7 @@ node 'client-puppet.upr.edu.cu'{
     order   => '63',
   }
   squid::dns{'DNS':
-    value => ['10.2.1.14','10.2.1.13'],
+    value => '10.2.1.14 10.2.1.13',
   }
 
 }
