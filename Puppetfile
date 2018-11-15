@@ -67,8 +67,6 @@ mod 'herculesteam-augeasproviders_shellvar', '3.0.0'
 mod 'jgazeley-freeradius', '3.7.0'
 #ldap
 mod 'camptocamp-openldap', '1.17.0'
-#Ansible
-mod 'otherskins-ansible', '2.0.2'
 #kubernet
 mod 'puppetlabs-kubernetes', '3.0.1'
 #Proxy

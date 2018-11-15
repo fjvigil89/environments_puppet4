@@ -29,13 +29,6 @@ node 'client-puppet.upr.edu.cu'{
   #  ensure => present,
   #}
 
-  class { 'ansible':
-    ensure           => 'present',
-    roles_path       => '/srv/roles',
-    timeout          => 30,
-    log_path         => '/var/log/ansible.log',
-    private_key_file => '/etc/keys',
-  }
 
   class { 'squid': }
   squid::acl { 'Safe_ports':
