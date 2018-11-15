@@ -49,7 +49,7 @@ node 'client-puppet.upr.edu.cu'{
     type    => src,
     entries => ['10.2.0.0/15'],
 
-  }
+  }  
   squid::refresh_pattern { '^ftp:':
     min     => 1440,
     max     => 10080,
@@ -79,7 +79,8 @@ node 'client-puppet.upr.edu.cu'{
     value => '10.2.1.14 10.2.1.13',
   }
   squid::tcp_outgoing_address {'OutGoing':
-    value => ['200.14.49.29','152.207.173.41'],
+    value    => ['200.14.49.29','200.55.143.8','152.207.173.41'],
+    acl_name => ['UPR','UPR','UPR']
   }
 
 }
