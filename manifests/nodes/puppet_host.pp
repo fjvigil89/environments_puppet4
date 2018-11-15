@@ -36,6 +36,18 @@ node 'client-puppet.upr.edu.cu'{
     log_path         => '/var/log/ansible.log',
     private_key_file => '/etc/keys',
   }
+
+  class { 'squid': }
+  squid::acl { 'Safe_ports':
+    type    => port,
+    entries => ['80'],
+  }
+  squid::http_access { 'Safe_ports':
+    action => allow,
+  }
+  squid::http_access{ '!Safe_ports':
+    action => deny,
+  }
 }
 
 

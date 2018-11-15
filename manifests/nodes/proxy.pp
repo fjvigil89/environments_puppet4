@@ -15,9 +15,11 @@ node 'proxy-go.upr.edu.cu'{
   }~>
   class { '::basesys':
     uprinfo_usage => 'Servidor Proxy',
-    application   => 'Servidor Proxy Squid',
+    application   => 'Servidor Proxy GO',
     mta_enabled   => false,
      
   }
+  
+
 
 }

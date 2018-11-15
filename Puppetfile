@@ -71,7 +71,8 @@ mod 'camptocamp-openldap', '1.17.0'
 mod 'otherskins-ansible', '2.0.2'
 #kubernet
 mod 'puppetlabs-kubernetes', '3.0.1'
-#Go
+#Proxy
+mod 'puppet-squid', '1.1.0'
 
 mod 'rgevaert/pwgen',
   :git => 'https://github.com/rgevaert/puppet-pwgen.git',
