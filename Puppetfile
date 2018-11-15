@@ -70,7 +70,14 @@ mod 'camptocamp-openldap', '1.17.0'
 #kubernet
 mod 'puppetlabs-kubernetes', '3.0.1'
 #Proxy
-mod 'puppet-squid', '1.1.0'
+mod 'dcenter/squid',
+  :git => 'git@gitlab.upr.edu.cu:dcenter/squid.git',
+  :ref => '3b82f958a1924de9f59302dbff109dbd20f9fc60'
+#ucarp
+mod 'dcenter/ucarp',
+  :git => 'git@gitlab.upr.edu.cu:dcenter/ucarp.git',
+  :ref => 'd16fe864411048e832a4563bbae9e5436eaf925b'
+
 
 mod 'rgevaert/pwgen',
   :git => 'https://github.com/rgevaert/puppet-pwgen.git',
