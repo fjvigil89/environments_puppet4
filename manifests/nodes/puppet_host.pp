@@ -31,11 +31,12 @@ node 'client-puppet.upr.edu.cu'{
 
 
   class { 'squid':
-    http_access  => { 'UPR' => { action => 'allow', }},
-    http_ports   => {'8080' => { #options => 'accel vhost', 
+    http_access => { 'UPR' => { action => 'allow', }},
+    http_ports  => {'8080' => { #options => 'accel vhost', 
         }},
-    https_ports   => {'8443' => { #options => 'accel vhost',
+    https_ports => {'8443' => { #options => 'accel vhost',
         }},
+    icp_access  => {'icp_access'=>{ action => 'allow', value =>'all' }},
   }
   squid::acl { 'CONNECT':
     type    => method,
