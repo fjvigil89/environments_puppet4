@@ -28,6 +28,5 @@ class smokeserver(
     alerts_from    => $alerts_from,
     alerts         => $alerts,
   }
-  include ::smokeping::apache
   class {'::smokeserver::target':;}
 }

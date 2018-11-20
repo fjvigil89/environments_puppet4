@@ -20,7 +20,7 @@ node 'client-puppet.upr.edu.cu'{
   #}
   #openldap::server::globalconf { 'security':
   #  ensure => present,
-  #  value  => 'tls=128',
+  #  #value  => 'tls=128',
   #}
   #openldap::server::module { 'syncprov':
   #  ensure => present,
@@ -28,6 +28,60 @@ node 'client-puppet.upr.edu.cu'{
   #openldap::server::overlay { 'syncprov on dc=upr,dc=edu,dc=cu':
   #  ensure => present,
   #}
+
+
+  class { 'squid':
+    http_access  => { 'UPR' => { action => 'allow', }},
+    http_ports   => {'8080' => { #options => 'accel vhost', 
+        }},
+    https_ports   => {'8443' => { #options => 'accel vhost',
+        }},
+  }
+  squid::acl { 'CONNECT':
+    type    => method,
+    entries => ['CONNECT'],
+  }
+  squid::acl { 'Safe_ports':
+    type    => port,
+    entries => ['80','443','21','70','210','1025-65535','280','488','591','777'],
+  }
+  squid::acl { 'UPR':
+    type    => src,
+    entries => ['10.2.0.0/15'],
+
+  }  
+  squid::refresh_pattern { '^ftp:':
+    min     => 1440,
+    max     => 10080,
+    percent => 20,
+    order   => '60',
+  }
+  squid::refresh_pattern { '^gopher:':
+    min     => 1440,
+    max     => 1440,
+    percent => 0,
+    order   => '61',
+  }
+  squid::refresh_pattern { '(/cgi-bin/|\?)':
+    #case_sensitive => falke,
+    min            => 0,
+    max            => 0,
+    percent        => 0,
+    order          => '62',
+  }
+  squid::refresh_pattern { '.':
+    min     => 0,
+    max     => 4320,
+    percent => 20,
+    order   => '63',
+  }
+  squid::dns_nameservers{'DNS':
+    value => '10.2.1.14 10.2.1.13',
+  }
+  squid::tcp_outgoing_address {'OutGoing':
+    value    => ['200.14.49.29','200.55.143.8','152.207.173.41'],
+    acl_name => ['UPR','UPR','UPR']
+  }
 
 }
 
