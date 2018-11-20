@@ -67,6 +67,7 @@ mod 'herculesteam-augeasproviders_core', '2.1.5'
 mod 'herculesteam-augeasproviders_shellvar', '3.0.0'
 mod 'jgazeley-freeradius', '3.7.0'
 mod 'puppet-smokeping', '4.0.0'
+mod 'puppet-collectd', '10.1.0'
 
 mod 'rgevaert/pwgen',
   :git => 'https://github.com/rgevaert/puppet-pwgen.git',
