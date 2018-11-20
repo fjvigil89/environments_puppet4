@@ -66,9 +66,7 @@ mod 'herculesteam-augeasproviders_core', '2.1.5'
 mod 'herculesteam-augeasproviders_shellvar', '3.0.0'
 mod 'jgazeley-freeradius', '3.7.0'
 mod 'puppet-smokeping', '4.0.0'
-<<<<<<< HEAD
 mod 'puppet-collectd', '10.1.0'
-=======
 #ldap
 mod 'camptocamp-openldap', '1.17.0'
 #kubernet
@@ -77,12 +75,11 @@ mod 'puppetlabs-kubernetes', '3.0.1'
 mod 'dcenter/squid',
   :git => 'git@gitlab.upr.edu.cu:dcenter/squid.git',
   :ref => 'c5b68b3b35ed423f70becbcc9b447f451078cfae'
+
 #ucarp
 mod 'dcenter/ucarp',
   :git => 'git@gitlab.upr.edu.cu:dcenter/ucarp.git',
   :ref => 'd16fe864411048e832a4563bbae9e5436eaf925b'
-
->>>>>>> 7f1a14b3bcae348bd474ffc02eb5cce362035edb
 
 mod 'rgevaert/pwgen',
   :git => 'https://github.com/rgevaert/puppet-pwgen.git',
