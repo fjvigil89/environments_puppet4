@@ -83,6 +83,14 @@ node 'client-puppet.upr.edu.cu'{
     acl_name => ['UPR','UPR','UPR']
   }
 
+  squid::cache_peer{'cache_peer':
+    pattern    => ['127.0.0.1','proxy-tor.upr.edu.cu'],
+    type       => ['parent','parent'],
+    proxy_port => ['8443','8080'],
+    icp_port   => ['0','0'],
+    options    => ['no-query','proxy-only'],
+  }
+
 }
 
 
