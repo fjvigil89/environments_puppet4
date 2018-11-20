@@ -73,7 +73,7 @@ mod 'puppetlabs-kubernetes', '3.0.1'
 #Proxy
 mod 'dcenter/squid',
   :git => 'git@gitlab.upr.edu.cu:dcenter/squid.git',
-  :ref => 'd34dbf18ab5ae4261bc379f50b3b285fb5a6f052'
+  :ref => '4790c95e8539aa87212254e379e9d3aaab44cbd3'
 #ucarp
 mod 'dcenter/ucarp',
   :git => 'git@gitlab.upr.edu.cu:dcenter/ucarp.git',
