@@ -84,7 +84,7 @@ node 'client-puppet.upr.edu.cu'{
   squidserver::cache_peer{'cache_peer':
     pattern    => ['127.0.0.1'],
     type       => ['parent'],
-    proxy_port => ['8080'],
+    proxy_port => ['8118'],
     icp_port   => ['0'],
     options    => ['no-query'],
   }
