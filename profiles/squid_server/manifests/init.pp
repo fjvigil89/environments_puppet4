@@ -3,18 +3,10 @@
 #
 #
 class squid_server(
-  String            $access_log                       = $squid_server::params::access_log,
   Pattern[/\d+ MB/] $cache_mem                        = $squid_server::params::cache_mem,
-  String            $config                           = $squid_server::params::config,
-  String            $config_group                     = $squid_server::params::config_group,
-  String            $config_user                      = $squid_server::params::config_user,
-  String            $daemon_group                     = $squid_server::params::daemon_group,
-  String            $daemon_user                      = $squid_server::params::daemon_user,
   Boolean           $enable_service                   = $squid_server::params::enable_service,
   String            $ensure_service                   = $squid_server::params::ensure_service,
   Pattern[/\d+ KB/] $maximum_object_size_in_memory    = $squid_server::params::maximum_object_size_in_memory,
-  String            $package_name                     = $squid_server::params::package_name,
-  String            $service_name                     = $squid_server::params::service_name,
   Optional[Stdlib::Absolutepath] $error_directory     = $squid_server::params::error_directory,
   Optional[Stdlib::Absolutepath] $err_page_stylesheet = $squid_server::params::err_page_stylesheet,
   Optional[String]  $cache_replacement_policy         = $squid_server::params::cache_replacement_policy,

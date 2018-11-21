@@ -40,6 +40,7 @@ node 'client-puppet.upr.edu.cu'{
     maximum_object_size_in_memory => '1024 KB',
     memory_replacement_policy     => 'heap GDSF',
     cache_replacement_policy      => 'heap LFUDA',
+    cache                         => {'cache'=>{ action => 'allow', value =>'all' }},
   }
   squidserver::acl { 'CONNECT':
     type    => method,
