@@ -50,13 +50,13 @@ node 'client-puppet.upr.edu.cu'{
     entries => ['10.2.0.0/15'],
 
   }
-
-  squid::tcp_outgoing_address {'OutGoing':
+  
+  squidserver::tcp_outgoing_address{'OutGoing':
     value    => ['200.14.49.29','200.55.143.8','152.207.173.41'],
     acl_name => ['UPR','UPR','UPR']
   }
 
-  squid::cache_peer{'cache_peer':
+  squidserver::cache_peer{'cache_peer':
     pattern    => ['127.0.0.1','proxy-tor.upr.edu.cu'],
     type       => ['parent','parent'],
     proxy_port => ['8443','8080'],
