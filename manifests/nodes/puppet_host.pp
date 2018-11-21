@@ -49,8 +49,8 @@ node 'client-puppet.upr.edu.cu'{
     #memory_replacement_policy     => 'heap GDSF',
     #cache_replacement_policy      => 'heap LFUDA',
     # cache                        => {'cache'=> { action => 'allow', value =>'all', }},
-    forwarded_for                  => 'false',
-    via                            => 'false',
+    forwarded_for                  => false,
+    via                            => false,
 
   }
   squidserver::acl { 'CONNECT':
