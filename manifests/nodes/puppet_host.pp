@@ -212,7 +212,12 @@ node 'puppet-test.upr.edu.cu'{
    #  chain_to       => 'to-reduniv',
    #  open_ports     => [8080,443,53,22],
    #}
-
+   include '::cpan'
+   cpan { "Clone::Closure":
+     ensure  => present,
+     require => Class['::cpan'],
+     force   => true,
+   }
   }
 
 node 'puppet-henry.upr.edu.cu'{

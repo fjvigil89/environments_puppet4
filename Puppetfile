@@ -67,6 +67,8 @@ mod 'herculesteam-augeasproviders_shellvar', '3.0.0'
 mod 'jgazeley-freeradius', '3.7.0'
 mod 'puppet-smokeping', '4.0.0'
 mod 'puppet-collectd', '10.1.0'
+mod 'meltwater-cpan', '2.0.0'
+
 #ldap
 mod 'camptocamp-openldap', '1.17.0'
 #kubernet
