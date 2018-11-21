@@ -31,42 +31,58 @@ node 'client-puppet.upr.edu.cu'{
 
 
   class { 'squid_server':
-    http_access                   => { 'Red_Universitaria' => { action => 'allow', value =>'UPR', }},
-    http_ports                    => { 'http' => { port => '8080', }},
-    https_ports                   => { 'https' => { port => '8443',}},
-    icp_access                    => { 'icp_access'=>{ action => 'deny', value =>'all',}},
-    icp_port                      => { 'icp_port'=>{ port =>'0', }},
-    cache_mem                     => '2048 MB',
-    maximum_object_size_in_memory => '1024 KB',
-    memory_replacement_policy     => 'heap GDSF',
-    cache_replacement_policy      => 'heap LFUDA',
-    cache                         => {'cache'=> { action => 'allow', value =>'all', }},
+    http_access                    => { 
+      'authorized_networks' => { action => 'allow', value =>'authorized_networks', }
+      'purge_localhost' => { action => 'allow', value =>'purge localhost', }
+      'purge' => { action => 'deny', value =>'purge', }
+      '!Safe_ports' => { action => 'deny', value =>'!Safe_ports', }
+      'CONNECT !SSL_ports' => { action => 'deny', value =>'CONNECT !SSL_ports', }
+      'localhost' => { action => 'allow', value =>'localhost', }
+      'all' => { action => 'deny', value =>'all', }
+    },
+    http_ports                     => { 'http' => { port => '8080', }},
+    https_ports                    => { 'https' => { port => '8443',}},
+    icp_access                     => { 'icp_access'=>{ action => 'deny', value =>'all',}},
+    icp_port                       => { 'icp_port'=>{ port =>'0', }},
+    #cache_mem                     => '2048 MB',
+    #maximum_object_size_in_memory => '1024 KB',
+    #memory_replacement_policy     => 'heap GDSF',
+    #cache_replacement_policy      => 'heap LFUDA',
+    # cache                        => {'cache'=> { action => 'allow', value =>'all', }},
+    forwarded_for                  => 'false',
+    via                            => 'false',
+
   }
   squidserver::acl { 'CONNECT':
     type    => method,
     entries => ['CONNECT'],
   }
+  squidserver::acl{ 'purge' :
+    type    => purge,
+    entries => ['PURGE'],
+
+  }
   squidserver::acl { 'Safe_ports':
     type    => port,
-    entries => ['80','443','21','70','210','1025-65535','280','488','591','777'],
+    entries => ['80','443','21','70','210','1025-65535','280','488','591','777','901'],
   }
-  squidserver::acl { 'UPR':
+  squidserver::acl { 'authorized_networks':
     type    => src,
-    entries => ['10.2.0.0/15'],
+    entries => ['10.2.9.0/24 10.2.68.128/25 200.14.49.25 200.55.143.11 10.2.24.189/32 10.2.68.135/32 10.2.68.136/32 10.2.24.227/32 10.2.24.155 10.2.24.249 10.2.24.130 10.2.24.245 10.2.1.12 10.71.46.0/24 10.2.24.157 10.2.24.253 10.2.22.0/24 10.2.72.24/32'],
 
   }
   
-  squidserver::tcp_outgoing_address{'OutGoing':
-    value    => ['200.14.49.29','200.55.143.8','152.207.173.41'],
-    acl_name => ['UPR','UPR','UPR']
-  }
+  #squidserver::tcp_outgoing_address{'OutGoing':
+  #  value    => ['200.14.49.29','200.55.143.8','152.207.173.41'],
+  #  acl_name => ['UPR','UPR','UPR']
+  #}
 
   squidserver::cache_peer{'cache_peer':
-    pattern    => ['127.0.0.1','proxy-tor.upr.edu.cu'],
-    type       => ['parent','parent'],
-    proxy_port => ['8443','8080'],
-    icp_port   => ['0','0'],
-    options    => ['no-query','proxy-only'],
+    pattern    => ['127.0.0.1'],
+    type       => ['parent'],
+    proxy_port => ['8080'],
+    icp_port   => ['0'],
+    options    => ['no-query'],
   }
 
 }
