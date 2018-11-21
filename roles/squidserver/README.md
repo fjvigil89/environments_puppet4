@@ -20,7 +20,7 @@ Este modulo esta hecho para crear servidores proxy en squid para uso en la Unive
 
 ### What squidserver affects **OPTIONAL**
 
-If it's obvious what your module touches, you can skip this section. For
+if it's obvious what your module touches, you can skip this section. For
 example, folks can probably figure out that your mysql_instance module affects
 their MySQL instances.
 
