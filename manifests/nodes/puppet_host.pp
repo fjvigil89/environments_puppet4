@@ -30,7 +30,7 @@ node 'client-puppet.upr.edu.cu'{
   #}
 
 
-  class { 'squid_server':
+  class { 'squid':
     http_access                   => { 'Red_Universitaria' => { action => 'allow', value =>'UPR', }},
     http_ports                    => { 'http' => { port => '8080', }},
     https_ports                   => { 'https' => { port => '8443',}},
