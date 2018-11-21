@@ -37,15 +37,15 @@ node 'client-puppet.upr.edu.cu'{
     icp_access  => { 'icp_access'=>{ action => 'deny', value =>'all',}},
     icp_port    => { 'icp_port'=>{ port =>'0', }},
   }
-  squid::acl { 'CONNECT':
+  squidserver::acl { 'CONNECT':
     type    => method,
     entries => ['CONNECT'],
   }
-  squid::acl { 'Safe_ports':
+  squidserver::acl { 'Safe_ports':
     type    => port,
     entries => ['80','443','21','70','210','1025-65535','280','488','591','777'],
   }
-  squid::acl { 'UPR':
+  squidserver::acl { 'UPR':
     type    => src,
     entries => ['10.2.0.0/15'],
 
