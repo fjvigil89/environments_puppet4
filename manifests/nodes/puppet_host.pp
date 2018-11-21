@@ -36,11 +36,10 @@ node 'client-puppet.upr.edu.cu'{
     https_ports                   => { 'https' => { port => '8443',}},
     icp_access                    => { 'icp_access'=>{ action => 'deny', value =>'all',}},
     icp_port                      => { 'icp_port'=>{ port =>'0', }},
-    cache_mem                     => '2048',
-    maximum_object_size_in_memory => '1024',
+    cache_mem                     => '2048 MB',
+    maximum_object_size_in_memory => '1024 KB',
     memory_replacement_policy     => 'heap GDSF',
     cache_replacement_policy      => 'heap LFUDA',
-    maximum_object_size_in_memory => '4',
   }
   squidserver::acl { 'CONNECT':
     type    => method,
