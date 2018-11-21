@@ -5,18 +5,10 @@
 class squid_server::base
 { 
   class { 'squid':
-    access_log                       => $squid_server::params::access_log,
     cache_mem                        => $squid_server::params::cache_mem,
-    config                           => $squid_server::params::config,
-    config_group                     => $squid_server::params::config_group,
-    config_user                      => $squid_server::params::config_user,
-    daemon_group                     => $squid_server::params::daemon_group,
-    daemon_user                      => $squid_server::params::daemon_user,
     enable_service                   => $squid_server::params::enable_service,
     ensure_service                   => $squid_server::params::ensure_service,
     maximum_object_size_in_memory    => $squid_server::params::maximum_object_size_in_memory,
-    package_name                     => $squid_server::params::package_name,
-    service_name                     => $squid_server::params::service_name,
     error_directory                  => $squid_server::params::error_directory,
     err_page_stylesheet              => $squid_server::params::err_page_stylesheet,
     cache_replacement_policy         => $squid_server::params::cache_replacement_policy,
