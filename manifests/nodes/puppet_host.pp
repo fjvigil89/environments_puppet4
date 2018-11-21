@@ -62,6 +62,10 @@ node 'client-puppet.upr.edu.cu'{
     entries => ['PURGE'],
 
   }
+  squidserver::acl{ 'SSL_ports' :
+    type    => port,
+    entries => ['443']
+  }
   squidserver::acl { 'Safe_ports':
     type    => port,
     entries => ['80','443','21','70','210','1025-65535','280','488','591','777','901'],
