@@ -58,7 +58,7 @@ node 'client-puppet.upr.edu.cu'{
     entries => ['CONNECT'],
   }
   squidserver::acl{ 'purge' :
-    type    => purge,
+    type    => method,
     entries => ['PURGE'],
 
   }
