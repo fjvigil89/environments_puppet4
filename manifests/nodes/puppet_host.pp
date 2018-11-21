@@ -31,11 +31,16 @@ node 'client-puppet.upr.edu.cu'{
 
 
   class { 'squid_server':
-    http_access => { 'Red_Universitaria' => { action => 'allow', value =>'UPR', }},
-    http_ports  => { 'http' => { port => '8080', }},
-    https_ports => { 'https' => { port => '8443',}},
-    icp_access  => { 'icp_access'=>{ action => 'deny', value =>'all',}},
-    icp_port    => { 'icp_port'=>{ port =>'0', }},
+    http_access                   => { 'Red_Universitaria' => { action => 'allow', value =>'UPR', }},
+    http_ports                    => { 'http' => { port => '8080', }},
+    https_ports                   => { 'https' => { port => '8443',}},
+    icp_access                    => { 'icp_access'=>{ action => 'deny', value =>'all',}},
+    icp_port                      => { 'icp_port'=>{ port =>'0', }},
+    cache_mem                     => '2048',
+    maximum_object_size_in_memory => '1024',
+    memory_replacement_policy     => 'heap GDSF',
+    cache_replacement_policy      => 'heap LFUDA',
+    maximum_object_size_in_memory => '4',
   }
   squidserver::acl { 'CONNECT':
     type    => method,
