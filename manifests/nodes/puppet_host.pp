@@ -36,11 +36,7 @@ node 'client-puppet.upr.edu.cu'{
     type    => method,
     entries => ['CONNECT'],
   }
-  squidserver::acl{ 'purge' :
-    type    => method,
-    entries => ['PURGE'],
-
-  }
+  
   squidserver::acl{ 'SSL_ports' :
     type    => port,
     entries => ['443']
@@ -49,26 +45,27 @@ node 'client-puppet.upr.edu.cu'{
     type    => port,
     entries => ['80','443','21','70','210','1025-65535','280','488','591','777','901'],
   }
-  squidserver::acl { 'authorized_networks':
+  squidserver::acl { 'red_pap':
     type    => src,
-    entries => ['10.2.9.0/24 10.2.68.128/25 200.14.49.25 200.55.143.11 10.2.24.189/32 10.2.68.135/32 10.2.68.136/32 10.2.24.227/32 10.2.24.155 10.2.24.249 10.2.24.130 10.2.24.245 10.2.1.12 10.71.46.0/24 10.2.24.157 10.2.24.253 10.2.22.0/24 10.2.72.24/32'],
+    entries => ['10.71.46.0/24 20.0.0.0/24 10.2.9.0/24 10.2.75.0/25'],
 
   }
   
-  #squidserver::tcp_outgoing_address{'OutGoing':
-  #  value    => ['200.14.49.29','200.55.143.8','152.207.173.41'],
-  #  acl_name => ['UPR','UPR','UPR']
-  #}
+  squidserver::tcp_outgoing_address{'OutGoing':
+    value    => ['200.14.49.29'],
+    acl_name => ['red_pap']
+  }
 
   squidserver::cache_peer{'cache_peer':
-    pattern    => ['127.0.0.1'],
-    type       => ['parent'],
-    proxy_port => ['8118'],
+    pattern    => [$::address],
+    type       => ['sibling'],
+    proxy_port => ['8080'],
     icp_port   => ['0'],
-    options    => ['no-query'],
+    #options    => ['no-query'],
   }
 
   squid::auth_param { 'basic auth_param':
+    order   => '4',
     scheme  => 'basic',
     entries => [
       'program /usr/lib/squid3/basic_ldap_auth -R -v 3 -b "dc=upr,dc=edu,dc=cu" -D internet@upr.edu.cu -w P@ssword -f (|(userPrincipalName=%s)(sAMAccountName=%s)) -h 10.2.24.35',
@@ -78,7 +75,7 @@ node 'client-puppet.upr.edu.cu'{
     ],
   }
   squid::extra_config_section { 'external_acl_type':
-    order          => '42',
+    order          => '4',
     config_entries => [{
       'external_acl_type' => [
         'ADGroup    %LOGIN /usr/lib/squid3/ext_ldap_group_acl -R -v 3 -b "dc=upr,dc=edu,dc=cu" -D internet@upr.edu.cu -w P@ssword -f "(&(objectclass=person)(sAMAccountName=%v)(memberof=cn=%a,ou=_Gestion,dc=upr,dc=edu,dc=cu))" -h 10.2.24.35',
@@ -87,12 +84,12 @@ node 'client-puppet.upr.edu.cu'{
   }
   squidserver::acl { 'ldapauth':
     type    => proxy_auth,
-    order   => '43',
+    order   => '4',
     entries => ['REQUIRED'],
   }
   squidserver::acl { 'AccesoAlGrupo':
     type    => external,
-    order   => '44',
+    order   => '4',
     entries => ['ADGroup UPR-Internet-Profes UPR-Internet-NoDocente UPR-Internet-Est'],
   }
 
