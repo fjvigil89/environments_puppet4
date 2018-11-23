@@ -57,7 +57,7 @@ node 'client-puppet.upr.edu.cu'{
   }
 
   squidserver::cache_peer{'cache_peer':
-    pattern    => [$::address],
+    pattern    => [$::ip],
     type       => ['sibling'],
     proxy_port => ['8080'],
     icp_port   => ['0'],
