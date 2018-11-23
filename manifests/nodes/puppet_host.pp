@@ -75,7 +75,7 @@ node 'client-puppet.upr.edu.cu'{
     ],
   }
   squid::extra_config_section { 'external_acl_type':
-    order          => '4',
+    order          => '400',
     config_entries => [{
       'external_acl_type' => [
         'ADGroup    %LOGIN /usr/lib/squid3/ext_ldap_group_acl -R -v 3 -b "dc=upr,dc=edu,dc=cu" -D internet@upr.edu.cu -w P@ssword -f "(&(objectclass=person)(sAMAccountName=%v)(memberof=cn=%a,ou=_Gestion,dc=upr,dc=edu,dc=cu))" -h 10.2.24.35',
