@@ -230,12 +230,12 @@ node 'puppet-henry.upr.edu.cu' {
       'ldap_tls'      => 'true',
     },
   }
-  #  prosody::virtualhost {
-  #  "chat.upr.edu.cu" :
-  #    ensure   => present,
-  #    #      ssl_key  => '/etc/ssl/key/mydomain.com.key',
-  #    #      ssl_cert => '/etc/ssl/crt/mydomain.com.crt',
-  #}
+  prosody::virtualhost {
+    "chat.upr.edu.cu" :
+      ensure   => present,
+      #ssl_key  => '/etc/ssl/key/mydomain.com.key',
+      #ssl_cert => '/etc/ssl/crt/mydomain.com.crt',
+  }
   #prosody::user { 'admin':
   #  host => "chat.upr.edu.cu",
   #  pass => '12345',
