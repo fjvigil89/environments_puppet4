@@ -52,7 +52,7 @@ class dns_primary::primary(){
      #zonedir     =>  '/etc/bind',
      #source_base =>  'puppet:///modules/dns_primary/dns/',
   #}
-  vcsrepo { '/etc/bind':
+  vcsrepo { '/etc/bind/zone':
     ensure   => present,
     provider => 'git',
     source   => 'git@gitlab.upr.edu.cu:dcenter/bd_dns.git',
