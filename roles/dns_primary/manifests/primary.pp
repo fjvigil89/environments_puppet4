@@ -1,4 +1,4 @@
-#class: dns_primary::primary
+##class: dns_primary::primary
 # ===========================
 ####
 class dns_primary::primary(){
