@@ -60,6 +60,21 @@ node 'ns2.upr.edu.cu', 'ns3.upr.edu.cu'{
       mta_enabled    => false,
       dns_enabled    => false,
     }
+  class {'::dns_primary':
+    config_file        => '/etc/bind/named.conf',
+    directory          => '/etc/bind',
+    dump_file          => 'cache_dump.db',
+    statistics_file    => 'named_stats.txt',
+    memstatistics_file => 'named_mem_stats.txt',
+    allow_query        => [ 'any'],
+    recursion          => 'yes',
+    zone_name          => [ 'upr.edu.cu'],
+    zone_type          => 'type slave',
+    mymasters          => [ '200.14.49.2'],
+    file_zone_name     => '/etc/bind/zones',
+    zone_reverse       => [ 'db.49.14.200.in-addr.arpa', 'db.143.55.200.in-addr.arpa', 'db.173.207.152.in-addr.arpa'],
+    
+  }
 }
 
 
