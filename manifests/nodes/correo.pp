@@ -1,4 +1,4 @@
-node 'correo-prof.upr.edu.cu' {  
+node 'correo-prof.upr.edu.cu', 'correo-profe.upr.edu.cu'  {  
   class { '::basesys':
     uprinfo_usage  => 'servidor correo profesores fisico',
     application    => 'Zimbra',
