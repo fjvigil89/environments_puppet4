@@ -37,6 +37,7 @@ class basesys (
   Boolean $backports_enabled               = false,
 
   Boolean $monitoring_enabled              = $::basesys::params::monitoring_enabled,
+  String $graphite_host                    = $::basesys::params::graphite_host,
   Enum['passwd', 'ldap'] $authenticationdb = 'passwd',
   Boolean $puppet_users                    = $::basesys::params::puppet_users,
 

@@ -27,6 +27,7 @@ class basesys::params {
   
   #monitoring
   $monitoring_enabled = true
+  $graphite_host      = 'graphite.upr.edu.cu' 
   #Proxmox
   $proxmox_enabled    = false
   

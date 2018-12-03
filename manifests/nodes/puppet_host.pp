@@ -1,9 +1,9 @@
 node 'client-puppet.upr.edu.cu'{
   #class {'::talkserver':;}
-  class { '::basesys':  
+  class { '::basesys':
     uprinfo_usage => 'servidor test',
-    application   => 'puppet',  
-    # repos_enabled => false,      
+    application   => 'puppet',
+    # repos_enabled => false,
   }
   #class { '::letsencrypt_host':
   #email => 'fjvigil@hispavista.com',
@@ -12,7 +12,7 @@ node 'client-puppet.upr.edu.cu'{
   #plugin => 'webroot',
   #webroot_paths => ['/root/Sync-UPR/public/'],
   #}
-  #include dns_primary
+  include dns_primary
   #include puppetdevserver
   #include puppetprodserver
 
@@ -31,6 +31,7 @@ node 'client-puppet.upr.edu.cu'{
 
   #class { 'squidserver':;}
 
+
 }
 
 
@@ -44,7 +45,7 @@ node 'puppet-test.upr.edu.cu'{
     #proxmox_enabled => false,
   }
   #class {'::serv_logrotate':
-  # compress         => true, 
+  # compress         => true,
   #  filelog_numbers  => [5,7],
   #  rotate_frecuency => ['week'],
   #  rule_list        => ['messages', 'apache'],
@@ -152,7 +153,7 @@ node 'puppet-test.upr.edu.cu'{
   #  ttls_default_eap_type => 'md5',
   #  peap_virtual_server   => 'inner-tunnel',
   #}
-  #include freeradius_server 
+  #include freeradius_server
   #class {'::firewallprod':
    #  hosts_todrop   => ['111.111.111.111', '50.138.112.159', '31.220.16.147'],
    #  hosts_toaccept => ['200.55.143.160/29','200.55.153.64/28'],
