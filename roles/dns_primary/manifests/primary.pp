@@ -48,9 +48,13 @@ class dns_primary::primary(){
   },
 }
 
- bind::server::file { $::dns_primary::file_zone_name :
-     zonedir     =>  '/etc/bind',
-     source_base =>  'puppet:///modules/dns_primary/dns/',
+ #bind::server::file { $::dns_primary::file_zone_name :
+     #zonedir     =>  '/etc/bind',
+     #source_base =>  'puppet:///modules/dns_primary/dns/',
+  #}
+  vcsrepo { '/etc/bind/':
+    ensure   => mirror,
+    provider => git,
+    source   => 'git@gitlab.upr.edu.cu:dcenter/bd_dns.git',
   }
-
 }
