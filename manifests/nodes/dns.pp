@@ -5,7 +5,6 @@ node 'dns.upr.edu.cu'{
     dns_enabled    => false,
   }
 
-  include git
 
 }
 
