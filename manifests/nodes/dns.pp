@@ -70,9 +70,9 @@ node 'ns2.upr.edu.cu', 'ns3.upr.edu.cu'{
     recursion          => 'yes',
     zone_name          => [ 'upr.edu.cu'],
     zone_type          => 'type slave',
-    mymasters          => [ '200.14.49.2'],
-    file_zone_name     => '/etc/bind/zones',
-    zone_reverse       => [ 'db.49.14.200.in-addr.arpa', 'db.143.55.200.in-addr.arpa', 'db.173.207.152.in-addr.arpa'],
+    mymasters          => '200.14.49.2',
+    file_zone_name     => [ 'db.49.14.200.in-addr.arpa', 'db.143.55.200.in-addr.arpa', 'db.173.207.152.in-addr.arpa'],
+    zone_reverse       => [ '49.14.200.in-addr.arpa', '143.55.200.in-addr.arpa', '173.207.152.in-addr.arpa'],
     
   }
 }

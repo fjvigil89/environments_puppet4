@@ -20,7 +20,7 @@ class dns_primary::params{
     $zone_type       	  = 'type master'
     $recursion       	  = 'yes'
     $notify          	  = 'yes'
-    $mymasters       	  = ['10.2.1.8', '192.168.0.2']
+    $mymasters       	  = '10.2.1.8'
     $mymatch_clients 	  = [ '10.2.0.0/15', '200.14.49.0/24']
     #$views		= {}
 }
