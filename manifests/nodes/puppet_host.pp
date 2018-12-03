@@ -12,7 +12,7 @@ node 'client-puppet.upr.edu.cu'{
   #plugin => 'webroot',
   #webroot_paths => ['/root/Sync-UPR/public/'],
   #}
-  include dns_primary
+  #include dns_primary
   #include puppetdevserver
   #include puppetprodserver
 
