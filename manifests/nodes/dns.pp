@@ -48,4 +48,18 @@ node 'ns1.upr.edu.cu'{
     dns_enabled    => false,
   }
 }
+node 'ns2.upr.edu.cu', 'ns3.upr.edu.cu'{
+  package { 'lsb-release':
+    ensure => installed,
+    }~>
+    class { '::basesys':
+      uprinfo_usage  => 'servidor dns externo secundario',
+      application    => 'DNS Bind9',
+      puppet_enabled => false,
+      repos_enabled  => true,
+      mta_enabled    => false,
+      dns_enabled    => false,
+    }
+}
+
 
