@@ -48,15 +48,6 @@ basesys::accounts:
     tag: 'systemen'
     sshkeys:
       - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDf93JhwknoP9f1NKrvD9Y5ja0JBu8ucpPsZCO+pZUJRHgryeWZb8w+CXQd7VhQnBp0/FtlAT1mroP86BGDmysQ6+u6D26mGPZhhpRX6WK4KKn+8c0OHTmzolY3hiqjiEvMbHaXtlPQWEbUuZHgExGul8f+mWNuoMxG5eUw8ojej7IfKBd2TISqUQA7LFFcWKLOQYKgtxkMn++HaLKJYX+dFgVoBf76hkPsdTAxs8WESlLkgR7nqdt1zIAdMUe1RbCEOwYgY7YjxntJEECi4pO/RVOcB04LLAAMrloP6gqhMI9LtnktkeLdOcuko/PYGcACUVGRRQChxVoLJ0u5X63p yandy@yandy-desktop' 
-        #'luis.mendez':
-          #    comment: 'Luis Mendez'
-          #    uid: '512'
-          #    manage_primary_group: false
-          #    gid: '100'
-          #    tag: 'systemen'
-          #    locked: true
-          #    sshkeys:
-          #      - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDIExJZjyIG5pDhLetMCLovrancKnhbxDyVZCIkyt2vaknzDiYHTRmSvFZ3RZWP0eVA15HLIjxtpGWPSxfKkuDDrr/i/pp6A7h0WSw5zLZrvU6R9O2s7C37+ila5bBlGhQ3HAuQwuJ9IgUdiXwwh2C7bM/zOgLBX3qca/yyDzKC+hI3nSuh7f0s7LH0GMBKQ+YXJlDs9F0EAOBDEOp2FRerVfkxsAmIJwomCN4oy5rm1TZQ7FsFI8zekmmAm+IiwKk94INI3oCPfs9eMbwGfnifTvaQ92zO7CM5czdKc9AP1JzicFOdzDolsNgwvLzGXbsMSg4mBqTnOwVLgJoRi6rJhkt7rdFBKswr4tdiYVTgR5QhsYupPFsQVoWrmSP0W1Qs6Ru+UqLeffbxtqN65T0f3p4Q4wfAsSFJXR08rk/SG9ouDItPPfRE6AG0lO9GTvG3xGvflwQA+WTejTcMrCaSej5/WM1KIiHxelfdPGS5UX+ewfBNAz8XMAe2IYHRuIMLNwUYj9VCw1uki3evmbPv4VpfGDN0ftkOALjQRVsFb33vX/MWtM5zXKl0hJfZRU+xT66GAU5nOnPiCW9VCP+EikeGmR0I+1exfJ9OjvIm/ZBqykL4SdT6oQgexcJPmYELeb4tJncuGjWp47nBxGoBrJAuUmnUd/lq3TKIsV7QiQ=='
   'henry':
     comment: 'Henry Fleita'
     uid: '515'
