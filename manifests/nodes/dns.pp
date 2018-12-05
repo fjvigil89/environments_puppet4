@@ -5,6 +5,7 @@ node 'dns.upr.edu.cu'{
     dns_enabled    => false,
   }
 
+
 }
 
 ## dns cache solo para la upr con forwarding 10.2.1.8
