@@ -19,7 +19,8 @@ class dns_primary (
  Array[String] $zone_reverse    	  = $::dns_primary::params::zone_reverse,
  String $zone_type              	  = $::dns_primary::params::zone_type,
  Optional[String] $mymaster         = $::dns_primary::params::mymasters,
- Array[String] $views			          = $::dns_primary::params::views,
+ Optional[Hash] $views			        = $::dns_primary::params::views,
+ Optional[Hash] $zones              = $::dns_primary::params::zones,
 )inherits ::dns_primary::params{
 
   class {'bind':;}~>class {'::dns_primary::primary':;}

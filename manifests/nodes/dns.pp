@@ -71,10 +71,35 @@ node 'ns2.upr.edu.cu', 'ns3.upr.edu.cu'{
     recursion          => 'yes',
     zone_name          => [ 'upr.edu.cu'],
     zone_type          => 'type slave',
-    mymaster          => '200.14.49.2',
-    file_zone_name     => [ 'db.49.14.200.in-addr.arpa', 'db.143.55.200.in-addr.arpa', 'db.173.207.152.in-addr.arpa'],
+    mymaster           => '200.14.49.2',
+    file_zone_name     => [ 'db.upr.edu.cu', 'db.49.14.200.in-addr.arpa', 'db.143.55.200.in-addr.arpa', 'db.173.207.152.in-addr.arpa'],
     zone_reverse       => [ '49.14.200.in-addr.arpa', '143.55.200.in-addr.arpa', '173.207.152.in-addr.arpa'],
-    
+    zones              => {
+      'upr.edu.cu' => [
+        $zone_type,
+        'file "${diretory}/db.upr.edu.cu"',
+        $allow_query,
+        #'allow-update { 200.55.143.10; }',
+        #'allow-transfer { 200.55.143.10; }',
+        #'also-notify { 200.55.143.10; }',
+        'notify yes',
+      ],
+      '27/0.49.14.200.in-addr.arpa' => [
+        $zone_type,
+        $allow_query,
+        'file "${diretory}/db.49.14.200.in-addr.arpa"',
+      ],
+      '29/8.143.55.200.in-addr.arpa' => [
+        $zone_type,
+        $allow_query,
+        'file "${diretory}/db.143.55.200.in-addr.arpa"',
+        ],
+        '29/40.173.207.152.in-addr.arpa' => [
+          $zone_type,
+          $allow_query,
+          'file "db.173.207.152.in-addr.arpa"',
+          ],
+    },
   }
 }
 
