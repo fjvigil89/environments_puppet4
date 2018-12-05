@@ -94,10 +94,6 @@ mod 'rgevaert/resolv_conf',
   :git => 'https://github.com/rgevaert/puppet-resolv_conf.git',
   :ref => 'cf799eab07e77a92917f284d57fa1c0bf0410093'
 
-mod 'rgevaert/pwgen',
-  :git => 'https://github.com/rgevaert/puppet-pwgen.git',
-  :ref => 'ca9d8f2497b5e7a90ac9c9b21bffcc6319387493'
-
 mod 'puppet/network',
   :git => 'https://github.com/voxpupuli/puppet-network.git',
   :ref => 'ea7cac426ea123629821e49d88cd305f7afe3f23'
