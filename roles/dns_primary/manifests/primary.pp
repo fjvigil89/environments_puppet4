@@ -27,21 +27,21 @@ class dns_primary::primary(){
      #  'file "db.1.2.10.in-addr.arpa"',
      #],
    #},
-    views => {
-     'internal' => {
-       'match-clients' => [ '10.2.0.0/15' ],
-       'allow-query'   => [ '10.2.0.0/15' ],       
-       'zones' => {
-         'tele4.upr.edu.cu' => [
-           'type master',
-           'file "/etc/bind/db.tele4.upr.edu.cu"',
-	   'allow-update { 10.2.1.8; }',	
-           'allow-transfer { 10.2.1.8; }',
-           'also-notify { 10.2.1.8; }',
-           'notify yes',
-         ],
-       },
-    },
+   # views => {
+   #  'internal' => {
+   #    'match-clients' => [ '10.2.0.0/15' ],
+   #    'allow-query'   => [ '10.2.0.0/15' ],       
+   #    'zones' => {
+   #      'tele4.upr.edu.cu' => [
+   #        'type master',
+   #        'file "/etc/bind/db.tele4.upr.edu.cu"',
+   #  'allow-update { 10.2.1.8; }',	
+   #        'allow-transfer { 10.2.1.8; }',
+   #        'also-notify { 10.2.1.8; }',
+   #        'notify yes',
+   #      ],
+   #    },
+   # },
     #'default' => {
     #  'match-clients' => [ 'any' ],
     #},
