@@ -1,6 +1,7 @@
 ##class: dns_primary::primary
 # ===========================
 ####
+#
 class dns_primary::primary(){
   bind::server::conf { $::dns_primary::config_file :
     listen_on_addr     => $::dns_primary::listen_on_addr,
