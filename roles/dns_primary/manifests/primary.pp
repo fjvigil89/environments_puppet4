@@ -55,7 +55,7 @@ class dns_primary::primary(){
   vcsrepo { '/etc/bind/zone':
     ensure   => present,
     provider => 'git',
-    source   => 'git@gitlab.upr.edu.cu:dcenter/bd_dns.git',
+    source   => '',
     revision => 'master',
   }
 
