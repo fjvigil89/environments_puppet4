@@ -11,7 +11,7 @@ class dns_primary (
  Array[String] $forwarders      	= $::dns_primary::params::forwarders,
  Boolean $forward               	= $::dns_primary::params::forward,
  Boolean $slave                   = false,
- Array[String] $allow_query     	= $::dns_primary::params::allow_query,
+ Optional[String] $allow_query     	= $::dns_primary::params::allow_query,
  String $dump_file              	= $::dns_primary::params::dump_file,
  String $statistics_file        	= $::dns_primary::params::statistics_file,
  String $memstatistics_file     	= $::dns_primary::params::memstatistics_file,

@@ -29,9 +29,11 @@ node 'client-puppet.upr.edu.cu'{
   #}
 
   #class { 'squidserver':;}
+  
   $zone = 'type slave'
-  $allow = [ 'any']
+  $allow = "{any;}"
   $direct = '/etc/bind'
+
   class {'::dns_primary':
     config_file        => '/etc/bind/named.conf',
     directory          => $direct,
@@ -49,23 +51,23 @@ node 'client-puppet.upr.edu.cu'{
     zones              => {
       'upr.edu.cu' => [
         $zone,
-        "file ${diret}/db.upr.edu.cu",
-        $allow,
+        "file $diret/db.upr.edu.cu",
+        'allow-query' $allow,
         'notify yes',
       ],
       '27/0.49.14.200.in-addr.arpa' => [
         $zone,
-        $allow,
-        "file ${diret}/db.49.14.200.in-addr.arpa",
+        'allow-query' $allow,
+        "file $diret/db.49.14.200.in-addr.arpa",
       ],
       '29/8.143.55.200.in-addr.arpa' => [
         $zone,
-        $allow,
-        "file ${diret}/db.143.55.200.in-addr.arpa",
+        'allow-query' $allow,
+        "file $diret/db.143.55.200.in-addr.arpa",
         ],
         '29/40.173.207.152.in-addr.arpa' => [
           $zone,
-          $allow,
+          'allow-query' $allow,
           'file "db.173.207.152.in-addr.arpa"',
           ],
     },

@@ -9,7 +9,7 @@ class dns_primary::params{
     $listen_on_v6_addr  = [ 'any' ]
     $forwarders      	= ['10.2.1.8']
     $forward	     	= false			
-    $allow_query     	= [ 'any' ]
+    $allow_query     	=  'any' 
     $directory          = '/etc/bind'
     $dump_file          = 'cache_dump.db'
     $statistics_file    = 'named_stats.txt'
