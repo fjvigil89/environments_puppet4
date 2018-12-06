@@ -51,7 +51,7 @@ node 'client-puppet.upr.edu.cu'{
     zones              => {
       'upr.edu.cu' => [
         $zone,
-        "file ${direct}/db.upr.edu.cu",
+        'file  "${direct}/db.upr.edu.cu"',
         "allow-query $allow",
         'notify yes',
       ],
