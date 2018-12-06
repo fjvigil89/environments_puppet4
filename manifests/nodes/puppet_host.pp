@@ -46,19 +46,19 @@ node 'client-puppet.upr.edu.cu'{
     zones              => {
       'upr.edu.cu' => [
         $zone_type,
-        'file "${diretory}/db.upr.edu.cu"',
+        "file ${diretory}/db.upr.edu.cu",
         $allow_query,
         'notify yes',
       ],
       '27/0.49.14.200.in-addr.arpa' => [
         $zone_type,
         $allow_query,
-        'file "${diretory}/db.49.14.200.in-addr.arpa"',
+        "file ${diretory}/db.49.14.200.in-addr.arpa",
       ],
       '29/8.143.55.200.in-addr.arpa' => [
         $zone_type,
         $allow_query,
-        'file "${diretory}/db.143.55.200.in-addr.arpa"',
+        "file ${diretory}/db.143.55.200.in-addr.arpa",
         ],
         '29/40.173.207.152.in-addr.arpa' => [
           $zone_type,

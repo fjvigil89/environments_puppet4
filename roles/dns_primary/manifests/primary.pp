@@ -18,16 +18,22 @@ class dns_primary::primary(){
   }
 
 
- #bind::server::file { $::dns_primary::file_zone_name :
-     #zonedir     =>  '/etc/bind',
-     #source_base =>  'puppet:///modules/dns_primary/dns/',
-  #}
-  #vcsrepo { '/etc/bind/zone':
-  #  ensure   => present,
-  #  provider => 'git',
-  #  source   => '',
-  #  revision => 'master',
-  #}
+  if($::dns_primary::slave)
+  {
+    bind::server::file { $::dns_primary::file_zone_name :
+      zonedir     =>  '/etc/bind',
+      source_base =>  'puppet:///modules/dns_primary/dns/',
+    }
+
+  }
+  else{
+    vcsrepo { '/etc/bind/zone':
+      ensure   => present,
+      provider => 'git',
+      source   => 'git@gitlab.upr.edu.cu:dcenter/dns_db.git',
+      revision => 'd42166d8613f829b921f7ec11570749c1ca9856d',
+    }
+  }
 
 
 }
