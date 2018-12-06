@@ -12,7 +12,6 @@ node 'client-puppet.upr.edu.cu'{
   #plugin => 'webroot',
   #webroot_paths => ['/root/Sync-UPR/public/'],
   #}
-  include dns_primary
   #include puppetdevserver
   #include puppetprodserver
 
@@ -30,6 +29,53 @@ node 'client-puppet.upr.edu.cu'{
   #}
 
   #class { 'squidserver':;}
+  
+  $zone = 'type slave'
+  $allow = "{any;}"
+  $direct = "/etc/bind/zone"
+  $masters = "{200.14.49.2; }"
+  class {'::dns_primary':
+    config_file        => '/etc/bind/named.conf',
+    directory          => $direct,
+    dump_file          => 'cache_dump.db',
+    statistics_file    => 'named_stats.txt',
+    memstatistics_file => 'named_mem_stats.txt',
+    allow_query        => $allow,
+    recursion          => 'yes',
+    zone_name          => [ 'upr.edu.cu'],
+    zone_type          => $zone,
+    slave              => false,
+    mymaster           => $masters,
+    file_zone_name     => [ 'db.upr.edu.cu', 'db.49.14.200.in-addr.arpa', 'db.143.55.200.in-addr.arpa', 'db.173.207.152.in-addr.arpa'],
+    zone_reverse       => [ '49.14.200.in-addr.arpa', '143.55.200.in-addr.arpa', '173.207.152.in-addr.arpa'],
+    zones              => {
+      'upr.edu.cu' => [
+        $zone,
+        "file  ${direct}/db.upr.edu.cu",
+        "allow-query $allow",
+        'notify yes',
+        "masters $masters",
+      ],
+      '27/0.49.14.200.in-addr.arpa' => [
+        $zone,
+       "allow-query $allow", 
+        "file ${direct}/db.49.14.200.in-addr.arpa",
+        "masters $masters",
+      ],
+      '29/8.143.55.200.in-addr.arpa' => [
+        $zone,
+        "allow-query $allow",
+        "file ${direct}/db.143.55.200.in-addr.arpa",
+        "masters $masters",
+      ],
+      '29/40.173.207.152.in-addr.arpa' => [
+        $zone,
+        "allow-query $allow",
+        'file "db.173.207.152.in-addr.arpa"',
+        "masters $masters",
+      ],
+    },
+  }
 
 
 }

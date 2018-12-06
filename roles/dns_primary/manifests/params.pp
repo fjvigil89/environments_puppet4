@@ -9,7 +9,7 @@ class dns_primary::params{
     $listen_on_v6_addr  = [ 'any' ]
     $forwarders      	  = ['10.2.1.8']
     $forward	     	    = false			
-    $allow_query     	  = [ 'any' ]
+    $allow_query     	  = '{ any; }' 
     $directory          = '/etc/bind'
     $dump_file          = 'cache_dump.db'
     $statistics_file    = 'named_stats.txt'
@@ -20,7 +20,7 @@ class dns_primary::params{
     $zone_type       	  = 'type master'
     $recursion       	  = 'yes'
     $notify          	  = 'yes'
-    $mymaster       	  = '10.2.1.8'
+    $mymasters       	  = "{ 10.2.1.8; 192.168.0.2; }"
     $mymatch_clients 	  = [ '10.2.0.0/15', '200.14.49.0/24']
     $views		          = {}
     $zones              = {}
