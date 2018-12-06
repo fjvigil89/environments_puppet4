@@ -18,7 +18,7 @@ class dns_primary (
  Array[String] $zone_name       	= $::dns_primary::params::zone_name,
  Array[String] $file_zone_name  	= $::dns_primary::params::file_zone_name,
  Array[String] $zone_reverse    	= $::dns_primary::params::zone_reverse,
- Array[String] $mymaster         = $::dns_primary::params::mymasters,
+ String $mymaster                 = $::dns_primary::params::mymasters,
  String $zone_type              	= $::dns_primary::params::zone_type,
  Optional[Hash] $zones            = $::dns_primary::params::zones,
  Optional[Hash] $views			      = $::dns_primary::params::views,
