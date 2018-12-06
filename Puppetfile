@@ -68,6 +68,8 @@ mod 'jgazeley-freeradius', '3.7.0'
 mod 'puppet-smokeping', '4.0.0'
 mod 'puppet-collectd', '10.1.0'
 mod 'lboynton-ejabberd', '0.0.5'
+mod 'meltwater-cpan', '2.0.0'
+
 #ldap
 mod 'camptocamp-openldap', '1.17.0'
 #kubernet
@@ -75,8 +77,7 @@ mod 'puppetlabs-kubernetes', '3.0.1'
 #Proxy
 mod 'dcenter/squid',
   :git => 'git@gitlab.upr.edu.cu:dcenter/squid.git',
-  :ref => 'c5b68b3b35ed423f70becbcc9b447f451078cfae'
-
+  :ref => '005c4d3a32e9d520da3a0b191301b47657c0cbd4'
 #ucarp
 mod 'dcenter/ucarp',
   :git => 'git@gitlab.upr.edu.cu:dcenter/ucarp.git',
@@ -93,10 +94,6 @@ mod 'puppet/puppetboard',
 mod 'rgevaert/resolv_conf',
   :git => 'https://github.com/rgevaert/puppet-resolv_conf.git',
   :ref => 'cf799eab07e77a92917f284d57fa1c0bf0410093'
-
-mod 'rgevaert/pwgen',
-  :git => 'https://github.com/rgevaert/puppet-pwgen.git',
-  :ref => 'ca9d8f2497b5e7a90ac9c9b21bffcc6319387493'
 
 mod 'puppet/network',
   :git => 'https://github.com/voxpupuli/puppet-network.git',

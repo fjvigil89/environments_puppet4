@@ -5,6 +5,7 @@ node 'dns.upr.edu.cu'{
     dns_enabled    => false,
   }
 
+
 }
 
 ## dns cache solo para la upr con forwarding 10.2.1.8
@@ -48,4 +49,33 @@ node 'ns1.upr.edu.cu'{
     dns_enabled    => false,
   }
 }
+node 'ns2.upr.edu.cu', 'ns3.upr.edu.cu'{
+  package { 'lsb-release':
+    ensure => installed,
+    }~>
+    class { '::basesys':
+      uprinfo_usage  => 'servidor dns externo secundario',
+      application    => 'DNS Bind9',
+      puppet_enabled => false,
+      repos_enabled  => true,
+      mta_enabled    => false,
+      dns_enabled    => false,
+    }
+  class {'::dns_primary':
+    config_file        => '/etc/bind/named.conf',
+    directory          => '/etc/bind',
+    dump_file          => 'cache_dump.db',
+    statistics_file    => 'named_stats.txt',
+    memstatistics_file => 'named_mem_stats.txt',
+    allow_query        => [ 'any'],
+    recursion          => 'yes',
+    zone_name          => [ 'upr.edu.cu'],
+    zone_type          => 'type slave',
+    mymaster          => '200.14.49.2',
+    file_zone_name     => [ 'db.49.14.200.in-addr.arpa', 'db.143.55.200.in-addr.arpa', 'db.173.207.152.in-addr.arpa'],
+    zone_reverse       => [ '49.14.200.in-addr.arpa', '143.55.200.in-addr.arpa', '173.207.152.in-addr.arpa'],
+    
+  }
+}
+
 

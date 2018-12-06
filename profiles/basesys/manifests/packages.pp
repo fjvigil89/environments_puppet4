@@ -40,7 +40,7 @@ class basesys::packages {
 
     # lint:ignore:80chars
     $p_os_independant = [ 'wget', 'curl', 'man-db', 'bridge-utils', 'at', 'ntpdate', 'subversion-tools',
-                          'patchutils', 'ftp', 'rsync', 'binutils', 'make', 'openssl',
+                          'patchutils', 'ftp', 'rsync', 'binutils', 'openssl',
                           'xfsprogs', 'bc', 'acl', 'lsof', 'unzip', 'zip', 'screen', 'traceroute',
                           'bzip2', 'dmidecode', 'telnet', 'lvm2', 'tcpdump', 'mdadm',
                           'htop', 'iftop', 'iotop', ]

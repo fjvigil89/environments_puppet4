@@ -1,6 +1,7 @@
-#class: dns_primary::primary
+##class: dns_primary::primary
 # ===========================
-#### 
+####
+#
 class dns_primary::primary(){
   bind::server::conf { $::dns_primary::config_file :
     listen_on_addr     => $::dns_primary::listen_on_addr,
@@ -27,31 +28,35 @@ class dns_primary::primary(){
      #  'file "db.1.2.10.in-addr.arpa"',
      #],
    #},
-    views => {
-     'internal' => {
-       'match-clients' => [ '10.2.0.0/15' ],
-       'allow-query'   => [ '10.2.0.0/15' ],       
-       'zones' => {
-         'tele4.upr.edu.cu' => [
-           'type master',
-           'file "/etc/bind/db.tele4.upr.edu.cu"',
-	   'allow-update { 10.2.1.8; }',	
-           'allow-transfer { 10.2.1.8; }',
-           'also-notify { 10.2.1.8; }',
-           'notify yes',
-         ],
-       },
-    },
+   # views => {
+   #  'internal' => {
+   #    'match-clients' => [ '10.2.0.0/15' ],
+   #    'allow-query'   => [ '10.2.0.0/15' ],       
+   #    'zones' => {
+   #      'tele4.upr.edu.cu' => [
+   #        'type master',
+   #        'file "/etc/bind/db.tele4.upr.edu.cu"',
+   #  'allow-update { 10.2.1.8; }',	
+   #        'allow-transfer { 10.2.1.8; }',
+   #        'also-notify { 10.2.1.8; }',
+   #        'notify yes',
+   #      ],
+   #    },
+   # },
     #'default' => {
     #  'match-clients' => [ 'any' ],
     #},
-  },
-}
+    #},
+    }
 
  bind::server::file { $::dns_primary::file_zone_name :
-     zonedir 	 =>  '/etc/bind',
-     source_base =>  'puppet:///modules/dns_primary/dns/',
-  }
-
+   zonedir     =>  '/etc/bind',
+   source_base =>  'puppet:///modules/dns_primary/dns/',
+ }
 }
-
+  #vcsrepo { '/etc/bind/zone':
+  #  ensure   => present,
+  #  provider => 'git',
+  #  source   => 'git@gitlab.upr.edu.cu:dcenter/bd_dns.git',
+  #  revision => 'master',
+  #}
