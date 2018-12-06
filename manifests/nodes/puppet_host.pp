@@ -29,41 +29,43 @@ node 'client-puppet.upr.edu.cu'{
   #}
 
   #class { 'squidserver':;}
-
+  $zone = 'type slave'
+  $allow = [ 'any']
+  $direct = '/etc/bind'
   class {'::dns_primary':
     config_file        => '/etc/bind/named.conf',
-    directory          => '/etc/bind',
+    directory          => $direct,
     dump_file          => 'cache_dump.db',
     statistics_file    => 'named_stats.txt',
     memstatistics_file => 'named_mem_stats.txt',
-    allow_query        => [ 'any'],
+    allow_query        => $allow,
     recursion          => 'yes',
     zone_name          => [ 'upr.edu.cu'],
-    zone_type          => 'type slave',
-    slave              => true,
+    zone_type          => $zone,
+    slave              => false,
     mymaster           => ['200.14.49.2'],
     file_zone_name     => [ 'db.upr.edu.cu', 'db.49.14.200.in-addr.arpa', 'db.143.55.200.in-addr.arpa', 'db.173.207.152.in-addr.arpa'],
     zone_reverse       => [ '49.14.200.in-addr.arpa', '143.55.200.in-addr.arpa', '173.207.152.in-addr.arpa'],
     zones              => {
       'upr.edu.cu' => [
-        $zone_type,
-        "file ${diretory}/db.upr.edu.cu",
-        $allow_query,
+        $zone,
+        "file ${diret}/db.upr.edu.cu",
+        $allow,
         'notify yes',
       ],
       '27/0.49.14.200.in-addr.arpa' => [
-        $zone_type,
-        $allow_query,
-        "file ${diretory}/db.49.14.200.in-addr.arpa",
+        $zone,
+        $allow,
+        "file ${diret}/db.49.14.200.in-addr.arpa",
       ],
       '29/8.143.55.200.in-addr.arpa' => [
-        $zone_type,
-        $allow_query,
-        "file ${diretory}/db.143.55.200.in-addr.arpa",
+        $zone,
+        $allow,
+        "file ${diret}/db.143.55.200.in-addr.arpa",
         ],
         '29/40.173.207.152.in-addr.arpa' => [
-          $zone_type,
-          $allow_query,
+          $zone,
+          $allow,
           'file "db.173.207.152.in-addr.arpa"',
           ],
     },
