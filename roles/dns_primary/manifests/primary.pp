@@ -2,6 +2,7 @@
 # ===========================
 ####
 class dns_primary::primary(){
+  
   bind::server::conf { $::dns_primary::config_file :
     listen_on_addr     => $::dns_primary::listen_on_addr,
     listen_on_v6_addr  => $::dns_primary::listen_on_v6_addr,
@@ -13,9 +14,9 @@ class dns_primary::primary(){
     statistics_file    => $::dns_primary::statistics_file,
     memstatistics_file => $::dns_primary::memstatistics_file,
     zones              => $::dns_primary::zones,
-    views              => $::dns_primary::views, 
+    views              => $::dns_primary::views 
   },
-}
+
 
  #bind::server::file { $::dns_primary::file_zone_name :
      #zonedir     =>  '/etc/bind',
