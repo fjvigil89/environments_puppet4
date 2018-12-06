@@ -28,10 +28,10 @@ class dns_primary::primary(){
   }
   else{
     vcsrepo { '/etc/bind/zone':
-      ensure   => present,
+      ensure   => latest,
       provider => 'git',
       source   => 'git@gitlab.upr.edu.cu:dcenter/dns_db.git',
-      revision => 'd42166d8613f829b921f7ec11570749c1ca9856d',
+      revision => 'master',
     }
   }
 
