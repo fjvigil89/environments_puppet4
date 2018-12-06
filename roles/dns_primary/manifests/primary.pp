@@ -34,7 +34,7 @@ class dns_primary::primary(){
       remote   => 'origin',
       source   => {
         'origin' => 'git@gitlab.upr.edu.cu:dcenter/dns_db.git',
-      }
+      },
       revision => 'master',
     }
   }
