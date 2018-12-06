@@ -31,7 +31,10 @@ class dns_primary::primary(){
     vcsrepo { '/etc/bind/zone':
       ensure   => latest,
       provider => 'git',
-      source   => 'git@gitlab.upr.edu.cu:dcenter/dns_db.git',
+      remote   => 'origin',
+      source   => {
+        'origin' => 'git@gitlab.upr.edu.cu:dcenter/dns_db.git',
+      }
       revision => 'master',
     }
   }
