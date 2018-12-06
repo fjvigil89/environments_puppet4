@@ -29,7 +29,7 @@ class dns_primary::primary(){
   }
   else{
     vcsrepo { '/etc/bind/zone':
-      ensure   => mirror,
+      ensure   => latest,
       provider => 'git',
       remote   => 'origin',
       source   => {
