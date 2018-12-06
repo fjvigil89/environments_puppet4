@@ -14,8 +14,8 @@ class dns_primary::primary(){
     statistics_file    => $::dns_primary::statistics_file,
     memstatistics_file => $::dns_primary::memstatistics_file,
     zones              => $::dns_primary::zones,
-    views              => $::dns_primary::views 
-  },
+    views              => $::dns_primary::views, 
+  }
 
 
  #bind::server::file { $::dns_primary::file_zone_name :
