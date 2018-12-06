@@ -22,5 +22,6 @@ class dns_primary::params{
     $notify          	= 'yes'
     $mymasters       	= ['10.2.1.8', '192.168.0.2']
     $mymatch_clients 	= [ '10.2.0.0/15', '200.14.49.0/24']
-    #$views		= {}
+    $views		        = {}
+    $zones            = {}
 }
