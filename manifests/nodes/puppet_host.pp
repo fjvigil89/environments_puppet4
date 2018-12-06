@@ -32,7 +32,7 @@ node 'client-puppet.upr.edu.cu'{
   
   $zone = 'type slave'
   $allow = "{any;}"
-  $direct = '/etc/bind'
+  $direct = "/etc/bind/zone"
 
   class {'::dns_primary':
     config_file        => '/etc/bind/named.conf',
