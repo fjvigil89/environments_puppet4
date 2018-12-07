@@ -23,12 +23,11 @@ node 'ns2.upr.edu.cu', 'ns3.upr.edu.cu'{
       mta_enabled    => false,
       dns_enabled    => false,
     }
-  
   $zone    = 'type slave'
   $allow   = "{ any; }"
   $direct  = "/var/lib/bind"
   $masters = "{ 200.14.49.2; }"
-  
+  $quote   = '"'  
   class {'::dns_primary':
     config_file        => '/etc/bind/named.conf',
     directory          => '/etc/bind',
@@ -48,25 +47,25 @@ node 'ns2.upr.edu.cu', 'ns3.upr.edu.cu'{
         $zone,
         "allow-query $allow",
         "masters $masters",
-        "file ${direct}'/db.upr.edu.cu",
+        "file ${quote}${direct}/db.upr.edu.cu${quote}",
       ],
       '27/0.49.14.200.in-addr.arpa' => [
         $zone,
         "allow-query $allow",
         "masters $masters",
-        "file ${direct}/db.49.14.200",
+        "file ${quote}${direct}/db.49.14.200${quote}",
       ],
       '29/8.143.55.200.in-addr.arpa' => [
         $zone,
         "allow-query $allow",
         "masters $masters",
-        "file ${direct}/db.143.55.200",
+        "file ${quote}${direct}/db.143.55.200${quote}",
         ],
         '29/40.173.207.152.in-addr.arpa' => [
           $zone,
           "allow-query $allow",
           "masters $masters",
-          "file ${direct}/db.173.207.152",
+          "file ${quote}${direct}/db.173.207.152${quote}",
           ],
     },
   }
