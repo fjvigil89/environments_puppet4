@@ -22,7 +22,7 @@ class dns_primary::primary(){
   if($::dns_primary::slave)
   {
     bind::server::file { $::dns_primary::file_zone_name :
-      zonedir     => '/etc/bind/zones',
+      zonedir     => '/var/lib/bind',
       source_base => 'puppet:///modules/dns_primary/dns/',
       mode       => '0660',
       dirmode    => '0750',
@@ -30,7 +30,7 @@ class dns_primary::primary(){
 
   }
   else{
-    vcsrepo { '/etc/bind/zones':
+    vcsrepo { '/var/lib/bind':
       ensure   => latest,
       provider => 'git',
       remote   => 'origin',
