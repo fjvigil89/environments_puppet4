@@ -1,4 +1,4 @@
-## Class: dns_primary
+# Class: dns_primary
 # ===========================
 #
 #
