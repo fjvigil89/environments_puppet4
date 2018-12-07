@@ -23,6 +23,7 @@ node 'ns2.upr.edu.cu', 'ns3.upr.edu.cu'{
       mta_enabled    => false,
       dns_enabled    => false,
     }
+  
   $zone    = 'type slave'
   $allow   = "{ any; }"
   $direct  = "/etc/bind"
