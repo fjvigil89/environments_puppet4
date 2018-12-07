@@ -63,7 +63,7 @@ node 'ns2.upr.edu.cu', 'ns3.upr.edu.cu'{
     }
   $zone    = 'type slave'
   $allow   = "{ any; }"
-  $direct  = "/etc/bind/zone"
+  $direct  = "/etc/bind"
   $masters = "{ 200.14.49.2; }"
   
   class {'::dns_primary':
