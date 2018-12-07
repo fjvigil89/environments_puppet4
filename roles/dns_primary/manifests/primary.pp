@@ -22,10 +22,10 @@ class dns_primary::primary(){
   if($::dns_primary::slave)
   {
     bind::server::file { $::dns_primary::file_zone_name :
-      zonedir     =>  '/etc/bind/zones',
-      source_base =>  'puppet:///modules/dns_primary/dns/',
-      $mode        = '0660',
-      $dirmode     = '0750',
+      zonedir     => '/etc/bind/zones',
+      source_base => 'puppet:///modules/dns_primary/dns/',
+      $mode       => '0660',
+      $dirmode    => '0750',
     }
 
   }
