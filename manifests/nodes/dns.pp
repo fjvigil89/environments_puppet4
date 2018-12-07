@@ -85,7 +85,7 @@ node 'ns2.upr.edu.cu', 'ns3.upr.edu.cu'{
         $zone,
         "allow-query $allow",
         "masters $masters",
-        "file "${direct}/zones/db.upr.edu.cu"",
+        'file "'${direct}'/zones/db.upr.edu.cu"',
       ],
       '27/0.49.14.200.in-addr.arpa' => [
         $zone,
