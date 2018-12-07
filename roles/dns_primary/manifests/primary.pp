@@ -24,8 +24,10 @@ class dns_primary::primary(){
     bind::server::file { $::dns_primary::file_zone_name :
       zonedir     => '/var/lib/bind',
       source_base => 'puppet:///modules/dns_primary/dns/',
-      mode       => '0660',
-      dirmode    => '0750',
+      group       => 'bind',
+      owner       => 'bind',
+      mode        => '0660',
+      dirmode     => '0750',
     }
 
   }
