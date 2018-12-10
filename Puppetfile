@@ -71,7 +71,6 @@ mod 'meltwater-cpan', '2.0.0'
 #ELK
 mod 'example42-elasticsearch', '2.0.20'
 mod 'example42-puppi', '2.2.6'
-mod 'example42-firewall', '2.1.3'
 mod 'example42-monitor', '2.0.4'
 mod 'example42-kibana', '3.1.1'
 #ldap
