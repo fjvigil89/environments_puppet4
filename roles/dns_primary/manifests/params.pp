@@ -10,6 +10,7 @@ class dns_primary::params{
     $forwarders      	  = ['10.2.1.8']
     $forward	     	    = false			
     $allow_query     	  = '{ any; }' 
+    $allow_transfer     = [],
     $directory          = '/etc/bind'
     $dump_file          = 'cache_dump.db'
     $statistics_file    = 'named_stats.txt'

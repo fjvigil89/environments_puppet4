@@ -21,7 +21,8 @@ package { 'lsb-release':
     }
 
   $zone    = 'type master'
-  $allow   = "{ any; }"
+  $allow   = "{ 10.2.0.0/15; }"
+  $notify  = "{ 10.2.1.14; 10.2.1.15; };"
   $direct  = "/var/lib/bind"
   #$masters = "{ 200.14.49.2; }"
   $quote   = '"'
@@ -32,7 +33,7 @@ package { 'lsb-release':
     statistics_file    => 'named_stats.txt',
     memstatistics_file => 'named_mem_stats.txt',
     slave              => false,
-    allow_query        => $allow,
+    allow_query        => $allow_q,
     recursion          => 'yes',
     zone_name          => [ 'upr.edu.cu', 'ceces.upr.edu.cu', 'progintec.upr.edu.cu', 'tele4.upr.edu.cu'],
     zone_type          => $zone,
@@ -42,11 +43,13 @@ package { 'lsb-release':
       'upr.edu.cu' => [
         $zone,
         "allow-query $allow",
-        "masters $masters",
+        "allow-update ${notify}",
+        "also-notify ${notify}",
+        "notify yes",
         "file ${quote}${direct}/db.upr.edu.cu${quote}",
       ],
       'ceces.upr.edu.cu' => [
-        $zone,
+        'type slave',
         "allow-query $allow",
         "file ${quote}${direct}/db.ceces.upr.edu.cu${quote}",
       ],
@@ -65,16 +68,25 @@ package { 'lsb-release':
       '1.2.10.in-addr.arpa' => [
         $zone,
         "allow-query $allow",
+        "allow-update ${notify}",
+        "also-notify ${notify}",
+        "notify yes",
         "file ${quote}${direct}/db.1.2.10${quote}",
       ],
       '22.2.10.in-addr.arpa' => [
         $zone,
         "allow-query $allow",
+        "allow-update ${notify}",
+        "also-notify ${notify}",
+        "notify yes",
         "file ${quote}${direct}/db.22.2.10${quote}",
         ],
         '24.2.10.in-addr.arpa' => [
           $zone,
           "allow-query $allow",
+          "allow-update ${notify}",
+          "also-notify ${notify}",
+          "notify yes",
           "file ${quote}${direct}/db.24.2.10${quote}",
           ],
     },
