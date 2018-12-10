@@ -19,7 +19,7 @@ node 'dnsp.upr.edu.cu'{
 
   $zone    = 'type master'
   $allow   = "{ 10.2.0.0/15; }"
-  $notify  = "{ 10.2.1.14; 10.2.1.15; };"
+  $notify  = "{ 10.2.1.14; 10.2.1.15; }"
   $direct  = "/var/lib/bind"
   #$masters = "{ 200.14.49.2; }"
   $quote   = '"'
