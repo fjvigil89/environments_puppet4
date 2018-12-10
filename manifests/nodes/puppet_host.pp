@@ -187,8 +187,8 @@ node 'puppet-henry.upr.edu.cu' {
   prosody::virtualhost {
     "chat.upr.edu.cu" :
       ensure   => present,
-      ssl_key  => '/etc/ssl/key/chat.upr.edu.cu.key',
-      ssl_cert => '/etc/ssl/crt/chat.upr.edu.cu.crt',
+      ssl_key  => '/etc/prosody/certs/localhost.key',
+      ssl_cert => '/etc/prosody/certs/localhost.crt',
   }
   #prosody::user { 'admin':
   #  host => "chat.upr.edu.cu",
