@@ -2,10 +2,83 @@ node 'dns.upr.edu.cu'{
   class { '::basesys':
     uprinfo_usage  => 'servidor dns',
     application    => 'DNS Bind9',
-    dns_enabled    => false,
+    dns_enabled    => true,
   }
 
 
+}
+node 'dnsp.upr.edu.cu'{
+package { 'lsb-release':
+    ensure => installed,
+    }~>
+    class { '::basesys':
+      uprinfo_usage  => 'servidor dns interno',
+      application    => 'DNS Bind9',
+      puppet_enabled => true,
+      repos_enabled  => true,
+      mta_enabled    => false,
+      dns_enabled    => false,
+    }
+
+  $zone    = 'type master'
+  $allow   = "{ any; }"
+  $direct  = "/var/lib/bind"
+  #$masters = "{ 200.14.49.2; }"
+  $quote   = '"'
+  class {'::dns_primary':
+    config_file        => '/etc/bind/named.conf',
+    directory          => '/etc/bind',
+    dump_file          => 'cache_dump.db',
+    statistics_file    => 'named_stats.txt',
+    memstatistics_file => 'named_mem_stats.txt',
+    slave              => false,
+    allow_query        => $allow,
+    recursion          => 'yes',
+    zone_name          => [ 'upr.edu.cu', 'ceces.upr.edu.cu', 'progintec.upr.edu.cu', 'tele4.upr.edu.cu'],
+    zone_type          => $zone,
+    file_zone_name     => [ 'db.upr.edu.cu', 'db.1.2.10', 'db.22.2.10', 'db.24.2.10'],
+    zone_reverse       => [ '1.2.10.in-addr.arpa', '22.2.10.in-addr.arpa', '24.2.10.in-addr.arpa'],
+    zones              => {
+      'upr.edu.cu' => [
+        $zone,
+        "allow-query $allow",
+        "masters $masters",
+        "file ${quote}${direct}/db.upr.edu.cu${quote}",
+      ],
+      'ceces.upr.edu.cu' => [
+        $zone,
+        "allow-query $allow",
+        "file ${quote}${direct}/db.ceces.upr.edu.cu${quote}",
+      ],
+      'progintec.upr.edu.cu' => [
+        'type slave',
+        "allow-query $allow",
+        "masters { 10.2.24.158; };",
+        "file ${quote}${direct}/db.progintec.upr.edu.cu${quote}",
+      ],
+      #'tele4.upr.edu.cu' => [
+      #  'type slave',
+      #  "allow-query $allow",
+      #  "masters { 10.2.24.158; };",
+      #  "file ${quote}${direct}/db.tele4.upr.edu.cu${quote}",
+      #],
+      '1.2.10.in-addr.arpa' => [
+        $zone,
+        "allow-query $allow",
+        "file ${quote}${direct}/db.1.2.10${quote}",
+      ],
+      '22.2.10.in-addr.arpa' => [
+        $zone,
+        "allow-query $allow",
+        "file ${quote}${direct}/db.22.2.10${quote}",
+        ],
+        '24.2.10.in-addr.arpa' => [
+          $zone,
+          "allow-query $allow",
+          "file ${quote}${direct}/db.24.2.10${quote}",
+          ],
+    },
+  }
 }
 
 ## dns cache solo para la upr con forwarding 10.2.1.8
