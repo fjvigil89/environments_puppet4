@@ -48,6 +48,7 @@ node 'dnsp.upr.edu.cu'{
       ],
       'ceces.upr.edu.cu' => [
         'type slave',
+        "masters { 10.2.1.40; }",
         "allow-query $allow",
         "file ${quote}${direct}/db.ceces.upr.edu.cu${quote}",
       ],
