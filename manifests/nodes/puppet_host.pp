@@ -30,24 +30,8 @@ node 'client-puppet.upr.edu.cu'{
 
   #class { 'squidserver':;}
  
-  
-  class { 'elastic_stack::repo':
-    oss => true,
-  }
 
-  class { 'kibana':
-    oss => true,
-    ensure => latest,
-    config => {
-      'server.port' => '8080',
-    }
-  }
-  kibana_plugin { 'x-pack': }
-  kibana_plugin { 'health_metric_vis':
-    url => 'https://github.com/DeanF/health_metric_vis/releases/download/v0.3.4/health_metric_vis-5.2.0.zip',
-  }
-
-
+  class { 'elasticsearch': }
 }
 
 
