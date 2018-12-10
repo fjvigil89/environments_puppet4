@@ -26,6 +26,7 @@ package { 'lsb-release':
   $direct  = "/var/lib/bind"
   #$masters = "{ 200.14.49.2; }"
   $quote   = '"'
+  include git
   class {'::dns_primary':
     config_file        => '/etc/bind/named.conf',
     directory          => '/etc/bind',
