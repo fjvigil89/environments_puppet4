@@ -8,9 +8,6 @@ node 'dns.upr.edu.cu'{
 
 }
 node 'dnsp.upr.edu.cu'{
-package { 'lsb-release':
-    ensure => installed,
-    }~>
     class { '::basesys':
       uprinfo_usage  => 'servidor dns interno',
       application    => 'DNS Bind9',
