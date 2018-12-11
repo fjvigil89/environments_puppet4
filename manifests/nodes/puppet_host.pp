@@ -32,8 +32,9 @@ node 'client-puppet.upr.edu.cu'{
   
   include ::java
   class { 'elasticsearch':
-    manage_repo       => false,
-    restart_on_change => true,
+    elasticsearch_user => 'root',
+    manage_repo        => false,
+    restart_on_change  => true,
   }
   elasticsearch::instance { 'es-01':
      config => {
