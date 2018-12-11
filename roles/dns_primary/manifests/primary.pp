@@ -36,7 +36,7 @@ class dns_primary::primary(){
        ensure  => directory,
        group   => 'bind',
        owner   => 'bind',
-       mode    => '0660',
+       mode    => '0775',
      }
     vcsrepo { '/var/lib/bind':
       ensure   => latest,
