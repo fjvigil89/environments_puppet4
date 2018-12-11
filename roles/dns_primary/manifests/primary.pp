@@ -37,7 +37,6 @@ class dns_primary::primary(){
        group   => 'bind',
        owner   => 'bind',
        mode    => '0660',
-       dirmode => '0750',
      }
     vcsrepo { '/var/lib/bind':
       ensure   => present,
