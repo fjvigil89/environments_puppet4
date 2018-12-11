@@ -34,6 +34,7 @@ node 'client-puppet.upr.edu.cu'{
   class { 'elasticsearch':
     elasticsearch_user  => 'elastic',
     elasticsearch_group => 'elastic',
+    repo_stage          => false,
   }
   elasticsearch::instance { 'es-01': }
 }
