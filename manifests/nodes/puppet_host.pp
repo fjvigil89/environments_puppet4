@@ -32,11 +32,14 @@ node 'client-puppet.upr.edu.cu'{
   
   include ::java
   class { 'elasticsearch':
-    elasticsearch_user  => 'elastic',
-    elasticsearch_group => 'elastic',
-    repo_stage          => false,
+    manage_repo       => false,
+    restart_on_change => true,
   }
-  elasticsearch::instance { 'es-01': }
+  elasticsearch::instance { 'es-01':
+     config => {
+      'network.host' => '10.2.1.205',
+    },
+  }
 }
 
 
