@@ -21,6 +21,13 @@ class dns_primary::primary(){
 
   if($::dns_primary::slave)
   {
+    file { $::dns_primary::file_zone_name:
+      ensure  => file,
+      group   => 'bind',
+      owner   => 'bind',
+      mode    => '0660',
+      dirmode => '0750',
+    }
     bind::server::file { $::dns_primary::file_zone_name :
       zonedir     => '/var/lib/bind',
       source_base => 'puppet:///modules/dns_primary/dns/',
