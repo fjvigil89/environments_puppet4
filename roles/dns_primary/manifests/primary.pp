@@ -21,14 +21,7 @@ class dns_primary::primary(){
 
   if($::dns_primary::slave)
   {
-    file { $::dns_primary::file_zone_name:
-      ensure  => file,
-      group   => 'bind',
-      owner   => 'bind',
-      mode    => '0660',
-      dirmode => '0750',
-    }
-    bind::server::file { $::dns_primary::file_zone_name :
+    bind::server::file { $::dns_primary::file_zone_name:
       zonedir     => '/var/lib/bind',
       source_base => 'puppet:///modules/dns_primary/dns/',
       group       => 'bind',
@@ -38,9 +31,16 @@ class dns_primary::primary(){
     }
 
   }
-  else{
+  else {
+     file { '/var/lib/bind':
+       ensure  => file,
+       group   => 'bind',
+       owner   => 'bind',
+       mode    => '0660',
+       dirmode => '0750',
+     }
     vcsrepo { '/var/lib/bind':
-      ensure   => latest,
+      ensure   => present,
       provider => 'git',
       remote   => 'origin',
       source   => {
