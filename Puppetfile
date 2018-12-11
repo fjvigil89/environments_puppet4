@@ -69,6 +69,7 @@ mod 'puppet-smokeping', '4.0.0'
 mod 'puppet-collectd', '10.1.0'
 mod 'meltwater-cpan', '2.0.0'
 #ELK
+mod 'puppetlabs-java', '3.2.0'
 mod 'example42-elasticsearch', '2.0.20'
 mod 'example42-puppi', '2.2.6'
 mod 'example42-monitor', '2.0.4'
