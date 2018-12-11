@@ -29,9 +29,10 @@ node 'client-puppet.upr.edu.cu'{
   #}
 
   #class { 'squidserver':;}
- 
-
+  
+  include ::java
   class { 'elasticsearch': }
+  elasticsearch::instance { 'es-01': }
 }
 
 
