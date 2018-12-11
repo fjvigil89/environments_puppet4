@@ -33,7 +33,7 @@ class dns_primary::primary(){
   }
   else {
      file { '/var/lib/bind':
-       ensure  => file,
+       ensure  => directory,
        group   => 'bind',
        owner   => 'bind',
        mode    => '0660',
