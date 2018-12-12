@@ -32,13 +32,13 @@ class dns_primary::primary(){
 
   }
   else {
-     file { '/var/lib/bind':
+     file { '/etc/bind/zones':
        ensure  => directory,
        group   => 'bind',
        owner   => 'bind',
        mode    => '0775',
-     }
-    vcsrepo { '/var/lib/bind':
+     }~>
+    vcsrepo { '/etc/bind/zones':
       ensure   => latest,
       provider => 'git',
       remote   => 'origin',
