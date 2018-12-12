@@ -31,6 +31,9 @@ node 'client-puppet.upr.edu.cu'{
   #class { 'squidserver':;}
   
   include ::java
+  elasticsearch::user{'elasticsearch':
+    password => '123456789',    
+  }
   class { 'elasticsearch':
     elasticsearch_user => 'elasticsearch',
     manage_repo        => false,
