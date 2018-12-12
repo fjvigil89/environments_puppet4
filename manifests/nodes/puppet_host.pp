@@ -28,7 +28,7 @@ node 'client-puppet.upr.edu.cu'{
   #  ensure => present,
   #}
 
-  #class { 'squidserver':;}
+  ##class { 'squidserver':;}
   
   include ::java
   elasticsearch::user{'elasticsearch':
