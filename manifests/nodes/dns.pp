@@ -18,10 +18,9 @@ node 'dnsp.upr.edu.cu'{
     }
 
   $zone    = 'type master'
-  $allow   = "{ 10.2.0.0/15; }"
+  $allow   = "{ 10.2.0.0/15; 10.71.46.0/24; 20.0.0.0/24; 172.30.146.0/27; 192.168.25.0/24;}"
   $notify  = "{ 10.2.1.14; 10.2.1.15; }"
   $direct  = "/var/lib/bind"
-  #$masters = "{ 200.14.49.2; }"
   $quote   = '"'
   include git
   class {'::dns_primary':
@@ -71,6 +70,14 @@ node 'dnsp.upr.edu.cu'{
         "also-notify ${notify}",
         "notify yes",
         "file ${quote}${direct}/db.1.2.10${quote}",
+      ],
+      '8.2.10.in-addr.arpa' => [
+        $zone,
+        "allow-query $allow",
+        "allow-update ${notify}",
+        "also-notify ${notify}",
+        "notify yes",
+        "file ${quote}${direct}/db.8.2.10${quote}",
       ],
       '22.2.10.in-addr.arpa' => [
         $zone,
