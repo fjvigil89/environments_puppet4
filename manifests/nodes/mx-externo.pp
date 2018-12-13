@@ -4,5 +4,6 @@ node 'mx-externo.upr.edu.cu' {
     application    => 'mx-externo',
     puppet_enabled => false,
     mta_enabled    => false,
+    dmz            => true,
   }
 }
