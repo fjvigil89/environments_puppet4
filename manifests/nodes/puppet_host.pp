@@ -38,11 +38,15 @@ node 'client-puppet.upr.edu.cu'{
     elasticsearch_user => 'elasticsearch',
     manage_repo        => false,
     restart_on_change  => true,
+    autoupgrade        => true,
   }
   elasticsearch::instance { 'es-01':
      config => {
       'network.host' => '10.2.1.205',
     },
+  }
+  elasticsearch::plugin { 'x-pack':
+    instances => 'instance_name'
   }
 }
 
