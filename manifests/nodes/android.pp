@@ -1,4 +1,4 @@
-node 'android.upr.edu.cu' {  
+node 'android.upr.edu.cu' {
   package { 'lsb-release':
           ensure => installed,
   }~>

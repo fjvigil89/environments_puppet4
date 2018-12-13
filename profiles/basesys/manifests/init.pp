@@ -32,7 +32,7 @@ class basesys (
   Boolean $proxmox_enabled                 = $::basesys::params::proxmox_enabled,
 
   Boolean $repos_enabled                   = $::basesys::params::repos,
-
+  Optional[Boolean] dmz                    = $::basesys::params::dmz,
   String $aptly_mirror                     = '',
   Boolean $backports_enabled               = false,
 
