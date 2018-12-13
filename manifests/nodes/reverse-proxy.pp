@@ -8,6 +8,5 @@ node 'nginx-inverso.upr.edu.cu','proxy-inverso.upr.edu.cu','toran-proxy.upr.edu.
     puppet_enabled => false,
     repos_enabled  => true,
     mta_enabled    => false,
-    dmz            => true,
   }
 }
