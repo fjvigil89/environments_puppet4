@@ -31,12 +31,9 @@ node 'client-puppet.upr.edu.cu'{
   ##class { 'squidserver':;}
   
   include ::java
-  elasticsearch::user{'elasticsearch':
-    password => '123456789',    
-  }
   class { 'elasticsearch':
-    elasticsearch_user => 'elasticsearch',
-    manage_repo        => false,
+    #elasticsearch_user => 'elasticsearch',
+    manage_repo        => true,
     restart_on_change  => true,
     autoupgrade        => true,
   }
@@ -44,9 +41,6 @@ node 'client-puppet.upr.edu.cu'{
      config => {
       'network.host' => '10.2.1.205',
     },
-  }
-  elasticsearch::plugin { 'x-pack':
-    instances => 'instance_name'
   }
 }
 
