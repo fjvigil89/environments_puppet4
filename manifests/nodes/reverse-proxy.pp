@@ -1,6 +1,6 @@
 node 'nginx-inverso.upr.edu.cu','proxy-inverso.upr.edu.cu','toran-proxy.upr.edu.cu' {  
   package { 'lsb-release':
-          ensure => installed,
+    ensure => installed,
   }~>
   class { '::basesys':
     uprinfo_usage  => 'servidor proxy inverso',
