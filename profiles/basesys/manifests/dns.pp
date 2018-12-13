@@ -8,13 +8,20 @@ class basesys::dns (
 
   if($::basesys::dns_enabled)
   {
-    class {
-      '::resolv_conf':
-        nameserver => $basesys::dnsservers,
-        search     => $basesys::dnssearchdomains,
+    if($::basesys::dmz == true){
+      class { '::resolv_conf':
+      nameserver => ['200.14.49.2', '8.8.4.4'],
+      search     => $basesys::dnssearchdomains,
+      }
+    }
+    else {
+      class { '::resolv_conf':
+          nameserver => $basesys::dnsservers,
+          search     => $basesys::dnssearchdomains,
+      }
     }
   }
-  else{
+  else {
  		class {
       '::resolv_conf':
         nameserver => $facts['ipaddress'],
