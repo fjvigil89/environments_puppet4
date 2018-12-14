@@ -110,7 +110,7 @@ node 'client-puppet.upr.edu.cu'{
     listen_port => 443,
     proxy       => 'https://correo.upr.edu.cu',
     server_name => ['correo.upr.edu.cu'],
-    ssl         => true,
+    #ssl         => true,
     #ssl_cert    => '/etc/letsencrypt/live/correo.upr.edu.cu/fullchain.pem',
     #ssl_key     => '/etc/letsencrypt/live/correo.upr.edu.cu/privkey.pem',
   }
