@@ -108,15 +108,15 @@ node 'client-puppet.upr.edu.cu'{
     proxy         => 'http://correo.upr.edu.cu',    
     server_name    => ['correo.upr.edu.cu'],
   }
-  nginx::resource::server { 'correo_ssl':
-    listen_port => 443,
-    ssl_port    => 443,
-    #ssl         => true,
-    #ssl_cert    => '/etc/letsencrypt/live/correo.upr.edu.cu/fullchain.pem',
-    #ssl_key     => '/etc/letsencrypt/live/correo.upr.edu.cu/privkey.pem',
-    proxy       => 'https://correo.upr.edu.cu',
-    server_name => ['correo.upr.edu.cu'],
-  }
+  #nginx::resource::server { 'correo_ssl':
+  #  listen_port => 443,
+  #  ssl_port    => 443,
+  #  ssl         => true,
+  #  ssl_cert    => '/etc/letsencrypt/live/correo.upr.edu.cu/fullchain.pem',
+  #  ssl_key     => '/etc/letsencrypt/live/correo.upr.edu.cu/privkey.pem',
+  #  proxy       => 'https://correo.upr.edu.cu',
+  #  server_name => ['correo.upr.edu.cu'],
+  #}
 
 
 }
