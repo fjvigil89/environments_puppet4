@@ -1,9 +1,11 @@
 node 'client-puppet.upr.edu.cu'{
   #class {'::talkserver':;}
   class { '::basesys':
-    uprinfo_usage => 'servidor test',
-    application   => 'puppet',
+    uprinfo_usage   => 'servidor test',
+    application     => 'puppet',
     # repos_enabled => false,
+    dmz             => true,
+
   }
   #class { '::letsencrypt_host':
   #email => 'fjvigil@hispavista.com',
@@ -28,55 +30,90 @@ node 'client-puppet.upr.edu.cu'{
   #  ensure => present,
   #}
 
-  #class { 'squidserver':;}
-  
-  $zone = 'type slave'
-  $allow = "{any;}"
-  $direct = "/etc/bind/zone"
-  $masters = "{200.14.49.2; }"
-  class {'::dns_primary':
-    config_file        => '/etc/bind/named.conf',
-    directory          => $direct,
-    dump_file          => 'cache_dump.db',
-    statistics_file    => 'named_stats.txt',
-    memstatistics_file => 'named_mem_stats.txt',
-    allow_query        => $allow,
-    recursion          => 'yes',
-    zone_name          => [ 'upr.edu.cu'],
-    zone_type          => $zone,
-    slave              => false,
-    mymaster           => $masters,
-    file_zone_name     => [ 'db.upr.edu.cu', 'db.49.14.200.in-addr.arpa', 'db.143.55.200.in-addr.arpa', 'db.173.207.152.in-addr.arpa'],
-    zone_reverse       => [ '49.14.200.in-addr.arpa', '143.55.200.in-addr.arpa', '173.207.152.in-addr.arpa'],
-    zones              => {
-      'upr.edu.cu' => [
-        $zone,
-        "file  ${direct}/db.upr.edu.cu",
-        "allow-query $allow",
-        'notify yes',
-        "masters $masters",
-      ],
-      '27/0.49.14.200.in-addr.arpa' => [
-        $zone,
-       "allow-query $allow", 
-        "file ${direct}/db.49.14.200.in-addr.arpa",
-        "masters $masters",
-      ],
-      '29/8.143.55.200.in-addr.arpa' => [
-        $zone,
-        "allow-query $allow",
-        "file ${direct}/db.143.55.200.in-addr.arpa",
-        "masters $masters",
-      ],
-      '29/40.173.207.152.in-addr.arpa' => [
-        $zone,
-        "allow-query $allow",
-        'file "db.173.207.152.in-addr.arpa"',
-        "masters $masters",
-      ],
-    },
-  }
+  ##class { 'squidserver':;}
+ 
+  #$myconfig =  @("MYCONFIG"/L)
+  #input {
+  #  beats {
+  #    port => 5043
+  #  }
+  #}
+  #output {
+  #  elasticsearch {
+  #    hosts => "10.2.1.205:9200"
+  #    manage_template => false
+  #    index => "%{[@metadata][beat]}-%{+YYYY.MM.dd}"
+  #    document_type => "%{[@metadata][type]}"
+  #  }
+  #  stdout { codec => rubydebug }
+  #}
+  #| MYCONFIG
 
+  #include ::java
+  #class { 'elasticsearch':
+  #  #elasticsearch_user => 'elasticsearch',
+  #  manage_repo        => true,
+  #  restart_on_change  => true,
+  #  autoupgrade        => true,
+  #}
+  #elasticsearch::instance { 'es-01':
+  #   config => {
+  #    'network.host' => '10.2.1.205',
+  #  },
+  #}
+  #class { 'logstash':
+  #  settings => {
+  #    'http.host' => '10.2.1.205',
+  #  }
+  #}
+
+  #logstash::configfile { '02-beats-input.conf':
+  #  content => $myconfig,
+  #}
+
+  #logstash::plugin { 'logstash-input-beats': }
+
+  #class { 'kibana' :
+  #  config => {
+  #    'server.host'       =>  '10.2.1.205',
+  #    'elasticsearch.url' => 'http://10.2.1.205:9200',
+  #    'server.port'       => '5601',
+  #  }
+  #}
+
+  #class { 'filebeat':
+  #  outputs => {
+  #    'logstash' => {
+  #      'hosts' => [
+  #        '10.2.1.205:5043',
+  #      ],
+  #      'index' => 'filebeat',
+  #    },
+  #  },
+  #}
+  
+  #filebeat::prospector { 'syslogs':  
+  #paths    => [
+  #    '/var/log/auth.log',
+  #    '/var/log/syslog',
+  #  ],
+  #  doc_type => 'syslog-beat',
+  #}
+
+  include nginx
+  nginx::resource::server { 'correo.upr.edu.cu':
+    listen_port => 80,
+    proxy       => 'http://correo.upr.edu.cu',
+    server_name => ['correo.upr.edu.cu'],
+  }
+  nginx::resource::server { 'correo.upr.edu.cu_ssl':
+    listen_port => 443,
+    proxy       => 'https://correo.upr.edu.cu',
+    server_name => ['correo.upr.edu.cu'],
+    ssl         => true,
+    #ssl_cert    => '/etc/letsencrypt/live/correo.upr.edu.cu/fullchain.pem',
+    #ssl_key     => '/etc/letsencrypt/live/correo.upr.edu.cu/privkey.pem',
+  }
 
 }
 

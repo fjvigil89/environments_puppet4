@@ -6,23 +6,23 @@
 class gitlabserver{
   include git
   class { 'gitlab':
-    external_url           => 'http://gitlab.upr.edu.cu',
-    #skip_auto_reconfigure => 'present',
-    #skip_auto_migrations  => true,
-    #pgpass_file_ensure     => 'present',
-    #pgbouncer_password     => 'YourPassword',
-    backup_cron_enable     => true,
-    nginx                  => {
+    external_url          => 'http://gitlab.upr.edu.cu',
+    skip_auto_reconfigure => 'present',
+    skip_auto_migrations  => false,
+    #pgpass_file_ensure   => 'present',
+    #pgbouncer_password   => 'YourPassword',
+    backup_cron_enable    => true,
+    nginx                 => {
       redirect_http_to_https  => false
     },
-    unicorn                => {
+    unicorn               => {
       'worker_processes' => 3,
       'worker_timeout'   => 60,
     },
-    sidekiq                => {
+    sidekiq               => {
       'shutdown_timeout' => 2,
     },
-    gitlab_rails           => {
+    gitlab_rails          => {
        'webhook_timeout'                   => 5,
        'gitlab_default_theme'              => 2,
 			 'ldap_enabled'         => true,
