@@ -1,9 +1,11 @@
 node 'client-puppet.upr.edu.cu'{
   #class {'::talkserver':;}
   class { '::basesys':
-    uprinfo_usage => 'servidor test',
-    application   => 'puppet',
+    uprinfo_usage   => 'servidor test',
+    application     => 'puppet',
     # repos_enabled => false,
+    dmz             => true,
+
   }
   #class { '::letsencrypt_host':
   #email => 'fjvigil@hispavista.com',
@@ -30,73 +32,87 @@ node 'client-puppet.upr.edu.cu'{
 
   ##class { 'squidserver':;}
  
-  $myconfig =  @("MYCONFIG"/L)
-  input {
-    beats {
-      port => 5043
-    }
-  }
-  output {
-    elasticsearch {
-      hosts => "10.2.1.205:9200"
-      manage_template => false
-      index => "%{[@metadata][beat]}-%{+YYYY.MM.dd}"
-      document_type => "%{[@metadata][type]}"
-    }
-    stdout { codec => rubydebug }
-  }
-  | MYCONFIG
+  #$myconfig =  @("MYCONFIG"/L)
+  #input {
+  #  beats {
+  #    port => 5043
+  #  }
+  #}
+  #output {
+  #  elasticsearch {
+  #    hosts => "10.2.1.205:9200"
+  #    manage_template => false
+  #    index => "%{[@metadata][beat]}-%{+YYYY.MM.dd}"
+  #    document_type => "%{[@metadata][type]}"
+  #  }
+  #  stdout { codec => rubydebug }
+  #}
+  #| MYCONFIG
 
-  include ::java
-  class { 'elasticsearch':
-    #elasticsearch_user => 'elasticsearch',
-    manage_repo        => true,
-    restart_on_change  => true,
-    autoupgrade        => true,
+  #include ::java
+  #class { 'elasticsearch':
+  #  #elasticsearch_user => 'elasticsearch',
+  #  manage_repo        => true,
+  #  restart_on_change  => true,
+  #  autoupgrade        => true,
+  #}
+  #elasticsearch::instance { 'es-01':
+  #   config => {
+  #    'network.host' => '10.2.1.205',
+  #  },
+  #}
+  #class { 'logstash':
+  #  settings => {
+  #    'http.host' => '10.2.1.205',
+  #  }
+  #}
+
+  #logstash::configfile { '02-beats-input.conf':
+  #  content => $myconfig,
+  #}
+
+  #logstash::plugin { 'logstash-input-beats': }
+
+  #class { 'kibana' :
+  #  config => {
+  #    'server.host'       =>  '10.2.1.205',
+  #    'elasticsearch.url' => 'http://10.2.1.205:9200',
+  #    'server.port'       => '5601',
+  #  }
+  #}
+
+  #class { 'filebeat':
+  #  outputs => {
+  #    'logstash' => {
+  #      'hosts' => [
+  #        '10.2.1.205:5043',
+  #      ],
+  #      'index' => 'filebeat',
+  #    },
+  #  },
+  #}
+  
+  #filebeat::prospector { 'syslogs':  
+  #paths    => [
+  #    '/var/log/auth.log',
+  #    '/var/log/syslog',
+  #  ],
+  #  doc_type => 'syslog-beat',
+  #}
+
+  include nginx
+  nginx::resource::server { 'correo.upr.edu.cu':
+    listen_port => 80,
+    proxy       => 'http://correo.upr.edu.cu',
   }
-  elasticsearch::instance { 'es-01':
-     config => {
-      'network.host' => '10.2.1.205',
-    },
-  }
-  class { 'logstash':
-    settings => {
-      'http.host' => '10.2.1.205',
-    }
+  nginx::resource::server { 'correo.upr.edu.cu_ssl':
+    listen_port => 443,
+    proxy       => 'https://correo.upr.edu.cu',
+    ssl         => true,
+    ssl_cert    => '/etc/letsencrypt/live/correo.upr.edu.cu/fullchain.pem',
+    ssl_key     => '/etc/letsencrypt/live/correo.upr.edu.cu/privkey.pem',
   }
 
-  logstash::configfile { '02-beats-input.conf':
-    content => $myconfig,
-  }
-
-  logstash::plugin { 'logstash-input-beats': }
-
-  class { 'kibana' :
-    config => {
-      'server.host'       =>  '10.2.1.205',
-      'elasticsearch.url' => 'http://10.2.1.205:9200',
-      'server.port'       => '5601',
-    }
-  }
-
-  class { 'filebeat':
-    outputs => {
-      'logstash' => {
-        'hosts' => [
-          '10.2.1.205:5043',
-        ],
-        'index' => 'filebeat',
-      },
-    },
-  }
-
-  filebeat::prospector { 'syslogs':
-    paths    => [
-      '/var/log/auth.log',
-      '/var/log/syslog',
-    ],
-    doc_type => 'syslog-beat',
-  }
 }
 
 
