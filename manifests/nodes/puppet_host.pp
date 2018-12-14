@@ -105,8 +105,7 @@ node 'client-puppet.upr.edu.cu'{
   }
   nginx::resource::server { 'correo':
     listen_port    => 80,
-    proxy         => 'http://correo.upr.edu.cu',
-    proxy_redirect => 'https://correo.upr.edu.cu',
+    proxy         => 'http://correo.upr.edu.cu',    
     server_name    => ['correo.upr.edu.cu'],
   }
   nginx::resource::server { 'correo_ssl':
