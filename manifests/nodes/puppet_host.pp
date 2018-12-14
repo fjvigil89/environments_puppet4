@@ -100,7 +100,9 @@ node 'client-puppet.upr.edu.cu'{
   #  doc_type => 'syslog-beat',
   #}
 
-  include nginx
+  class {'nginx':
+    manage_repo => false,
+  }
   nginx::resource::server { 'correo.upr.edu.cu':
     listen_port => 80,
     proxy       => 'http://correo.upr.edu.cu',
