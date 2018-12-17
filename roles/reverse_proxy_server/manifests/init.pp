@@ -22,7 +22,7 @@ class reverse_proxy_server (
     dominios => $server_name,
   }
 
-  class {'::reverseProxy':
+  class {'::reverseproxy_server':
     server_name => $server_name,
     listen_port => $listen_port,
     ssl_port    => $ssl_port,
