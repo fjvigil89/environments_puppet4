@@ -23,6 +23,7 @@ class reverse_proxy_server (
   }
 
   class {'::reverseproxy_server':
+    manage_repo => false,
     server_name => $server_name,
     listen_port => $listen_port,
     ssl_port    => $ssl_port,
