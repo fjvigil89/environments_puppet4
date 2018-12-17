@@ -14,6 +14,7 @@ class letsencrypt_host (
    package { 'python-certbot-nginx':
      ensure => installed,
    }
+   class {'::letsencrypt_host::package':;}
    class {'::letsencrypt_host::install':;}
 
    

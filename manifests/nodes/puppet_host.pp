@@ -11,7 +11,7 @@ node 'client-puppet.upr.edu.cu'{
     #email => 'fjvigil@hispavista.com',
     #webroot_enable => true,
     dominios => ['correo.upr.edu.cu'],
-    plugin => 'nginx',
+    #plugin => 'nginx',
     #webroot_paths => ['/root/Sync-UPR/public/'],
   }
   #class { ::letsencrypt:
