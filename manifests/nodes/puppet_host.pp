@@ -8,12 +8,17 @@ node 'client-puppet.upr.edu.cu'{
 
   }
   #class { '::letsencrypt_host':
-  #email => 'fjvigil@hispavista.com',
-  #webroot_enable => true,
-  #dominios => ['sync.upr.edu.cu'],
-  #plugin => 'webroot',
-  #webroot_paths => ['/root/Sync-UPR/public/'],
+  #  email => 'fjvigil@hispavista.com',
+  #  webroot_enable => true,
+  #  dominios => ['sync.upr.edu.cu'],
+  #  plugin => 'webroot',
+  #  webroot_paths => ['/root/Sync-UPR/public/'],
   #}
+  class { ::letsencrypt:
+    unsafe_registration => true,
+  }
+  letsencrypt::certonly { 'correo.upr.edu.cu': }
+
   #include puppetdevserver
   #include puppetprodserver
 
@@ -118,7 +123,7 @@ node 'client-puppet.upr.edu.cu'{
   #  server_name => ['correo.upr.edu.cu'],
   #}
 
-
+  
 }
 
 
