@@ -1,13 +1,13 @@
-node 'dns.upr.edu.cu'{
-  class { '::basesys':
-    uprinfo_usage  => 'servidor dns',
-    application    => 'DNS Bind9',
-    dns_enabled    => true,
-  }
+#node 'dns.upr.edu.cu'{
+#  class { '::basesys':
+#    uprinfo_usage  => 'servidor dns',
+#    application    => 'DNS Bind9',
+#    dns_enabled    => true,
+#  }
 
 
 }
-node 'dnsp.upr.edu.cu'{
+node 'dns.upr.edu.cu' {
     class { '::basesys':
       uprinfo_usage  => 'servidor dns interno',
       application    => 'DNS Bind9',
