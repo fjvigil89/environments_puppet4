@@ -105,21 +105,21 @@ node 'client-puppet.upr.edu.cu'{
   #  doc_type => 'syslog-beat',
   #}
 
-  class { '::letsencrypt_host':
-    dominios => ['correo.upr.edu.cu'],
-  }
-  class {'nginx':
-    manage_repo => false,
-  }
-  nginx::resource::server { 'correo':
-    listen_port => 443,
-    ssl_port    => 443,
-    ssl         => true,
-    ssl_cert    => '/etc/letsencrypt/live/correo.upr.edu.cu/fullchain.pem',
-    ssl_key     => '/etc/letsencrypt/live/correo.upr.edu.cu/privkey.pem',
-    proxy       => 'http://correo.upr.edu.cu',    
-    server_name => ['correo.upr.edu.cu'],
-  }
+  #class { '::letsencrypt_host':
+  #  dominios => ['correo.upr.edu.cu'],
+  #}
+  #class {'nginx':
+  #  manage_repo => false,
+  #}
+  #nginx::resource::server { 'correo':
+  #  listen_port => 443,
+  #  ssl_port    => 443,
+  #  ssl         => true,
+  #  ssl_cert    => '/etc/letsencrypt/live/correo.upr.edu.cu/fullchain.pem',
+  #  ssl_key     => '/etc/letsencrypt/live/correo.upr.edu.cu/privkey.pem',
+  #  proxy       => 'http://correo.upr.edu.cu',    
+  #  server_name => ['correo.upr.edu.cu'],
+  #}
 
   
 }
