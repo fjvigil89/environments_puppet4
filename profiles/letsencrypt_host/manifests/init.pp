@@ -11,6 +11,9 @@ class letsencrypt_host (
   Optional[String] $plugin                 = $::letsencrypt_host::params::plugin,
   Optional[String] $email                  = undef,
  )inherits ::letsencrypt_host::params{
+   package { 'python-certbot-nginx':
+     ensure => installed,
+   }
    class {'::letsencrypt_host::install':;}
 
    
