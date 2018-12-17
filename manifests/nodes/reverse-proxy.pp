@@ -11,7 +11,7 @@ node 'nginx-inverso.upr.edu.cu','proxy-inverso.upr.edu.cu','toran-proxy.upr.edu.
   }
 }
 
-#Para hacer los proxy inversos
+##Para hacer los proxy inversos
 node 'reverse-proxy.upr.edu.cu'{
   class {'reverseProxy_Server':
     server_name => [
