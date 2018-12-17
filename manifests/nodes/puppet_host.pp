@@ -121,11 +121,7 @@ node 'client-puppet.upr.edu.cu'{
   #  server_name => ['correo.upr.edu.cu'],
   #}
 
-  class { 'reverseProxyServer':
-    server_name => ['correo.upr.edu.cu','cvforestal.upr.edu.cu','intranet.upr.edu.cu','proxy-login.upr.edu.cu','nexus.upr.edu.cu','harbor.upr.edu.cu','proxy-go.upr.edu.cu'],
-    listen_port => ['443','80','80','443','80','80','443'],
-    ssl_port    => ['443','443','443','443','443','443','443'],
-  }
+  class { 'reverseServer':;}
 
   
 }
