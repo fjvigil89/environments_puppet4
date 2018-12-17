@@ -3,9 +3,9 @@
 # Copyright 2018 Your name here, unless otherwise noted.
 #
 class reverseProxy_Server(
-  Optional[Array[String]] $server_name  => undef,
-  Optional[Array[Integer]] $listen_port => undef,
-  Optional[Array[Integer]] $ssl_port    => undef,
+  Optional[Array[String]] $server_name  = undef,
+  Optional[Array[Integer]] $listen_port = undef,
+  Optional[Array[Integer]] $ssl_port    = undef,
 
 ) {
 
