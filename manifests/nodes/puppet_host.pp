@@ -7,17 +7,17 @@ node 'client-puppet.upr.edu.cu'{
     dmz             => true,
 
   }
-  #class { '::letsencrypt_host':
-  #  email => 'fjvigil@hispavista.com',
-  #  webroot_enable => true,
-  #  dominios => ['sync.upr.edu.cu'],
-  #  plugin => 'webroot',
-  #  webroot_paths => ['/root/Sync-UPR/public/'],
-  #}
-  class { ::letsencrypt:
-    unsafe_registration => true,
+  class { '::letsencrypt_host':
+    #email => 'fjvigil@hispavista.com',
+    #webroot_enable => true,
+    dominios => ['correo.upr.edu.cu'],
+    plugin => 'nginx',
+    #webroot_paths => ['/root/Sync-UPR/public/'],
   }
-  letsencrypt::certonly { 'correo.upr.edu.cu': }
+  #class { ::letsencrypt:
+  #  unsafe_registration => true,
+  #}
+  #letsencrypt::certonly { 'correo.upr.edu.cu': }
 
   #include puppetdevserver
   #include puppetprodserver
