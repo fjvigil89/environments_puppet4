@@ -4,9 +4,13 @@
 # install configuratie.
 
 class letsencrypt_host::install {
-  class { '::letsencrypt':
-    if($::letsencrypt_host::email)
-    {
+  if defined($::letsencrypt_host::email ){
+    class { '::letsencrypt':
+      email => $::letsencrypt_host::email,
+    }
+  }
+  else {
+    class { '::letsencrypt':
       email => $::letsencrypt_host::email,
     }
   }
