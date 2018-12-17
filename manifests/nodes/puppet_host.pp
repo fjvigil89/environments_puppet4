@@ -121,7 +121,7 @@ node 'client-puppet.upr.edu.cu'{
   #  server_name => ['correo.upr.edu.cu'],
   #}
 
-  class { 'reverseServer':;}
+  include reverseServer
 
   
 }
