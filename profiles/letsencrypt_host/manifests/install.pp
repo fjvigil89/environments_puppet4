@@ -5,7 +5,10 @@
 
 class letsencrypt_host::install {
   class { '::letsencrypt':
-    email => $::letsencrypt_host::email,
+    if($::letsencrypt_host::email)
+    {
+      email => $::letsencrypt_host::email,
+    }
   }
   if($::letsencrypt_host::webroot_enable) {
     letsencrypt::certonly { 'foo':
