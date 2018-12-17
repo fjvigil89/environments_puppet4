@@ -1,6 +1,6 @@
 
 
-class preverseProxy::params {
+class reverseproxy_server::params {
   $manage_repo = false
   $listen_port = undef
   $ssl_port    = undef
