@@ -12,7 +12,7 @@ node 'nginx-inverso.upr.edu.cu','proxy-inverso.upr.edu.cu','toran-proxy.upr.edu.
 }
 
 node 'reverse-proxy.upr.edu.cu'{
-  class {'::reverseProxy_Server':
+  class {'reverseProxy_Server':
     server_name => [
       'correo.upr.edu.cu',
       'cvforestal.upr.edu.cu',
