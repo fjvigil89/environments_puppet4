@@ -80,7 +80,7 @@ mod 'dcenter/squid',
 #ucarp
 mod 'dcenter/ucarp',
   :git => 'git@gitlab.upr.edu.cu:dcenter/ucarp.git',
-  :ref => '5dab0c739d6f809d253641c29f9ffa2fd6aa2b05'
+  :ref => 'e183897b2b3e8469d5c87bc2b4e05cca9e784b58'
 
 mod 'rgevaert/pwgen',
   :git => 'https://github.com/rgevaert/puppet-pwgen.git',
