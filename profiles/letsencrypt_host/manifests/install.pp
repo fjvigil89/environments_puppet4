@@ -15,16 +15,20 @@ class letsencrypt_host::install {
     }
   }
   if($::letsencrypt_host::webroot_enable) {
-    letsencrypt::certonly { 'foo':
-      domains       => $::letsencrypt_host::dominios,
-      plugin        => $::letsencrypt_host::plugin,
-      webroot_paths => $::letsencrypt_host::webroot_paths
+    each($::letsencrypt_host::dominios)|Integer $index, String $value|{
+      letsencrypt::certonly { "${value}":
+        domains       => $value,
+        plugin        => $::letsencrypt_host::plugin,
+        webroot_paths => $::letsencrypt_host::webroot_paths
+      }
     }
   }
   else {
-    letsencrypt::certonly { 'foo':
-      domains => $::letsencrypt_host::dominios,
-      plugin  => $::letsencrypt_host::plugin,
+    each($::letsencrypt_host::dominios)|Integer $index, String $value|{
+      letsencrypt::certonly { "${value}":
+        domains => $value,
+        plugin  => $::letsencrypt_host::plugin,
+      }
     }
   }
 }
