@@ -5,10 +5,10 @@
 #
 #
 class ucarp_vip::params {
-  String $bind_interface   = 'eth0'
-  String $password         = 'secret'
-  Hash $hosts              = {}
-  String $vip_address      = '10.2.0.0'
-  String $source_address   = $::ipaddress
-  String $master_hostname  = $::hostname
+  $bind_interface   = 'eth0'
+  $password         = 'secret'
+  $hosts              = {}
+  $vip_address      = '10.2.0.0'
+  $source_address   = $::ipaddress
+  $master_hostname  = $::hostname
 }
