@@ -17,7 +17,7 @@ class letsencrypt_host::install {
   if($::letsencrypt_host::webroot_enable) {
     each($::letsencrypt_host::dominios)|Integer $index, String $value|{
       letsencrypt::certonly { "${value}":
-        domains       => $value,
+        domains       => [$value],
         plugin        => $::letsencrypt_host::plugin,
         webroot_paths => $::letsencrypt_host::webroot_paths
       }
@@ -26,7 +26,7 @@ class letsencrypt_host::install {
   else {
     each($::letsencrypt_host::dominios)|Integer $index, String $value|{
       letsencrypt::certonly { "${value}":
-        domains => $value,
+        domains => [$value],
         plugin  => $::letsencrypt_host::plugin,
       }
     }
