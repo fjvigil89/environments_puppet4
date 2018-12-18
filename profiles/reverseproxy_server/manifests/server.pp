@@ -4,7 +4,7 @@
      each ($::reverseproxy_server::server_name) |Integer $index, String $value|{
        if($::reverseproxy_server::location_allow[$index] == '*')
        {
-         $allow = ['all']
+         $allow = ['any']
          $deny  = ['all']
        }
        else{
