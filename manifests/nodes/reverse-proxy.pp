@@ -15,7 +15,7 @@ node 'nginx-inverso.upr.edu.cu','proxy-inverso.upr.edu.cu','toran-proxy.upr.edu.
 node 'reverse-proxy.upr.edu.cu'{
   class { 'reverse_proxy_server':
     server_name => ['correo.upr.edu.cu','cvforestal.upr.edu.cu','intranet.upr.edu.cu','proxy-login.upr.edu.cu','nexus.upr.edu.cu','harbor.upr.edu.cu','proxy-go.upr.edu.cu'],
-    listen_port => [443,80,80,443,80,80,443],
+    listen_port => [80,80,80,443,80,80,443],
     ssl_port    => [443,443,443,443,443,443,443],
 
   }

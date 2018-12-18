@@ -2,7 +2,7 @@
    if($::reverseproxy_server::server_name)
    {
      each ($::reverseproxy_server::server_name) |Integer $index, String $value|{
-       if($::reverseproxy_server::ssl_port[$index] == 443)
+       if($::reverseproxy_server::ssl_port[$index] == 443) and ($::reverseproxy_server::listen_port[$index]== 443)
        {
          nginx::resource::server { $::reverseproxy_server::server_name[$index]:
            listen_port => $::reverseproxy_server::listen_port[$index],
