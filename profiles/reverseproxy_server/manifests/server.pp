@@ -22,7 +22,7 @@
              ssl         => true,
              ssl_cert    => "/etc/letsencrypt/live/${value}/fullchain.pem",
              ssl_key     => "/etc/letsencrypt/live/${value}/privkey.pem",
-             proxy       => "http://${value}",
+             #proxy       => "https://${value}",
              server_name => ["${value}"],
            }
          }
