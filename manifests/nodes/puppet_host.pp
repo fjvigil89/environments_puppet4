@@ -8,12 +8,17 @@ node 'client-puppet.upr.edu.cu'{
 
   }
   #class { '::letsencrypt_host':
-  #email => 'fjvigil@hispavista.com',
-  #webroot_enable => true,
-  #dominios => ['sync.upr.edu.cu'],
-  #plugin => 'webroot',
-  #webroot_paths => ['/root/Sync-UPR/public/'],
+    #email => 'fjvigil@hispavista.com',
+    #webroot_enable => true,
+    #  dominios => ['correo.upr.edu.cu'],
+    #plugin => 'nginx',
+    #webroot_paths => ['/root/Sync-UPR/public/'],
+    #}
+  #class { ::letsencrypt:
+  #  unsafe_registration => true,
   #}
+  #letsencrypt::certonly { 'correo.upr.edu.cu': }
+
   #include puppetdevserver
   #include puppetprodserver
 
@@ -100,21 +105,25 @@ node 'client-puppet.upr.edu.cu'{
   #  doc_type => 'syslog-beat',
   #}
 
-  include nginx
-  nginx::resource::server { 'correo.upr.edu.cu':
-    listen_port => 80,
-    proxy       => 'http://correo.upr.edu.cu',
-    server_name => ['correo.upr.edu.cu'],
-  }
-  nginx::resource::server { 'correo.upr.edu.cu_ssl':
-    listen_port => 443,
-    proxy       => 'https://correo.upr.edu.cu',
-    server_name => ['correo.upr.edu.cu'],
-    ssl         => true,
-    #ssl_cert    => '/etc/letsencrypt/live/correo.upr.edu.cu/fullchain.pem',
-    #ssl_key     => '/etc/letsencrypt/live/correo.upr.edu.cu/privkey.pem',
-  }
+  #class { '::letsencrypt_host':
+  #  dominios => ['correo.upr.edu.cu'],
+  #}
+  #class {'nginx':
+  #  manage_repo => false,
+  #}
+  #nginx::resource::server { 'correo':
+  #  listen_port => 443,
+  #  ssl_port    => 443,
+  #  ssl         => true,
+  #  ssl_cert    => '/etc/letsencrypt/live/correo.upr.edu.cu/fullchain.pem',
+  #  ssl_key     => '/etc/letsencrypt/live/correo.upr.edu.cu/privkey.pem',
+  #  proxy       => 'http://correo.upr.edu.cu',    
+  #  server_name => ['correo.upr.edu.cu'],
+  #}
 
+  
+
+  
 }
 
 
