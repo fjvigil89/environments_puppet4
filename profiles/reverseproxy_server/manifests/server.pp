@@ -2,7 +2,6 @@
    if($::reverseproxy_server::server_name)
    {
      each ($::reverseproxy_server::server_name) |Integer $index, String $value|{
-       $red_univ= false
        if($::reverseproxy_server::location_allow[$index] == 'red_univ')
        {
          $allow = ['200.14.49.64/27','200.55.143.160/29','10.0.0.0/8']
