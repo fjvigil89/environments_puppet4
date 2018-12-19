@@ -68,7 +68,7 @@
            if($red_univ){
              nginx::resource::server { $::reverseproxy_server::server_name[$index]:
                listen_port => $::reverseproxy_server::listen_port[$index],
-               ssl_port    => $::reverseproxy_server::ssl_port[$index],
+               #ssl_port    => $::reverseproxy_server::ssl_port[$index],
                proxy       => "http://${value}",
                server_name => ["${value}"],
                location_allow => $allow,
@@ -78,7 +78,7 @@
            else{
              nginx::resource::server { $::reverseproxy_server::server_name[$index]:
                listen_port => $::reverseproxy_server::listen_port[$index],
-               ssl_port    => $::reverseproxy_server::ssl_port[$index],
+               #ssl_port    => $::reverseproxy_server::ssl_port[$index],
                proxy       => "http://${value}",
                server_name => ["${value}"],
              }
