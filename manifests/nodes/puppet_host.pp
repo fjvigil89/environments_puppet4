@@ -93,6 +93,12 @@ node 'puppet-test.upr.edu.cu'{
     #master_hostname  => ,
   }
 }
+node 'puppet-test1.upr.edu.cu'{
+  class { '::basesys':
+    uprinfo_usage => 'servidor test',
+    application   => 'puppet',
+  }
+}
   #class {'::serv_logrotate':
   # compress         => true,
   #  filelog_numbers  => [5,7],
