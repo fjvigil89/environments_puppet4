@@ -26,10 +26,12 @@ node 'reverse-proxy.upr.edu.cu'{
       'puppetboard.upr.edu.cu',
       'icingaweb.upr.edu.cu',
       'composer.upr.edu.cu',
+      'bower.upr.edu.cu',
+      'cooder.upr.edu.cu',
     ],
-    listen_port    => [80,80,80,443,80,80,443,80,80,80,80],
-    ssl_port       => [443,443,443,443,443,443,443,80,80,80,80],
-    location_allow => ['*','*','red_univ','*','*','*','*','*','*','*','red_univ'],
+    listen_port    => [80,80,80,443,80,80,443,80,80,80,80,80],
+    ssl_port       => [443,443,443,443,443,443,443,80,80,80,80,80],
+    location_allow => ['*','*','red_univ','*','*','*','*','*','*','*','red_univ','red_univ','red_univ'],
 
   }
 }
