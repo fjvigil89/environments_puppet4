@@ -17,7 +17,7 @@ class ucarp_vip (
     bind_interface => $bind_interface,
     password       => $password,
   }
-  ucarp::host { $master_hostname:
+  ucarp::host { '001':
     bind_interface  => $bind_interface,
     vip_address     => $vip_address,
     source_address  => $source_address,
