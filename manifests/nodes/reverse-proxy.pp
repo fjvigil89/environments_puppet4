@@ -29,9 +29,11 @@ node 'reverse-proxy.upr.edu.cu'{
       'bower.upr.edu.cu',
       'cooder.upr.edu.cu',
       'npm.upr.edu.cu',
+      'mendive.upr.edu.cu',
+      'podium.upr.edu.cu',
     ],
-    listen_port    => [80,80,80,443,80,80,443,80,80,80,80,80,80],
-    ssl_port       => [443,443,443,443,443,443,443,80,80,80,80,80,80],
+    listen_port    => [80,80,80,443,80,80,443,80,80,80,80,80,80,80],
+    ssl_port       => [443,443,443,443,443,443,443,80,80,80,80,80,80,80],
     location_allow => [
       '*',
       '*',
@@ -47,6 +49,8 @@ node 'reverse-proxy.upr.edu.cu'{
       'red_univ',
       'red_univ',
       'red_univ',
+      '*',
+      '*',
     ],
 
   }
