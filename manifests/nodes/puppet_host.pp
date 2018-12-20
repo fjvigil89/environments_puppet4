@@ -47,7 +47,7 @@ node 'puppet-test1.upr.edu.cu'{
     uprinfo_usage => 'servidor test',
     application   => 'puppet',
   }
-  include ::haproxy
+  include haproxy
   haproxy::listen { 'test':
     collect_exported => false,
     ipaddress        => '10.2.1.155',
