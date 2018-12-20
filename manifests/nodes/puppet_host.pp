@@ -86,18 +86,39 @@ node 'puppet-test.upr.edu.cu'{
     uprinfo_usage => 'servidor test',
     application   => 'puppet',
   }
-  class { '::ucarp_vip':
-    bind_interface => 'eth0',
-    vip_address    => '10.2.1.155',
-    source_address => '10.2.1.77',
+  #class { '::ucarp_vip':
+  #  bind_interface => 'eth0',
+  #  vip_address    => '10.2.1.155',
+  #  source_address => '10.2.1.77',
     #master_hostname  => ,
-  }
+  #}
 }
 node 'puppet-test1.upr.edu.cu'{
   class { '::basesys':
     uprinfo_usage => 'servidor test',
     application   => 'puppet',
   }
+  include ::haproxy
+  haproxy::listen { 'test':
+    collect_exported => false,
+    ipaddress        => $::ipaddress,
+    ports            => '80',
+  }
+  haproxy::balancermember { 'test00':
+    listening_service => 'test',
+    server_names      => 'test00.upr.edu.cu',
+    ipaddresses       => '10.2.1.78',
+    ports             => '80',
+    options           => 'check',
+  }
+  haproxy::balancermember { 'test01':
+    listening_service => 'test',
+    server_names      => 'test01.upr.edu.cu',
+    ipaddresses       => '10.2.1.77',
+    ports             => '80',
+    options           => 'check',
+  }
+}
 }
   #class {'::serv_logrotate':
   # compress         => true,
