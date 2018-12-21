@@ -30,42 +30,24 @@ node 'client-puppet.upr.edu.cu'{
 
   #class { 'squidserver':;}
 }
-node 'puppet-test.upr.edu.cu'{
+node 'puppet-test.upr.edu.cu' {
   class { '::basesys':
     uprinfo_usage => 'servidor test',
     application   => 'puppet',
   }
-  #class { '::ucarp_vip':
-  #  bind_interface => 'eth0',
-  #  vip_address    => '10.2.1.155',
-  #  source_address => '10.2.1.77',
-    #master_hostname  => ,
-  #}
+  class {'::haproxy':
+    ports             => '80',
+    listening_service => 'nginx00',
+    balance_member    => ['nginx00', 'nginx01'],
+    server_names      => ['puppet-test1.upr.edu.cu', 'puppet-test2.upr.edu.cu'],
+    ipaddresses       => ['10.2.1.78','10.2.1.79'],
+    ports             => ['80'],
+  }
 }
-node 'puppet-test1.upr.edu.cu'{
+node 'puppet-test1.upr.edu.cu' {
   class { '::basesys':
     uprinfo_usage => 'servidor test',
     application   => 'puppet',
-  }
-  include haproxy
-  haproxy::listen { 'test':
-    collect_exported => false,
-    ipaddress        => '10.2.1.155',
-    ports            => '80',
-  }
-  haproxy::balancermember { 'test00':
-    listening_service => 'test',
-    server_names      => 'test00.upr.edu.cu',
-    ipaddresses       => '10.2.1.78',
-    ports             => '80',
-    options           => 'check',
-  }
-  haproxy::balancermember { 'test01':
-    listening_service => 'test',
-    server_names      => 'test01.upr.edu.cu',
-    ipaddresses       => '10.2.1.77',
-    ports             => '80',
-    options           => 'check',
   }
 }
   #class {'::serv_logrotate':
