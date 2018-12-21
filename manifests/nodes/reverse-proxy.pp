@@ -39,7 +39,7 @@ node /^reverse-proxy\d+$/{
     ensure   => present,
     path     => '/etc/hosts',
     line     => $hosts,
-    remplace => true,
+    replace => true,
     #match   => '^# --- BEGIN PVE ---',
   }
 
