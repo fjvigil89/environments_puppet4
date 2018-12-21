@@ -41,6 +41,7 @@ node 'puppet-test.upr.edu.cu' {
     server_names      => ['puppet-test1.upr.edu.cu', 'puppet-test2.upr.edu.cu'],
     ipaddresses       => ['10.2.1.78','10.2.1.79'],
     ports             => ['80'],
+    options           => 'check',
   }
 }
 node 'puppet-test1.upr.edu.cu' {

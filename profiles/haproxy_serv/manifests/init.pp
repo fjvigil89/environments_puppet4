@@ -15,7 +15,7 @@ class haproxy_serv (
   Array[String] $server_names           = $::haproxy_serv::params::server_names,
   Array[String] $ipaddresses            = $::haproxy_serv::params::ipaddresses,
   Array[String] $ports                  = $::haproxy_serv::params::ports,
-  String $options                       = $::haproxy_serv::params::options,
+  Optional[String] $options             = $::haproxy_serv::params::options,
 
 ) inherits haproxy_serv::params {
   include haproxy
