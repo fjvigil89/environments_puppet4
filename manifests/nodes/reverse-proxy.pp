@@ -46,7 +46,7 @@ node /^reverse-proxy\d+$/{
     before => File_line["add_hosts"],
   }
   file {'add_hosts':
-    ensure => present,
+    ensure => file,
     path   => '/etc/hosts',
     before => File_line["add_ip_reverse"],
   }
