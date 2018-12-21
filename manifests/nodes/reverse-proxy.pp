@@ -14,7 +14,13 @@ node 'nginx-inverso.upr.edu.cu','proxy-inverso.upr.edu.cu','toran-proxy.upr.edu.
 ##Para hacer los proxy inversos
 node /^reverse-proxy\d+$/{
 
-  $hosts = "10.2.1.30 puppet-master.upr.edu.cu puppetboard.upr.edu.cu
+  $hosts = "
+  es127.0.0.1     localhost
+  ::1             localhost ip6-localhost ip6-loopback
+  ff02::1         ip6-allnodes
+  ff02::2         ip6-allrouters
+  $::ipaddress $::fqdn
+  10.2.1.30 puppet-master.upr.edu.cu puppetboard.upr.edu.cu
   10.2.24.85 repos.upr.edu.cu
   10.2.25.12 correo.upr.edu.cu
   10.2.24.142 cvforestal.upr.edu.cu
@@ -33,7 +39,11 @@ node /^reverse-proxy\d+$/{
   10.2.24.119 crai.upr.edu.cu blogcrai.upr.edu.cu
   10.2.24.163 tocororo.upr.edu.cu
   10.2.24.230 eventos.upr.edu.cu
-  "
+  " 
+  file {'dell_hosts':
+    ensure => absent,
+    before => File_line["add_ip_reverse"],
+  }
   file_line { 'add_ip_reverse':
     ensure                                => present,
     path                                  => '/etc/hosts',
@@ -43,6 +53,7 @@ node /^reverse-proxy\d+$/{
     after                                 => '^# --- END PVE ---',
     match_for_absence                     => true,
     replace_all_matches_not_matching_line => true,
+
   }
 
   class { 'reverse_proxy_server':
