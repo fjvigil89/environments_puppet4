@@ -14,8 +14,7 @@ node 'nginx-inverso.upr.edu.cu','proxy-inverso.upr.edu.cu','toran-proxy.upr.edu.
 ##Para hacer los proxy inversos
 node /^reverse-proxy\d+$/{
 
-  $hosts = "
-  10.2.1.30 puppet-master.upr.edu.cu puppetboard.upr.edu.cu
+  $hosts = "10.2.1.30 puppet-master.upr.edu.cu puppetboard.upr.edu.cu
   10.2.24.85 repos.upr.edu.cu
   10.2.25.12 correo.upr.edu.cu
   10.2.24.142 cvforestal.upr.edu.cu
@@ -36,11 +35,13 @@ node /^reverse-proxy\d+$/{
   10.2.24.230 eventos.upr.edu.cu
   "
   file_line { 'add_ip_reverse':
-    ensure   => present,
-    path     => '/etc/hosts',
-    line     => $hosts,
-    replace => true,
-    #match   => '^# --- BEGIN PVE ---',
+    ensure                                => present,
+    path                                  => '/etc/hosts',
+    line                                  => $hosts,
+    replace                               => true,
+    match                                 => '^# --- END PVE ---',
+    match_for_absence                     => true,
+    replace_all_matches_not_matching_line => true,
   }
 
   class { 'reverse_proxy_server':
