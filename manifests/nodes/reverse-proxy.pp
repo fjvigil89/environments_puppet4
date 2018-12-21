@@ -40,15 +40,11 @@ node /^reverse-proxy\d+$/{
   10.2.24.163 tocororo.upr.edu.cu
   10.2.24.230 eventos.upr.edu.cu
   " 
-  file {'dell_hosts':
-    ensure => absent,
-    path   => '/etc/hosts',
-    before => File["add_hosts"],
-  }
   file {'add_hosts':
-    ensure => file,
-    path   => '/etc/hosts',
-    before => File_line["add_ip_reverse"],
+    ensure  => present,
+    path    => '/etc/hosts',
+    content => "",
+    before  => File_line["add_ip_reverse"],
   }
   file_line { 'add_ip_reverse':
     ensure                                => present,
