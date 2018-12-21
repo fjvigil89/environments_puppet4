@@ -12,7 +12,7 @@ class reverseproxy_server (
   class {'::reverseproxy_server::server':;}
 
   exec{'restart_nginx':
-    command     => "service nginx restart",
+    command     => "systemctl restart nginx",
     refreshonly => true,
   }
 
