@@ -13,4 +13,5 @@ class haproxy_serv::balancemember (){
     ports             => $::haproxy::ports[$index],
     options           => $::haproxy::options,
   }
+  }
 }
