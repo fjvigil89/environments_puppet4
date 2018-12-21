@@ -11,11 +11,6 @@ class reverseproxy_server (
   class {'::reverseproxy_server::common':;}
   class {'::reverseproxy_server::server':;}
 
-  exec{'restart_nginx':    
-    command     => "systemctl restart nginx",
-    path        => [ '/usr/bin', '/bin', '/usr/sbin' ],
-    refreshonly => true,
-  }
 
 }
 
