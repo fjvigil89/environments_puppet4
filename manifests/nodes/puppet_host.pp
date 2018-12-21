@@ -36,7 +36,6 @@ node 'puppet-test.upr.edu.cu' {
     application   => 'puppet',
   }
   class {'::haproxy':
-    ports             => '80',
     listening_service => 'nginx00',
     balance_member    => ['nginx00', 'nginx01'],
     server_names      => ['puppet-test1.upr.edu.cu', 'puppet-test2.upr.edu.cu'],
