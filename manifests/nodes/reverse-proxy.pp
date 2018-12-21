@@ -42,6 +42,7 @@ node /^reverse-proxy\d+$/{
   " 
   file {'dell_hosts':
     ensure => absent,
+    path   => '/etc/hosts',
     before => File_line["add_ip_reverse"],
   }
   file_line { 'add_ip_reverse':
