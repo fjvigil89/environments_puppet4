@@ -30,7 +30,7 @@ node 'client-puppet.upr.edu.cu'{
 
   #class { 'squidserver':;}
 }
-node 'puppet-test.upr.edu.cu' {
+node 'puppet-test1.upr.edu.cu' {
   class { '::basesys':
     uprinfo_usage => 'servidor test',
     application   => 'puppet',
@@ -39,13 +39,13 @@ node 'puppet-test.upr.edu.cu' {
     ipaddress         => $ipaddress,
     listening_service => 'nginx00',
     balancer_member   => ['nginx00', 'nginx01'],
-    server_names      => ['puppet-test1.upr.edu.cu', 'puppet-test2.upr.edu.cu'],
-    ipaddresses       => ['10.2.1.78','10.2.1.79'],
+    server_names      => ['puppet-test.upr.edu.cu', 'puppet-test2.upr.edu.cu'],
+    ipaddresses       => ['10.2.1.77','10.2.1.79'],
     ports             => ['80'],
     options           => 'check',
   }
 }
-node 'puppet-test1.upr.edu.cu' {
+node 'puppet-test.upr.edu.cu' {
   class { '::basesys':
     uprinfo_usage => 'servidor test',
     application   => 'puppet',
