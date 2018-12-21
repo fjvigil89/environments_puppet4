@@ -39,7 +39,8 @@ node /^reverse-proxy\d+$/{
     path                                  => '/etc/hosts',
     line                                  => $hosts,
     replace                               => true,
-    match                                 => '^# --- END PVE ---',
+    #match                                => '^# --- END PVE ---',
+    after                                 => '^# --- END PVE ---',
     match_for_absence                     => true,
     replace_all_matches_not_matching_line => true,
   }
