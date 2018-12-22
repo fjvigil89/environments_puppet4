@@ -9,6 +9,7 @@ class haproxy_serv::params {
   $collect_exported   = false
   $ipaddress          = $::ipaddress
   $listen_options     = {}
+  $mode               = 'http'
   #Balancer Member parameters
   $listening_service  = 'service00'
   $balancer_member    = ['master00', 'master01']
