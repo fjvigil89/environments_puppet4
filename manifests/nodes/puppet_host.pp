@@ -39,7 +39,7 @@ node 'puppet-test1.upr.edu.cu' {
     ipaddress         => $ipaddress,
     listening_service => 'nginx00',
     balancer_member   => ['nginx00', 'nginx01'],
-    server_names      => ['puppet-test.upr.edu.cu', 'puppet-test2.upr.edu.cu'],
+    server_names      => ['nginx00.upr.edu.cu', 'nginx01.upr.edu.cu'],
     ipaddresses       => ['10.2.1.77','10.2.1.79'],
     ports             => ['80'],
     options           => 'check',
