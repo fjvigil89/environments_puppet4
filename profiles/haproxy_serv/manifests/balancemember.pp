@@ -9,11 +9,11 @@ class haproxy_serv::balancemember (){
     haproxy::balancermember { $::haproxy_serv::params::balancer_member[$index]:
     listening_service => $::haproxy_serv::params::listening_service,
     #server_names     => $::haproxy::params::server_names[$index],
-    server_names      => ['puppet-test.upr.edu.cu','puppet-test2.upr.edu.cu'],
+    server_names      => $::haproxy::params::server_names,
     #ipaddresses      => $::haproxy::params::ipaddresses[$index],
-    ipaddresses       => ['10.2.1.77', '10.2.1.79'],
+    ipaddresses       => $::haproxy::params::ipaddresses,
     #ports            => $::haproxy::params::ports[$index],
-    ports             => ['80'],
+    ports             => $::haproxy::params::ports,
     options           => $::haproxy::params::options,
   }
   }
