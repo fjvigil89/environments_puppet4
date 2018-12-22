@@ -43,7 +43,7 @@ node 'puppet-test1.upr.edu.cu' {
     server_names      => ['nginx00.upr.edu.cu', 'nginx01.upr.edu.cu'],
     ipaddresses       => ['10.2.1.77','10.2.1.79'],
     ports             => ['80'],
-    options           => 'check',
+    #options           => 'check',
   }
 }
 node 'puppet-test.upr.edu.cu' {

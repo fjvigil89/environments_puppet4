@@ -16,5 +16,5 @@ class haproxy_serv::params {
   $server_names       = ['master00.upr.edu.cu', 'master01.upr.edu.cu']
   $ipaddresses        = ['10.2.0.1', '10.2.0.2']
   $ports              = ['443', '80']
-  $options            = 'check'
+  $options            = ''
 }
