@@ -23,6 +23,16 @@ class haproxy_serv (
     collect_exported => $collect_exported,
     ipaddress        => $ipaddress,
     ports            => $ports,
-  }~>
-  class {'::haproxy_serv::balancemember':;}
+  }
+  each($balancer_member) |Integer $index, String $value|{
+    haproxy::balancermember { $balancer_member[$index]:
+      listening_service => $listening_service,
+      server_names      => $server_names[$index],
+      ipaddresses       => $ipaddresses[$index],
+      ports             => $ports[$index],
+      options           => $options,
+    }
+  }
+
+  #class {'::haproxy_serv::balancemember':;}
 }
