@@ -6,7 +6,7 @@
 #
 class haproxy_serv::balancemember (){
   include ::haproxy_serv::params
-  $serv_names = $::haproxy::server_names,
+  $serv_names = $::haproxy::server_names
   each($::haproxy_serv::params::balancer_member) |Integer $index, String $value|{
     haproxy::balancermember { $::haproxy_serv::params::balancer_member[$index]:
     listening_service => $::haproxy_serv::params::listening_service,
