@@ -7,135 +7,30 @@ node 'client-puppet.upr.edu.cu'{
     dmz             => true,
 
   }
-  #class { '::letsencrypt_host':
-    #email => 'fjvigil@hispavista.com',
-    #webroot_enable => true,
-    #  dominios => ['correo.upr.edu.cu'],
-    #plugin => 'nginx',
-    #webroot_paths => ['/root/Sync-UPR/public/'],
-    #}
-  #class { ::letsencrypt:
-  #  unsafe_registration => true,
-  #}
-  #letsencrypt::certonly { 'correo.upr.edu.cu': }
-
-  #include puppetdevserver
-  #include puppetprodserver
-
-  #class { 'openldap::server':
-  #}
-  #openldap::server::globalconf { 'security':
-  #  ensure => present,
-  #  #value  => 'tls=128',
-  #}
-  #openldap::server::module { 'syncprov':
-  #  ensure => present,
-  #}
-  #openldap::server::overlay { 'syncprov on dc=upr,dc=edu,dc=cu':
-  #  ensure => present,
-  #}
-
-  ##class { 'squidserver':;}
- 
-  #$myconfig =  @("MYCONFIG"/L)
-  #input {
-  #  beats {
-  #    port => 5043
-  #  }
-  #}
-  #output {
-  #  elasticsearch {
-  #    hosts => "10.2.1.205:9200"
-  #    manage_template => false
-  #    index => "%{[@metadata][beat]}-%{+YYYY.MM.dd}"
-  #    document_type => "%{[@metadata][type]}"
-  #  }
-  #  stdout { codec => rubydebug }
-  #}
-  #| MYCONFIG
-
-  #include ::java
-  #class { 'elasticsearch':
-  #  #elasticsearch_user => 'elasticsearch',
-  #  manage_repo        => true,
-  #  restart_on_change  => true,
-  #  autoupgrade        => true,
-  #}
-  #elasticsearch::instance { 'es-01':
-  #   config => {
-  #    'network.host' => '10.2.1.205',
-  #  },
-  #}
-  #class { 'logstash':
-  #  settings => {
-  #    'http.host' => '10.2.1.205',
-  #  }
-  #}
-
-  #logstash::configfile { '02-beats-input.conf':
-  #  content => $myconfig,
-  #}
-
-  #logstash::plugin { 'logstash-input-beats': }
-
-  #class { 'kibana' :
-  #  config => {
-  #    'server.host'       =>  '10.2.1.205',
-  #    'elasticsearch.url' => 'http://10.2.1.205:9200',
-  #    'server.port'       => '5601',
-  #  }
-  #}
-
-  #class { 'filebeat':
-  #  outputs => {
-  #    'logstash' => {
-  #      'hosts' => [
-  #        '10.2.1.205:5043',
-  #      ],
-  #      'index' => 'filebeat',
-  #    },
-  #  },
-  #}
-  
-  #filebeat::prospector { 'syslogs':  
-  #paths    => [
-  #    '/var/log/auth.log',
-  #    '/var/log/syslog',
-  #  ],
-  #  doc_type => 'syslog-beat',
-  #}
-
-  #class { '::letsencrypt_host':
-  #  dominios => ['correo.upr.edu.cu'],
-  #}
-  #class {'nginx':
-  #  manage_repo => false,
-  #}
-  #nginx::resource::server { 'correo':
-  #  listen_port => 443,
-  #  ssl_port    => 443,
-  #  ssl         => true,
-  #  ssl_cert    => '/etc/letsencrypt/live/correo.upr.edu.cu/fullchain.pem',
-  #  ssl_key     => '/etc/letsencrypt/live/correo.upr.edu.cu/privkey.pem',
-  #  proxy       => 'http://correo.upr.edu.cu',    
-  #  server_name => ['correo.upr.edu.cu'],
-  #}
-
-  
-
-  
+  #class { 'squidserver':;}
 }
-
-
-node 'puppet-test.upr.edu.cu'{
-  package { 'lsb-release':
-          ensure => installed,
-  }~>
+node 'puppet-test1.upr.edu.cu' {
   class { '::basesys':
     uprinfo_usage => 'servidor test',
     application   => 'puppet',
-    #proxmox_enabled => false,
   }
+  class {'::haproxy_serv':
+    ipaddress         => $ipaddress,
+    listening_service => 'nginx00',
+    mode              => 'http',
+    balancer_member   => ['nginx00', 'nginx01'],
+    server_names      => ['nginx00.upr.edu.cu', 'nginx01.upr.edu.cu'],
+    ipaddresses       => ['10.2.1.77','10.2.1.79'],
+    ports             => ['80'],
+    #options           => 'check',
+  }
+}
+node 'puppet-test.upr.edu.cu' {
+  class { '::basesys':
+    uprinfo_usage => 'servidor test',
+    application   => 'puppet',
+  }
+}
   #class {'::serv_logrotate':
   # compress         => true,
   #  filelog_numbers  => [5,7],
@@ -143,100 +38,100 @@ node 'puppet-test.upr.edu.cu'{
   #  rule_list        => ['messages', 'apache'],
   #  log_path         => ['/var/log/messages', '/var/log/apache2/*.log'],
   #}
-  class { '::php_webserver':
-    php_version    => '7.0',
-    php_extensions => {
-      'curl'     => {},
-      'gd'       => {},
-      'mysql'    => {},
-      'ldap'     => {},
-      'xml'      => {},
-      'mbstring' => {},
-    },
-    packages       => ['php7.0-ldap','php7.0-mysql'],
-  }
-  file { '/usr/share/ad-to-pap.php':
-    ensure => file,
-    owner  => 'root',
-    group  => 'root',
-    mode   => '0774',
-    source => 'puppet:///modules/freeradius_server/sync/ad-to-pap.php',
-  }
+  #class { '::php_webserver':
+  #  php_version    => '7.0',
+  #  php_extensions => {
+  #    'curl'     => {},
+  #    'gd'       => {},
+  #    'mysql'    => {},
+  #    'ldap'     => {},
+  #    'xml'      => {},
+  #    'mbstring' => {},
+  #  },
+  #  packages       => ['php7.0-ldap','php7.0-mysql'],
+  #}
+  #file { '/usr/share/ad-to-pap.php':
+  #  ensure => file,
+  #  owner  => 'root',
+  #  group  => 'root',
+  #  mode   => '0774',
+  #  source => 'puppet:///modules/freeradius_server/sync/ad-to-pap.php',
+  #}
 
-  class { 'freeradius':
-    max_requests    => 1024,
-    max_servers     => 1024,
-    mysql_support   => true,
-    utils_support   => true,
-    syslog          => true,
-    log_auth        => 'yes',
-  }
-  package { 'freeradius-ldap':
-    ensure => installed,
-  }
-  class { 'freeradius::status_server':
-    port   => '18120',
-  }
-  include '::mysql::server'
-  mysql::db { 'radius':
-    user     => 'radius',
-    password => 'freeradius.upr2k18',
-    host     => 'localhost',
-    grant    => ['SELECT', 'INSERT', 'UPDATE', 'DELETE', 'DROP', 'CREATE VIEW', 'CREATE', 'INDEX', 'EXECUTE', 'ALTER'],
+  #class { 'freeradius':
+  #  max_requests    => 1024,
+  #  max_servers     => 1024,
+  #  mysql_support   => true,
+  #  utils_support   => true,
+  #  syslog          => true,
+  #  log_auth        => 'yes',
+  #}
+  #package { 'freeradius-ldap':
+  #  ensure => installed,
+  #}
+  #class { 'freeradius::status_server':
+  #  port   => '18120',
+  #}
+  #include '::mysql::server'
+  #mysql::db { 'radius':
+  #  user     => 'radius',
+  #  password => 'freeradius.upr2k18',
+  #  host     => 'localhost',
+  #  grant    => ['SELECT', 'INSERT', 'UPDATE', 'DELETE', 'DROP', 'CREATE VIEW', 'CREATE', 'INDEX', 'EXECUTE', 'ALTER'],
     #sql      => '/etc/freeradius/3.0/mods-config/sql/main/mysql/schema.sql',
-  }
+    #}
 
-  freeradius::sql { 'radius':
-    database  => 'mysql',
-    server    => 'localhost',
-    login     => 'radius',
-    password  => 'freeradius.upr2k18',
-    radius_db => 'radius',
-  }
-  freeradius::listen { 'pap-auth':
-    type      => 'auth',
-    ip        => '*',
-    interface => 'eth0',
-  }
-  freeradius::listen { 'pap-acct':
-    type      => 'acct',
-    ip        => '*',
-    interface => 'eth0',
-  }
-  freeradius::client { 'ras-pap':
-    ip              => '192.168.25.0/24',
-    secret          => 'upradius2k9',
-    shortname       => 'ras-pap',
-    nastype         => 'other',
-    port            => '1645-1646',
-    firewall        => true,
-    max_connections => 0,
-  }
-  freeradius::module::ldap { 'ad-pap':
-    server                => '10.2.24.35',
-    port                  => 389,
-    basedn                => 'DC=upr,DC=edu,DC=cu',
-    identity              => 'ras@upr.edu.cu',
-    password              => 'freeradius.upr2k18',
-    user_filter           => "(&(memberOf=cn=UPR-Ras,ou=_Gestion,dc=upr,dc=edu,dc=cu)(samAccountName=%{%{Stripped-User-Name}:-%{User-Name}})(objectclass=person))",
-    timeout               => 20,
-    group_filter          => "(objectclass=radiusprofile)",
-  }
-  freeradius::blank { ['eap.conf',]:}
-  freeradius::home_server { 'localhost':
-    secret => 'testing123',
-    type   => 'auth',
-    ipaddr => '127.0.0.1',
-    port   => 1812,
-    proto  => 'udp',
-  }
+    #freeradius::sql { 'radius':
+    #database  => 'mysql',
+    #server    => 'localhost',
+    #login     => 'radius',
+    #password  => 'freeradius.upr2k18',
+    #radius_db => 'radius',
+    #}
+    #freeradius::listen { 'pap-auth':
+    #type      => 'auth',
+    #ip        => '*',
+    #interface => 'eth0',
+    #}
+    #freeradius::listen { 'pap-acct':
+    #type      => 'acct',
+    #ip        => '*',
+    #interface => 'eth0',
+    #}
+    #freeradius::client { 'ras-pap':
+    #ip              => '192.168.25.0/24',
+    #secret          => 'upradius2k9',
+    #shortname       => 'ras-pap',
+    #nastype         => 'other',
+    #port            => '1645-1646',
+    #firewall        => true,
+    #max_connections => 0,
+    #}
+    #freeradius::module::ldap { 'ad-pap':
+    #server                => '10.2.24.35',
+    #port                  => 389,
+    #basedn                => 'DC=upr,DC=edu,DC=cu',
+    #identity              => 'ras@upr.edu.cu',
+    #password              => 'freeradius.upr2k18',
+    #user_filter           => "(&(memberOf=cn=UPR-Ras,ou=_Gestion,dc=upr,dc=edu,dc=cu)(samAccountName=%{%{Stripped-User-Name}:-%{User-Name}})(objectclass=person))",
+    #timeout               => 20,
+    #group_filter          => "(objectclass=radiusprofile)",
+    #}
+    #freeradius::blank { ['eap.conf',]:}
+    #freeradius::home_server { 'localhost':
+    #secret => 'testing123',
+    #type   => 'auth',
+    #ipaddr => '127.0.0.1',
+    #port   => 1812,
+    #proto  => 'udp',
+    #}
   #freeradius::home_server_pool { 'auth_failover':
   #  home_server => 'localhost',
   #  type        => 'fail-over',
   #}
-  freeradius::realm { 'pap.upr.edu.cu':
-    acct_pool => 'localhost',
-  }
+  #freeradius::realm { 'pap.upr.edu.cu':
+  #  acct_pool => 'localhost',
+  #}
   #freeradius::module::eap { 'eap':
   #  default_eap_type      => 'md5',
   #  gtc_auth_type         => 'PAP',
@@ -253,13 +148,13 @@ node 'puppet-test.upr.edu.cu'{
    #  chain_to       => 'to-reduniv',
    #  open_ports     => [8080,443,53,22],
    #}
-   include '::cpan'
-   cpan { "Clone::Closure":
-     ensure  => present,
-     require => Class['::cpan'],
-     force   => true,
-   }
-  }
+   #include '::cpan'
+   #cpan { "Clone::Closure":
+   #  ensure  => present,
+   #  require => Class['::cpan'],
+   #  force   => true,
+   #}
+   #}
 
 node 'puppet-henry.upr.edu.cu'{
   include smokeprodserver

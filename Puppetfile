@@ -74,6 +74,8 @@ mod 'puppetlabs-inifile', '2.2.1'
 mod 'puppetlabs-passenger', '0.4.1'
 mod 'puppetlabs-ruby', '1.0.0'
 mod 'puppetlabs-kubernetes', '3.0.1'
+mod 'meltwater-cpan', '2.0.0'
+mod 'puppetlabs-haproxy', '2.2.0'
 
 #ELK
 #mod 'elastic-logstash', '6.1.5'
@@ -82,7 +84,6 @@ mod 'puppetlabs-kubernetes', '3.0.1'
 #mod 'richardc-datacat', '0.6.2'
 #mod 'elastic-elastic_stack', '6.2.4'
 #mod 'pcfens-filebeat', '3.3.3'
-
 #ldap
 mod 'camptocamp-openldap', '1.17.0'
 #Proxy
@@ -92,7 +93,7 @@ mod 'dcenter/squid',
 #ucarp
 mod 'dcenter/ucarp',
   :git => 'git@gitlab.upr.edu.cu:dcenter/ucarp.git',
-  :ref => 'd16fe864411048e832a4563bbae9e5436eaf925b'
+  :ref => 'b98b488f2f4eab703d21cfc03c2df3b2ce5a23a6'
 
 mod 'rgevaert/pwgen',
   :git => 'https://github.com/rgevaert/puppet-pwgen.git',
