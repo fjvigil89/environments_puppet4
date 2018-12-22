@@ -23,6 +23,6 @@ class haproxy_serv (
     collect_exported => $collect_exported,
     ipaddress        => $ipaddress,
     ports            => $ports,
-  }
+  }~>
   class {'::haproxy_serv::balancemember':;}
 }
