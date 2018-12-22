@@ -12,7 +12,7 @@ class haproxy_serv (
   #Balancer Member parameters
   String $listening_service             = $::haproxy_serv::params::listening_service,
   Array[String] $balancer_member        = $::haproxy_serv::params::balancer_member,
-  Optional[Array[String]] $server_names = $::haproxy_serv::params::server_names,
+  Array[String] $server_names           = $::haproxy_serv::params::server_names,
   Array[String] $ipaddresses            = $::haproxy_serv::params::ipaddresses,
   Array[String] $ports                  = $::haproxy_serv::params::ports,
   Optional[String] $options             = $::haproxy_serv::params::options,
