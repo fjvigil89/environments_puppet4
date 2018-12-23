@@ -32,7 +32,7 @@ node /^reverse-proxy\d+$/{
   10.2.1.49 icingaweb.upr.edu.cu
   10.2.24.82 composer.upr.edu.cu
   10.2.24.133 bower.upr.edu.cu
-  10.2.24.69 cooder.upr.edu.cu
+  10.2.24.69 cooder.upr.edu.cu www.upr.edu.cu
   10.2.24.128 npm.upr.edu.cu
   10.2.24.116 mendive.upr.edu.cu podium.upr.edu.cu cfores.upr.edu.cu cifam.upr.edu.cu coodes.upr.edu.cu revistaecovida.upr.edu.cu 
   10.2.24.120 rc.upr.edu.cu
@@ -60,6 +60,7 @@ node /^reverse-proxy\d+$/{
 
   class { 'reverse_proxy_server':
     server_name    => [
+      'www.upr.edu.cu',
       'correo.upr.edu.cu',
       'cvforestal.upr.edu.cu',
       'intranet.upr.edu.cu',
@@ -86,9 +87,10 @@ node /^reverse-proxy\d+$/{
       'tocororo.upr.edu.cu',
       'eventos.upr.edu.cu',
     ],
-    listen_port    => [80,80,80,443,80,80,443,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80],
-    ssl_port       => [443,443,443,443,443,443,443,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80],
+    listen_port    => [80,80,80,80,443,80,80,443,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80],
+    ssl_port       => [80,443,443,443,443,443,443,443,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80],
     location_allow => [
+      '*',
       '*',
       '*',
       'red_univ',
