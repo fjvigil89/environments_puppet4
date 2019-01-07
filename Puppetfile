@@ -78,12 +78,12 @@ mod 'meltwater-cpan', '2.0.0'
 mod 'puppetlabs-haproxy', '2.2.0'
 
 #ELK
-#mod 'elastic-logstash', '6.1.5'
-#mod 'elastic-kibana', '6.3.1'
-#mod 'elastic-elasticsearch', '6.3.3'
-#mod 'richardc-datacat', '0.6.2'
-#mod 'elastic-elastic_stack', '6.2.4'
-#mod 'pcfens-filebeat', '3.3.3'
+mod 'elastic-logstash', '6.1.5'
+mod 'elastic-kibana', '6.3.1'
+mod 'elastic-elasticsearch', '6.3.3'
+mod 'richardc-datacat', '0.6.2'
+mod 'elastic-elastic_stack', '6.2.4'
+mod 'pcfens-filebeat', '3.3.3'
 #ldap
 mod 'camptocamp-openldap', '1.17.0'
 #Proxy
