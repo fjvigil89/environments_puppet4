@@ -40,6 +40,12 @@ node /^reverse-proxy\d+$/{
   10.2.24.163 tocororo.upr.edu.cu
   10.2.24.230 eventos.upr.edu.cu
   10.2.24.126 moodle.upr.edu.cu
+  10.2.24.220 telefonos.upr.edu.cu
+  10.2.1.10 mrtg.upr.edu.cu
+  10.2.24.70 ftp.upr.edu.cu
+  10.2.24.33 media.upr.edu.cu
+  10.2.24.232 abcd3.upr.edu.cu
+  10.2.24.32 irc.upr.edu.cu
 
   " 
   file {'add_hosts':
@@ -89,9 +95,15 @@ node /^reverse-proxy\d+$/{
       'tocororo.upr.edu.cu',
       'eventos.upr.edu.cu',
       'moodle.upr.edu.cu',
+      'telefonos.upr.edu.cu',
+      'mrtg.upr.edu.cu',
+      'ftp.upr.edu.cu',
+      'media.upr.edu.cu',
+      'abcd3.upr.edu.cu',
+      'irc.upr.edu.cu',
     ],
-    listen_port    => [80,80,80,80,443,80,80,443,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80],
-    ssl_port       => [80,443,443,443,443,443,443,443,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80],
+    listen_port    => [80,80,80,80,443,80,80,443,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80],
+    ssl_port       => [80,443,443,443,443,443,443,443,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,443],
     location_allow => [
       '*',
       '*',
@@ -120,6 +132,12 @@ node /^reverse-proxy\d+$/{
       '*',
       '*',
       '*',
+      '*',
+      'red_univ',
+      'cuba',
+      'red_univ',
+      '*',
+      'todos',
     ],
 
   }
