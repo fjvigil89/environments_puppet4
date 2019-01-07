@@ -26,15 +26,15 @@ class haproxy_serv (
     ports            => $ports,
     mode             => $mode,
   }
-  each($balancer_member) |Integer $index, String $value|{
-    haproxy::balancermember { $balancer_member[$index]:
-      listening_service => $listening_service,
-      server_names      => $server_names[$index],
-      ipaddresses       => $ipaddresses[$index],
-      ports             => $ports[$index],
-      options           => $options,
-    }
-  }
+  #each($balancer_member) |Integer $index, String $value|{
+  #  haproxy::balancermember { $balancer_member[$index]:
+  #    listening_service => $listening_service,
+  #    server_names      => $server_names[$index],
+  #    ipaddresses       => $ipaddresses[$index],
+  #    ports             => $ports[$index],
+  #    options           => $options,
+  #  }
+  #}
 
-  #class {'::haproxy_serv::balancemember':;}
+  class {'::haproxy_serv::balancemember':;}
 }
