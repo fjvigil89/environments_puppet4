@@ -16,7 +16,7 @@ node 'ha-reverse-proxy.upr.edu.cu' {
     balancer_member   => ['reverse-proxy0','reverse-proxy1'],
     server_names      => ['reverse-proxy0.upr.edu.cu','reverse-proxy1.upr.edu.cu'],
     ipaddresses       => ['200.14.49.6','200.14.49.5'],
-    ports             => ['80','443'],
+    ports             => ['80','80'],
     #options           => 'check',
   }
 }
