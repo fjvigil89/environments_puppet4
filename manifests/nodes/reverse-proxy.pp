@@ -39,6 +39,8 @@ node /^reverse-proxy\d+$/{
   10.2.24.119 crai.upr.edu.cu blogcrai.upr.edu.cu
   10.2.24.163 tocororo.upr.edu.cu
   10.2.24.230 eventos.upr.edu.cu
+  10.2.24.126 moodle.upr.edu.cu
+
   " 
   file {'add_hosts':
     ensure  => present,
@@ -86,9 +88,10 @@ node /^reverse-proxy\d+$/{
       'revistaecovida.upr.edu.cu',
       'tocororo.upr.edu.cu',
       'eventos.upr.edu.cu',
+      'moodle.upr.edu.cu',
     ],
-    listen_port    => [80,80,80,80,443,80,80,443,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80],
-    ssl_port       => [80,443,443,443,443,443,443,443,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80],
+    listen_port    => [80,80,80,80,443,80,80,443,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80],
+    ssl_port       => [80,443,443,443,443,443,443,443,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80],
     location_allow => [
       '*',
       '*',
@@ -105,6 +108,7 @@ node /^reverse-proxy\d+$/{
       'red_univ',
       'red_univ',
       'red_univ',
+      '*',
       '*',
       '*',
       '*',
