@@ -1,4 +1,5 @@
- class reverseproxy_server::server{
+#
+class reverseproxy_server::server{
    if($::reverseproxy_server::server_name)
    {
      each ($::reverseproxy_server::server_name) |Integer $index, String $value|{
