@@ -28,7 +28,7 @@ node 'client-puppet.upr.edu.cu'{
   include ::java
   class { 'elasticsearch':
     #elasticsearch_user => 'elasticsearch',
-    manage_repo        => true,
+    manage_repo        => false,
     restart_on_change  => true,
     autoupgrade        => true,
   }
