@@ -32,7 +32,7 @@ class haproxy_serv (
   }
   }
   else {
-    haproxy::listen { $listening_service :
+    haproxy::listen { 'nginx' :
       collect_exported => $collect_exported,
       ipaddress        => $ipaddress,
       ports            => $ports,
