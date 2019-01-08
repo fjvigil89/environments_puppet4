@@ -33,7 +33,7 @@ class haproxy_serv (
   }
   else {
     haproxy::frontend { $listening_service :
-      ipaddress => $ipaddress,
+      #ipaddress => $ipaddress,
       #ports     => $ports,
       mode      => $mode,
       options   => [
