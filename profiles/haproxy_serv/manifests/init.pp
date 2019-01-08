@@ -17,24 +17,46 @@ class haproxy_serv (
   Array[String] $ipaddresses                  = $::haproxy_serv::params::ipaddresses,
   Array[String] $ports                        = $::haproxy_serv::params::ports,
   Optional[String] $options                   = $::haproxy_serv::params::options,
+  # enable_ssl= true when using frontend & backend 
+  Boolean $enable_ssl                         = $::haproxy_serv::params::enable_ssl,
+  Optional[Hash] $bind                        = $::haproxy_serv::params::bind,
 
 ) inherits haproxy_serv::params {
   include haproxy
+  if($enable_ssl == false)
   haproxy::listen { $listening_service :
     collect_exported => $collect_exported,
     ipaddress        => $ipaddress,
     ports            => $ports,
     mode             => $mode,
   }
-  #each($balancer_member) |Integer $index, String $value|{
-  #  haproxy::balancermember { $balancer_member[$index]:
-  #    listening_service => $listening_service,
-  #    server_names      => $server_names[$index],
-  #    ipaddresses       => $ipaddresses[$index],
-  #    ports             => $ports[$index],
-  #    options           => $options,
-  #  }
-  #}
-
+  else {
+    haproxy::fronted { $listening_service :
+      ipaddress => $ipaddress,
+      ports     => $ports,
+      mode      => $mode,
+      options   => [
+        { 'default_backend' => 'nginx_backend' },
+        { 'timeout client'  => '30s' },
+        { 'option'          => [
+          'tcplog',
+          'accept-invalid-http-request',
+        ],
+        }
+      ],
+      bind      => {
+        '*:80'  => ['ssl'],
+        '*:443' => ['ssl'],
+      },
+    }
+    haproxy::backend { 'nginx_backend':
+      options => {
+        'option'  => [
+          'tcplog',
+        ],
+        'balance' => 'roundrobin',
+      },
+}
+  }
   class {'::haproxy_serv::balancemember':;}
 }
