@@ -13,6 +13,6 @@ class basesys::monitoring {
   }
   else {
     include ::monitoring::librenms_agent
-    include ::monitoring::collectd
+    #include ::monitoring::collectd
   }
 }
