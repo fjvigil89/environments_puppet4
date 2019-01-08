@@ -32,6 +32,12 @@ class haproxy_serv (
   }
   }
   else {
+    haproxy::listen { $listening_service :
+      collect_exported => $collect_exported,
+      ipaddress        => $ipaddress,
+      ports            => $ports,
+      mode             => $mode,
+    }
     haproxy::frontend { $listening_service :
       ipaddress => $ipaddress,
       ports     => $ports,
