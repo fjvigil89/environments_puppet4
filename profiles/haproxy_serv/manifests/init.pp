@@ -23,12 +23,13 @@ class haproxy_serv (
 
 ) inherits haproxy_serv::params {
   include haproxy
-  if($enable_ssl == false)
+  if($enable_ssl == false){
   haproxy::listen { $listening_service :
     collect_exported => $collect_exported,
     ipaddress        => $ipaddress,
     ports            => $ports,
     mode             => $mode,
+  }
   }
   else {
     haproxy::fronted { $listening_service :
