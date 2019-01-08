@@ -41,7 +41,6 @@ class haproxy_serv (
         { 'timeout client'  => '30s' },
         { 'option'          => [
           'tcplog',
-          'accept-invalid-http-request',
         ],
         }
       ],
