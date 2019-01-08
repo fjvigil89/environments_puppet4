@@ -34,7 +34,7 @@ class haproxy_serv (
   else {
     haproxy::frontend { $listening_service :
       ipaddress => $ipaddress,
-      ports     => $ports,
+      #ports     => $ports,
       mode      => $mode,
       options   => [
         { 'default_backend' => 'nginx_backend' },
