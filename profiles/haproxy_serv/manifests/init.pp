@@ -51,6 +51,7 @@ class haproxy_serv (
       #},
     }
     haproxy::backend { 'nginx_backend':
+      mode    => 'http',
       options => {
         'option'  => [
           'tcplog',
