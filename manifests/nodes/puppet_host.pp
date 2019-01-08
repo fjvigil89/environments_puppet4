@@ -38,7 +38,10 @@ node 'client-puppet.upr.edu.cu'{
     },
   }
   class { 'logstash':
-    settings => {
+    manage_repo       => false,
+    restart_on_change => true,
+    auto_upgrade      => true,
+    settings          => {
       'http.host' => '10.2.1.205',
     }
   }
@@ -49,7 +52,8 @@ node 'client-puppet.upr.edu.cu'{
   logstash::plugin { 'logstash-input-beats': }
 
   class { 'kibana' :
-    config => {
+    manage_repo => false,
+    config      => {
       'server.host'       =>  '10.2.1.205',
       'elasticsearch.url' => 'http://10.2.1.205:9200',
       'server.port'       => '5601',
@@ -57,7 +61,8 @@ node 'client-puppet.upr.edu.cu'{
   }
 
   class { 'filebeat':
-    outputs => {
+    manage_repo => false,
+    outputs     => {
       'logstash' => {
         'hosts' => [
           '10.2.1.205:5043',
