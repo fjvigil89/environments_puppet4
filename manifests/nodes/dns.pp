@@ -37,9 +37,12 @@ node 'dns.upr.edu.cu' {
         "file ${quote}${direct}/db.upr.edu.cu${quote}",
       ],
       'ceces.upr.edu.cu' => [
-        'type slave',
-        "masters { 10.2.1.8; }",
+        $zone,
+        #"masters { 10.2.1.8; }",
+        "allow-update ${notify}",
+        "also-notify ${notify}",
         "allow-query $allow",
+        "notify yes",
         "file ${quote}${direct}/db.ceces.upr.edu.cu${quote}",
       ],
       'progintec.upr.edu.cu' => [
