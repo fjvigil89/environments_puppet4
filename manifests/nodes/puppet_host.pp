@@ -24,7 +24,6 @@ node 'puppet-test1.upr.edu.cu' {
     ipaddresses       => ['10.2.1.77','10.2.1.79'],
     ports             => ['80','443'],
     frontend_name     => 'nginx00',
-    backend_name      => ['nginx_backend'],
     frontend_options  => [
       { 'default_backend' => 'nginx_backend' },
       { 'timeout client'  => '30s' },
