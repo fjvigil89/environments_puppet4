@@ -51,5 +51,8 @@ class haproxy_serv (
     }
     class {'::haproxy_serv::backend':;}
   }
+  class { '::letsencrypt_host':
+    dominios => $server_names,
+  }->
   class {'::haproxy_serv::balancemember':;}
 }

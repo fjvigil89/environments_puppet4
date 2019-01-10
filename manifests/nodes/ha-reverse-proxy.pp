@@ -36,7 +36,8 @@ node 'ha-reverse-proxy.upr.edu.cu' {
     },
     bind              => {
       '0.0.0.0:80'  => [],
-      '0.0.0.0:443' => [],
+      '200.14.49.6:443' => ['ssl','crt','reverse-proxy0.upr.edu.cu'],
+      '200.14.49.5:443' => ['ssl','crt','reverse-proxy1.upr.edu.cu'],
     },
   }
 
