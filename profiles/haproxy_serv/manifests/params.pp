@@ -17,4 +17,12 @@ class haproxy_serv::params {
   $ipaddresses        = ['10.2.0.1', '10.2.0.2']
   $ports              = ['443', '80']
   $options            = ''
+
+  # Enable SSL/TLS options
+  $enable_ssl         = false
+  $frontend_name      = 'frontend'
+  $backend_names      = ['backend00','backend01']
+  $frontend_options   = {}
+  $backend_options    = {}
+  $bind               = {}
 }
