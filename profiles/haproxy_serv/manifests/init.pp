@@ -51,6 +51,5 @@ class haproxy_serv (
     }
     class {'::haproxy_serv::backend':;}
   }
-}
   class {'::haproxy_serv::balancemember':;}
 }
