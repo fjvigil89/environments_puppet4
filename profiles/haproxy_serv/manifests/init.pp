@@ -17,7 +17,13 @@ class haproxy_serv (
   Array[String] $ipaddresses                  = $::haproxy_serv::params::ipaddresses,
   Array[String] $ports                        = $::haproxy_serv::params::ports,
   Optional[String] $options                   = $::haproxy_serv::params::options,
-  # enable_ssl= true when using frontend & backend 
+  # enable_ssl= true when using frontend & backend
+  Optional[String] $frontend_name             = $::haproxy_serv::params::frontend_name,
+  Optional[Array[String]] $backend_names      = $::haproxy_serv::params::backend_names,
+  Optional[Hash] $frontend_options            = $::haproxy_serv::params::frontend_options,
+  Optional[Hash] $backend_options             = $::haproxy_serv::params::backend_options,
+  Optional[Enum['tcp','http','health']] $frontend_mode = 'http',
+  Optional[Enum['tcp','http','health']] $backend_mode = 'http',
   Boolean $enable_ssl                         = $::haproxy_serv::params::enable_ssl,
   Optional[Hash] $bind                        = $::haproxy_serv::params::bind,
 
@@ -32,38 +38,19 @@ class haproxy_serv (
   }
   }
   else {
-    haproxy::listen { 'nginx' :
+    haproxy::listen { $listening_service :
       collect_exported => $collect_exported,
       ipaddress        => $ipaddress,
       ports            => $ports,
       mode             => $mode,
     }
-    haproxy::frontend { $listening_service :
-      #ipaddress => $ipaddress,
-      #ports     => $ports,
-      mode      => $mode,
-      options   => [
-        { 'default_backend' => 'nginx_backend' },
-        { 'timeout client'  => '30s' },
-        { 'option'          => [
-          'tcplog',
-        ],
-        }
-      ],
-      bind      => {
-        '0.0.0.0:80'  => [],
-        '0.0.0.0:443' => [],
-      },
+    haproxy::frontend { $frontend_name :
+      mode      => $frontend_mode,
+      options   => $frontend_options,
+      bind      => $bind,
     }
-    haproxy::backend { 'nginx_backend':
-      mode    => 'http',
-      options => {
-        'option'  => [
-          'tcplog',
-        ],
-        'balance' => 'roundrobin',
-      },
-}
+    class {'::haproxy_serv::backend':;}
   }
+}
   class {'::haproxy_serv::balancemember':;}
 }
