@@ -39,8 +39,8 @@ class haproxy_serv (
       mode             => $mode,
     }
     haproxy::frontend { $listening_service :
-      ipaddress => $ipaddress,
-      ports     => $ports,
+      #ipaddress => $ipaddress,
+      #ports     => $ports,
       mode      => $mode,
       options   => [
         { 'default_backend' => 'nginx_backend' },
@@ -50,10 +50,10 @@ class haproxy_serv (
         ],
         }
       ],
-      #bind      => {
-      #  '*:80'  => ['ssl'],
-      #  '*:443' => ['ssl'],
-      #},
+      bind      => {
+        '0.0.0.0:80'  => [],
+        '0.0.0.0:443' => [],
+      },
     }
     haproxy::backend { 'nginx_backend':
       mode    => 'http',
