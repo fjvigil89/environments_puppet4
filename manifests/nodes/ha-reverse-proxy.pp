@@ -5,7 +5,6 @@ node 'ha-reverse-proxy.upr.edu.cu' {
   class { '::basesys':
     uprinfo_usage   => 'servidor gestion',
     application     => 'Proxmox Gestion',
-    proxmox_enabled => true,
     repos_enabled   => true,
     mta_enabled     => false,
   }
@@ -35,9 +34,8 @@ node 'ha-reverse-proxy.upr.edu.cu' {
       'balance' => 'roundrobin',
     },
     bind              => {
-      '0.0.0.0:80'      => [],
-      '200.14.49.6:443' => [],
-      '200.14.49.5:443' => [],
+      '0.0.0.0:80'  => [],
+      '0.0.0.0:443' => [],
     },
   }
 
