@@ -30,7 +30,7 @@ node 'puppet-test1.upr.edu.cu' {
       'option'          => [
         'tcplog',
       ],
-      }
+      },
     backend_name      => ['nginx_backend'],
     backend_options   => {
       'option'  => [
