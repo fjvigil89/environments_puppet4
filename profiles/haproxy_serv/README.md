@@ -58,6 +58,36 @@ basic use of the module.
 This section is where you describe how to customize, configure, and do the
 fancy stuff with your module here. It's especially helpful if you include usage
 examples and code samples for doing things with your module.
+36   class {'::haproxy_serv':
+ 35   ¦ enable_ssl        => true,
+ 34   ¦ ipaddress         => $ipaddress,
+ 33   ¦ listening_service => 'nginx00',
+ 32   ¦ mode              => 'http',
+ 31   ¦ balancer_member   => ['nginx00', 'nginx01'],
+ 30   ¦ server_names      => ['nginx00.upr.edu.cu', 'nginx01.upr.edu.cu'],
+ 29   ¦ ipaddresses       => ['10.2.1.77','10.2.1.79'],
+ 28   ¦ ports             => ['80','443'],
+ 27   ¦ frontend_name     => 'nginx_server',
+ 26   ¦ frontend_options  => {
+ 25   ¦ ¦ 'default_backend' => 'nginx_backend' ,
+ 24   ¦ ¦ 'timeout client'  => '30s' ,
+ 23   ¦ ¦ 'option'          => [
+ 22   ¦ ¦ ¦ 'tcplog',
+ 21   ¦ ¦ ],
+ 20   ¦ ¦ },
+ 19   ¦ backend_names     => ['nginx_backend'],
+ 18   ¦ backend_options   => {
+ 17   ¦ ¦ 'option'  => [
+ 16   ¦ ¦ ¦ 'tcplog',
+ 15   ¦ ¦ ],
+ 14   ¦ ¦ 'balance' => 'roundrobin',
+ 13   ¦ },
+ 12   ¦ bind              => {
+ 11   ¦ ¦ '0.0.0.0:80'  => [],
+ 10   ¦ ¦ '0.0.0.0:443' => [],
+  9   ¦ },
+  8   }
+
 
 ## Reference
 
