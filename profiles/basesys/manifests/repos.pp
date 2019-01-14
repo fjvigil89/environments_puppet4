@@ -139,7 +139,7 @@ class basesys::repos (
 						apt::source { "proxmox":
               comment  => 'Proxmox repo',
               location => 'http://repos.upr.edu.cu/proxmox/pve/',
-              repos    => 'pve-no-subcription',
+              repos    => 'pve-no-subscription',
               release  => "${::lsbdistcodename}",
             }
 				  }
