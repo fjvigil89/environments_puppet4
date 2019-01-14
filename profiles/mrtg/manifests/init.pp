@@ -15,7 +15,7 @@ class mrtg {
     owner   =>root,
     group   => root,
     mode    => 644,
-    require => Package["apache2"],
+    #    require => Package["apache2"],
     # source  => "puppet://$server/modules/mrtg/mrtg.httpd",
   }
 
