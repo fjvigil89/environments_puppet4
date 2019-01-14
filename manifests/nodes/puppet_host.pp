@@ -120,6 +120,7 @@ node 'puppet-test.upr.edu.cu' {
     uprinfo_usage => 'servidor test',
     application   => 'puppet',
   }
+  include squidserver
 }
   #class {'::serv_logrotate':
   # compress         => true,
