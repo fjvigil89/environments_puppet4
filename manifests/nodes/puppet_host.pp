@@ -85,7 +85,21 @@ node 'puppet-test1.upr.edu.cu' {
     uprinfo_usage => 'servidor test',
     application   => 'puppet',
   }
-  include squidserver
+  #include squidserver
+  class { 'squid':
+    cache_mem    => '2048',
+    workers      => 3,
+    coredump_dir => '/var/spool/squid',
+    acls         => { 'red_pap' => {
+                    type    => 'src',
+                    entries => ['10.2.9.0/25',
+                                '10.71.46.0/24',
+                                '20.0.0.0/24',
+                                '10.2.75.0/25',],
+    },
+    http_access  => {'pap' => {action => 'allow',}},
+    ache_dirs   => { '/data/' => { type => 'ufs', options => '15000 32 256 min-size=32769', process_number => 2 }},
+  }
 }
 node 'puppet-test.upr.edu.cu' {
   class { '::basesys':
