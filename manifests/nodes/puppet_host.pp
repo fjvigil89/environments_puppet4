@@ -98,7 +98,7 @@ node 'puppet-test1.upr.edu.cu' {
                                 '10.2.75.0/25',],
     },
     http_access  => {'pap' => {action => 'allow',}},
-    ache_dirs   => { '/data/' => { type => 'ufs', options => '15000 32 256 min-size=32769', process_number => 2 }},
+    cache_dirs   => { '/data/' => { type => 'ufs', options => '15000 32 256 min-size=32769', process_number => 2 }},
   }
 }
 }
