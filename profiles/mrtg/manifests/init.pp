@@ -19,11 +19,14 @@ class mrtg {
     # source  => "puppet://$server/modules/mrtg/mrtg.httpd",
   }
 
-  file { "/etc/mrtg/mrtg.cfg":
+  file { "mrtg.cfg":
     ensure  => present,
     owner   => root,
     group   => root,
     mode    => '644',
     require => Package["mrtg"],
+    path    => $operatingsystem ? {
+    default => "/etc/mrtg/mrtg.cfg"
+    },
   }
 }
