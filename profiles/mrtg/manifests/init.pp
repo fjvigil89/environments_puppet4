@@ -14,7 +14,7 @@ class mrtg {
     ensure  => present,
     owner   =>root,
     group   => root,
-    mode    => 644,
+    mode    => "644",
     #    require => Package["apache2"],
     # source  => "puppet://$server/modules/mrtg/mrtg.httpd",
   }
@@ -23,7 +23,7 @@ class mrtg {
     ensure  => present,
     owner   => root,
     group   => root,
-    mode    => 644,
+    mode    => "644",
     require => Package["mrtg"],
     path    =>  $operatingsystem ? {
       default => "/etc/mrtg/mrtg.cfg",
