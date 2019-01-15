@@ -86,7 +86,7 @@ node 'puppet-test1.upr.edu.cu' {
     application   => 'puppet',
   }
   #include squidserver
-  class { 'squid':
+  class { 'squid': }
     squid::acl { 'Safe_ports':
       type    => port,
       entries => ['80'],
