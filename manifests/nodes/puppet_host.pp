@@ -85,35 +85,6 @@ node 'puppet-test1.upr.edu.cu' {
     uprinfo_usage => 'servidor test',
     application   => 'puppet',
   }
-  class {'::haproxy_serv':
-    enable_ssl        => true,
-    ipaddress         => $ipaddress,
-    listening_service => 'nginx00',
-    mode              => 'http',
-    balancer_member   => ['nginx00', 'nginx01'],
-    server_names      => ['nginx00.upr.edu.cu', 'nginx01.upr.edu.cu'],
-    ipaddresses       => ['10.2.1.77','10.2.1.79'],
-    ports             => ['80','443'],
-    frontend_name     => 'nginx_server',
-    frontend_options  => { 
-      'default_backend' => 'nginx_backend' ,
-      'timeout client'  => '30s' ,
-      'option'          => [
-        'tcplog',
-      ],
-      },
-    backend_names     => ['nginx_backend'],
-    backend_options   => {
-      'option'  => [
-        'tcplog',
-      ],
-      'balance' => 'roundrobin',
-    },
-    bind              => {
-      '0.0.0.0:80'  => [],
-      '0.0.0.0:443' => [],
-    },
-  }
 }
 node 'puppet-test.upr.edu.cu' {
   class { '::basesys':
