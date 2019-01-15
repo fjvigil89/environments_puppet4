@@ -11,11 +11,11 @@ class mrtg {
   }
 
   file { "/etc/apache2/conf.d/mrtg.conf":
-    owner   =>root,
-    group   => root,
-    mode    => '644',
-    ensure  => present,
-    require => Package["apache2"],
+    owner  => root,
+    group  => root,
+    mode   => '644',
+    ensure => present,
+    #    require => Package["apache2"],
     # source  => "puppet://$server/modules/mrtg/mrtg.httpd",
   }
 
@@ -28,5 +28,12 @@ class mrtg {
     path    => $operatingsystem ? {
     default => "/etc/mrtg/mrtg.cfg"
     },
+  }
+
+  file { '/var/www/mrtg':
+    ensure => directory,
+    owner  => www-data,
+    group  => www-data,
+    mode   => '644',
   }
 }
