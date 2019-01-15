@@ -3,13 +3,6 @@
 class mrtg {
   include apache
 
-  package { mrtg:
-    name   => $operatingsystem ? {
-      default => "mrtg",
-    },
-    ensure => present,
-  }
-
   file { "/etc/apache2/conf.d/mrtg.conf":
     owner  => root,
     group  => root,
@@ -17,6 +10,13 @@ class mrtg {
     ensure => present,
     #    require => Package["apache2"],
     # source  => "puppet://$server/modules/mrtg/mrtg.httpd",
+  }
+  
+  package { mrtg:
+    name   => $operatingsystem ? {
+      default => "mrtg",
+    },
+    ensure => present,
   }
 
   file { "mrtg.cfg":
@@ -37,11 +37,17 @@ class mrtg {
     mode   => '775',
   }
 
+  package { whois:
+    name => $operatingsystem ? {
+      default => "whois",
+    },
+    ensure => present,
+  }
+
   file {'/var/www/whois':
     ensure  => directory,
     owner   => root,
     group   => root,
     mode    => '775',
-    require => Package["whois"],
   }
 }
