@@ -34,6 +34,14 @@ class mrtg {
     ensure => directory,
     owner  => www-data,
     group  => www-data,
-    mode   => '644',
+    mode   => '775',
+  }
+
+  file {'/var/www/whois':
+    ensure  => directory,
+    owner   => root,
+    group   => root,
+    mode    => '775',
+    require => Package["whois"],
   }
 }
