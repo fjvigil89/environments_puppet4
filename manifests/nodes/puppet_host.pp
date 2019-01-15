@@ -85,32 +85,6 @@ node 'puppet-test1.upr.edu.cu' {
     uprinfo_usage => 'servidor test',
     application   => 'puppet',
   }
-  #include squidserver
-  class { 'squid':
-    squid::acl { 'Safe_ports':
-      type    => port,
-      entries => ['80'],
-    }
-    squid::http_access { 'Safe_ports':
-      action => allow,
-    }
-    squid::http_access{ '!Safe_ports':
-      action => deny,
-    }
-    #cache_mem    => '512',
-    #workers      => 3,
-    #coredump_dir => '/var/spool/squid',
-    #acls         => { 'red_pap' => {
-    #                type    => 'src',
-    #                entries => ['10.2.9.0/25',
-    #                            '10.71.46.0/24',
-    #                            '20.0.0.0/24',
-    #                            '10.2.75.0/25',],
-    #},
-    #http_access  => {'red_pap' => {action => 'allow',}},
-    #cache_dirs   => { '/data/' => { type => 'ufs', options => '15000 32 256 min-size=32769', process_number => 2 }},
-    #}
-}
 }
 node 'puppet-test.upr.edu.cu' {
   class { '::basesys':
