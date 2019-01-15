@@ -52,7 +52,7 @@ class basesys (
   class {'::basesys::users':;}
   class {'::basesys::groups':;}
   class {'::basesys::monitoring':;}
-  #class {'::basesys::swap':;}
+  class {'::basesys::lxc':;}
 
   case $facts['os']['family'] {
   'Debian', 'ubuntu': {
