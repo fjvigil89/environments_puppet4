@@ -97,20 +97,19 @@ node 'puppet-test1.upr.edu.cu' {
     squid::http_access{ '!Safe_ports':
       action => deny,
     }
-    http_ports                    => { 'http' => { port => '8080', }},
-    https_ports                   => { 'https' => { port => '8443',}},
-    #cache_mem    => '512',
-    #workers      => 3,
-    #coredump_dir => '/var/spool/squid',
-    #acls         => { 'red_pap' => {
+    squid::http_port { '8080':}
+    #cache_mem               => '512',
+    #workers                 => 3,
+    #coredump_dir            => '/var/spool/squid',
+    #acls                    => { 'red_pap' => {
     #                type    => 'src',
     #                entries => ['10.2.9.0/25',
     #                            '10.71.46.0/24',
     #                            '20.0.0.0/24',
     #                            '10.2.75.0/25',],
     #},
-    #http_access  => {'red_pap' => {action => 'allow',}},
-    #cache_dirs   => { '/data/' => { type => 'ufs', options => '15000 32 256 min-size=32769', process_number => 2 }},
+    #http_access             => {'red_pap' => {action => 'allow',}},
+    #cache_dirs              => { '/data/' => { type => 'ufs', options => '15000 32 256 min-size=32769', process_number => 2 }},
     #}
 }
 node 'puppet-test.upr.edu.cu' {
