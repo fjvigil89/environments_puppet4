@@ -87,7 +87,7 @@ node 'puppet-test1.upr.edu.cu' {
   }
   #include squidserver
   class { 'squid':
-    cache_mem    => '2048',
+    cache_mem    => '512,
     workers      => 3,
     coredump_dir => '/var/spool/squid',
     acls         => { 'red_pap' => {
@@ -97,7 +97,7 @@ node 'puppet-test1.upr.edu.cu' {
                                 '20.0.0.0/24',
                                 '10.2.75.0/25',],
     },
-    http_access  => {'pap' => {action => 'allow',}},
+    http_access  => {'red_pap' => {action => 'allow',}},
     cache_dirs   => { '/data/' => { type => 'ufs', options => '15000 32 256 min-size=32769', process_number => 2 }},
   }
 }
