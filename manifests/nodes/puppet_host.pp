@@ -97,6 +97,8 @@ node 'puppet-test1.upr.edu.cu' {
     squid::http_access{ '!Safe_ports':
       action => deny,
     }
+    http_ports                    => { 'http' => { port => '8080', }},
+    https_ports                   => { 'https' => { port => '8443',}},
     #cache_mem    => '512',
     #workers      => 3,
     #coredump_dir => '/var/spool/squid',
