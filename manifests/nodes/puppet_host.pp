@@ -98,6 +98,10 @@ node 'puppet-test1.upr.edu.cu' {
       action => deny,
     }
     squid::http_port { '8080':}
+    squid::acl {'red_pap':
+      type    => src,
+      entries => ['10.71.46.0/24 20.0.0.0/24 10.2.9.0/24 10.2.75.0/25'],
+    }
     #cache_mem               => '512',
     #workers                 => 3,
     #coredump_dir            => '/var/spool/squid',
