@@ -1,4 +1,4 @@
-#
+
 class reverseproxy_server::server{
    if($::reverseproxy_server::server_name)
    {
