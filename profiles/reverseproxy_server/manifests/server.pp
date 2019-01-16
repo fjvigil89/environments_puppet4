@@ -122,7 +122,7 @@ class reverseproxy_server::server{
                proxy       => "http://${value}",
                server_name => ["${value}"],
                locations          => {
-                 proxy_set_header =>'Host $host'
+                 'proxy_set_header' =>'Host $host'
              },
              }
 
