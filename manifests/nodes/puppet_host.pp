@@ -95,7 +95,7 @@ node 'puppet-test1.upr.edu.cu' {
       action => allow,
     }
     squid::http_access { 'red_pap AccesoAlGrupo': 
-      acction => allow,
+      action => allow,
     }
     squid::http_access{ '!Safe_ports':
       action => deny,
