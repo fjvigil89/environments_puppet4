@@ -105,10 +105,10 @@ node 'puppet-test1.upr.edu.cu' {
       type    => src,
       entries => ['10.71.46.0/24 20.0.0.0/24 10.2.9.0/24 10.2.75.0/25'],
     }
-    squid::acl { 'ADGroup':
+    squid::extra_config_section { 'ADGroup':
       type    => external_acl_type,
       comment => "Se utiliza el helper ext_ldap_group_acl para verificar el grupo del usuario",
-      entries => ['%LOGIN /usr/lib/squid3/ext_ldap_group_acl -R -v 3 -b "dc=upr,dc=edu,dc=cu" -D internet@upr.edu.cu -w P@ssword -f "(&(objectclass=person)(sAMAccountName=%v)(memberof=cn=%a,ou=_Gestion,dc=upr,dc=edu,dc=cu))" -h 10.2.24.35'],
+      config_entries => { 'external_acl_type ADGroup %LOGIN /usr/lib/squid3/ext_ldap_group_acl -R -v 3 -b "dc=upr,dc=edu,dc=cu" -D internet@upr.edu.cu -w P@ssword -f "(&(objectclass=person)(sAMAccountName=%v)(memberof=cn=%a,ou=_Gestion,dc=upr,dc=edu,dc=cu))" -h 10.2.24.35'},
     }
     squid::acl { 'AccesoAlGrupo':
       type    => external,
