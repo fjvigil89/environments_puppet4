@@ -106,10 +106,9 @@ node 'puppet-test1.upr.edu.cu' {
       entries => ['10.71.46.0/24 20.0.0.0/24 10.2.9.0/24 10.2.75.0/25'],
     }
     squid::acl { 'ADGroup':
-      type    => external,
+      type    => external_acl_type,
       comment => "Se utiliza el helper ext_ldap_group_acl para verificar el grupo del usuario",
-      entries => ['%LOGIN /usr/lib/squid3/ext_ldap_group_acl -R -v 3 -b "dc=upr,dc=edu,dc=cu" -D internet@upr.edu.cu -w P@ssword 
-      -f "(&(objectclass=person)(sAMAccountName=%v)(memberof=cn=%a,ou=_Gestion,dc=upr,dc=edu,dc=cu))" -h 10.2.24.35'],
+      entries => ['%LOGIN /usr/lib/squid3/ext_ldap_group_acl -R -v 3 -b "dc=upr,dc=edu,dc=cu" -D internet@upr.edu.cu -w P@ssword -f "(&(objectclass=person)(sAMAccountName=%v)(memberof=cn=%a,ou=_Gestion,dc=upr,dc=edu,dc=cu))" -h 10.2.24.35'],
     }
     squid::acl { 'AccesoAlGrupo':
       type    => external,
@@ -118,8 +117,7 @@ node 'puppet-test1.upr.edu.cu' {
     squid::auth_param { 'basic auth_param':
       scheme  => 'basic',
       entries => [
-        'program /usr/lib/squid3/basic_ldap_auth -R -v 3 -b "dc=upr,dc=edu,dc=cu" -D internet@upr.edu.cu -w P@ssword 
-        -f (|(userPrincipalName=%s)(sAMAccountName=%s)) -h 10.2.24.35',
+        'program /usr/lib/squid3/basic_ldap_auth -R -v 3 -b "dc=upr,dc=edu,dc=cu" -D internet@upr.edu.cu -w P@ssword -f (|(userPrincipalName=%s)(sAMAccountName=%s)) -h 10.2.24.35',
         'children 10',
         'realm Servidor Proxy de la UPR',
         'credentialsttl 2 hours',
