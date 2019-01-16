@@ -37,15 +37,18 @@ class reverseproxy_server::server{
        {
          if ($red_univ){
            nginx::resource::server { $::reverseproxy_server::server_name[$index]:
-             listen_port    => $::reverseproxy_server::listen_port[$index],
-             ssl_port       => $::reverseproxy_server::ssl_port[$index],
-             ssl            => true,
-             ssl_cert       => "/etc/letsencrypt/live/${value}/fullchain.pem",
-             ssl_key        => "/etc/letsencrypt/live/${value}/privkey.pem",
-             proxy          => "https://${value}",
-             server_name    => ["${value}"],
-             location_allow => $allow,
-             location_deny  => $deny,
+             listen_port        => $::reverseproxy_server::listen_port[$index],
+             ssl_port           => $::reverseproxy_server::ssl_port[$index],
+             ssl                => true,
+             ssl_cert           => "/etc/letsencrypt/live/${value}/fullchain.pem",
+             ssl_key            => "/etc/letsencrypt/live/${value}/privkey.pem",
+             proxy              => "https://${value}",
+             server_name        => ["${value}"],
+             location_allow     => $allow,
+             location_deny      => $deny,
+             locations          => {
+               proxy_set_header =>'Host $host' 
+             },
            }
          }
          else{
@@ -57,6 +60,9 @@ class reverseproxy_server::server{
              ssl_key        => "/etc/letsencrypt/live/${value}/privkey.pem",
              proxy          => "https://${value}",
              server_name    => ["${value}"],
+             locations          => {
+               proxy_set_header =>'Host $host'
+             },
            }
 
          }
@@ -74,6 +80,9 @@ class reverseproxy_server::server{
                server_name => ["${value}"],
                location_allow => $allow,
                location_deny  => $deny,
+               locations          => {
+                 proxy_set_header =>'Host $host'
+             },
              }
            }
            else{
@@ -85,6 +94,9 @@ class reverseproxy_server::server{
                ssl_key     => "/etc/letsencrypt/live/${value}/privkey.pem",
                proxy       => "https://${value}",
                server_name => ["${value}"],
+               locations          => {
+                 proxy_set_header =>'Host $host'
+             },
              }
 
            }
@@ -98,6 +110,9 @@ class reverseproxy_server::server{
                server_name => ["${value}"],
                location_allow => $allow,
                location_deny  => $deny,
+               locations          => {
+                 proxy_set_header =>'Host $host'
+             },
              }
            }
            else{
@@ -106,6 +121,9 @@ class reverseproxy_server::server{
                #ssl_port    => $::reverseproxy_server::ssl_port[$index],
                proxy       => "http://${value}",
                server_name => ["${value}"],
+               locations          => {
+                 proxy_set_header =>'Host $host'
+             },
              }
 
            }
