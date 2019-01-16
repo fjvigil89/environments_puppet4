@@ -105,7 +105,7 @@ class reverseproxy_server::server{
                listen_port                => $::reverseproxy_server::listen_port[$index],
                proxy                      => "http://${value}",
                server_name                => ["${value}"],
-               locations_defaults         => false,
+               use_default_location       => false,
                location_custom_cfg_append => {
                  'proxy_pass'                 => "http://${value};",
                  'proxy_read_timeout'         => '90s;',
