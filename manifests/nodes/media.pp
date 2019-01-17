@@ -48,7 +48,7 @@ class { '::basesys':
 }
 include apache
 include git
-vcsrepo { '/var/www/html':
+vcsrepo { '/var/www/html/':
   ensure   => latest,
   provider => 'git',
   remote   => 'origin',
@@ -58,9 +58,9 @@ vcsrepo { '/var/www/html':
   revision => 'master',
 }
 
-apache::vhost { 'media.upr.edu.cu':
-  servername    => 'media.upr.edu.cu',    
-  serveraliases => ['www.media.upr.edu.cu'],
+apache::vhost { 'media0.upr.edu.cu':
+  servername    => 'media0.upr.edu.cu',    
+  serveraliases => ['www.media0.upr.edu.cu'],
   port          => '80',
   docroot       => '/var/www/html/media/',
   directories   => [ {
