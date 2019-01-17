@@ -49,7 +49,7 @@ class reverseproxy_server::server{
              proxy_read_timeout    => '90s',
              proxy_connect_timeout => '90s',
              proxy_send_timeout    => '90s',
-             proxy_set_header      => ['X-Real-IP $remote_addr', 'Host $host','Proxy ""'],
+             proxy_set_header      => ['Host $host','X-Real-IP $remote_addr','Proxy ""'],
 
            }
          }
@@ -65,7 +65,7 @@ class reverseproxy_server::server{
              proxy_read_timeout    => '90s',
              proxy_connect_timeout => '90s',
              proxy_send_timeout    => '90s',
-             proxy_set_header      => ['X-Real-IP $remote_addr', 'Host $host','Proxy ""'],
+             proxy_set_header      => ['Host $host','X-Real-IP $remote_addr','Proxy ""'],
 
            }
 
@@ -87,7 +87,7 @@ class reverseproxy_server::server{
                proxy_read_timeout    => '90s',
                proxy_connect_timeout => '90s',
                proxy_send_timeout    => '90s',
-               proxy_set_header      => ['X-Real-IP $remote_addr', 'Host $host','Proxy ""'],
+               proxy_set_header      => ['Host $host','X-Real-IP $remote_addr','Proxy ""'],
 
              }
            }
@@ -103,7 +103,7 @@ class reverseproxy_server::server{
                proxy_read_timeout    => '90s',
                proxy_connect_timeout => '90s',
                proxy_send_timeout    => '90s',
-               proxy_set_header      => ['X-Real-IP $remote_addr', 'Host $host','Proxy ""'],
+               proxy_set_header      => ['Host $host','X-Real-IP $remote_addr','Proxy ""'],
 
              }
 
@@ -121,7 +121,7 @@ class reverseproxy_server::server{
                proxy_read_timeout    => '90s',
                proxy_connect_timeout => '90s',
                proxy_send_timeout    => '90s',
-               proxy_set_header      => ['X-Real-IP $remote_addr', 'Host $host','Proxy ""'],
+               proxy_set_header      => ['Host $host','X-Real-IP $remote_addr','Proxy ""'],
 
              }
            }
@@ -133,7 +133,7 @@ class reverseproxy_server::server{
                proxy_read_timeout    => '90s',
                proxy_connect_timeout => '90s',
                proxy_send_timeout    => '90s',
-               proxy_set_header      => ['X-Real-IP $remote_addr', 'Host $host','Proxy ""'],
+               proxy_set_header      => ['Host $host','X-Real-IP $remote_addr','Proxy ""'],
              }
 
            }
