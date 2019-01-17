@@ -69,14 +69,29 @@ apache::vhost { 'media0.upr.edu.cu':
   servername    => 'media0.upr.edu.cu',    
   serveraliases => ['www.media0.upr.edu.cu'],
   port          => '80',
-  docroot       => '/opt/html/media/',
+  docroot       => '/opt/html/',
   directories   => [ {
-    'path'           => '/opt/html/media',
+    'path'           => '/opt/html',
     'options'        => ['Indexes','FollowSymLinks','MultiViews'],
     'allow_override' => 'All',
     'directoryindex' => 'index.php',
     },],
     
 }
+
+ class { '::php_webserver':
+     php_version    => '7.0',
+     php_extensions => {
+      'curl'     => {},
+      'gd'       => {},
+      'mysql'    => {},
+      'ldap'     => {},
+      'xml'      => {},
+      'mbstring' => {},
+     },
+     packages       =>  [],
+  }
+
+
 }
 
