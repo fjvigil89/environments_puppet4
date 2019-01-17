@@ -47,9 +47,29 @@ class { '::basesys':
   mta_enabled     => false,
 }
 include apache
+
+vcsrepo { '/var/www/html':
+  ensure   => latest,
+  provider => 'git',
+  remote   => 'origin',
+  source   => {
+    'origin' => 'git@gitlab.upr.edu.cu:dcenter/media.git',
+  },
+  revision => 'master',
+}
+
 apache::vhost { 'media.upr.edu.cu':
-  port    => '80',
-  docroot => '/srv/httpdirindex',
+  servername    => 'media.upr.edu.cu',    
+  serveraliases => ['www.media.upr.edu.cu'],
+  port          => '80',
+  docroot       => '/var/www/html/media/',
+  directories   => [ {
+    'path'           => '/var/www/html/media',
+    'options'        => ['Indexes','FollowSymLinks','MultiViews'],
+    'allow_override' => 'All',
+    'directoryindex' => 'index.php',
+    },],
+    
 }
 }
 
