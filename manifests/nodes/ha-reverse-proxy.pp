@@ -19,25 +19,73 @@ node 'ha-reverse-proxy.upr.edu.cu' {
     server_names      => ['reverse-proxy0.upr.edu.cu','reverse-proxy1.upr.edu.cu'],
     ipaddresses       => ['200.14.49.6','200.14.49.5'],
     ports             => ['80','443'],
-    frontend_name     => ['nginx_server'],
-    frontend_options  => {
-      'default_backend' => 'nginx_backend' ,
-      'timeout client'  => '30s' ,
-      'option'          => [
-        'tcplog',
-      ],
-      },
-    backend_names     => ['nginx_backend'],
-    backend_options   => {
-      'option'  => [
-        'tcplog',
-      ],
-      'balance' => 'roundrobin',
-    },
-    bind              => {
-      '0.0.0.0:80'  => [],
-      '0.0.0.0:443' => [],
-    },
+    frontend_name     => ['frontend_http', 'frontend_https'],
   }
+    haproxy::frontend { 'frontend_http':
+      mode    => $frontend_mode,
+      options => {
+        'default_backend' => 'backend_http',
+        'timeout client'  => '30s',
+        'option'          => [
+          'tcplog',
+        ],
+      },
+      bind    => {
+        '0.0.0.0:80'  => [],
+      },
+    }
+    haproxy::frontend { 'frontend_https':
+      mode    => $frontend_mode,
+      options => {
+        'default_backend' => 'backend_https' ,
+        'timeout client'  => '30s' ,
+        'option'          => [
+          'tcplog',
+        ],
+      },
+      bind    => {
+        '0.0.0.0:443'  => [],
+      },
+    }
+    haproxy::backend { 'backend_http':
+      mode    => 'http',
+      options => {
+        'option'  => [
+          'tcplog',
+        ],
+        'balance' => 'roundrobin',
+      },
+    }
+    haproxy::backend { 'backend_https':
+      mode    => 'tcp',
+      options => {
+        'option'  => [
+          'tcplog',
+        ],
+        'balance' => 'roundrobin',
+      },
+    }
+
+
+    #frontend_options  => {
+    #  'default_backend' => 'nginx_backend' ,
+    #  'timeout client'  => '30s' ,
+    #  'option'          => [
+    #    'tcplog',
+    #  ],
+    #  },
+    #backend_names     => ['backend_http','backend_https'],
+    #backend_options   => {
+    #  'option'  => [
+    #    'tcplog',
+    #  ],
+    #  'balance' => 'roundrobin',
+    #},
+    #bind              => {
+    #  '0.0.0.0:80'  => [],
+    #  '0.0.0.0:443' => [],
+    #},
+    #}
+
 
 }

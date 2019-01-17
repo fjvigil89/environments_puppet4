@@ -44,12 +44,12 @@ class haproxy_serv (
     #  ports            => $ports,
     #  mode             => $mode,
     #}
-    haproxy::frontend { 'nginx_server' :
-      mode      => $frontend_mode,
-      options   => $frontend_options,
-      bind      => $bind,
-    }
-    class {'::haproxy_serv::backend':;}
+    #haproxy::frontend { 'nginx_server' :
+    #  mode      => $frontend_mode,
+    #  options   => $frontend_options,
+    #  bind      => $bind,
+    #}
+    #class {'::haproxy_serv::backend':;}
   }
   class {'::haproxy_serv::balancemember':;}
   if($stats){
