@@ -56,7 +56,7 @@ file { '/var/www/html':
   mode    => '0775',
   }~>
 vcsrepo { '/var/www/html':
-  ensure   => latest,
+  #ensure   => latest,
   provider => 'git',
   remote   => 'origin',
   source   => {
