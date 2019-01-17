@@ -11,6 +11,7 @@ node 'ha-media.upr.edu.cu' {
 
   class {'::haproxy_serv':
     enable_ssl        => false,
+    stats             => true,
     ipaddress         => $ipaddress,
     listening_service => 'media',
     mode              => 'http',
