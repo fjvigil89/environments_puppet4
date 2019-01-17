@@ -18,7 +18,7 @@ node 'ha-reverse-proxy.upr.edu.cu' {
     server_names      => ['reverse-proxy0.upr.edu.cu','reverse-proxy1.upr.edu.cu'],
     ipaddresses       => ['200.14.49.6','200.14.49.5'],
     ports             => ['80','443'],
-    frontend_name     => 'nginx_server',
+    frontend_name     => ['nginx_server'],
     frontend_options  => {
       'default_backend' => 'nginx_backend' ,
       'timeout client'  => '30s' ,
