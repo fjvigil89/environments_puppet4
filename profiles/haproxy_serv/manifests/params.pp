@@ -25,4 +25,6 @@ class haproxy_serv::params {
   $frontend_options   = {}
   $backend_options    = {}
   $bind               = {}
+  #Enable stats
+  $stats              = true
 }

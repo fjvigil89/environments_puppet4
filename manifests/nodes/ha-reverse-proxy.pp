@@ -11,6 +11,7 @@ node 'ha-reverse-proxy.upr.edu.cu' {
 
   class {'::haproxy_serv':
     enable_ssl        => true,
+    stats             => true,
     ipaddress         => $ipaddress,
     listening_service => 'nginx',
     mode              => 'http',
