@@ -47,7 +47,7 @@ class { '::basesys':
   mta_enabled     => false,
 }
 include apache
-
+include git
 vcsrepo { '/var/www/html':
   ensure   => latest,
   provider => 'git',
