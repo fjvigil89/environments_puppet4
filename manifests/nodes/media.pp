@@ -46,5 +46,10 @@ class { '::basesys':
   repos_enabled   => true,
   mta_enabled     => false,
 }
+include apache
+apache::vhost { 'media.upr.edu.cu':
+  port    => '80',
+  docroot => '/srv/httpdirindex',
+}
 }
 
