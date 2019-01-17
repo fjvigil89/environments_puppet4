@@ -26,7 +26,7 @@ class haproxy_serv (
   Optional[Enum['tcp','http','health']] $backend_mode = 'http',
   Boolean $enable_ssl                         = $::haproxy_serv::params::enable_ssl,
   Optional[Hash] $bind                        = $::haproxy_serv::params::bind,
-  Optional Boolean $stats                     = $::haproxy_serv::params::stats,
+  Optional[Boolean] $stats                    = $::haproxy_serv::params::stats,
 ) inherits haproxy_serv::params {
   include haproxy
   if($enable_ssl == false){
