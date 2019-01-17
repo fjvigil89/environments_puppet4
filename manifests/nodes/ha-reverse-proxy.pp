@@ -77,13 +77,13 @@ node 'ha-reverse-proxy.upr.edu.cu' {
       ipaddresses       => '200.14.49.5',
       ports             => '80',
       } 
-    haproxy::balancermember { 'reverse-proxy0.upr.edu.cu':
+    haproxy::balancermember { 'reverse-proxy0.upr.edu.cu_https':
       listening_service => 'backend_https',
       server_name       => 'reverse-proxy0.upr.edu.cu',
       ipaddresses       => '200.14.49.6',
       ports             => '443',
       } 
-      haproxy::balancermember { 'reverse-proxy1.upr.edu.cu':
+      haproxy::balancermember { 'reverse-proxy1.upr.edu.cu_https':
         listening_service => 'backend_https',
         server_name       => 'reverse-proxy1.upr.edu.cu',
         ipaddresses       => '200.14.49.5',
