@@ -9,7 +9,7 @@ class basesys::lxc {
     [Service]
      LimitNPROC=infinity'
     file_line { 'ServiceLimit':
-    ensure                                => present,
+    ensure                                => absent,
     path                                  => '/etc/systemd/system.conf',
     line                                  => $service_limit,
     replace                               => true,
