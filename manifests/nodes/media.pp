@@ -50,7 +50,7 @@ class { '::basesys':
 include git
 
 class { '::php_webserver':
-  php_version    => '7.0',
+  php_version    => '5.4',
   php_extensions => {
     'curl'     => {},
     'gd'       => {},
