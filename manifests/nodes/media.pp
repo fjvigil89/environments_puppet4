@@ -46,8 +46,22 @@ class { '::basesys':
   repos_enabled   => true,
   mta_enabled     => false,
 }
-include apache
+#include apache
 include git
+
+class { '::php_webserver':
+  php_version    => '7.0',
+  php_extensions => {
+    'curl'     => {},
+    'gd'       => {},
+    'mysql'    => {},
+    'ldap'     => {},
+    'xml'      => {},
+    'mbstring' => {},
+  },
+  packages       =>  [],
+}
+
 
 file { '/opt/html':
   ensure  => directory,
@@ -79,18 +93,6 @@ apache::vhost { 'media0.upr.edu.cu':
     
 }
 
- class { '::php_webserver':
-     php_version    => '7.0',
-     php_extensions => {
-      'curl'     => {},
-      'gd'       => {},
-      'mysql'    => {},
-      'ldap'     => {},
-      'xml'      => {},
-      'mbstring' => {},
-     },
-     packages       =>  [],
-  }
 
 
 }
