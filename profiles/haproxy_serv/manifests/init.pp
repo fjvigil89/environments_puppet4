@@ -54,7 +54,6 @@ class haproxy_serv (
   class {'::haproxy_serv::balancemember':;}
   if($stats){
     haproxy::listen { 'stats':
-      order     => '30',
       ipaddress => $ipaddress,
       ports     => '9090',
       options   => {
