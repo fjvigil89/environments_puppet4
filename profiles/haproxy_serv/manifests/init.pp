@@ -18,7 +18,7 @@ class haproxy_serv (
   Array[String] $ports                        = $::haproxy_serv::params::ports,
   Optional[String] $options                   = $::haproxy_serv::params::options,
   # enable_ssl= true when using frontend & backend
-  Optional[Array[String] $frontend_name       = $::haproxy_serv::params::frontend_name,
+  Optional[Array[String]] $frontend_name      = $::haproxy_serv::params::frontend_name,
   Optional[Array[String]] $backend_names      = $::haproxy_serv::params::backend_names,
   Optional[Hash] $frontend_options            = $::haproxy_serv::params::frontend_options,
   Optional[Hash] $backend_options             = $::haproxy_serv::params::backend_options,
@@ -44,7 +44,7 @@ class haproxy_serv (
     #  ports            => $ports,
     #  mode             => $mode,
     #}
-    haproxy::frontend { $frontend_name :
+    haproxy::frontend { 'nginx_server' :
       mode      => $frontend_mode,
       options   => $frontend_options,
       bind      => $bind,
