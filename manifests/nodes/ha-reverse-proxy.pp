@@ -13,7 +13,7 @@ node 'ha-reverse-proxy.upr.edu.cu' {
     enable_ssl        => true,
     stats             => true,
     ipaddress         => $ipaddress,
-    listening_service => 'nginx',
+    listening_service => 'nginx_backend',
     mode              => 'http',
     balancer_member   => ['reverse-proxy0','reverse-proxy1'],
     server_names      => ['reverse-proxy0.upr.edu.cu','reverse-proxy1.upr.edu.cu'],
