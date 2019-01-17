@@ -49,14 +49,14 @@ class { '::basesys':
 include apache
 include git
 
-file { '/var/www/html':
+file { '/opt/html':
   ensure  => directory,
   group   => 'root',
   owner   => 'root',
   mode    => '0775',
   }~>
-vcsrepo { '/var/www/html':
-  #ensure   => latest,
+vcsrepo { '/opt/html':
+  ensure   => latest,
   provider => 'git',
   remote   => 'origin',
   source   => {
@@ -69,9 +69,9 @@ apache::vhost { 'media0.upr.edu.cu':
   servername    => 'media0.upr.edu.cu',    
   serveraliases => ['www.media0.upr.edu.cu'],
   port          => '80',
-  docroot       => '/var/www/html/media/',
+  docroot       => '/opt/html/media/',
   directories   => [ {
-    'path'           => '/var/www/html/media',
+    'path'           => '/opt/html/media',
     'options'        => ['Indexes','FollowSymLinks','MultiViews'],
     'allow_override' => 'All',
     'directoryindex' => 'index.php',
