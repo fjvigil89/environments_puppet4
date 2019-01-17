@@ -102,19 +102,15 @@ class reverseproxy_server::server{
            }
            else{
              nginx::resource::server { $::reverseproxy_server::server_name[$index]:
-               listen_port                => $::reverseproxy_server::listen_port[$index],
-               proxy                      => "http://${value}",
-               server_name                => ["${value}"],
-               use_default_location       => false,
-               location_custom_cfg_append => {
-                 'proxy_pass'                 => "http://${value};",
-                 'proxy_read_timeout'         => '90s;',
-                 'proxy_connect_timeout'      => '90s;',
-                 'proxy_send_timeout'         => '90s;',
-                 'proxy_set_header X-Real-IP' => '$remote_addr;',
-                 'proxy_set_header Host'      => '$host;',
-                 'proxy_set_header Proxy'     => '"";',
-               },
+               listen_port           => $::reverseproxy_server::listen_port[$index],
+               proxy                 => "http://${value}",
+               server_name           => ["${value}"],         
+               proxy_read_timeout    => '90s',
+               proxy_connect_timeout => '90s',
+               proxy_send_timeout    => '90s',
+               proxy_set_header      => 'X-Real-IP $remote_addr',
+               proxy_set_header      => 'Host $host',
+               proxy_set_header      => 'Proxy ""',
              }
 
            }
