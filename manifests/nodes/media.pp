@@ -50,6 +50,7 @@ class { '::basesys':
 include git
 
 class { '::php_webserver':
+  manage_repos   => true,
   php_version    => '5.4',
   php_extensions => {
     'curl'     => {},
@@ -59,7 +60,7 @@ class { '::php_webserver':
     'xml'      => {},
     'mbstring' => {},
   },
-  packages       =>  [],
+  packages       => [],
 }
 
 
