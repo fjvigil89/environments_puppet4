@@ -12,7 +12,7 @@ class basesys::lxc {
     ensure                                 => absent,
     path                                   => '/etc/systemd/system.conf',
     #line                                  => $service_limit,
-    match                                  => $service_limit,
+    match                                  => "/^$service_limit*/",
     #replace                               => true,
     #after                                 => '^# See systemd-system.conf(5) for details.',
     match_for_absence                      => true,
