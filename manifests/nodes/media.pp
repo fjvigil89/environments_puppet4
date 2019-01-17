@@ -48,7 +48,14 @@ class { '::basesys':
 }
 include apache
 include git
-vcsrepo { '/var/www/html/':
+
+file { '/var/www/html':
+  ensure  => directory,
+  group   => 'root',
+  owner   => 'root',
+  mode    => '0775',
+  }~>
+vcsrepo { '/var/www/html':
   ensure   => latest,
   provider => 'git',
   remote   => 'origin',
