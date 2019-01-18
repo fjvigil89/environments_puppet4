@@ -60,7 +60,7 @@ class { '::php_webserver':
     'mbstring' => {},
   },
   packages       => ['php7.0-dev','php7.0-apcu','php7.0-mbstring','php7.0','php7.0-cli','php7.0-curl','php7.0-intl','php7.0-ldap','php7.0-sybase','libapache2-mod-php7.0','php7.0-mcrypt','php7.0-xml','php7.0-mysql','php7.0-common'],
-}
+}~>
 
 file { '/opt/html':
   ensure  => directory,
@@ -76,7 +76,7 @@ vcsrepo { '/opt/html':
     'origin' => 'git@gitlab.upr.edu.cu:dcenter/media.git',
   },
   revision => 'master',
-}
+}~>
 
 apache::vhost { 'media0.upr.edu.cu':
   servername    => 'media0.upr.edu.cu',    
@@ -90,12 +90,12 @@ apache::vhost { 'media0.upr.edu.cu':
     'directoryindex' => 'index.php',
     },],
     
-}
+}~>
 
 
 exec{"a2enmod_php7":
   command => '/usr/bin/sudo a2enmod php7.0',
-}
+}~>
 
 exec{"service_apache2_restart":
   command     => '/usr/bin/sudo service apache2 restart',
