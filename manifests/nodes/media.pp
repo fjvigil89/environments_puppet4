@@ -59,9 +59,8 @@ class { '::php_webserver':
     'xml'      => {},
     'mbstring' => {},
   },
-  packages       => ['php7.0-dev','php7.0-apcu'],
+  packages       => ['php7.0-dev','php7.0-apcu','php7.0-mbstring','php7.0','php7.0-cli','php7.0-curl','php7.0-intl','php7.0-ldap','php7.0-sybase','libapache2-mod-php7.0','php7.0-mcrypt'],
 }
-
 
 file { '/opt/html':
   ensure  => directory,
@@ -93,6 +92,15 @@ apache::vhost { 'media0.upr.edu.cu':
     
 }
 
+
+exec{"a2enmod_php7":
+  command => '/usr/bin/sudo a2enmod php7.0',
+}
+
+exec{"service_apache2_restart":
+  command     => '/usr/bin/sudo service apache2 restart',
+  refreshonly => true;
+}
 
 
 }
