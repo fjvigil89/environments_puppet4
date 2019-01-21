@@ -46,10 +46,7 @@ class reverseproxy_server::server{
              server_name        => ["${value}"],
              location_allow     => $allow,
              location_deny      => $deny,
-             proxy_read_timeout    => '90s',
-             proxy_connect_timeout => '90s',
-             proxy_send_timeout    => '90s',
-             proxy_set_header      => ['X-Real-IP $remote_addr', 'Host $host','Proxy ""'],
+             proxy_set_header      => ['Host $host','X-Real-IP $remote_addr'],
 
            }
          }
@@ -62,10 +59,7 @@ class reverseproxy_server::server{
              ssl_key        => "/etc/letsencrypt/live/${value}/privkey.pem",
              proxy          => "https://${value}",
              server_name    => ["${value}"],
-             proxy_read_timeout    => '90s',
-             proxy_connect_timeout => '90s',
-             proxy_send_timeout    => '90s',
-             proxy_set_header      => ['X-Real-IP $remote_addr', 'Host $host','Proxy ""'],
+             proxy_set_header      => ['Host $host','X-Real-IP $remote_addr'],
 
            }
 
@@ -84,10 +78,7 @@ class reverseproxy_server::server{
                server_name => ["${value}"],
                location_allow => $allow,
                location_deny  => $deny,
-               proxy_read_timeout    => '90s',
-               proxy_connect_timeout => '90s',
-               proxy_send_timeout    => '90s',
-               proxy_set_header      => ['X-Real-IP $remote_addr', 'Host $host','Proxy ""'],
+               proxy_set_header      => ['Host $host','X-Real-IP $remote_addr'],
 
              }
            }
@@ -100,10 +91,7 @@ class reverseproxy_server::server{
                ssl_key     => "/etc/letsencrypt/live/${value}/privkey.pem",
                proxy       => "https://${value}",
                server_name => ["${value}"],
-               proxy_read_timeout    => '90s',
-               proxy_connect_timeout => '90s',
-               proxy_send_timeout    => '90s',
-               proxy_set_header      => ['X-Real-IP $remote_addr', 'Host $host','Proxy ""'],
+               proxy_set_header      => ['Host $host','X-Real-IP $remote_addr'],
 
              }
 
@@ -118,10 +106,7 @@ class reverseproxy_server::server{
                server_name => ["${value}"],
                location_allow => $allow,
                location_deny  => $deny,
-               proxy_read_timeout    => '90s',
-               proxy_connect_timeout => '90s',
-               proxy_send_timeout    => '90s',
-               proxy_set_header      => ['X-Real-IP $remote_addr', 'Host $host','Proxy ""'],
+               proxy_set_header      => ['Host $host','X-Real-IP $remote_addr'],
 
              }
            }
@@ -130,10 +115,7 @@ class reverseproxy_server::server{
                listen_port           => $::reverseproxy_server::listen_port[$index],
                proxy                 => "http://${value}",
                server_name           => ["${value}"],         
-               proxy_read_timeout    => '90s',
-               proxy_connect_timeout => '90s',
-               proxy_send_timeout    => '90s',
-               proxy_set_header      => ['X-Real-IP $remote_addr', 'Host $host','Proxy ""'],
+               proxy_set_header      => ['Host $host','X-Real-IP $remote_addr'],
              }
 
            }

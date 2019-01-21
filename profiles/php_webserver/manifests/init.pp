@@ -29,7 +29,7 @@ class php_webserver (
 
   # Newrelic enabled or not?
   Boolean $newrelic_enabled     = $::php_webserver::params::newrelic_enabled,
-
+  Boolean $manage_repos         = false,
   # Aditional packages to install
   Array $packages                = [],
   Hash $applications             = {},
@@ -53,7 +53,7 @@ class php_webserver (
    #config_root => '/etc/php/7.0',
   }
   -> class { '::php':
-    manage_repos => false,
+    manage_repos => $manage_repos,
     fpm          => true,
     dev          => $development_mode,
     composer     => true,
