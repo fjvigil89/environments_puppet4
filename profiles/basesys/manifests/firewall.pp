@@ -12,7 +12,7 @@ if($enable_firewall){
       proto  => 'all',
       action => 'accept',
       source => $::basesys::params::upr_networks,
-      notify{ "Abriendo los puertos:$::basesys::params::open_ports con origen:$::basesys::params::upr_networks[$index] al Firewall":},
+      #notify { "Abriendo los puertos:$::basesys::params::open_ports con origen:$::basesys::params::upr_networks[$index] al Firewall":}
     }
   }
 }
