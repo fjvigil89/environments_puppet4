@@ -79,21 +79,18 @@ class { '::php_webserver':
   packages       => ['php7.0-dev','php7.0-apcu','php7.0-mbstring','php7.0','php7.0-cli','php7.0-curl','php7.0-intl','php7.0-ldap','php7.0-sybase','libapache2-mod-php7.0','php7.0-mcrypt','php7.0-xml','php7.0-mysql','php7.0-common'],
 }~>
 apache::vhost { 'media0.upr.edu.cu':
-  servername    => 'media0.upr.edu.cu',    
-  serveraliases => ['www.media0.upr.edu.cu'],
-  port          => '80',
-  docroot       => '/opt/html/',
-  directories   => [ {
+   servername    => 'media0.upr.edu.cu',    
+   serveraliases => ['www.media0.upr.edu.cu'],
+   port          => '80',
+   docroot       => '/opt/html/',
+   directories   => [ {
     'path'           => '/opt/html',
     'options'        => ['Indexes','FollowSymLinks','MultiViews'],
     'allow_override' => 'All',
     'directoryindex' => 'index.php',
     },],
-  rewrites      => [{
-    'options' => '-MultiViews',
-
-  },],
-    
+   rewrite_cond  => '%{REQUEST_FILENAME} !-f',
+   rewrite_rule  => '^.*$ index.php [QSA,L]',
 }~>
 exec{"a2enmod_php7":
   command => '/usr/bin/sudo a2enmod php7.0',
