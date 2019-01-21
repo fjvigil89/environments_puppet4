@@ -82,16 +82,58 @@ apache::vhost { 'media0.upr.edu.cu':
    servername    => 'media0.upr.edu.cu',    
    serveraliases => ['www.media0.upr.edu.cu'],
    port          => '80',
-   docroot       => '/opt/html/',
-   directories   => [ {
-    'path'           => '/opt/html',
-    'options'        => ['Indexes','FollowSymLinks','MultiViews'],
-    'allow_override' => 'All',
-    'directoryindex' => 'index.php',
-    },],
-   rewrite_cond  => '%{REQUEST_FILENAME} !-f',
-   rewrite_rule  => '^.*$ index.php [QSA,L]',
-}~>
+}
+
+file{'/etc/apache2/sites-available/25-media.upr.edu.cu.conf':
+  ensure  => 'file',
+  owner   => 'root',
+  group   => 'root',
+  mode    => '0644',
+  content => '
+# ************************************
+# Vhost template in module puppetlabs-apache
+# Managed by Puppet
+# ************************************
+
+<VirtualHost *:80>
+  ServerName media0.upr.edu.cu
+
+  ## Vhost docroot
+  DocumentRoot "/opt/html/"
+
+  ## Directories, there should at least be a declaration for /opt/html/
+
+  <Directory "/opt/html">
+    Options Indexes FollowSymLinks MultiViews
+    AllowOverride All
+    Require all granted
+    DirectoryIndex index.php
+
+        <IfModule mod_rewrite.c>
+                    Options -MultiViews
+                    RewriteEngine On
+                    RewriteCond %{REQUEST_FILENAME} !-f
+                    RewriteRule ^(.*)$ index.php [QSA,L]
+                </IfModule>
+
+  </Directory>
+
+  ## Logging
+  ErrorLog "/var/log/apache2/media0.upr.edu.cu_error.log"
+  ServerSignature Off
+  CustomLog "/var/log/apache2/media0.upr.edu.cu_access.log" combined
+
+
+
+  ## Server aliases
+  ServerAlias www.media0.upr.edu.cu
+</VirtualHost>
+
+  ',
+  before  => Exec['a2enmod_php7'],
+  notify  => Exec['service_apache2_restart'];
+}
+
 exec{"a2enmod_php7":
   command => '/usr/bin/sudo a2enmod php7.0',
 }~>
