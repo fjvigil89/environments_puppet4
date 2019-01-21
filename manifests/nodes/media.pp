@@ -78,7 +78,6 @@ node 'ha-media.upr.edu.cu' {
    ipaddresses       => '10.2.24.5',
    ports             => '80',
  }
-
 }
 node /^media\d+$/ {
 class { '::basesys':
