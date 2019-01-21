@@ -100,6 +100,5 @@ exec{"service_apache2_restart":
   refreshonly => true;
 }
 
-
 }
 
