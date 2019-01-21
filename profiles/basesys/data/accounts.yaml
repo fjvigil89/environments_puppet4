@@ -54,7 +54,6 @@ basesys::accounts:
     manage_primary_group: false
     gid: '100'
     tag: 'systemen'
-    locked: true
     sshkeys:
       - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC+KWlgf6YAfDtFcvYYLIGexkyUUhAqVamXE3FvPbeLsawci652yXj5ZMOQBZfaeEuU+arvkoQfRo8dsWmiIkM3btQwSjg1JiH53cw/egxDimtPTBCErJJtmypoDedzvZWKP2DhHIKY3SSWwVR1UN79YMK7eSNFU61jTBptkh2dOttHo8sqrb0BdYZR4zVC7ZulKedGZk2BmyvSs84OoDpUZSyTD+WcKONE1FzHfcBIBXHl4OMlEbyNZjKZ+dLkA4UT8wWzNPEZjHa5yjKMpbKTxBz/BHfa7i6Li87QIHar78Cjq22lzb1MZTTO64w8Dt0Wu/PCMK1sU0rJfGOP5NW0AV+Lg21tqh+xGkL6grSqd4pEWLCapqB7N2cK6WwqkDyNULTybcRfiCtL8p00udBVIcTJz3JF/vgnArui2tGqNk5AvuW53MMskaIczxzEbkdDXDQPEoa6UghZU9xU01DMSCxvN8q0pfApSC6sx9BZlB9U6n4xcIgUofpe9G6v96A9gdMof9MWWTyyr0bRWqY00SFr05LUw1PvJEGnLlUYFdOPO9oKB6XzixiGUl1DIxQIOiR/g7l1omrWfWWpfV24kqyQP6175tRpR/FQgW4Ys1sB9F2bCCnDd4Ivl0Ht+ej5FfgDcOACU/ov9wBf07+4o/v7L/DNjorSw038arVJUw== henry@henry-HP-Pavilion-Notebook'      
 
