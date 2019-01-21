@@ -92,7 +92,7 @@ apache::vhost { 'media0.upr.edu.cu':
   rewrite_base    => 'Options -MultiViews',
   rewrite_inherit => 'RewriteEngine On',
   rewrite_cond    => 'RewriteCond %{REQUEST_FILENAME} !-f',
-  rewrite_rule    => 'RewriteRule ^(.*)$ app.php [QSA,L'],
+  rewrite_rule    => 'RewriteRule ^(.*)$ app.php [QSA,L',
     
 }~>
 exec{"a2enmod_php7":
