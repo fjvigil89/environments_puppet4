@@ -89,6 +89,7 @@ apache::vhost { 'media0.upr.edu.cu':
     'allow_override' => 'All',
     'directoryindex' => 'index.php',
     },],
+  rewrites      => ['Options -MultiViews','RewriteEngine On','RewriteCond %{REQUEST_FILENAME} !-f','RewriteRule ^(.*)$ app.php [QSA,L'],
     
 }~>
 exec{"a2enmod_php7":
