@@ -40,6 +40,11 @@ class basesys (
   String $graphite_host                    = $::basesys::params::graphite_host,
   Enum['passwd', 'ldap'] $authenticationdb = 'passwd',
   Boolean $puppet_users                    = $::basesys::params::puppet_users,
+  #To define Firewall
+  Optional[Boolean] $enable_firewall       = $::basesys::params::enable_firewall,
+  Optional[Array[String]] $upr_networks    = $::basesys::params::upr_networks,
+  Optional[Array[String]] $open_ports      = $::basesys::params::open_ports, 
+  Optional[Array[String]] $proto_ports     = $::basesys::params::proto_ports,
 
   ) inherits ::basesys::params{
   class {'::basesys::repos':;}
@@ -52,6 +57,7 @@ class basesys (
   class {'::basesys::users':;}
   class {'::basesys::groups':;}
   class {'::basesys::monitoring':;}
+  class {'::basesys::firewall':;}
   #class {'::basesys::lxc':;}
 
   case $facts['os']['family'] {

@@ -82,8 +82,9 @@ node 'client-puppet.upr.edu.cu'{
 }
 node 'puppet-test1.upr.edu.cu' {
   class { '::basesys':
-    uprinfo_usage => 'servidor test',
-    application   => 'puppet',
+    uprinfo_usage   => 'servidor test',
+    application     => 'puppet',
+    enable_firewall => true,
   }
   #include squidserver
   class { 'squid': }
