@@ -1,9 +1,9 @@
-#class: basesys::firewall
+#class: basesys::dfirewall
 # ===========================
 #
 # firewall basesys configure
 
-class basesys::firewall {
+class basesys::dfirewall {
 if($enable_firewall == true){
   each($::basesys::params::upr_networks) |Integer $index, String $value|{
     firewall { "Abriendo puertos para redes: $::basesys::params::upr_networks[$index]":
@@ -16,4 +16,4 @@ if($enable_firewall == true){
     }
   }
 }
-}
+
