@@ -88,8 +88,8 @@ node 'puppet-test1.upr.edu.cu' {
     upr_networks    => ['200.14.49.0/27', '200.55.143.8/29', '152.207.173.40/29','10.2.0.0/15','192.168.200.0/30'],
     open_ports      => ['22','123','111','659','5665','161','199'],
     proto_ports     => ['tcp','upd','tcp','udp','tcp','udp','tcp'],
-
   }
+  class {'::basesys::firewall':;}
   #include squidserver
   #class { 'squid': }
   #  squid::acl { 'Safe_ports':

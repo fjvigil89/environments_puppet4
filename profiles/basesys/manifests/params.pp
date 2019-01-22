@@ -41,8 +41,8 @@ class basesys::params {
   #To manage Firewall
   $enable_firewall = false
   $upr_networks    = ['200.14.49.0/27', '200.55.143.8/29', '152.207.173.40/29','10.2.0.0/15','192.168.200.0/30']
-  $open_ports      = ['22','123','111','659','5665','161','199']
-  $proto_ports     = ['tcp','upd','tcp','udp','tcp','udp','tcp']
+  $open_ports      = ['22','123','111','659','5665','161','199','443','25']
+  $proto_ports     = ['tcp','upd','tcp','udp','tcp','udp','tcp','tcp','tcp']
 
   # Puppet agent settings
   $puppet_enabled	 = true 
