@@ -131,9 +131,10 @@ apache::vhost { $fqdn:
      'directoryindex' => 'index.php',
      },],
  }~>
-concat::fragment{ 'directoryIndex':
-  target  => "/etc/apache2/sites-available/25-${fqdn}.conf",
-  content => "\n
+file_line{ 'mod_rewrite':
+  path  => "/etc/apache2/sites-available/25-${fqdn}.conf",
+  line  => "DirectoryIndex index.php",
+  match => "\n
      <IfModule mod_rewrite.c>
              Options -MultiViews
              RewriteEngine On
@@ -141,7 +142,7 @@ concat::fragment{ 'directoryIndex':
              RewriteRule ^(.*)$ index.php [QSA,L]
       </IfModule>
   \n\n",
-  order   => '100'
+
 }~>
 exec{"a2enmod_php7":
   command => '/usr/bin/sudo a2enmod php7.0',
