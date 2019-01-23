@@ -133,7 +133,7 @@ exec{"service_apache2_restart":
   refreshonly => true;
 }
 
-file{"/etc/apache2/sites-available/25-${fqdn}.conf":
+file{"/etc/apache2/sites-available/25-media0.upr.edu.cu.conf":
   ensure  => 'file',
   owner   => 'root',
   group   => 'root',
