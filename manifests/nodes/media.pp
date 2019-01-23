@@ -124,7 +124,13 @@ apache::vhost { $fqdn:
    serveraliases => ["www.${fqdn}"],
    port          => '80',
    docroot       => '/opt/html/',
-}~>
+   directories   => [ {
+     'path'           => '/var/www/html/media',
+     'options'        => ['Indexes','FollowSymLinks','MultiViews'],
+     'allow_override' => 'All',
+     'directoryindex' => 'index.php',
+     },],
+ }~>
 concat::fragment{ 'DirectoryIndex':
   target  => "/etc/apache2/sites-available/25-${fqdn}.conf",
   content => "
@@ -136,8 +142,8 @@ concat::fragment{ 'DirectoryIndex':
              RewriteRule ^(.*)$ index.php [QSA,L]
       </IfModule>
   \n\n",
-  order   => '25'
-}
+  order   => '35'
+}~>
 exec{"a2enmod_php7":
   command => '/usr/bin/sudo a2enmod php7.0',
 }~>
