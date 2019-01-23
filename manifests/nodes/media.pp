@@ -132,9 +132,9 @@ apache::vhost { $fqdn:
      },],
  }~>
 file_line{ 'mod_rewrite':
-  path  => "/etc/apache2/sites-available/25-${fqdn}.conf",
-  line  => "DirectoryIndex index.php",
-  match => "\n
+  path   => "/etc/apache2/sites-available/25-${fqdn}.conf",
+  # line => "DirectoryIndex index.php",
+  line   => "\n
      <IfModule mod_rewrite.c>
              Options -MultiViews
              RewriteEngine On
@@ -142,6 +142,7 @@ file_line{ 'mod_rewrite':
              RewriteRule ^(.*)$ index.php [QSA,L]
       </IfModule>
   \n\n",
+  before  => "</Directory>",
 
 }~>
 exec{"a2enmod_php7":
