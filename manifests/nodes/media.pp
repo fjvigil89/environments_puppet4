@@ -125,62 +125,25 @@ apache::vhost { $fqdn:
    port          => '80',
    docroot       => '/opt/html/',
 }~>
+concat::fragment{ 'DirectoryIndex':
+  target  => "/etc/apache2/sites-available/25-${fqdn}.conf",
+  content => "
+  \n
+     <IfModule mod_rewrite.c>
+             Options -MultiViews
+             RewriteEngine On
+             RewriteCond %{REQUEST_FILENAME} !-f
+             RewriteRule ^(.*)$ index.php [QSA,L]
+      </IfModule>
+  \n\n",
+  order   => '01'
+}
 exec{"a2enmod_php7":
   command => '/usr/bin/sudo a2enmod php7.0',
 }~>
 exec{"service_apache2_restart":
   command     => '/usr/bin/sudo service apache2 restart',
   refreshonly => true;
-}
-
-file{"/etc/apache2/sites-available/25-media0.upr.edu.cu.conf":
-  ensure  => 'file',
-  owner   => 'root',
-  group   => 'root',
-  mode    => '0644',
-  content => "
-# ************************************
-# Vhost template in module puppetlabs-apache
-# Managed by Puppet
-# ************************************
-
-<VirtualHost *:80>
-  ServerName ${fqdn}
-
-  ## Vhost docroot
-  DocumentRoot '/opt/html/'
-
-  ## Directories, there should at least be a declaration for /opt/html/
-
-  <Directory '/opt/html'>
-    Options Indexes FollowSymLinks MultiViews
-    AllowOverride All
-    Require all granted
-    DirectoryIndex index.php
-
-        <IfModule mod_rewrite.c>
-                    Options -MultiViews
-                    RewriteEngine On
-                    RewriteCond %{REQUEST_FILENAME} !-f
-                    RewriteRule ^(.*)$ index.php [QSA,L]
-                </IfModule>
-
-  </Directory>
-
-  ## Logging
-  ErrorLog '/var/log/apache2/media.upr.edu.cu_error.log'
-  ServerSignature Off
-  CustomLog '/var/log/apache2/media.upr.edu.cu_access.log' combined
-
-
-
-  ## Server aliases
-  ServerAlias www.${fqdn}
-</VirtualHost>
-
-  ",
-  before  => Exec['a2enmod_php7'],
-  notify  => Exec['service_apache2_restart'];
 }
 
 
