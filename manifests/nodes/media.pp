@@ -131,21 +131,21 @@ file{'/etc/apache2/sites-available/25-media.upr.edu.cu.conf':
   owner   => 'root',
   group   => 'root',
   mode    => '0644',
-  content => '
+  content => "
 # ************************************
 # Vhost template in module puppetlabs-apache
 # Managed by Puppet
 # ************************************
 
 <VirtualHost *:80>
-  ServerName media0.upr.edu.cu
+  ServerName ${fqdn}
 
   ## Vhost docroot
-  DocumentRoot "/opt/html/"
+  DocumentRoot '/opt/html/'
 
   ## Directories, there should at least be a declaration for /opt/html/
 
-  <Directory "/opt/html">
+  <Directory '/opt/html'>
     Options Indexes FollowSymLinks MultiViews
     AllowOverride All
     Require all granted
@@ -161,17 +161,17 @@ file{'/etc/apache2/sites-available/25-media.upr.edu.cu.conf':
   </Directory>
 
   ## Logging
-  ErrorLog "/var/log/apache2/media0.upr.edu.cu_error.log"
+  ErrorLog '/var/log/apache2/media.upr.edu.cu_error.log'
   ServerSignature Off
-  CustomLog "/var/log/apache2/media0.upr.edu.cu_access.log" combined
+  CustomLog '/var/log/apache2/media.upr.edu.cu_access.log' combined
 
 
 
   ## Server aliases
-  ServerAlias www.media0.upr.edu.cu
+  ServerAlias www.${fqdn}
 </VirtualHost>
 
-  ',
+  ",
   before  => Exec['a2enmod_php7'],
   notify  => Exec['service_apache2_restart'];
 }
