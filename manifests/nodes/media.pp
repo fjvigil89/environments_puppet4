@@ -125,6 +125,14 @@ apache::vhost { $fqdn:
    port          => '80',
    docroot       => '/opt/html/',
 }~>
+exec{"a2enmod_php7":
+  command => '/usr/bin/sudo a2enmod php7.0',
+}~>
+exec{"service_apache2_restart":
+  command     => '/usr/bin/sudo service apache2 restart',
+  refreshonly => true;
+}
+
 file{"/etc/apache2/sites-available/25-${fqdn}.conf":
   ensure  => 'file',
   owner   => 'root',
@@ -175,13 +183,7 @@ file{"/etc/apache2/sites-available/25-${fqdn}.conf":
   notify  => Exec['service_apache2_restart'];
 }
 
-exec{"a2enmod_php7":
-  command => '/usr/bin/sudo a2enmod php7.0',
-}~>
-exec{"service_apache2_restart":
-  command     => '/usr/bin/sudo service apache2 restart',
-  refreshonly => true;
-}
+
 
 }
 
