@@ -124,8 +124,7 @@ apache::vhost { 'media0.upr.edu.cu':
    serveraliases => ['www.media0.upr.edu.cu'],
    port          => '80',
    docroot       => '/opt/html/',
-}
-
+}~>
 file{'/etc/apache2/sites-available/25-media.upr.edu.cu.conf':
   ensure  => 'file',
   owner   => 'root',
