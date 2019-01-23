@@ -125,16 +125,15 @@ apache::vhost { $fqdn:
    port          => '80',
    docroot       => '/opt/html/',
    directories   => [ {
-     'path'           => '/var/www/html/media',
+     'path'           => '/opt/html',
      'options'        => ['Indexes','FollowSymLinks','MultiViews'],
      'allow_override' => 'All',
      'directoryindex' => 'index.php',
      },],
  }~>
-concat::fragment{ 'DirectoryIndex':
+concat::fragment{ 'directoryIndex':
   target  => "/etc/apache2/sites-available/25-${fqdn}.conf",
-  content => "
-  \n
+  content => "\n
      <IfModule mod_rewrite.c>
              Options -MultiViews
              RewriteEngine On
