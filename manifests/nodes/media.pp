@@ -142,7 +142,7 @@ file_line{ 'mod_rewrite':
              RewriteRule ^(.*)$ index.php [QSA,L]
       </IfModule>
   \n\n",
-  before  => "</Directory>",
+  after  => "DirectoryIndex index.php",
 
 }~>
 exec{"a2enmod_php7":
