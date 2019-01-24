@@ -1,28 +1,26 @@
 #Clase MRTG
 
-class mrtg {
-  include apache
-
-  file { "/etc/apache2/conf.d/mrtg.conf":
-    owner  => root,
-    group  => root,
-    mode   => '644',
-    ensure => present,
-    #    require => Package["apache2"],
-    # source  => "puppet://$server/modules/mrtg/mrtg.httpd",
-  }
-  
-  package { mrtg:
+class mrtg (
+  $owner = $::mrtg::params::owner,
+  $group = $::mrtg::params::group,
+  $mode = $::mrtg::params::mode,
+  $community = $::mrtg::params::community,
+  Array[String] $ip = $::mrtg::params::ip,
+  Array[String] $names = $::mrtg::params::name,
+)inherits ::mrtg::params {
+  include ::mrtg::apache
+  include ::mrtg::device
+  package { 'mrtg':
     name   => $operatingsystem ? {
       default => "mrtg",
     },
-    ensure => present,
+    ensure => installed,
   }
 
   file { "mrtg.cfg":
-    owner   => root,
-    group   => root,
-    mode    => '644',
+    owner   => $owner,
+    group   => $group,
+    mode    => $mode,
     require => Package["mrtg"],
     ensure  => present,
     path    => $operatingsystem ? {
@@ -32,22 +30,8 @@ class mrtg {
 
   file { '/var/www/mrtg':
     ensure => directory,
-    owner  => www-data,
-    group  => www-data,
-    mode   => '775',
-  }
-
-  package { whois:
-    name => $operatingsystem ? {
-      default => "whois",
-    },
-    ensure => present,
-  }
-
-  file {'/var/www/whois':
-    ensure  => directory,
-    owner   => root,
-    group   => root,
-    mode    => '775',
+    owner  => $owner,
+    group  => $group,
+    mode   => $mode,
   }
 }
