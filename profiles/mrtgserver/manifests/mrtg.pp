@@ -1,10 +1,10 @@
 #Clase MRTG
 
-class mrtgserver::mrtg{
+class mrtgserver::mrtg(){
   package { 'mrtg':
-    name   => $operatingsystem ? {
-    default => "mrtg",
-    },
+    #   name   => $operatingsystem ? {
+    #default => 'mrtg',
+    #},
     ensure => installed,
   }
   each ($::mrtgserver::ip) |Integer $index, String $value|{

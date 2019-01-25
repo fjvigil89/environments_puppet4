@@ -1,18 +1,17 @@
 ## Manage Apache config 
 
-class mrtgserver::apache {
-
-  case $operatingsystem {
+class mrtgserver::apache(){
+  case $facts['operatingsystem'] {
     'CentOS', 'RedHat': {
-      if $architecture == "x86_64" {
+      if $facts['architecture'] == 'x86_64' {
         package { 'httpd':
-          name   => "httpd.x86_64",
+          name   => 'httpd.x86_64',
           ensure => installed,
         }
       }
       else {
         package { 'httpd':
-          name   => "httpd.i386",
+          name   => 'httpd.i386',
           ensure => installed,
         }
       }
@@ -20,8 +19,8 @@ class mrtgserver::apache {
         ensure => running,
         enable => true,
       }
-      file { "http.conf":
-        path   => "/etc/httpd/conf/httpd.conf",
+      file { 'http.conf':
+        path   => '/etc/httpd/conf/httpd.conf',
         owner  => $owner,
         group  => $group,
         mode   => $mode,
@@ -30,20 +29,21 @@ class mrtgserver::apache {
       }
     'Debian', 'Ubuntu': {
       package { 'apache2':
-        name   => "apache2",
+        name   => 'apache2',
         ensure => installed,
       }
       service {'apache2':
         ensure => running,
         enable => true,
       }
-      file { "apache2.conf":
-        path   => "/etc/apache2/apache2.conf",
+      file { 'apache2.conf':
+        path   => '/etc/apache2/apache2.conf',
         owner  => $owner,
         group  => $group,
         mode   => $mode,
         ensure => present,
       }
     }
+    default : {}
   }
 }
