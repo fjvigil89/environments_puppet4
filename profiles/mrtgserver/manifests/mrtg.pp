@@ -23,7 +23,7 @@ class mrtgserver::mrtg(){
   #  },
   #}
   exec {'cfgmaker':
-    command => "cfgmaker $community@10.2.1.1 > /etc/mrtg/10.2.1.1.cfg"
+    command => "/usr/bin/cfgmaker $community@10.2.1.1 > /etc/mrtg/10.2.1.1.cfg"
   }
   file { '/var/www/mrtg':
     ensure => directory,
