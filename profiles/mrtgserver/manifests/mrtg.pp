@@ -7,11 +7,11 @@ class mrtgserver::mrtg(){
     #},
     ensure => installed,
   }
-  each ($::mrtgserver::ip) |Integer $index, String $value|{
-    exec {'cfg':
-      command => "cfgmaker $community@$value > /etc/mrtg/$names[$index].cfg",
-    }
-  }
+  #  each ($::mrtgserver::ip) |Integer $index, String $value|{
+  #  exec {'cfgmaker':
+  #    command => "cfgmaker $community@$value > /etc/mrtg/$names[$index].cfg",
+  #  }
+  #}
   #file { "mrtg.cfg":
   #  owner   => $owner,
   #  group   => $group,
@@ -22,6 +22,9 @@ class mrtgserver::mrtg(){
   #    default => "/etc/mrtg/mrtg.cfg"
   #  },
   #}
+  exec {'cfgmaker':
+    command => "cfgmaker $community@10.2.1.1 > /etc/mrtg/10.2.1.1.cfg"
+  }
   file { '/var/www/mrtg':
     ensure => directory,
     owner  => $owner,
