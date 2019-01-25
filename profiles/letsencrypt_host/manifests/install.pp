@@ -19,17 +19,19 @@ class letsencrypt_host::install {
   if($::letsencrypt_host::webroot_enable) {
     each($::letsencrypt_host::dominios)|Integer $index, String $value|{
       letsencrypt::certonly { "${value}":
-        domains              => [$value],
-        plugin               => $::letsencrypt_host::plugin,
-        webroot_paths        => $::letsencrypt_host::webroot_paths,
+        domains       => [$value],
+        plugin        => $::letsencrypt_host::plugin,
+        webroot_paths => $::letsencrypt_host::webroot_paths,
+        config_dir    => $::letsencrypt_host::config_dir,
       }
     }
   }
   else {
     each($::letsencrypt_host::dominios)|Integer $index, String $value|{
       letsencrypt::certonly { "${value}":
-        domains              => [$value],
-        plugin               => $::letsencrypt_host::plugin,
+        domains    => [$value],
+        plugin     => $::letsencrypt_host::plugin,
+        config_dir => $::letsencrypt_host::config_dir,
       }
     }
   }
