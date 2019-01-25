@@ -269,7 +269,15 @@ node 'puppet-test.upr.edu.cu' {
    #}
 
 node 'mrtg-puppet.upr.edu.cu' {
-  include mrtgprodserver
+  #  include mrtgprodserver
+  package { 'lsb-release':
+    ensure => installed,
+    }~>
+    class { '::basesys':
+      uprinfo_usage => 'Servidor mrtg',
+      application   => 'mrtg',
+      proxmox_enabled => false,
+    }
 }
   #  class { 'prosody':
   #  user              => 'prosody',
