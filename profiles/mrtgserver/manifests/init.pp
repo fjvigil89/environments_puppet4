@@ -9,7 +9,7 @@ class mrtgserver (
   Array[String] $names = $::mrtgserver::params::name,
 )inherits ::mrtgserver::params {
   class {'::mrtgserver::apache':;}
-  class {'::mrtgserver::device':;}
+  #  class {'::mrtgserver::device':;}
   class {'::mrtgserver::mrtg':;}
 }
 
