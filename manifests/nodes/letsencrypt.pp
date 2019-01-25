@@ -7,6 +7,6 @@ node 'letsencrypt.upr.edu.cu' {
   }
   class { '::letsencrypt_host':
     dominios   => ['contable.upr.edu.cu','sync.upr.edu.cu'],
-    config_dir => '/etc/letsencrypt',
+    config_dir => '/srv/letsencrypt',
   }
 }
