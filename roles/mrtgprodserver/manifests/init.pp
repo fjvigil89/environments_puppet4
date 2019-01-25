@@ -1,6 +1,6 @@
 # Class: mrtg_server
 # ===========================
-class mrtgprod_server() {
+class mrtgprodserver() {
   package { 'lsb-release':
     ensure => installed,
     }~>
