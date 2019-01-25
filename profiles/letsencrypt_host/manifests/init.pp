@@ -10,6 +10,7 @@ class letsencrypt_host (
   Optional[Array[String]] $webroot_paths   = $::letsencrypt_host::params::webroot_paths,
   Optional[String] $plugin                 = $::letsencrypt_host::params::plugin,
   Optional[String] $email                  = undef,
+  Optional[String] $config_dir             = undef,
  )inherits ::letsencrypt_host::params{
    class {'::letsencrypt_host::package':;}
    class {'::letsencrypt_host::install':;}

@@ -8,4 +8,5 @@ class letsencrypt_host::params {
   $webroot_paths  = ['/var/www/']
   $plugin = 'standalone'
   #$email = 'admin@upr.edu.cu'
+  $config_dir = '/etc/letsencrypt'
 }

@@ -6,12 +6,14 @@
 class letsencrypt_host::install {
   if ($::letsencrypt_host::email){
     class { '::letsencrypt':
-      email => $::letsencrypt_host::email,
+      email      => $::letsencrypt_host::email,
+      config_dir => $::letsencrypt_host::config_dir,
     }
   }
   else {
     class { '::letsencrypt':
       unsafe_registration => true,
+      config_dir          => $::letsencrypt_host::config_dir,
     }
   }
   if($::letsencrypt_host::webroot_enable) {
