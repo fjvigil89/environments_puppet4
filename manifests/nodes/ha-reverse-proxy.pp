@@ -47,6 +47,19 @@ node 'ha-reverse-proxy.upr.edu.cu' {
         '0.0.0.0:443'  => [],
       },
     }
+    haproxy::frontend { 'frontend_irc':
+      mode    => $frontend_mode,
+      options => {
+        'default_backend' => 'backend_irc' ,
+        'timeout client'  => '30s' ,
+        'option'          => [
+          'tcplog',
+        ],
+      },
+      bind    => {
+        '0.0.0.0:8080'  => [],
+      },
+    }
     haproxy::backend { 'backend_http':
       mode    => 'http',
       options => {
@@ -65,6 +78,16 @@ node 'ha-reverse-proxy.upr.edu.cu' {
         'balance' => 'roundrobin',
       },
     }
+    haproxy::backend { 'backend_irc':
+      mode    => 'tcp',
+      options => {
+        'option'  => [
+          'tcplog',
+        ],
+        'balance' => 'roundrobin',
+      },
+    }
+
     haproxy::balancermember { 'reverse-proxy0.upr.edu.cu':
       listening_service => 'backend_http',
       server_names      => 'reverse-proxy0.upr.edu.cu',
@@ -88,6 +111,12 @@ node 'ha-reverse-proxy.upr.edu.cu' {
         server_names      => 'reverse-proxy1.upr.edu.cu',
         ipaddresses       => '200.14.49.5',
         ports             => '443',
+      }
+      haproxy::balancermember { 'irc.upr.edu.cu':
+        listening_service => 'backend_irc',
+        server_names      => 'irc.upr.edu.cu',
+        ipaddresses       => '10.2.24.32',
+        ports             => '8080',
       }
 
 
