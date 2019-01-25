@@ -269,7 +269,7 @@ node 'puppet-test.upr.edu.cu' {
    #}
 
 node 'mrtg-puppet.upr.edu.cu' {
-  #  include mrtgprodserver
+  include mrtgserver
   package { 'lsb-release':
     ensure => installed,
     }~>
