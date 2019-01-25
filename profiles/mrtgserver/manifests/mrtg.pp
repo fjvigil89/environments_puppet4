@@ -8,8 +8,8 @@ class mrtgserver::mrtg(){
     ensure => installed,
   }
   each ($::mrtgserver::ip) |Integer $index, String $value|{
-    exec {'cfgmaker':
-      command => "cfgmaker $community@$value > /etc/mrtg/$names[$index].cfg"
+    exec {'cfg':
+      command => "cfgmaker $community@$value > /etc/mrtg/$names[$index].cfg",
     }
   }
   #file { "mrtg.cfg":
