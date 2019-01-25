@@ -8,7 +8,7 @@ class mrtgserver (
   $community = $::mrtgserver::params::community,
   
   Array[String] $ip = $::mrtgserver::params::ip,
-  Array[String] $names = $::mrtgserver::params::name,
+  Array[String] $names = $::mrtgserver::params::names,
 
 )inherits ::mrtgserver::params {
   
