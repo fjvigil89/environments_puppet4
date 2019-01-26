@@ -7,13 +7,11 @@ class letsencrypt_host::install {
   if ($::letsencrypt_host::email){
     class { '::letsencrypt':
       email      => $::letsencrypt_host::email,
-      config_dir => $::letsencrypt_host::config_dir,
     }
   }
   else {
     class { '::letsencrypt':
       unsafe_registration => true,
-      config_dir          => $::letsencrypt_host::config_dir,
     }
   }
   if($::letsencrypt_host::webroot_enable) {
@@ -26,9 +24,6 @@ class letsencrypt_host::install {
     }
   }
   else {
-   notify{'node_inclusion':
-    message =>  $::letsencrypt_host::config_dir,
-  }
     each($::letsencrypt_host::dominios)|Integer $index, String $value|{
       letsencrypt::certonly { "${value}":
         domains    => [$value],
