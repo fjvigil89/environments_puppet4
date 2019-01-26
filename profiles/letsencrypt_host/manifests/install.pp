@@ -22,7 +22,6 @@ class letsencrypt_host::install {
         domains       => [$value],
         plugin        => $::letsencrypt_host::plugin,
         webroot_paths => $::letsencrypt_host::webroot_paths,
-        config_dir    => $::letsencrypt_host::config_dir,
       }
     }
   }
@@ -34,7 +33,6 @@ class letsencrypt_host::install {
       letsencrypt::certonly { "${value}":
         domains    => [$value],
         plugin     => $::letsencrypt_host::plugin,
-        config_dir => $::letsencrypt_host::config_dir,
       }
     }
   }
