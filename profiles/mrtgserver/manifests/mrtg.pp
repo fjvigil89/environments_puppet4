@@ -23,6 +23,7 @@ class mrtgserver::mrtg(){
   #  },
   #}
   exec {'cfgmaker':
+    creates => "/etc/mrtg/10.2.1.1.cfg",
     command => "/usr/bin/cfgmaker network4core@dminUPR@10.2.1.1 > /etc/mrtg/10.2.1.1.cfg"
   }
   file { '/var/www/mrtg':
