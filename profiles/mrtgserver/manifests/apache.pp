@@ -13,7 +13,7 @@ class mrtgserver::apache(){
 
   apache::vhost { 'whois':
     port       => $port,
-    docroot    => '/var/www/whois/ip/web'
+    docroot    => '/var/www/whois/ip/web',
     servername => 'whois.upr.edu.cu',
     aliases    => 'whois',
   }
