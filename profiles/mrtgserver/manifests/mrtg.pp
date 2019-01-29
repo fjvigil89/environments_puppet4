@@ -19,7 +19,7 @@ class mrtgserver::mrtg(){
   }
   cron {'indexmaker':
     user    => $owner,
-    command => '/usr/bin/indexmaker --columns=2 --addhead="<H1 align= "center" > Multi Router Traffic Grapher <H1>" --title="Tr&aacute;fico de Enlaces UPR" /etc/mrtg/10.2.1.1.cfg > /var/www/mrtg_pup/index.html',
+    command => '/usr/bin/indexmaker --columns=2 --addhead="<H1 align= "center" > Multi Router Traffic Grapher <H1>" --title="Tr&aacute;fico de Enlaces UPR" /etc/mrtg/10.2.1.1.cfg > /var/www/mrtgpup/index.html',
     minute  => '*/1'
   }
 }
