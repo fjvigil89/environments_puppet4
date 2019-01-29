@@ -16,10 +16,13 @@ class letsencrypt_host (
    class {'::letsencrypt_host::install':;}
 
 
-   file { '/srv/letsencrypt/':
-     ensure => 'link',
-     target => '/etc/letsencrypt/',
-     } 
+   each ($dominios) |Integer $index, String $value|
+   {
+     file { "/srv/letsencrypt/${value}":
+       ensure => 'link',
+       target => "/etc/letsencrypt/live/${value}",
+     }
+   }
 #lint:endignore
 }
 
