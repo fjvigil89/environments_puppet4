@@ -15,10 +15,9 @@ class wh_php_apache {
  include vim
  #class {'::wh_php_apache::apache':;}
 
- class { '::letsencrypt_host':
-   #dominios => $server_name,
- }->
-
+class { ::letsencrypt:
+  unsafe_registration => true,
+}
 
  class { '::php_webserver':
      php_version    => '7.0',
