@@ -76,7 +76,7 @@ mod 'puppetlabs-ruby', '1.0.0'
 mod 'puppetlabs-kubernetes', '3.0.1'
 mod 'meltwater-cpan', '2.0.0'
 mod 'puppetlabs-haproxy', '2.2.0'
-
+#mod 'puppetlabs-rsync', '1.1.0'
 #ELK
 #mod 'elastic-logstash', '6.1.5'
 #mod 'elastic-kibana', '6.3.1'

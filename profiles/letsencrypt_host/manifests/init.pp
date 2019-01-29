@@ -16,13 +16,14 @@ class letsencrypt_host (
    class {'::letsencrypt_host::install':;}
 
 
-   each ($dominios) |Integer $index, String $value|
-   {
-     file { "/srv/letsencrypt/${value}":
-       ensure => 'link',
-       target => "/etc/letsencrypt/live/${value}",
-     }
-   }
+   
+#   class { 'rsync':
+#    package_ensure => 'latest'
+
+#}
+#   rsync::get { '/etc/letsencrypt':
+#     source  => "rsync://${rsyncServer}/srv/letsencrypt/",
+#   }
 #lint:endignore
 }
 
