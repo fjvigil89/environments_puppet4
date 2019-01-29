@@ -15,7 +15,11 @@ class letsencrypt_host (
    class {'::letsencrypt_host::package':;}
    class {'::letsencrypt_host::install':;}
 
-   
+
+   file { '/etc/letsencrypt/*':
+     ensure => 'link',
+     target => '/srv/letsencrypt/',
+     } 
 #lint:endignore
 }
 
