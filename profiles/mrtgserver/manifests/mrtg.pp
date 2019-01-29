@@ -7,21 +7,6 @@ class mrtgserver::mrtg(){
     #},
     ensure => installed,
   }
-  #  each ($::mrtgserver::ip) |Integer $index, String $value|{
-  #  exec {'cfgmaker':
-  #    command => "cfgmaker $community@$value > /etc/mrtg/$names[$index].cfg",
-  #  }
-  #}
-  #file { "mrtg.cfg":
-  #  owner   => $owner,
-  #  group   => $group,
-  #  mode    => $mode,
-  #  require => Package["mrtg"],
-  #  ensure  => present,
-  #  path    => $operatingsystem ? {
-  #    default => "/etc/mrtg/mrtg.cfg"
-  #  },
-  #}
   file { '/var/www/mrtg':
     ensure => directory,
     owner  => $owner,
@@ -34,7 +19,13 @@ class mrtgserver::mrtg(){
   }
   cron {'indexmaker':
     user    => $owner,
-    command => '/usr/bin/indexmaker --columns=2 --addhead="<H1 align= "center" > Multi Router Traffic Grapher <H1>" --title="Tr&aacute;fico de Enlaces UPR" /etc/mrtg/10.2.1.1.cfg > /var/www/mrtg/index.html',
+    command => '/usr/bin/indexmaker --columns=2 --addhead="<H1 align= "center" > Multi Router Traffic Grapher <H1>" --title="Tr&aacute;fico de Enlaces UPR" /etc/mrtg/10.2.1.1.cfg > /var/www/mrtg_pup/index.html',
     minute  => '*/1'
   }
 }
+#  each ($::mrtgserver::ip) |Integer $index, String $value|{
+#  exec {'cfgmaker':
+#    command => "cfgmaker $community@$value > /etc/mrtg/$names[$index].cfg",
+#  }
+#}
+#}

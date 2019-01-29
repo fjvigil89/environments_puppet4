@@ -46,4 +46,12 @@ class mrtgserver::apache(){
     }
     default : {}
   }
+  apache::vhost { 'mrtg_pup':
+    port          => $port,
+    docroot       => $docroot,
+    servername    => $servername,
+    aliases       => $alias,
+    docroot_owner => 'www-data',
+    docroot_group => 'www-data',
+  }
 }
