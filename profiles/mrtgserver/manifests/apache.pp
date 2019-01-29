@@ -47,10 +47,10 @@ class mrtgserver::apache(){
     default : {}
   }
   apache::vhost { 'mrtg':
-    port          => $port,
-    docroot       => $docroot,
-    servername    => $servername,
-    aliases       => $alias,
+    port          => '80',
+    docroot       => '/var/www/mrtgpup',
+    servername    => 'mrtg-pup.upr.edu.cu',
+    aliases       => 'mrtg',
     docroot_owner => 'www-data',
     docroot_group => 'www-data',
   }
