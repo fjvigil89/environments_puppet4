@@ -1,7 +1,7 @@
 ## Manage Apache config 
 
 class mrtgserver::apache(){
-  include apache2
+  include apache
 
   apache::vhost { 'mrtg':
     port       => $port,
