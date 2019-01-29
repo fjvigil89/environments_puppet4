@@ -1,4 +1,4 @@
-# == Class: wh_php_apache
+#== Class: wh_php_apache
 #
 # Full description of class wh_php_apache here.
 #
