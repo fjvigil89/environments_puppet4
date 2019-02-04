@@ -5,7 +5,7 @@ class mrtgserver::apache(){
 
   apache::vhost { 'mrtg':
     port       => '80',
-    docroot    => '/var/www/mrtgpup/',
+    docroot    => '/var/www/mrtg/',
     servername => 'mrtg-pup.upr.edu.cu',
     aliases    => 'mrtg',
   }
