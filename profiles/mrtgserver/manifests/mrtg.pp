@@ -7,7 +7,7 @@ class mrtgserver::mrtg(){
     #},
     ensure => installed,
   }
-  file { '/var/www/mrtg':
+  file { '/var/www/mrtgpup':
     ensure => directory,
     owner  => $owner,
     group  => $group,
