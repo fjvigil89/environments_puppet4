@@ -10,14 +10,16 @@ class mrtgserver::mrtg(){
     group  => $group,
     mode   => $mode,
   }
-  exec {'primero':
-    creates => "/etc/mrtg/10.2.1.1.cfg",
-    command => "/usr/bin/cfgmaker network4core@dminUPR@10.2.1.1 > /etc/mrtg/10.2.1.1.cfg"
+  each($::mrtgserver::ip) |Integer $index, String $value|{
+    exec { $value :
+      creates => "/etc/mrtg/$::mrtgserver::names[$index]",
+      command => "/usr/bin/cfgmaker network4core@dminUPR@$value > /etc/mrtg/$::mrtgserver::names[$index].cfg"
+    }
   }
-  exec {'segundo':
-    creates => "/etc/mrtg/segundo.cfg",
-    command => "/usr/bin/cfgmaker network4core@dminUPR@10.2.1.1 > /etc/mrtg/segundo.cfg"
-  }
+  # exec {'cfgmaker':
+  #  creates => "/etc/mrtg/10.2.1.1.cfg",
+  #  command => "/usr/bin/cfgmaker network4core@dminUPR@10.2.1.1 > /etc/mrtg/10.2.1.1.cfg"
+  #}
 
   cron {'indexmaker':
     user    => $owner,
@@ -25,9 +27,3 @@ class mrtgserver::mrtg(){
     minute  => '*/1'
   }
 }
-
-#each($::mrtgserver::ip) |Integer $index|{
-#  exec {$::mrtgserver::name[$value]:
-#  creates => "/etc/mrtg/$::mrtgserver::name[$value]",
-#  command => "/usr/bin/cfgmaker network4core@dminUPR@$::mrtgserver::ip[$value] > /etc/mrtg/$::mrtgserver::name[$value].cfg"
-#}}
