@@ -12,8 +12,8 @@ class mrtgserver::mrtg(){
   }
   each($::mrtgserver::ip) |Integer $index, String $value|{
     exec { $value :
-      creates => "/etc/mrtg/$value.cfg",
-      command => "/usr/bin/cfgmaker network4core@dminUPR@${value} > /etc/mrtg/$value.cfg"
+      creates => "/etc/mrtg/${value}.cfg",
+      command => "/usr/bin/cfgmaker ${community}@${names[$index]} > /etc/mrtg/${names[$index]}.cfg"
     }
   }
   # exec {'cfgmaker':
