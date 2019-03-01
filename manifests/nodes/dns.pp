@@ -3,7 +3,7 @@ node 'dns.upr.edu.cu' {
       uprinfo_usage  => 'servidor dns interno',
       application    => 'DNS Bind9',
       puppet_enabled => true,
-      repos_enabled  => true,
+      repos_enabled  => false,
       mta_enabled    => false,
       dns_enabled    => false,
     }
@@ -26,7 +26,7 @@ node 'dns.upr.edu.cu' {
     zone_name          => [ 'upr.edu.cu', 'ceces.upr.edu.cu', 'progintec.upr.edu.cu', 'tele4.upr.edu.cu'],
     zone_type          => $zone,
     file_zone_name     => [ 'db.upr.edu.cu', 'db.1.2.10', 'db.22.2.10', 'db.24.2.10'],
-    zone_reverse       => [ '1.2.10.in-addr.arpa', '22.2.10.in-addr.arpa', '24.2.10.in-addr.arpa'],
+    zone_reverse       => [ '1.2.10.in-addr.arpa', '2.2.10.in-addr.arpa', '3.2.10.in-addr.arpa', '24.2.10.in-addr.arpa'],
     zones              => {
       'upr.edu.cu' => [
         $zone,
@@ -73,13 +73,21 @@ node 'dns.upr.edu.cu' {
         "notify yes",
         "file ${quote}${direct}/db.8.2.10${quote}",
       ],
-      '22.2.10.in-addr.arpa' => [
+      '2.2.10.in-addr.arpa' => [
         $zone,
         "allow-query $allow",
         "allow-update ${notify}",
         "also-notify ${notify}",
         "notify yes",
-        "file ${quote}${direct}/db.22.2.10${quote}",
+        "file ${quote}${direct}/db.2.2.10${quote}",
+        ],
+        '3.2.10.in-addr.arpa' => [
+          $zone,
+          "allow-query $allow",
+          "allow-update ${notify}",
+          "also-notify ${notify}",
+          "notify yes",
+          "file ${quote}${direct}/db.3.2.10${quote}",
         ],
         '24.2.10.in-addr.arpa' => [
           $zone,
