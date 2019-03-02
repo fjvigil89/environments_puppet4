@@ -37,6 +37,7 @@ class basesys::params {
   
   #repos 
   $repos = true
+  $repo_url = repos.uclv.edu.cu
   
   #To manage Firewall
   $enable_firewall = false
