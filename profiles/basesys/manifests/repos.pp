@@ -127,12 +127,14 @@ class basesys::repos (
           }
           apt::source { 'icinga':
               comment  => 'Icinga UPR',
-              location => 'http://repos.upr.edu.cu/icinga/debian/',
+              #location => 'http://repos.upr.edu.cu/icinga/debian/',
+              location => 'http://packages.icinga.com/debian/',
               repos    => 'main',
               release  => "icinga-${::lsbdistcodename}",
               key      => {
                 'id'     => 'F51A91A5EE001AA5D77D53C4C6E319C334410682',
-                'source' => 'http://repos.upr.edu.cu/icinga/icinga.key',
+                #'source' => 'http://repos.upr.edu.cu/icinga/icinga.key',
+                'source' => 'http://packages.icinga.com/icinga.key',
               }
               }
           if($::is_virtual == false){
@@ -183,12 +185,14 @@ class basesys::repos (
          
           apt::source { 'icinga':
               comment  => 'Icinga UPR',
-              location => 'http://repos.upr.edu.cu/icinga/ubuntu/',
+              #location => 'http://repos.upr.edu.cu/icinga/ubuntu/',
+              location => 'http://packages.icinga.com/ubuntu/',
               repos    => 'main',
               release  => "icinga-${::lsbdistcodename}",
               key      => {
                 'id'     => 'F51A91A5EE001AA5D77D53C4C6E319C334410682',
-                'source' => 'http://repos.upr.edu.cu/icinga/icinga.key',
+                #'source' => 'http://repos.upr.edu.cu/icinga/icinga.key',
+                'source' => 'http://packages.icinga.com/icinga.key',
               }
 
           }
