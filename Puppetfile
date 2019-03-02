@@ -78,6 +78,8 @@ mod 'lboynton-ejabberd', '0.0.5'
 mod 'meltwater-cpan', '2.0.0'
 mod 'puppetlabs-haproxy', '2.2.0'
 mod 'ULHPC-exim4', '0.2.3'
+mod 'ULHPC-nfs', '0.1.7'
+mod 'ULHPC-debmirror', '0.1.5'
 #ELK
 #mod 'elastic-logstash', '6.1.5'
 #mod 'elastic-kibana', '6.3.1'
