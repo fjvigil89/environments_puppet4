@@ -25,7 +25,7 @@ node 'dns.upr.edu.cu' {
     recursion          => 'yes',
     zone_name          => [ 'upr.edu.cu', 'ceces.upr.edu.cu', 'progintec.upr.edu.cu', 'tele4.upr.edu.cu'],
     zone_type          => $zone,
-    file_zone_name     => [ 'db.upr.edu.cu', 'db.1.2.10', 'db.22.2.10', 'db.24.2.10'],
+    file_zone_name     => [ 'db.upr.edu.cu', 'db.1.2.10', 'db.22.2.10', 'db.3.2.10'],
     zone_reverse       => [ '1.2.10.in-addr.arpa', '2.2.10.in-addr.arpa', '3.2.10.in-addr.arpa', '24.2.10.in-addr.arpa'],
     zones              => {
       'upr.edu.cu' => [
@@ -57,22 +57,6 @@ node 'dns.upr.edu.cu' {
       #  "masters { 10.2.24.158; };",
       #  "file ${quote}${direct}/db.tele4.upr.edu.cu${quote}",
       #],
-      '1.2.10.in-addr.arpa' => [
-        $zone,
-        "allow-query $allow",
-        "allow-update ${notify}",
-        "also-notify ${notify}",
-        "notify yes",
-        "file ${quote}${direct}/db.1.2.10${quote}",
-      ],
-      '8.2.10.in-addr.arpa' => [
-        $zone,
-        "allow-query $allow",
-        "allow-update ${notify}",
-        "also-notify ${notify}",
-        "notify yes",
-        "file ${quote}${direct}/db.8.2.10${quote}",
-      ],
       '2.2.10.in-addr.arpa' => [
         $zone,
         "allow-query $allow",
@@ -89,14 +73,14 @@ node 'dns.upr.edu.cu' {
           "notify yes",
           "file ${quote}${direct}/db.3.2.10${quote}",
         ],
-        '24.2.10.in-addr.arpa' => [
+        '4.2.10.in-addr.arpa' => [
           $zone,
           "allow-query $allow",
           "allow-update ${notify}",
           "also-notify ${notify}",
           "notify yes",
-          "file ${quote}${direct}/db.24.2.10${quote}",
-          ],
+          "file ${quote}${direct}/db.4.2.10${quote}",
+        ],
     },
   }
 }
