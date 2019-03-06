@@ -1,6 +1,6 @@
 node 'phpipam.upr.edu.cu'{
   class{'::php_server':
-      version      => 'php7.2',
+      version      => '7.2',
       packages     => ['php7.2-mbstring','r10k','php7.2','php7.2-cli','php7.2-curl','php7.2-intl','php7.2-ldap','php7.2-mysql','php7.2-sybase','libapache2-mod-php7.2','php7.2-mcrypt','phpmyadmin','freetds-bin','freetds-common', 'php7.2-gd','php7.2-gmp'],
       manage_repos => true, 
 
