@@ -9,9 +9,10 @@ class php_server(
 )inherits ::php_server::params {
 
  class { '::basesys':
-    uprinfo_usage  => 'servidor phpipam',
-    application    => 'phpipam',
-    mta_enabled    => false,
+    uprinfo_usage => 'servidor phpipam',
+    application   => 'phpipam',
+    mta_enabled   => false,
+    repos         => false,
   }
  include git
  include vim
