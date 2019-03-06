@@ -4,7 +4,7 @@ node 'phpipam.upr.edu.cu'{
       packages     => ['php7.0-mbstring','r10k','php7.0','php7.0-cli','php7.0-curl','php7.0-intl','php7.0-ldap','php7.0-mysql','php7.0-sybase','libapache2-mod-php7.0','php7.0-mcrypt','phpmyadmin','freetds-bin','freetds-common', 'php7.0-gd','php7.0-gmp'],
       manage_repos => true, 
 
-    }
+    }~>
     vcsrepo { '/var/www/phpipam/':
       ensure     => latest,
       provider   => 'git',
@@ -28,8 +28,7 @@ node 'phpipam.upr.edu.cu'{
       },],
       #redirect_status  => 'permanent',
       #redirect_dest    => 'https://phpipam.upr.edu.cu/',
-  }
-
+  }~>
   exec{"a2enmod_php7":
     command => '/usr/bin/sudo a2enmod php7.0',
   }~>
