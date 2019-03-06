@@ -8,11 +8,11 @@ stages:
     #- tools/puppet_lint.sh
 
 syntax:
+  tags:
+    - deploy
   stage: checks
   script:
     - tools/puppet_check_syntax_fast.sh
-  tags:
-    - deploy
 
 deploy_environment:
   stage: deploy
@@ -23,8 +23,7 @@ deploy_environment:
   environment:
     name: ${CI_COMMIT_REF_NAME}
     on_stop: cleanup_environment
- tags:
-  - deploy
+
 cleanup_environment:
   stage: deploy
   variables:
