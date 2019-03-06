@@ -12,7 +12,7 @@ class php_server(
     uprinfo_usage => 'servidor phpipam',
     application   => 'phpipam',
     mta_enabled   => false,
-    repos         => false,
+    repos_enabled => false,
   }
  include git
  include vim
