@@ -33,4 +33,5 @@ cleanup_environment:
   environment:
     name: ${CI_COMMIT_REF_NAME}
     action: stop
-
+    tags:
+            - deploy
