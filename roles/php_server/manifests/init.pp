@@ -17,7 +17,7 @@ class php_server(
  include git
  include vim
  class {'::mysql_server':
-   provider => 'mysql',
+   #provider => 'mysql',
  }
  class { '::php_webserver':
      php_version    => $version,
