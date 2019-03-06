@@ -6,7 +6,7 @@
 class letsencrypt_host::install {
   if ($::letsencrypt_host::email){
     class { '::letsencrypt':
-      email => $::letsencrypt_host::email,
+      email      => $::letsencrypt_host::email,
     }
   }
   else {
@@ -17,17 +17,17 @@ class letsencrypt_host::install {
   if($::letsencrypt_host::webroot_enable) {
     each($::letsencrypt_host::dominios)|Integer $index, String $value|{
       letsencrypt::certonly { "${value}":
-        domains              => [$value],
-        plugin               => $::letsencrypt_host::plugin,
-        webroot_paths        => $::letsencrypt_host::webroot_paths,
+        domains       => [$value],
+        plugin        => $::letsencrypt_host::plugin,
+        webroot_paths => $::letsencrypt_host::webroot_paths,
       }
     }
   }
   else {
     each($::letsencrypt_host::dominios)|Integer $index, String $value|{
       letsencrypt::certonly { "${value}":
-        domains              => [$value],
-        plugin               => $::letsencrypt_host::plugin,
+        domains    => [$value],
+        plugin     => $::letsencrypt_host::plugin,
       }
     }
   }
