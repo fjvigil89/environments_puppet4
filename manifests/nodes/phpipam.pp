@@ -1,7 +1,7 @@
 node 'phpipam.upr.edu.cu'{
   class{'::php_server':
-      version      => '7.2',
-      packages     => ['php7.2-mbstring','r10k','php7.2','php7.2-cli','php7.2-curl','php7.2-intl','php7.2-ldap','php7.2-mysql','php7.2-sybase','libapache2-mod-php7.2','php7.2-mcrypt','phpmyadmin','freetds-bin','freetds-common', 'php7.2-gd','php7.2-gmp'],
+      version      => '7.0',
+      packages     => ['php7.0-mbstring','r10k','php7.0','php7.0-cli','php7.0-curl','php7.0-intl','php7.0-ldap','php7.0-mysql','php7.0-sybase','libapache2-mod-php7.0','php7.0-mcrypt','phpmyadmin','freetds-bin','freetds-common', 'php7.0-gd','php7.0-gmp'],
       manage_repos => true, 
 
     }
@@ -29,5 +29,17 @@ node 'phpipam.upr.edu.cu'{
       redirect_status  => 'permanent',
       redirect_dest    => 'https://phpipam.upr.edu.cu/',
   }
+
+  exec{"a2enmod_php7":
+    command => '/usr/bin/sudo a2enmod php7.0',
+  }
+  exec{"a2enmod_rewrite":
+    command => '/usr/bin/sudo a2enmod rewrite',
+  }
+  exec{"service_apache2_restart":
+    command     => '/usr/bin/sudo service apache2 restart',
+    refreshonly => true;
+  }
+
 }
 
