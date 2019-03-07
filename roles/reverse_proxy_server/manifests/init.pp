@@ -16,7 +16,7 @@ class reverse_proxy_server (
   class { '::basesys':
     uprinfo_usage   => 'servidor test',
     application     => 'puppet',
-    dmz             => true,
+    dmz             => false,
   }
 
   class { '::letsencrypt_host':
