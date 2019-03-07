@@ -9,14 +9,16 @@ stages:
 
 syntax:
   stage: checks
-  tags: puppet
+  tags: 
+    - puppet
   
   script:
     - tools/puppet_check_syntax_fast.sh
 
 deploy_environment:
   stage: deploy
-  tags: puppet
+  tags: 
+    -puppet
   script:
    - echo "${CI_COMMIT_REF_NAME}"
    - tools/deploy-puppet.sh $CI_ENVIRONMENT_NAME
