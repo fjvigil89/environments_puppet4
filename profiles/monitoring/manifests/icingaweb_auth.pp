@@ -8,7 +8,7 @@ class monitoring::icingaweb_auth {
 #Configure Resourse Authentication
 icingaweb2::config::resource {'ad-upr':
   type            =>  'ldap',
-  host            =>  '10.2.24.35',
+  host            =>  'ad.upr.edu.cu',
   port            =>  389,
   ldap_root_dn    =>  $monitoring::ad_base_dn,
   ldap_bind_dn    =>  $monitoring::ad_bind_dn,
