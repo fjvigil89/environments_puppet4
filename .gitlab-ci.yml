@@ -1,7 +1,8 @@
 stages:
   - checks
   - deploy
-  tags: deploy
+tags:
+  - deploy
 
     #lint:
     #stage: checks
