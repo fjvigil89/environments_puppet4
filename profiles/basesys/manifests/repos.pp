@@ -268,7 +268,8 @@ class basesys::repos (
         # Install Puppetlabs PC1 jessie Source Repository
         ::apt::source { 'puppet-agent':
           comment  => "Puppetlabs PC1 ${::lsbdistcodename} Repository from basesys",
-          location => 'http://repos.upr.edu.cu/puppet5/apt/',
+          # location => 'http://repos.upr.edu.cu/puppet5/apt/',
+          location => 'http://apt.puppetlabs.com/apt/',
           repos    => 'main',
           #key      => {
            #id     => '47B320EB4C7C375AA9DAE1A01054B7A24BD6EC30',
