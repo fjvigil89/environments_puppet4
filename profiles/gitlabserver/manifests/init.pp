@@ -3,7 +3,7 @@
 # Gitlab Server Class
 ################################
 #
-class gitlabserver{
+class gitlabserver {
   include git
   class { 'gitlab':
     external_url          => 'http://gitlab.upr.edu.cu',
@@ -58,6 +58,4 @@ class gitlabserver{
             db_key_base     => 'asecrettoken123456789012',
           }
     },
-
-}
-}
+  }
