@@ -2,7 +2,7 @@ stages:
   - checks
   - deploy
 tags:
-  - deploy
+  - puppet
 
     #lint:
     #stage: checks
