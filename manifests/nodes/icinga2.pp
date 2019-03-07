@@ -7,7 +7,7 @@ node 'master-icinga0.upr.edu.cu'{
     monitoring_enabled => false;
   }
   class { '::monitoring':;}
-  include 'exim4'
+  #include 'exim4'
 }
 node 'master-icinga1.upr.edu.cu'{
   class { '::basesys':
