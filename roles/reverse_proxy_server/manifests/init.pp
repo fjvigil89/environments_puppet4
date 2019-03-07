@@ -22,7 +22,7 @@ class reverse_proxy_server (
   class { '::letsencrypt_host':
     dominios => $server_name,
     }->
-  class {'::reverseproxy_server':
+  class { '::reverseproxy_server':
     manage_repo    => false,
     server_name    => $server_name,
     listen_port    => $listen_port,
