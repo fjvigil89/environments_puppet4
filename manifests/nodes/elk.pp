@@ -66,7 +66,7 @@ qPDlGRlOgVTd9xUfHFkzB52c70E==92oX
     })
 
   include git
-  vcsrepo { '/home/elk/':
+  vcsrepo { '/home/root/elk/':
       ensure     => latest,
       provider   => 'git',
       remote     => 'origin',
