@@ -8,4 +8,14 @@ node 'elk.upr.edu.cu' {
     #repos_enabled   => true,
     #mta_enabled     => false,
   }
+
+  class { 'java':
+    distribution => 'jdk',
+    package      => 'openjdk-8-jdk'
+  }
+  java::oracle { 'jdk8' :
+    ensure  => 'present',
+    version => '8',
+    java_se => 'jdk',
+  }
 }
