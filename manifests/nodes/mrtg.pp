@@ -1,6 +1,6 @@
 #Creacion del nodo
 #
-node 'mrtg-puppet.upr.edu.cu' {
+node 'mrtg.upr.edu.cu' {
   include mrtgserver
   include git
   include whois
