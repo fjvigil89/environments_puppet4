@@ -24,7 +24,7 @@ node 'elk.upr.edu.cu' {
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
-    command => "-----BEGIN PGP PUBLIC KEY BLOCK-----
+    content => "-----BEGIN PGP PUBLIC KEY BLOCK-----
 Version: GnuPG v2.0.14 (GNU/Linux)
 
 mQENBFI3HsoBCADXDtbNJnxbPqB1vDNtCsqhe49vFYsZN9IOZsZXgp7aHjh6CJBD
