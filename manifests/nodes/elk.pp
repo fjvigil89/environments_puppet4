@@ -61,7 +61,7 @@ qPDlGRlOgVTd9xUfHFkzB52c70E==92oX
   }
 
   $packages=['apt-transport-https', 'software-properties-common', 'wget']
-  ensure_packages($packages=, {
+  ensure_packages($packages, {
     ensure => present,
     })
 
