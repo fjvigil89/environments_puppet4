@@ -127,8 +127,8 @@ class basesys::repos (
           }
           apt::source { 'icinga':
               comment  => 'Icinga UPR',
-              #location => 'http://repos.upr.edu.cu/icinga/debian/',
-              location => 'http://packages.icinga.com/debian/',
+              location => 'http://repos.upr.edu.cu/icinga/debian/',
+              #location => 'http://packages.icinga.com/debian/',
               repos    => 'main',
               release  => "icinga-${::lsbdistcodename}",
               key      => {
@@ -140,8 +140,8 @@ class basesys::repos (
           if($::is_virtual == false){
 						apt::source { "proxmox":
               comment  => 'Proxmox repo',
-              #location => 'http://repos.upr.edu.cu/proxmox/pve/',
-              location => 'deb http://download.proxmox.com/debian/pve',
+              location => 'http://repos.upr.edu.cu/proxmox/pve/',
+              #location => 'deb http://download.proxmox.com/debian/pve',
               repos    => 'pve-no-subscription',
               release  => "${::lsbdistcodename}",
             }
@@ -269,8 +269,8 @@ class basesys::repos (
         # Install Puppetlabs PC1 jessie Source Repository
         ::apt::source { 'puppet-agent':
           comment  => "Puppetlabs PC1 ${::lsbdistcodename} Repository from basesys",
-          # location => 'http://repos.upr.edu.cu/puppet5/apt/',
-          location => 'https://apt.puppetlabs.com/',
+          location => 'http://repos.upr.edu.cu/puppet5/apt/',
+          #location => 'https://apt.puppetlabs.com/',
           repos    => 'main',
           #key      => {
            #id     => '47B320EB4C7C375AA9DAE1A01054B7A24BD6EC30',
