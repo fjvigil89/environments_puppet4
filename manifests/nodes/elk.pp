@@ -74,10 +74,8 @@ qPDlGRlOgVTd9xUfHFkzB52c70E==92oX
         'origin' => 'git@gitlab.upr.edu.cu:dcenter/elk.git',
       },
       revision   => 'master',      
-    }
-
-
-    exec{"instalar_elasticsearch":
+    }~>
+  exec{"instalar_elasticsearch":
       command => '/usr/bin/sudo dpkg -i /home/root/elk/elasticsearch-6.6.0.deb',
     }
 
