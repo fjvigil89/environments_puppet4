@@ -66,7 +66,7 @@ qPDlGRlOgVTd9xUfHFkzB52c70E==92oX
     })
 
   include git
-  vcsrepo { '/home/root/elk/':
+  vcsrepo { '/home/elk/':
       ensure     => latest,
       provider   => 'git',
       remote     => 'origin',
@@ -75,19 +75,6 @@ qPDlGRlOgVTd9xUfHFkzB52c70E==92oX
       },
       revision   => 'master',      
     }
-
-
-  class { 'elasticsearch':
-    elasticsearch_user => 'elasticsearch',
-    manage_repo        => false,
-    restart_on_change  => true,
-    autoupgrade        => true,
-  }
-  elasticsearch::instance { 'es-01':
-     config => {
-      'network.host' => 'localhost',
-    },
-  }
 
 
 }
