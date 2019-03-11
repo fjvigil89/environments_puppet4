@@ -77,4 +77,8 @@ qPDlGRlOgVTd9xUfHFkzB52c70E==92oX
     }
 
 
+    exec{"instalar_elasticsearch":
+      command => '/usr/bin/sudo dpkg -i /home/root/elk/elasticsearch-6.6.0.deb',
+    }
+
 }
