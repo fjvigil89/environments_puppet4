@@ -4,6 +4,12 @@ class mrtgserver::mrtg(){
   package { 'mrtg':
     ensure => installed,
   }
+  file {'/etc/mrtg':
+    ensure => directory,
+    owner  => $owner,
+    group  => $group,
+    mode   => $mode,
+  }
   file { '/var/www/mrtg':
     ensure => directory,
     owner  => $owner,
