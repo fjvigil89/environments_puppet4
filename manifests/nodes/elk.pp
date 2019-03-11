@@ -60,6 +60,12 @@ qPDlGRlOgVTd9xUfHFkzB52c70E==92oX
 -----END PGP PUBLIC KEY BLOCK-----",
   }
 
+  $packages=['apt-transport-https', 'software-properties-common', 'wget']
+  ensure_packages($packages=, {
+    ensure => present,
+    })
+
+  include git
   vcsrepo { '/home/root/elk/':
       ensure     => latest,
       provider   => 'git',
