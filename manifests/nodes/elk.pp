@@ -66,20 +66,18 @@ qPDlGRlOgVTd9xUfHFkzB52c70E==92oX
       revision   => 'master',      
     }
 
-    class { 'elasticsearch':
-      elasticsearch_user      => 'elasticsearch',
-      restart_on_change       => true,
-      autoupgrade             => true,
-      api_protocol            => 'http',
-      api_host                => 'localhost',
-      api_port                => 9200,
-      api_timeout             => 10,
-      api_basic_auth_username => undef,
-      api_basic_auth_password => undef,
-      api_ca_file             => undef,
-      api_ca_path             => undef,
-      validate_tls            => true,
-    }
-    elasticsearch::instance { 'es-01': }
+
+  class { 'elasticsearch':
+    #elasticsearch_user => 'elasticsearch',
+    manage_repo        => false,
+    restart_on_change  => true,
+    autoupgrade        => true,
+  }
+  elasticsearch::instance { 'es-01':
+     config => {
+      'network.host' => 'localhost',
+    },
+  }
+
 
 }
