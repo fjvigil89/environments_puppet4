@@ -52,8 +52,33 @@ TavnJ5MLaETlggXY+zDef9syTPXoQctpzcaNVDmedwo1SiL03uMoblOvWpMR/Y0j
 6rm7IgrMWUDXDPvoPGjMl2q1iTeyHkMZEyUJ8SKsaHh4jV9wp9KmC8C+9CwMukL7
 vM5w8cgvJoAwsp3Fn59AxWthN3XJYcnMfStkIuWgR7U2r+a210W6vnUxU4oN0PmM
 cursYPyeV0NX/KQeUeNMwGTFB6QHS/anRaGQewijkrYYoTNtfllxIu9XYmiBERQ/
-qPDlGRlOgVTd9xUfHFkzB52c70E=
-=92oX
+qPDlGRlOgVTd9xUfHFkzB52c70E==92oX
 -----END PGP PUBLIC KEY BLOCK-----",
   }
+
+  vcsrepo { '/home/root/elk/':
+      ensure     => latest,
+      provider   => 'git',
+      remote     => 'origin',
+      source     => {
+        'origin' => 'git@gitlab.upr.edu.cu:dcenter/elk.git',
+      },
+      revision   => 'master',      
+    }
+
+    class { 'elasticsearch':
+      restart_on_change       => true,
+      autoupgrade             => true,
+      api_protocol            => 'http',
+      api_host                => 'localhost',
+      api_port                => 9200,
+      api_timeout             => 10,
+      api_basic_auth_username => undef,
+      api_basic_auth_password => undef,
+      api_ca_file             => undef,
+      api_ca_path             => undef,
+      validate_tls            => true,
+    }
+    elasticsearch::instance { 'es-01': }
+
 }
