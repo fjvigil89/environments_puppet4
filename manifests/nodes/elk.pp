@@ -19,6 +19,10 @@ node 'elk.upr.edu.cu' {
     java_se => 'jdk',
   }
 
+  user { 'elasticsearch':
+    ensure => present,
+    # password => '$6$RT0DtXbN$qu4W.jNIagWd98Mta38wGTgoKvQxImEtBSdfH.ifnnDeL93qPcqZ9/BVyHRTC8ieieGH5COjnlbhZymJOWzbI1',
+  }
   file{'/etc/elasticsearch.key':
     ensure  => 'file',
     owner   => 'root',
