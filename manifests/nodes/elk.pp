@@ -19,10 +19,12 @@ node 'elk.upr.edu.cu' {
     java_se => 'jdk',
   }
 
-  exec{"Key_elasticsearch":
-    command => "
-    cat > elasticsearch.key << 'EoT'
------BEGIN PGP PUBLIC KEY BLOCK-----
+  file{'/etc/elasticsearch.key':
+    ensure  => 'file',
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0644',
+    command => "-----BEGIN PGP PUBLIC KEY BLOCK-----
 Version: GnuPG v2.0.14 (GNU/Linux)
 
 mQENBFI3HsoBCADXDtbNJnxbPqB1vDNtCsqhe49vFYsZN9IOZsZXgp7aHjh6CJBD
@@ -52,9 +54,6 @@ vM5w8cgvJoAwsp3Fn59AxWthN3XJYcnMfStkIuWgR7U2r+a210W6vnUxU4oN0PmM
 cursYPyeV0NX/KQeUeNMwGTFB6QHS/anRaGQewijkrYYoTNtfllxIu9XYmiBERQ/
 qPDlGRlOgVTd9xUfHFkzB52c70E=
 =92oX
------END PGP PUBLIC KEY BLOCK-----
-EoT",
+-----END PGP PUBLIC KEY BLOCK-----",
   }
-
-
 }
