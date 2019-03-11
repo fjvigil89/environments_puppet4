@@ -68,7 +68,7 @@ qPDlGRlOgVTd9xUfHFkzB52c70E==92oX
 
 
   class { 'elasticsearch':
-    #elasticsearch_user => 'elasticsearch',
+    elasticsearch_user => 'elasticsearch',
     manage_repo        => false,
     restart_on_change  => true,
     autoupgrade        => true,
