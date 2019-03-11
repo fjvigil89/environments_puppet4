@@ -67,6 +67,7 @@ qPDlGRlOgVTd9xUfHFkzB52c70E==92oX
     }
 
     class { 'elasticsearch':
+      elasticsearch_user      => 'elasticsearch',
       restart_on_change       => true,
       autoupgrade             => true,
       api_protocol            => 'http',
