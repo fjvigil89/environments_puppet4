@@ -6,7 +6,7 @@ class basesys::params {
   $conffile = 'basesys/etc/basesys.conf'
   
   # DNS 10.2.1.13 forward internet another forward (10.2.1.8) upr
-  $dnsservers = [ '10.2.1.8','10.2.1.13']
+  $dnsservers = [ '10.2.1.8','10.2.4.13']
 
   # dominio
   $dnssearchdomains = 'upr.edu.cu'
@@ -37,12 +37,13 @@ class basesys::params {
   
   #repos 
   $repos = true
+  $repo_url = 'repos.uclv.edu.cu'
   
   #To manage Firewall
   $enable_firewall = false
   $upr_networks    = ['200.14.49.0/27', '200.55.143.8/29', '152.207.173.40/29','10.2.0.0/15','192.168.200.0/30']
-  $open_ports      = ['22','123','111','659','5665','161','199']
-  $proto_ports     = ['tcp','upd','tcp','udp','tcp','udp','tcp']
+  $open_ports      = ['22','123','111','659','5665','161','199','443','25']
+  $proto_ports     = ['tcp','upd','tcp','udp','tcp','udp','tcp','tcp','tcp']
 
   # Puppet agent settings
   $puppet_enabled	 = true 

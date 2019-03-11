@@ -56,9 +56,9 @@ include git
 
 file { '/opt/html':
   ensure  => directory,
-  group   => 'root',
+  group   => 'users',
   owner   => 'root',
-  mode    => '0775',
+  mode    => '0777',
   }~>
 vcsrepo { '/opt/html':
   ensure   => latest,

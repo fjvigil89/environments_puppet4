@@ -20,6 +20,8 @@ node 'wh-bk.upr.edu.cu'{
         port          => '443',
         docroot       => '/home/Sync-UPR/master/public/',
         ssl           => true,
+        #ssl_cert           => "/srv/letsencrypt/live/sync.upr.edu.cu/fullchain.pem",
+        #ssl_key            => "/srv/letsencrypt/live/sync.upr.edu.cu/privkey.pem",
         directories =>  [ {
           'path'           => '/home/Sync-UPR/master/public',
           'options'        => ['Indexes','FollowSymLinks','MultiViews'],

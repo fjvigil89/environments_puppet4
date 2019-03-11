@@ -57,7 +57,7 @@ class basesys (
   class {'::basesys::users':;}
   class {'::basesys::groups':;}
   class {'::basesys::monitoring':;}
-  class {'::basesys::firewall':;}
+  class {'::basesys::dfirewall':;}
   #class {'::basesys::lxc':;}
 
   case $facts['os']['family'] {
@@ -69,10 +69,6 @@ class basesys (
   'en_US.UTF-8 UTF-8',
   ],
   }
-
   }
   }
-
-
-
-}
+  }
