@@ -16,12 +16,16 @@ class mrtgserver::mrtg(){
     group  => $group,
     mode   => $mode,
   }
+
+  ######## GENERACIÓN DE LOS ARCHIVOS .CFG ########
   #  each($::mrtgserver::ip) |Integer $index, String $value|{
   #  exec { $value :
   #    creates => "/etc/mrtg/${value}.cfg",
   #    command => "/usr/bin/cfgmaker network4core@dminUPR@$value > /etc/mrtg/$value.cfg"
   #  }
   #}
+  
+  ######## COPIA DE LOS ARCHIVOS .CFG PREVIAMENTE GENERADOS Y EDITADOS ########
   
   file { '/etc/mrtg/10.2.1.1.cfg':
     ensure => 'file',
@@ -46,6 +50,8 @@ class mrtgserver::mrtg(){
     mode   => '0644',
     source => 'puppet:///modules/mrtgserver/192.168.200.1.cfg',
   }
+
+  ######## GENERACIÓN DE LOS ARCHIVOS INDEX ########
 
   cron {'indexmaker':
     user    => $owner,
