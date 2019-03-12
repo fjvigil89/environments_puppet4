@@ -14,7 +14,7 @@ class logstashserver::service {
         'origin' => 'git@gitlab.upr.edu.cu:dcenter/logstash.git',
       },
       revision   => 'master',
-    }~>
+    }->
   exec{"instalar_logstash":
       command => '/usr/bin/sudo dpkg -i /home/root/logstash/logstash-6.6.0.deb',
     }
@@ -32,8 +32,8 @@ class logstashserver::service {
     group  => 'root',
     mode   => '0644',
     source => 'puppet:///modules/logstashserver/02-beats-input.conf',
-    #before => Exec['instalar_logstash','enable_logstash'],
-    #notify => Exec['restart_logstash'];
+    before => Exec['instalar_logstash','enable_logstash'],
+    notify => Exec['restart_logstash'];
   }
 
   file{'/etc/logstash/conf.d/10-syslog-filter.conf':
@@ -42,8 +42,8 @@ class logstashserver::service {
     group  => 'root',
     mode   => '0644',
     source => 'puppet:///modules/logstashserver/10-syslog-filter.conf',
-    #before => Exec['instalar_logstash','enable_logstash'],
-    #notify => Exec['restart_logstash'];
+    before => Exec['instalar_logstash','enable_logstash'],
+    notify => Exec['restart_logstash'];
   }
   
   file{'/etc/logstash/conf.d/30-elasticsearch-output.conf':
@@ -52,8 +52,8 @@ class logstashserver::service {
     group  => 'root',
     mode   => '0644',
     source => 'puppet:///modules/logstashserver/30-elasticsearch-output.conf',
-    #before => Exec['instalar_logstash','enable_logstash'],
-    #notify => Exec['restart_logstash'];
+    before => Exec['instalar_logstash','enable_logstash'],
+    notify => Exec['restart_logstash'];
   }
 
 
