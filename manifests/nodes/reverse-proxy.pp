@@ -48,7 +48,7 @@ node /^reverse-proxy\d+$/{
       'ftp.upr.edu.cu',
       'media.upr.edu.cu',
       'catalogo.upr.edu.cu',
-      'archivos.upr.edu.cu',
+      'earchivos.upr.edu.cu',
       'repositorio.biblioteca.upr.edu.cu'
     ],
     listen_port    => [80,80,80,80,443,80,80,443,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80],
