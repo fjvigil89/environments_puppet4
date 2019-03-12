@@ -10,7 +10,7 @@ node 'elk.upr.edu.cu' {
   }
 
 
-  $packages=['apt-transport-https', 'software-properties-common', 'wget']
+  $packages=['apt-transport-https', 'software-properties-common', 'wget','pwgen']
   ensure_packages($packages, {
     ensure => present,
     })
