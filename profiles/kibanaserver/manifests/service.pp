@@ -15,7 +15,7 @@ class kibanaserver::service {
     }~>
   exec{"instalar_kibana":
       command => '/usr/bin/sudo dpkg -i /home/root/kibana/kibana-6.6.0-amd64.deb',    
-  }->
+  }
   exec{"restart_kibana":
       command => '/usr/bin/sudo systemctl restart kibana | systemctl enable kibana',
       refreshonly => true;
