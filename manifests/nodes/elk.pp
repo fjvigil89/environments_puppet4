@@ -8,4 +8,15 @@ node 'elk.upr.edu.cu' {
     #repos_enabled   => true,
     #mta_enabled     => false,
   }
+
+
+  $packages=['apt-transport-https', 'software-properties-common', 'wget','pwgen']
+  ensure_packages($packages, {
+    ensure => present,
+    })
+
+  include git
+  class {'::elasticsearchserver':;}->
+  class {'::kibanaserver':;}->
+  class {'::logstashserver':;}
 }

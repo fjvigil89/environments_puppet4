@@ -17,6 +17,7 @@ node 'proxy-go.upr.edu.cu'{
     uprinfo_usage => 'Servidor Proxy',
     application   => 'Servidor Proxy GO',
     mta_enabled   => false,
+    dmz           => true,
      
   }
   
