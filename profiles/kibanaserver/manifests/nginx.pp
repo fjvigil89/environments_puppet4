@@ -12,7 +12,8 @@ class kibanaserver::nginx {
    proxy                => 'http://localhost:5601',
    auth_basic           => 'Restricted Access',
    auth_basic_user_file => '/etc/nginx/htpasswd.kibana',
-   #proxy_set_header    => ['Host $host','X-Real-IP $remote_addr'],
+   proxy_set_header     => ['Host $host',"Connection 'upgrade'",'Upgrade $http_upgrade'],
+   proxy_cache_bypass   => ['$http_upgrade'],
   }~>
  exec{"htpasswd_kibana":
    command => '/usr/bin/sudo echo "admin:$(openssl passwd -apr1 $*uprP@ssword*$)" | sudo tee -a /etc/nginx/htpasswd.kibana',
