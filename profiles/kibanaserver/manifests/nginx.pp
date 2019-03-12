@@ -17,7 +17,12 @@ class kibanaserver::nginx {
   }~>
  exec{"htpasswd_kibana":
    command => '/usr/bin/sudo echo "admin:$(openssl passwd -apr1 $*uprP@ssword*$)" | sudo tee -a /etc/nginx/htpasswd.kibana',
-  }
+  }->
+ exec{"restart_nginx":
+   command     => "/usr/bin/sudo nginx -t | systemctl restart nginx | ufw allow 'Nginx Full'",
+   refreshonly => true;
+ }
+
 }
 
 
