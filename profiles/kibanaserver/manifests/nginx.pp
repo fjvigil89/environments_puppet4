@@ -7,7 +7,7 @@ class kibanaserver::nginx {
  class {'nginx':
    manage_repo => false,
  }
- nginx::resource::server { 'kibana.upr.edu.cu':
+ nginx::resource::server { 'elk.upr.edu.cu':
    listen_port          => 80,
    proxy                => 'http://localhost:5601',
    auth_basic           => 'Restricted Access',
