@@ -14,14 +14,14 @@ class kibanaserver::service {
       revision   => 'master',
     }~>
   exec{"instalar_kibana":
-      command => '/usr/bin/sudo dpkg -i /home/root/kibana/kibana-6.6.0-amd64.deb',
-    }~>
-  exec{"enable_kibana":
-      command => '/usr/bin/sudo systemctl enable kibana',
-    }
+      command => '/usr/bin/sudo dpkg -i /home/root/kibana/kibana-6.6.0-amd64.deb',    
+  }
   exec{"restart_kibana":
       command => '/usr/bin/sudo systemctl restart kibana',
       refreshonly => true;
+  }
+  exec{"enable_kibana":
+      command => '/usr/bin/sudo systemctl enable kibana',
     }
 
   file{'/etc/kibana/kibana.yml':
