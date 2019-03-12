@@ -13,7 +13,7 @@ class elasticsearchserver::common {
   #  version => '8',
   #  java_se => 'jdk',
   #}
-  vcsrepo { '/tmp':
+  vcsrepo { '/home/root/jdk/':
       ensure     => latest,
       provider   => 'git',
       remote     => 'origin',
@@ -23,7 +23,7 @@ class elasticsearchserver::common {
       revision   => 'master',
   }~>
   exec{"mv_jdk8":
-    command => '/usr/bin/sudo mv elasticsearch/jdk-8u131-linux-x64.tar.gz /tmp',
+    command => '/usr/bin/sudo mv /home/root/jdk/elasticsearch/jdk-8u131-linux-x64.tar.gz /tmp',
   }
 
   user { 'elasticsearch':
