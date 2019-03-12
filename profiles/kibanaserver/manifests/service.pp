@@ -19,7 +19,7 @@ class kibanaserver::service {
   exec{"restart_kibana":
       command => '/usr/bin/sudo systemctl restart kibana',
     }~>
-  exec{"enable_elasticsearch":
+  exec{"enable_kibana":
       command => '/usr/bin/sudo systemctl enable kibana',
     }
 
