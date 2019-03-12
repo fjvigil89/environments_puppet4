@@ -23,4 +23,14 @@ class kibanaserver::service {
       command => '/usr/bin/sudo systemctl enable kibana',
     }
 
+  file{'/etc/kibana/kibana.yml':
+      ensure => 'file',
+      owner  => 'root',
+      group  => 'root',
+      mode   => '0644',
+      source => 'puppet:///modules/kibanaserver/kibana.yml',
+      before => Exec['instalar_kibana'],
+      notify => Exec['restart_kibana'];
+  }
+
 }
