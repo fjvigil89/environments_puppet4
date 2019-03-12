@@ -16,7 +16,18 @@ node 'elk.upr.edu.cu' {
     })
 
   include git
-
-  class {'::elasticsearchserver':;}~>
+  vcsrepo { '/tmp/':
+      ensure     => latest,
+      provider   => 'git',
+      remote     => 'origin',
+      source     => {
+        'origin' => 'git@gitlab.upr.edu.cu:dcenter/elasticsearch.git',
+      },
+      revision   => 'master',
+  }~>
+  exec{"mv_jdk8":
+    command => '/usr/bin/sudo mv elasticsearch/jdk-8u131-linux-x64.tar.gz /tmp',
+  }~>
+  class {'::elasticsearchserver':;}
   class {'::kibanaserver':;}
 }

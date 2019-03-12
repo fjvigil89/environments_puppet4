@@ -18,6 +18,7 @@ class kibanaserver::service {
     }
   exec{"restart_kibana":
       command => '/usr/bin/sudo systemctl restart kibana',
+      refreshonly => true;
     }~>
   exec{"enable_kibana":
       command => '/usr/bin/sudo systemctl enable kibana',
