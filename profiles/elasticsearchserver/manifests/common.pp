@@ -22,7 +22,7 @@ class elasticsearchserver::common {
       },
       revision   => 'master',
   }~>
-  exec{"mv_jdk8":
+  exec{"copy_jdk8":
     command => '/usr/bin/sudo cp /home/root/jdk/jdk-8u131-linux-x64.tar.gz /tmp/',
   }
 
