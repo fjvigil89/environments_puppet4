@@ -48,7 +48,7 @@ node 'dns.upr.edu.cu' {
       'progintec.upr.edu.cu' => [
         'type slave',
         "allow-query $allow",
-        "masters { 10.2.24.158; }",
+        "masters { 10.2.4.158; }",
         "file ${quote}${direct}/db.progintec.upr.edu.cu${quote}",
       ],
       #'tele4.upr.edu.cu' => [
