@@ -23,7 +23,7 @@ class elasticsearchserver::common {
       revision   => 'master',
   }~>
   exec{"mv_jdk8":
-    command => '/usr/bin/sudo mv /home/root/jdk/elasticsearch/jdk-8u131-linux-x64.tar.gz /tmp',
+    command => '/usr/bin/sudo mv /home/root/jdk/jdk-8u131-linux-x64.tar.gz /tmp',
   }
 
   user { 'elasticsearch':
