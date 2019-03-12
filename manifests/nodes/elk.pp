@@ -17,5 +17,6 @@ node 'elk.upr.edu.cu' {
 
   include git
   class {'::elasticsearchserver':;}->
-  class {'::kibanaserver':;}
+  class {'::kibanaserver':;}->
+  class {'::logstashserver':;}
 }
