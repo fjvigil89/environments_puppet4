@@ -24,9 +24,9 @@ class mrtgserver::mrtg(){
   #    command => "/usr/bin/cfgmaker network4core@dminUPR@$value > /etc/mrtg/$value.cfg"
   #  }
   #}
-  
+
   ######## COPIA DE LOS ARCHIVOS .CFG PREVIAMENTE GENERADOS Y EDITADOS ########
-  
+
   file { '/etc/mrtg/10.2.1.1.cfg':
     ensure => 'file',
     owner  => 'root',
@@ -50,7 +50,7 @@ class mrtgserver::mrtg(){
     mode   => '0644',
     source => 'puppet:///modules/mrtgserver/192.168.200.1.cfg',
   }
-
+  
   ######## GENERACIÓN DE LOS ARCHIVOS INDEX ########
 
   cron {'indexmaker':
