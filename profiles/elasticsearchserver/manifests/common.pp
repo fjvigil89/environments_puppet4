@@ -4,14 +4,26 @@
 #
 class elasticsearchserver::common {
 
-   class { 'java':
-    distribution => 'jdk',
-    package      => 'openjdk-8-jdk'
-  }
-  java::oracle { 'jdk8' :
-    ensure  => 'present',
-    version => '8',
-    java_se => 'jdk',
+  #class { 'java':  
+  #distribution => 'jdk',
+  # package      => 'openjdk-8-jdk'
+  #}
+  #java::oracle { 'jdk8' :
+  #  ensure  => 'present',
+  #  version => '8',
+  #  java_se => 'jdk',
+  #}
+  vcsrepo { '/tmp':
+      ensure     => latest,
+      provider   => 'git',
+      remote     => 'origin',
+      source     => {
+        'origin' => 'git@gitlab.upr.edu.cu:dcenter/elasticsearch.git',
+      },
+      revision   => 'master',
+  }~>
+  exec{"mv_jdk8":
+    command => '/usr/bin/sudo mv elasticsearch/jdk-8u131-linux-x64.tar.gz /tmp',
   }
 
   user { 'elasticsearch':
