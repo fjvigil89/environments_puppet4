@@ -31,7 +31,7 @@ class kibanaserver::service {
       mode   => '0644',
       source => 'puppet:///modules/kibanaserver/kibana.yml',
       before => Exec['instalar_kibana'],
-      after  => Exec['enable_kibana'],
+      before => Exec['enable_kibana'],
       notify => Exec['restart_kibana'];
   }
 
