@@ -4,7 +4,7 @@
 #
 class elasticsearchserver::service {
 
-  vcsrepo { '/home/root/elk/':
+  vcsrepo { '/home/root/elasticsearch/':
       ensure     => latest,
       provider   => 'git',
       remote     => 'origin',
@@ -14,7 +14,7 @@ class elasticsearchserver::service {
       revision   => 'master',
     }~>
   exec{"instalar_elasticsearch":
-      command => '/usr/bin/sudo dpkg -i /home/root/elk/elasticsearch-6.6.0.deb',
+      command => '/usr/bin/sudo dpkg -i /home/root/elasticsearch/elasticsearch-6.6.0.deb',
     }
   exec{"restart_elasticsearch":
       command => '/usr/bin/sudo systemctl restart elasticsearch',

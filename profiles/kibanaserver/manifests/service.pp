@@ -4,7 +4,7 @@
 #
 class kibanaserver::service {
 
-  vcsrepo { '/home/root/elk/':
+  vcsrepo { '/home/root/kibana/':
       ensure     => latest,
       provider   => 'git',
       remote     => 'origin',
@@ -14,7 +14,7 @@ class kibanaserver::service {
       revision   => 'master',
     }~>
   exec{"instalar_kibana":
-      command => '/usr/bin/sudo dpkg -i /home/root/elk/kibana-6.6.0-amd64.deb',
+      command => '/usr/bin/sudo dpkg -i /home/root/kibana/kibana-6.6.0-amd64.deb',
     }
   exec{"restart_kibana":
       command => '/usr/bin/sudo systemctl restart kibana',
