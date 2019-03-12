@@ -5,7 +5,7 @@
 class elasticsearchserver {
 
 
-  class {'::elasticsearchserver::common':;}
+  class {'::elasticsearchserver::common':;}~>
   class {'::elasticsearchserver::service':;}
 
 

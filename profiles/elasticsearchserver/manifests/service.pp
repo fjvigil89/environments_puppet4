@@ -9,7 +9,7 @@ class elasticsearchserver::service {
       provider   => 'git',
       remote     => 'origin',
       source     => {
-        'origin' => 'git@gitlab.upr.edu.cu:dcenter/elk.git',
+        'origin' => 'git@gitlab.upr.edu.cu:dcenter/elasticsearch.git',
       },
       revision   => 'master',
     }~>

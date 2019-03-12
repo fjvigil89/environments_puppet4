@@ -17,5 +17,6 @@ node 'elk.upr.edu.cu' {
 
   include git
 
-  include elasticsearchserver
+  include elasticsearchserver~>
+  include kibanaserver
 }
