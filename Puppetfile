@@ -86,7 +86,8 @@ mod 'puppetlabs-haproxy', '2.2.0'
 #mod 'elastic-elasticsearch', '6.3.3'
 #mod 'richardc-datacat', '0.6.2'
 #mod 'elastic-elastic_stack', '6.2.4'
-#mod 'pcfens-filebeat', '3.3.3'
+mod 'pcfens-filebeat', '3.4.0'
+mod 'puppetlabs-powershell', '2.2.0'
 #ldap
 mod 'camptocamp-openldap', '1.17.0'
 #Proxy

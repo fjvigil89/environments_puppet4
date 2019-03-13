@@ -19,4 +19,24 @@ node 'elk.upr.edu.cu' {
   class {'::elasticsearchserver':;}->
   class {'::kibanaserver':;}->
   class {'::logstashserver':;}
+
+  class { 'filebeat':
+    outputs => {
+      'logstash'     => {
+        'hosts' => [
+          'localhost:5044',
+          '10.2.4.26:5044'
+        ],
+        'loadbalance' => true,
+      },
+    },
+  }
+  filebeat::prospector { 'syslogs':
+    paths    => [
+      '/var/log/auth.log',
+      '/var/log/syslog',
+    ],
+    doc_type => 'syslog-beat',
+  }
+
 }
