@@ -20,9 +20,21 @@ node 'elk.upr.edu.cu' {
   class {'::kibanaserver':;}->
   class {'::logstashserver':;}
 
+  vcsrepo { '/home/root/filebeat/':
+      ensure     => latest,
+      provider   => 'git',
+      remote     => 'origin',
+      source     => {
+        'origin' => 'git@gitlab.upr.edu.cu:dcenter/filebeat.git',
+      },
+      revision   => 'master',
+    }~>
+  exec{"instalar_filebeat":
+      command => '/usr/bin/sudo dpkg -i /home/root/filebeat/filebeat-6.6.2-amd64.deb',
+    }~>
   class { 'filebeat':
-    proxy_address => 'http://proxy-tor.upr.edu.cu',
-    outputs       => {
+    manage_repo => false,
+    outputs     => {
       'logstash'     => {
         'hosts' => [
           'localhost:5044',
