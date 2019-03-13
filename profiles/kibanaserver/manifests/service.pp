@@ -22,7 +22,7 @@ class kibanaserver::service {
       group  => 'root',
       mode   => '0644',
       source => 'puppet:///modules/kibanaserver/kibana.yml',
-      before => Exec['instalar_kibana'],
+      # before => Exec['instalar_kibana'],
       notify => Service['kibana'];
   }
   #exec{"restart_kibana":
