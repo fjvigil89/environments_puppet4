@@ -15,6 +15,15 @@ class kibanaserver::service {
     }~>
   exec{"instalar_kibana":
       command => '/usr/bin/sudo dpkg -i /home/root/kibana/kibana-6.6.0-amd64.deb',    
+  }~>
+  file{'/etc/kibana/kibana.yml':
+      ensure => 'file',
+      owner  => 'root',
+      group  => 'root',
+      mode   => '0644',
+      source => 'puppet:///modules/kibanaserver/kibana.yml',
+      before => Exec['instalar_kibana'],
+      notify => Service['kibana'];
   }
   #exec{"restart_kibana":
   #    command => '/usr/bin/sudo systemctl restart kibana | systemctl enable kibana',
@@ -26,15 +35,7 @@ class kibanaserver::service {
 
   service{'kibana':
     ensure => running,
-  }
-  file{'/etc/kibana/kibana.yml':
-      ensure => 'file',
-      owner  => 'root',
-      group  => 'root',
-      mode   => '0644',
-      source => 'puppet:///modules/kibanaserver/kibana.yml',
-      before => Exec['instalar_kibana'],
-      notify => Service['kibana'];
+    enable => true,
   }
 
 }
