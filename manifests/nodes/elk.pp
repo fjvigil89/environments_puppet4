@@ -21,7 +21,8 @@ node 'elk.upr.edu.cu' {
   class {'::logstashserver':;}
 
   class { 'filebeat':
-    outputs => {
+    proxy_address => 'http://proxy-tor.upr.edu.cu'
+    outputs       => {
       'logstash'     => {
         'hosts' => [
           'localhost:5044',
