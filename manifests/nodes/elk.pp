@@ -37,19 +37,17 @@ node 'elk.upr.edu.cu' {
     outputs     => {
       'logstash'     => {
         'hosts' => [
-          'localhost:5044',
-          '10.2.4.26:5044'
-        ],
-        'loadbalance' => true,
+          'localhost:5044'
+          
+        ],        
       },
     },
   }
   filebeat::prospector { 'syslogs':
     paths    => [
-      '/var/log/auth.log',
-      '/var/log/syslog',
+      '/var/log/*',      
     ],
-    doc_type => 'syslog-beat',
+    doc_type => 'syslog',
   }
 
 }
