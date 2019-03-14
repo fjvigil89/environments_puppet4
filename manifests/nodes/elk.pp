@@ -34,7 +34,7 @@ node 'elk.upr.edu.cu' {
     }~>
   class { 'filebeat':
     manage_repo => false,
-    module      => ['system'],
+    modules     => ['system'],
     outputs     => {
       'logstash'     => {
         'hosts' => [
