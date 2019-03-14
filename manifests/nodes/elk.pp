@@ -33,6 +33,10 @@ node 'elk.upr.edu.cu' {
       command => '/usr/bin/sudo dpkg -i /home/root/filebeat/filebeat-6.6.2-amd64.deb',
     }~>
   class { 'filebeat':
+    fields              => {
+      log_type => 'syslog',
+    },
+
     manage_repo         => false,
     enable_conf_modules => true,
     modules             => ['system'],
