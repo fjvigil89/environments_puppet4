@@ -10,9 +10,10 @@ class metricbeatserver::service(
 ) {
 
   class {'metricbeat':
-    queue_size  => $queue_size, 
-    manage_repo => $manage_repo,
-    modules     => $modules,
-    outputs     => $outputs, 
+    disable_configtest => true,
+    queue_size         => $queue_size, 
+    manage_repo        => $manage_repo,
+    modules            => $modules,
+    outputs            => $outputs, 
   }
 }
