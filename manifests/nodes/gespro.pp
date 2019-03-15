@@ -5,5 +5,6 @@ node 'gespro.upr.edu.cu'  {
     puppet_enabled => true,
     repos_enabled  => true,
     mta_enabled    => false,
+    puppet_users   => false,
   }
 }
