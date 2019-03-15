@@ -88,7 +88,7 @@ class mrtgserver::mrtg(){
 
 cron {'indexmaker_sensores':
     user    => $owner,
-    command => '/usr/bin/indexmaker --columns=2 --title="Temperatura y Humedad DATACENTER-UPR" /etc/mrtg/mrtg.sensor1.cfg 2> /dev/null& /etc/mrtg/mrtg.sensor2.cfg 2> /dev/null& > /var/www/mrtg/sensores/index.html',
+    command => '/usr/bin/indexmaker --columns=2 --title="Temperatura y Humedad DATACENTER-UPR" /etc/mrtg/mrtg.sensor1.cfg /etc/mrtg/mrtg.sensor2.cfg > /var/www/mrtg/sensores/index.html',
     minute  => '*/1'
   }
 }
