@@ -1,16 +1,7 @@
 node 'elk.upr.edu.cu' {  
   
   class {'::elkserver':;}->
-  class {'::filebeatserver':
-   outputs => {
-    'logstash'     => {
-     'hosts' => [
-       'localhost:5044',
-       
-     ]     
-    },
-  }
-  }->
+  class {'::filebeatserver':;}
   filebeatserver::prospector{'logs':
     paths    => [
     '/var/log/*',
