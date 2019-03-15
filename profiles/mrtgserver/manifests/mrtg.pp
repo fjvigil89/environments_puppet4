@@ -85,6 +85,12 @@ class mrtgserver::mrtg(){
     command => '/usr/bin/indexmaker --columns=2 --addhead="<H1 align= "center" > Multi Router Traffic Grapher <H1>" --title="Tr&aacute;fico de Enlaces UPR" /etc/mrtg/192.168.200.1.cfg 2> /dev/null& /etc/mrtg/10.2.1.1.cfg 2> /dev/null& /etc/mrtg/10.2.8.2.cfg 2> /dev/null& > /var/www/mrtg/index.html',
     minute  => '*/1'
   }
+
+cron {'indexmaker_sensores':
+    user    => $owner,
+    command => '/usr/bin/indexmaker --columns=2 --addhead="<H1 align= "center" > Temperatura y Humedad DATACENTER-UPR <H1>" /etc/mrtg/mrtg.sensor1.cfg 2> /dev/null& /etc/mrtg/mrtg.sensor2.cfg 2> /dev/null&  > /var/www/mrtg/sensores/index.html',
+    minute  => '*/1'
+  }
 }
   #Agregar en /etc/cron.d/mrtg:
   #  */1 * * * *   root   env LANG=C /usr/bin/mrtg /etc/mrtg/10.2.1.1.cfg 2> /dev/null&
