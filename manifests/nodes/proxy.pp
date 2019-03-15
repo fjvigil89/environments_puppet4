@@ -20,6 +20,10 @@ node 'proxy-go.upr.edu.cu'{
     dmz           => true,
      
   }
+  class {'::filebeatserver':
+    paths    => '/etc/pmproxy/logs/*.log',
+    log_type => "proxy",
+   }
   
 
 
