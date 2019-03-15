@@ -1,4 +1,4 @@
-class icingaweb_elasticsearch {
+class monitoring::icingaweb_elasticsearch {
   class { 'icingaweb2::module::elasticsearch':
     git_revision => 'master',
     instances    => {
