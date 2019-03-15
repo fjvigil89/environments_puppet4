@@ -9,12 +9,18 @@ class metricbeatserver::service(
  Integer $queue_size    = $metricbeatserver::queue_size,
 ) {
 
-  class {'metricbeat':
-    major_version      => '6',
-    disable_configtest => true,
-    queue_size         => $queue_size, 
-    manage_repo        => $manage_repo,
-    modules            => $modules,
-    outputs            => $outputs, 
+  #class {'metricbeat':
+  #  major_version      => '6',
+  #  disable_configtest => true,
+  #  queue_size         => $queue_size, 
+  #  manage_repo        => $manage_repo,
+  #  modules            => $modules,
+  #  outputs            => $outputs, 
+  #}
+
+  service{'metricbeat':
+    ensure => running,    
+    enable => true,
   }
+
 }
