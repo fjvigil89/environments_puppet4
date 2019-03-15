@@ -5,7 +5,7 @@
 # Copyright 2019 Your name here, unless otherwise noted.
 #
 class filebeatserver::service(
-  Hash $output         = $::filebeatserver::params::output,
+  Hash $outputs        = $::filebeatserver::params::output,
 ) {
   class { 'filebeat':
     manage_repo         => false,
