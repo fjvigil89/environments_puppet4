@@ -10,6 +10,7 @@ class metricbeatserver::service(
 ) {
 
   class {'metricbeat':
+    major_version      => '6',
     disable_configtest => true,
     queue_size         => $queue_size, 
     manage_repo        => $manage_repo,
