@@ -20,8 +20,10 @@ class filebeatserver::service(
   file {'/etc/filebeat/filebeat.yml':
     notify =>  Service['filebeat'],
     content => template('filebeatserver/filebeat.erb'),
-  }
-
+  }~>
+  exec{"instalar_module_System":
+      command => '/usr/bin/sudo filebeat modules enable system',
+    }~>
   service{'filebeat':
     ensure => running,
     enable => true,
