@@ -16,4 +16,11 @@ class mrtgserver::apache(){
     servername => 'whois-pup.upr.edu.cu',
     aliases    => 'whois',
   }
+
+  apache::vhost { 'sensores':
+    port       => '80',
+    docroot    => '/var/www/mrtg/sensores/',
+    servername => 'clima.upr.edu.cu',
+    aliases    => 'clima',
+  }
 }
