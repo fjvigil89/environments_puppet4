@@ -48,12 +48,21 @@ class monitoring::checks {
     mode   => '0755',
     source => 'puppet:///modules/monitoring/checks/check_amavis.pl',
   }
+  
   file { "${plugin_dir}/check_rbl":
     ensure => file,
     owner  => 'root',
     group  => 'root',
     mode   => '0755',
     source => 'puppet:///modules/monitoring/checks/check_rbl',
+  }
+  
+  file { "${plugin_dir}/check_ceph":
+    ensure => file,
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0755',
+    source => 'puppet:///modules/monitoring/checks/check_ceph.py',
   }
 
 
