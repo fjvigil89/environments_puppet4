@@ -5,8 +5,9 @@
 # Copyright 2019 Your name here, unless otherwise noted.
 #
 class metricbeatserver::params{
-  $modules    = [{}]
-  $outputs    = {}
+  $modules      = [{}]
+  $outputs      = {}
+  $queue_size   = 2000
 
 }
 
