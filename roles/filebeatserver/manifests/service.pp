@@ -11,6 +11,12 @@ class filebeatserver::service(
   #  outputs             => $::filebeatserver::outputs,
     
   #}
+
+  file {'/etc/filebeat/filebeat.yml':
+    notify =>  Service['filebeat'],
+    content => template('filebeatserver/filebeat.erb'),
+  }
+
   service{'filebeat':
     ensure => running,
     enable => true,
