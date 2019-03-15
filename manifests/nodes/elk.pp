@@ -19,7 +19,16 @@ node 'elk.upr.edu.cu' {
   class {'::elasticsearchserver':;}->
   class {'::kibanaserver':;}->
   class {'::logstashserver':;}->
-  class {'::filebeatserver':;}->
+  class {'::filebeatserver':
+   outputs => {
+    'logstash'     => {
+     'hosts' => [
+       'localhost:5044',
+       
+     ]     
+    },
+  }
+  }->
   filebeatserver::prospector{'logs':
     paths    => [
     '/var/log/*',
