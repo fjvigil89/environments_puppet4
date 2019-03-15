@@ -6,10 +6,14 @@
 #
 class filebeatserver::service(
 ) {
-  class { 'filebeat':
-    manage_repo         => false,
-    outputs             => $::filebeatserver::outputs,
+  #class { 'filebeat':
+  #  manage_repo         => false,
+  #  outputs             => $::filebeatserver::outputs,
     
+  #}
+  service{'filebeat':
+    ensure => running,
+    enable => true,
   }
 
 }
