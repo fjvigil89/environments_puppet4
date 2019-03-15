@@ -14,7 +14,7 @@ class logstashserver
 ){
 
   class {'::logstashserver::install':;}~>
-  class {'::logstashserver::files':
+  class {'logstashserver::files':
     filtros => $filtros,
     }
   class {'::logstashserver::service':;}

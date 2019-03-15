@@ -1,5 +1,5 @@
-
-define logstashserver::file (
+# Define: logstashserver::file
+define logstashserver::files (
   $filtros     = [],
   $owner       = 'root',
   $zonedir     ='/etc/logstash/conf.d',
