@@ -18,42 +18,16 @@ node 'elk.upr.edu.cu' {
   include git
   class {'::elasticsearchserver':;}->
   class {'::kibanaserver':;}->
-  class {'::logstashserver':;}
-
-  vcsrepo { '/home/root/filebeat/':
-      ensure     => latest,
-      provider   => 'git',
-      remote     => 'origin',
-      source     => {
-        'origin' => 'git@gitlab.upr.edu.cu:dcenter/filebeat.git',
-      },
-      revision   => 'master',
-    }~>
-  exec{"instalar_filebeat":
-      command => '/usr/bin/sudo dpkg -i /home/root/filebeat/filebeat-6.6.2-amd64.deb',
-    }~>
-  class { 'filebeat':
-    fields              => {
-      log_type => 'syslog',
-    },
-
-    manage_repo         => false,
-    enable_conf_modules => true,
-    modules             => ['system'],
-    outputs             => {
-      'logstash'     => {
-        'hosts' => [
-          'localhost:5044'
-          
-        ],        
-      },
-    },
-  }
-  filebeat::prospector { 'syslogs':
+  class {'::logstashserver':;}->
+  class {'::filebeatserver':;}->
+  filebeatserver::prospector{'logs':
     paths    => [
-      '/var/log/*',      
+    '/var/log/*',
     ],
-    doc_type => 'syslog',
+    doc_type => 'syslogs',
   }
+    
+
+
 
 }
