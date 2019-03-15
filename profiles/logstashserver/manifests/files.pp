@@ -32,7 +32,8 @@ define logstashserver::file (
     mode    => $mode,
     source  => $zone_source,
     content => $content,
-    notify  => Class ['::logstashserver::service'];
+    notify  => Class['::logstashserver::service'],
+    require => File[$zonedir],
   }
 
 }
