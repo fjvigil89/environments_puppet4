@@ -10,7 +10,7 @@ class filebeatserver::service(
   class { 'filebeat':
     manage_repo         => false,
     outputs             => $output,
-    },
+    
   }
 
 }
