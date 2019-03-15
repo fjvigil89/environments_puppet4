@@ -14,11 +14,8 @@ class filebeatserver::service(
   Optional[String] $logstash_host     = $::filebeatserver::logstash_host,
 
 ) {
-  #class { 'filebeat':
-  #  manage_repo         => false,
-  #  outputs             => $::filebeatserver::outputs,
-    
-  #}
+
+
 
   file {'/etc/filebeat/filebeat.yml':
     notify =>  Service['filebeat'],
@@ -29,5 +26,6 @@ class filebeatserver::service(
     ensure => running,
     enable => true,
   }
+
 
 }

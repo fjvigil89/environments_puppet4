@@ -12,4 +12,4 @@ class filebeatserver::params{
   $kibana_username   = "kibanaadmin"
   $kibana_password   = "$*uprP@ssword*$"
   $logstash_host     = "10.2.4.26:5044" 
-}
+  $modules           =["system"] 

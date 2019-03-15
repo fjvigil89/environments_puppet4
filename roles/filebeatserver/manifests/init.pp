@@ -10,6 +10,7 @@ class filebeatserver(
   Optional[String] $kibana_username   = $::filebeatserver::params::kibana_username,
   Optional[String] $kibana_password   = $::filebeatserver::params::kibana_password,
   Optional[String] $logstash_host     = $::filebeatserver::params::logstash_host,
+  Optional[Array[String]] $modules     = $::filebeatserver::params::modules,
  
 ) inherits ::filebeatserver::params  {
   class {'::filebeatserver::install':;}

@@ -1,9 +1,9 @@
-# Class: logstashserver::service
+# Class: logstashserver::install
 # ===========================
 #
 # Copyright 2019 Your name here, unless otherwise noted.
 #
-class logstashserver::service {
+class logstashserver::install {
 
 
     vcsrepo { '/home/root/logstash/':
@@ -18,7 +18,5 @@ class logstashserver::service {
   exec{"instalar_logstash":
       command => '/usr/bin/sudo dpkg -i /home/root/logstash/logstash-6.6.0.deb',
     }
-
-
 }
 
