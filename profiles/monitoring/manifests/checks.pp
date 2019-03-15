@@ -57,7 +57,7 @@ class monitoring::checks {
     source => 'puppet:///modules/monitoring/checks/check_rbl',
   }
   
-  file { "${plugin_dir}/check_ceph":
+  file { "${plugin_dir}/check_ceph.py":
     ensure => file,
     owner  => 'root',
     group  => 'root',
