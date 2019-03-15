@@ -14,9 +14,10 @@ class logstashserver
 ){
 
   class {'::logstashserver::install':;}~>
-  class {'logstashserver::files':
-    filtros => $filtros,
-    }
+
+  each($::filtrosl) |Integer $index, String $value|{  
+    logstashserver::files{$value :;}
+  }
   class {'::logstashserver::service':;}
 
 
