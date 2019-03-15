@@ -19,7 +19,7 @@ node 'elk.upr.edu.cu' {
   }
     
 
-  class {'metricbeat':
+  class {'metricbeatserver':
   modules => [
     {
       'module'     => 'nginx',
