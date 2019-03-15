@@ -28,8 +28,8 @@ node 'elk.upr.edu.cu' {
     },
   ],
   outputs => {
-    'logstash' => {
-      'hosts' => ['10.2.4.26:5044'],
+    'elasticsearch' => {
+      'hosts' => ['10.2.4.26:9200'],
     },
   },
 }
