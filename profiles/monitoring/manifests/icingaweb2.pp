@@ -43,7 +43,7 @@ class { 'icingaweb2::module::cube':
 #File Shipper conf
 class { '::monitoring::module_fileshipper':;}
 #ElasticSearch module
-class { '::icingaweb_elasticsearch':;}
+class { '::monitoring::icingaweb_elasticsearch':;}
 }
 
 
