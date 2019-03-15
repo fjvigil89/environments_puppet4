@@ -12,7 +12,7 @@ define logstashserver::file (
   $ensure      = 'file',
 ){
 
-  }
+  
   if $source      { $zone_source = $source }
   if $source_base { $zone_source = "${source_base}${title}" }
 
@@ -32,7 +32,7 @@ define logstashserver::file (
     mode    => $mode,
     source  => $zone_source,
     content => $content,
-    notify  => Class ['::logstashserver::service'],
+    notify  => Class ['::logstashserver::service'];
   }
 
 }
