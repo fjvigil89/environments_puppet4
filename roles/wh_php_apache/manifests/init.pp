@@ -3,6 +3,9 @@
 # Full description of class wh_php_apache here.
 #
 class wh_php_apache {
+  class {'::filebeatserver':
+    log_type => "syslog",
+  ;}
 
   class { '::basesys':
     uprinfo_usage  => 'servidor test',
