@@ -127,8 +127,8 @@ class basesys::repos (
           }
           apt::source { 'icinga':
               comment  => 'Icinga UPR',
-              location => 'http://repos.upr.edu.cu/icinga/debian/',
-              #location => 'http://packages.icinga.com/debian/',
+              #location => 'http://repos.upr.edu.cu/icinga/debian/',
+              location => 'http://packages.icinga.com/debian/',
               repos    => 'main',
               release  => "icinga-${::lsbdistcodename}",
               key      => {
@@ -140,8 +140,8 @@ class basesys::repos (
           if($::is_virtual == false){
 						apt::source { "proxmox":
               comment  => 'Proxmox repo',
-              location => 'http://repos.upr.edu.cu/proxmox/pve/',
-              #location => 'http://download.proxmox.com/debian/pve',
+              #location => 'http://repos.upr.edu.cu/proxmox/pve/',
+              location => 'http://download.proxmox.com/debian/pve',
               repos    => 'pve-no-subscription',
               release  => "${::lsbdistcodename}",
             }
@@ -186,8 +186,8 @@ class basesys::repos (
          
           apt::source { 'icinga':
               comment  => 'Icinga UPR',
-              location => 'http://repos.upr.edu.cu/icinga/ubuntu/',
-              #location => 'http://packages.icinga.com/ubuntu/',
+              #location => 'http://repos.upr.edu.cu/icinga/ubuntu/',
+              location => 'http://packages.icinga.com/ubuntu/',
               repos    => 'main',
               release  => "icinga-${::lsbdistcodename}",
               key      => {
