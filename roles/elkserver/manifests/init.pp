@@ -21,8 +21,8 @@ class elkserver {
 
   include git
 
-  class {'::elasticsearchserver':;}->
-  class {'::kibanaserver':;}->
+  class {'::elasticsearchserver':;}~>
+  class {'::kibanaserver':;}~>
   class {'::logstashserver':;}
 
 
