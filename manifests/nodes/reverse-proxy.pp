@@ -44,7 +44,7 @@ node /^reverse-proxy\d+$/{
       'eventos.upr.edu.cu',
       'moodle.upr.edu.cu',
       'telefonos.upr.edu.cu',
-      'mrtg.upr.edu.cu',
+      'enlaces.upr.edu.cu',
       'ftp.upr.edu.cu',
       'media.upr.edu.cu',
       'catalogo.upr.edu.cu',
