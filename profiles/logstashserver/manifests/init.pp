@@ -13,11 +13,11 @@ class logstashserver
 ){
 
   class {'::logstashserver::install':;}
+  ~>class {'::logstashserver::service':;}
 
-  each($filtros) |Integer $index, String $value|{  
+  each($filtros) |Integer $index, String $value|{
     logstashserver::files{$value :;}
   }
-  class {'::logstashserver::service':;}
 
 
 }
