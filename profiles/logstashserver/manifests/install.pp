@@ -18,5 +18,6 @@ class logstashserver::install {
   exec{"instalar_logstash":
       command => '/usr/bin/sudo dpkg -i /home/root/logstash/logstash-6.6.0.deb',
     }
+
 }
 
