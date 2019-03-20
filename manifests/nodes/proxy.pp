@@ -21,7 +21,6 @@ node 'proxy-go.upr.edu.cu'{
      
   }
   class {'::filebeatserver':
-    type     => "log_proxy",
     paths    => '/etc/pmproxy/logs/*',
     log_type => "proxy",
    }
