@@ -17,7 +17,7 @@ node 'ha-media.upr.edu.cu' {
     mode              => 'http',
     balancer_member   => ['media0','media1','media2'],
     server_names      => ['media0.upr.edu.cu','media1.upr.edu.cu','media2.upr.edu.cu'],
-    ipaddresses       => ['10.2.24.3','10.2.24.4','10.2.24.5'],
+    ipaddresses       => ['10.2.4.41','10.2.4.42','10.2.4.43'],
     ports             => ['80'],
   }
   haproxy::listen { 'media_bhttp':
@@ -28,19 +28,19 @@ node 'ha-media.upr.edu.cu' {
   haproxy::balancermember { 'media0.upr.edu.cu':
     listening_service => 'media_bhttp',
     server_names      => 'media0.upr.edu.cu',
-    ipaddresses       => '10.2.24.3',
+    ipaddresses       => '10.2.4.41',
     ports             => '80',
   }
   haproxy::balancermember { 'media1.upr.edu.cu':
     listening_service => 'media_bhttp',
     server_names      => 'media1.upr.edu.cu',
-    ipaddresses       => '10.2.24.4',
+    ipaddresses       => '10.2.4.42',
     ports             => '80',
   }
  haproxy::balancermember { 'media2.upr.edu.cu':
    listening_service => 'media_bhttp',
    server_names      => 'media2.upr.edu.cu',
-   ipaddresses       => '10.2.24.5',
+   ipaddresses       => '10.2.4.43',
    ports             => '80',
  }
 }
