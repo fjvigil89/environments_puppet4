@@ -127,21 +127,18 @@ class basesys::repos (
           }
           apt::source { 'icinga':
               comment  => 'Icinga UPR',
-              #location => 'http://repos.upr.edu.cu/icinga/debian/',
-              location => 'http://packages.icinga.com/debian/',
+              location => 'http://repos.upr.edu.cu/icinga/debian/',
               repos    => 'main',
               release  => "icinga-${::lsbdistcodename}",
               key      => {
                 'id'     => 'F51A91A5EE001AA5D77D53C4C6E319C334410682',
-                #'source' => 'http://repos.upr.edu.cu/icinga/icinga.key',
-                'source' => 'http://packages.icinga.com/icinga.key',
+                'source' => 'http://repos.upr.edu.cu/icinga/icinga.key',
               }
               }
           if($::is_virtual == false){
 						apt::source { "proxmox":
               comment  => 'Proxmox repo',
               location => 'http://repos.upr.edu.cu/proxmox/pve/',
-              #location => 'http://download.proxmox.com/debian/pve',
               repos    => 'pve-no-subscription',
               release  => "${::lsbdistcodename}",
             }
@@ -192,8 +189,7 @@ class basesys::repos (
               release  => "icinga-${::lsbdistcodename}",
               key      => {
                 'id'     => 'F51A91A5EE001AA5D77D53C4C6E319C334410682',
-                #'source' => 'http://repos.upr.edu.cu/icinga/icinga.key',
-                'source' => 'http://packages.icinga.com/icinga.key',
+                'source' => 'http://repos.upr.edu.cu/icinga/icinga.key',
               }
 
           }
@@ -269,8 +265,7 @@ class basesys::repos (
         # Install Puppetlabs PC1 jessie Source Repository
         ::apt::source { 'puppet-agent':
           comment  => "Puppetlabs PC1 ${::lsbdistcodename} Repository from basesys",
-          #location => 'http://repos.upr.edu.cu/puppet5/apt/',
-          location => 'https://apt.puppetlabs.com/',
+          location => 'http://repos.upr.edu.cu/puppet/apt/',
           repos    => 'main',
           #key      => {
            #id     => '47B320EB4C7C375AA9DAE1A01054B7A24BD6EC30',
