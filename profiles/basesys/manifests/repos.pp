@@ -140,8 +140,8 @@ class basesys::repos (
           if($::is_virtual == false){
 						apt::source { "proxmox":
               comment  => 'Proxmox repo',
-              #location => 'http://repos.upr.edu.cu/proxmox/pve/',
-              location => 'http://download.proxmox.com/debian/pve',
+              location => 'http://repos.upr.edu.cu/proxmox/pve/',
+              #location => 'http://download.proxmox.com/debian/pve',
               repos    => 'pve-no-subscription',
               release  => "${::lsbdistcodename}",
             }
