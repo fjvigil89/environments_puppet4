@@ -17,13 +17,14 @@ node 'proxy-go.upr.edu.cu'{
     uprinfo_usage => 'Servidor Proxy',
     application   => 'Servidor Proxy GO',
     mta_enabled   => false,
-    dmz           => true,
+    #dmz           => true,
      
   }
   class {'::filebeatserver':
-    paths    => '/etc/pmproxy/logs/*.log',
+    paths    => '/etc/pmproxy/logs/*',
     log_type => "proxy",
    }
+  class {'metricbeatserver':;}
   
 
 
