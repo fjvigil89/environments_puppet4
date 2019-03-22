@@ -26,5 +26,3 @@ class letsencrypt_host (
 #   }
 #lint:endignore
 }
-
-
