@@ -15,7 +15,7 @@ file { '/root/.ssh/id_rsa':
   ensure => file,
   owner  => 'root',
   group  => 'root',
-  mode   => '0755',
+  mode   => '0600',
   source => 'puppet:///modules/ftpbackend_server/ssh_keys/id_rsa',
 }
 
@@ -23,7 +23,7 @@ file { '/root/.ssh/id_rsa.pub':
   ensure => file,
   owner  => 'root',
   group  => 'root',
-  mode   => '0755',
+  mode   => '0644',
   source => 'puppet:///modules/ftpbackend_server/ssh_keys/id_rsa.pub',
 }
 
