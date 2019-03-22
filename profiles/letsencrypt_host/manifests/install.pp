@@ -14,20 +14,20 @@ class letsencrypt_host::install {
       unsafe_registration => true,
     }
     #}
-  if($::letsencrypt_host::webroot_enable) {
-    each($::letsencrypt_host::dominios)|Integer $index, String $value|{
+  if($::letsencrypt_host::host::webroot_enable) {
+    each($::letsencrypt_host::host::dominios)|Integer $index, String $value|{
       letsencrypt::certonly { "${value}":
         domains       => [$value],
-        plugin        => $::letsencrypt_host::plugin,
-        webroot_paths => $::letsencrypt_host::webroot_paths,
+        plugin        => $::letsencrypt_host::host::plugin,
+        webroot_paths => $::letsencrypt_host::host::webroot_paths,
       }
     }
   }
   else {
-    each($::letsencrypt_host::dominios)|Integer $index, String $value|{
+    each($::letsencrypt_host::host::dominios)|Integer $index, String $value|{
       letsencrypt::certonly { "${value}":
         domains    => [$value],
-        plugin     => $::letsencrypt_host::plugin,
+        plugin     => $::letsencrypt_host::host::plugin,
       }
     }
   }

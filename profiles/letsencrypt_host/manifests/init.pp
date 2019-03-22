@@ -13,7 +13,7 @@ class letsencrypt_host (
   Optional[String] $config_dir             = $::letsencrypt_host::params::config_dir,
  )inherits ::letsencrypt_host::params{
    class {'::letsencrypt_host::package':;}
-   class {'::letsencrypt_host::install':;}
+   #class {'::letsencrypt_host::install':;}
 
 
    
