@@ -27,13 +27,16 @@ file { '/root/.ssh/id_rsa.pub':
   source => 'puppet:///modules/ftpbackend_server/ssh_keys/id_rsa.pub',
 }
 
+file { '/root/.ssh/config':
+  ensure => file,
+  owner  => 'root',
+  group  => 'root',
+  mode   => '0644',
+  source => 'puppet:///modules/ftpbackend_server/ssh_keys/config',
+}
 
-#file { '/opt/html':
-#  ensure  => directory,
-#  group   => 'users',
-#  owner   => 'root',
-#  mode    => '0777',
-#  }~>
+
+
 vcsrepo { '/opt/html':
   ensure   => latest,
   provider => 'git',
