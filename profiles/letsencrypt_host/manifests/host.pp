@@ -3,7 +3,7 @@
 # Full description of class letsencrypt_host here.
 #
 #
-define letsencrypt::host (
+define letsencrypt_host::host (
 # lint:ignore:140chars
   Optional[Array[String]] $dominios        = $::letsencrypt_host::params::dominios,
   Optional[Boolean] $webroot_enable        = false,
