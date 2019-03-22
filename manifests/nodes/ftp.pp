@@ -65,7 +65,7 @@ vcsrepo { '/opt/html':
   provider => 'git',
   remote   => 'origin',
   source   => {
-    'origin' => 'git@gitlab.upr.edu.cu:dcenter/media.git',
+    'origin' => 'git@gitlab.upr.edu.cu:dcenter/ftp.git',
   },
   revision => 'master',
 }
