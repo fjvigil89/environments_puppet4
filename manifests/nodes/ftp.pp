@@ -1,4 +1,4 @@
-node 'ha-.aupr.edu.cu' {  
+node 'ha-ftp.upr.edu.cu' {  
   package { 'lsb-release':
           ensure => installed,
   }~>
