@@ -44,11 +44,11 @@ file { '/srv/update.sh':
   source => 'puppet:///modules/ftpbackend_server/update_antiv/update.sh',
 }
 cron { 'update_antivirus'
- ensure  => present,
+ ensure  => 'present',
  command => '/srv/update.sh',
  user    => 'root',
  hour    => '5',
- minute  => absent,
+ minute  => 'absent',
 }
 
 
