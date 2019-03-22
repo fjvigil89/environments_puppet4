@@ -28,12 +28,12 @@ file { '/root/.ssh/id_rsa.pub':
 }
 
 
-file { '/opt/html':
-  ensure  => directory,
-  group   => 'users',
-  owner   => 'root',
-  mode    => '0777',
-  }~>
+#file { '/opt/html':
+#  ensure  => directory,
+#  group   => 'users',
+#  owner   => 'root',
+#  mode    => '0777',
+#  }~>
 vcsrepo { '/opt/html':
   ensure   => latest,
   provider => 'git',
