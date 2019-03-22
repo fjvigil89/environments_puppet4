@@ -21,7 +21,7 @@ class letsencrypt_host::install {
         plugin        => $::letsencrypt_host::host::plugin,
         webroot_paths => $::letsencrypt_host::host::webroot_paths,
       }
-    }
+      #}
   }
   else {
     #each($::letsencrypt_host::host::dominios)|Integer $index, String $value|{
@@ -29,7 +29,7 @@ class letsencrypt_host::install {
         domains    => [$::letsencrypt_host::host::dominios],
         plugin     => $::letsencrypt_host::host::plugin,
       }
-    }
+      #}
   }
 }
 
