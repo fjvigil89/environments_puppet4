@@ -43,7 +43,7 @@ file { '/srv/update.sh':
   mode   => '0774',
   source => 'puppet:///modules/ftpbackend_server/update_antiv/update.sh',
 }
-cron { 'update_antivirus'
+cron { 'update_antivirus':
  ensure  => 'present',
  command => '/srv/update.sh',
  user    => 'root',
