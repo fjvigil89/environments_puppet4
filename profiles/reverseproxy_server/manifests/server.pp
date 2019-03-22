@@ -35,8 +35,8 @@ class reverseproxy_server::server{
        }
        if($::reverseproxy_server::ssl_port[$index] == 443) and ($::reverseproxy_server::listen_port[$index]== 443)
        {
-         letsencrypt_host::host {
-              dominios => $::reverseproxy_server::server_name[$index],
+         letsencrypt_host::host {${value} :
+              dominios => ${value},
             }
          if ($red_univ){
            nginx::resource::server { $::reverseproxy_server::server_name[$index]:
