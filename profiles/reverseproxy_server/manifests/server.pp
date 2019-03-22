@@ -71,6 +71,11 @@ class reverseproxy_server::server{
        else{
          if($::reverseproxy_server::ssl_port[$index] == 443) and ($::reverseproxy_server::listen_port[$index]== 80){
            if($red_univ){
+             
+            letsencrypt_host::host {"letsencrypt":
+              dominios => "${value}",
+            }
+
              nginx::resource::server { $::reverseproxy_server::server_name[$index]:
                listen_port => $::reverseproxy_server::listen_port[$index],
                ssl_port    => $::reverseproxy_server::ssl_port[$index],
