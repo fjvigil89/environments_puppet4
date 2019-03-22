@@ -25,7 +25,7 @@ class letsencrypt_host::install {
   }
   else {
     #each($::letsencrypt_host::host::dominios)|Integer $index, String $value|{
-      letsencrypt::certonly { "${::letsencrypt_host::host::dominios}":
+      letsencrypt::certonly { "lolo":        
         domains    => [$::letsencrypt_host::host::dominios],
         plugin     => $::letsencrypt_host::host::plugin,
       }
