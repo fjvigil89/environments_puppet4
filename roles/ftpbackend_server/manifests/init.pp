@@ -74,6 +74,10 @@ class { '::php_webserver':
   },
   packages       => ['php-fpm','php7.0-gd','ffmpeg','graphicsmagick'],
 }
+apt::key { 'keyserver.ubuntu.com':
+  key => '573BFD6B3D8FBC641079A6ABABF5BD827BD9BF62',
+  ensure => present,
+}
 include nginx
 nginx::resource::server { $fqdn:
   listen_port => 80,
