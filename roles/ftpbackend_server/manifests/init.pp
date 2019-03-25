@@ -71,7 +71,7 @@ class { '::php':
   composer    => true,
   pear        => true,
 }
-  $packages = ['php-fpm','php7.0-gd','ffmpeg','graphicsmagick'],
+Array[String] $packages = ['php-fpm','php7.0-gd','ffmpeg','graphicsmagick'],
 ensure_packages($packages)
 class { 'nginx':
   manage_repo => false,
