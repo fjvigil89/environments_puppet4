@@ -66,9 +66,11 @@ class { '::php::globals':
 }~>
 class { '::php':
   manage_repos => false,
-  fpm         => true,
-  composer    => true,
-  pear        => true,
+  fpm          => true,
+  fpm_user     => 'nginx',
+  fpm_group    => 'nginx',
+  composer     => true,
+  pear         => true,
 }
 ensure_packages(['php-fpm','php7.0-gd','ffmpeg','graphicsmagick'])
 class { 'nginx':
@@ -77,6 +79,7 @@ class { 'nginx':
 nginx::resource::server { $fqdn:
   listen_port => 80,
   www_root    => '/srv/ftp',
+  autoindex   => 'on',
   access_log  => "/var/log/nginx/$fqdn-access.log",
   error_log   => "/var/log/nginx/$fqdn-error.log", 
  }
@@ -92,5 +95,13 @@ nginx::resource::server { $fqdn:
    #fastcgi_connect_timeout => '5m',
    #fast_param              => 'SCRIPT_FILENAME /srv/ftp/$fastcgi_script_name',
  }
+ php::fpm::pool{$user:
+   user         => $user,
+   group        => $user,
+   listen_owner => 'http',
+   listen_group => 'http',
+   listen_mode  => '0660',
+   listen       => "/var/run/php-fpm/${user}-fpm.sock",
+  }
 }
 
