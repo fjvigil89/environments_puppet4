@@ -51,7 +51,7 @@ cron { 'update_antivirus':
  minute  => 'absent',
 }
 
-
+include git
 vcsrepo { '/srv/ftp':
   ensure   => latest,
   provider => 'git',
