@@ -104,7 +104,7 @@ nginx::resource::server { $fqdn:
        fastcgi_send_timeout 5m;
        fastcgi_read_timeout 5m;
        fastcgi_connect_timeout 5m;
-       fast_param => SCRIPT_FILENAME /srv/ftp/$fastcgi_script_name,
+       fast_param => SCRIPT_FILENAME /srv/ftp/$fastcgi_script_name;
   \n",
   after  => "fastcgi_pass  127.0.0.1:9000;",
 }
