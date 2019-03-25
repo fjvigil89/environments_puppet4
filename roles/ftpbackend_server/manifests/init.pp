@@ -74,7 +74,9 @@ class { '::php_webserver':
   },
   packages       => ['php-fpm','php7.0-gd','ffmpeg','graphicsmagick'],
 }
-include nginx
+class { 'nginx':
+  manage_repo => false,
+}
 nginx::resource::server { $fqdn:
   listen_port => 80,
   www_root    => '/srv/ftp',
