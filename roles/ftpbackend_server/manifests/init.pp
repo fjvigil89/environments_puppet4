@@ -78,21 +78,17 @@ class { 'nginx':
 }
 nginx::resource::server { $fqdn:
   listen_port => 80,
-  www_root    => '/srv/ftp',
+  www_root    => '/srv/ftp/',
   access_log  => "/var/log/nginx/$fqdn-access.log",
   error_log   => "/var/log/nginx/$fqdn-error.log", 
  }
  nginx::resource::location { '~ \.php$':
-   ensure                  => present,
-   server                  => $fqdn,
-   location                => '~\.php$',
-   index_files             => ['/_h5ai/public/index.php'],
-   fastcgi                 => 'unix:/var/run/php/php7.0-fpm.sock',
-   #fastfgi_index           => 'index.php',
-   #fastcgi_send_timeout    => '5m',
-   #fastcg_read_time_out    => '5m',
-   #fastcgi_connect_timeout => '5m',
-   #fast_param              => 'SCRIPT_FILENAME /srv/ftp/$fastcgi_script_name',
+   ensure      => present,
+   server      => $fqdn,
+   location    => '~\.php$',
+   index_files => ['/_h5ai/public/index.php'],
+   fastcgi     => '127.0.0.1:9000',
+   #fast_param => 'SCRIPT_FILENAME /srv/ftp/$fastcgi_script_name',
  }
  php::fpm::pool{ 'www.conf':
    user         => 'www-data',
@@ -100,7 +96,19 @@ nginx::resource::server { $fqdn:
    listen_owner => 'www-data',
    listen_group => 'www-data',
    listen_mode  => '0660',
-   listen       => "/run/php/php7.0-fpm.sock",
+   listen       => "127.0.0.1:9000",
  }
+ file_line { 'mod_rewrite':
+  path   => "/etc/nginx/sites-available/25-${fqdn}.conf",
+  line   => "\n
+       fastcgi_index index.php;
+       fastcgi_send_timeout 5m;
+       fastcgi_read_timeout 5m;
+       fastcgi_connect_timeout 5m;
+       fast_param => 'SCRIPT_FILENAME /srv/ftp/$fastcgi_script_name,
+  \n\n",
+  after  => "fastcgi_pass  127.0.0.1:9000;",
+}
+
 }
 
