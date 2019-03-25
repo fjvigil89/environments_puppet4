@@ -72,8 +72,11 @@ class { '::php_webserver':
     'xml'      => {},
     'mbstring' => {},
   },
-  packages       => ['php7.0-dev','php7.0-apcu','php7.0-mbstring','php7.0','php7.0-cli','php7.0-curl','php7.0-intl','php7.0-ldap','php7.0-sybase','libapache2-mod-php7.0','php7.0-mcrypt','php7.0-xml','php7.0-mysql','php7.0-common'],
+  packages       => ['php7.0-dev','php7.0-apcu','php7.0-mbstring','php7.0','php7.0-cli','php7.0-curl','php7.0-intl','php7.0-ldap','php7.0-sybase','libapache2-mod-php7.0','php7.0-mcrypt','php7.0-xml','php7.0-mysql','php7.0-common','php7.0-gd','ffmpeg','graphicsmagick'],
 }~>
+class {'::apache::mod::disk_cache':
+  cache_root => '/opt/html/',
+}
 apache::vhost { $fqdn:
    servername    => $fqdn,    
    serveraliases => ["www.${fqdn}"],
