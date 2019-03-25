@@ -72,7 +72,7 @@ class { '::php':
   pear        => true,
 }
 Array[String] $packages = ['php-fpm','php7.0-gd','ffmpeg','graphicsmagick'],
-ensure_packages($packages)
+ensure_packages($packages),
 class { 'nginx':
   manage_repo => false,
 }
