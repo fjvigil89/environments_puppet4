@@ -66,7 +66,7 @@ class { '::php::globals':
   php_version    => '7.0',
 }~>
 class { '::php':
-  manage_repo => false,
+  manage_repos => false,
   fpm         => true,
   composer    => true,
   pear        => true,
