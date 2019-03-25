@@ -109,7 +109,7 @@ nginx::resource::server { $fqdn:
   after  => "fastcgi_pass  127.0.0.1:9001;",
 }
 $line = "fastcgi_param    SCRIPT_FILENAME /srv/ftp/$"
-$line2 = "fastcgi_script_name"
+$line2 = "fastcgi_script_name;"
 $linef = "${line}${line2}"
 file_line { 'fastcgi_param1':
   path   => "/etc/nginx/sites-available/${fqdn}.conf",
