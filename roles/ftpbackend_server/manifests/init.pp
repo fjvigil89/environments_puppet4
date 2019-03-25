@@ -79,6 +79,7 @@ class { 'nginx':
 nginx::resource::server { $fqdn:
   listen_port => 80,
   www_root    => '/srv/ftp/',
+  index_files => ['/_h5ai/public/index.php'],
   access_log  => "/var/log/nginx/$fqdn-access.log",
   error_log   => "/var/log/nginx/$fqdn-error.log", 
  }
@@ -104,7 +105,7 @@ nginx::resource::server { $fqdn:
        fastcgi_send_timeout 5m;
        fastcgi_read_timeout 5m;
        fastcgi_connect_timeout 5m;
-       fastcgi_param    SCRIPT_FILENAME /srv/ftp/$fastcgi_script_name;
+       fastcgi_param    SCRIPT_FILENAME /srv/ftp/"$fastcgi_script_name";
   \n",
   after  => "fastcgi_pass  127.0.0.1:9000;",
 }
