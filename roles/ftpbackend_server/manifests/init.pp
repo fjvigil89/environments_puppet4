@@ -88,7 +88,7 @@ nginx::resource::server { $fqdn:
    server      => $fqdn,
    location    => '~\.php$',
    index_files => ['/_h5ai/public/index.php'],
-   fastcgi     => '127.0.0.1:9000',
+   fastcgi     => '127.0.0.1:9001',
  }
  php::fpm::pool{ 'ftp.conf':
    user         => 'www-data',
@@ -96,7 +96,7 @@ nginx::resource::server { $fqdn:
    listen_owner => 'www-data',
    listen_group => 'www-data',
    listen_mode  => '0660',
-   listen       => "127.0.0.1:9000",
+   listen       => "127.0.0.1:9001",
  }
  file_line { 'fastcgi_param':
   path   => "/etc/nginx/sites-available/${fqdn}.conf",
@@ -107,7 +107,7 @@ nginx::resource::server { $fqdn:
        fastcgi_connect_timeout 5m;
        fastcgi_param    SCRIPT_FILENAME /srv/ftp/$'fastcgi_script_name';
   \n",
-  after  => "fastcgi_pass  127.0.0.1:9000;",
+  after  => "fastcgi_pass  127.0.0.1:9001;",
 }
 
 }
