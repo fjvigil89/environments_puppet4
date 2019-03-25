@@ -52,7 +52,7 @@ cron { 'update_antivirus':
 }
 
 
-vcsrepo { '/opt/html':
+vcsrepo { '/srv/ftp':
   ensure   => latest,
   provider => 'git',
   remote   => 'origin',
@@ -72,45 +72,25 @@ class { '::php_webserver':
     'xml'      => {},
     'mbstring' => {},
   },
-  packages       => ['php7.0-dev','php7.0-apcu','php7.0-mbstring','php7.0','php7.0-cli','php7.0-curl','php7.0-intl','php7.0-ldap','php7.0-sybase','libapache2-mod-php7.0','php7.0-mcrypt','php7.0-xml','php7.0-mysql','php7.0-common','php7.0-gd','ffmpeg','graphicsmagick'],
+  packages       => ['php-fpm','php7.0-gd','ffmpeg','graphicsmagick'],
 }~>
-class {'::apache::mod::cache':
-}
-class { '::apache::mod::disk_cache':
-  cache_root => '/var/cache/apache2/mod_cache_disk',
-}
-apache::vhost { $fqdn:
-   servername    => $fqdn,    
-   serveraliases => ["www.${fqdn}"],
-   port          => '80',
-   docroot       => '/opt/html/',
-   directories   => [ {
-     'path'           => '/opt/html',
-     'options'        => ['Indexes','FollowSymLinks','MultiViews'],
-     'allow_override' => 'All',
-     'directoryindex' => 'index.php',
-     },],
- }~>
- file_line { 'mod_rewrite':
-  path   => "/etc/apache2/sites-available/25-${fqdn}.conf",
-  # line => "DirectoryIndex index.php",
-  line   => "\n
-     <IfModule mod_rewrite.c>
-             Options -MultiViews
-             RewriteEngine On
-             RewriteCond %{REQUEST_FILENAME} !-f
-             RewriteRule ^(.*)$ index.php [QSA,L]
-      </IfModule>
-  \n\n",
-  after  => "DirectoryIndex index.php",
-
-}~>
-exec { "a2enmod_php7":
-  command => '/usr/bin/sudo a2enmod php7.0',
-}~>
-exec { "service_apache2_restart":
-  command     => '/usr/bin/sudo service apache2 restart',
-  refreshonly => true;
-}
+nginx::resource::server { $fqdn:
+  ensure      => present,
+  server_name => $fqdn,    
+  listen_port => '80',
+  www_root    => '/srv/ftp',
+  access_log  => "/var/log/nginx/$fqdn-access.log",
+  error_log   => "/var/log/nginx/$fqdn-error.log", 
+ }
+ nginx::resource::location { '~ \.php$':
+   ensure                  => present,
+   vhost                   => $fqdn,
+   fastcgi                 => 'unix:/var/run/php/php7.0-fpm.sock',
+   fastfgi_index           => 'index.php',
+   fastcgi_send_timeout    => '5m',
+   fastcg_read_time_out    => '5m',
+   fastcgi_connect_timeout => '5m',
+   fast_param              => 'SCRIPT_FILENAME /srv/ftp/$fastcgi_script_name',
+ }
 }
 
