@@ -84,7 +84,7 @@ nginx::resource::server { $fqdn:
    ensure                  => present,
    server                  => $fqdn,
    location                => '~\.php$'
-   index_files             => '/_h5ai/public/index.php',
+   index_files             => ['/_h5ai/public/index.php'],
    fastcgi                 => 'unix:/var/run/php/php7.0-fpm.sock',
    #fastfgi_index           => 'index.php',
    #fastcgi_send_timeout    => '5m',
