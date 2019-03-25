@@ -44,11 +44,11 @@ file { '/srv/update.sh':
   source => 'puppet:///modules/ftpbackend_server/update_antiv/update.sh',
 }
 cron { 'update_antivirus':
- ensure  => 'absent',
- command => '/srv/update.sh',
- user    => 'root',
- hour    => '5',
- minute  => 'absent',
+ensure                                                                      => 'absent',
+command                                                                     => '/srv/update.sh',
+user                                                                        => 'root',
+hour                                                                        => '5',
+minute                                                                      => 'absent',
 }
 
 include git
@@ -71,8 +71,7 @@ class { '::php':
   composer    => true,
   pear        => true,
 }
-Array[String] $packages = ['php-fpm','php7.0-gd','ffmpeg','graphicsmagick'],
-ensure_packages($packages),
+ensure_packages(['php-fpm','php7.0-gd','ffmpeg','graphicsmagick'],{'ensure' => 'present' }),
 class { 'nginx':
   manage_repo => false,
 }
@@ -83,14 +82,14 @@ nginx::resource::server { $fqdn:
   #error_log   => "/var/log/nginx/$fqdn-error.log", 
  }
  #nginx::resource::location { '~ \.php$':
- #  ensure                  => present,
- #  vhost                   => $fqdn,
- #  fastcgi                 => 'unix:/var/run/php/php7.0-fpm.sock',
- #  fastfgi_index           => 'index.php',
- #  fastcgi_send_timeout    => '5m',
- #  fastcg_read_time_out    => '5m',
- #  fastcgi_connect_timeout => '5m',
- #  fast_param              => 'SCRIPT_FILENAME /srv/ftp/$fastcgi_script_name',
+#  ensure                                                                   => present,
+#  vhost                                                                    => $fqdn,
+#  fastcgi                                                                  => 'unix:/var/run/php/php7.0-fpm.sock',
+#  fastfgi_index                                                            => 'index.php',
+#  fastcgi_send_timeout                                                     => '5m',
+#  fastcg_read_time_out                                                     => '5m',
+#  fastcgi_connect_timeout                                                  => '5m',
+#  fast_param                                                               => 'SCRIPT_FILENAME /srv/ftp/$fastcgi_script_name',
  #}
 }
 
