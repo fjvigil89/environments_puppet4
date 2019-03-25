@@ -76,7 +76,7 @@ class { '::php_webserver':
 }
 include nginx
 nginx::resource::server { $fqdn:
-  listen_port => '80',
+  listen_port => 80,
   www_root    => '/srv/ftp',
   #access_log  => "/var/log/nginx/$fqdn-access.log",
   #error_log   => "/var/log/nginx/$fqdn-error.log", 
