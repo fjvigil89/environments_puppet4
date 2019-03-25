@@ -32,8 +32,7 @@ file { '/root/.ssh/config':
   group  => 'root',
   mode   => '0644',
   source => 'puppet:///modules/whois/keys/config',
-}
-
+}~>
   vcsrepo { '/var/www/whois':
     ensure   => latest,
     provider => 'git',
