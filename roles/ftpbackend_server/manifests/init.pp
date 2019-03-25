@@ -98,8 +98,8 @@ nginx::resource::server { $fqdn:
    listen_mode  => '0660',
    listen       => "127.0.0.1:9000",
  }
- file_line { 'mod_rewrite':
-  path   => "/etc/nginx/sites-available/25-${fqdn}.conf",
+ file_line { 'fastcgi_param':
+  path   => "/etc/nginx/sites-available/${fqdn}.conf",
   line   => "\n
        fastcgi_index index.php;
        fastcgi_send_timeout 5m;
