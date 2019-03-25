@@ -81,14 +81,16 @@ nginx::resource::server { $fqdn:
   error_log   => "/var/log/nginx/$fqdn-error.log", 
  }
  nginx::resource::location { '~ \.php$':
-   ensure                                                                   => present,
-   vhost                                                                    => $fqdn,
-   fastcgi                                                                  => 'unix:/var/run/php/php7.0-fpm.sock',
-   fastfgi_index                                                            => 'index.php',
-   fastcgi_send_timeout                                                     => '5m',
-   fastcg_read_time_out                                                     => '5m',
-   fastcgi_connect_timeout                                                  => '5m',
-   fast_param                                                               => 'SCRIPT_FILENAME /srv/ftp/$fastcgi_script_name',
+   ensure                  => present,
+   server                  => $fqdn,
+   location                => '~\.php$'
+   index_files             => '/_h5ai/public/index.php',
+   fastcgi                 => 'unix:/var/run/php/php7.0-fpm.sock',
+   #fastfgi_index           => 'index.php',
+   #fastcgi_send_timeout    => '5m',
+   #fastcg_read_time_out    => '5m',
+   #fastcgi_connect_timeout => '5m',
+   #fast_param              => 'SCRIPT_FILENAME /srv/ftp/$fastcgi_script_name',
  }
 }
 
