@@ -61,7 +61,7 @@ vcsrepo { '/srv/ftp':
   },
   revision => 'master',
 }
-
+include phpfpm
 class { '::php::globals':
   php_version    => '7.0',
 }~>
