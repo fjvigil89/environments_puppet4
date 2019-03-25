@@ -67,8 +67,8 @@ class { '::php::globals':
 class { '::php':
   manage_repos => false,
   fpm          => true,
-  fpm_user     => 'nginx',
-  fpm_group    => 'nginx',
+  fpm_user     => 'www-data',
+  fpm_group    => 'www-data',
   composer     => true,
   pear         => true,
 }
@@ -79,7 +79,6 @@ class { 'nginx':
 nginx::resource::server { $fqdn:
   listen_port => 80,
   www_root    => '/srv/ftp',
-  autoindex   => 'on',
   access_log  => "/var/log/nginx/$fqdn-access.log",
   error_log   => "/var/log/nginx/$fqdn-error.log", 
  }
