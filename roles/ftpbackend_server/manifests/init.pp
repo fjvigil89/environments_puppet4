@@ -62,18 +62,17 @@ vcsrepo { '/srv/ftp':
   revision => 'master',
 }
 
-class { '::php_webserver':
+class { '::php::globals':
   php_version    => '7.0',
-  php_extensions => {
-    'curl'     => {},
-    'gd'       => {},
-    'mysql'    => {},
-    'ldap'     => {},
-    'xml'      => {},
-    'mbstring' => {},
-  },
-  packages       => ['php-fpm','php7.0-gd','ffmpeg','graphicsmagick'],
+}~>
+class { '::php':
+  manage_repo => false,
+  fpm         => true,
+  composer    => true,
+  pear        => true,
 }
+  $packages = ['php-fpm','php7.0-gd','ffmpeg','graphicsmagick'],
+ensure_packages($packages)
 class { 'nginx':
   manage_repo => false,
 }

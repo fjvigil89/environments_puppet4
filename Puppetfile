@@ -39,7 +39,7 @@ mod 'herculesteam-augeasproviders_shellvar', '3.0.0'
 mod 'jgazeley-freeradius', '3.7.0'
 mod 'meltwater-cpan', '2.0.0'
 #Puppet
-mod 'puppet-php', '6.0.0'
+mod 'puppet-php', '6.0.2'
 mod 'puppet-staging', '3.2.0'
 mod 'puppet-extlib', '2.0.1'
 mod 'puppet-zypprepo', '2.2.1'
