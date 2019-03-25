@@ -97,8 +97,8 @@ nginx::resource::server { $fqdn:
  php::fpm::pool{ 'www.conf':
    user         => 'www-data',
    group        => 'www-data',
-   listen_owner => 'http',
-   listen_group => 'http',
+   listen_owner => 'www-data',
+   listen_group => 'www-data',
    listen_mode  => '0660',
    listen       => "/run/php/php7.0-fpm.sock",
  }
