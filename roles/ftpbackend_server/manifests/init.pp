@@ -95,13 +95,13 @@ nginx::resource::server { $fqdn:
    #fastcgi_connect_timeout => '5m',
    #fast_param              => 'SCRIPT_FILENAME /srv/ftp/$fastcgi_script_name',
  }
- php::fpm::pool{$user:
-   user         => $user,
-   group        => $user,
-   listen_owner => 'http',
-   listen_group => 'http',
-   listen_mode  => '0660',
-   listen       => "/var/run/php-fpm/${user}-fpm.sock",
-  }
+ #php::fpm::pool{$user:
+ #  user         => $user,
+ #  group        => $user,
+ #  listen_owner => 'http',
+ #  listen_group => 'http',
+ #  listen_mode  => '0660',
+ #  listen       => "/var/run/php-fpm/${user}-fpm.sock",
+ # }
 }
 
