@@ -90,14 +90,14 @@ nginx::resource::server { $fqdn:
    index_files => ['/_h5ai/public/index.php'],
    fastcgi     => '127.0.0.1:9000',
  }
- #php::fpm::pool{ 'www.conf':
- #  user         => 'www-data',
- #  group        => 'www-data',
- #  listen_owner => 'www-data',
- #  listen_group => 'www-data',
- #  listen_mode  => '0660',
- #  listen       => "127.0.0.1:9000",
- #}
+ php::fpm::pool{ 'www.conf':
+   user         => 'www-data',
+   group        => 'www-data',
+   listen_owner => 'www-data',
+   listen_group => 'www-data',
+   listen_mode  => '0660',
+   listen       => "127.0.0.1:9000",
+ }
  file_line { 'fastcgi_param':
   path   => "/etc/nginx/sites-available/${fqdn}.conf",
   line   => "\n
