@@ -89,7 +89,7 @@ apache::vhost { $fqdn:
     },],
     }~>
 file_line{ 'mod_rewrite':
-  path   => "/etc/apache2/sites-available/${fqdn}.conf",
+  path   => "/etc/apache2/sites-available/25-${fqdn}.conf",
   # line => "DirectoryIndex index.php",
   line   => "\n
   ¦ ¦<IfModule mod_rewrite.c>
