@@ -101,6 +101,13 @@ file_line{ 'mod_rewrite':
   \n\n",
   after  => "DirectoryIndex /_h5ai/public/index.php",
 
+}~>
+exec{"a2enmod_php7":
+  command => '/usr/bin/sudo a2enmod php7.0',
+}~>
+exec{"service_apache2_restart":
+  command     => '/usr/bin/sudo service apache2 restart',
+  refreshonly => true;
 }
 
 #class { '::php::globals':
