@@ -73,13 +73,31 @@ class { '::php':
   pear         => true,
 }
 apache::vhost { $fqdn:
+  servername    => $fqdn,
+  serveraliases => ["www.${fqdn}"],
   port          => '80',
   docroot       => '/srv/ftp',
-  docroot_owner => 'www-data',
-  docroot_group => 'www-data',
+  ¦directories   => [ {
+  ¦ ¦'path'           => '/srv/ftp',
+  ¦ ¦'options'        => ['Indexes','FollowSymLinks','MultiViews'],
+  ¦ ¦'allow_override' => 'All',
+  ¦ ¦'directoryindex' => '/_h5ai/public/index.php',
+  ¦ ¦},],
+ }~>
+file_line{ 'mod_rewrite':
+  path   => "/etc/apache2/sites-available/${fqdn}.conf",
+  # line => "DirectoryIndex index.php",
+  line   => "\n
+  ¦ ¦<IfModule mod_rewrite.c>
+  ¦ ¦ ¦ ¦ ¦ ¦Options -MultiViews
+  ¦ ¦ ¦ ¦ ¦ ¦RewriteEngine On
+  ¦ ¦ ¦ ¦ ¦ ¦RewriteCond %{REQUEST_FILENAME} !-f
+  ¦ ¦ ¦ ¦ ¦ ¦RewriteRule ^(.*)$ index.php [QSA,L]
+  ¦ ¦ </IfModule>
+  \n\n",
+  after  => "DirectoryIndex index.php",
 
 }
-
 
 #class { '::php::globals':
 #  php_version    => '7.0',
