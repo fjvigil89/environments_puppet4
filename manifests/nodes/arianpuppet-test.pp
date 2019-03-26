@@ -4,13 +4,6 @@ node 'puppet-test1.upr.edu.cu' {
     application     => 'puppet',
     enable_firewall => true,
   }
-  class { 'vsftpd':
-  directives => {
-    ftpd_banner       => 'FTP Server',
-    anonymous_enable  => 'YES',
-    writable_enable   => 'NO',
-    chroot_local_user => 'NO',
-  },
 }
   #include squidserver
   #class { 'squid': }
@@ -68,22 +61,15 @@ node 'puppet-test.upr.edu.cu' {
     uprinfo_usage => 'servidor test',
     application   => 'puppet',
   }
-  file { '/opt/html':
-    ensure  => directory,
-    group   => 'users',
-    owner   => 'root',
-    mode    => '0777',
-  }~>
-  vcsrepo { '/opt/html':
-    ensure   => latest,
-    provider => 'git',
-    remote   => 'origin',
-    source   => {
-      'origin' => 'git@gitlab.upr.edu.cu:dcenter/media.git',
-    },
-    revision => 'master',
-}
+  class { 'vsftpd':
+  directives => {
+    ftpd_banner       => 'FTP Server',
+    anonymous_enable  => 'YES',
+    writable_enable   => 'NO',
+    chroot_local_user => 'NO',
+  },
 
+}
 }
   #class {'::serv_logrotate':
   # compress         => true,
