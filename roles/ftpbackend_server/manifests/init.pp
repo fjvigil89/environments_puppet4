@@ -68,7 +68,6 @@ class { '::php':
   ensure       => latest,
   manage_repos => false,
   fpm          => true,
-  dev          => true,
   composer     => true,
   pear         => true,
 }
@@ -82,7 +81,6 @@ apache::vhost { $fqdn:
     'options'        => ['Indexes','FollowSymLinks','MultiViews'],
     'allow_override' => 'All',
     'directoryindex' => '/_h5ai/public/index.php',
-    'suphpengine'    => 'off',
     },],
     }~>
 file_line{ 'mod_rewrite':
@@ -96,7 +94,7 @@ file_line{ 'mod_rewrite':
   ¦ ¦ ¦ ¦ ¦ ¦RewriteRule ^(.*)$ index.php [QSA,L]
   ¦ ¦ </IfModule>
   \n\n",
-  after  => "DirectoryIndex index.php",
+  after  => "DirectoryIndex /_h5ai/public/index.php",
 
 }
 
