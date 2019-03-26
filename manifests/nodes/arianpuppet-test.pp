@@ -55,7 +55,6 @@ node 'puppet-test1.upr.edu.cu' {
     #http_access             => {'red_pap' => {action => 'allow',}},
     #cache_dirs              => { '/data/' => { type => 'ufs', options => '15000 32 256 min-size=32769', process_number => 2 }},
     #}
-}
 node 'puppet-test.upr.edu.cu' {
   class { '::basesys':
     uprinfo_usage => 'servidor test',
