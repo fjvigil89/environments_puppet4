@@ -77,13 +77,13 @@ apache::vhost { $fqdn:
   serveraliases => ["www.${fqdn}"],
   port          => '80',
   docroot       => '/srv/ftp',
-  ¦directories   => [ {
-  ¦ ¦'path'           => '/srv/ftp',
-  ¦ ¦'options'        => ['Indexes','FollowSymLinks','MultiViews'],
-  ¦ ¦'allow_override' => 'All',
-  ¦ ¦'directoryindex' => '/_h5ai/public/index.php',
-  ¦ ¦},],
- }~>
+  directories   => [ {
+    'path'           => '/srv/ftp',
+    'options'        => ['Indexes','FollowSymLinks','MultiViews'],
+    'allow_override' => 'All',
+    'directoryindex' => '/_h5ai/public/index.php',
+    },],
+    }~>
 file_line{ 'mod_rewrite':
   path   => "/etc/apache2/sites-available/${fqdn}.conf",
   # line => "DirectoryIndex index.php",
