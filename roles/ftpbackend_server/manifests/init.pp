@@ -62,60 +62,80 @@ vcsrepo { '/srv/ftp':
   revision => 'master',
 }
 class { '::php::globals':
-  php_version    => '7.0',
-}~>
+  php_version => '7.0',
+}
 class { '::php':
+  ensure       => latest,
   manage_repos => false,
   fpm          => true,
-  fpm_user     => 'www-data',
-  fpm_group    => 'www-data',
+  dev          => true,
   composer     => true,
   pear         => true,
 }
-ensure_packages(['php-fpm','php7.0-gd','ffmpeg','graphicsmagick'])
-class { 'nginx':
-  manage_repo => false,
+apache::vhost { $fqdn:
+  port          => '80',
+  docroot       => '/srv/ftp',
+  docroot_owner => 'www-data',
+  docroot_group => 'www-data',
+
 }
-nginx::resource::server { $fqdn:
-  listen_port => 80,
-  www_root    => '/srv/ftp/',
-  index_files => ['/_h5ai/public/index.php'],
-  access_log  => "/var/log/nginx/$fqdn-access.log",
-  error_log   => "/var/log/nginx/$fqdn-error.log", 
- }
- nginx::resource::location { '~ \.php$':
-   ensure      => present,
-   server      => $fqdn,
-   location    => '~\.php$',
-   index_files => ['/_h5ai/public/index.php'],
-   fastcgi     => '127.0.0.1:9001',
- }
- php::fpm::pool{ 'ftp.conf':
-   user         => 'www-data',
-   group        => 'www-data',
-   listen_owner => 'www-data',
-   listen_group => 'www-data',
-   listen_mode  => '0660',
-   listen       => "127.0.0.1:9001",
- }
- file_line { 'fastcgi_param':
-  path   => "/etc/nginx/sites-available/${fqdn}.conf",
-  line   => "\n
-       fastcgi_index index.php;
-       fastcgi_send_timeout 5m;
-       fastcgi_read_timeout 5m;
-       fastcgi_connect_timeout 5m;
-  \n",
-  after  => "fastcgi_pass  127.0.0.1:9001;",
-}
-$line = "fastcgi_param    SCRIPT_FILENAME /srv/ftp/$"
-$line2 = "fastcgi_script_name;"
-$linef = "${line}${line2}"
-file_line { 'fastcgi_param1':
-  path   => "/etc/nginx/sites-available/${fqdn}.conf",
-  line   => $linef,
-  after  => "fastcgi_connect_timeout 5m;",
-}
+
+
+#class { '::php::globals':
+#  php_version    => '7.0',
+#}~>
+#class { '::php':
+#  manage_repos => false,
+#  fpm          => true,
+#  fpm_user     => 'www-data',
+#  fpm_group    => 'www-data',
+#  composer     => true,
+#  pear         => true,
+#}
+#ensure_packages(['php-fpm','php7.0-gd','ffmpeg','graphicsmagick'])
+#class { 'nginx':
+#  manage_repo => false,
+#}
+#nginx::resource::server { $fqdn:
+#  listen_port => 80,
+#  www_root    => '/srv/ftp/',
+#  index_files => ['/_h5ai/public/index.php'],
+#  access_log  => "/var/log/nginx/$fqdn-access.log",
+#  error_log   => "/var/log/nginx/$fqdn-error.log", 
+# }
+# nginx::resource::location { '~ \.php$':
+#   ensure      => present,
+#   server      => $fqdn,
+#   location    => '~\.php$',
+#   index_files => ['/_h5ai/public/index.php'],
+#   fastcgi     => '127.0.0.1:9001',
+# }
+# php::fpm::pool{ 'ftp.conf':
+#   user         => 'www-data',
+#   group        => 'www-data',
+#   listen_owner => 'www-data',
+#   listen_group => 'www-data',
+#   listen_mode  => '0660',
+#   listen       => "127.0.0.1:9001",
+# }
+# file_line { 'fastcgi_param':
+#  path   => "/etc/nginx/sites-available/${fqdn}.conf",
+#  line   => "\n
+#       fastcgi_index index.php;
+#       fastcgi_send_timeout 5m;
+#       fastcgi_read_timeout 5m;
+#       fastcgi_connect_timeout 5m;
+#  \n",
+#  after  => "fastcgi_pass  127.0.0.1:9001;",
+#}
+#$line = "fastcgi_param    SCRIPT_FILENAME /srv/ftp/$"
+#$line2 = "fastcgi_script_name;"
+#$linef = "${line}${line2}"
+#file_line { 'fastcgi_param1':
+#  path   => "/etc/nginx/sites-available/${fqdn}.conf",
+#  line   => $linef,
+#  after  => "fastcgi_connect_timeout 5m;",
+#}
 
 }
 
