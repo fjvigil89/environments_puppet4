@@ -44,11 +44,11 @@ file { '/srv/update.sh':
   source => 'puppet:///modules/ftpbackend_server/update_antiv/update.sh',
 }
 cron { 'update_antivirus':
-ensure                                                                      => 'absent',
-command                                                                     => '/srv/update.sh',
-user                                                                        => 'root',
-hour                                                                        => '5',
-minute                                                                      => 'absent',
+  ensure  => 'absent',
+  command => '/srv/update.sh',
+  user    => 'root',
+  hour    => '5',
+  minute  => 'absent',
 }
 
 include git
@@ -76,6 +76,7 @@ apache::vhost { $fqdn:
   serveraliases => ["www.${fqdn}"],
   port          => '80',
   docroot       => '/srv/ftp',
+  suphp_engine     => 'off',
   directories   => [ {
     'path'           => '/srv/ftp',
     'options'        => ['Indexes','FollowSymLinks','MultiViews'],
@@ -99,33 +100,33 @@ file_line{ 'mod_rewrite':
 }
 
 #class { '::php::globals':
-#  php_version    => '7.0',
+#  php_version   => '7.0',
 #}~>
 #class { '::php':
-#  manage_repos => false,
-#  fpm          => true,
-#  fpm_user     => 'www-data',
-#  fpm_group    => 'www-data',
-#  composer     => true,
-#  pear         => true,
+#  manage_repos  => false,
+#  fpm           => true,
+#  fpm_user      => 'www-data',
+#  fpm_group     => 'www-data',
+#  composer      => true,
+#  pear          => true,
 #}
 #ensure_packages(['php-fpm','php7.0-gd','ffmpeg','graphicsmagick'])
 #class { 'nginx':
-#  manage_repo => false,
+#  manage_repo   => false,
 #}
 #nginx::resource::server { $fqdn:
-#  listen_port => 80,
-#  www_root    => '/srv/ftp/',
-#  index_files => ['/_h5ai/public/index.php'],
-#  access_log  => "/var/log/nginx/$fqdn-access.log",
-#  error_log   => "/var/log/nginx/$fqdn-error.log", 
+#  listen_port   => 80,
+#  www_root      => '/srv/ftp/',
+#  index_files   => ['/_h5ai/public/index.php'],
+#  access_log    => "/var/log/nginx/$fqdn-access.log",
+#  error_log     => "/var/log/nginx/$fqdn-error.log", 
 # }
 # nginx::resource::location { '~ \.php$':
-#   ensure      => present,
-#   server      => $fqdn,
-#   location    => '~\.php$',
-#   index_files => ['/_h5ai/public/index.php'],
-#   fastcgi     => '127.0.0.1:9001',
+#   ensure       => present,
+#   server       => $fqdn,
+#   location     => '~\.php$',
+#   index_files  => ['/_h5ai/public/index.php'],
+#   fastcgi      => '127.0.0.1:9001',
 # }
 # php::fpm::pool{ 'ftp.conf':
 #   user         => 'www-data',
@@ -136,22 +137,22 @@ file_line{ 'mod_rewrite':
 #   listen       => "127.0.0.1:9001",
 # }
 # file_line { 'fastcgi_param':
-#  path   => "/etc/nginx/sites-available/${fqdn}.conf",
-#  line   => "\n
+#  path          => "/etc/nginx/sites-available/${fqdn}.conf",
+#  line          => "\n
 #       fastcgi_index index.php;
 #       fastcgi_send_timeout 5m;
 #       fastcgi_read_timeout 5m;
 #       fastcgi_connect_timeout 5m;
 #  \n",
-#  after  => "fastcgi_pass  127.0.0.1:9001;",
+#  after         => "fastcgi_pass  127.0.0.1:9001;",
 #}
 #$line = "fastcgi_param    SCRIPT_FILENAME /srv/ftp/$"
 #$line2 = "fastcgi_script_name;"
 #$linef = "${line}${line2}"
 #file_line { 'fastcgi_param1':
-#  path   => "/etc/nginx/sites-available/${fqdn}.conf",
-#  line   => $linef,
-#  after  => "fastcgi_connect_timeout 5m;",
+#  path          => "/etc/nginx/sites-available/${fqdn}.conf",
+#  line          => $linef,
+#  after         => "fastcgi_connect_timeout 5m;",
 #}
 
 }
