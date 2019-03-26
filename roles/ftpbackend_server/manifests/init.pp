@@ -71,6 +71,7 @@ class { '::php':
   composer     => true,
   pear         => true,
 }
+ensure_packages(['php-fpm','php7.0-gd','ffmpeg','graphicsmagick'])
 class { 'apache':
   default_vhost => false,
 }
