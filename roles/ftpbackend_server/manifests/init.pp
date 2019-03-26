@@ -82,6 +82,7 @@ apache::vhost { $fqdn:
     'options'        => ['Indexes','FollowSymLinks','MultiViews'],
     'allow_override' => 'All',
     'directoryindex' => '/_h5ai/public/index.php',
+    'suphpengine'    => 'off',
     },],
     }~>
 file_line{ 'mod_rewrite':
