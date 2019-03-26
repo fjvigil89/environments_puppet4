@@ -71,6 +71,9 @@ class { '::php':
   composer     => true,
   pear         => true,
 }
+class { 'apache':
+  default_vhost => false,
+}
 apache::vhost { $fqdn:
   servername    => $fqdn,
   serveraliases => ["www.${fqdn}"],
