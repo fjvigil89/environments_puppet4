@@ -34,23 +34,6 @@ file { '/root/.ssh/config':
   mode   => '0644',
   source => 'puppet:///modules/ftpbackend_server/ssh_keys/config',
 }
-
-#Script to update antivirus, crontab
-file { '/srv/update.sh':
-  ensure => file,
-  owner  => 'root',
-  group  => 'root',
-  mode   => '0774',
-  source => 'puppet:///modules/ftpbackend_server/update_antiv/update.sh',
-}
-cron { 'update_antivirus':
-  ensure  => 'absent',
-  command => '/srv/update.sh',
-  user    => 'root',
-  hour    => '5',
-  minute  => 'absent',
-}
-
 include git
 vcsrepo { '/srv/ftp':
   ensure   => latest,
@@ -90,6 +73,18 @@ apache::vhost { $fqdn:
     'directoryindex' => '/_h5ai/public/index.php',
     },],
     }
+    file_line{ 'mod_rewrite':
+      path   => "/etc/apache2/sites-available/25-${fqdn}.conf",
+  line   => "\n
+        <IfModule mod_rewrite.c>
+            Options -MultiViews
+            RewriteEngine On
+            RewriteCond %{REQUEST_FILENAME} !-f
+            RewriteRule ^(.*)$ index.php [QSA,L]
+        </IfModule>
+  \n",
+  after  => "DirectoryIndex index.php",
+}~>
 exec{ "a2enmod_php7":
   command => '/usr/bin/sudo a2enmod php7.0',
 }~>
