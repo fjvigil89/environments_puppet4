@@ -4,6 +4,14 @@ node 'puppet-test1.upr.edu.cu' {
     application     => 'puppet',
     enable_firewall => true,
   }
+  class { 'vsftpd':
+  directives => {
+    ftpd_banner       => 'FTP Server',
+    anonymous_enable  => 'YES',
+    writable_enable   => 'NO',
+    chroot_local_user => 'NO',
+  },
+}
   #include squidserver
   #class { 'squid': }
   #  squid::acl { 'Safe_ports':
