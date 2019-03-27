@@ -46,6 +46,7 @@ node 'ha-ftp.upr.edu.cu' {
 }
 #Script to update antivirus, crontab
 file { '/srv/update.sh':
+  ensure => 'absent',
   ensure => file,
   owner  => 'root',
   group  => 'root',
@@ -53,7 +54,7 @@ file { '/srv/update.sh':
   source => 'puppet:///modules/ftpbackend_server/update_antiv/update.sh',
 }
 cron { 'update_antivirus':
-  ensure  => 'present',
+  ensure  => 'absent',
   command => '/srv/update.sh',
   user    => 'root',
   hour    => '5',
