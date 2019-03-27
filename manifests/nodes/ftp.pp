@@ -47,7 +47,7 @@ node 'ha-ftp.upr.edu.cu' {
 #Script to update antivirus, crontab
 file { '/srv/update.sh':
   ensure => 'absent',
-  ensure => file,
+  #ensure => file,
   owner  => 'root',
   group  => 'root',
   mode   => '0774',
