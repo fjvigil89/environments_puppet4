@@ -43,24 +43,22 @@ node 'ha-ftp.upr.edu.cu' {
    ipaddresses       => '10.2.4.57',
    ports             => '80',
  }
-}
 #Script to update antivirus, crontab
 file { '/srv/update.sh':
-  ensure => 'absent',
-  #ensure => file,
+  ensure => file,
   owner  => 'root',
   group  => 'root',
   mode   => '0774',
   source => 'puppet:///modules/ftpbackend_server/update_antiv/update.sh',
 }
 cron { 'update_antivirus':
-  ensure  => 'absent',
+  ensure  => 'present',
   command => '/srv/update.sh',
   user    => 'root',
   hour    => '5',
   minute  => 'absent',
 }
-
+}
 node /^ftp\d+$/ {
   include ftpbackend_server
 }
