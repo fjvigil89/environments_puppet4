@@ -87,17 +87,16 @@ apache::vhost { $fqdn:
    servername    => $fqdn,    
    serveraliases => ["www.${fqdn}"],
    port          => '80',
-   docroot       => '/opt/html/',
+   docroot       => '/srv/media',
    directories   => [ {
-     'path'           => '/opt/html',
+     'path'           => '/srv/media',
      'options'        => ['Indexes','FollowSymLinks','MultiViews'],
      'allow_override' => 'All',
-     'directoryindex' => 'index.php',
+     'directoryindex' => '/_h5ai/public/index.php',
      },],
  }~>
 file_line{ 'mod_rewrite':
   path   => "/etc/apache2/sites-available/25-${fqdn}.conf",
-  # line => "DirectoryIndex index.php",
   line   => "\n
      <IfModule mod_rewrite.c>
              Options -MultiViews
@@ -106,7 +105,7 @@ file_line{ 'mod_rewrite':
              RewriteRule ^(.*)$ index.php [QSA,L]
       </IfModule>
   \n\n",
-  after  => "DirectoryIndex index.php",
+  after  => "DirectoryIndex /_h5ai/public/index.php",
 
 }~>
 exec{"a2enmod_php7":
