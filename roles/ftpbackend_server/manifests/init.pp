@@ -73,7 +73,7 @@ apache::vhost { $fqdn:
     'directoryindex' => '/_h5ai/public/index.php',
     },],
     }
-    file_line{ 'mod_rewrite':
+    file_line { 'mod_rewrite':
       path   => "/etc/apache2/sites-available/25-${fqdn}.conf",
   line   => "\n
         <IfModule mod_rewrite.c>
@@ -85,10 +85,10 @@ apache::vhost { $fqdn:
   \n",
   after  => "DirectoryIndex index.php",
 }~>
-exec{ "a2enmod_php7":
+exec { "a2enmod_php7":
   command => '/usr/bin/sudo a2enmod php7.0',
 }~>
-exec{ "service_apache2_restart":
+exec { "service_apache2_restart":
   command     => '/usr/bin/sudo service apache2 restart',
   refreshonly => true;
 }
