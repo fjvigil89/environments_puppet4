@@ -96,19 +96,19 @@ apache::vhost { $fqdn:
      'directoryindex' => '/_h5ai/public/index.php',
      },],
  }~>
-file_line { 'mod_rewrite':
-  path   => "/etc/apache2/sites-available/25-${fqdn}.conf",
-  line   => "\n
-     <IfModule mod_rewrite.c>
-             Options -MultiViews
-             RewriteEngine On
-             RewriteCond %{REQUEST_FILENAME} !-f
-             RewriteRule ^(.*)$ index.php [QSA,L]
-      </IfModule>
-  \n\n",
-  after  => "DirectoryIndex /_h5ai/public/index.php",
+ #file_line { 'mod_rewrite':
+ # path   => "/etc/apache2/sites-available/25-${fqdn}.conf",
+ # line   => "\n
+ #    <IfModule mod_rewrite.c>
+ #            Options -MultiViews
+ #            RewriteEngine On
+ #            RewriteCond %{REQUEST_FILENAME} !-f
+ #            RewriteRule ^(.*)$ index.php [QSA,L]
+ #     </IfModule>
+ # \n\n",
+ #after  => "DirectoryIndex /_h5ai/public/index.php",
 
-}~>
+ #}~>
 exec { "a2enmod_php7":
   command => '/usr/bin/sudo a2enmod php7.0',
 }~>
