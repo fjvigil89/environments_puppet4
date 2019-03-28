@@ -95,33 +95,38 @@ class basesys::repos (
           apt::source {
             'aptly-mirror':
               comment  => "Aptly mirror ${basesys::aptly_mirror}",
-              location => "http://${basesys::repo_url}/debian/${basesys::aptly_mirror}",
+               #location => "http://${basesys::repo_url}/debian/${basesys::aptly_mirror}",
+               location => "http://repos.upr.edu.cu/debian/${basesys::aptly_mirror}",
               repos    => 'main',
           }
         } else {
           apt::source { "debian-upr-${lsbdistcodename}":
               comment  => 'Debian UPR repo',
-              location => "http://${basesys::repo_url}/debian/",
+              #location => "http://${basesys::repo_url}/debian/",
+               location => "http://repos.upr.edu.cu/debian/",
               repos    => 'main non-free contrib',
           }
          
           apt::source { "debian-upr-${lsbdistcodename}-updates":
               comment  => 'Debian UPR repo',
-              location => "http://${basesys::repo_url}/debian/",
+              #location => "http://${basesys::repo_url}/debian/",
+              location => "http://repos.upr.edu.cu/debian/",
               repos    => 'main non-free contrib',
               release  => "${lsbdistcodename}-updates"
           }
            
           apt::source { "debian-upr-${lsbdistcodename}-backports":
               comment  => 'Debian UPR repo',
-              location => "http://${basesys::repo_url}/debian/",
+              #location => "http://${basesys::repo_url}/debian/",
+              location => "http://repos.upr.edu.cu/debian/",
               repos    => 'main non-free contrib',
               release  => "${lsbdistcodename}-backports"
           }
 					
 					apt::source { "debian-security":
               comment  => 'Debian Security repo',
-              location => "http://${basesys::repo_url}/debian-security/",
+              #location => "http://${basesys::repo_url}/debian-security/",
+              location => "http://repos.upr.edu.cu/debian-security/",
               repos    => 'main non-free contrib',
               release  => "${::lsbdistcodename}/updates",
           }
@@ -241,13 +246,13 @@ class basesys::repos (
           #;
 
           #'epel':
-            #descr          => "Extra Packages for Enterprise Linux ${::operatingsystemmajrelease}",
-            #name           => 'epel',
-            #mirrorlist     => "https://mirrors.fedoraproject.org/metalink?repo=epel-${::operatingsystemmajrelease}&arch=x86_64",
-            #failovermethod => priority,
-            #enabled        => '1',
-            #gpgcheck       => '0',
-        }
+          #  descr          => "Extra Packages for Enterprise Linux ${::operatingsystemmajrelease}",
+          #  name           => 'epel',
+          #  mirrorlist     => "https://repos.upr.edu.cu/epel/metalink?repo=epel-${::operatingsystemmajrelease}&arch=x86_64",
+          #  failovermethod => priority,
+          #  enabled        => '1',
+          #  gpgcheck       => '0',
+          #}
       }
 # lint:endignore
       default: {}
