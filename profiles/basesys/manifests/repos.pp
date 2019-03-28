@@ -81,7 +81,8 @@ class basesys::repos (
       'Debian': {
         apt::source { 'debs':
             comment  => 'UPR debs repos Debian',
-            location => "http://${basesys::repo_url}debian/",
+            #location => "http://${basesys::repo_url}debian/",
+            location => "http://repos.upr.edu.cu/debian/",
             repos    => 'main',
         }
       }
@@ -252,7 +253,7 @@ class basesys::repos (
           #  failovermethod => priority,
           #  enabled        => '1',
           #  gpgcheck       => '0',
-          #}
+          }
       }
 # lint:endignore
       default: {}
