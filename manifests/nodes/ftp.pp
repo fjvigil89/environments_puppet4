@@ -44,7 +44,7 @@ node 'ha-ftp.upr.edu.cu' {
    ports             => '80',
  }
 
-#Script to update antivirus, crontab
+ ###Script to update antivirus, crontab
 file { '/srv/update.sh':
   ensure => file,
   owner  => 'root',
