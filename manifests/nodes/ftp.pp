@@ -43,6 +43,7 @@ node 'ha-ftp.upr.edu.cu' {
    ipaddresses       => '10.2.4.57',
    ports             => '80',
  }
+
 #Script to update antivirus, crontab
 file { '/srv/update.sh':
   ensure => file,
