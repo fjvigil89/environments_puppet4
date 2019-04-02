@@ -7,6 +7,12 @@ node 'proxy-tor.upr.edu.cu','proxy-pap.upr.edu.cu' {
     application    => 'Servidor Proxy Squid',
     mta_enabled    => false,
   }
+  class {'::filebeatserver':
+    paths    => '/var/log/squid/*.log',
+    log_type => "proxy-pap",
+   }
+  class {'metricbeatserver':;}
+
 }
 
 node 'proxy-go.upr.edu.cu'{
