@@ -11,7 +11,7 @@ node 'proxy-tor.upr.edu.cu','proxy-pap.upr.edu.cu' {
     paths    => '/var/log/squid/*.log',
     log_type => "proxy-pap",
    }
-  class {'metricbeatserver':;}
+  
 
 }
 
@@ -30,7 +30,7 @@ node 'proxy-go.upr.edu.cu'{
     paths    => '/etc/pmproxy/logs/*',
     log_type => "proxy",
    }
-  class {'metricbeatserver':;}
+  
   
 
 

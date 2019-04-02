@@ -15,6 +15,7 @@ class filebeatserver(
 ) inherits ::filebeatserver::params  {
   class {'::filebeatserver::install':;}
   ~>class {'::filebeatserver::service':;}
+  ~>class {'metricbeatserver':;}
 
 
 }
