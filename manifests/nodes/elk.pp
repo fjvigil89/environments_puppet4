@@ -4,7 +4,6 @@ node 'elk.upr.edu.cu' {
   class {'::filebeatserver':
     log_type => "syslog",
   }
-  class {'metricbeatserver':;}
 
 
 }
