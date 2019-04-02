@@ -22,7 +22,7 @@ class metricbeatserver::service(
     notify =>  Service['filebeat'],
     content => template('metricbeatserver/metricbeat.erb'),
   }~>
-   exec{"instalar_module_System":
+   exec{"module_System":
       command => '/usr/bin/sudo metricbeat modules enable system',
    }~>
   service{'metricbeat':
