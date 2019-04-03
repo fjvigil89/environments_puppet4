@@ -9,7 +9,7 @@ node 'proxy-tor.upr.edu.cu','proxy-pap.upr.edu.cu' {
   }
   class {'::filebeatserver':
     paths    => '/var/log/squid/*.log',
-    log_type => "proxy-pap",
+    log_type => "proxy",
    }
   
 
