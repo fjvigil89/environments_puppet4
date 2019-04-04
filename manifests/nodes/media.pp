@@ -51,10 +51,11 @@ class { 'samba::server':
   security      => 'share'
 }
 samba::server::share { 'media':
-  comment       => 'Media',
-  path          => '/srv/media',
-  browsable     => true,
-  valid_users   => "yosbel",
+  comment     => 'Media',
+  path        => '/srv/media',
+  browsable   => true,
+  writable    => true,
+  valid_users => "yosbel",
 }
 user { "yosbel":
   ensure   => present,
