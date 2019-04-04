@@ -56,10 +56,7 @@ samba::server::share { 'media':
   browsable            => true,
   writable             => true,
   valid_users          => "yosbel",
-  create_mask          => 0777,
-  force_create_mask    => 0777,
   directory_mask       => 0777,
-  force_user           => 'yosbel',
 }
 user { "yosbel":
   ensure   => present,
