@@ -58,15 +58,16 @@ samba::server::share { 'media':
   valid_users             => "yosbel",
 }
 file_line { 'directory_mode':
-  path  => "/etc/samba/smb.conf",
-  line  => "
+  path               => "/etc/samba/smb.conf",
+  line               => "
   create mask = 775
   directory mask = 2775
   force directory mode = 2775
   directory security mask = 2775
   force directory security mode = 2775
   ",
-  after => "valid users = yosbel",
+  after              => "valid users = yosbel",
+  append_on_no_match => false,
 }
 user { "yosbel":
   ensure   => present,
