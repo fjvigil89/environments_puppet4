@@ -11,6 +11,6 @@ class metricbeatserver(
 
 
   class {'::metricbeatserver::install':;}
-  class {'::metricbeatserver::service':;}
+  ~>class {'::metricbeatserver::service':;}
 
 }
