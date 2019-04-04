@@ -57,10 +57,8 @@ samba::server::share { 'media':
   writable    => true,
   valid_users => "yosbel",
 }
-String $passw = "$6$j72to0XI$N04KP.5v2WLkHzNWng5Gm9SC8TfeChrveruogjbERpZI0Vw8lSXmW5c008Pz3n94int9ZZPlXpLe1UTIhAlyD."
 user { "yosbel":
   ensure   => present,
-  password => $passw,
 }
 }
 
