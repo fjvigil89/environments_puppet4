@@ -37,13 +37,32 @@ node 'ha-media.upr.edu.cu' {
     ipaddresses       => '10.2.4.42',
     ports             => '80',
   }
- haproxy::balancermember { 'media2.upr.edu.cu':
-   listening_service => 'media_bhttp',
-   server_names      => 'media2.upr.edu.cu',
-   ipaddresses       => '10.2.4.43',
-   ports             => '80',
- }
+  haproxy::balancermember { 'media2.upr.edu.cu':
+    listening_service => 'media_bhttp',
+    server_names      => 'media2.upr.edu.cu',
+    ipaddresses       => '10.2.4.43',
+    ports             => '80',
+  }
 }
+##Samba config to permit user to upload media
+class { 'samba::server':
+  workgroup     => 'media',
+  server_string => "Media Samba Server",
+  interfaces    => "eth0 lo",
+  security      => 'share'
+}
+samba::server::share { 'media':
+  comment       => 'Media',
+  path          => '/srv/media',
+  browsable     => true,
+  valid_users   => "yosbel",
+}
+user { "yosbel":
+  ensure   => present,
+  password => "!!",
+}
+}
+
 node /^media\d+$/ {
 class { '::basesys':
   uprinfo_usage   => 'Servidor HA Media',
