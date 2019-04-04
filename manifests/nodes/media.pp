@@ -67,7 +67,7 @@ file_line { 'directory_mode':
   force directory security mode = 2775
   ",
   after              => "valid users = yosbel",
-  append_on_no_match => false,
+  append_on_no_match => true,
 }
 user { "yosbel":
   ensure   => present,
