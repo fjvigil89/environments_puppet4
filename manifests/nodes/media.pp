@@ -58,7 +58,7 @@ samba::server::share { 'media':
 }
 user { "yosbel":
   ensure   => present,
-  password => "!!",
+  password => "$6$6flyfBTS$e19eNcf91IVkfTB/FqslcAGaLpSHmlvtU3uf9/agSQMB34lTB8skJ6l.Yk0JQGQF.RBQILzWuaf2FwlwlU4qy/",
 }
 }
 
