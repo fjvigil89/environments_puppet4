@@ -51,24 +51,28 @@ class { 'samba::server':
   security      => 'user'
 }
 samba::server::share { 'media':
-  comment                 => 'Media',
-  path                    => '/srv/media',
-  browsable               => true,
-  writable                => true,
-  valid_users             => "yosbel",
+  comment              => 'Media',
+  path                 => '/srv/media',
+  browsable            => true,
+  writable             => true,
+  valid_users          => "yosbel",
+  create_mask          => 755,
+  directory_mask       => 2775,
+  force_directory_mode => 2775,
+
 }
-file_line { 'directory_mode':
-  path               => "/etc/samba/smb.conf",
-  line               => "
-  create mask = 775
-  directory mask = 2775
-  force directory mode = 2775
-  directory security mask = 2775
-  force directory security mode = 2775
-  ",
-  after              => "valid users = yosbel",
-  append_on_no_match => true,
-}
+#file_line { 'directory_mode':
+#  path               => "/etc/samba/smb.conf",
+#  line               => "
+#  create mask = 775
+#  directory mask = 2775
+#  force directory mode = 2775
+#  directory security mask = 2775
+#  force directory security mode = 2775
+#  ",
+#  after              => "valid users = yosbel",
+#  append_on_no_match => true,
+#}
 user { "yosbel":
   ensure   => present,
 }
