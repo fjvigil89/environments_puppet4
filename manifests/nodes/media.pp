@@ -45,7 +45,7 @@ node 'ha-media.upr.edu.cu' {
   }
 ##Samba config to permit user to upload media
 class { 'samba::server':
-  workgroup     => 'media',
+  workgroup     => 'WORKGROUP',
   server_string => "Media Samba Server",
   interfaces    => "eth0 lo",
   security      => 'user'
