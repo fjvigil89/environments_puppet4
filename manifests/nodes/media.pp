@@ -9,7 +9,7 @@ node 'ha-media.upr.edu.cu' {
     mta_enabled     => false,
   }
 
-  class {'::haproxy_serv':
+  class { '::haproxy_serv':
     enable_ssl        => false,
     stats             => true,
     ipaddress         => $ipaddress,
@@ -43,7 +43,6 @@ node 'ha-media.upr.edu.cu' {
     ipaddresses       => '10.2.4.43',
     ports             => '80',
   }
-}
 ##Samba config to permit user to upload media
 class { 'samba::server':
   workgroup     => 'media',
