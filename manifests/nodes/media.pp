@@ -51,12 +51,15 @@ class { 'samba::server':
   security      => 'user'
 }
 samba::server::share { 'media':
-  comment              => 'Media',
-  path                 => '/srv/media',
-  browsable            => true,
-  writable             => true,
-  valid_users          => "yosbel",
-  directory_mask       => 0777,
+  comment                 => 'Media',
+  path                    => '/srv/media',
+  browsable               => true,
+  writable                => true,
+  valid_users             => "yosbel",
+  directory_mask          => 2775,
+  create_mask             => 775,
+  force_directory_mask    => 2775,
+  directory_security_mask => 2775,
 }
 user { "yosbel":
   ensure   => present,
