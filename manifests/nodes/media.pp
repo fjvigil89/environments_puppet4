@@ -48,14 +48,18 @@ class { 'samba::server':
   workgroup     => 'media',
   server_string => "Media Samba Server",
   interfaces    => "eth0 lo",
-  security      => 'share'
+  security      => 'user'
 }
 samba::server::share { 'media':
-  comment     => 'Media',
-  path        => '/srv/media',
-  browsable   => true,
-  writable    => true,
-  valid_users => "yosbel",
+  comment              => 'Media',
+  path                 => '/srv/media',
+  browsable            => true,
+  writable             => true,
+  valid_users          => "yosbel",
+  create_mask          => 0777,
+  force_create_mask    => 0777,
+  directory_mask       => 0777,
+  force_directory_mask => 0777,
 }
 user { "yosbel":
   ensure   => present,
