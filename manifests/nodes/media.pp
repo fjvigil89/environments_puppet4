@@ -60,6 +60,7 @@ samba::server::share { 'media':
   force_create_mask    => 0777,
   directory_mask       => 0777,
   force_directory_mask => 0777,
+  force_user           => 'yosbel',
 }
 user { "yosbel":
   ensure   => present,
