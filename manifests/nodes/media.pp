@@ -56,10 +56,17 @@ samba::server::share { 'media':
   browsable               => true,
   writable                => true,
   valid_users             => "yosbel",
-  directory_mask          => 2775,
-  create_mask             => 775,
-  force_directory_mask    => 2775,
-  directory_security_mask => 2775,
+}
+file_line { 'directory_mode':
+  path  => "/etc/samba/smb.conf",
+  line  => "\n
+  create mask = 775
+  directory mask = 2775
+  force directory mode = 2775
+  directory security mask = 2775
+  force directory security mode = 2775
+  \n",
+  after => "valid users = yosbel",
 }
 user { "yosbel":
   ensure   => present,
