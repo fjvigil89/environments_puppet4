@@ -189,8 +189,8 @@ class basesys::repos (
          
           apt::source { 'icinga':
               comment  => 'Icinga UPR',
-              #location => 'http://repos.upr.edu.cu/icinga/ubuntu/',
-              location => 'http://packages.icinga.com/ubuntu/',
+              location => 'http://repos.upr.edu.cu/icinga/ubuntu/',
+              #location => 'http://packages.icinga.com/ubuntu/',
               repos    => 'main',
               release  => "icinga-${::lsbdistcodename}",
               key      => {
