@@ -3,8 +3,8 @@
 class whois {
   file { '/var/www/whois':
     ensure => directory,
-    group  => 'whois',
-    owner  => 'whois',
+    group  => 'root',
+    owner  => 'root',
     mode   => '0775',
     }~>
      vcsrepo { '/var/www/whois':
