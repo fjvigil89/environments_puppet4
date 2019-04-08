@@ -1,13 +1,13 @@
 # Class: whois
 #
 class whois {
-  file { '/var/www/whois':
+  file { '/var/www/whois/ip':
     ensure => directory,
     group  => 'root',
     owner  => 'root',
     mode   => '0775',
     }~>
-     vcsrepo { '/var/www/whois':
+     vcsrepo { '/var/www/whois/ip':
        ensure   => latest,
        provider => 'git',
        remote   => 'origin',
