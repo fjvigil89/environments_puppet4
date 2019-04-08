@@ -8,7 +8,7 @@ node 'proxy-tor.upr.edu.cu','proxy-pap.upr.edu.cu' {
     mta_enabled    => false,
   }
   class {'::filebeatserver':
-    paths    => '/var/log/squid/*.log',
+    paths    => '/var/log/squid/*',
     log_type => "proxy",
    }
   
