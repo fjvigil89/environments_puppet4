@@ -8,7 +8,7 @@ class whois {
     mode   => '0775',
     }~>
      vcsrepo { 'whois':
-       path     => '/var/www/whois'
+       path     => '/var/www/whois',
        ensure   => latest,
        provider => 'git',
        remote   => 'origin',
