@@ -4,8 +4,9 @@
 #
 class wh_php_apache {
   class {'::filebeatserver':
-    log_type => "syslog",
-  ;}
+    paths    => '/var/log/apache2/*',
+    log_type => "apache",
+   }
 
   class { '::basesys':
     uprinfo_usage  => 'servidor test',
