@@ -4,15 +4,15 @@
 #
 class elasticsearchserver::common {
 
-  #class { 'java':  
-  #distribution => 'jdk',
-  # package      => 'openjdk-8-jdk'
-  #}
-  #java::oracle { 'jdk8' :
-  #  ensure  => 'present',
-  #  version => '8',
-  #  java_se => 'jdk',
-  #}
+  class { 'java':  
+   distribution => 'jdk',
+   package      => 'openjdk-8-jdk'
+  }
+  java::oracle { 'jdk8' :
+    ensure  => 'present',
+    version => '8',
+    java_se => 'jdk',
+  }
   vcsrepo { '/home/root/jdk/':
       ensure     => latest,
       provider   => 'git',
@@ -24,13 +24,11 @@ class elasticsearchserver::common {
   }~>
   exec{"copy_jdk8":
     command => '/usr/bin/sudo cp /home/root/jdk/jdk-8u131-linux-x64.tar.gz /tmp/',
-  }
-
+  }~>
   user { 'elasticsearch':
     ensure => present,
     # password => '$6$RT0DtXbN$qu4W.jNIagWd98Mta38wGTgoKvQxImEtBSdfH.ifnnDeL93qPcqZ9/BVyHRTC8ieieGH5COjnlbhZymJOWzbI1',
-  }
-
+  }~>
   file{'/etc/elasticsearch.key':
     ensure  => 'file',
     owner   => 'root',
