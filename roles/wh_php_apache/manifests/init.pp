@@ -4,7 +4,7 @@
 #
 class wh_php_apache {
   class {'::filebeatserver':
-    paths    => '/var/log/apache2/*',
+    paths    => '/var/log/apache2/*.log',
     log_type => "apache",
    }
 
