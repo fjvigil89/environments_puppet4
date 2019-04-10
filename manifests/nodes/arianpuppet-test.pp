@@ -60,15 +60,33 @@ node 'puppet-test.upr.edu.cu' {
     uprinfo_usage => 'servidor test',
     application   => 'puppet',
   }
-  class { 'vsftpd':
-  directives => {
-    ftpd_banner       => 'FTP Server',
-    anonymous_enable  => 'YES',
-    writable_enable   => 'NO',
-    chroot_local_user => 'NO',
-  },
-
-}
+  class { '::php':
+    config_overrides => { date.timezone => 'America/Havana' },
+  }
+  class { '::librenms':
+    admin_pass     => 'librenms.2k19',
+    db_pass        => 'dblibrenms.2k19',
+    poller_modules => { 
+      'os'              => 1,
+      'processors'      => 1,
+      'mempools'        => 1,
+      'storage'         => 1,
+      'netstats'        => 1,
+      'hr-mib'          => 1,
+      'ucd-mib'         => 1,
+      'ipSystemStats'   => 1,
+      'ports'           => 1,
+      'ucd-diskio'      => 1,
+      'entity-physical' => 1,
+      'mib'             => 1,
+      'tonner'          => 1,
+    },
+  }
+  class { '::librenms::dbserver':
+    bind_address   => '127.0.0.1',
+    password       => 'dblibrenms.2k19',
+    root_password  => 'librenms.2k19',
+  }
 }
   #class {'::serv_logrotate':
   # compress         => true,
