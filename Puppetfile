@@ -49,7 +49,7 @@ mod 'puppet-gitlab', '3.0.2'
 mod 'puppet-letsencrypt', '2.4.0'
 mod 'puppet-grafana', '4.4.1'
 mod 'puppet-dhcp', '3.2.0'
-mod 'puppet-logrotate', '3.3.0'
+mod 'puppet-logrotate', '3.4.0'
 mod 'puppet-smokeping', '4.0.0'
 mod 'puppet-collectd', '10.1.0'
 #Puppetlabs
