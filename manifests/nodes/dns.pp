@@ -99,12 +99,14 @@ node 'dns.upr.edu.cu' {
     rotate       => 1,
     rotate_every => 'day',
     compress     => true,
+    postrotate   => 'rm -f /var/log/syslog-*',
   }
   logrotate::rule { 'daemon':
     path         => '/var/log/daemon*.log',
     rotate       => 1,
     rotate_every => 'day',
     compress     => true,
+    postrotate   => 'rm -f /var/log/daemon.log-*',
   }
 }
 
