@@ -39,7 +39,7 @@ class dns_primary::primary(){
        mode    => '0775',
      }~>
     vcsrepo { '/var/lib/bind':
-      ensure   => latest,
+      ensure   => present,
       provider => 'git',
       remote   => 'origin',
       source   => {
