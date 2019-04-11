@@ -17,76 +17,76 @@ node /^reverse-proxy\d+$/{
 
   class { 'reverse_proxy_server':
     server_name    => [
-      'www.upr.edu.cu',
-      'correo.upr.edu.cu',
-      'cvforestal.upr.edu.cu',
-      'intranet.upr.edu.cu',
-      'proxy-login.upr.edu.cu',
-      'nexus.upr.edu.cu',
-      'harbor.upr.edu.cu',
-      'proxy-go.upr.edu.cu',
-      'gitlab.upr.edu.cu',
-      'icingaweb.upr.edu.cu',
-      'composer.upr.edu.cu',
-      'bower.upr.edu.cu',
-      'cooder.upr.edu.cu',
-      'npm.upr.edu.cu',
-      'mendive.upr.edu.cu',
-      'podium.upr.edu.cu',
-      'cfores.upr.edu.cu',
-      'cifam.upr.edu.cu', 
-      'coodes.upr.edu.cu',
-      'rc.upr.edu.cu',
-      'crai.upr.edu.cu',
-      'blogcrai.upr.edu.cu',
-      'revistaecovida.upr.edu.cu',
-      'tocororo.upr.edu.cu',
-      'eventos.upr.edu.cu',
-      'moodle.upr.edu.cu',
-      'telefonos.upr.edu.cu',
-      'mrtg.upr.edu.cu',
-      'ftp.upr.edu.cu',
-      'media.upr.edu.cu',
-      'catalogo.upr.edu.cu',
-      'earchivos.upr.edu.cu',
-      'repositorio.biblioteca.upr.edu.cu'
+      'www.upr.edu.cu',#1
+      'correo.upr.edu.cu',#2
+      'cvforestal.upr.edu.cu',#3
+      'intranet.upr.edu.cu',#4      
+      'nexus.upr.edu.cu',#6
+      'harbor.upr.edu.cu',#7
+      'proxy-go.upr.edu.cu',#8
+      'gitlab.upr.edu.cu',#9
+      'icingaweb.upr.edu.cu',#10
+      'composer.upr.edu.cu',#11
+      'bower.upr.edu.cu',#12
+      'cooder.upr.edu.cu',#13
+      'npm.upr.edu.cu',#14
+      'mendive.upr.edu.cu',#15
+      'podium.upr.edu.cu',#16
+      'cfores.upr.edu.cu',#17
+      'cifam.upr.edu.cu',#18 
+      'coodes.upr.edu.cu',#19
+      'rc.upr.edu.cu',#20
+      'crai.upr.edu.cu',#21
+      'blogcrai.upr.edu.cu',#22
+      'revistaecovida.upr.edu.cu',#23
+      'tocororo.upr.edu.cu',#24
+      'eventos.upr.edu.cu',#25
+      'moodle.upr.edu.cu',#26
+      'telefonos.upr.edu.cu',#27
+      'enlaces.upr.edu.cu',#28
+      'ftp.upr.edu.cu',#29
+      'media.upr.edu.cu',#30
+      'catalogo.upr.edu.cu',#31
+      'earchivos.upr.edu.cu',#32
+      'repositorio.biblioteca.upr.edu.cu'#33
     ],
-    listen_port    => [80,80,80,80,443,80,80,443,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80],
-    ssl_port       => [80,443,443,443,443,443,443,443,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80],
+    #                  1  -2 - 3- 4- 6- 7- 8 - 9-10-11-12-13-14-15-16-17-18-19-20-21-22-23-24-25-26-27-28-29-30-31-32- 33
+    listen_port    => [80,80,80, 80, 80,80,443,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80, 80, 80],
+    #                  1  -2 - 3-  4- -6 - 7 - 8 -9- 10-11-12-13-14-15-16-17-18-19-20-21-22-23-24-25-26-27-28-29-30-31-32-33
+    ssl_port       => [80,443,443,443,443,443,443,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80],
     location_allow => [
-      '*',
-      '*',
-      '*',
-      'red_univ',
-      '*',
-      '*',
-      '*',
-      '*',
-      '*',
-      '*',
-      'red_univ',
-      'red_univ',
-      'red_univ',
-      'red_univ',
-      '*',
-      '*',
-      '*',
-      '*',
-      '*',
-      '*',
-      '*',
-      '*',
-      '*',
-      '*',
-      '*',
-      '*',
-      '*',
-      'red_univ',
-      'cuba',
-      'red_univ',
-      'red_univ',
-      'red_univ',
-      'red_univ',
+      '*',#1
+      '*',#2
+      '*',#3
+      'red_univ',#4      
+      '*',#6
+      '*',#7
+      '*',#8
+      '*',#9
+      '*',#10
+      'red_univ',#11
+      'red_univ',#12
+      'red_univ',#13
+      'red_univ',#14
+      '*',#15
+      '*',#16
+      '*',#17
+      '*',#18
+      '*',#19
+      '*',#20
+      '*',#21
+      '*',#22
+      '*',#23
+      '*',#24
+      '*',#25
+      '*',#26
+      '*',#27
+      'red_univ',#28
+      'cuba',#29
+      'red_univ',#30
+      'red_univ',#31
+      'red_univ',#32
+      'red_univ',#33
     ],
 
   }

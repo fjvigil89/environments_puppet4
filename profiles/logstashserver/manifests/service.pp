@@ -5,27 +5,11 @@
 #
 class logstashserver::service {
 
-
-    vcsrepo { '/home/root/logstash/':
-      ensure     => latest,
-      provider   => 'git',
-      remote     => 'origin',
-      source     => {
-        'origin' => 'git@gitlab.upr.edu.cu:dcenter/logstash.git',
-      },
-      revision   => 'master',
-    }~>
-  exec{"instalar_logstash":
-      command => '/usr/bin/sudo dpkg -i /home/root/logstash/logstash-6.6.0.deb',
-    }->
-    #exec{"restart_logstash":
-    #  command => '/usr/bin/sudo systemctl restart logstash | systemctl enable logstash',
-    #  refreshonly => true;
-    #}
-    #exec{"enable_logstash":
-    #  command => '/usr/bin/sudo systemctl enable logstash',
-    #}->
-
+    service{'logstash':
+      ensure => running,
+      enable => true,
+    }
+  
   file{'/etc/logstash/conf.d/02-beats-input.conf':
     ensure => 'file',
     owner  => 'root',
@@ -34,7 +18,7 @@ class logstashserver::service {
     source => 'puppet:///modules/logstashserver/02-beats-input.conf',
     #before => Exec['instalar_logstash'],
     notify => Service['logstash'];
-  }~>
+  }
 
   file{'/etc/logstash/conf.d/10-syslog-filter.conf':
     ensure => 'file',
@@ -44,24 +28,26 @@ class logstashserver::service {
     source => 'puppet:///modules/logstashserver/10-syslog-filter.conf',
     #before => Exec['instalar_logstash'],
     notify => Service['logstash'];
-  }~>
-  
-  file{'/etc/logstash/conf.d/30-elasticsearch-output.conf':
+  }
+  file{'/etc/logstash/conf.d/11-proxy-filter.conf':
     ensure => 'file',
     owner  => 'root',
     group  => 'root',
     mode   => '0644',
-    source => 'puppet:///modules/logstashserver/30-elasticsearch-output.conf',
+    source => 'puppet:///modules/logstashserver/11-proxy-filter.conf',
     #before => Exec['instalar_logstash'],
     notify => Service['logstash'];
   }
-  service{'logstash':
-    ensure => running,
-    enable => true,
+
+  file{'/etc/logstash/conf.d/12-apache-filter.conf':
+    ensure => 'file',
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0644',
+    source => 'puppet:///modules/logstashserver/12-apache-filter.conf',
+    #before => Exec['instalar_logstash'],
+    notify => Service['logstash'];
   }
-
-
-
 
 
 }

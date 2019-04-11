@@ -19,6 +19,7 @@ class { 'icingaweb2::module::fileshipper':
     }
   }
 }
+ensure_packages(['php-yaml'],{'ensure' => 'present'})
 }
 
 

@@ -81,7 +81,8 @@ class basesys::repos (
       'Debian': {
         apt::source { 'debs':
             comment  => 'UPR debs repos Debian',
-            location => "http://${basesys::repo_url}debian/",
+            #location => "http://${basesys::repo_url}debian/",
+            location => "http://repos.upr.edu.cu/debian/",
             repos    => 'main',
         }
       }
@@ -95,53 +96,55 @@ class basesys::repos (
           apt::source {
             'aptly-mirror':
               comment  => "Aptly mirror ${basesys::aptly_mirror}",
-              location => "http://${basesys::repo_url}/debian/${basesys::aptly_mirror}",
+               #location => "http://${basesys::repo_url}/debian/${basesys::aptly_mirror}",
+               location => "http://repos.upr.edu.cu/debian/${basesys::aptly_mirror}",
               repos    => 'main',
           }
         } else {
           apt::source { "debian-upr-${lsbdistcodename}":
               comment  => 'Debian UPR repo',
-              location => "http://${basesys::repo_url}/debian/",
+              #location => "http://${basesys::repo_url}/debian/",
+               location => "http://repos.upr.edu.cu/debian/",
               repos    => 'main non-free contrib',
           }
          
           apt::source { "debian-upr-${lsbdistcodename}-updates":
               comment  => 'Debian UPR repo',
-              location => "http://${basesys::repo_url}/debian/",
+              #location => "http://${basesys::repo_url}/debian/",
+              location => "http://repos.upr.edu.cu/debian/",
               repos    => 'main non-free contrib',
               release  => "${lsbdistcodename}-updates"
           }
            
           apt::source { "debian-upr-${lsbdistcodename}-backports":
               comment  => 'Debian UPR repo',
-              location => "http://${basesys::repo_url}/debian/",
+              #location => "http://${basesys::repo_url}/debian/",
+              location => "http://repos.upr.edu.cu/debian/",
               repos    => 'main non-free contrib',
               release  => "${lsbdistcodename}-backports"
           }
 					
 					apt::source { "debian-security":
               comment  => 'Debian Security repo',
-              location => "http://${basesys::repo_url}/debian-security/",
+              #location => "http://${basesys::repo_url}/debian-security/",
+              location => "http://repos.upr.edu.cu/debian-security/",
               repos    => 'main non-free contrib',
               release  => "${::lsbdistcodename}/updates",
           }
           apt::source { 'icinga':
               comment  => 'Icinga UPR',
               location => 'http://repos.upr.edu.cu/icinga/debian/',
-              #location => 'http://packages.icinga.com/debian/',
               repos    => 'main',
               release  => "icinga-${::lsbdistcodename}",
               key      => {
                 'id'     => 'F51A91A5EE001AA5D77D53C4C6E319C334410682',
-                #'source' => 'http://repos.upr.edu.cu/icinga/icinga.key',
-                'source' => 'http://packages.icinga.com/icinga.key',
+                'source' => 'http://repos.upr.edu.cu/icinga/icinga.key',
               }
               }
           if($::is_virtual == false){
 						apt::source { "proxmox":
               comment  => 'Proxmox repo',
               location => 'http://repos.upr.edu.cu/proxmox/pve/',
-              #location => 'deb http://download.proxmox.com/debian/pve',
               repos    => 'pve-no-subscription',
               release  => "${::lsbdistcodename}",
             }
@@ -186,14 +189,13 @@ class basesys::repos (
          
           apt::source { 'icinga':
               comment  => 'Icinga UPR',
-              #location => 'http://repos.upr.edu.cu/icinga/ubuntu/',
-              location => 'http://packages.icinga.com/ubuntu/',
+              location => 'http://repos.upr.edu.cu/icinga/ubuntu/',
+              #location => 'http://packages.icinga.com/ubuntu/',
               repos    => 'main',
               release  => "icinga-${::lsbdistcodename}",
               key      => {
                 'id'     => 'F51A91A5EE001AA5D77D53C4C6E319C334410682',
-                #'source' => 'http://repos.upr.edu.cu/icinga/icinga.key',
-                'source' => 'http://packages.icinga.com/icinga.key',
+                'source' => 'http://repos.upr.edu.cu/icinga/icinga.key',
               }
 
           }
@@ -245,13 +247,13 @@ class basesys::repos (
           #;
 
           #'epel':
-            #descr          => "Extra Packages for Enterprise Linux ${::operatingsystemmajrelease}",
-            #name           => 'epel',
-            #mirrorlist     => "https://mirrors.fedoraproject.org/metalink?repo=epel-${::operatingsystemmajrelease}&arch=x86_64",
-            #failovermethod => priority,
-            #enabled        => '1',
-            #gpgcheck       => '0',
-        }
+          #  descr          => "Extra Packages for Enterprise Linux ${::operatingsystemmajrelease}",
+          #  name           => 'epel',
+          #  mirrorlist     => "https://repos.upr.edu.cu/epel/metalink?repo=epel-${::operatingsystemmajrelease}&arch=x86_64",
+          #  failovermethod => priority,
+          #  enabled        => '1',
+          #  gpgcheck       => '0',
+          }
       }
 # lint:endignore
       default: {}
@@ -269,9 +271,8 @@ class basesys::repos (
         # Install Puppetlabs PC1 jessie Source Repository
         ::apt::source { 'puppet-agent':
           comment  => "Puppetlabs PC1 ${::lsbdistcodename} Repository from basesys",
-          location => 'http://repos.upr.edu.cu/puppet5/apt/',
-          #location => 'https://apt.puppetlabs.com/',
-          repos    => 'main',
+          location => 'http://repos.upr.edu.cu/puppet/apt/',
+          repos    => 'puppet5',
           #key      => {
            #id     => '47B320EB4C7C375AA9DAE1A01054B7A24BD6EC30',
            #server => 'pgp.mit.edu',

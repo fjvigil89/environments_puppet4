@@ -32,4 +32,3 @@ class letsencrypt_host::install {
     }
   }
 }
-

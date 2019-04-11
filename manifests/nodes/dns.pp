@@ -83,6 +83,31 @@ node 'dns.upr.edu.cu' {
         ],
     },
   }
+  #logrotate conf
+  class { '::logrotate':
+  ensure => 'latest',
+  config => {
+    dateext      => true,
+    compress     => true,
+    rotate       => 1,
+    rotate_every => 'day',
+    ifempty      => true,
+  }
+  }
+  logrotate::rule { 'syslog':
+    path         => '/var/log/syslog*.log',
+    rotate       => 1,
+    rotate_every => 'day',
+    compress     => true,
+    postrotate   => 'rm -f /var/log/syslog-*',
+  }
+  logrotate::rule { 'daemon':
+    path         => '/var/log/daemon*.log',
+    rotate       => 1,
+    rotate_every => 'day',
+    compress     => true,
+    postrotate   => 'rm -f /var/log/daemon.log-*',
+  }
 }
 
 ## dns cache solo para la upr con forwarding 10.2.1.8
