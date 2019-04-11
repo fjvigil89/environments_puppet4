@@ -42,9 +42,10 @@ class dns_primary::primary(){
       ensure   => present,
       provider => 'git',
       remote   => 'origin',
-      source   => {
-        'origin' => 'git@gitlab.upr.edu.cu:dcenter/dns_db.git',
-      },
+      source   => 'git@gitlab.upr.edu.cu:dcenter/dns_db.git',
+      #{
+        #'origin' => 'git@gitlab.upr.edu.cu:dcenter/dns_db.git',
+        #},
       revision => 'master',
     }
   }
