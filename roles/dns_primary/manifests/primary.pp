@@ -41,8 +41,8 @@ class dns_primary::primary(){
     vcsrepo { '/var/lib/bind':
       ensure   => present,
       provider => 'git',
-      remote   => 'origin',
-      source   => 'git@gitlab.upr.edu.cu:dcenter/dns_db.git',
+      #remote   => 'origin',
+      source   => 'git://gitlab.upr.edu.cu:dcenter/dns_db.git',
       #{
         #'origin' => 'git@gitlab.upr.edu.cu:dcenter/dns_db.git',
         #},
