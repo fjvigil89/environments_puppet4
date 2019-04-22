@@ -4,7 +4,6 @@ node 'mrtg.upr.edu.cu' {
   include mrtgserver
   include git
   include whois
-  include php
   package { 'lsb-release':
     ensure => installed,
     }~>
