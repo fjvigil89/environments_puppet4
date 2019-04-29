@@ -11,24 +11,25 @@ node 'wh-bk.upr.edu.cu'{
       'allow_override' => 'All',
       'directoryindex' => 'index.php',
       },],
-      redirect_status  => 'permanent',
-      redirect_dest    => 'https://sync.upr.edu.cu/',
-      }~>
-      apache::vhost { 'sync.upr.edu.cu ssl':
-        servername    => 'sync.upr.edu.cu',
-        serveraliases =>  ['www.sync.upr.edu.cu'],
-        port          => '443',
-        docroot       => '/home/Sync-UPR/master/public/',
-        ssl           => true,
-        #ssl_cert           => "/srv/letsencrypt/live/sync.upr.edu.cu/fullchain.pem",
-        #ssl_key            => "/srv/letsencrypt/live/sync.upr.edu.cu/privkey.pem",
-        directories =>  [ {
-          'path'           => '/home/Sync-UPR/master/public',
-          'options'        => ['Indexes','FollowSymLinks','MultiViews'],
-          'allow_override' => 'All',    
-          'directoryindex' => 'index.php',
-          },],
-          }~> 
+      #redirect_status  => 'permanent',
+      #redirect_dest    => 'https://sync.upr.edu.cu/',
+      }
+      #~>
+      #apache::vhost { 'sync.upr.edu.cu ssl':
+      #  servername    => 'sync.upr.edu.cu',
+      #  serveraliases =>  ['www.sync.upr.edu.cu'],
+      #  port          => '443',
+      #  docroot       => '/home/Sync-UPR/master/public/',
+      #  ssl           => true,
+      #  #ssl_cert           => "/srv/letsencrypt/live/sync.upr.edu.cu/fullchain.pem",
+      #  #ssl_key            => "/srv/letsencrypt/live/sync.upr.edu.cu/privkey.pem",
+      #  directories =>  [ {
+      #    'path'           => '/home/Sync-UPR/master/public',
+      #    'options'        => ['Indexes','FollowSymLinks','MultiViews'],
+      #    'allow_override' => 'All',    
+      #    'directoryindex' => 'index.php',
+      #    },],
+      #    }~> 
  apache::vhost { 'contable.upr.edu.cu non-ssl':
    servername       => 'contable.upr.edu.cu',
    serveraliases    => ['www.contable.upr.edu.cu'],
@@ -40,21 +41,21 @@ node 'wh-bk.upr.edu.cu'{
      'allow_override' => 'All',
      'directoryindex' => 'app.php',
      },],
-     redirect_status  => 'permanent',
-     redirect_dest    => 'https://contable.upr.edu.cu/',
- }~> 
- apache::vhost { 'contable.upr.edu.cu ssl':
-   servername    => 'contable.upr.edu.cu',
-   serveraliases =>  ['www.contable.upr.edu.cu'],
-   port          => '443',
-   docroot       => '/home/Contable/master/web/',
-   ssl           => true,
-   directories      => [ {
-     'path'    => '/home/Contable/master/web',
-     'options' => ['Indexes','FollowSymLinks','MultiViews'],
-     'allow_override'  => 'All',
-     'directoryindex' => 'app.php',
-     },], 
+     #  redirect_status  => 'permanent',
+     #redirect_dest    => 'https://contable.upr.edu.cu/',
+     #}~> 
+     #apache::vhost { 'contable.upr.edu.cu ssl':
+     # servername    => 'contable.upr.edu.cu',
+     #serveraliases =>  ['www.contable.upr.edu.cu'],
+     #port          => '443',
+     #docroot       => '/home/Contable/master/web/',
+     #ssl           => true,
+     #directories      => [ {
+     #'path'    => '/home/Contable/master/web',
+     #'options' => ['Indexes','FollowSymLinks','MultiViews'],
+     #'allow_override'  => 'All',
+     #'directoryindex' => 'app.php',
+     #},], 
      }~>
      apache::vhost { 'apiassets.upr.edu.cu':
        servername       => 'apiassets.upr.edu.cu',

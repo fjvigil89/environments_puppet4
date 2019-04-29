@@ -73,6 +73,8 @@ class php_webserver (
     include ::apache::mod::rewrite
   }
 
+   class {'::apache::mod::headers':;}
+
   class { '::apache::mod::proxy':; }
   -> class { '::apache::mod::proxy_fcgi':; }
 
