@@ -1,9 +1,10 @@
 #Creacion del nodo
 #
 node 'mrtg.upr.edu.cu' {
-  include mrtgserver
+include mrtgserver
   include git
   include whois
+  include php_webserver
   package { 'lsb-release':
     ensure => installed,
     }~>
