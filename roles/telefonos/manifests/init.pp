@@ -1,7 +1,7 @@
 # Class: telefonos
 # ===========================
 #
-class telefonos {
+class telefonos(
   Boolean $manage_repos     = false,
   String  $version          = $::php_server::params::verion,
   Array[String] $packages   = $::php_server::params::pachages,
@@ -30,7 +30,6 @@ class { '::php_webserver':
     packages       => $packages,
     }
   }
- }
  #  exec {"a2enmod_php7":
  #     command => '/usr/bin/sudo a2enmod php7.0',
  #     }
