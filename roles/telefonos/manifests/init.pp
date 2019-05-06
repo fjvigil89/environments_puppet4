@@ -7,12 +7,6 @@ class telefonos(
   Array[String] $packages   = $::php_server::params::pachages,
   )inherits ::php_server::params {
 
-class { '::basesys':
-  uprinfo_usage => 'servidor telefonso',
-  application   => 'telefonos',
-  mta_enabled   => false,
-  repos_enabled => false,
-  }
   include git
   include vim
 
