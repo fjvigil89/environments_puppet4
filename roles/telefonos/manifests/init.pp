@@ -21,7 +21,7 @@ class { '::php_webserver':
    'mbstring' => {},
    },
   manage_repos   => $manage_repos,
-    packages       => $packages,
+  packages       => $packages,
     }
   }
  #  exec {"a2enmod_php7":
