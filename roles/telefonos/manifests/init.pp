@@ -1,7 +1,7 @@
 # Class: php_server
 # ===========================
 #
-# Full description of class php_server here.
+# Full description of class telefono here.
 
   class telefonos(
     Boolean $manage_repos     = false,
@@ -32,15 +32,15 @@ file { '/home/telefonos':
   owner  => 'root',
   mode   => '0775',
   }~>
- # vcsrepo { '/home/telefonos':
- #  ensure     => latest,
-#	provider   => 'git',
-#	remote     => 'origin',
-#	source     => {
-#	    'origin' => 'git@gitlab.upr.edu.cu:dcenter/telefonos.git',
-#		},
-#	revision   => 'master',
-#	}
+  vcsrepo { '/home/telefonos':
+    ensure     => latest,
+	provider   => 'git',
+	remote     => 'origin',
+	source     => {
+	    'origin' => 'git@gitlab.upr.edu.cu:dcenter/telefonos.git',
+		},
+	revision   => 'master',
+	}
 	
  apache::vhost { 'telefonos':
    port       => '80',
