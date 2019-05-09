@@ -9,13 +9,6 @@
     Array[String] $packages   = $::telefonos::params::pachages,
     )inherits ::telefonos::params {
     
-  class { '::basesys':
-      uprinfo_usage => 'servidor telefonos',
-      application   => 'guia de telefonos UPR',
-      mta_enabled   => false,
-      repos_enabled => false,
-      }
-    
   include git
   include vim
     
