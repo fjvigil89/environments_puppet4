@@ -2,7 +2,13 @@ node 'telefonos-pup.upr.edu.cu'{
 
 include telefonos
 
-vcsrepo { '/home/telefonos/':
+file { '/home/telefonos':
+  ensure => directory,
+  group  => 'root',
+  owner  => 'root',
+  mode   => '0775',
+  }~>
+  vcsrepo { '/home/telefonos':
       ensure     => latest,
       provider   => 'git',
       remote     => 'origin',
