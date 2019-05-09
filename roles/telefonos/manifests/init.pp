@@ -39,7 +39,7 @@
    ensure => file,
    owner  => 'root',
    group  => 'root',
-   mode   => '0644',
+   mode   => '0600',
      source => 'puppet:///modules/telefonos/keys/id_rsa',
 	 }
  file { '/root/.ssh/id_rsa.pub':
