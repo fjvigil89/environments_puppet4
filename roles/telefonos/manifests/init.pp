@@ -1,7 +1,8 @@
 # Class: telefonos
 # ===========================
 #
-class telefonos(
+class telefonos{
+#(
 #  Boolean $manage_repos     = false,
 #  String  $version          = $::php_server::params::verion,
 #  Array[String] $packages   = $::php_server::params::pachages,
