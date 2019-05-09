@@ -32,13 +32,4 @@
     manage_repos   => $manage_repos,
     packages       => $packages,
     }
-    vcsrepo { '/home/telefonos/':
-      ensure   => latest,
-      provider => 'git',
-      remote   => 'origin',
-      source   => {
-        'origin' => 'git@gitlab.upr.edu.cu:dcenter/telefonos.git,
-	},
-      revision => 'master',
-      }
       }
