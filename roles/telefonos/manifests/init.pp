@@ -26,13 +26,13 @@
     packages       => $packages,
     }
 
-file { '/home/telefonos':
+file { '/var/www/telefonos':
   ensure => directory,
   group  => 'root',
   owner  => 'root',
   mode   => '0775',
   }~>
-  vcsrepo { '/home/telefonos':
+  vcsrepo { '/var/www/telefonos':
     ensure     => latest,
 	provider   => 'git',
 	remote     => 'origin',
@@ -44,7 +44,7 @@ file { '/home/telefonos':
 	
  apache::vhost { 'telefonos':
    port       => '80',
-   docroot    => '/home/telefonos/',
+   docroot    => '/var/www/telefonos/',
    servername => 'telefonos-pup.upr.edu.cu',
    aliases    => 'telefonos',
    }
