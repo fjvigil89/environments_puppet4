@@ -40,6 +40,7 @@ file { '/var/www/telefonos':
 	    'origin' => 'git@gitlab.upr.edu.cu:dcenter/telefonos.git',
 		},
 	revision   => 'master',
+	submodules => true
 	}
 	
  apache::vhost { 'telefonos':
