@@ -5,8 +5,8 @@
 
   class telefonos(
     Boolean $manage_repos     = false,
-    String  $version          = $::telefonos::params::version,
-    Array[String] $packages   = $::telefonos::params::pachages,
+#    String  $version          = $::telefonos::params::version,
+#    Array[String] $packages   = $::telefonos::params::pachages,
     )inherits ::telefonos::params {
     
   include git
@@ -44,7 +44,7 @@ file { '/var/www/telefonos':
 	
  apache::vhost { 'telefonos':
    port       => '80',
-   docroot    => '/var/www/telefonos/',
+   docroot    => '/var/www/telefonos/web',
    servername => 'telefonos-pup.upr.edu.cu',
    aliases    => 'telefonos',
    }
