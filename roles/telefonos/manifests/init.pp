@@ -44,7 +44,7 @@ file { '/var/www/telefonos':
 	
  apache::vhost { 'telefonos':
    port       => '80',
-   docroot    => '/var/www/telefonos/web',
+   docroot    => '/var/www/telefonos',
    servername => 'telefonos-pup.upr.edu.cu',
    aliases    => 'telefonos',
    }
