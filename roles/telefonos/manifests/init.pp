@@ -43,10 +43,17 @@ file { '/var/www/telefonos':
 	}
 	
  apache::vhost { 'telefonos':
-   port       => '80',
-   docroot    => '/var/www/telefonos',
-   servername => 'telefonos-pup.upr.edu.cu',
-   aliases    => 'telefonos',
+   serveraliases => 'www.telefonos-pup.upr.edu.cu',
+   port          => '80',
+   docroot       => '/var/www/telefonos/web/',
+   servername    => 'telefonos-pup.upr.edu.cu',
+   aliases       => 'telefonos',
+   directories   => [{
+     'path' => '/var/www/telefonos/web/',
+#	 'options'   => ['Indexes','FollowSymLinks','MultiViews'],
+     'allow_override' => 'All',
+	 'directoryindex' => 'app.php',
+   },],
    }
 
  #Copy SSH Key
