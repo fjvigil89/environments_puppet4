@@ -50,7 +50,7 @@ file { '/var/www/telefonos':
    aliases       => 'telefonos',
    directories   => [{
      'path' => '/var/www/telefonos/web/',
-#	 'options'   => ['Indexes','FollowSymLinks','MultiViews'],
+	 'options'   => ['Indexes','FollowSymLinks','MultiViews'],
      'allow_override' => 'All',
 	 'directoryindex' => 'app.php',
    },],
