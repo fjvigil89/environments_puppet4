@@ -60,33 +60,98 @@ node 'puppet-test.upr.edu.cu' {
     uprinfo_usage => 'servidor test',
     application   => 'puppet',
   }
-  class { '::php':
-    config_overrides => { date.timezone => 'America/Havana' },
-  }
-  class { '::librenms':
-    admin_pass     => 'librenms.2k19',
-    db_pass        => 'dblibrenms.2k19',
-    poller_modules => { 
-      'os'              => 1,
-      'processors'      => 1,
-      'mempools'        => 1,
-      'storage'         => 1,
-      'netstats'        => 1,
-      'hr-mib'          => 1,
-      'ucd-mib'         => 1,
-      'ipSystemStats'   => 1,
-      'ports'           => 1,
-      'ucd-diskio'      => 1,
-      'entity-physical' => 1,
-      'mib'             => 1,
-      'tonner'          => 1,
+  $zone    = 'type master'
+  $allow   = "{ 10.2.0.0/15; 10.71.46.0/24; 20.0.0.0/24; 172.30.146.0/27; 192.168.25.0/24; 200.14.49.0/27; 200.55.143.8/29;}"
+  $notify  = "{ 10.2.1.14; 10.2.1.15; }"
+  $direct  = "/var/lib/bind"
+  $quote   = '"'
+  include git
+  class { '::dns_primary':
+    config_file        => '/etc/bind/named.conf',
+    directory          => '/etc/bind',
+    dump_file          => 'cache_dump.db',
+    statistics_file    => 'named_stats.txt',
+    memstatistics_file => 'named_mem_stats.txt',
+    slave              => false,
+    allow_query        => $allow_q,
+    recursion          => 'yes',
+    zone_name          => [ 'upr.edu.cu', 'ceces.upr.edu.cu', 'progintec.upr.edu.cu', 'tele4.upr.edu.cu'],
+    zone_type          => $zone,
+    file_zone_name     => [ 'db.upr.edu.cu', 'db.1.2.10', 'db.3.2.10','db.4.2.10' ,'db.8.2.10'],
+    zone_reverse       => [ '1.2.10.in-addr.arpa', '2.2.10.in-addr.arpa', '3.2.10.in-addr.arpa', '4.2.10.in-addr.arpa'],
+    views              => {
+      'internal' => {
+        'match-clients' => ['10.2.0.0/15','200.14.49.0/27','200.55.143.8/29','10.71.46.0/24','172.30.146.0/27','192.168.25.0/24','20.0.0.0/24' ],
+    'zones'            => {
+      'upr.edu.cu' => [
+        $zone,
+        "allow-query $allow",
+        "allow-update ${notify}",
+        "also-notify ${notify}",
+        "notify yes",
+        "file ${quote}${direct}/db.upr.edu.cu${quote}",
+      ],
+      'progintec.upr.edu.cu' => [
+        'type slave',
+        "allow-query $allow",
+        "masters { 10.2.4.158; }",
+        "file ${quote}${direct}/db.progintec.upr.edu.cu${quote}",
+      ],
+      #'tele4.upr.edu.cu' => [
+      #  'type slave',
+      #  "allow-query $allow",
+      #  "masters { 10.2.24.158; };",
+      #  "file ${quote}${direct}/db.tele4.upr.edu.cu${quote}",
+      #],
+      '2.2.10.in-addr.arpa' => [
+        $zone,
+        "allow-query $allow",
+        "allow-update ${notify}",
+        "also-notify ${notify}",
+        "notify yes",
+        "file ${quote}${direct}/db.2.2.10${quote}",
+      ],
+      '3.2.10.in-addr.arpa' => [
+        $zone,
+        "allow-query $allow",
+        "allow-update ${notify}",
+        "also-notify ${notify}",
+        "notify yes",
+        "file ${quote}${direct}/db.3.2.10${quote}",
+      ],
+      '4.2.10.in-addr.arpa' => [
+        $zone,
+        "allow-query $allow",
+        "allow-update ${notify}",
+        "also-notify ${notify}",
+        "notify yes",
+        "file ${quote}${direct}/db.4.2.10${quote}",
+      ],
+      '1.2.10.in-addr.arpa' => [
+        $zone,
+        "allow-query $allow",
+        "allow-update ${notify}",
+        "also-notify ${notify}",
+        "notify yes",
+        "file ${quote}${direct}/db.1.2.10${quote}",
+      ],
+    },
+      },
+    'external'         => {
+      'match-clients' => [ 'any' ],
+      'zones' => {
+        'upr.edu.cu' => [
+          $zone,
+          "allow-query $allow",
+          "allow-update ${notify}",
+          "also-notify ${notify}",
+          "notify yes",
+          "file ${quote}${direct}/db.upr.edu.cu.external${quote}",
+        ],
+      },
     },
   }
-  class { '::librenms::dbserver':
-    bind_address   => '127.0.0.1',
-    password       => 'dblibrenms.2k19',
-    root_password  => 'librenms.2k19',
-  }
+  
 }
   #class {'::serv_logrotate':
   # compress         => true,
