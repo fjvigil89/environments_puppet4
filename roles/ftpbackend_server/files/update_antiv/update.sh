@@ -7,7 +7,7 @@ FECHA=`date +'%d%m%y'`
 SERVER_DIR="http://antivirus.uclv.cu/update/nod32"
 
 ## Directorio principal de actualizaciones ##
-UPDATE_DIR="/srv/ftp/av/nod32"
+UPDATE_DIR="/srv/ftp/Antivirus/Actualizaciones/nod32/"
 
 ## Directorio temporal ##
 TMP_FOLDER="/srv/antivirus/nod32"
