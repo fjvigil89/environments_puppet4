@@ -151,8 +151,7 @@ node 'puppet-test.upr.edu.cu' {
       },
     },
   }
-  
-}
+  }
   #class {'::serv_logrotate':
   # compress         => true,
   #  filelog_numbers  => [5,7],
