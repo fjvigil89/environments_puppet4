@@ -22,7 +22,7 @@ node 'ns1p.upr.edu.cu' {
   $allow   = "{ 10.2.0.0/15; 10.71.46.0/24; 20.0.0.0/24; 172.30.146.0/27; 192.168.25.0/24; 200.14.49.0/27; 200.55.143.8/29;}"
   $notify_internal  = "{ 10.2.4.14; 10.2.4.15; }"
   $notify_external  = "{ 200.55.143.10; }"
-  $direct  = "/var/lib/bind"
+  $direct  = "/var/lib/bind/zone"
   $quote   = '"'
   include git
   class { '::dns_primary':
@@ -102,7 +102,7 @@ node 'ns1p.upr.edu.cu' {
           'zones'         => {
             'upr.edu.cu' => [
               $zone,
-              "allow-query $allow",
+              "allow-query { any; };",
               "allow-update ${notify_external}",
               "also-notify ${notify_external}",
               "notify yes",
