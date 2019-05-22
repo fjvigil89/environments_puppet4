@@ -12,11 +12,11 @@ node 'ns1p.upr.edu.cu' {
     source => 'puppet:///modules/dns_primary/ssh_keys/id_rsa',
   }
   file { '/root/.ssh/id_rsa.pub':
-  ¦ ensure => file,
-  ¦ owner  => 'root',
-  ¦ group  => 'root',
-  ¦ mode   => '0774',
-  ¦ source => 'puppet:///modules/dns_primary/ssh_keys/id_rsa.pub',
+    ensure => file,
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0774',
+    source => 'puppet:///modules/dns_primary/ssh_keys/id_rsa.pub',
   }
   $zone    = 'type master'
   $allow   = "{ 10.2.0.0/15; 10.71.46.0/24; 20.0.0.0/24; 172.30.146.0/27; 192.168.25.0/24; 200.14.49.0/27; 200.55.143.8/29;}"
