@@ -52,6 +52,7 @@ file { '/var/www/telefonos':
      'path' => '/var/www/telefonos/web/',
 	 'options'   => ['Indexes','FollowSymLinks','MultiViews'],
      'allow_override' => 'All',
+	 'allow'          => 'from All',
 	 'directoryindex' => 'app.php',
    },],
    }
