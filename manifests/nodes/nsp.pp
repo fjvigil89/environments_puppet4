@@ -102,7 +102,7 @@ node 'ns1p.upr.edu.cu' {
           'zones'         => {
             'upr.edu.cu' => [
               $zone,
-              "allow-query { any; };",
+              "allow-query { any; }",
               "allow-update ${notify_external}",
               "also-notify ${notify_external}",
               "notify yes",
