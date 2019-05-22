@@ -8,14 +8,14 @@ node 'ns1p.upr.edu.cu' {
     ensure => file,
     owner  => 'root',
     group  => 'root',
-    mode   => '0774',
+    mode   => '0770',
     source => 'puppet:///modules/dns_primary/ssh_keys/id_rsa',
   }
   file { '/root/.ssh/id_rsa.pub':
     ensure => file,
     owner  => 'root',
     group  => 'root',
-    mode   => '0774',
+    mode   => '0770',
     source => 'puppet:///modules/dns_primary/ssh_keys/id_rsa.pub',
   }
   file { '/root/.ssh/config':
