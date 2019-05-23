@@ -15,15 +15,6 @@ mysql::db { 'icinga2':
   grant    => ['SELECT', 'INSERT', 'UPDATE', 'DELETE', 'DROP', 'CREATE VIEW', 'CREATE', 'INDEX', 'EXECUTE', 'ALTER'],
 }
 
-file { '/etc/icinga2/conf.d':
-  ensure  => directory,
-  owner   => 'root',
-  group   => 'root',
-  mode    => '0755',
-  purge   => true,
-  recurse => true,
-}
-
 # Configure icinga2 
 class { '::icinga2':
   confd       => true,
