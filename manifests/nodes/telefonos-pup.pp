@@ -26,7 +26,7 @@ node 'telefonos-pup.upr.edu.cu'{
          'allow'          => 'from All',
          'directoryindex' => 'app.php',
        },],
-     }~>
+     }
 #	 exec{"a2enmod_php7":
 #      command => '/usr/bin/sudo a2enmod php7.0',
 #	  }~>
@@ -37,4 +37,4 @@ node 'telefonos-pup.upr.edu.cu'{
 #      command     => '/usr/bin/sudo service apache2 restart',
 #      refreshonly => true;
 #	  }
-	} 
+} 
