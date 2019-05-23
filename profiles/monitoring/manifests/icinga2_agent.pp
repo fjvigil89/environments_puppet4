@@ -7,6 +7,16 @@
 
 class monitoring::icinga2_agent {
   include ::monitoring::params
+  file { '/etc/icinga2/conf.d':
+    ensure  => directory,
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0755',
+    purge   => true,
+    recurse => true,
+    require => Package['icinga2'],
+  }
+
   class { '::icinga2':
     manage_repo => $monitoring::params::manage_repo,
     features    => ['checker','mainlog'],

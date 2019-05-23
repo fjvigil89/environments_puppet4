@@ -15,15 +15,6 @@ mysql::db { 'icinga2':
   grant    => ['SELECT', 'INSERT', 'UPDATE', 'DELETE', 'DROP', 'CREATE VIEW', 'CREATE', 'INDEX', 'EXECUTE', 'ALTER'],
 }
 
-file { '/etc/icinga2/conf.d':
-  ensure  => directory,
-  owner   => 'root',
-  group   => 'root',
-  mode    => '0755',
-  purge   => true,
-  recurse => true,
-}
-
 # Configure icinga2 
 class { '::icinga2':
   confd       => true,
@@ -35,6 +26,17 @@ class { '::icinga2':
     ticketsalt => '5a3d695b8aef8f18452fc494593056a4',
   },
 }
+
+file { '/etc/icinga2/conf.d':
+  ensure  => directory,
+  owner   => 'root',
+  group   => 'root',
+  mode    => '0755',
+  purge   => true,
+  recurse => true,
+  require => Package['icinga2'],
+}
+
 
 # Configure ido_mysql
 class { '::icinga2::feature::idomysql':
