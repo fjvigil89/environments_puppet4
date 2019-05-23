@@ -26,5 +26,15 @@ node 'telefonos-pup.upr.edu.cu'{
          'allow'          => 'from All',
          'directoryindex' => 'app.php',
        },],
-     }
+     }~>
+	 exec{"a2enmod_php7":
+      command => '/usr/bin/sudo a2enmod php7.0',
+	  }~>
+	 exec{"a2enmod_rewrite":
+      command => '/usr/bin/sudo a2enmod rewrite',
+	  }~>
+	 exec{"service_apache2_restart":
+      command     => '/usr/bin/sudo service apache2 restart',
+      refreshonly => true;
+	  }
 	} 
