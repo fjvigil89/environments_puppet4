@@ -5,15 +5,15 @@
 
   class telefonos(
     Boolean $manage_repos     = false,
-#    String  $version          = $::telefonos::params::version,
-#    Array[String] $packages   = $::telefonos::params::pachages,
+    String  $version          = $::telefonos::params::version,
+    Array[String] $packages   = $::telefonos::params::pachages,
     )inherits ::telefonos::params {
     
   include git
   include vim
     
   class { '::php_webserver':
-    php_version    => $version,
+#    php_version    => $version,
     php_extensions => {
       'curl'     => {},
       'gd'       => {},
@@ -23,7 +23,7 @@
       'mbstring' => {},
       },
     manage_repos   => $manage_repos,
-    packages       => $packages,
+ #   packages       => $packages,
     }
 
 file { '/var/www/telefonos':
