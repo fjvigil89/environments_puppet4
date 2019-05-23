@@ -18,7 +18,7 @@ class mrtgserver::apache(){
 	directories   => [{
            'path' => '/var/www/whois/ip/web/',
            'options'   => ['Indexes','FollowSymLinks','MultiViews'],
-           'allow_override' => 'All',
+#           'allow_override' => 'All',
            'directoryindex' => 'index.php',
          },],
   }
