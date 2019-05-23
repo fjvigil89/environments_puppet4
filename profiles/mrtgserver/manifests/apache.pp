@@ -15,6 +15,12 @@ class mrtgserver::apache(){
     docroot    => '/var/www/whois/ip/web/',
     servername => 'whois.upr.edu.cu',
     aliases    => 'whois',
+	directories   => [{
+           'path' => '/var/www/whois/ip/web/',
+           'options'   => ['Indexes','FollowSymLinks','MultiViews'],
+           'allow_override' => 'All',
+           'directoryindex' => 'index.php',
+         },],
   }
 
   apache::vhost { 'sensores':
