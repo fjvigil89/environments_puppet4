@@ -42,15 +42,5 @@ class monitoring (
   if($icingaweb2server_enabled){
     class {'::monitoring::icingaweb2':;}
   }
-  file { '/etc/icinga2/conf.d':
-    ensure  => directory,
-    owner   => 'root',
-    group   => 'root',
-    mode    => '0755',
-    purge   => true,
-    recurse => true,
-    require => Package['icinga2'],
-  }
-
 }
 
