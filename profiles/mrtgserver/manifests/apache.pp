@@ -22,7 +22,6 @@ class mrtgserver::apache(){
            'directoryindex' => 'index.php',
          },],
   }
-
   apache::vhost { 'sensores':
     port       => '80',
     docroot    => '/var/www/mrtg/sensores/',
