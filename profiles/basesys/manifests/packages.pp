@@ -59,7 +59,7 @@ class basesys::packages {
 
         $p_os_dependant = [ 'gem','perl-doc', 'bind9-host','gnupg', #'ldap-utils',
                             'libwrap0-dev', 'arping', 'libconfig-general-perl', 'netcat','dnsutils','python-apt', 'ifupdown-extra',
-                            'monitoring-plugins','libwww-perl','tzdata','mlocate','libmonitoring-plugin-perl' ]
+                            'monitoring-plugins','libwww-perl','tzdata','mlocate','libmonitoring-plugin-perl','sysstat' ]
 
         $packagelist_dist = $::lsbdistcodename ? {
           'lenny'   => [ 'scsiadd', 'cpp-doc','gcc-doc', 'automake1.4'],
@@ -85,7 +85,7 @@ class basesys::packages {
       }
 
       'RedHat', 'CentOS': {
-        $p_os_dependant = [ 'dhcp', 'nc', 'libconfig', 'tzdata','nagios-plugins-all' ]
+        $p_os_dependant = [ 'dhcp', 'nc', 'libconfig', 'tzdata','nagios-plugins-all','sysstat' ]
       }
     }
 
