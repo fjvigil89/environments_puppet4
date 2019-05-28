@@ -7,6 +7,29 @@ node 'master-icinga0.upr.edu.cu'{
     monitoring_enabled => false;
   }
   class { '::monitoring':;}
+  #Copy SSH SSL
+  file { '/root/.ssh/id_rsa':
+    ensure => file,
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0400',
+    source => 'puppet:///modules/monitoring/ssh_keys/id_rsa',
+  }
+  file { '/root/.ssh/id_rsa.pub':
+    ensure => file,
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0400',
+    source => 'puppet:///modules/monitoring/ssh_keys/id_rsa.pub',
+  }
+  file { '/root/.ssh/config':
+    ensure => file,
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0644',
+    source => 'puppet:///modules/monitoring/ssh_keys/config',
+  }
+
   #include 'exim4'
 }
 node 'master-icinga1.upr.edu.cu'{
