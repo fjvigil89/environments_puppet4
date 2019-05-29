@@ -11,7 +11,7 @@ node 'dns.upr.edu.cu' {
   $zone    = 'type master'
   $allow   = "{ 10.2.0.0/15; 10.71.46.0/24; 20.0.0.0/24; 172.30.146.0/27; 192.168.25.0/24; 200.14.49.0/27; 200.55.143.8/29; 152.207.173.40/29;}"
   $notify  = "{ 10.2.1.14; 10.2.1.15; }"
-  $direct  = "/var/lib/bind"
+  $direct  = "/var/lib/bind/zone"
   $quote   = '"'
   include git
   class {'::dns_primary':
