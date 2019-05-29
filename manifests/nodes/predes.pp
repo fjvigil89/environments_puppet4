@@ -3,10 +3,11 @@ node 'profesor.upr.edu.cu' {
           ensure => installed,
   }~>
   class { '::basesys':
-    uprinfo_usage   => 'servidor gestion',
-    application     => 'Proxmox Gestion',
-    proxmox_enabled => false,
-    repos_enabled   => true,
-    mta_enabled     => false,
+  ¦ uprinfo_usage      => 'icinga_server',
+  ¦ application        => 'icinga2',
+  ¦ puppet_enabled     => true,
+  ¦ mta_enabled        => false,
+  ¦ monitoring_enabled => false;
   }
+  class { '::monitoring':;}
 }
