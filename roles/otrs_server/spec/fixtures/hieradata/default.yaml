@@ -1,0 +1,5 @@
+---
+# Default key/value pairs
+deploy_eyaml_test: 'AiVai2we'
+basesys::application: 'application'
+basesys::ugentinfo_usage: 'info'

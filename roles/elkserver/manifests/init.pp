@@ -10,7 +10,7 @@ class elkserver {
   class { '::basesys':
     uprinfo_usage   => 'servidor ELK',
     application     => 'ELK',
-    #repos_enabled   => true,
+    repos_enabled   => false,
     #mta_enabled     => false,
   }
 
