@@ -37,4 +37,5 @@ node 'telefonos-pup.upr.edu.cu'{
       command     => '/usr/bin/sudo service apache2 restart',
 #      refreshonly => true;
 	  }
+	  include mysql_server
 } 
