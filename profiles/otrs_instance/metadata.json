@@ -1,0 +1,24 @@
+{
+  "name": "systemen-otrs_instance",
+  "version": "0.1.0",
+  "author": "systemen",
+  "summary": "",
+  "license": "Apache-2.0",
+  "source": "",
+  "project_page": "",
+  "issues_url": "",
+  "dependencies": [
+    {
+      "name": "puppetlabs-stdlib",
+      "version_requirement": ">= 1.0.0"
+    }
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": [
+        "8","9"
+      ]
+    }
+  ]
+}

@@ -138,3 +138,7 @@ mod 'dns-bind',
 mod 'rgevaert/accounts',
   :git => 'https://github.com/rgevaert/puppetlabs-accounts.git',
   :ref => 'a8d42d248eaa2c5824512adffb55cb302389ac2f'
+
+mod 'carroarmato0/otrs',
+  :git => 'https://github.com/carroarmato0/puppet-otrs.git',
+  :ref => '4736c645f2169e639853238edf3581a3837c472c'

@@ -81,8 +81,8 @@ class basesys::repos (
       'Debian': {
         apt::source { 'debs':
             comment  => 'UPR debs repos Debian',
-            #location => "http://${basesys::repo_url}debian/",
-            location => "http://repos.upr.edu.cu/debian/",
+            location => "http://${basesys::repo_url}debian/",
+            #location => "http://repos.upr.edu.cu/debian/",
             repos    => 'main',
         }
       }
@@ -96,38 +96,38 @@ class basesys::repos (
           apt::source {
             'aptly-mirror':
               comment  => "Aptly mirror ${basesys::aptly_mirror}",
-               #location => "http://${basesys::repo_url}/debian/${basesys::aptly_mirror}",
-               location => "http://repos.upr.edu.cu/debian/${basesys::aptly_mirror}",
+               location => "http://${basesys::repo_url}/debian/${basesys::aptly_mirror}",
+               #location => "http://repos.upr.edu.cu/debian/${basesys::aptly_mirror}",
               repos    => 'main',
           }
         } else {
           apt::source { "debian-upr-${lsbdistcodename}":
               comment  => 'Debian UPR repo',
-              #location => "http://${basesys::repo_url}/debian/",
-               location => "http://repos.upr.edu.cu/debian/",
+              location => "http://${basesys::repo_url}/debian/",
+              #location => "http://repos.upr.edu.cu/debian/",
               repos    => 'main non-free contrib',
           }
          
           apt::source { "debian-upr-${lsbdistcodename}-updates":
               comment  => 'Debian UPR repo',
-              #location => "http://${basesys::repo_url}/debian/",
-              location => "http://repos.upr.edu.cu/debian/",
+              location => "http://${basesys::repo_url}/debian/",
+              #location => "http://repos.upr.edu.cu/debian/",
               repos    => 'main non-free contrib',
               release  => "${lsbdistcodename}-updates"
           }
            
           apt::source { "debian-upr-${lsbdistcodename}-backports":
               comment  => 'Debian UPR repo',
-              #location => "http://${basesys::repo_url}/debian/",
-              location => "http://repos.upr.edu.cu/debian/",
+              location => "http://${basesys::repo_url}/debian/",
+              #location => "http://repos.upr.edu.cu/debian/",
               repos    => 'main non-free contrib',
               release  => "${lsbdistcodename}-backports"
           }
 					
 					apt::source { "debian-security":
               comment  => 'Debian Security repo',
-              #location => "http://${basesys::repo_url}/debian-security/",
-              location => "http://repos.upr.edu.cu/debian-security/",
+              location => "http://${basesys::repo_url}/debian-security/",
+              #location => "http://repos.upr.edu.cu/debian-security/",
               repos    => 'main non-free contrib',
               release  => "${::lsbdistcodename}/updates",
           }
