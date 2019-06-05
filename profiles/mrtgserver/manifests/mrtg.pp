@@ -24,13 +24,6 @@ class mrtgserver::mrtg(){
     mode   => $mode,
   }
 
-file { '/var/www/henry':
-     ensure => directory,
-     owner  => $owner,
-     group  => $group,
-     mode   => $mode,
-    }
-
   ######## GENERACIÓN DE LOS ARCHIVOS .CFG ########
   #  each($::mrtgserver::ip) |Integer $index, String $value|{
   #  exec { $value :
