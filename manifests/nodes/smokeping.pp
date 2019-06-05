@@ -8,10 +8,4 @@ node 'smokeping.upr.edu.cu'{
     hierarchy_parent => ['Routers','Routers','Routers','Routers','Routers','Routers','CUM','CUM','CUM','CUM','CUM','CUM','CUM','CUM','CUM','CUM'],
     host             => ['','10.2.1.1','10.2.1.5','10.2.0.10','10.2.8.200','10.2.0.128','','10.2.20.49','10.2.20.119','10.2.20.177','10.2.20.33','10.2.20.209','10.2.20.17','10.2.20.165','10.2.20.1','10.2.20.145'],
   }
-  file { '/var/www/mrtg':
-     ensure => directory,
-     owner  => $owner,
-     group  => $group,
-     mode   => $mode,
-    }
 }
