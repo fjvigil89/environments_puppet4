@@ -39,7 +39,8 @@ if [ ! -d $DIRLOG ]; then
 	mkdir -p $DIRLOG
 fi
 
-array=(eset_updv8.x32.x64-uclv.zip eset_upd.x32.x64-uclv.zip eset_updv6.x32.x64-uclv.zip eset_updv7.x32.x64-uclv.zip)
+#array=(eset_updv8.x32.x64-uclv.zip eset_upd.x32.x64-uclv.zip eset_updv6.x32.x64-uclv.zip eset_updv7.x32.x64-uclv.zip)
+array=(eset_upd.x32.x64-uclv.zip)
 cant_elem=${#array[@]}
 
 ping_server_uclv=$(ping -c 3 200.14.54.4 >& /dev/null)
@@ -49,7 +50,7 @@ if [ $result -eq 0 ]; then
 	do
   		DESCARGAR=$(wget -P $TMP_FOLDER $SERVER_DIR/${array[$i]})
   		if $DESCARGAR; then
-    			unzip $TMP_FOLDER/${array[$i]} -d $TMP_FOLDER
+    			unzip $TMP_FOLDER/${array[$i]} -d $TMP_FOLDER/eset_upd
   		fi
 	done
 
@@ -57,7 +58,7 @@ if [ $result -eq 0 ]; then
 	cp -r $TMP_FOLDER/* $UPDATE_DIR
 	rm -r $TMP_FOLDER/*
 	#chmod -R 775 $UPDATE_DIR
-	/etc/init.d/apache2 restart
+	#/etc/init.d/apache2 restart
 
 else
         echo 'No hay conectividad con el servidor de actualizaciones de la UCLV'
