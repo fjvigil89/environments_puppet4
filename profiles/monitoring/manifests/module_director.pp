@@ -62,7 +62,7 @@ file { '/etc/systemd/system/director-jobs.service':
 
 service { 'director-jobs.service':
   ensure    => 'running',
-  subscribe => File['/etc/systemd/system/director-jobs.service''],
+  subscribe => File['/etc/systemd/system/director-jobs.service'],
 }
 }
 
