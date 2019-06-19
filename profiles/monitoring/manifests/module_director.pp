@@ -48,6 +48,22 @@ exec { 'Icinga Director DB migration':
   command => 'icingacli director migration run',
   onlyif  => 'icingacli director migration pending',
 }
+# Configure director jobs as a service
+include systemd::systemctl::daemon_reload
+
+file { '/etc/systemd/system/director-jobs.service':
+  ensure => file,
+  owner  => 'root',
+  group  => 'root',
+  mode   => '0644',
+  source => "puppet:///modules/monitoring/checks/director-jobs.service",
+}
+~> Class['systemd::systemctl::daemon_reload']
+
+service { 'director-jobs.service':
+  ensure    => 'running',
+  subscribe => File['/etc/systemd/system/director-jobs.service''],
+}
 }
 
 
