@@ -56,6 +56,18 @@ basesys::accounts:
     tag: 'systemen'
     sshkeys:
       - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC5qkH4WZPXcarvfPB97ESljPkizrGZBDyPBx8PZAnuKYQSrBrI5lSNiH1FWzIpa0T4RebqwPX7p5U26S/D3tbQz7fq7bwD69j9sixurJQKpYRHMNYupS5JTL4lbnW2qN5k2ZXcUaCLV7QdcJW9H7ig/PQjiLK3rt/WqrZZmF5tVO5Uo3s6uYEoaqYzJjeqdaEMmkn17XNnIbncwhAWdEkubmk9MYaa8MkLeIQcY2sJup8TyOXLfOhANrt/7JS9vzgf4sOjohAAUzWAp4Q496G0gUkihvAjrS0CwhdjmuCVtIe46E9BcbGfaOXQ6YjDnsB+9XzLMRWGjmyvjnNJrjFD henry@henry-MS-7982'
+  
+  'otrs':
+    comment: 'Otrs Upr'
+    uid: '516'
+    manage_primary_group: false
+    gid: '100'
+    tag: 'otrs_admin'
+    sshkeys:
+      - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDggU4CwEb2RUNZdlGisPryiNb6rBHOMU/w3kG+u7XwEEQ56GTOTzL7+43YFsxtAKSU7kFvyd8ey2OjGc/3ZFUfNrfElzOOfAheoeOwqbHWrp29CEhz6DkLpsDDr9BIl8xc1vAxfP/nV4dn9X9HpwBDiY7q2Ast8WY9DE4QVr+tT2tS59zYuqMV347S8pek2uNcwEbPlhW4lZnhGe9XWqwvVJIkVV39tgT44u0YwPO46WebCnBsswJVggex+mA9xFlu0YBheK/OUfIcwADQ2VfDez3LzxifF+vEAFpCwSRVnn6JoO9d1VKFnbtB7iEHJkxUZdK7dGJ+V3k8HMgdKRHt frank@frank-UPRedes' 
+
+
+
       
 
 

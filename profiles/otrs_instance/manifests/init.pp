@@ -26,7 +26,7 @@ class otrs_instance (
   $otrs_nfs_share = "otrs_data_${instance}"
 
   # Add configuration below
-  #Accounts::User<| tag == 'otrs_admin' |>
+  Accounts::User<| tag == 'otrs_admin' |>
 
   sudo::conf { 'otrs':
     priority => 1,
