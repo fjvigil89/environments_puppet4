@@ -1,4 +1,4 @@
 # OTRS hosts
-node /^otrs\d+\.ugent\.be$/ {
+node /^otrs\d+\.upr\.edu\.cu$/ {
   include ::otrs_server
 }
