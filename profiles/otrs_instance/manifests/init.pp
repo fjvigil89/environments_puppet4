@@ -5,20 +5,20 @@
 #
 #
 class otrs_instance (
-  String $instance    ='upr',
-  $otrs_id            = '01',
-  $system_id,
-  $organization,
-  $mapping,
-  $server_name,
-  $db_user,
-  $db_password,
-  $db_name             = '',
-  $vhost_aliases       = '',
+  String $instance     ='upr',
+  $otrs_id             = '01',
+  $system_id           = '',
+  $organization        = '',
+  $mapping             = '',
+  $server_name         = '',
+  $db_user             = 'root',
+  $db_password         = '123',
+  $db_name             = 'otrsprod',
+  $vhost_aliases       = 'otrs.upr.edu.cu',
   $enable_ssl          = false,
   $enable_ssl_redirect = true,
   $admin_email         = 'upredes@upr.edu.cu',
-  $db_host             = 'mysql.ugent.be',
+  $db_host             = $::fqdn,
   $extra_settings      = {},
 ) {
 
@@ -26,7 +26,7 @@ class otrs_instance (
   $otrs_nfs_share = "otrs_data_${instance}"
 
   # Add configuration below
-  Accounts::User<| tag == 'otrs_admin' |>
+  #Accounts::User<| tag == 'otrs_admin' |>
 
   sudo::conf { 'otrs':
     priority => 1,
