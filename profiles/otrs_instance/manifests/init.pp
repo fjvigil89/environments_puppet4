@@ -5,8 +5,8 @@
 #
 #
 class otrs_instance (
-  String $instance,
-  $otrs_id,
+  String $instance    ='upr',
+  $otrs_id            = '01',
   $system_id,
   $organization,
   $mapping,

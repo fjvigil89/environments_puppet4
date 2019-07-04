@@ -142,3 +142,9 @@ mod 'rgevaert/accounts',
 mod 'carroarmato0/otrs',
   :git => 'https://github.com/carroarmato0/puppet-otrs.git',
   :ref => '4736c645f2169e639853238edf3581a3837c472c'
+
+mod 'automaticserver/sslcert',
+  :git => 'https://github.com/rgevaert/puppet-sslcert.git',
+  :ref => 'f85628a565ea545a59af6fc96e1bda1279275445'
+
+
