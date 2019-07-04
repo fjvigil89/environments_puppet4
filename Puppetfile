@@ -148,6 +148,3 @@ mod 'automaticserver/sslcert',
   :ref => 'f85628a565ea545a59af6fc96e1bda1279275445'
 
 
-mod 'systemen/nshares',
-  :git => 'git@github.ugent.be:DICT-Puppetmasters/puppet-nshares.git',
-  :ref => '147482787164664b76aa1b7d81f7566634019f08'

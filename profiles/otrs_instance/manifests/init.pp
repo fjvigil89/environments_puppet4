@@ -40,10 +40,10 @@ class otrs_instance (
     mode   => '0751',
   }
 
-  nshares::mount{ $otrs_data_dir:
-    ensure    => present,
-    sharename => $otrs_nfs_share,
-  }
+  # nshares::mount{ $otrs_data_dir:
+  #  ensure    => present,
+  #  sharename => $otrs_nfs_share,
+  #}
 
   # Use http or https in OTRS links depending on SSL being enabled
   $otrs_ssl_on = $enable_ssl ? {
