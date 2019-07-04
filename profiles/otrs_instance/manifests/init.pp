@@ -10,7 +10,7 @@ class otrs_instance (
   $system_id           = '',
   $organization        = '',
   $mapping             = '',
-  $server_name         = '',
+  $server_name         = $::fqdn,
   $db_user             = 'root',
   $db_password         = '123',
   $db_name             = 'otrsprod',
