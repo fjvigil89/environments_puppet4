@@ -5,20 +5,20 @@
 #
 #
 class otrs_instance (
-  String $instance,
-  $otrs_id,
-  $system_id,
-  $organization,
-  $mapping,
-  $server_name,
-  $db_user,
-  $db_password,
-  $db_name             = '',
-  $vhost_aliases       = '',
+  String $instance     ='upr',
+  $otrs_id             = '01',
+  $system_id           = '',
+  $organization        = '',
+  $mapping             = '',
+  $server_name         = $::fqdn,
+  $db_user             = 'root',
+  $db_password         = '123',
+  $db_name             = 'otrsprod',
+  $vhost_aliases       = 'otrs.upr.edu.cu',
   $enable_ssl          = false,
   $enable_ssl_redirect = true,
   $admin_email         = 'upredes@upr.edu.cu',
-  $db_host             = 'mysql.ugent.be',
+  $db_host             = $::fqdn,
   $extra_settings      = {},
 ) {
 
@@ -40,10 +40,10 @@ class otrs_instance (
     mode   => '0751',
   }
 
-  nshares::mount{ $otrs_data_dir:
-    ensure    => present,
-    sharename => $otrs_nfs_share,
-  }
+  # nshares::mount{ $otrs_data_dir:
+  #  ensure    => present,
+  #  sharename => $otrs_nfs_share,
+  #}
 
   # Use http or https in OTRS links depending on SSL being enabled
   $otrs_ssl_on = $enable_ssl ? {

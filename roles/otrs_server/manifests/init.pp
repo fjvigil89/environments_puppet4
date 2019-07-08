@@ -9,7 +9,7 @@ class otrs_server {
   # Add configuration below
   class { '::basesys':
     application     => 'otrs',
-    ugentinfo_usage => 'OTRS',
+    uprinfo_usage => 'OTRS',
   }
 
   include ::otrs_instance
