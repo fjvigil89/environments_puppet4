@@ -28,4 +28,10 @@ class mrtgserver::apache(){
     servername => 'sensores.upr.edu.cu',
     aliases    => 'clima',
   }
+  apache::vhost { 'videoconf':
+  	port       => '80',
+    docroot    => '/var/www/mrtg/videotest/',
+	servername => 'videoconf.upr.edu.cu',
+    aliases    => 'conferencia',
+    }
 }

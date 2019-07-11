@@ -24,6 +24,13 @@ class mrtgserver::mrtg(){
     mode   => $mode,
   }
 
+  file { '/var/www/mrtg/videoconferencia':
+    ensure => directory,
+	owner  => $owner,
+	group  => $group,
+	mode   => $mode,
+  }
+
   ######## GENERACIÓN DE LOS ARCHIVOS .CFG ########
   #  each($::mrtgserver::ip) |Integer $index, String $value|{
   #  exec { $value :
@@ -60,6 +67,14 @@ class mrtgserver::mrtg(){
     source => 'puppet:///modules/mrtgserver/192.168.200.1.cfg',
   }
 
+  file { '/etc/mrtg/10.2.8.4.cfg':
+    ensure => 'file',
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0644',
+    source => 'puppet:///modules/mrtgserver/10.2.8.4.cfg',
+  }
+
           ####SENSORES####
 
   file { '/etc/mrtg/mrtg.sensor1.cfg':
@@ -86,10 +101,16 @@ class mrtgserver::mrtg(){
     minute  => '*/1'
   }
 
-cron {'indexmaker_sensores':
+  cron {'indexmaker_sensores':
     user    => $owner,
     command => '/usr/bin/indexmaker --columns=2 --title="Temperatura y Humedad DATACENTER-UPR" /etc/mrtg/mrtg.sensor1.cfg /etc/mrtg/mrtg.sensor2.cfg > /var/www/mrtg/sensores/index.html',
     minute  => '*/1'
+  }
+
+  cron {'indexmaker_videoconferencia':
+    user    => $owner,
+	command => '/usr/bin/indexmaker --columns=2 --title="Video Conferencia UPR" /etc/mrtg/10.2.8.4.cfg /var/www/mrtg/videoconferencia/index.html',
+	minute  => '*/1'
   }
 }
   #Agregar en /etc/cron.d/mrtg:
