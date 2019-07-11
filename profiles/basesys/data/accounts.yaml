@@ -71,8 +71,8 @@ basesys::accounts:
     manage_primary_group: false
     gid: '100'
     tag: 'systemen'
-    sshkeys:
-      - '' 
+    #sshkeys:
+    #  - '' 
 
 
 
