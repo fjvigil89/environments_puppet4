@@ -7,6 +7,6 @@ class basesys::groups (
  # $system_groups = lookup('basesys::system_groups', {merge => hash, default_value => {}})
  # create_resources('@group', $system_groups)
 
-
+  realize(Group['elasticsearch'])
 
 }
