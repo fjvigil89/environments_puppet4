@@ -30,8 +30,8 @@
 #
 # Path to directory where to store the data (separate multiple locations by comma):
 #
-#path.data: /var/lib/elasticsearch
-path.data: /srv/elk
+path.data: /var/lib/elasticsearch
+
 
 #
 # Path to log files:
