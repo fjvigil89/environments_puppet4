@@ -65,17 +65,3 @@ basesys::accounts:
     tag: 'otrs_admin'
     sshkeys:
       - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDW0+fMCBnmbTi1GAq5PfATSwmOtKJJhyylQ/Kg8dSktelZ1cY41xF3Ax4wx4MtofXnxhzlR+LjaaJ2s2l7MfJ$' 
-  'elasticsearch':
-    comment: 'ELK Upr'
-    uid: '517'
-    manage_primary_group: false
-    gid: '100'
-    tag: 'systemen'
-    #sshkeys:
-    #  - '' 
-
-
-
-      
-
-
