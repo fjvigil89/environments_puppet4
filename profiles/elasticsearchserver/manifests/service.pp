@@ -15,7 +15,7 @@ class elasticsearchserver::service {
     }~>
   exec{"instalar_elasticsearch":
       command => '/usr/bin/sudo dpkg -i /home/root/elasticsearch/elasticsearch-6.6.0.deb',
-    }~>
+    }
     #exec{"restart_elasticsearch":
     #  command => '/usr/bin/sudo systemctl restart elasticsearch | systemctl enable elasticsearch',
     #  refreshonly => true;
