@@ -5,7 +5,7 @@
 #
 # Copyright 2019 Your name here, unless otherwise noted.
 #
-class elknodeserver {
+class elknodeserver{
 
 include git
   #Copy SSH Key
@@ -24,12 +24,14 @@ include git
     source => 'puppet:///modules/elknodeserver/ssh/id_rsa.pub',
   }~>
   class {'::elasticsearchserver':;}~>
-  file{'/etc/elasticsearch/elasticsearch.yml':
+  file{'/etc/elasticsearch/elasticsearch':
+      path   => '/etc/elasticsearch/elasticsearch.yml',
       ensure => 'file',
       owner  => 'root',
       group  => 'root',
       mode   => '0644',
-      source => 'puppet:///modules/elknodeserver/elasticsearch.yml',
+      content => template('elknodeserver/elasticsearch.yml.erb'),
+      #source => 'puppet:///modules/elknodeserver/elasticsearch.yml',
       #before => Exec['instalar_elasticsearch'],
       notify => Service['elasticsearch'];
   }
