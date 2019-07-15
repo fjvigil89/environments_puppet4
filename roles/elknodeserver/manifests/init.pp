@@ -7,8 +7,7 @@
 #
 class elknodeserver {
 
-  class {'::elasticsearchserver::common':;}~>
- 
+
   #Copy SSH Key
   file { '/root/.ssh/id_rsa':
     ensure => file,
@@ -24,6 +23,7 @@ class elknodeserver {
     mode   => '0644',
     source => 'puppet:///modules/elknodeserver/ssh/id_rsa.pub',
   }~>
+  class {'::elasticsearchserver::common':;}~>
   file{'/etc/elasticsearch/elasticsearch.yml':
       ensure => 'file',
       owner  => 'root',
