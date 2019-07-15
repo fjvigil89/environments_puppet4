@@ -23,7 +23,22 @@ class elkserver {
 
   class {'::elasticsearchserver':;}~>
   class {'::kibanaserver':;}~>
-  class {'::logstashserver':;}
+  class {'::logstashserver':;}~>
+  file{'/etc/elasticsearch/elasticsearch.yml':
+      ensure => 'file',
+      owner  => 'root',
+      group  => 'root',
+      mode   => '0644',
+      source => 'puppet:///modules/elkserver/elasticsearch.yml',
+      #before => Exec['instalar_elasticsearch'],
+      notify => Service['elasticsearch'];
+  }
+  service{'elasticsearch':
+    ensure => running,
+    enable => true,
+  }
+
+
 
 
 }

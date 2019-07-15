@@ -24,19 +24,19 @@ class elasticsearchserver::service {
     #  command => '/usr/bin/sudo systemctl enable elasticsearch',
     #}
 
-    file{'/etc/elasticsearch/elasticsearch.yml':
-      ensure => 'file',
-      owner  => 'root',
-      group  => 'root',
-      mode   => '0644',
-      source => 'puppet:///modules/elasticsearchserver/elasticsearch.yml',
-      #before => Exec['instalar_elasticsearch'],
-      notify => Service['elasticsearch'];
-  }
-  service{'elasticsearch':
-    ensure => running,
-    enable => true,
-  }
+    #    file{'/etc/elasticsearch/elasticsearch.yml':
+    #  ensure => 'file',
+    #  owner  => 'root',
+    #  group  => 'root',
+    #  mode   => '0644',
+    #  source => 'puppet:///modules/elasticsearchserver/elasticsearch.yml',
+    #  #before => Exec['instalar_elasticsearch'],
+    #  notify => Service['elasticsearch'];
+    #}
+    #service{'elasticsearch':
+    #ensure => running,
+    #enable => true,
+    #}
 
 
 }
