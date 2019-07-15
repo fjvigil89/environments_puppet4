@@ -7,7 +7,7 @@
 #
 class elknodeserver {
 
-
+include git
   #Copy SSH Key
   file { '/root/.ssh/id_rsa':
     ensure => file,
