@@ -15,5 +15,6 @@ node /^elk-cluster\d+$/ {
     uprinfo_usage   => 'servidor ELK',
     application     => 'Cluster ELK',
   }
+ class{'elknodeserver:';}
 }
 

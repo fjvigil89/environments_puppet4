@@ -20,14 +20,14 @@ cluster.name: ELK-Cluster
 #
 # Use a descriptive name for the node:
 #
-node.name: master
+node.name: data1 
 #
 # Add custom attributes to the node:
 #
 #node.attr.rack: r1
 #
-node.master: true
-node.data: false
+node.master: false
+node.data: true
 # ----------------------------------- Paths ------------------------------------
 #
 # Path to directory where to store the data (separate multiple locations by comma):
@@ -69,11 +69,11 @@ http.port: 9200
 # Pass an initial list of hosts to perform discovery when new node is started:
 # The default list of hosts is ["127.0.0.1", "[::1]"]
 #
-#discovery.zen.ping.unicast.hosts: ["host1", "host2"]
+discovery.zen.ping.unicast.hosts: ["10.2.4.26",'10.2.4.74','10.2.4.75']
 #
 # Prevent the "split brain" by configuring the majority of nodes (total number of master-eligible nodes / 2 + 1):
 #
-#discovery.zen.minimum_master_nodes: 
+discovery.zen.minimum_master_nodes: 2 
 #
 # For more information, consult the zen discovery module documentation.
 #
