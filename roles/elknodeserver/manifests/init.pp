@@ -24,14 +24,14 @@ include git
     source => 'puppet:///modules/elknodeserver/ssh/id_rsa.pub',
   }~>
   class {'::elasticsearchserver':;}~>
-  file{'/etc/elasticsearch/elasticsearch':
-      path   => '/etc/elasticsearch/elasticsearch.yml',
+  file{'/etc/elasticsearch/elasticsearch.yml':
+    # path   => '/etc/elasticsearch/elasticsearch.yml',
       ensure => 'file',
       owner  => 'root',
       group  => 'root',
       mode   => '0644',
-      content => template('elknodeserver/elasticsearch.yml.erb'),
-      #source => 'puppet:///modules/elknodeserver/elasticsearch.yml',
+      # content => template('elknodeserver/elasticsearch.yml.erb'),      
+      source => 'puppet:///modules/elknodeserver/elasticsearch.yml',
       #before => Exec['instalar_elasticsearch'],
       notify => Service['elasticsearch'];
   }
