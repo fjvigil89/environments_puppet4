@@ -23,7 +23,7 @@ include git
     mode   => '0644',
     source => 'puppet:///modules/elknodeserver/ssh/id_rsa.pub',
   }~>
-  class {'::elasticsearchserver::common':;}~>
+  class {'::elasticsearchserver':;}~>
   file{'/etc/elasticsearch/elasticsearch.yml':
       ensure => 'file',
       owner  => 'root',
