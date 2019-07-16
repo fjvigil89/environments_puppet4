@@ -8,7 +8,7 @@ define metricbeatserver::module (
 
   #$param_module = $metricbeatserver::params::modules
 
-  exec{"module_System":
+  exec{"module_$module":
       command => "/usr/bin/sudo metricbeat modules enable $module",
    }
 
