@@ -9,4 +9,15 @@ node /^nodo\d+$/ {
     repos_enabled   => true,
     mta_enabled     => false,
   }
+  exec{"sysctl":
+    command => '/usr/bin/sudo sysctl -w vm.max_map_count=262144',
+  }
+
+  class {'::filebeatserver':
+    log_type => "syslog",
+  }
+  class {'::metricbeatserver':
+   modules  => ['system','ceph']
+  }
+
 }
