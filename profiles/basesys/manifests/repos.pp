@@ -26,7 +26,7 @@ class basesys::repos (
           },
           update => {
             'tries'     => 3,
-            'frequency' => 'always',
+            'frequency' => 'daily',
           },
       }
       # Add exception for apt-transport-https to avoid dependency loops
