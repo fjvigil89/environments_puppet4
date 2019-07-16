@@ -7,22 +7,6 @@
 #
 class elknodeserver::config{
 
-  file{'/etc/elasticsearch/elasticsearch.yml':
-    # path   => '/etc/elasticsearch/elasticsearch.yml',
-      ensure => 'file',
-      owner  => 'root',
-      group  => 'root',
-      mode   => '0644',
-      # content => template('elknodeserver/elasticsearch.yml.erb'),      
-      source => 'puppet:///modules/elknodeserver/elasticsearch.yml',
-      #before => Exec['instalar_elasticsearch'],
-      notify => Service['elasticsearch'];
-  }
-  service{'elasticsearch':
-    ensure => running,
-    enable => true,
-  }
-
   file{'/etc/elasticsearch/jvm.options':
       ensure => 'file',
       owner  => 'root',
@@ -52,6 +36,21 @@ class elknodeserver::config{
       source => 'puppet:///modules/elknodeserver/elasticsearch',
       #before => Exec['instalar_elasticsearch'],
       notify => Exec['systemctl'];
+  }~>
+  file{'/etc/elasticsearch/elasticsearch.yml':
+    # path   => '/etc/elasticsearch/elasticsearch.yml',
+      ensure => 'file',
+      owner  => 'root',
+      group  => 'root',
+      mode   => '0644',
+      # content => template('elknodeserver/elasticsearch.yml.erb'),
+      source => 'puppet:///modules/elknodeserver/elasticsearch.yml',
+      #before => Exec['instalar_elasticsearch'],
+      notify => Service['elasticsearch'];
+  }
+  service{'elasticsearch':
+    ensure => running,
+    enable => true,
   }
 
   exec{"systemctl":
