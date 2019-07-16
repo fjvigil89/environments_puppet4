@@ -3,7 +3,7 @@
 # Copyright 2019 Your name here, unless otherwise noted.
 #
 class metricbeatserver::service(
- Array[Hash] $modules   = $metricbeatserver::modules,
+  #Array[Hash] $modules   = $metricbeatserver::modules,
  Hash $outputs          = $metricbeatserver::outputs,
  Boolean $manage_repo   = $metricbeatserver::manage_repo,
  Integer $queue_size    = $metricbeatserver::queue_size,
@@ -22,9 +22,14 @@ class metricbeatserver::service(
     notify =>  Service['filebeat'],
     content => template('metricbeatserver/metricbeat.erb'),
   }~>
-   exec{"module_System":
-      command => '/usr/bin/sudo metricbeat modules enable system',
-   }~>
+  #exec{"module_System":
+  #    command => '/usr/bin/sudo metricbeat modules enable system',
+  # }~>
+  each($::metricbeatserver::modules) |Integer $index, String $value|{
+    metricbeatserver::module{$::metricbeatserver::modules[$index]:
+       module => $value,
+     }
+  }~>
   service{'metricbeat':
     ensure => running,    
     enable => true,

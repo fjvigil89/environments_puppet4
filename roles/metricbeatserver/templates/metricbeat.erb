@@ -92,9 +92,9 @@ setup.kibana:
 # Configure what output to use when sending the data collected by the beat.
 
 #-------------------------- Elasticsearch output ------------------------------
-#output.elasticsearch:
+output.elasticsearch:
   # Array of hosts to connect to.
-  #hosts: ["localhost:9200"]
+  hosts: ["elk.upr.edu.cu:9200"]
 
   # Enabled ilm (beta) to use index lifecycle management instead daily indices.
   #ilm.enabled: false
@@ -105,9 +105,9 @@ setup.kibana:
   #password: "changeme"
 
 #----------------------------- Logstash output --------------------------------
-output.logstash:
+#output.logstash:
   # The Logstash hosts
-  hosts: ["10.2.4.26:5044"]
+  #hosts: ["10.2.4.26:5044"]
 
   # Optional SSL. By default is off.
   # List of root certificates for HTTPS server verifications
