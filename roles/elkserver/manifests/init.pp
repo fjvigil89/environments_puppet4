@@ -23,7 +23,7 @@ class elkserver {
 
   class {'::elasticsearchserver':;}~>
   class {'::kibanaserver':;}~>
-  class {'::logstashserver':;}
-
+  class {'::logstashserver':;}~>
+  class {'::elkserver::config':;}
 
 }

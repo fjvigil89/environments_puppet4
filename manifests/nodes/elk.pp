@@ -7,3 +7,14 @@ node 'elk.upr.edu.cu' {
 
 
 }
+node /^elk-cluster\d+$/ {
+  package { 'lsb-release':
+          ensure => installed,
+  }~>
+  class { '::basesys':
+    uprinfo_usage   => 'servidor ELK',
+    application     => 'Cluster ELK',
+  }
+ class{ '::elknodeserver':;}
+}
+

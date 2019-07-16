@@ -15,7 +15,7 @@ class elasticsearchserver::service {
     }~>
   exec{"instalar_elasticsearch":
       command => '/usr/bin/sudo dpkg -i /home/root/elasticsearch/elasticsearch-6.6.0.deb',
-    }~>
+    }
     #exec{"restart_elasticsearch":
     #  command => '/usr/bin/sudo systemctl restart elasticsearch | systemctl enable elasticsearch',
     #  refreshonly => true;
@@ -24,19 +24,19 @@ class elasticsearchserver::service {
     #  command => '/usr/bin/sudo systemctl enable elasticsearch',
     #}
 
-    file{'/etc/elasticsearch/elasticsearch.yml':
-      ensure => 'file',
-      owner  => 'root',
-      group  => 'root',
-      mode   => '0644',
-      source => 'puppet:///modules/elasticsearchserver/elasticsearch.yml',
-      #before => Exec['instalar_elasticsearch'],
-      notify => Service['elasticsearch'];
-  }
-  service{'elasticsearch':
-    ensure => running,
-    enable => true,
-  }
+    #    file{'/etc/elasticsearch/elasticsearch.yml':
+    #  ensure => 'file',
+    #  owner  => 'root',
+    #  group  => 'root',
+    #  mode   => '0644',
+    #  source => 'puppet:///modules/elasticsearchserver/elasticsearch.yml',
+    #  #before => Exec['instalar_elasticsearch'],
+    #  notify => Service['elasticsearch'];
+    #}
+    #service{'elasticsearch':
+    #ensure => running,
+    #enable => true,
+    #}
 
 
 }
