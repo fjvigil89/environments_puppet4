@@ -7,36 +7,7 @@
 #
 class elknodeserver{
 
-include git
-  #Copy SSH Key
-  file { '/root/.ssh/id_rsa':
-    ensure => file,
-    owner  => 'root',
-    group  => 'root',
-    mode   => '0600',
-    source => 'puppet:///modules/elknodeserver/ssh/id_rsa',
-  }~>
-  file { '/root/.ssh/id_rsa.pub':
-    ensure => file,
-    owner  => 'root',
-    group  => 'root',
-    mode   => '0644',
-    source => 'puppet:///modules/elknodeserver/ssh/id_rsa.pub',
-  }~>
-  class {'::elasticsearchserver':;}~>
-  file{'/etc/elasticsearch/elasticsearch.yml':
-    # path   => '/etc/elasticsearch/elasticsearch.yml',
-      ensure => 'file',
-      owner  => 'root',
-      group  => 'root',
-      mode   => '0644',
-      # content => template('elknodeserver/elasticsearch.yml.erb'),      
-      source => 'puppet:///modules/elknodeserver/elasticsearch.yml',
-      #before => Exec['instalar_elasticsearch'],
-      notify => Service['elasticsearch'];
-  }
-  service{'elasticsearch':
-    ensure => running,
-    enable => true,
-  }
+  class{'::elknodeserver::ssh':;}~>
+  class{'::elknodeserver::service':;}~>
+  class{'::elknodeserver::config':;}
 }
