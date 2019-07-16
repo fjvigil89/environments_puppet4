@@ -12,12 +12,12 @@ class metricbeatserver::service(
   file {'/etc/metricbeat/metricbeat.yml':
     notify =>  Service['filebeat'],
     content => template('metricbeatserver/metricbeat.erb'),
-  }
+  }~>
   each($::metricbeatserver::modules) |Integer $index, String $value|{
     metricbeatserver::module{$::metricbeatserver::modules[$index]:
        module => $value,
      }
-  }~>
+  }
   service{'metricbeat':
     ensure => running,    
     enable => true,
