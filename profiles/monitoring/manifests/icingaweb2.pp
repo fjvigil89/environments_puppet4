@@ -38,7 +38,7 @@ class { 'icingaweb2::module::graphite':
 }
 # Cube Module
 class { 'icingaweb2::module::cube':
-  git_revision => 'v1.0.0'
+  git_revision => 'master'
 }
 #File Shipper conf
 class { '::monitoring::module_fileshipper':;}
