@@ -1,4 +1,4 @@
-# Class: elknodeserver:config
+# Class: elknodeserver::config
 # ===========================
 #
 # Full description of class elknodeserver here.

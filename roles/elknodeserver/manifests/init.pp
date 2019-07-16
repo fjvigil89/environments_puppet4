@@ -7,7 +7,7 @@
 #
 class elknodeserver{
 
-  class{'::elknodeserver::ssh':;}~>
-  class{'::elknodeserver::service':;}~>
-  class{'::elknodeserver::config':;}
+  class {'::elknodeserver::ssh':;}~>
+  class {'::elknodeserver::service':;}~>
+  class {'::elknodeserver::config':;}
 }
