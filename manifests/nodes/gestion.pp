@@ -14,4 +14,11 @@ node /^gestion\d+$/ {
     command => '/usr/bin/sudo sysctl -w vm.max_map_count=262144',
   }
 
+  class {'::filebeatserver':
+    log_type => "syslog",
+  }
+  class {'::metricbeatserver':
+   modules  => ['system','ceph']
+  }
+
 }
