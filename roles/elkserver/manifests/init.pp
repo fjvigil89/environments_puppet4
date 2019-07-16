@@ -8,10 +8,11 @@ class elkserver {
           ensure => installed,
   }~>
   class { '::basesys':
-    uprinfo_usage   => 'servidor ELK',
-    application     => 'ELK',
-    repos_enabled   => false,
-    #mta_enabled     => false,
+    uprinfo_usage  => 'servidor ELK',
+    application    => 'ELK',
+    repos_enabled  => false,
+    puppet_enabled => false,
+    #mta_enabled   => false,
   }
 
   $packages=['apt-transport-https', 'software-properties-common', 'wget','pwgen','ufw']
