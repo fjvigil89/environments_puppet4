@@ -4,17 +4,24 @@ node 'elk.upr.edu.cu' {
   class {'::filebeatserver':
     log_type => "syslog",
   }
+  class {'::metricbeatserver':
+   modules  => ['system','elasticsearch','kibana', 'logstash','nginx']
+  }
+
 
 
 }
 node /^elk-cluster\d+$/ {
-  package { 'lsb-release':
-          ensure => installed,
-  }~>
-  class { '::basesys':
-    uprinfo_usage   => 'servidor ELK',
-    application     => 'Cluster ELK',
+
+ class { '::elknodeserver':;}
+ class {'::filebeatserver':
+    log_type => "syslog",
   }
- class{ '::elknodeserver':;}
+
+ class {'::metricbeatserver':
+    modules  => ['system','elasticsearch']
+  }
+
+
 }
 
