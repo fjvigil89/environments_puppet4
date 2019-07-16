@@ -35,7 +35,7 @@ node 'proxy-go.upr.edu.cu'{
     log_type => "proxy",
    }
   class {'::metricbeatserver':
-    modules  => ['system']
+    modules  => ['system','golang']
   } 
   
 
