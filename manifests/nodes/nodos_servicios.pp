@@ -1,4 +1,5 @@
-node /^nodo\d+$/ {  
+node /^nodo\d+$/ { 
+  include git
   package { 'lsb-release':
           ensure => installed,
   }~>
