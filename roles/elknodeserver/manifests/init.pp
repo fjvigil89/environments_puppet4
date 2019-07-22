@@ -10,8 +10,9 @@ class elknodeserver{
           ensure => installed,
   }~>
   class { '::basesys':
-    uprinfo_usage   => 'servidor ELK',
-    application     => 'Cluster ELK',
+    uprinfo_usage  => 'servidor ELK',
+    application    => 'Cluster ELK',
+    puppet_enabled => false,
   }
 
   class {'::elknodeserver::ssh':;}

@@ -11,8 +11,8 @@ class elkserver {
     uprinfo_usage  => 'servidor ELK',
     application    => 'ELK',
     repos_enabled  => false,
-    puppet_enabled => false,
-    #mta_enabled   => false,
+    puppet_enabled => false
+    
   }
 
   $packages=['apt-transport-https', 'software-properties-common', 'wget','pwgen','ufw']
