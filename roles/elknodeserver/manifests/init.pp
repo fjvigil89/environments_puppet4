@@ -14,7 +14,7 @@ class elknodeserver{
     application     => 'Cluster ELK',
   }
 
-  class {'::elknodeserver::ssh':;}~>
-  class {'::elknodeserver::service':;}~>
-  class {'::elknodeserver::config':;}
+  class {'::elknodeserver::ssh':;}
+  ~>class {'::elknodeserver::service':;}
+  ~>class {'::elknodeserver::config':;}
 }
