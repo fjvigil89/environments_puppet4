@@ -7,6 +7,9 @@
 #
 class elknodeserver::config{
 
+   exec{"sudo":
+    command => '/usr/bin/sudo chmod -R 777 /etc/elasticsearch/',
+  }~>
   file{'/etc/elasticsearch/jvm.options':
       ensure => 'file',
       owner  => 'root',
