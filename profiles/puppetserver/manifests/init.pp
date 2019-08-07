@@ -14,6 +14,12 @@ class puppetserver (String $puppetdb_server = 'localhost') {
       server => 'pgp.mit.edu',
     },
   }
+  file {'/etc/puppetlabs/puppetserver':
+	ensure => 'directory',
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0644',
+  }
   class { '::puppet':
     server                      => true,
     server_foreman              => false,
