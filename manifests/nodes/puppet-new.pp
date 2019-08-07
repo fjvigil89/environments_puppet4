@@ -1,4 +1,5 @@
 node 'puppet-new.upr.edu.cu' {  
+  include puppetserver
   package { 'lsb-release':
           ensure => installed,
   }~>
