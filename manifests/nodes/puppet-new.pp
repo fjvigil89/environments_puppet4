@@ -4,8 +4,8 @@ node 'puppet-new.upr.edu.cu' {
           ensure => installed,
   }~>
   class { '::basesys':
-    uprinfo_usage   => 'servidor puppet-new',
-    application     => 'Prueba',
+#    uprinfo_usage   => 'servidor puppet-new',
+#    application     => 'Prueba',
     proxmox_enabled => false,
     repos_enabled   => true,
     mta_enabled     => false,
