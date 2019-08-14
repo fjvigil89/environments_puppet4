@@ -55,7 +55,6 @@ node 'ns1p.upr.edu.cu' {
             "allow-query $allow",
             "allow-update ${notify_internal}",
             "also-notify ${notify_internal}",
-            "allow-recursion ${allow}",
             "notify yes",
             "file ${quote}${direct}/db.upr.edu.cu${quote}",
           ],
