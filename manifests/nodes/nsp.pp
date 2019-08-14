@@ -40,7 +40,7 @@ node 'ns1p.upr.edu.cu' {
     memstatistics_file => 'named_mem_stats.txt',
     slave              => false,
     allow_query        => $allow_q,
-    allow_recursion    => ${allow},
+    allow_recursion    => $allow,
     recursion          => 'yes',
     zone_name          => [ 'upr.edu.cu', 'ceces.upr.edu.cu', 'progintec.upr.edu.cu', 'tele4.upr.edu.cu', 'upr.edu.cu.external'],
     zone_type          => $zone,
