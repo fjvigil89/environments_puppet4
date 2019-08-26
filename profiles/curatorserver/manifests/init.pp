@@ -13,7 +13,7 @@ class curatorserver(
   class {'::curator':
     manage_repository => $manage_repository,
   }
-  class {'::curatorserver::action':;}
+  class {'::curatorserver::accion':;}
   class {'::curatorserver::job':;}
 
 }
