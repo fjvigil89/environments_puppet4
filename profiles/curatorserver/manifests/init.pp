@@ -3,12 +3,14 @@
 # Copyright 2019 Your name here, unless otherwise noted.
 #
 class curatorserver {
+  class {'::curator':
+    manage_repository => false,
+  }
 
   curator::action { 'purge_logstash_over_45_days':
-    manage_repository => false,
-    config_path       => '/etc/curator',
-    config_owner      => 'curator',
-    config_group      => 'users',
+    #config_path       => '/etc/curator',
+    #config_owner      => 'curator',
+    #config_group      => 'users',
     entities          => {
       1 => {
         'action' => 'delete_indices',
