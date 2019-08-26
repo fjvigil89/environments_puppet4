@@ -15,21 +15,21 @@ class curatorserver::action(){
                 'disable_action'        => 'False',
                 'ignore_empty_list'     => 'True',
               },
-            'filters' => [
+              'filters' => [
               {
                 'filtertype' => 'pattern',
                 'kind'       => 'prefix',
-                'value'      => $::curatorserver::index[$index]}+'-',
-            },
-            {
+                'value'      => $::curatorserver::index[$index]+'-',
+              },
+              {
                 'filtertype' => 'age',
                 'source'     => 'name',
                 'direction'  => 'older',
                 'timestring' => '%Y.%m.%d',
                 'unit'       => 'days',
                 'unit_count' => '45',
-            },
-          ],
+              },
+            ],
           },
       },
     }
