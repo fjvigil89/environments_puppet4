@@ -91,6 +91,9 @@ mod 'mvisonneau-curator', '1.0.7'
 #mod 'coreyh-metricbeat', '0.3.0'
 mod 'pcfens-filebeat', '3.4.0'
 mod 'puppetlabs-powershell', '2.2.0'
+#OpenStack
+mod 'puppetlabs-openstack', '5.0.2'
+
 #ldap
 mod 'camptocamp-openldap', '1.17.0'
 #Proxy
