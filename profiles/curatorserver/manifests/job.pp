@@ -3,7 +3,7 @@
 # It set variable according to platform
 class curatorserver::job(){
 
-  each($::curatorserver::name) |Integer $index, String $value|{
+  each($::curatorserver::nombre) |Integer $index, String $value|{
      curator::job { "${value}_everyday":
         action => "${value}",
         minute => 0,
