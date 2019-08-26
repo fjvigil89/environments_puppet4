@@ -19,7 +19,7 @@ class curatorserver::accion(){
               {
                 'filtertype' => 'pattern',
                 'kind'       => 'prefix',
-                'value'      => "${::curatorserver::index[$index]}"+"-",
+                'value'      => $::curatorserver::index[$index],
               },
               {
                 'filtertype' => 'age',
