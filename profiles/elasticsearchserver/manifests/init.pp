@@ -6,7 +6,8 @@ class elasticsearchserver {
 
 
   class {'::elasticsearchserver::common':;}~>
-  class {'::elasticsearchserver::service':;}
+  class {'::elasticsearchserver::service':;}->
+  class {'::curatorserver':;}
 
 
 }

@@ -82,6 +82,7 @@ mod 'puppetfinland-librenms', '4.0.4'
 #mod 'TubeMogul-aptly', '3.1.1'
 #mod 'puppetlabs-rsync', '1.1.0'
 #ELK
+mod 'mvisonneau-curator', '1.0.7'
 #mod 'elastic-logstash', '6.1.5'
 #mod 'elastic-kibana', '6.3.1'
 #mod 'elastic-elasticsearch', '6.3.3'
