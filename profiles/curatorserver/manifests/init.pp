@@ -4,9 +4,9 @@
 #
 class curatorserver(
   Boolean $manage_repository     = $::curatorserver::params::manage_repository,
-  Array[String] name             = $::curatorserver::params::name,
-  Array[String] descripcion      = $::curatorserver::params::descripcion,
-  Array[String] index            = $::curatorserver::params::index,
+  Array[String] $name             = $::curatorserver::params::name,
+  Array[String] $descripcion      = $::curatorserver::params::descripcion,
+  Array[String] $index            = $::curatorserver::params::index,
 
 )inherits curatorserver::params {
 
