@@ -6,6 +6,8 @@ class curatorserver {
 
   curator::action { 'purge_logstash_over_45_days':
     config_path =>  '/etc/curator',
+    config_owner => 'root',
+    config_group => 'root',
     entities => {
       1 => {
         'action' => 'delete_indices',
