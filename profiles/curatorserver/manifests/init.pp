@@ -4,7 +4,7 @@
 #
 class curatorserver(
   Boolean $manage_repository      = $::curatorserver::params::manage_repository,
-  Array[String] $nombre           = $::curatorserver::params::name,
+  Array[String] $nombre           = $::curatorserver::params::nombre,
   Array[String] $descripcion      = $::curatorserver::params::descripcion,
   Array[String] $index            = $::curatorserver::params::index,
 
