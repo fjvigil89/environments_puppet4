@@ -4,8 +4,8 @@
 class curatorserver::accion(){
 
 
-    each($::curatorserver::name) |Integer $index, String $value|{
-        curator::action {  $::curatorserver::name[$index] :
+    each($::curatorserver::nombre) |Integer $index, String $value|{
+        curator::action {$::curatorserver::nombre[$index] :
           entities          => {
             $index => {
               'action' => 'delete_indices',
