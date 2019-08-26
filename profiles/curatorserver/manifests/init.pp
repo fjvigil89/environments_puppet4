@@ -5,10 +5,11 @@
 class curatorserver {
 
   curator::action { 'purge_logstash_over_45_days':
-    config_path =>  '/etc/curator',
-    config_owner => 'root',
-    config_group => 'root',
-    entities => {
+    manage_repository => false,
+    config_path       => '/etc/curator',
+    config_owner      => 'curator',
+    config_group      => 'users',
+    entities          => {
       1 => {
         'action' => 'delete_indices',
        'description' => 'Delete indices older than 45 days (based on index name)',
