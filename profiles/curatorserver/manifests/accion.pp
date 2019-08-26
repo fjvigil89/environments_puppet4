@@ -1,7 +1,7 @@
 #class dhcpserver::action
 # This class is meant to be called from dhcpserver
 # It set variable according to platform
-class curatorserver::action(){
+class curatorserver::accion(){
 
 
     each($::curatorserver::name) |Integer $index, String $value|{
