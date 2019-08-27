@@ -8,9 +8,9 @@ class elasticsearchserver {
   class {'::elasticsearchserver::common':;}~>
   class {'::elasticsearchserver::service':;}->
   class {'::curatorserver':
-    nombre        => ['purge_proxy_over_45_days','purge_apache_over_45_days'],
-    descripcion => ['Delete indices proxy older than 45 days', 'Delete indices apache older than 45 days'],
-    index       => ['proxy','apache'],
+    nombre        => ['purge_proxy_over_6_month','purge_apache_over_6_month','purge_syslog_over_6_month'],
+    descripcion => ['Delete indices proxy older than 182 days', 'Delete indices apache older than 182 days','Delete indices apache older than 182 days'],
+    index       => ['proxy','apache','syslog'],
   }
 
 
