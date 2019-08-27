@@ -27,7 +27,7 @@ class curatorserver::accion(){
                 'direction'  => 'older',
                 'timestring' => '%Y.%m.%d',
                 'unit'       => 'days',
-                'unit_count' => '45',
+                'unit_count' => '182',
               },
             ],
           },
