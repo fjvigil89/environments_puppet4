@@ -86,7 +86,7 @@ class { ::letsencrypt:
   cron {'CrearLosNuevosEstudiantesDeIngreso':
     ensure  => present,
     command => 'wget -q -d  --no-check-certificate "http://sync.upr.edu.cu/crear_student" > /var/log/sync_upr_newStudent.log',
-    hour    => 20,
+    hour    => 24,
     minute  => 0,
   }
 

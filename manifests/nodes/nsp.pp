@@ -40,6 +40,7 @@ node 'ns1p.upr.edu.cu' {
     memstatistics_file => 'named_mem_stats.txt',
     slave              => false,
     allow_query        => $allow_q,
+    allow_recursion    => $allow,
     recursion          => 'yes',
     zone_name          => [ 'upr.edu.cu', 'ceces.upr.edu.cu', 'progintec.upr.edu.cu', 'tele4.upr.edu.cu', 'upr.edu.cu.external'],
     zone_type          => $zone,
@@ -48,7 +49,8 @@ node 'ns1p.upr.edu.cu' {
     views              => {
       'internal' => {
         'match-clients' => ['10.2.0.0/15','200.14.49.0/27','200.55.143.8/29','10.71.46.0/24','172.30.146.0/27','192.168.25.0/24','20.0.0.0/24' ],
-        'zones'            => {
+        'recursion'     => 'yes',
+        'zones'         => {
           'upr.edu.cu' => [
             $zone,
             "allow-query $allow",
