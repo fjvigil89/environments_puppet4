@@ -85,7 +85,7 @@ class basesys::packages {
       }
 
       'RedHat', 'CentOS': {
-        $p_os_dependant = [ 'dhcp', 'nc', 'libconfig', 'tzdata','nagios-plugins-all','sysstat' ]
+        $p_os_dependant = [ 'nc', 'libconfig', 'tzdata','nagios-plugins-all','sysstat' ]
       }
     }
 
