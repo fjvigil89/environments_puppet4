@@ -9,7 +9,7 @@ node 'dhcp.upr.edu.cu' {
       pool_enabled => true,
       pool         => ['UPR-WIFI' ],
       network      => ['10.2.96.0'],
-      mask         => ['255.255.248.0'],
+      mask         => ['255.255.252.0'],
       range        => ['10.2.96.100 10.2.99.254'],
       gateway      => ['10.2.96.1'],
     }
