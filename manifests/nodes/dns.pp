@@ -1,4 +1,4 @@
-node 'dns.upr.edu.cu','dns0.upr.edu.cu'{
+node 'dns.upr.edu.cu'{
     class { '::basesys':
       uprinfo_usage   => 'servidor dns interno',
       application     => 'DNS Bind9',
