@@ -3,7 +3,7 @@
 #
 # Full description of class dns_primary::params here.
 #
-class dns_primary::params{
+class dns_primary::params {
     $config_file        = '/etc/named.conf'
     $listen_on_addr     = [ 'any' ]
     $listen_on_v6_addr  = [ 'any' ]

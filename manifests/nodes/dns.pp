@@ -23,7 +23,7 @@ node 'dns.upr.edu.cu' {
     slave              => false,
     allow_query        => $allow_q,
     recursion          => 'no',
-    allow_recursion     => [ '10.2.9.0/27'],
+    allow_recursion    => [ '10.2.9.0/27'],
     zone_name          => [ 'upr.edu.cu', 'ceces.upr.edu.cu', 'progintec.upr.edu.cu', 'tele4.upr.edu.cu'],
     zone_type          => $zone,
     file_zone_name     => [ 'db.upr.edu.cu', 'db.1.2.10', 'db.3.2.10','db.4.2.10' ,'db.8.2.10'],
