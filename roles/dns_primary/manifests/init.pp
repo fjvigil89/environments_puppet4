@@ -12,7 +12,7 @@ class dns_primary (
  Boolean $forward               	        = $::dns_primary::params::forward,
  Boolean $slave                           = false,
  Optional[String] $allow_query     	      = $::dns_primary::params::allow_query,
- Optional [Array[String]] $allow_recursion  = $::dns_primary::params::allow_recursion,
+ Optional[Array[String]] $allow_recursion  = $::dns_primary::params::allow_recursion,
  Array[String] $allow_transfer            = $::dns_primary::params::allow_transfer,
  String $dump_file              	        = $::dns_primary::params::dump_file,
  String $statistics_file        	        = $::dns_primary::params::statistics_file,
