@@ -22,7 +22,7 @@ node 'dns.upr.edu.cu' {
     memstatistics_file => 'named_mem_stats.txt',
     slave              => false,
     allow_query        => $allow_q,
-    recursion          => 'yes',
+    recursion          => 'no',
     zone_name          => [ 'upr.edu.cu', 'ceces.upr.edu.cu', 'progintec.upr.edu.cu', 'tele4.upr.edu.cu'],
     zone_type          => $zone,
     file_zone_name     => [ 'db.upr.edu.cu', 'db.1.2.10', 'db.3.2.10','db.4.2.10' ,'db.8.2.10'],
