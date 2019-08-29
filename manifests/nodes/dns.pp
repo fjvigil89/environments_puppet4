@@ -1,11 +1,11 @@
-node 'dns.upr.edu.cu','dns0.upr.edu.cu' {
+node 'dns.upr.edu.cu','dns0.upr.edu.cu'{
     class { '::basesys':
-      uprinfo_usage  => 'servidor dns interno',
-      application    => 'DNS Bind9',
-      puppet_enabled => true,
-      repos_enabled  => false,
-      mta_enabled    => false,
-      dns_enabled    => false,
+      uprinfo_usage   => 'servidor dns interno',
+      application     => 'DNS Bind9',
+      puppet_enabled  => true,
+      repos_enabled   => false,
+      mta_enabled     => false,
+      dns_enabled     => false,
     }
 
   $zone    = 'type master'
