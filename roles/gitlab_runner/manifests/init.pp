@@ -5,7 +5,8 @@
 #
 class gitlab_runner {
 class {'gitlab_ci_multi_runner': 
-    nice => '15'
+    nice        => '15',
+    manage_user => false,
 }
 
 
