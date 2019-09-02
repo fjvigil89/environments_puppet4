@@ -1,4 +1,4 @@
-node 'dns.upr.edu.cu','dns-primary.upr.edu.cu'{
+node 'dns.upr.edu.cu'{
     class { '::basesys':
       uprinfo_usage   => 'servidor dns interno',
       application     => 'DNS Bind9',
@@ -7,7 +7,22 @@ node 'dns.upr.edu.cu','dns-primary.upr.edu.cu'{
       mta_enabled     => false,
       dns_enabled     => false,
     }
-  class {"::gitlab_runner":;}
+class {'gitlab_ci_multi_runner':
+    nice        => '15',
+    manage_user => false,
+}
+
+
+gitlab_ci_multi_runner::runner { "dns.upr.edu.cu":
+    gitlab_ci_url => 'http://gitlab.upr.edu.cu',
+    tags          => ['dns'],
+    token         => 'sUayR-NyGG69by2G4viT',
+    executor      => 'ssh',
+    ssh_host      => 'gitlab.upr.edu.cu',
+    ssh_port      => 22,
+    ssh_user      => 'root',
+    ssh_password  => 'gitlab.upr.edu.cu'
+}
 
   $zone    = 'type master'
   $allow   = "{ 10.2.0.0/15; 10.71.46.0/24; 20.0.0.0/24; 172.30.146.0/27; 192.168.25.0/24; 200.14.49.0/27; 200.55.143.8/29; 152.207.173.40/29;}"
