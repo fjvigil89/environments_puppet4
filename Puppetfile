@@ -81,9 +81,6 @@ mod 'puppetfinland-librenms', '4.0.4'
 #mod 'ULHPC-exim4', '0.2.3'
 #mod 'TubeMogul-aptly', '3.1.1'
 
-#gitlab runner
-mod 'frankiethekneeman-gitlab_ci_multi_runner', '0.3.0'
-
 #ELK
 mod 'mvisonneau-curator', '1.0.7'
 #mod 'elastic-logstash', '6.1.5'
@@ -166,4 +163,7 @@ mod 'automaticserver/sslcert',
   :git => 'https://github.com/rgevaert/puppet-sslcert.git',
   :ref => 'f85628a565ea545a59af6fc96e1bda1279275445'
 
-
+#gitlab runner
+mod 'dcenter/puppet-gitlab-ci-multi-runner',
+  :git => 'git@gitlab.upr.edu.cu:dcenter/puppet-gitlab-ci-multi-runner.git',
+  :ref => '40306ce83051a2e45385d95fbad34bd9995fcd79'
