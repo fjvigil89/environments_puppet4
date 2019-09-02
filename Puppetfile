@@ -164,6 +164,6 @@ mod 'automaticserver/sslcert',
   :ref => 'f85628a565ea545a59af6fc96e1bda1279275445'
 
 #gitlab runner
-mod 'dcenter/puppet-gitlab-ci-multi-runner',
+mod 'dcenter/gitlab_runner',
   :git => 'git@gitlab.upr.edu.cu:dcenter/puppet-gitlab-ci-multi-runner.git',
   :ref => '40306ce83051a2e45385d95fbad34bd9995fcd79'
