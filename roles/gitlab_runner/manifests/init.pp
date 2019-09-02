@@ -12,7 +12,7 @@ class {'gitlab_ci_multi_runner':
 gitlab_ci_multi_runner::runner { "dns.upr.edu.cu":
     gitlab_ci_url => 'http://gitlab.upr.edu.cu',
     tags          => ['dns'],
-    token         => 'sUayR-NyGG69by2G4viT'
+    token         => 'sUayR-NyGG69by2G4viT',
     executor      => 'ssh',
     ssh_host      => 'gitlab.upr.edu.cu',
     ssh_port      => 22,
