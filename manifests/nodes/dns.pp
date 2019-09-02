@@ -7,6 +7,7 @@ node 'dns.upr.edu.cu','dns-primary.upr.edu.cu'{
       mta_enabled     => false,
       dns_enabled     => false,
     }
+  class {"::gitlab_runner":;}
 
   $zone    = 'type master'
   $allow   = "{ 10.2.0.0/15; 10.71.46.0/24; 20.0.0.0/24; 172.30.146.0/27; 192.168.25.0/24; 200.14.49.0/27; 200.55.143.8/29; 152.207.173.40/29;}"

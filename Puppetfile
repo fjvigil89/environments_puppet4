@@ -81,6 +81,9 @@ mod 'puppetfinland-librenms', '4.0.4'
 #mod 'ULHPC-exim4', '0.2.3'
 #mod 'TubeMogul-aptly', '3.1.1'
 
+#gitlab runner
+mod 'frankiethekneeman-gitlab_ci_multi_runner', '0.3.0'
+
 #ELK
 mod 'mvisonneau-curator', '1.0.7'
 #mod 'elastic-logstash', '6.1.5'
