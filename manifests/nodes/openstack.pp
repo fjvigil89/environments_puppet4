@@ -6,5 +6,6 @@ node 'ostack0.upr.edu.cu' {
     repos_enabled   => false,
     mta_enabled     => false,
   }
-  include ::openstack::role::controller
+
+
 }

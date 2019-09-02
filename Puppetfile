@@ -80,7 +80,7 @@ mod 'thias-vsftpd', '0.2.1'
 mod 'puppetfinland-librenms', '4.0.4'
 #mod 'ULHPC-exim4', '0.2.3'
 #mod 'TubeMogul-aptly', '3.1.1'
-#mod 'puppetlabs-rsync', '1.1.0'
+
 #ELK
 mod 'mvisonneau-curator', '1.0.7'
 #mod 'elastic-logstash', '6.1.5'
@@ -91,8 +91,7 @@ mod 'mvisonneau-curator', '1.0.7'
 #mod 'coreyh-metricbeat', '0.3.0'
 mod 'pcfens-filebeat', '3.4.0'
 mod 'puppetlabs-powershell', '2.2.0'
-#OpenStack
-mod 'puppetlabs-openstack', '5.0.2'
+
 mod 'stackforge-ceilometer', '5.2.0'
 mod 'stackforge-cinder', '5.2.0'
 mod 'stackforge-glance', '5.2.0'
