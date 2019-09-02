@@ -91,35 +91,7 @@ mod 'mvisonneau-curator', '1.0.7'
 #mod 'coreyh-metricbeat', '0.3.0'
 mod 'pcfens-filebeat', '3.4.0'
 mod 'puppetlabs-powershell', '2.2.0'
-#OpenStack
-mod 'puppetlabs-openstack', '5.0.2'
-<<<<<<< HEAD
-mod 'stackforge-neutron', '5.2.0'
-mod 'stackforge-horizon', '5.1.0'
-mod 'stackforge-keystone', '5.2.0'
-mod 'stackforge-swift', '5.1.0'
-mod 'stackforge-nova', '5.2.0'
-mod 'stackforge-cinder', '5.2.0'
-mod 'stackforge-glance', '5.2.0'
-mod 'stackforge-ceilometer', '5.2.0'
-mod 'stackforge-heat', '5.2.0'
-mod 'stackforge-tempest', '5.1.0'
-#dependencias OpenStack
-mod 'stackforge-vswitch', '1.1.0'
-mod 'duritong-sysctl', '0.0.12'
-mod 'stackforge-openstacklib', '5.1.0'
-mod 'saz-memcached', '3.4.0'
-mod 'saz-ssh', '6.0.0'
-mod 'puppetlabs-rsync', '1.1.1'
-mod 'puppetlabs-xinetd', '3.3.0'
-mod 'puppetlabs-rabbitmq', '5.6.0'
-mod 'dprince-qpid', '1.0.3'
-mod 'puppetlabs-mongodb', '1.0.0'
 
-
-
-
-=======
 mod 'stackforge-ceilometer', '5.2.0'
 mod 'stackforge-cinder', '5.2.0'
 mod 'stackforge-glance', '5.2.0'
@@ -134,7 +106,6 @@ mod 'puppetlabs-mongodb', '1.0.0'
 mod 'puppetlabs-rabbitmq', '5.6.0'
 mod 'stackforge-vswitch', '1.1.0'
 mod 'duritong-sysctl', '0.0.12'
->>>>>>> production
 #ldap
 mod 'camptocamp-openldap', '1.17.0'
 #Proxy
