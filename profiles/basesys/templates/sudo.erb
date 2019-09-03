@@ -39,6 +39,7 @@ Host_Alias  MYSQLSERVERS = mysql1, mysql2, mysql3, mysql4, mysql5, mysql6, tests
 # op RHEL wordt standaard een tty afgedwongen. Maar ansible heeft die niet
 Defaults:ansible !requiretty
 ansible   ALL = (ALL) NOPASSWD: ALL
+gitlab   ALL = (ALL) NOPASSWD: ALL
 
 # Systemen team members ook
 SYSTEMEN  ALL = (ALL) NOPASSWD: ALL
