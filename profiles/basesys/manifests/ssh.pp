@@ -10,8 +10,8 @@ class basesys::ssh(
 ){
 
   # global_ssh_authorized_keys komen uit Hiera. zie common.yaml
-  $global_ssh_authorized_keys = lookup('basesys::global_ssh_authorized_keys', {merge => hash, default_value => {}})
-  create_resources('@ssh_authorized_key', $global_ssh_authorized_keys)
+  #$global_ssh_authorized_keys = lookup('basesys::global_ssh_authorized_keys', {merge => hash, default_value => {}})
+  #create_resources('@ssh_authorized_key', $global_ssh_authorized_keys)
 
   Ssh_authorized_key <| title == 'root@gitlab' |>
 
@@ -38,17 +38,17 @@ class basesys::ssh(
   #  ensure       => present,
   #  host_aliases => 'gitlab',
   #  type         => 'ssh-rsa',
-  #  key          => 'AAAAB3NzaC1yc2EAAAADAQABAAACAQCxyXFBbBO+Ji2Zgs9/nFfg59nQIbg9z4Vp1Gqy1RBkorzsboMnbAxU8G8y5huGBQV1MjCmY69uUXvjFkVgQkCgra7CMg//2E+K0qiHP3XOa4AcGfOzM7ehNL9tvpA9zeBbI4/m5D78X5sErhAV38h29gfgrODyVkADOoAbtoKrgg/bnFLWHbiFSaFQTin8CyvNtnHEt5x6TWQK4u+ki3zO7MwMvLBXxK5YhfKZ2K9Cicrivczkbgs7uG1utunEVfwfMjB6s9/Yy2hfOBC7e1vk9eKrIFdeHFtW9L3qOsntP2Uxibs9eqgzvHSfSAgbIU+qRc1gAiaapRssUtXfWrCUXzYs9vkmSCM5JOtOsgYw2BoYE1uRuG2cb8DwV0CY4Fw8UesDeI4j5M6aOijm0tViDZQJrSrmJ01aJxswCUpUhuuU1gCyNBb3XjshrpEBKdTXgivpX/ytfeETjg414C1vRjEHeWHKBQCIKIkJWp71aO2tB6Fq9pz4WbNx9Y9y3pJdFwFZtLL6YrrszLLe9TV4FmZRh8WZ8G4Nc8Fh5Ky16B4UdH/+CX2BRDqABjFRpBPfEifAMa+yuiyJsiV5RZBx7dTn924AsT0JLHKNb34HPj3AyAPrqNsRZoHvVo+ci0qRjTq5OYI1wNp/dlIZ3WCKJm9NeCLqm+8G9H1rE9yiFQ';
+  #  key          => 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDcODNgiShR6qzcgljO5TS64WWqelnn2rXJT7aORKeDU0TPYBZiqxnydLaMS1jlE2EBaACJac4oKVYxdZ9oKQOHdetL6KhJU0ORt1IpC7nwqxdHQ/5NT60+Rb7nDIdpHWYeXwSpCXSd1GNGsm0NJLckNZaq5Hl3VFxdwAwuQqqNVD2A861DfQE/+yQnu/ISuyO9rEarnLYeMkdlmTuL2MWub+9QVAYOzZHUZTr4/sHnZgaTfbGNoj0N+MX0bOwk8snYl7mQVSvmW5xqj5EL+t7ItSIvDhxnScGBpEY6f6wg2GDqUe48kfSMsV8PKiVSSa6d4nyE4UVmAVtgPEmX87Pj root@gitlab';
   #}
 
-  #@ssh_authorized_key {
+  #  @ssh_authorized_key {
   #  'root@gitlab.upr.edu.cu':
   #    ensure  => present,
   #    user    => 'root',
   #    type    => 'ssh-rsa',
-  #    key     => 'AAAAB3NzaC1yc2EAAAADAQABAAACAQCxyXFBbBO+Ji2Zgs9/nFfg59nQIbg9z4Vp1Gqy1RBkorzsboMnbAxU8G8y5huGBQV1MjCmY69uUXvjFkVgQkCgra7CMg//2E+K0qiHP3XOa4AcGfOzM7ehNL9tvpA9zeBbI4/m5D78X5sErhAV38h29gfgrODyVkADOoAbtoKrgg/bnFLWHbiFSaFQTin8CyvNtnHEt5x6TWQK4u+ki3zO7MwMvLBXxK5YhfKZ2K9Cicrivczkbgs7uG1utunEVfwfMjB6s9/Yy2hfOBC7e1vk9eKrIFdeHFtW9L3qOsntP2Uxibs9eqgzvHSfSAgbIU+qRc1gAiaapRssUtXfWrCUXzYs9vkmSCM5JOtOsgYw2BoYE1uRuG2cb8DwV0CY4Fw8UesDeI4j5M6aOijm0tViDZQJrSrmJ01aJxswCUpUhuuU1gCyNBb3XjshrpEBKdTXgivpX/ytfeETjg414C1vRjEHeWHKBQCIKIkJWp71aO2tB6Fq9pz4WbNx9Y9y3pJdFwFZtLL6YrrszLLe9TV4FmZRh8WZ8G4Nc8Fh5Ky16B4UdH/+CX2BRDqABjFRpBPfEifAMa+yuiyJsiV5RZBx7dTn924AsT0JLHKNb34HPj3AyAPrqNsRZoHvVo+ci0qRjTq5OYI1wNp/dlIZ3WCKJm9NeCLqm+8G9H1rE9yiFQ',
-      #options => 'from="gitlab.upr.edu.cu,10.2.24.81"';
- # }
+  #    key     => 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDcODNgiShR6qzcgljO5TS64WWqelnn2rXJT7aORKeDU0TPYBZiqxnydLaMS1jlE2EBaACJac4oKVYxdZ9oKQOHdetL6KhJU0ORt1IpC7nwqxdHQ/5NT60+Rb7nDIdpHWYeXwSpCXSd1GNGsm0NJLckNZaq5Hl3VFxdwAwuQqqNVD2A861DfQE/+yQnu/ISuyO9rEarnLYeMkdlmTuL2MWub+9QVAYOzZHUZTr4/sHnZgaTfbGNoj0N+MX0bOwk8snYl7mQVSvmW5xqj5EL+t7ItSIvDhxnScGBpEY6f6wg2GDqUe48kfSMsV8PKiVSSa6d4nyE4UVmAVtgPEmX87Pj root@gitlab', 
+  #    options => 'from="gitlab.upr.edu.cu,10.2.24.81"';
+  #}
 
 # lint:endignore
 
