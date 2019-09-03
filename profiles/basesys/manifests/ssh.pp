@@ -10,8 +10,8 @@ class basesys::ssh(
 ){
 
   # global_ssh_authorized_keys komen uit Hiera. zie common.yaml
-  $global_ssh_authorized_keys = lookup('basesys::global_ssh_authorized_keys', {merge => hash, default_value => {}})
-  create_resources('@ssh_authorized_key', $global_ssh_authorized_keys)
+  #$global_ssh_authorized_keys = lookup('basesys::global_ssh_authorized_keys', {merge => hash, default_value => {}})
+  #create_resources('@ssh_authorized_key', $global_ssh_authorized_keys)
 
   Ssh_authorized_key <| title == 'root@gitlab' |>
 
