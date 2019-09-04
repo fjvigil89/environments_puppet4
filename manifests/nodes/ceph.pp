@@ -18,11 +18,11 @@ node 'text-ceph' {
     public_net  => '10.2.1.0/24',
   }
 
- /*
-  class {'ceph::server::mon':
+ 
+  class {'ceph::server::mgr':
     id => 1
   }
-*/
+
 
 
 
