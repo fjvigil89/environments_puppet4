@@ -7,7 +7,7 @@ class dns_secundary::params{
     $config_file        = '/etc/named.conf'
     $listen_on_addr     = [ 'any' ]
     $listen_on_v6_addr  = [ 'any' ]
-    $forwarders      = ['10.2.1.8']
+    $forwarders      = ['10.2.4.14']
     $forward		= true
     $allow_query     = [ 'any' ]
     $directory          = '/etc/bind'
