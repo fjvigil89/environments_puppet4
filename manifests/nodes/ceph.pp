@@ -19,9 +19,6 @@ node 'text-ceph' {
   }
 
  
-  class {'ceph::server::mgr':
-    id => 1
-  }
 
 
 
