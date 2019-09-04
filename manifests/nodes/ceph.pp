@@ -18,9 +18,9 @@ node 'text-ceph' {
     public_net  => '1.2.4.0/23',
   }
 
-  class {'ceph::server::mon':
-    id => 1
-  }
+  #class {'ceph::server::mon':
+  #  id => 1
+  #}
 
 
 
