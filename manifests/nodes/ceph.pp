@@ -12,7 +12,7 @@ node 'text-ceph' {
 
  
   class {'ceph':
-    mon_hosts   => [ 'text-ceph' ]
+    mon_hosts   => [ 'text-ceph' ],
     release     => 'hammer',
     cluster_net => '1.2.1.0/24',
     public_net  => '1.2.4.0/23',
