@@ -65,12 +65,12 @@ basesys::accounts:
     tag: 'otrs_admin'
     sshkeys:
       - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDW0+fMCBnmbTi1GAq5PfATSwmOtKJJhyylQ/Kg8dSktelZ1cY41xF3Ax4wx4MtofXnxhzlR+LjaaJ2s2l7MfJ$' 
-  'gitlab':
-    comment: 'Server Gitlab'
-    uid: '517'
-    manage_primary_group: false
-    gid: '100'
-    tag: 'systemen'
-    password: '$6$RT0DtXbN$qu4W.jNIagWd98Mta38wGTgoKvQxImEtBSdfH.ifnnDeL93qPcqZ9/BVyHRTC8ieieGH5COjnlbhZymJOWzbI1'
-    sshkeys:
-      - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDcODNgiShR6qzcgljO5TS64WWqelnn2rXJT7aORKeDU0TPYBZiqxnydLaMS1jlE2EBaACJac4oKVYxdZ9oKQOHdetL6KhJU0ORt1IpC7nwqxdHQ/5NT60+Rb7nDIdpHWYeXwSpCXSd1GNGsm0NJLckNZaq5Hl3VFxdwAwuQqqNVD2A861DfQE/+yQnu/ISuyO9rEarnLYeMkdlmTuL2MWub+9QVAYOzZHUZTr4/sHnZgaTfbGNoj0N+MX0bOwk8snYl7mQVSvmW5xqj5EL+t7ItSIvDhxnScGBpEY6f6wg2GDqUe48kfSMsV8PKiVSSa6d4nyE4UVmAVtgPEmX87Pj root@gitlab'
+        #'gitlab':
+        #comment: 'Server Gitlab'
+        #uid: '517'
+        #manage_primary_group: false
+        #gid: '100'
+        #tag: 'systemen'
+        #password: '$6$RT0DtXbN$qu4W.jNIagWd98Mta38wGTgoKvQxImEtBSdfH.ifnnDeL93qPcqZ9/BVyHRTC8ieieGH5COjnlbhZymJOWzbI1'
+        #sshkeys:
+        #- 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDcODNgiShR6qzcgljO5TS64WWqelnn2rXJT7aORKeDU0TPYBZiqxnydLaMS1jlE2EBaACJac4oKVYxdZ9oKQOHdetL6KhJU0ORt1IpC7nwqxdHQ/5NT60+Rb7nDIdpHWYeXwSpCXSd1GNGsm0NJLckNZaq5Hl3VFxdwAwuQqqNVD2A861DfQE/+yQnu/ISuyO9rEarnLYeMkdlmTuL2MWub+9QVAYOzZHUZTr4/sHnZgaTfbGNoj0N+MX0bOwk8snYl7mQVSvmW5xqj5EL+t7ItSIvDhxnScGBpEY6f6wg2GDqUe48kfSMsV8PKiVSSa6d4nyE4UVmAVtgPEmX87Pj root@gitlab'
