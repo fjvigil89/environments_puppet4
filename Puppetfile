@@ -167,3 +167,6 @@ mod 'automaticserver/sslcert',
 mod 'dcenter/gitlab_ci_multi_runner',
   :git => 'git@gitlab.upr.edu.cu:dcenter/puppet-gitlab-ci-multi-runner.git',
   :ref => '40306ce83051a2e45385d95fbad34bd9995fcd79'
+ 
+#ceph
+mod 'norisnetwork-ceph', '0.2.0'
