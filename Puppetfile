@@ -24,7 +24,6 @@ mod 'mayflower-prosody', '0.3.2'
 mod 'dwerder-graphite', '7.3.0'
 mod 'vpgrp-snmpd', '1.0.7'
 mod 'wyrie-spamassassin', '1.1.1'
-mod 'jmkeyes-razor', '0.0.7'
 mod 'derdanne-nfs', '2.0.8'
 #mod 'millerjl1701-samba', '1.0.2'
 mod 'ajjahn-samba', '0.5.0'
@@ -167,3 +166,8 @@ mod 'automaticserver/sslcert',
 mod 'dcenter/gitlab_ci_multi_runner',
   :git => 'git@gitlab.upr.edu.cu:dcenter/puppet-gitlab-ci-multi-runner.git',
   :ref => '40306ce83051a2e45385d95fbad34bd9995fcd79'
+
+#razor para mta
+mod 'dcenter/puppet-razor',
+  :git => 'git@gitlab.upr.edu.cu:dcenter/puppet-razor.git',
+  :branch => 'master'
