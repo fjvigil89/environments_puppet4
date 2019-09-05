@@ -10,7 +10,7 @@ node 'puppet-new.upr.edu.cu'{
                             'ldap_rootdn'   => 'CN="talk",OU="_Servicios",DC="upr",DC="edu",DC="cu"',
                             'ldap_password' => '40a*talk.2k12',
                             'ldap_scope'    => 'subtree',
-                            'ldap_tls'      => 'true',
+                            'ldap_tls'      => true,
                           },
   }
 

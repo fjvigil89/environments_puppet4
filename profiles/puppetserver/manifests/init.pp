@@ -15,7 +15,7 @@ class puppetserver (String $puppetdb_server = 'localhost') {
     },
   }
   file {'/etc/puppetlabs/puppetserver':
-	ensure => 'directory',
+    ensure => 'directory',
     owner  => 'root',
     group  => 'root',
     mode   => '0644',
