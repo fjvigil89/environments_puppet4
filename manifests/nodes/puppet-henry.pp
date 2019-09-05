@@ -11,7 +11,7 @@ node 'puppet-henry.upr.edu.cu' {
   class { 'prosody':
     user              => 'prosody',
     group             => 'prosody',
-    community_modules => 'mod_auth_ldap',
+    community_modules => ['mod_auth_ldap'],
     authentication    => 'ldap',
     custom_options    => {
                             'ldap_base'     => 'DC="upr",DC="edu",DC="cu"',
