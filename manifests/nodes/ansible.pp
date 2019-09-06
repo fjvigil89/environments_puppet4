@@ -8,19 +8,8 @@ node 'ansible.upr.edu.cu' {
   }
 
 
-  class { 'ansible':
-  ensure           => 'present',
-  roles_path       => '/etc/ansible/roles',
-  timeout          => 30,
-  log_path         => '/var/log/ansible.log',
-  private_key_file => '/root/.ssh/id_rsa.pub',
-  #  inventory        => './environments/production',
-}
-  ansible::hosts { 'production':
-    entrys  => [
-      'ansible.upr.edu.cu',
-    ]
-  }
-
+  include ansible::controller
+  include ansible::target
+  ansible::add_to_group { 'production': }
 
 }
