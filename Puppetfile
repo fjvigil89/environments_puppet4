@@ -91,7 +91,6 @@ mod 'mvisonneau-curator', '1.0.7'
 #mod 'coreyh-metricbeat', '0.3.0'
 mod 'pcfens-filebeat', '3.4.0'
 mod 'puppetlabs-powershell', '2.2.0'
-
 mod 'stackforge-ceilometer', '5.2.0'
 mod 'stackforge-cinder', '5.2.0'
 mod 'stackforge-glance', '5.2.0'
@@ -108,6 +107,8 @@ mod 'stackforge-vswitch', '1.1.0'
 mod 'duritong-sysctl', '0.0.12'
 #ldap
 mod 'camptocamp-openldap', '1.17.0'
+#ceph
+mod 'norisnetwork-ceph', '0.2.0'
 #Proxy
 mod 'dcenter/squid',
   :git => 'git@gitlab.upr.edu.cu:dcenter/squid.git',
@@ -133,11 +134,9 @@ mod 'puppet/network',
   :git => 'https://github.com/voxpupuli/puppet-network.git',
   :ref => 'ea7cac426ea123629821e49d88cd305f7afe3f23'
 
-
 mod 'rgevaert/postfix',
   :git => 'https://github.com/rgevaert/puppet-postfix.git',
   :ref => '66bae4d5569f20fc4e06cb4fb5c41b5b13fe4de5'
-
 
 mod 'saz/rsyslog',
   :git => 'https://github.com/saz/puppet-rsyslog.git',
@@ -166,12 +165,9 @@ mod 'automaticserver/sslcert',
 #gitlab runner
 mod 'dcenter/gitlab_ci_multi_runner',
   :git => 'git@gitlab.upr.edu.cu:dcenter/puppet-gitlab-ci-multi-runner.git',
-  :ref => '40306ce83051a2e45385d95fbad34bd9995fcd79'
- 
-#ceph
-mod 'norisnetwork-ceph', '0.2.0'
+  :ref => '40306ce83051a2e45385d95fbad34bd9995fcd79' 
 
 #ansible
-mod 'dcenter/puppet-ansible',
+mod 'dcenter/ansible',
   :git => 'git@gitlab.upr.edu.cu:dcenter/puppet-ansible.git',
   :ref => 'e365a6aeac0ca447aed11ca14605872157462e73'
