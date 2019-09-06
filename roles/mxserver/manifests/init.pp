@@ -13,5 +13,5 @@ class mxserver {
     #repos_enabled  => true,
     mta_enabled     => true,
   }
-  #include mx_server
+  include mx_server
 }

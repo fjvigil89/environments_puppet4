@@ -170,4 +170,4 @@ mod 'dcenter/gitlab_ci_multi_runner',
 #razor para mta
 mod 'dcenter/puppet-razor',
   :git => 'git@gitlab.upr.edu.cu:dcenter/puppet-razor.git',
-  :branch => 'master'
+  :ref => '5e3a12cacc6a3f714bcb2760426cf1ce1e282275'
