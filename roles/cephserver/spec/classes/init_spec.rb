@@ -1,6 +1,6 @@
 require 'spec_helper'
-describe 'gitlab_runner' do
+describe 'cephserver' do
   context 'with default values for all parameters' do
-    it { should contain_class('gitlab_runner') }
+    it { should contain_class('cephserver') }
   end
 end
