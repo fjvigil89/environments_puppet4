@@ -7,26 +7,20 @@ node 'ansible.upr.edu.cu' {
     mta_enabled     => false,
   }
 
- 
-# Here is a controller node.  You could have more than one, if you like.
-  include ansible::controller
-  include ansible::target      # Just like Puppet masters also have agents.
-  include mysql::server
-# Here are three of my web servers.
-  include apache
-  ansible::add_to_group { 'webservers': }
 
-# My production databases have a predictable naming scheme.
-  ansible::add_to_group { 'production': }
-  ansible::add_to_group { 'databases': }
-
-# Development databases have similarly predictable names.
-  include mysql::client
-  ansible::add_to_group { 'development': }
-  ansible::add_to_group { 'databasess': }
- 
-
-
+  class { 'ansible':
+  ensure           => 'present',
+  roles_path       => '/etc/ansible/roles',
+  timeout          => 30,
+  log_path         => '/var/log/ansible.log',
+  private_key_file => '/root/.ssh/id_rsa.pub',
+  inventory        => './environments/production',
+}
+  ansible::hosts { 'production':
+    entrys  => [
+      'ansible.upr.edu.cu',
+    ]
+  }
 
 
 }
