@@ -11,7 +11,7 @@ class mxserver {
     application     => 'MX Postfix',
     #puppet_enabled => false,
     #repos_enabled  => true,
-    mta_enabled     => false,
+    mta_enabled     => true,
   }
   #include mx_server
 }
