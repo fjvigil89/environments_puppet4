@@ -23,11 +23,13 @@ class basesys::ssh(
   }
 
   # Export hostkeys from all hosts.
-  @@sshkey { $::fqdn:
-    ensure       => present,
-    host_aliases => $host_aliases,
-    type         => 'rsa',
-    key          => $::sshrsakey,
+  if $::fqdn != 'ansible.upr.edu.cu'{
+    @@sshkey { $::fqdn:
+      ensure       => present,
+      host_aliases => $host_aliases,
+      type         => 'rsa',
+      key          => $::sshrsakey,
+    }
   }
 
   create_resources('sshkey', $known_hosts, { 'type' => 'rsa'})
