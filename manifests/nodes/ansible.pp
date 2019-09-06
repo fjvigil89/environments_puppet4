@@ -26,7 +26,7 @@ node 'ansible.upr.edu.cu' {
 # Development databases have similarly predictable names.
   include mysql::client
   ansible::add_to_group { 'development': }
-  ansible::add_to_group { 'databases': }
+  ansible::add_to_group { 'databasess': }
  
 
 
