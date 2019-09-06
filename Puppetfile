@@ -172,5 +172,6 @@ mod 'dcenter/gitlab_ci_multi_runner',
 mod 'norisnetwork-ceph', '0.2.0'
 
 #ansible
-mod 'gabe-ansible', '1.0.1'
-#mod 'otherskins-ansible', '2.0.2'
+mod 'dcenter/puppet-ansible',
+  :git => 'git@gitlab.upr.edu.cu:dcenter/puppet-ansible.git',
+  :ref => 'e365a6aeac0ca447aed11ca14605872157462e73'
