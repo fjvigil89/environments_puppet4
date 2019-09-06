@@ -6,10 +6,10 @@ class r10kserver {
 
   class {"r10k":
     r10k_basedir              => "/etc/ansible/environments", 
-    r10k_cache_dir            => "/opt/puppetlabs/r10k/cache",
-    r10k_config_file          => "/etc/ansible/r10k/r10k.yaml",
+    cachedir                  => "/opt/puppetlabs/r10k/cache",
+    configfile                => "/etc/ansible/r10k/r10k.yaml",
     manage_configfile_symlink => true,
-    sources => {
+    sources                   => {
       'environments' => {
         'remote'  => 'git@gitlab.upr.edu.cu:frank.vigil/ansible.git',
         'basedir' => "${::settings::confdir}/environments",
