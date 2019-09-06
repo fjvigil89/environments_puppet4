@@ -8,8 +8,6 @@ node 'ansible.upr.edu.cu' {
   }
 
 
-  include ansible::controller
-  include ansible::target
-  #ansible::add_to_group { 'frank': }
+  class {"::ansibleserver":;}
 
 }
