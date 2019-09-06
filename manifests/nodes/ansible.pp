@@ -14,7 +14,7 @@ node 'ansible.upr.edu.cu' {
   timeout          => 30,
   log_path         => '/var/log/ansible.log',
   private_key_file => '/root/.ssh/id_rsa.pub',
-  inventory        => './environments/production',
+  #  inventory        => './environments/production',
 }
   ansible::hosts { 'production':
     entrys  => [
