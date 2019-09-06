@@ -1,7 +1,4 @@
 node 'ansible.upr.edu.cu' {  
-  package { 'lsb-release':
-          ensure => installed,
-  }
   class { '::basesys':
     uprinfo_usage   => 'servidor ansible',
     application     => 'Ceph',
