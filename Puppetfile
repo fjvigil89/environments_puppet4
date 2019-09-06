@@ -170,3 +170,6 @@ mod 'dcenter/gitlab_ci_multi_runner',
  
 #ceph
 mod 'norisnetwork-ceph', '0.2.0'
+
+#ansible
+mod 'gabe-ansible', '1.0.1'
