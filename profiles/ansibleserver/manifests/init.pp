@@ -4,7 +4,6 @@
 #
 class ansibleserver {
 
-  include git
   include ansible::controller
   include ansible::target
   #ansible::add_to_group { 'frank': }

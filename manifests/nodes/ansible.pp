@@ -8,6 +8,6 @@ node 'ansible.upr.edu.cu' {
   }
 
 
-  class {"::ansibleserver":;}
+  class {"::ansibleprodserver":;}
 
 }
