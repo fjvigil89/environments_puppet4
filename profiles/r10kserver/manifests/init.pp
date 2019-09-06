@@ -12,7 +12,7 @@ class r10kserver {
     sources                   => {
       'environments' => {
         'remote'  => 'git@gitlab.upr.edu.cu:frank.vigil/ansible.git',
-        'basedir' => "${::settings::confdir}/environments",
+        'basedir' => "${r10k_basedir}",
         'prefix'  => false,
       },
   },
