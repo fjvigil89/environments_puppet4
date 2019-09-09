@@ -35,51 +35,19 @@ class { ::letsencrypt:
      },
      packages       =>  ['php7.0-mbstring','r10k','php7.0','php7.0-cli','php7.0-curl','php7.0-intl','php7.0-ldap','php7.0-mysql','php7.0-sybase','libapache2-mod-php7.0','php7.0-mcrypt','phpmyadmin','freetds-bin','freetds-common'],
   }
+
  
-  cron{'ActualizaLosNoDocentes':
+  cron{'ActualizarLdap':
     ensure  => present,
-    command => 'wget -q -d  --no-check-certificate "http://sync.upr.edu.cu/saber_ldap/NoDocentes" > /var/log/sync_upr_NoDocentes.log',
-    hour    => '14',
+    command => 'wget -q -d  --no-check-certificate "http://sync.upr.edu.cu/saber_ldap" > /var/log/sync_upr',
+    hour    => [2],
     minute  => 0,
   }
   
-  cron{'ActualizarDocentes':
-    ensure  => present,
-    command => 'wget -q -d  --no-check-certificate "http://sync.upr.edu.cu/saber_ldap/Docentes" > /var/log/sync_upr_Docentes.log',
-    hour    => '15',
-    minute  => 0,
-  }
-  cron{'ActualizarLosProfesoresQueSonBajasHoy':
-    ensure  => present,
-    command => 'wget -q -d  --no-check-certificate "http://sync.upr.edu.cu/actualizar_bajas_profesores" > /var/log/sync_upr_Bajas.log',
-    hour    => '13',
-    minute  => 0,
-  }
- 
-  cron{'ActualizarLosQueDejaronDeSerBajasHoy':
-    ensure  => present,
-    command => 'wget -q -d  --no-check-certificate "http://sync.upr.edu.cu/saber_ldap/Bajas" > /var/log/sync_upr_User_Bajas.log',
-    hour    => '16',
-    minute  => 0,
-  }
-  
-  cron{'CrearTrabajadoresQueSonAltaHoy':
-    ensure  => present,
-    command => 'wget -q -d  --no-check-certificate "http://sync.upr.edu.cu/actualizar_altas_profesores" > /var/log/sync_upr_CrearUsuario.log',
-    hour    => [12,18],
-    minute  => 0,
-  }
   cron{'ActualizarLosQueSonDeDI':
     ensure  => present,
     command => 'wget -q -d  --no-check-certificate "http://sync.upr.edu.cu/upredes" > /var/log/sync_upr_UPRedes.log',
     hour    => 17,
-    minute  => 0,
-  }
-
-  cron{'ActualizarLosEstudiantes':
-    ensure  => present,
-    command => 'wget -q -d  --no-check-certificate "http://sync.upr.edu.cu/saber_ldap_student" > /var/log/sync_upr_Student.log',
-    hour    => 21,
     minute  => 0,
   }
 
@@ -90,19 +58,6 @@ class { ::letsencrypt:
     minute  => 59,
   }
 
-  #cron {'ADDGrupoPasswordAlosCompanerosDeSoftUPR':
-  # ensure  => present,
-  # command => 'wget -q -d  --no-check-certificate "http://sync.upr.edu.cu/password/ADD" > /var/log/sync_upr_GrupoPassword.log',
-  # hour    => 11,
-  # minute  => 0,
-  #}
-
-  #cron {'REMOVEGrupoPasswordAlosCompanerosDeSftUPR':
-  # ensure  => present,
-  # command => 'wget -q -d  --no-check-certificate "http://sync.upr.edu.cu/password/REMOVE" > /var/log/sync_upr_GrupoPassword.log',
-  # hour    => 15,
-  # minute  => 0,
-  #}
 
 class {'::serv_logrotate':
   compress         => true, 
