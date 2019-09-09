@@ -4,14 +4,14 @@
 #
 class r10kserver(
   $r10k_basedir              = "/etc/ansible/environments",
-  $cachedir                  = "/opt/puppetlabs/r10k/cache",
+  $cachedir                  = "/var/cache/r10k",
   $configfile                = "/etc/ansible/r10k/r10k.yaml",
   $manage_configfile_symlink = true,
 ) {
 
   class {"r10k":
     r10k_basedir              => "/etc/ansible/environments", 
-    cachedir                  => "/opt/puppetlabs/r10k/cache",
+    cachedir                  => "/var/cache/r10k",
     configfile                => "/etc/ansible/r10k/r10k.yaml",
     manage_configfile_symlink => true,
     sources                   => {
