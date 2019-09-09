@@ -168,6 +168,6 @@ mod 'dcenter/gitlab_ci_multi_runner',
   :ref => '40306ce83051a2e45385d95fbad34bd9995fcd79'
 
 #razor para mta
-mod 'dcenter/puppet-razor',
+mod 'dcenter/razor',
   :git => 'git@gitlab.upr.edu.cu:dcenter/puppet-razor.git',
   :ref => '5e3a12cacc6a3f714bcb2760426cf1ce1e282275'
