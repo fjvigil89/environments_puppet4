@@ -172,4 +172,4 @@ mod 'dcenter/gitlab_ci_multi_runner',
 #ansible
 mod 'dcenter/ansible',
   :git => 'git@gitlab.upr.edu.cu:dcenter/puppet-ansible.git',
-  :branch => 'master'
+  :ref => '6747494d8f8049b1455c7a49be15d334d019c34a'
