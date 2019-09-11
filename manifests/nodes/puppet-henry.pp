@@ -1,3 +1,3 @@
-node 'puppet-henry.upr.edu.cu' {
+node 'henry-test.upr.edu.cu' {
   include puppetserver
 }
