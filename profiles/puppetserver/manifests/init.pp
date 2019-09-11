@@ -20,7 +20,7 @@ class puppetserver (String $puppetdb_server = 'localhost') {
     group  => 'root',
     mode   => '0644',
   }
-  /*class { '::puppet':
+  class { '::puppet':
     server                      => true,
     server_foreman              => false,
     server_passenger            => false,
@@ -28,23 +28,24 @@ class puppetserver (String $puppetdb_server = 'localhost') {
     server_puppetdb_host        => $puppetserver::puppetdb_server,
     server_reports              => 'puppetdb',
     server_storeconfigs_backend => 'puppetdb',
-    server_jvm_min_heap_size    => '3G',
-    server_jvm_max_heap_size    => '3G',
+    server_jvm_min_heap_size    => '1G',
+    server_jvm_max_heap_size    => '1G',
     autosign                    => false,  #'/etc/puppetlabs/code/environments/production/bin/autosign-dns',
     #autosign_mode               => '755',
     server_external_nodes       => '',
     environment                 => 'production',
-    version                     => "5.5.1-1${::lsbdistcodename}",
-    server_puppetserver_version => '5.1.0',
-    server_version              => '5.3.5-1puppetlabs1',
-    server_common_modules_path  => '',
-    hiera_config                => '$codedir/hiera.yaml',
+    version                     => 'latest',
+    #version                     => "5.5.1-1${::lsbdistcodename}",
+    #server_puppetserver_version => '5.1.0',
+    #server_version              => '5.3.5-1puppetlabs1',
+    #server_common_modules_path  => '',
+    #hiera_config                => '$codedir/hiera.yaml',
     # Staat op agent omdat we de server manueel upgraden!
-    manage_packages             => 'agent',
-    runmode                     => 'cron',
+    #manage_packages             => 'agent',
+    #runmode                     => 'cron',
   }
   # lint:ignore:140chars
-  cron {
+  /*cron {
     'r10k-deploy':
       ensure  => absent,
       command => '[ -x /usr/local/bin/r10k ] && /usr/local/bin/r10k deploy environment -p -c /etc/r10k.yaml',
