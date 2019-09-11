@@ -37,14 +37,15 @@ class puppetserver (String $puppetdb_server = 'localhost') {
     version                     => 'latest',
     #version                     => "5.5.1-1${::lsbdistcodename}",
     #server_puppetserver_version => '5.1.0',
-    server_puppetserver_version => 'latest',
     #server_version              => '5.3.5-1puppetlabs1',
     server_version              => 'latest',
     #server_common_modules_path  => '',
     #hiera_config                => '$codedir/hiera.yaml',
     # Staat op agent omdat we de server manueel upgraden!
-    #manage_packages             => 'agent',
-    #runmode                     => 'cron',
+    manage_packages             => 'agent',
+    runmode                     => 'cron',
+    runtime                     => '30m',
+    agent_version               => 'latest',
   }
   # lint:ignore:140chars
   /*cron {
