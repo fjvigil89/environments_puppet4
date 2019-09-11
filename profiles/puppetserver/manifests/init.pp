@@ -44,7 +44,7 @@ class puppetserver (String $puppetdb_server = 'localhost') {
     # Staat op agent omdat we de server manueel upgraden!
     manage_packages             => 'agent',
     runmode                     => 'cron',
-    runtime                     => '30m',
+    runinterval                 => '30m',
     agent_version               => 'latest',
   }
   # lint:ignore:140chars
