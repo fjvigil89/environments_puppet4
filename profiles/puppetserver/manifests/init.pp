@@ -44,8 +44,6 @@ class puppetserver (String $puppetdb_server = 'localhost') {
     # Staat op agent omdat we de server manueel upgraden!
     manage_packages             => 'agent',
     runmode                     => 'cron',
-    runinterval                 => '30m',
-    agent_version               => 'latest',
   }
   # lint:ignore:140chars
   /*cron {
@@ -68,7 +66,7 @@ class puppetserver (String $puppetdb_server = 'localhost') {
     ensure   => installed,
     provider => 'puppet_gem',
     require  => Class['::puppet'];
-  }
+  }*/
   file {
     '/etc/puppetlabs/code/hiera.yaml':
       ensure => 'file',
@@ -78,8 +76,7 @@ class puppetserver (String $puppetdb_server = 'localhost') {
       source => 'puppet:///modules/puppetserver/hiera.yaml',
       notify => Exec['restart-puppet-server'];
   }
-
-  exec {
+  /*exec {
     'restart-puppet-server':
       command     => '/etc/init.d/puppetserver restart',
       refreshonly => true;
