@@ -4,7 +4,7 @@
 #
 # Configure puppetserver
 
-class puppetserver (String $puppetdb_server = 'localhost') {
+class puppetserver (String $puppetdb_server = 'fqdn') {
 ::apt::source { 'puppetlabs-pc1-server':
     comment  => 'Puppetlabs PC1 Repository',
     location => 'http://repos.upr.edu.cu/puppet/apt',
@@ -65,7 +65,7 @@ class puppetserver (String $puppetdb_server = 'localhost') {
     ensure   => installed,
     provider => 'puppet_gem',
     require  => Class['::puppet'];
-  }*/
+  }
   file {
     '/etc/puppetlabs/code/hiera.yaml':
       ensure => 'file',
@@ -74,7 +74,7 @@ class puppetserver (String $puppetdb_server = 'localhost') {
       mode   => '0644',
       source => 'puppet:///modules/puppetserver/hiera.yaml',
       notify => Exec['restart-puppet-server'];
-  }
+  }*/
   exec {
     'restart-puppet-server':
       command     => '/etc/init.d/puppetserver restart',
