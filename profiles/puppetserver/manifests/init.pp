@@ -23,8 +23,9 @@ class puppetserver (String $puppetdb_server = 'localhost') {
   class { '::puppet':
     server                      => true,
     server_foreman              => false,
-    server_passenger            => false,
-    server_environments         => [],
+    #server_passenger            => false,
+    #server_environments         => [],
+    server_puppetdb             => true,
     server_puppetdb_host        => $puppetserver::puppetdb_server,
     server_reports              => 'puppetdb',
     server_storeconfigs_backend => 'puppetdb',
