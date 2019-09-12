@@ -57,6 +57,12 @@ class { ::letsencrypt:
     hour    => [23,20],
     minute  => 59,
   }
+  cron {'CreacionTrabajadoresNuevos':
+    ensure  => present,
+    command => 'wget -q -d  --no-check-certificate "http://sync.upr.edu.cu/crear_trabajador_mes" > /var/log/sync_upr_crear_trabajador_mes.log',
+    hour    => [2,23],
+    minute  => 0,
+  }
 
 
 class {'::serv_logrotate':
