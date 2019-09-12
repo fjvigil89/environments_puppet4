@@ -38,7 +38,6 @@ class puppetserver (String $puppetdb_server = 'localhost') {
     #version                     => "5.5.1-1${::lsbdistcodename}",
     #server_puppetserver_version => '5.1.0',
     #server_version              => '5.3.5-1puppetlabs1',
-    server_version              => 'latest',
     #server_common_modules_path  => '',
     #hiera_config                => '$codedir/hiera.yaml',
     # Staat op agent omdat we de server manueel upgraden!
@@ -76,10 +75,10 @@ class puppetserver (String $puppetdb_server = 'localhost') {
       source => 'puppet:///modules/puppetserver/hiera.yaml',
       notify => Exec['restart-puppet-server'];
   }
-  /*exec {
+  exec {
     'restart-puppet-server':
       command     => '/etc/init.d/puppetserver restart',
       refreshonly => true;
-  } */
+  }
 
 }
