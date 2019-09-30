@@ -26,7 +26,7 @@
 #
 class puppetprodserver  {
   class {'::basesys':
-    uprinfo_usage  => 'Puppet Server UPR',
+    uprinfo_usage    => 'Puppet Server UPR',
     application      => 'puppetserver',
     application_tier => 'prd',
     puppet_enabled   => false,
