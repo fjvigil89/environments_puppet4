@@ -4,7 +4,8 @@
 #
 # Configure puppetserver
 
-class puppetserver (String $puppetdb_server = 'localhost') {
+class puppetserver  {
+  #(String $puppetdb_server = 'localhost')
 ::apt::source { 'puppetlabs-pc1-server':
     comment  => 'Puppetlabs PC1 Repository',
     location => 'http://repos.upr.edu.cu/puppet/apt',
