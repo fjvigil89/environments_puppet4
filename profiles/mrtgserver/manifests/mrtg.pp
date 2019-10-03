@@ -113,8 +113,14 @@ class mrtgserver::mrtg(){
 
   cron {'indexmaker_videoconferencia':
     user    => $owner,
-	command => '/usr/bin/indexmaker --columns=2 --title="Video Conferencia UPR" /etc/mrtg/10.2.8.4.cfg /var/www/mrtg/videoconferencia/index.html',
-	minute  => '*/1'
+	  command => '/usr/bin/indexmaker --columns=2 --title="Video Conferencia UPR" /etc/mrtg/10.2.8.4.cfg /var/www/mrtg/videoconferencia/index.html',
+	  minute  => '*/1'
+  }
+  
+  cron {'test':
+    user    => $owner,
+	  command => '/usr/bin/indexmaker --columns=2 --title="Test" /etc/mrtg/10.2.0.2.cfg /var/www/mrtg/test/index.html',
+	  minute  => '*/1'
   }
 }
   #Agregar en /etc/cron.d/mrtg:
