@@ -31,6 +31,10 @@ class mrtgserver::mrtg(){
 	mode   => $mode,
   }
 
+  exec { 'test':
+  creates => "/etc/mrtg/test.cfg",
+  command => "/usr/bin/cfgmaker network4core@dminUPR@10.2.0.2 > /etc/mrtg/test.cfg"
+  }
   ######## GENERACIÓN DE LOS ARCHIVOS .CFG ########
   #  each($::mrtgserver::ip) |Integer $index, String $value|{
   #  exec { $value :
