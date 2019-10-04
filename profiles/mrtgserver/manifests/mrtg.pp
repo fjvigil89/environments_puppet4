@@ -126,7 +126,7 @@ class mrtgserver::mrtg(){
   
   cron {'test':
     user    => $owner,
-	  command => '/usr/bin/indexmaker --columns=2 --title="Test" /etc/mrtg/10.2.0.2.cfg /var/www/mrtg/test/index.html',
+	  command => '/usr/bin/indexmaker --columns=2 --title="Test" /etc/mrtg/10.2.0.2.cfg 2> /dev/null& > /var/www/mrtg/test/index.html',
 	  minute  => '*/1'
   }
 }
