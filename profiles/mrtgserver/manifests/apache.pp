@@ -15,7 +15,7 @@ class mrtgserver::apache(){
     docroot    => '/var/www/whois/ip/web/',
     servername => 'whois.upr.edu.cu',
     aliases    => 'whois',
-	directories   => [{
+	  directories   => [{
            'path' => '/var/www/whois/ip/web/',
            'options'   => ['Indexes','FollowSymLinks','MultiViews'],
 #           'allow_override' => 'All',
@@ -31,7 +31,7 @@ class mrtgserver::apache(){
   apache::vhost { 'videoconf':
   	port       => '80',
     docroot    => '/var/www/mrtg/videotest/',
-	servername => 'videoconf.upr.edu.cu',
+	  servername => 'videoconf.upr.edu.cu',
     aliases    => 'conferencia',
     }
 }
