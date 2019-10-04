@@ -38,9 +38,9 @@ class mrtgserver::mrtg(){
 	  mode   => $mode,
   }
 
-  exec { 'test':
-  creates => "/etc/mrtg/test.cfg",
-  command => "/usr/bin/cfgmaker network4core@dminUPR@10.2.0.2 > /etc/mrtg/test.cfg"
+  exec { '10.2.0.2':
+  creates => "/etc/mrtg/10.2.0.2.cfg",
+  command => "/usr/bin/cfgmaker network4core@dminUPR@10.2.0.2 > /etc/mrtg/10.2.0.2.cfg"
   }
   ######## GENERACIÓN DE LOS ARCHIVOS .CFG ########
   #  each($::mrtgserver::ip) |Integer $index, String $value|{
@@ -52,7 +52,7 @@ class mrtgserver::mrtg(){
 
   ######## COPIA DE LOS ARCHIVOS .CFG PREVIAMENTE GENERADOS Y EDITADOS ########
 
-        ####DISPOSITIVOS####
+  ####DISPOSITIVOS####
 
   file { '/etc/mrtg/10.2.1.1.cfg':
     ensure => 'file',
@@ -86,7 +86,7 @@ class mrtgserver::mrtg(){
     source => 'puppet:///modules/mrtgserver/10.2.8.4.cfg',
   }
 
-          ####SENSORES####
+  ####SENSORES####
 
   file { '/etc/mrtg/mrtg.sensor1.cfg':
     ensure => 'file',
@@ -108,7 +108,7 @@ class mrtgserver::mrtg(){
 
   cron {'indexmaker_device':
     user    => $owner,
-    command => '/usr/bin/indexmaker --columns=2 --addhead="<H1 align= "center" > Multi Router Traffic Grapher <H1>" --title="Tr&aacute;fico de Enlaces UPR" /etc/mrtg/192.168.200.1.cfg 2> /dev/null& /etc/mrtg/10.2.1.1.cfg 2> /dev/null& /etc/mrtg/10.2.8.2.cfg 2> /dev/null& > /var/www/mrtg/index.html',
+    command => '/usr/bin/indexmaker --columns=2 --addhead="<H1 align= "center" > Multi Router Traffic Grapher <H1>" --title="Tr&aacute;fico de Enlaces UPR" /etc/mrtg/192.168.200.1.cfg 2> /dev/null& /etc/mrtg/10.2.1.1.cfg 2> /dev/null& /etc/mrtg/10.2.8.2.cfg 2> /dev/null& /etc/mrtg/10.2.0.2.cfg 2> /dev/null& > /var/www/mrtg/index.html',
     minute  => '*/1'
   }
 
@@ -124,11 +124,11 @@ class mrtgserver::mrtg(){
 	  minute  => '*/1'
   }
   
-  cron {'test':
-    user    => $owner,
-	  command => '/usr/bin/indexmaker --columns=2 --title="Test" /etc/mrtg/10.2.0.2.cfg 2> /dev/null& > /var/www/mrtg/test/index.html',
-	  minute  => '*/1'
-  }
+  #cron {'test':
+  #  user    => $owner,
+	#  command => '/usr/bin/indexmaker --columns=2 --title="Test" /etc/mrtg/10.2.0.2.cfg 2> /dev/null& > /var/www/mrtg/test/index.html',
+	#  minute  => '*/1'
+  #}
 }
   #Agregar en /etc/cron.d/mrtg:
   #  */1 * * * *   root   env LANG=C /usr/bin/mrtg /etc/mrtg/10.2.1.1.cfg 2> /dev/null&
