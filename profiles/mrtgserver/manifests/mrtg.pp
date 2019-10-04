@@ -31,16 +31,9 @@ class mrtgserver::mrtg(){
 	  mode   => $mode,
   }
 
-  file { '/var/www/mrtg/test':
-    ensure => directory,
-	  owner  => $owner,
-	  group  => $group,
-	  mode   => $mode,
-  }
-
   exec { '10.2.0.2':
   creates => "/etc/mrtg/10.2.0.2.cfg",
-  command => "/usr/bin/cfgmaker network4core@dminUPR@10.2.0.2 > /etc/mrtg/10.2.0.2.cfg"
+  command => "/usr/bin/cfgmaker network4core@dminUPR@10.2.0.2 > /etc/mrtg/test.cfg"
   }
   ######## GENERACIÓN DE LOS ARCHIVOS .CFG ########
   #  each($::mrtgserver::ip) |Integer $index, String $value|{
