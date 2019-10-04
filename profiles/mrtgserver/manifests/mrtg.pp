@@ -26,9 +26,16 @@ class mrtgserver::mrtg(){
 
   file { '/var/www/mrtg/videoconferencia':
     ensure => directory,
-	owner  => $owner,
-	group  => $group,
-	mode   => $mode,
+	  owner  => $owner,
+	  group  => $group,
+	  mode   => $mode,
+  }
+
+  file { '/var/www/mrtg/test':
+    ensure => directory,
+	  owner  => $owner,
+	  group  => $group,
+	  mode   => $mode,
   }
 
   exec { 'test':
