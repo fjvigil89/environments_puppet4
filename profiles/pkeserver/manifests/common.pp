@@ -18,25 +18,25 @@ class pkeserver::common {
   }
 
   exec{"cp_pxlinux":
-    command     => '/usr/bin/cp /usr/lib/PXELINUX/pxelinux.0 /var/lib/tftpboot/',
+    command     => 'cp /usr/lib/PXELINUX/pxelinux.0 /var/lib/tftpboot/',
   }
   exec{"cp_menu32":
-    command     => '/usr/bin/cp /usr/lib/syslinux/modules/bios/menu.c32 /var/lib/tftpboot/',
+    command     => 'cp /usr/lib/syslinux/modules/bios/menu.c32 /var/lib/tftpboot/',
   }
   exec{"cp_ldlinux.c32 ":
-    command     => '/usr/bin/cp /usr/lib/syslinux/modules/bios/ldlinux.c32 /var/lib/tftpboot/',
+    command     => 'cp /usr/lib/syslinux/modules/bios/ldlinux.c32 /var/lib/tftpboot/',
   }
   exec{"cp_libmenu.c32":
-    command     => '/usr/bin/cp /usr/lib/syslinux/modules/bios/libmenu.c32 /var/lib/tftpboot/',
+    command     => 'cp /usr/lib/syslinux/modules/bios/libmenu.c32 /var/lib/tftpboot/',
   }
   exec{"cp_libutil.c32":
-    command     => '/usr/bin/cp /usr/lib/syslinux/modules/bios/libutil.c32 /var/lib/tftpboot/',
+    command     => 'cp /usr/lib/syslinux/modules/bios/libutil.c32 /var/lib/tftpboot/',
   }
   exec{"cp_libcom32":
-    command     => '/usr/bin/cp /usr/lib/syslinux/modules/bios/libcom32.c32 /var/lib/tftpboot/',
+    command     => 'cp /usr/lib/syslinux/modules/bios/libcom32.c32 /var/lib/tftpboot/',
   }
   exec{"cp_vesamenu.c32":
-    command     => '/usr/bin/cp /usr/lib/syslinux/modules/bios/vesamenu.c32 /var/lib/tftpboot/',
+    command     => 'cp /usr/lib/syslinux/modules/bios/vesamenu.c32 /var/lib/tftpboot/',
   }
 
 }
