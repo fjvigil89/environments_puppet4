@@ -109,13 +109,13 @@ class mrtgserver::mrtg(){
 
   cron {'indexmaker_device':
     user    => $owner,
-    command => '/usr/bin/indexmaker --columns=2 --addhead="<H1 align= "center" > Multi Router Traffic Grapher <H1>" --title="Tr&aacute;fico de Enlaces UPR" /etc/mrtg/192.168.200.1.cfg /etc/mrtg/10.2.1.1.cfg /etc/mrtg/10.2.8.2.cfg /etc/mrtg/10.2.0.2.cfg > /var/www/mrtg/index.html',
+    command => 'indexmaker --columns=2 --addhead="<H1 align= "center" > Multi Router Traffic Grapher <H1>" --title="Tr&aacute;fico de Enlaces UPR" /etc/mrtg/192.168.200.1.cfg /etc/mrtg/10.2.1.1.cfg /etc/mrtg/10.2.8.2.cfg /etc/mrtg/10.2.0.2.cfg > /var/www/mrtg/index.html',
     minute  => '*/1'
   }
 
   cron {'indexmaker_sensores':
     user    => $owner,
-    command => '/usr/bin/indexmaker --columns=2 --title="Temperatura y Humedad DATACENTER-UPR" /etc/mrtg/mrtg.sensor1.cfg /etc/mrtg/mrtg.sensor2.cfg > /var/www/mrtg/sensores/index.html',
+    command => 'indexmaker --columns=2 --title="Temperatura y Humedad DATACENTER-UPR" /etc/mrtg/mrtg.sensor1.cfg /etc/mrtg/mrtg.sensor2.cfg > /var/www/mrtg/sensores/index.html',
     minute  => '*/1'
   }
 #2> /dev/null&
