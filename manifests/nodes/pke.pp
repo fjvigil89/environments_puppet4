@@ -7,6 +7,6 @@ node 'pke.upr.edu.cu' {
     mta_enabled     => false,
   }
 
-
+ class {'::pkeserver':;}
 }
 
