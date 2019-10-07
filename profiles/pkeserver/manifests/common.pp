@@ -15,7 +15,16 @@ class pkeserver::common {
     owner  => 'root',
     group  => 'root',
     mode   => '0644',
+  }->
+  file{'/var/lib/tftpboot/pxelinux.cfg/':
+    ensure => 'file',
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0644',
+    source => 'puppet:///modules/pkeserver/default',
   }
+
+
 
   exec{"cp_pxlinux":
     command     => 'cp /usr/lib/PXELINUX/pxelinux.0 /var/lib/tftpboot/',
