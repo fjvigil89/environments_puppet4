@@ -4,13 +4,13 @@
 # Configuracion de Puppetdb
 
 class puppetdb_server {
- class { 'puppetdb':
+  class { 'puppetdb':
   listen_address          => '0.0.0.0',
   }
-  class { 'puppetdb::master::config':
-    manage_report_processor => true,
-    enable_reports          => true,
-   }
+# class { 'puppetdb::master::config':
+#   manage_report_processor => true,
+#   enable_reports          => true,
+#   }
 
   include puppetboardserver
 
@@ -30,4 +30,3 @@ class puppetdb_server {
   #class { '::puppetboardserver':}
   #  class { '::puppetboardserver':}
 }
-

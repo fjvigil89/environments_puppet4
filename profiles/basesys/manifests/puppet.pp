@@ -25,14 +25,14 @@ class basesys::puppet{
     ensure  => absent,
   }
   
-  class { '::puppet':
-      puppetmaster         => $basesys::puppetmaster,
-      manage_packages      => $basesys::params::manage_packages,
-      runmode              => $basesys::params::runmode,
-      version              => $basesys::params::puppet_version,
-      unavailable_runmodes => ['systemd.timer'],
-      environment          => $basesys::puppet_environment,
-    }
+ # class { '::puppet':
+ #     puppetmaster         => $basesys::puppetmaster,
+ #     manage_packages      => $basesys::params::manage_packages,
+ #     runmode              => $basesys::params::runmode,
+ #     version              => $basesys::params::puppet_version,
+ #     unavailable_runmodes => ['systemd.timer'],
+ #     environment          => $basesys::puppet_environment,
+ #   }
     # For the network puppet module
     #package { 'ipaddress':
     #  ensure   => installed,

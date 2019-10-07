@@ -1,7 +1,7 @@
 ## Manage Apache config 
 
 class mrtgserver::apache(){
-  include apache
+#  include apache
 
   apache::vhost { 'mrtg':
     port       => '80',
@@ -13,10 +13,15 @@ class mrtgserver::apache(){
   apache::vhost { 'whois':
     port       => '80',
     docroot    => '/var/www/whois/ip/web/',
-    servername => 'whois-pup.upr.edu.cu',
+    servername => 'whois.upr.edu.cu',
     aliases    => 'whois',
+	  directories   => [{
+           'path' => '/var/www/whois/ip/web/',
+           'options'   => ['Indexes','FollowSymLinks','MultiViews'],
+#           'allow_override' => 'All',
+           'directoryindex' => 'index.php',
+         },],
   }
-
   apache::vhost { 'sensores':
     port       => '80',
     docroot    => '/var/www/mrtg/sensores/',
