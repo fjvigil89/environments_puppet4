@@ -16,7 +16,7 @@ class pkeserver::common {
     group  => 'root',
     mode   => '0644',
   }->
-  file{'/var/lib/tftpboot/pxelinux.cfg/':
+  file{'/var/lib/tftpboot/pxelinux.cfg/default':
     ensure => 'file',
     owner  => 'root',
     group  => 'root',
