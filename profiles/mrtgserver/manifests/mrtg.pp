@@ -47,21 +47,21 @@ class mrtgserver::mrtg(){
 
   ####DISPOSITIVOS####
 
-  file { '/etc/mrtg/10.2.1.1.cfg':
+  /* file { '/etc/mrtg/10.2.1.1.cfg':
     ensure => 'file',
     owner  => 'root',
     group  => 'root',
     mode   => '0644',
     source => 'puppet:///modules/mrtgserver/10.2.1.1.cfg',
-  }
+  } */
 
-  file { '/etc/mrtg/10.2.8.2.cfg':
+  /* file { '/etc/mrtg/10.2.8.2.cfg':
     ensure => 'file',
     owner  => 'root',
     group  => 'root',
     mode   => '0644',
     source => 'puppet:///modules/mrtgserver/10.2.8.2.cfg',
-  }
+  } */
 
   file { '/etc/mrtg/192.168.200.1.cfg':
     ensure => 'file',
@@ -71,13 +71,21 @@ class mrtgserver::mrtg(){
     source => 'puppet:///modules/mrtgserver/192.168.200.1.cfg',
   }
 
-  file { '/etc/mrtg/10.2.8.4.cfg':
+  file { '/etc/mrtg/10.2.0.2.cfg':
+    ensure => 'file',
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0644',
+    source => 'puppet:///modules/mrtgserver/10.2.0.2.cfg',
+  }
+
+  /* file { '/etc/mrtg/10.2.8.4.cfg':
     ensure => 'file',
     owner  => 'root',
     group  => 'root',
     mode   => '0644',
     source => 'puppet:///modules/mrtgserver/10.2.8.4.cfg',
-  }
+  } */
 
   ####SENSORES####
 
