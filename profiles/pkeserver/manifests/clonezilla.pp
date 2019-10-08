@@ -11,7 +11,7 @@ class pkeserver::clonezilla {
     path => "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:",
   }->
   exec{"unzip_clonezilla":
-    command     => 'unzip clonezilla-live-2.6.3-7-amd64.zip -d /var/lib/tftpboot/',
+    command     => 'unzip -f clonezilla-live-2.6.3-7-amd64.zip -d /var/lib/tftpboot/',
     path => "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:",
     onlyif => "test -f ./clonezilla-live-2.6.3-7-amd64.zip"
   }
