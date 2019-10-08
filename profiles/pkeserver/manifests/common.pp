@@ -9,14 +9,14 @@ class pkeserver::common {
     owner  => 'root',
     group  => 'root',
     mode   => '0644',
-    noop   => 'true',
+    # noop   => 'true',
   }
   file{'/var/lib/tftpboot/pxelinux.cfg':
     ensure => 'directory',
     owner  => 'root',
     group  => 'root',
     mode   => '0644',
-    noop   => 'true',
+    #noop   => 'true',
   }->
   file{'/var/lib/tftpboot/pxelinux.cfg/default':
     ensure => 'file',
@@ -24,7 +24,7 @@ class pkeserver::common {
     group  => 'root',
     mode   => '0644',
     source => 'puppet:///modules/pkeserver/default',
-    noop   => 'true',
+    #noop   => 'true',
   }
 
 
