@@ -1,4 +1,4 @@
-node '10.2.4.170' {
+node 'henry-test.upr.edu.cu' {
   include puppetserver
   package { 'lsb-release':
           ensure => installed,
