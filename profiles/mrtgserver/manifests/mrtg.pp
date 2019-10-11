@@ -52,6 +52,14 @@ class mrtgserver::mrtg(){
     source => 'puppet:///modules/mrtgserver/10.2.0.2.cfg',
   }
 
+  file { '/etc/mrtg/10.2.1.1.cfg':
+    ensure => 'file',
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0644',
+    source => 'puppet:///modules/mrtgserver/10.2.1.1.cfg',
+  }
+
   ####SENSORES####
 
   file { '/etc/mrtg/mrtg.sensor1.cfg':
@@ -74,7 +82,7 @@ class mrtgserver::mrtg(){
 
   cron {'indexmaker_device':
     user    => $owner,
-    command => 'indexmaker --columns=2 --addhead="<H1 align= "center" > Multi Router Traffic Grapher <H1>" --title="Tr&aacute;fico de Enlaces UPR" /etc/mrtg/192.168.200.1.cfg /etc/mrtg/10.2.0.2.cfg > /var/www/mrtg/index.html',
+    command => 'indexmaker --columns=2 --addhead="<H1 align= "center" > Multi Router Traffic Grapher <H1>" --title="Tr&aacute;fico de Enlaces UPR" /etc/mrtg/192.168.200.1.cfg /etc/mrtg/10.2.0.2.cfg /etc/mrtg/10.2.1.1.cfg > /var/www/mrtg/index.html',
     minute  => '*/1'
   }
 
