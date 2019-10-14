@@ -73,4 +73,20 @@ class {'::serv_logrotate':
   log_path         => ['/home/Sync-UPR/master/storage/logs/*.log', '/var/log/apache2/*.log'],
 }
 
+ file{'/etc/borraram.sh':
+    ensure => 'file',
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0644',
+    source => 'puppet:///modules/wh_php_apache/borraram.sh',
+  }->
+ cron{'borrarram':
+    ensure  => present,
+    command => '/etc/borraram.sh',
+    hour    => [1],
+    minute  => 0,
+  }
+
+
+
 }
