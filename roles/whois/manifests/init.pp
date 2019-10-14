@@ -1,12 +1,12 @@
 # Class: whois
 #
 class whois {
-#  file { '/var/www/whois':
-#    ensure => directory,
-#    group  => 'root',
-#    owner  => 'root',
-#    mode   => '0775',
-#    }~>
+ file { '/var/www/whois':
+   ensure => directory,
+   group  => 'root',
+   owner  => 'root',
+   mode   => '0775',
+   }~>
 class{'::php_server':
   version      => '7.0',
   packages     => ['php7.0-mbstring','r10k','php7.0','php7.0-cli','php7.0-curl','php7.0-intl','php7.0-ldap','php7.0-mysql','php7.0-sybase','libapache2-mod-php7.0','php7.0-mcrypt','phpmyadmin','freetds-bin','freetds-common','php7.0-gd','php7.0-gmp','php7.0-snmp'],
