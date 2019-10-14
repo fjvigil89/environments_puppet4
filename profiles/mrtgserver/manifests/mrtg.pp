@@ -1,5 +1,7 @@
 #Clase MRTG
 
+#Clase MRTG
+
 class mrtgserver::mrtg(){
   package { 'mrtg':
     ensure => installed,
