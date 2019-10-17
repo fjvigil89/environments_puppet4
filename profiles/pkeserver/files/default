@@ -1,0 +1,16 @@
+default vesamenu.c32
+prompt 0
+timeout 50
+
+# Local Hard Disk pxelinux.cfg default entry
+LABEL 1
+    MENU LABEL ^1) Boot local hard drive
+    MENU AUTOBOOT
+    MENU DEFAULT
+    LOCALBOOT 0
+
+# Clonezilla pxelinux.cfg default entry
+LABEL 2
+    MENU LABEL ^2) Clonezilla Live
+    KERNEL clonezilla/live/vmlinuz
+    APPEND ramdisk_size=32768 initrd=clonezilla/live/initrd.img boot=live union=overlay username=user config components noswap edd=on nomodeset noeject locales=en_US.UTF-8 keyboard-layouts=NONE net.ifnames=0 ocs_live_extra_param="" ocs_live_keymap="NONE" ocs_live_batch="yes" ocs_lang="en_US.UTF-8" vga=788 ip=frommedia nosplash  fetch=tftp://10.2.4.84/clonezilla/live/filesystem.squashfs
