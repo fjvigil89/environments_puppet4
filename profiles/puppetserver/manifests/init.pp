@@ -47,9 +47,10 @@ class puppetserver  {
     runmode                     => 'cron',
   }
   class { '::r10k':
-    r10k_basedir              => "/etc/puppetlabs/code/environments",
-    configfile                => "/etc/puppetlabs/r10k/r10k.yaml",
-    sources                   => {
+    r10k_basedir => "/etc/puppetlabs/code/environments",
+    cachedir     => "/opt/puppetlabs/r10k/cache",
+    configfile   => "/etc/puppetlabs/r10k/r10k.yaml",
+    sources      => {
       'environments' => {
         'remote'  => 'git@gitlab.upr.edu.cu:dcenter/environments.git',
         'basedir' => "${r10k_basedir}",
