@@ -43,7 +43,7 @@ class puppetserver  {
     #server_common_modules_path  => '',
     #hiera_config                => '$codedir/hiera.yaml',
     # Staat op agent omdat we de server manueel upgraden!
-    manage_packages             => 'agent',
+    manage_packages             => 'server',
     runmode                     => 'cron',
   }
   class { '::r10k':
