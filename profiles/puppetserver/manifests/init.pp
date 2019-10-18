@@ -46,7 +46,7 @@ class puppetserver  {
     manage_packages             => 'agent',
     runmode                     => 'cron',
   }
-  class { '::r10kserver':
+  class { '::r10k':
     r10k_basedir              => "/etc/puppetlabs/code/environments",
     configfile                => "/etc/puppetlabs/r10k/r10k.yaml",
     sources                   => {
