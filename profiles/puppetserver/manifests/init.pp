@@ -46,6 +46,17 @@ class puppetserver  {
     manage_packages             => 'true',
     runmode                     => 'cron',
   }
+  class { '::r10kserver::r10k':
+    r10k_basedir              => "/etc/puppetlabs/code/environments",
+    configfile                => "/etc/puppetlabs/r10k/r10k.yaml",
+    sources                   => {
+      'environments' => {
+        'remote'  => 'git@gitlab.upr.edu.cu:dcenter/environments.git',
+        'basedir' => "${r10k_basedir}",
+        'prefix'  => false,
+        },
+      },
+    }
   # lint:ignore:140chars
   /*cron {
     'r10k-deploy':
