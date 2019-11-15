@@ -24,7 +24,6 @@ mod 'mayflower-prosody', '0.4.0'
 mod 'dwerder-graphite', '7.3.0'
 mod 'vpgrp-snmpd', '1.0.7'
 mod 'wyrie-spamassassin', '1.1.1'
-mod 'jmkeyes-razor', '0.0.7'
 mod 'derdanne-nfs', '2.0.8'
 #mod 'millerjl1701-samba', '1.0.2'
 mod 'ajjahn-samba', '0.5.0'
@@ -173,3 +172,8 @@ mod 'dcenter/gitlab_ci_multi_runner',
 mod 'dcenter/ansible',
   :git => 'git@gitlab.upr.edu.cu:dcenter/puppet-ansible.git',
   :ref => '6747494d8f8049b1455c7a49be15d334d019c34a'
+
+#razor para mta
+mod 'dcenter/razor',
+  :git => 'git@gitlab.upr.edu.cu:dcenter/puppet-razor.git',
+  :ref => '5e3a12cacc6a3f714bcb2760426cf1ce1e282275'
