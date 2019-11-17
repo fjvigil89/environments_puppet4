@@ -20,9 +20,11 @@ basesys::accounts:
     manage_primary_group: false
     gid: '100'
     tag: 'systemen'
-    password: '$6$SuHGquzM$TzxxgyrxEupaU5R3SZbIcDA6A.9xs/DQEJjU7rNLv8JJFBWyw2l3QnW.ll4czg2I//6YFdrk.l6Psj9KXwzl..'
-    sshkeys:
-      - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDnU3PaL6ik7aM2DfLarz27olqx2Xxu8K8DoQSfp+JPMjlhHlNfInxS568tZ7fY46PBIHTfJhs9dV5SxeHTubTYFZbBiMPUrZSZjEamVPgzc+C0Ap/HKNu40orklMwdfYvplsO5KtWvuBtdtT2sougnr7IHINC7y/hBSH2GfLH/AtL2VAfvgytVdg7jz+Q2WqkcLauPG9ZMeYLLXRJaxj9bFfv5LVafprjlK8oL6PAym3viBPBxFYl3wwMBjfGa57DMoRP/gLH34E2NkSOlFPfUoZqVBkNIOZySfmqqNdcJbEBW7TvHTxDSDC/ORr3uA15P89SPl0kBhBdK4SuiYTfv3yCT+NOsU8Mx+4mcmvUfi4sx0t4BP2LX//5mDE3wGRELoBBd5QjEv0PwcCUfYmmqLRjYFOdLiFGmb+LMGO+ZcmNV9PmAz4mPTsKm0Ytm8CkOwFJZNZuhrPkWTugTcyjT2wfAV890/TH4CV6AkshvCxe6Ftn4s3E+3JxALX900+MZiCWe6YUwG93dXZqIovb19r+6CIhDMMgDK3645aSFKQmhZoMAH1/r2sQ3/lW9zeHYLBJWI872MJhnMZEzvvlX6Zyy7rZZkvbQpB28Iw2wbGzrHhuwUo72Rahdg+rDdd+rHHDeW4I+quSJ8zmcaOu5h5HjtWPXmRz9Eh/kOP6aXQ== arian@Nazgul'
+    locked: false
+    purge_sshkeys: false
+    #password: '!!'
+    #sshkeys:
+    #  - '' 
   'rene':
     comment: 'Rene Antonio'
     uid: '510'
