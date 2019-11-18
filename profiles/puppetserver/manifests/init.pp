@@ -22,34 +22,34 @@ class puppetserver  {
     mode   => '0644',
   }
   class { '::puppet':
-    server                      => true,
-    server_foreman              => false,
+    server                   => true,
+    server_foreman           => false,
     #server_passenger            => false,
     #server_environments         => [],
     #puppetdb                    => true,
-    server_puppetdb_host        => $puppetserver::puppetdb_server,
+    server_puppetdb_host     => $puppetserver::puppetdb_server,
     #server_reports              => 'puppetdb',
     #server_storeconfigs_backend => 'puppetdb',
-    server_jvm_min_heap_size    => '2G',
-    server_jvm_max_heap_size    => '2G',
-    autosign                    => false,  #'/etc/puppetlabs/code/environments/production/bin/autosign-dns',
+    server_jvm_min_heap_size => '2G',
+    server_jvm_max_heap_size => '2G',
+    autosign                 => false,  #'/etc/puppetlabs/code/environments/production/bin/autosign-dns',
     #autosign_mode               => '755',
-    server_external_nodes       => '',
-    environment                 => 'production',
-    version                     => 'latest',
+    server_external_nodes    => '',
+    environment              => 'production',
+    version                  => 'latest',
     #version                     => "5.5.1-1${::lsbdistcodename}",
     #server_puppetserver_version => '5.1.0',
     #server_version              => '5.3.5-1puppetlabs1',
     #server_common_modules_path  => '',
     #hiera_config                => '$codedir/hiera.yaml',
     # Staat op agent omdat we de server manueel upgraden!
-    manage_packages             => 'server',
-    runmode                     => 'cron',
+    manage_packages          => 'server',
+    runmode                  => 'cron',
   }
-  /* class { '::r10k':
-    r10k_basedir => "/etc/puppetlabs/code/environments",
-    cachedir     => "/opt/puppetlabs/r10k/cache",
-    configfile   => "/etc/puppetlabs/r10k/r10k.yaml",
+  class { '::r10k':
+    r10k_basedir => '/etc/puppetlabs/code/environments',
+    cachedir     => '/opt/puppetlabs/r10k/cache',
+    configfile   => '/etc/puppetlabs/r10k/r10k.yaml',
     sources      => {
       'environments' => {
         'remote'  => 'git@gitlab.upr.edu.cu:dcenter/environments.git',
@@ -57,7 +57,7 @@ class puppetserver  {
         'prefix'  => false,
         },
       },
-    } */
+    }
   # lint:ignore:140chars
   /*cron {
     'r10k-deploy':
@@ -94,5 +94,4 @@ class puppetserver  {
       command     => '/etc/init.d/puppetserver restart',
       refreshonly => true;
   }
-
 }
