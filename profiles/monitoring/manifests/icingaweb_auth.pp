@@ -31,7 +31,7 @@ icingaweb2::config::groupbackend { 'ad-group-backend':
 
 #Manage Roles
 icingaweb2::config::role { 'SysAdmins':
-  users       => 'icingaadmin, arian, frank.vigil, rene, ymtnez, henry.fleitas, yandy',
+  users       => 'icingaadmin, frank.vigil, rene, ymtnez, henry.fleitas, yandy',
   groups      => 'SysAdmins',
   permissions => '*',
 }
