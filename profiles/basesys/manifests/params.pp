@@ -46,12 +46,13 @@ class basesys::params {
   $proto_ports     = ['tcp','upd','tcp','udp','tcp','udp','tcp','tcp','tcp']
 
   # Puppet agent settings
-  $puppet_enabled	 = true 
-  $puppetmaster          = 'puppet-master.upr.edu.cu'
-  $puppet_environment    = 'production'
-  $runmode               = 'cron'
-  $manage_packages       = 'agent'
-  $puppet_version	 = 'latest'
+  $puppet_enabled	    = true 
+  $puppetmaster       = 'puppet-master.upr.edu.cu'
+  $puppet_environment = 'production'
+  $runmode            = 'cron'
+  $manage_packages    = 'agent'
+  $puppet_version	    = 'latest'
+  $puppet_server 	    = true
   #$autosign              = '/etc/puppetlabs/code/environments/production/bin/autosign-dns'
   #$puppet_version        = $::osfamily ? {
   #  /Debian/ => "1.10.9-1${::lsbdistcodename}",

@@ -9,7 +9,7 @@ class puppetserver  {
 ::apt::source { 'puppetlabs-pc1-server':
     comment  => 'Puppetlabs PC1 Repository',
     location => 'http://repos.upr.edu.cu/puppet/apt',
-    repos    => 'PC1',
+    repos    => 'main',
     key      => {
       id     => '6F6B15509CF8E59E6E469F327F438280EF8D349F',
       server => 'pgp.mit.edu',
@@ -30,8 +30,8 @@ class puppetserver  {
     server_puppetdb_host     => $puppetserver::puppetdb_server,
     #server_reports              => 'puppetdb',
     #server_storeconfigs_backend => 'puppetdb',
-    server_jvm_min_heap_size => '1G',
-    server_jvm_max_heap_size => '1G',
+    server_jvm_min_heap_size => '2G',
+    server_jvm_max_heap_size => '2G',
     autosign                 => false,  #'/etc/puppetlabs/code/environments/production/bin/autosign-dns',
     #autosign_mode               => '755',
     server_external_nodes    => '',
