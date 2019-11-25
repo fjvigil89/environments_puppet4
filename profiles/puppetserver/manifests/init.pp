@@ -46,7 +46,7 @@ class puppetserver  {
     manage_packages          => 'server',
     runmode                  => 'cron',
   }
-  /* class { '::r10k':
+  class { '::r10k':
     r10k_basedir => '/etc/puppetlabs/code/environments',
     cachedir     => '/opt/puppetlabs/r10k/cache',
     configfile   => '/etc/puppetlabs/r10k/r10k.yaml',
@@ -57,7 +57,7 @@ class puppetserver  {
         'prefix'  => false,
         },
       },
-    } */
+    }
   # lint:ignore:140chars
   /*cron {
     'r10k-deploy':
