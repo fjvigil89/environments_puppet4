@@ -19,11 +19,11 @@ LABEL 2
 LABEL 3
     MENU LABEL ^3) Install Proxmox 6 - HTTP
     KERNEL data/proxmox6/images/pxeboot/vmlinuz
-    APPEND initrd=data/proxmox6/images/pxeboot/initrd.img method=http://http://ftp.upr.edu.cu/Software/Por_Sistemas_Operativos/Linux/SO/Proxmox/proxmox-ve_6.1-1.iso devfs=nomount
+    APPEND initrd=data/proxmox6/images/pxeboot/initrd.img method=http://ftp.upr.edu.cu/Software/Por_Sistemas_Operativos/Linux/SO/Proxmox/proxmox-ve_6.1-1.iso devfs=nomount
 
 # Ubuntu 18 pxelinux.cfg default entry 
 LABEL 4
     MENU LABEL ^4) Install Ubuntu 18 - HTTP
     KERNEL data/ubuntu18_64Bit/images/pxeboot/vmlinuz
-    APPEND initrd=data/ubuntu18_64Bit/images/pxeboot/initrd.img method=http://http://ftp.upr.edu.cu/Software/Por_Sistemas_Operativos/Linux/SO/Ubuntu/Ubuntu/ubuntu-18.04.1-desktop-amd64.iso devfs=nomount
+    APPEND initrd=data/ubuntu18_64Bit/images/pxeboot/initrd.img method=http://ftp.upr.edu.cu/Software/Por_Sistemas_Operativos/Linux/SO/Ubuntu/Ubuntu/ubuntu-18.04.1-desktop-amd64.iso devfs=nomount
 
