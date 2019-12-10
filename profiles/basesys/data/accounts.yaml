@@ -20,7 +20,7 @@ basesys::accounts:
     manage_primary_group: false
     gid: '100'
     tag: 'systemen'
-    locked: false
+    locked: true 
     purge_sshkeys: false
     #password: '!!'
     #sshkeys:
