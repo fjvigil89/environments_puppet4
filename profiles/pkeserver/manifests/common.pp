@@ -32,6 +32,11 @@ class pkeserver::common {
     notify => Service[dnsmasq]
   }
 
+  notify {'tftpboot has already been':
+      require => File['/var/lib/tftpboot'],
+    }
+
+
   service { 'dnsmasq' :
     ensure => running
   }
