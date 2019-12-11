@@ -19,7 +19,7 @@ LABEL 2
 LABEL 3
     MENU LABEL ^3) Install Proxmox 6 - HTTP
     KERNEL live/vmlinuz 
-    APPEND initrd=live/initrd.img method=http://ftp.upr.edu.cu/Software/Por_Sistemas_Operativos/Linux/SO/Proxmox/proxmox-ve_6.1-1.iso devfs=nomount
+    APPEND initrd=memdisk/initrd.img method=http://ftp.upr.edu.cu/Software/Por_Sistemas_Operativos/Linux/SO/Proxmox/proxmox-ve_6.1-1.iso devfs=nomount
 
 # Proxmox pxelinux.cfg default entry 
 LABEL 4
