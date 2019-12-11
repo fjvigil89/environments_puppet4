@@ -26,7 +26,7 @@ LABEL 4
     MENU LABEL ^4) Install Proxmox 6 - Local
     ROOT (hd0,0)
     KERNEL memdisk
-    APPEND initrd=proxmox-ve_6.1-1.iso 
+    APPEND iso initrd=proxmox-ve_6.1-1.iso 
     TEXT HELP
 	  Run Proxmox6 local
     ENDTEXT 
