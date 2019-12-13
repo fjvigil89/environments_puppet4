@@ -2,13 +2,13 @@ node 'news.upr.edu.cu' {
 
   class{'::wh_php_apache':;}
   
-  apache::vhost { 'sync.upr.edu.cu non-ssl':
-    servername    => 'sync.upr.edu.cu',
-    serveraliases => ['www.sync.upr.edu.cu'],
+  apache::vhost { 'news.upr.edu.cu non-ssl':
+    servername    => 'news.upr.edu.cu',
+    serveraliases => ['www.news.upr.edu.cu'],
     port          => '80',
-    docroot       => '/home/Sync-UPR/master/public/',
+    docroot       => '/home/News-UPR/master/public/',
     directories   => [ {
-      'path'           => '/home/Sync-UPR/master/public',
+      'path'           => '/home/News-UPR/master/public',
       'options'        => ['Indexes','FollowSymLinks','MultiViews'],
       'allow_override' => 'All',
       'directoryindex' => 'index.php',
