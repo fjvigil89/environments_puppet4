@@ -34,8 +34,8 @@ node 'news.upr.edu.cu' {
     remote       => "git@gitlab.upr.edu.cu:ysantalla/app-noticias.git",
     sources      => {
       'News-UPR' => {
-        'remote'           => "${remote}",
-        'basedir'          => "${r10k_basedir}",
+        'remote'           => $remote,
+        'basedir'          => $r10k_basedir,
         'prefix'           => false,
         'invalid_branches' => 'correct',
     },
