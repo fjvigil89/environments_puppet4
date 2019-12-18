@@ -22,9 +22,7 @@ node 'news.upr.edu.cu' {
   exec{"service_apache2_restart":
     command     => '/usr/bin/sudo service apache2 restart',
     refreshonly => true;
-  }
-
-
+  }->
   class {'r10kserver':
     r10k_basedir => "/home/News-UPR",
     cachedir     => "/var/cache/r10k",
