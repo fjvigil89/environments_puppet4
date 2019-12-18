@@ -55,7 +55,6 @@ node 'news.upr.edu.cu' {
     ensure       => present,
     name         => $::fqdn,
     path         => '/root/.ssh/id_dsa.pub',
-    token        => hiera('gitlab_api_token'),
     project_name => 'App-Noticias',
     server_url   => 'http://gitlab.upr.edu.cu',
     provider     => 'gitlab',
