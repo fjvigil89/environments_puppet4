@@ -30,7 +30,7 @@ node 'news.upr.edu.cu' {
   class {'r10kserver':
     r10k_basedir => "/home/News-UPR",
     cachedir     => "/var/cache/r10k",
-    configfile   => "/etc/r10k.yaml",
+    configfile   => "/etc/r10k/r10k.yaml",
     remote       => "git@gitlab.upr.edu.cu:ysantalla/app-noticias.git",
     sources      => {
       'News-UPR' => {
