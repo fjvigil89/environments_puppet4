@@ -42,22 +42,5 @@ node 'news.upr.edu.cu' {
   }
   } 
 
-  #https://docs.puppetlabs.com/references/latest/type.html#sshkey
-  sshkey { 'gitlab.upr.edu.cu':
-    ensure => present,
-    type   => 'ssh-rsa',
-    target => '/root/.ssh/known_hosts',
-    key    => 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDcODNgiShR6qzcgljO5TS64WWqelnn2rXJT7aORKeDU0TPYBZiqxnydLaMS1jlE2EBaACJac4oKVYxdZ9oKQOHdetL6KhJU0ORt1IpC7nwqxdHQ/5NT60+Rb7nDIdpHWYeXwSpCXSd1GNGsm0NJLckNZaq5Hl3VFxdwAwuQqqNVD2A861DfQE/+yQnu/ISuyO9rEarnLYeMkdlmTuL2MWub+9QVAYOzZHUZTr4/sHnZgaTfbGNoj0N+MX0bOwk8snYl7mQVSvmW5xqj5EL+t7ItSIvDhxnScGBpEY6f6wg2GDqUe48kfSMsV8PKiVSSa6d4nyE4UVmAVtgPEmX87Pj root@gitlab',
-}
-
-# Resource git_webhook is provided by https://forge.puppet.com/abrader/gms
-  git_deploy_key { 'news.upr.edu.cu':
-    ensure       => present,
-    name         => $::fqdn,
-    path         => '/root/.ssh/id_dsa.pub',
-    project_name => 'App-Noticias',
-    server_url   => 'http://gitlab.upr.edu.cu',
-    provider     => 'gitlab',
-}
 
 }
