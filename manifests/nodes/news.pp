@@ -6,9 +6,9 @@ node 'news.upr.edu.cu' {
     servername    => 'news.upr.edu.cu',
     serveraliases => ['www.news.upr.edu.cu'],
     port          => '80',
-    docroot       => '/home/News-UPR/master/public/',
+    docroot       => '/home/News-UPR/master/',
     directories   => [ {
-      'path'           => '/home/News-UPR/master/public',
+      'path'           => '/home/News-UPR/master',
       'options'        => ['Indexes','FollowSymLinks','MultiViews'],
       'allow_override' => 'All',
       'directoryindex' => 'index.php',
@@ -34,8 +34,8 @@ node 'news.upr.edu.cu' {
     remote       => "git@gitlab.upr.edu.cu:ysantalla/app-noticias.git",
     sources      => {
       'News-UPR' => {
-        'remote'           => 'git@gitlab.upr.edu.cu:frank.vigil/webServiceAssets.git',
-        'basedir'          => '/home/News-UPR',
+        'remote'           => "${remote}",
+        'basedir'          => "${r10k_basedir}",
         'prefix'           => false,
         'invalid_branches' => 'correct',
     },
