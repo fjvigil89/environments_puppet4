@@ -28,11 +28,11 @@ node 'news.upr.edu.cu' {
 
 
   class {'r10kserver':
-    $r10k_basedir => "/home/News-UPR",
-    $cachedir     => "/var/cache/r10k",
-    $configfile   => "/etc/r10k.yaml",
-    $remote       => "git@gitlab.upr.edu.cu:ysantalla/app-noticias.git",
-    $sources      => {
+    r10k_basedir => "/home/News-UPR",
+    cachedir     => "/var/cache/r10k",
+    configfile   => "/etc/r10k.yaml",
+    remote       => "git@gitlab.upr.edu.cu:ysantalla/app-noticias.git",
+    sources      => {
       'News-UPR' => {
         'remote'           => 'git@gitlab.upr.edu.cu:frank.vigil/webServiceAssets.git',
         'basedir'          => '/home/News-UPR',
