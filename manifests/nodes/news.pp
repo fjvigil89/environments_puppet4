@@ -17,7 +17,7 @@ node 'news.upr.edu.cu' {
       #redirect_dest    => 'https://sync.upr.edu.cu/',
   }->
   exec{"a2enmod_php7":
-    command => '/usr/bin/sudo a2enmod php7.0',
+    command => '/usr/bin/sudo a2enmod php7.0 | /usr/bin/sudo service apache2 restart',
   }->
   exec{"service_apache2_restart":
     command     => '/usr/bin/sudo service apache2 restart',
