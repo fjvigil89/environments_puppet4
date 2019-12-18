@@ -15,12 +15,10 @@ node 'news.upr.edu.cu' {
       },],
       #redirect_status  => 'permanent',
       #redirect_dest    => 'https://sync.upr.edu.cu/',
-  }
-
+  }->
   exec{"a2enmod_php7":
     command => '/usr/bin/sudo a2enmod php7.0',
-  }
-
+  }->
   exec{"service_apache2_restart":
     command     => '/usr/bin/sudo service apache2 restart',
     refreshonly => true;
