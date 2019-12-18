@@ -27,7 +27,7 @@ node 'news.upr.edu.cu' {
   }
 
 
-  class {'r10kserver':{
+  class {'r10kserver':
     $r10k_basedir => "/home/News-UPR",
     $cachedir     => "/var/cache/r10k",
     $configfile   => "/etc/r10k.yaml",
@@ -40,7 +40,7 @@ node 'news.upr.edu.cu' {
         'invalid_branches' => 'correct',
     },
   }
-  }
+  } 
 
   #https://docs.puppetlabs.com/references/latest/type.html#sshkey
   sshkey { 'gitlab.upr.edu.cu':
