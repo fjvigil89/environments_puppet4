@@ -7,7 +7,7 @@ node 'news.upr.edu.cu' {
     serveraliases   => ['www.news.upr.edu.cu'],
     port            => '80',
     docroot         => '/home/News-UPR/master/',
-    custom_fragment => 'AddType application/x-httpd-php .php',
+    custom_fragment => 'Alias /phpmyadmin /usr/share/phpmyadmin',
     directories     => [ {
       'path'           => '/home/News-UPR/master',
       'options'        => ['Indexes','FollowSymLinks','MultiViews'],
