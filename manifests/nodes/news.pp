@@ -3,11 +3,12 @@ node 'news.upr.edu.cu' {
   class{'::wh_php_apache':;}
   
   apache::vhost { 'news.upr.edu.cu non-ssl':
-    servername    => 'news.upr.edu.cu',
-    serveraliases => ['www.news.upr.edu.cu'],
-    port          => '80',
-    docroot       => '/home/News-UPR/master/',
-    directories   => [ {
+    servername      => 'news.upr.edu.cu',
+    serveraliases   => ['www.news.upr.edu.cu'],
+    port            => '80',
+    docroot         => '/home/News-UPR/master/',
+    custom_fragment => 'AddType application/x-httpd-php .php',
+    directories     => [ {
       'path'           => '/home/News-UPR/master',
       'options'        => ['Indexes','FollowSymLinks','MultiViews'],
       'allow_override' => 'All',
