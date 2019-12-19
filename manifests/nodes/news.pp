@@ -12,17 +12,16 @@ node 'news.upr.edu.cu' {
       'options'        => ['Indexes','FollowSymLinks','MultiViews'],
       'allow_override' => 'All',
       'directoryindex' => 'index.php',
-      },],
+      },
+      {
+      'path'           => '/usr/share/phpmyadmin',
+      'options'        => ['FollowSymLinks'],
+      'allow_override' => 'All',
+      'directoryindex' => 'index.php',
+      },
+    ],
       #redirect_status  => 'permanent',
       #redirect_dest    => 'https://sync.upr.edu.cu/',
-  }->
-  phpmyadmin::vhost { 'phpmyadmin.news.upr.edu.cu':
-    vhost_enabled => true,
-    priority      => '20',
-    docroot       => $phpmyadmin::params::doc_path,
-    ssl           => false,
-    # ssl_cert      => 'puppet:///modules/phpmyadmin/sslkey/internal.domain.net.crt',
-    #ssl_key       => 'puppet:///modules/phpmyadmin/sslkey/internal.domain.net.private.key',
   }->
   exec{"a2enmod_php7":
     command => '/usr/bin/sudo a2enmod php7.0 | /usr/bin/sudo service apache2 restart',

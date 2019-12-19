@@ -67,8 +67,6 @@ class php_webserver (
     default_vhost => false,
     mpm_module    => 'prefork',
   }
-  class { 'phpmyadmin': }
-  phpmyadmin::server{ 'default': }
 
   # Load mod_rewrite if needed and not yet loaded
   if ! defined(Class['apache::mod::rewrite']) {
