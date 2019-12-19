@@ -48,10 +48,11 @@ node 'news.upr.edu.cu' {
 
 
   class { '::mysql::server':
-  root_password           => 'news',
-  remove_default_accounts => false,
-  restart                 => true,
-  override_options        => $override_options
-}
+    root_password           => 'news',
+    remove_default_accounts => false,
+    restart                 => true,
+    override_options        => $override_options
+  }
+
 
 }
