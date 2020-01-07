@@ -50,7 +50,7 @@ node 'dns.upr.edu.cu'{
       'progintec.upr.edu.cu' => [
         'type slave',
         "allow-query $allow",
-        "masters { 10.2.4.158; }",
+        "masters { 10.2.4.171; }",
         "file ${quote}${direct}/db.progintec.upr.edu.cu${quote}",
       ],
       #'tele4.upr.edu.cu' => [
@@ -128,7 +128,7 @@ node 'dns-cache1.upr.edu.cu'{
    dump_file          => 'cache_dump.db',
    statistics_file    => 'named_stats.txt',
    memstatistics_file => 'named_mem_stats.txt',
-   forwarders         => ['10.2.4.14','10.2.4.158'],
+   forwarders         => ['10.2.4.14','10.2.4.171'],
    forward            => true,
    }
 }

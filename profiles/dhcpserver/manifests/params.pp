@@ -36,6 +36,8 @@ class dhcpserver::params{
  $macs                  = ['00:50:56:00:00:01']
  $ips                   = ['10.0.1.51']
 
- 
+#pke
+ $pxeserver   = "pke.upr.edu.cu"
+ $pxefilename = "pxelinux.0"
 
 }

@@ -8,7 +8,7 @@ class gitlabserver {
   class { 'gitlab':
     external_url          => 'http://gitlab.upr.edu.cu',
     skip_auto_reconfigure => 'present',
-    skip_auto_migrations  => false,
+    #skip_auto_migrations  => false,
     #pgpass_file_ensure   => 'present',
     #pgbouncer_password   => 'YourPassword',
     backup_cron_enable    => true,
