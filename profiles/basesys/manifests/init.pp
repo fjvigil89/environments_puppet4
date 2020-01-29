@@ -10,6 +10,8 @@ class basesys (
 
   Boolean $dns_enabled                     = true,
   Array[String] $dnsservers                = $::basesys::params::dnsservers,
+  Array[String] $nsservers                 = $::basesys::params::nsservers,
+  Array[String] $dmzservers                = $::basesys::params::dmzservers,
   String $dnssearchdomains                 = $::basesys::params::dnssearchdomains,
 
   Boolean $time_enabled                    = true,
