@@ -4,5 +4,6 @@ node 'composer.upr.edu.cu' {
     application    => 'Composer',
     puppet_enabled => false,
     mta_enabled    => false,
+	dmz            => true,
   }
 }
