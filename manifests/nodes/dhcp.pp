@@ -5,7 +5,7 @@ node 'dhcp.upr.edu.cu' {
   #este desde profile
   class {'dhcpserver':
       interfaces   => ['eth0'],
-      nameservers  => ['10.2.1.8','10.2.4.13'],
+      nameservers  => $basesys::dnsservers,
       pool_enabled => true,
       pool         => [
         'Admin',

@@ -10,7 +10,7 @@ class basesys::dns (
   {
     if($::basesys::dmz == true){
       class { '::resolv_conf':
-      nameserver => ['200.14.49.2', '8.8.4.4'],
+      nameserver => $basesys::dmzservers,
       search     => $basesys::dnssearchdomains,
       }
     }
