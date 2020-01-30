@@ -5,8 +5,10 @@ class basesys::params {
   $pkgname = 'basesys'
   $conffile = 'basesys/etc/basesys.conf'
   
-  # DNS 10.2.1.13 forward internet another forward (10.2.1.8) upr
-  $dnsservers = [ '10.2.4.14','10.2.4.13']
+  # forward (10.2.1.8) upr
+  $dnsservers = ['10.2.1.8'] #10.2.4.14
+  $nsservers = ['200.14.49.2']#
+  $dmzservers = ['10.2.1.8','200.14.49.2']#
 
   # dominio
   $dnssearchdomains = 'upr.edu.cu'
