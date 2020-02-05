@@ -8,7 +8,8 @@ node 'ns1.upr.edu.cu'{
     puppet_enabled => false,
     repos_enabled  => true,
     mta_enabled    => false,
-    dns_enabled    => false,
+    dns_enabled    => true,
+	dmz			   => true,
     
   }
 }
