@@ -9,5 +9,6 @@ node 'henry-pup.upr.edu.cu' {
     repos_enabled   => true,
     mta_enabled     => false,
 	puppet_enabled  => false,
+	dmz				=> true,
   }
 }
