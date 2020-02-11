@@ -47,7 +47,7 @@ class puppetserver  {
     runmode                  => 'cron',
   }
   class { '::r10k':
-    r10k_basedir => '/etc/puppetlabs/code/environments',
+    r10k_basedir => '/etc/puppetlabs/r10k',
     cachedir     => '/opt/puppetlabs/r10k/cache',
     configfile   => '/etc/puppetlabs/r10k/r10k.yaml',
     sources      => {
