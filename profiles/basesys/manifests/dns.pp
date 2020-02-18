@@ -29,6 +29,7 @@ class basesys::dns (
           }
       }
   }
+  }
   else {
  		class {
       '::resolv_conf':
@@ -38,4 +39,4 @@ class basesys::dns (
 
   }
 }
-}
+
