@@ -8,7 +8,7 @@ node 'henry-pup.upr.edu.cu' {
     application     => 'Puppet Master Prueba',
     repos_enabled   => true,
     mta_enabled     => false,
-	puppet_enabled  => false,
-	dmz				=> true,
+  	 puppet_enabled  => false,
+	 dmz   			 => true,
   }
 }

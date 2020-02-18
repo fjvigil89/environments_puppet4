@@ -6,6 +6,7 @@
 
 class puppetserver  {
   #(String $puppetdb_server = 'localhost')
+  (String $puppetdb_server = '10.2.4.170')
 ::apt::source { 'puppetlabs-pc1-server':
     comment  => 'Puppetlabs PC1 Repository',
     location => 'http://repos.upr.edu.cu/puppet/apt',
@@ -24,12 +25,13 @@ class puppetserver  {
   class { '::puppet':
     server                   => true,
     server_foreman           => false,
+	server_ca				 => true,
     #server_passenger            => false,
     #server_environments         => [],
     #puppetdb                    => true,
     server_puppetdb_host     => $puppetserver::puppetdb_server,
-    #server_reports              => 'puppetdb',
-    #server_storeconfigs_backend => 'puppetdb',
+    server_reports              => 'puppetdb',
+    server_storeconfigs_backend => 'puppetdb',
     server_jvm_min_heap_size => '1G',
     server_jvm_max_heap_size => '3G',
     autosign                 => false,  #'/etc/puppetlabs/code/environments/production/bin/autosign-dns',
@@ -59,22 +61,21 @@ class puppetserver  {
       },
     }
   # lint:ignore:140chars
-  /*cron {
-    'r10k-deploy':
+  cron { 'r10k-deploy':
       ensure  => absent,
       command => '[ -x /usr/local/bin/r10k ] && /usr/local/bin/r10k deploy environment -p -c /etc/r10k.yaml',
-      minute  => [7,12,17,22,27,32,37,42,47,52,57];
+      $minute  => [7,12,17,22,27,32,37,42,47,52,57];
     'serverbeheer2hiera':
       ensure  => present,
       command => '/etc/puppetlabs/code/environments/production/bin/hosts2hiera.pl > /tmp/.hosts_$$ && mv /tmp/.hosts_$$ /var/lib/serverbeheer/data/serverbeheer.yaml',
       minute  => [7,12,17,22,27,32,37,42,47,52,57],
-  }*/
+  }
   # lint:endignore
   package {
     'libyaml-perl':
       ensure => installed,
   }
-  /*# Voor de network puppet module
+  # Voor de network puppet module
   package { 'ipaddress':
     ensure   => installed,
     provider => 'puppet_gem',
@@ -88,7 +89,7 @@ class puppetserver  {
       mode   => '0644',
       source => 'puppet:///modules/puppetserver/hiera.yaml',
       notify => Exec['restart-puppet-server'];
-  }*/
+  }
   exec {
     'restart-puppet-server':
       command     => '/etc/init.d/puppetserver restart',
