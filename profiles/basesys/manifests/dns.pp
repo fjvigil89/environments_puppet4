@@ -6,13 +6,6 @@
 class basesys::dns (
   ){
 
-  if($::basesys::dns_preinstall)
-  {
-    class { '::resolv_conf':
-          nameserver => $basesys::preinstall_dns,
-          search     => $basesys::dnssearchdomains,
-      }
-  }
   if($::basesys::dns_enabled)
   {
     if($::basesys::dmz == true){
@@ -22,11 +15,19 @@ class basesys::dns (
       }
     }
     else {
-      class { '::resolv_conf':
-          nameserver => $basesys::dnsservers,
-          search     => $basesys::dnssearchdomains,
+       if($::basesys::dns_preinstall)
+        {
+          class { '::resolv_conf':
+                nameserver => $basesys::preinstall_dns,
+                search     => $basesys::dnssearchdomains,
+          }
+        }
+      else{
+          class { '::resolv_conf':
+                nameserver => $basesys::dnsservers,
+                search     => $basesys::dnssearchdomains,
+          }
       }
-    }
   }
   else {
  		class {
@@ -36,4 +37,5 @@ class basesys::dns (
     }
 
   }
+}
 }
