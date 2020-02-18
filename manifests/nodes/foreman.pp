@@ -3,6 +3,7 @@ node 'foreman.upr.edu.cu' {
     uprinfo_usage   => 'servidor foreman',
     application     => 'Foreman',    
     repos_enabled   => false,
+    dns_preinstal
   }
 
 

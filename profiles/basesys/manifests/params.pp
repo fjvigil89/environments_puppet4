@@ -7,6 +7,7 @@ class basesys::params {
   
   # forward (10.2.1.8) upr
   $dnsservers = ['10.2.1.8'] #10.2.4.14
+  $preinstall_dns = ['10.2.1.8','8.8.8.8']#
   $nsservers = ['200.14.49.2']#
   $dmzservers = ['10.2.1.8','200.14.49.2']#
 

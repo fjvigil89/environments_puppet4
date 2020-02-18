@@ -6,6 +6,13 @@
 class basesys::dns (
   ){
 
+  if($::basesys::dns_preinstall)
+  {
+    class { '::resolv_conf':
+          nameserver => $basesys::preinstall_dns,
+          search     => $basesys::dnssearchdomains,
+      }
+  }
   if($::basesys::dns_enabled)
   {
     if($::basesys::dmz == true){
