@@ -10,7 +10,7 @@ class basesys (
 
   Boolean $dns_enabled                     = true,
   Boolean $dns_preinstall                  = false,
-  Array[String] $preinstall_dns            = $::basesys::params::preinstal_dns,
+  Array[String] $preinstall_dns            = $::basesys::params::preinstall_dns,
   Array[String] $dnsservers                = $::basesys::params::dnsservers,
   Array[String] $nsservers                 = $::basesys::params::nsservers,
   Array[String] $dmzservers                = $::basesys::params::dmzservers,
