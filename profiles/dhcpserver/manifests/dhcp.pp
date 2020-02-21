@@ -14,7 +14,7 @@ class dhcpserver::dhcp(){
   max_lease_time     => $dhcpserver::max_lease_time,
   pxeserver          => $dhcpserver::pxeserver,
   pxefilename        => $dhcpserver::pxefilename,
-  dhcp_conf_pxe      => "allow booting; allow bootp; allow unknown-clients;",
+  #dhcp_conf_pxe      => "allow booting; allow bootp; allow unknown-clients;",
 } 
 
 }
