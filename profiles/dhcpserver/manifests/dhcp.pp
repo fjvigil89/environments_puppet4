@@ -14,6 +14,7 @@ class dhcpserver::dhcp(){
   max_lease_time     => $dhcpserver::max_lease_time,
   pxeserver          => $dhcpserver::pxeserver,
   pxefilename        => $dhcpserver::pxefilename,
+  ipxe_bootstrap     => $dhcpserver::ipxe_bootstrap,
 } 
 
 }
