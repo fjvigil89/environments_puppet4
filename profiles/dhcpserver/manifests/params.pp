@@ -39,6 +39,5 @@ class dhcpserver::params{
 #pke
  $pxeserver   = "foreman.upr.edu.cu"
  $pxefilename = "pxelinux.0"
- $ipxe_bootstrap = "undionly.kpxe"
 
 }
