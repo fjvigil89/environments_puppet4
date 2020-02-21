@@ -6,6 +6,6 @@ node /^ntp\d+$/{
     repos_enabled  => true,
     mta_enabled    => false,
     time_enabled   => false,
-    preinstall_dns => true,
+    dns_preinstall => true,
   }
 }
