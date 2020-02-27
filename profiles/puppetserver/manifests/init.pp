@@ -22,6 +22,7 @@ class puppetserver  {
     mode   => '0644',
   }
   class { '::puppet':
+    agent                    => true,
     server                   => true,
     server_foreman           => true,
     server_foreman_facts     => true,
