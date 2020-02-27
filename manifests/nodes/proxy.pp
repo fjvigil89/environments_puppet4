@@ -37,8 +37,12 @@ node 'proxy-go.upr.edu.cu'{
    }
   class {'::metricbeatserver':
     modules  => ['system','golang']
-  } 
+  }
   
-
-
+  cron { 'restart pmproxy':
+    command => '/root/pmproxy -c /etc/pmproxy/conf.json',
+    user   => 'root',
+    hour   => 15,
+    minute => 30,
+  }
 }
