@@ -44,6 +44,6 @@ node 'proxy-go.upr.edu.cu'{
     ensure  => present,
     user    => 'root',
     hour    => 15,
-    minute  => 30,
+    minute  => 50,
   }
 }
