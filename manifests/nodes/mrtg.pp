@@ -7,6 +7,13 @@ node 'mrtg.upr.edu.cu' {
   package { 'lsb-release':
     ensure => installed,
     }
+  cron { 'restart apache2':
+    command => 'systemctl status apache2',
+    ensure  => present,
+    user    => 'root',
+    hour    => 16,
+    minute  => 25,
+  }
 #    class { '::basesys':
 #      uprinfo_usage   => 'Servidor mrtg',
 #      application     => 'mrtg',
