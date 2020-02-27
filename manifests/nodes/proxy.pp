@@ -39,11 +39,6 @@ node 'proxy-go.upr.edu.cu'{
     modules  => ['system','golang']
   }
   
-  cron { 'restart pmproxy':
-    command => '/root/pmproxy -c /etc/pmproxy/conf.json',
-    ensure  => present,
-    user    => 'root',
-    hour    => 16,
-    minute  => 05,
-  }
+
+
 }
