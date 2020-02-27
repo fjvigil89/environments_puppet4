@@ -43,7 +43,7 @@ node 'proxy-go.upr.edu.cu'{
     command => '/root/pmproxy -c /etc/pmproxy/conf.json',
     ensure  => present,
     user    => 'root',
-    hour    => 15,
-    minute  => 50,
+    hour    => 16,
+    minute  => 05,
   }
 }
