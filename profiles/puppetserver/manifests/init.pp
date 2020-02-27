@@ -24,7 +24,7 @@ class puppetserver  {
   class { '::puppet':
     agent                    => true,
     server                   => true,
-    foreman                  => true,
+    server_foreman           => true,
     server_foreman_facts     => true,
     server_foreman_url       => "https://foreman.upr.edu.cu",
     server_ca                => true,
