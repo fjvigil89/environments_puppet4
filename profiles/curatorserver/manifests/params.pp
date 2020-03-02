@@ -7,4 +7,5 @@ class curatorserver::params{
   $nombre                 =['purge_logstash_over_45_days']
   $descripcion          =['Delete indices older than 45 days (based on index name)']
   $index                =['proxy']
+  $repository_version   = '6'
 }

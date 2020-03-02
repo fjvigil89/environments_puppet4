@@ -7,6 +7,7 @@ class curatorserver(
   Array[String] $nombre           = $::curatorserver::params::nombre,
   Array[String] $descripcion      = $::curatorserver::params::descripcion,
   Array[String] $index            = $::curatorserver::params::index,
+  String $repository_version      = $::curatorserver::params::repository_version,
 
 )inherits curatorserver::params {
 
