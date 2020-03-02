@@ -12,7 +12,8 @@ class curatorserver(
 )inherits curatorserver::params {
 
   class {'::curator':
-    manage_repository => $manage_repository,
+    manage_repository  => $manage_repository,
+    repository_version => $repository_version,
   }
   class {'::curatorserver::accion':;}
   class {'::curatorserver::job':;}
