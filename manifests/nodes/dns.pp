@@ -128,7 +128,7 @@ node 'dns-cache1.upr.edu.cu'{
    dump_file          => 'cache_dump.db',
    statistics_file    => 'named_stats.txt',
    memstatistics_file => 'named_mem_stats.txt',
-   forwarders         => ['10.2.4.14','10.2.4.171'],
+   forwarders         => ['10.2.1.4','10.2.4.171'],
    forward            => true,
    }
 }
