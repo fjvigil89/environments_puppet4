@@ -1,4 +1,4 @@
-node 'henry-test.upr.edu.cu' {
+node 'henry-pup.upr.edu.cu' {
   include puppetserver
   package { 'lsb-release':
           ensure => installed,
@@ -8,5 +8,7 @@ node 'henry-test.upr.edu.cu' {
     application     => 'Puppet Master Prueba',
     repos_enabled   => true,
     mta_enabled     => false,
+  	puppet_enabled  => false,
+	dmz   			 => true,
   }
 }
