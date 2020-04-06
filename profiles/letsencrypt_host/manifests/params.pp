@@ -5,7 +5,9 @@
 # lint:ignore:80chars
 class letsencrypt_host::params {
   $dominios = ['upr.edu.cu']
-  $webroot_paths  = ['/var/www/upr.edu.cu']
-  $plugin = 'apache'
-  $email = 'admin@upr.edu.cu'
+  $webroot_paths  = ['/var/www/']
+  $plugin = 'standalone'
+  #$email = 'admin@upr.edu.cu'
+  $config_dir = '/tmp/letsencrypt'
+  
 }

@@ -1,0 +1,30 @@
+fixtures:
+  repositories:
+    stdlib: "https://github.com/puppetlabs/puppetlabs-stdlib.git"
+    accounts:
+      repo: "https://github.com/rgevaert/puppetlabs-accounts.git"
+      ref: "a8d42d248eaa2c5824512adffb55cb302389ac2f"
+    nshares:
+      repo: "git@github.ugent.be:DICT-Puppetmasters/puppet-nshares.git"
+      ref: "147482787164664b76aa1b7d81f7566634019f08"
+    otrs:
+      repo: "https://github.com/carroarmato0/puppet-otrs.git"
+      ref: "4736c645f2169e639853238edf3581a3837c472c"
+  symlinks:
+    otrs_instance: "#{source_dir}"
+  forge_modules:
+    sudo:
+      repo: "saz/sudo"
+      ref: "3.1.0"
+    nfs:
+      repo: 'derdanne/nfs'
+      ref: '0.0.14'
+    apache:
+      repo: "puppetlabs/apache"
+      ref: "1.10.0"
+    concat:
+      repo: 'puppetlabs/concat'
+      ref: '2.1.0'
+    archive:
+      repo: 'puppet/archive'
+      ref: '1.3.0'

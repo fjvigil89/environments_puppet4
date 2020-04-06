@@ -7,8 +7,8 @@
 ####
 # Gebruikersgroepen op basis van DICT organogram
 ####
-User_Alias  SYSTEMEN = frank, arian, rene, ymtnez, yandy
-User_Alias  NETWERKEN = frank, arian, rene, ymtnez, yandy
+User_Alias  SYSTEMEN = frank, rene, ymtnez, yandy, henry, gitlab
+User_Alias  NETWERKEN = frank, rene, ymtnez, yandy, henry, gitlab
 
 #User_Alias  ICTO_ADMINS = tberton, krkeppen
 #User_Alias  ICTO = pcool, tvhoecke, kuvwynsb, wjudgrys, ocauberg, bvderkim, gnootaer, brugooss, ICTO_ADMINS
@@ -39,6 +39,7 @@ Host_Alias  MYSQLSERVERS = mysql1, mysql2, mysql3, mysql4, mysql5, mysql6, tests
 # op RHEL wordt standaard een tty afgedwongen. Maar ansible heeft die niet
 Defaults:ansible !requiretty
 ansible   ALL = (ALL) NOPASSWD: ALL
+gitlab   ALL = (ALL) NOPASSWD: ALL
 
 # Systemen team members ook
 SYSTEMEN  ALL = (ALL) NOPASSWD: ALL

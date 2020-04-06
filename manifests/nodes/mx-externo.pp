@@ -3,6 +3,15 @@ node 'mx-externo.upr.edu.cu' {
     uprinfo_usage  => 'servidor mx-externo',
     application    => 'mx-externo',
     puppet_enabled => false,
+	dmz            => true,
     mta_enabled    => false,
   }
+  class {'::filebeatserver':
+    paths    => '/var/log/mail.log',
+    log_type => "correo",
+   }
+  class {'::metricbeatserver':
+    modules  => ['system']
+  }
+
 }

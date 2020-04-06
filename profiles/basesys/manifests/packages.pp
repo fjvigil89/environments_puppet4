@@ -40,7 +40,7 @@ class basesys::packages {
 
     # lint:ignore:80chars
     $p_os_independant = [ 'wget', 'curl', 'man-db', 'bridge-utils', 'at', 'ntpdate', 'subversion-tools',
-                          'patchutils', 'ftp', 'rsync', 'binutils', 'make', 'openssl',
+                          'patchutils', 'ftp', 'rsync', 'binutils', 'openssl',
                           'xfsprogs', 'bc', 'acl', 'lsof', 'unzip', 'zip', 'screen', 'traceroute',
                           'bzip2', 'dmidecode', 'telnet', 'lvm2', 'tcpdump', 'mdadm',
                           'htop', 'iftop', 'iotop', ]
@@ -49,13 +49,17 @@ class basesys::packages {
       $qmu_agent = ['qemu-guest-agent']
       ensure_packages($qmu_agent)
     }
+    #Apparmor Proxmox 5.1 problem
+    if($::basesys::proxmox_enabled == true ){
+      $apparmor_proxmox = ['apparmor-profiles', 'apparmor-profiles-extra', 'apparmor-utils']
+      ensure_packages($apparmor_proxmox)
+    }
     case $::operatingsystem {
       'Debian', 'Ubuntu': {
 
-        $p_os_dependant = [ 'gem','perl-doc', 'bind9-host','gnupg',
-                            'ldap-utils', 'libwrap0-dev', 'arping', 
-                            'libconfig-general-perl', 'netcat',
-                            'links2', 'dnsutils','python-apt', 'ifupdown-extra','monitoring-plugins','libwww-perl','tzdata','mlocate','libmonitoring-plugin-perl' ]
+        $p_os_dependant = [ 'lsb-release','gem','perl-doc', 'bind9-host','gnupg', #'ldap-utils',
+                            'libwrap0-dev', 'arping', 'libconfig-general-perl', 'netcat','dnsutils','python-apt', 'ifupdown-extra',
+                            'monitoring-plugins','libwww-perl','tzdata','mlocate','libmonitoring-plugin-perl','sysstat' ]
 
         $packagelist_dist = $::lsbdistcodename ? {
           'lenny'   => [ 'scsiadd', 'cpp-doc','gcc-doc', 'automake1.4'],
@@ -65,7 +69,7 @@ class basesys::packages {
           'utopic'  => [ 'cpp-doc','gcc-doc', 'automake1.4' ],
           'vivid'   => [ 'cpp-doc','gcc-doc', 'automake1.4' ],
           'xenial'  => [ 'cpp-doc','gcc-doc'],
-          'bionic'  => ['cpp-doc','gcc-doc'],
+          'bionic'  => [ 'cpp-doc','gcc-doc'],
           'jessie'  => [ 'gcc-doc-base', 'automake1.11', 'jq'],          
           default   => [ 'gcc-doc-base'],
         }
@@ -81,7 +85,7 @@ class basesys::packages {
       }
 
       'RedHat', 'CentOS': {
-        $p_os_dependant = [ 'dhcp', 'nc', 'libconfig', 'tzdata','nagios-plugins-all' ]
+        $p_os_dependant = [ 'nc', 'libconfig', 'tzdata','nagios-plugins-all','sysstat' ]
       }
     }
 

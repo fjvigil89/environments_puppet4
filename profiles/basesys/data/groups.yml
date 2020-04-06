@@ -126,3 +126,6 @@ basesys::system_groups:
   'nslcd':
     ensure     : present
     gid        : '900'
+  'elasticsearch':
+    ensure     : present
+    gid        : '15008'

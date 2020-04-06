@@ -7,11 +7,11 @@ class mxserver {
     ensure => installed,
   }~>
   class { '::basesys':
-    uprinfo_usage  => 'servidor mx',
-    application    => 'MX Postfix',
+    uprinfo_usage   => 'servidor mx',
+    application     => 'MX Postfix',
     #puppet_enabled => false,
     #repos_enabled  => true,
-    mta_enabled    => true,
+    mta_enabled     => true,
   }
   include mx_server
 }

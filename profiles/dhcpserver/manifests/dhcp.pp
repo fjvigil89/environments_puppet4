@@ -11,7 +11,10 @@ class dhcpserver::dhcp(){
   interfaces         => $dhcpserver::interfaces,
   omapi_port         => $dhcpserver::omapi_port,
   default_lease_time => $dhcpserver::default_lease_time,
-  max_lease_time     => $dhcpserver::max_lease_time
+  max_lease_time     => $dhcpserver::max_lease_time,
+  pxeserver          => $dhcpserver::pxeserver,
+  pxefilename        => $dhcpserver::pxefilename,
+  #dhcp_conf_pxe      => "allow booting; allow bootp; allow unknown-clients;",
 } 
 
 }

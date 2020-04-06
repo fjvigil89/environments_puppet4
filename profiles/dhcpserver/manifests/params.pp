@@ -6,7 +6,7 @@ class dhcpserver::params{
   
 #basesys
  $dnsdomain          = [$::basesys::params::dnssearchdomains]
- $nameservers        = $::basesys::params::dnsservers
+ $nameservers        = ['10.2.1.8','10.2.4.13']
  $ntpservers         = $::basesys::params::ntp_server
 
 #dhcp
@@ -36,6 +36,8 @@ class dhcpserver::params{
  $macs                  = ['00:50:56:00:00:01']
  $ips                   = ['10.0.1.51']
 
- 
+#pke
+ $pxeserver   = "foreman.upr.edu.cu"
+ $pxefilename = "pxelinux.0"
 
 }

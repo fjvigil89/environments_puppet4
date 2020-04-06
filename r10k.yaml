@@ -1,0 +1,5 @@
+---
+sources:
+  site:
+    remote: 'git@gitlab.upr.edu.cu:dcenter/environments.git'
+    basedir: '/etc/puppetlabs/code/environments'

@@ -1,0 +1,7 @@
+fixtures:
+  repositories:
+    stdlib: "https://github.com/puppetlabs/puppetlabs-stdlib.git"
+  symlinks:
+    basesys: "#{source_dir}/../../profiles/basesys"
+    otrs_instance: "#{source_dir}/../../profiles/otrs_instance"
+    otrs_server: "#{source_dir}"

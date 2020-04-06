@@ -14,15 +14,6 @@ basesys::accounts:
     sshkeys:
       - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD0ZVH5uXCM9/gZhhDApFoshRH86kHqWFpuBrHAQUB8mNBMwI8lQbfwSrVsMv3UcdsvCjYzxPRv7/9Y73zuT32246sJo1Wm0fVZw4gG6p9Pcfc5f4gwo+KDJKcqb0qo5WfgD1xpGfprOBVmlGhGKm5xxRH6qg36Lgxj84oAFL10CK2cb63hw03XNpd4VLWSX9gOyFVyJLLwW+T6mdll2tICvGCAxVkqfBE4PiXS8Eg5m/stnIf1BvKqR9fsq2fmy8MWjaC7sW0xyIli9zJsC7bMWhL2apOiOObOUdndxGejKR0bxtALhywhGpJd7REIJiwnYkT/a2S482nJZ4ppaunJ frank@frank-PC'
       - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDggU4CwEb2RUNZdlGisPryiNb6rBHOMU/w3kG+u7XwEEQ56GTOTzL7+43YFsxtAKSU7kFvyd8ey2OjGc/3ZFUfNrfElzOOfAheoeOwqbHWrp29CEhz6DkLpsDDr9BIl8xc1vAxfP/nV4dn9X9HpwBDiY7q2Ast8WY9DE4QVr+tT2tS59zYuqMV347S8pek2uNcwEbPlhW4lZnhGe9XWqwvVJIkVV39tgT44u0YwPO46WebCnBsswJVggex+mA9xFlu0YBheK/OUfIcwADQ2VfDez3LzxifF+vEAFpCwSRVnn6JoO9d1VKFnbtB7iEHJkxUZdK7dGJ+V3k8HMgdKRHt frank@frank-UPRedes' 
-  'arian':
-    comment: 'Arian Trujillo'
-    uid: '509'
-    manage_primary_group: false
-    gid: '100'
-    tag: 'systemen'
-    password: '$6$SuHGquzM$TzxxgyrxEupaU5R3SZbIcDA6A.9xs/DQEJjU7rNLv8JJFBWyw2l3QnW.ll4czg2I//6YFdrk.l6Psj9KXwzl..'
-    sshkeys:
-      - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDnU3PaL6ik7aM2DfLarz27olqx2Xxu8K8DoQSfp+JPMjlhHlNfInxS568tZ7fY46PBIHTfJhs9dV5SxeHTubTYFZbBiMPUrZSZjEamVPgzc+C0Ap/HKNu40orklMwdfYvplsO5KtWvuBtdtT2sougnr7IHINC7y/hBSH2GfLH/AtL2VAfvgytVdg7jz+Q2WqkcLauPG9ZMeYLLXRJaxj9bFfv5LVafprjlK8oL6PAym3viBPBxFYl3wwMBjfGa57DMoRP/gLH34E2NkSOlFPfUoZqVBkNIOZySfmqqNdcJbEBW7TvHTxDSDC/ORr3uA15P89SPl0kBhBdK4SuiYTfv3yCT+NOsU8Mx+4mcmvUfi4sx0t4BP2LX//5mDE3wGRELoBBd5QjEv0PwcCUfYmmqLRjYFOdLiFGmb+LMGO+ZcmNV9PmAz4mPTsKm0Ytm8CkOwFJZNZuhrPkWTugTcyjT2wfAV890/TH4CV6AkshvCxe6Ftn4s3E+3JxALX900+MZiCWe6YUwG93dXZqIovb19r+6CIhDMMgDK3645aSFKQmhZoMAH1/r2sQ3/lW9zeHYLBJWI872MJhnMZEzvvlX6Zyy7rZZkvbQpB28Iw2wbGzrHhuwUo72Rahdg+rDdd+rHHDeW4I+quSJ8zmcaOu5h5HjtWPXmRz9Eh/kOP6aXQ== arian@Nazgul'
   'rene':
     comment: 'Rene Antonio'
     uid: '510'
@@ -46,27 +37,32 @@ basesys::accounts:
     manage_primary_group: false
     gid: '100'
     tag: 'systemen'
+    password: '$6$bNepJo4TN9IrTBNX$tYUsdl915GD0K4D6nOjq7ZEklFBpZsW8uhS2rdGp40JKzJcCptSv/tn34CiYPcTVG29sscjNcPfPWx3Sky1PG1'
     sshkeys:
       - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDf93JhwknoP9f1NKrvD9Y5ja0JBu8ucpPsZCO+pZUJRHgryeWZb8w+CXQd7VhQnBp0/FtlAT1mroP86BGDmysQ6+u6D26mGPZhhpRX6WK4KKn+8c0OHTmzolY3hiqjiEvMbHaXtlPQWEbUuZHgExGul8f+mWNuoMxG5eUw8ojej7IfKBd2TISqUQA7LFFcWKLOQYKgtxkMn++HaLKJYX+dFgVoBf76hkPsdTAxs8WESlLkgR7nqdt1zIAdMUe1RbCEOwYgY7YjxntJEECi4pO/RVOcB04LLAAMrloP6gqhMI9LtnktkeLdOcuko/PYGcACUVGRRQChxVoLJ0u5X63p yandy@yandy-desktop' 
-  'luis.mendez':
-    comment: 'Luis Mendez'
-    uid: '512'
-    manage_primary_group: false
-    gid: '100'
-    tag: 'systemen'
-    locked: true
-    sshkeys:
-      - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDIExJZjyIG5pDhLetMCLovrancKnhbxDyVZCIkyt2vaknzDiYHTRmSvFZ3RZWP0eVA15HLIjxtpGWPSxfKkuDDrr/i/pp6A7h0WSw5zLZrvU6R9O2s7C37+ila5bBlGhQ3HAuQwuJ9IgUdiXwwh2C7bM/zOgLBX3qca/yyDzKC+hI3nSuh7f0s7LH0GMBKQ+YXJlDs9F0EAOBDEOp2FRerVfkxsAmIJwomCN4oy5rm1TZQ7FsFI8zekmmAm+IiwKk94INI3oCPfs9eMbwGfnifTvaQ92zO7CM5czdKc9AP1JzicFOdzDolsNgwvLzGXbsMSg4mBqTnOwVLgJoRi6rJhkt7rdFBKswr4tdiYVTgR5QhsYupPFsQVoWrmSP0W1Qs6Ru+UqLeffbxtqN65T0f3p4Q4wfAsSFJXR08rk/SG9ouDItPPfRE6AG0lO9GTvG3xGvflwQA+WTejTcMrCaSej5/WM1KIiHxelfdPGS5UX+ewfBNAz8XMAe2IYHRuIMLNwUYj9VCw1uki3evmbPv4VpfGDN0ftkOALjQRVsFb33vX/MWtM5zXKl0hJfZRU+xT66GAU5nOnPiCW9VCP+EikeGmR0I+1exfJ9OjvIm/ZBqykL4SdT6oQgexcJPmYELeb4tJncuGjWp47nBxGoBrJAuUmnUd/lq3TKIsV7QiQ=='
   'henry':
     comment: 'Henry Fleita'
     uid: '515'
     manage_primary_group: false
     gid: '100'
     tag: 'systemen'
-    locked: true
     sshkeys:
-      - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC+KWlgf6YAfDtFcvYYLIGexkyUUhAqVamXE3FvPbeLsawci652yXj5ZMOQBZfaeEuU+arvkoQfRo8dsWmiIkM3btQwSjg1JiH53cw/egxDimtPTBCErJJtmypoDedzvZWKP2DhHIKY3SSWwVR1UN79YMK7eSNFU61jTBptkh2dOttHo8sqrb0BdYZR4zVC7ZulKedGZk2BmyvSs84OoDpUZSyTD+WcKONE1FzHfcBIBXHl4OMlEbyNZjKZ+dLkA4UT8wWzNPEZjHa5yjKMpbKTxBz/BHfa7i6Li87QIHar78Cjq22lzb1MZTTO64w8Dt0Wu/PCMK1sU0rJfGOP5NW0AV+Lg21tqh+xGkL6grSqd4pEWLCapqB7N2cK6WwqkDyNULTybcRfiCtL8p00udBVIcTJz3JF/vgnArui2tGqNk5AvuW53MMskaIczxzEbkdDXDQPEoa6UghZU9xU01DMSCxvN8q0pfApSC6sx9BZlB9U6n4xcIgUofpe9G6v96A9gdMof9MWWTyyr0bRWqY00SFr05LUw1PvJEGnLlUYFdOPO9oKB6XzixiGUl1DIxQIOiR/g7l1omrWfWWpfV24kqyQP6175tRpR/FQgW4Ys1sB9F2bCCnDd4Ivl0Ht+ej5FfgDcOACU/ov9wBf07+4o/v7L/DNjorSw038arVJUw== henry@henry-HP-Pavilion-Notebook'      
-
-      
-
-
+      - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC5qkH4WZPXcarvfPB97ESljPkizrGZBDyPBx8PZAnuKYQSrBrI5lSNiH1FWzIpa0T4RebqwPX7p5U26S/D3tbQz7fq7bwD69j9sixurJQKpYRHMNYupS5JTL4lbnW2qN5k2ZXcUaCLV7QdcJW9H7ig/PQjiLK3rt/WqrZZmF5tVO5Uo3s6uYEoaqYzJjeqdaEMmkn17XNnIbncwhAWdEkubmk9MYaa8MkLeIQcY2sJup8TyOXLfOhANrt/7JS9vzgf4sOjohAAUzWAp4Q496G0gUkihvAjrS0CwhdjmuCVtIe46E9BcbGfaOXQ6YjDnsB+9XzLMRWGjmyvjnNJrjFD henry@henry-MS-7982'
+  
+  'otrs':
+    comment: 'Otrs Upr'
+    uid: '516'
+    manage_primary_group: false
+    gid: '100'
+    tag: 'otrs_admin'
+    sshkeys:
+      - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDW0+fMCBnmbTi1GAq5PfATSwmOtKJJhyylQ/Kg8dSktelZ1cY41xF3Ax4wx4MtofXnxhzlR+LjaaJ2s2l7MfJ$' 
+        #'gitlab':
+        #comment: 'Server Gitlab'
+        #uid: '517'
+        #manage_primary_group: false
+        #gid: '100'
+        #tag: 'systemen'
+        #password: '$6$RT0DtXbN$qu4W.jNIagWd98Mta38wGTgoKvQxImEtBSdfH.ifnnDeL93qPcqZ9/BVyHRTC8ieieGH5COjnlbhZymJOWzbI1'
+        #sshkeys:
+        #- 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDcODNgiShR6qzcgljO5TS64WWqelnn2rXJT7aORKeDU0TPYBZiqxnydLaMS1jlE2EBaACJac4oKVYxdZ9oKQOHdetL6KhJU0ORt1IpC7nwqxdHQ/5NT60+Rb7nDIdpHWYeXwSpCXSd1GNGsm0NJLckNZaq5Hl3VFxdwAwuQqqNVD2A861DfQE/+yQnu/ISuyO9rEarnLYeMkdlmTuL2MWub+9QVAYOzZHUZTr4/sHnZgaTfbGNoj0N+MX0bOwk8snYl7mQVSvmW5xqj5EL+t7ItSIvDhxnScGBpEY6f6wg2GDqUe48kfSMsV8PKiVSSa6d4nyE4UVmAVtgPEmX87Pj root@gitlab'

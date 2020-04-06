@@ -8,6 +8,7 @@ class puppetdbprod {
     uprinfo_usage  => 'servidor Puppet DB, Puppet-master, PuppetBoard',
     application    => 'puppet',
     puppet_enabled => false,
+	dmz            => true,
     #repos_enabled  => true,
   }
   include puppetdb_server

@@ -1,64 +1,118 @@
 node 'client-puppet.upr.edu.cu'{
   #class {'::talkserver':;}
   class { '::basesys':
-    uprinfo_usage => 'servidor test',
-    application   => 'puppet',  
-    repos_enabled => false, 
-     
-  }
-  #class { '::letsencrypt_host':
-  #email => 'fjvigil@hispavista.com',
-  #webroot_enable => true,
-  #dominios => ['sync.upr.edu.cu'],
-  #plugin => 'webroot',
-  #webroot_paths => ['/root/Sync-UPR/public/'],
-  #}
-  #class {'dhcpserver':
-  #    interfaces   => ['eth0'],
-  #    pool_enabled => true,
-  #    pool         => ['Assets'],
-  #    network      => ['10.2.202.0'],
-  #    mask         => ['255.255.255.0'],
-  #    range        => ['10.2.202.2 10.2.202.5'],
-  #    gateway      => ['10.2.202.1'],
-  #    host_enabled => true,
-  #    host         => ['profes.upr.edu.cu'],
-  #    comment      => ['este es el host para el proxy de profesores'],
-  #    mac          => ['72:92:c5:24:74:e4'],
-  #    ip           => ['10.2.202.3']
-  #  }
- 
-  #include dns_primary
+    uprinfo_usage   => 'servidor test',
+    application     => 'puppet',
+    # repos_enabled => false,
+    dmz             => true,
 
+  }
+  #class { 'squidserver':;}
+  $myconfig =  @("MYCONFIG"/L)
+  input {
+    beats {
+      port => 5043
+    }
+  }
+  output {
+    elasticsearch {
+      hosts => "10.2.1.205:9200"
+      manage_template => false
+      index => "%{[@metadata][beat]}-%{+YYYY.MM.dd}"
+      document_type => "%{[@metadata][type]}"
+    }
+    stdout { codec => rubydebug }
+  }
+  | MYCONFIG
+
+  include ::java
+  class { 'elasticsearch':
+    #elasticsearch_user => 'elasticsearch',
+    manage_repo        => false,
+    restart_on_change  => true,
+    autoupgrade        => true,
+  }
+  elasticsearch::instance { 'es-01':
+     config => {
+      'network.host' => '10.2.1.205',
+    },
+  }
+  class { 'logstash':
+    manage_repo       => false,
+    restart_on_change => true,
+    auto_upgrade      => true,
+    settings          => {
+      'http.host' => '10.2.1.205',
+    }
+  }
+
+  logstash::configfile { '02-beats-input.conf':
+    content => $myconfig,
+  }
+  logstash::plugin { 'logstash-input-beats': }
+
+  class { 'kibana' :
+    manage_repo => false,
+    config      => {
+      'server.host'       =>  '10.2.1.205',
+      'elasticsearch.url' => 'http://10.2.1.205:9200',
+      'server.port'       => '5601',
+    }
+  }
+
+  class { 'filebeat':
+    manage_repo => false,
+    outputs     => {
+      'logstash' => {
+        'hosts' => [
+          '10.2.1.205:5043',
+        ],
+        'index' => 'filebeat',
+      },
+    },
+  }
+
+  filebeat::prospector { 'syslogs':
+  paths    => [
+      '/var/log/auth.log',
+      '/var/log/syslog',
+    ],
+    doc_type => 'syslog-beat',
+  }
 }
-
-
-node 'puppet-test.upr.edu.cu'{
+node 'mrtg-puppet.upr.edu.cu' {
+  include mrtgserver
   package { 'lsb-release':
-          ensure => installed,
-  }~>
-  class { '::basesys':
-    uprinfo_usage => 'servidor test',
-    application   => 'puppet',
-    epos_enabled  => true,
-  }
-  #include nfs_client
-  # class { 'freeradius':
-   #max_requests      => 4096,
-   #max_servers       => 4096,
-   #mysql_support     => true,
-   #perl_support      => true,
-   #utils_support     => true,
-   #wpa_supplicant    => true,
-   #winbind_support   => true,
-   #syslog            => true,
-   #log_auth          => 'yes',
-   class {'::firewallprod':
-     hosts_todrop   => ['111.111.111.111', '50.138.112.159', '31.220.16.147'],
-     hosts_toaccept => ['200.55.143.160/29','200.55.153.64/28'],
-     chain_from     => 'from-reduniv',
-     chain_to       => 'to-reduniv',
-     open_ports     => [8080,443,53,22],
-   }
-  }
-
+    ensure => installed,
+    }~>
+    class { '::basesys':
+      uprinfo_usage => 'Servidor mrtg',
+      application   => 'mrtg',
+      proxmox_enabled => false,
+    }
+}
+  #  class { 'prosody':
+  #  user              => 'prosody',
+  #  group             => 'prosody',
+  #  community_modules => ['mod_auth_ldap'],
+  #  authentication    => 'ldap',
+  #  custom_options    => {
+  #    'ldap_base'     => "'OU=Servicios','DC=upr','DC=edu','DC=cu'",
+  #    'ldap_server'   => "'10.2.24.35:636'",
+  #    'ldap_rootdn'   => "'CN=talk','OU=_Servicios','DC=upr','DC=edu','DC=cu'",
+  #    'ldap_password' => "'40a*talk.2k12'",
+  #    'ldap_scope'    => 'subtree',
+  #    'ldap_tls'      => 'true',
+  #  },
+  #}
+  #prosody::virtualhost {
+  #  "chat.upr.edu.cu" :
+  #    ensure   => present,
+  #    ssl_key  => '/etc/prosody/certs/localhost.key',
+  #    ssl_cert => '/etc/prosody/certs/localhost.crt',
+  #}
+  #prosody::user { 'admin':
+  #  host => "chat.upr.edu.cu",
+  #  pass => '12345',
+  #}
+  #}

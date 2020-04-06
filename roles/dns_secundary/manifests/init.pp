@@ -28,5 +28,13 @@ class dns_secundary (
   }
   class {'bind':;}~>class {'::dns_secundary::cache':;}
 
+  cron{'rndc_flush':
+    ensure  => present,
+    command => 'rndc flush',
+    #hour    => [2],
+    minute  => [5,10,15,20,25,30,35,40,45,50,55],
+  }
+
+
 }
 
