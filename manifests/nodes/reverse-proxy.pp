@@ -80,7 +80,7 @@ node /^reverse-proxy\d+$/{
       '*',#25
       '*',#27
       'red_univ',#28
-      'cuba',#29
+      'red_univ',#29
       'red_univ',#30
       'red_univ',#31
       'red_univ',#32
