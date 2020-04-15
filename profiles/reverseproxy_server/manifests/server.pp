@@ -38,10 +38,10 @@ class reverseproxy_server::server{
          if ($red_univ){
            nginx::resource::server { $::reverseproxy_server::server_name[$index]:
              listen_port        => $::reverseproxy_server::listen_port[$index],
-             ssl_port           => $::reverseproxy_server::ssl_port[$index],
-             ssl                => true,
-             ssl_cert           => "/etc/puppetlabs/puppet/ssl/certs/${value}.pem",		#"/etc/letsencrypt/live/${value}/fullchain.pem",
-             ssl_key            => "/etc/puppetlabs/puppet/ssl/private_keys/${value}.pem", 	#"/etc/letsencrypt/live/${value}/privkey.pem",
+             #ssl_port           => $::reverseproxy_server::ssl_port[$index],
+             #ssl                => true,
+             #ssl_cert           => "/etc/puppetlabs/puppet/ssl/certs/${value}.pem",		#"/etc/letsencrypt/live/${value}/fullchain.pem",
+             #ssl_key            => "/etc/puppetlabs/puppet/ssl/private_keys/${value}.pem", 	#"/etc/letsencrypt/live/${value}/privkey.pem",
              proxy              => "https://${value}",
              server_name        => ["${value}"],
              location_allow     => $allow,
