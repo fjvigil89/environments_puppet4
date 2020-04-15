@@ -19,9 +19,9 @@ class reverse_proxy_server (
     dmz             => true,
   }
 
-  class { '::letsencrypt_host':
-    dominios => $server_name,
-    }->
+ # class { '::letsencrypt_host':
+ #   dominios => $server_name,
+ #   }->
   class { '::reverseproxy_server':
     manage_repo    => false,
     server_name    => $server_name,
