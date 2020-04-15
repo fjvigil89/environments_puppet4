@@ -1,4 +1,3 @@
-
 class reverseproxy_server::server{
    if($::reverseproxy_server::server_name)
    {
@@ -40,8 +39,8 @@ class reverseproxy_server::server{
              listen_port        => $::reverseproxy_server::listen_port[$index],
              ssl_port           => $::reverseproxy_server::ssl_port[$index],
              ssl                => true,
-             ssl_cert           => "/etc/letsencrypt/live/${value}/fullchain.pem",
-             ssl_key            => "/etc/letsencrypt/live/${value}/privkey.pem",
+             ssl_cert           => "/etc/puppetlabs/puppet/ssl/certs/${fqdn}.pem",
+             ssl_key            => "/etc/puppetlabs/puppet/ssl/private_keys/${fqdn}.pem",
              proxy              => "https://${value}",
              server_name        => ["${value}"],
              location_allow     => $allow,
@@ -50,13 +49,13 @@ class reverseproxy_server::server{
 
            }
          }
-	else{
+         else{
            nginx::resource::server { $::reverseproxy_server::server_name[$index]:
              listen_port    	=> $::reverseproxy_server::listen_port[$index],
              ssl_port       	=> $::reverseproxy_server::ssl_port[$index],
              ssl            	=> true,
-             ssl_cert       	=> "/etc/puppetlabs/puppet/ssl/certs/${fqdn}.pem",
-             ssl_key        	=> "/etc/puppetlabs/puppet/ssl/private_keys/${fqdn}.pem",
+             ssl_cert           => "/etc/puppetlabs/puppet/ssl/certs/${fqdn}.pem",
+             ssl_key            => "/etc/puppetlabs/puppet/ssl/private_keys/${fqdn}.pem",
              proxy          	=> "https://${value}",
              server_name    	=> ["${value}"],
 	     location_allow    => $allow,
@@ -67,6 +66,62 @@ class reverseproxy_server::server{
 
          }
        }
+       else{
+         if($::reverseproxy_server::ssl_port[$index] == 443) and ($::reverseproxy_server::listen_port[$index]== 80){
+           if($red_univ){
+             nginx::resource::server { $::reverseproxy_server::server_name[$index]:
+               listen_port => $::reverseproxy_server::listen_port[$index],
+               ssl_port    => $::reverseproxy_server::ssl_port[$index],
+               ssl         => true,
+               ssl_cert    => "/etc/puppetlabs/puppet/ssl/certs/${fqdn}.pem",
+               ssl_key     => "/etc/puppetlabs/puppet/ssl/private_keys/${fqdn}.pem",
+               proxy       => "https://${value}",
+               server_name => ["${value}"],
+               location_allow => $allow,
+               location_deny  => $deny,
+               proxy_set_header      => ['Host $host','X-Real-IP $remote_addr'],
+
+             }
+           }
+           else{
+             nginx::resource::server { $::reverseproxy_server::server_name[$index]:
+               listen_port => $::reverseproxy_server::listen_port[$index],
+               ssl_port    => $::reverseproxy_server::ssl_port[$index],
+               ssl         => true,
+	       ssl_cert    => "/etc/puppetlabs/puppet/ssl/certs/${fqdn}.pem",
+               ssl_key     => "/etc/puppetlabs/puppet/ssl/private_keys/${fqdn}.pem",
+               proxy       => "https://${value}",
+               server_name => ["${value}"],
+               proxy_set_header      => ['Host $host','X-Real-IP $remote_addr'],
+
+             }
+
+           }
+         }
+         else{
+           if($red_univ){
+             nginx::resource::server { $::reverseproxy_server::server_name[$index]:
+               listen_port => $::reverseproxy_server::listen_port[$index],
+               #ssl_port    => $::reverseproxy_server::ssl_port[$index],
+               proxy       => "http://${value}",
+               server_name => ["${value}"],
+               location_allow => $allow,
+               location_deny  => $deny,
+               proxy_set_header      => ['Host $host','X-Real-IP $remote_addr'],
+
+             }
+           }
+           else{
+             nginx::resource::server { $::reverseproxy_server::server_name[$index]:
+               listen_port           => $::reverseproxy_server::listen_port[$index],
+               proxy                 => "http://${value}",
+               server_name           => ["${value}"],         
+               proxy_set_header      => ['Host $host','X-Real-IP $remote_addr'],
+             }
+
+           }
+         }
+       }
+     }
    }
-}
 } 
