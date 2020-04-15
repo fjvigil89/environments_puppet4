@@ -42,7 +42,7 @@ class reverseproxy_server::server{
              ssl                => true,
              ssl_cert           => "/etc/letsencrypt/live/${value}/fullchain.pem",
              ssl_key            => "/etc/letsencrypt/live/${value}/privkey.pem",
-             proxy              => "https://${value}:$::reverseproxy_server::ssl_port[$index]",
+             proxy              => "https://${value}",
              server_name        => ["${value}"],
              location_allow     => $allow,
              location_deny      => $deny,
