@@ -59,8 +59,8 @@ class reverseproxy_server::server{
              ssl_key        	=> "/etc/letsencrypt/live/${value}/privkey.pem",
              proxy          	=> "https://${value}",
              server_name    	=> ["${value}"],
-	     #location_allow    => $allow,
-             #location_deny     => $deny,
+	     location_allow    => $allow,
+             location_deny     => $deny,
              proxy_set_header   => ['Host $host','X-Real-IP $remote_addr'],
 
            }
