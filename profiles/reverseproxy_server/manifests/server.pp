@@ -52,4 +52,5 @@ class reverseproxy_server::server{
          }
        }
    }
+}
 } 
