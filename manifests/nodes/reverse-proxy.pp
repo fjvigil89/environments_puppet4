@@ -18,79 +18,71 @@ node /^reverse-proxy\d+$/{
 
   class { 'reverse_proxy_server':
     server_name    => [
-      'www.upr.edu.cu',#1
-      'correo.upr.edu.cu',#2
-      'cvforestal.upr.edu.cu',#3
-      'intranet.upr.edu.cu',#4      
-      'nexus.upr.edu.cu',#6
-      'harbor.upr.edu.cu',#7
-      'proxy-go.upr.edu.cu',#8
-      'gitlab.upr.edu.cu',#9
-      'icingaweb.upr.edu.cu',#10
-      'composer.upr.edu.cu',#11
-      'cooder.upr.edu.cu',#13
-      'mendive.upr.edu.cu',#15
-      'podium.upr.edu.cu',#16
-      'cfores.upr.edu.cu',#17
-      'cifam.upr.edu.cu',#18 
-      'coodes.upr.edu.cu',#19
-      'rc.upr.edu.cu',#20
-      'crai.upr.edu.cu',#21
-      'blogcrai.upr.edu.cu',#22
-      'revistaecovida.upr.edu.cu',#23
-      'tocororo.upr.edu.cu',#24
-      'eventos.upr.edu.cu',#25
-      'telefonos.upr.edu.cu',#27
-      'ftp.upr.edu.cu',#29
-      'media.upr.edu.cu',#30
-      'catalogo.upr.edu.cu',#31
-      'earchivos.upr.edu.cu',#32
-      'moodle.ceces.upr.edu.cu',#33
-      'moodlead.upr.edu.cu',#34
-      'moodle.upr.edu.cu',#35
-      'techobs.upr.edu.cu',#36
-      'sciobs.upr.edu.cu',#37
-      'coronavirus.upr.edu.cu',#38
+      'www.upr.edu.cu',#1 80
+      'correo.upr.edu.cu',#2 443
+      'cvforestal.upr.edu.cu',#3 443 
+      'intranet.upr.edu.cu',#4 80     
+      'nexus.upr.edu.cu',#5 80
+      'proxy-go.upr.edu.cu',#6 443
+      'gitlab.upr.edu.cu',#7 80
+      'icingaweb.upr.edu.cu',#8 80
+      'composer.upr.edu.cu',#9 80
+      'cooder.upr.edu.cu',#10 80
+      'mendive.upr.edu.cu',#11 80
+      'podium.upr.edu.cu',#12 80
+      'cfores.upr.edu.cu',#13 80
+      'cifam.upr.edu.cu',#14 80 
+      'coodes.upr.edu.cu',#15 80
+      'rc.upr.edu.cu',#16 80
+      'revistaecovida.upr.edu.cu',#17 80
+      'eventos.upr.edu.cu',#18 80
+      'telefonos.upr.edu.cu',#19 80
+      'ftp.upr.edu.cu',#20 80
+      'media.upr.edu.cu',#21 80
+      'catalogo.upr.edu.cu',#22 80
+      'earchivos.upr.edu.cu',#23 80
+      'moodle.ceces.upr.edu.cu',#24 80
+      'moodlead.upr.edu.cu',#25 80
+      'moodle.upr.edu.cu',#26 80
+      'techobs.upr.edu.cu',#27 80
+      'sciobs.upr.edu.cu',#28 80
+      'coronavirus.upr.edu.cu',#29 80
       
     ],
-    #                  1  -2 - 3- 4-  6- 7- 8 -  9-10-11-13-15-16-17-18-19-20-21-22-23-24-25-27-29-30-31-32-33,34,35,36,37,38
-    listen_port    => [80,80, 80, 80, 80,80,443,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80],
-    #                  1  -2 - 3-  4- -6 - 7 - 8 -9- 10-11-13-15-16-17-18-19-20-21-22-23-24-25--27-29-30-31-32,33,34,35,36,37,38
-    ssl_port       => [80,443,443,443,443,443,443,80,80,80,80,80,80,80,80,80,443,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80],
+    #                  1 -2 - 3 - 4- 5 - 6 -7 -8 -9 -10-11-12-13-14-15-16-17-18-19-20-21-22-23-24,25,26,27,28,29
+    listen_port    => [80,80, 80, 80,80,80, 80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80],
+    #                  1 -2 - 3  -4- 5 -6  -7 -8 -9 -10-11-12-13-14-15-16-17-18-19-20-21-22-23,24,25,26,27,28,29
+    ssl_port       => [80,443,443,80,80,443,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80],
     location_allow => [
       '*',#1
       '*',#2
       '*',#3
       'red_univ',#4      
+      '*',#5
       '*',#6
       '*',#7
       '*',#8
-      '*',#9
-      '*',#10
-      'red_univ',#11      
-      'red_univ',#13
+      'red_univ',#9
+      '*',#10      
+      '*',#11
+      '*',#12
+      '*',#13
+      '*',#14
       '*',#15
       '*',#16
       '*',#17
       '*',#18
-      '*',#19
-      '*',#20
-      '*',#21
+      'red_univ',#19
+      'red_univ',#20
+      'red_univ',#21
       '*',#22
       '*',#23
-      '*',#24
-      '*',#25
-      '*',#27
-      'red_univ',#29
-      'red_univ',#30
-      'red_univ',#31
-      'red_univ',#32
-      'cuba',#33
-      '*',#34
-      'cuba',#35
-      'cuba',#36
-      'cuba',#37
-      'cuba',#38
+      'cuba',#24
+      'cuba',#25
+      'cuba',#26
+      'cuba',#27
+      'cuba',#28
+      'cuba',#29
     ],
 
   }
