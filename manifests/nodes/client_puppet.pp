@@ -6,6 +6,6 @@ node 'client-puppet.upr.edu.cu'{
     #dmz             => true,
 
   }
-$pack = ['python3-pip','build-essential','libssl-dev', 'libffi-dev','python3-dev']
+$pack = ['python3-pip','build-essential','libssl-dev', 'libffi-dev','python3-dev','python3-venv']
 ensure_packages($pack)
 }
