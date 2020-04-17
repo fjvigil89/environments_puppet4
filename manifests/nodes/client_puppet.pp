@@ -15,7 +15,7 @@ ensure_packages($pack)
     	command     	=> "source /root/environments/my_env/bin/activate && jupyter notebook  stop ",
   }->
   exec{"start_server_jupyther":
-	# path	 	=> "/bin:/sbin:/usr/bin:/usr/sbin",
+	path	 	=> "/bin:/sbin:/usr/bin:/usr/sbin",
     	command     	=> "source /root/environments/my_env/bin/activate && jupyter notebook --allow-root --ip=10.2.4.104 --no-browser  --NotebookApp.token='<none>'",
   }~>
 notify{'jupyther':
