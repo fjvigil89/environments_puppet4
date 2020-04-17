@@ -11,11 +11,13 @@ $pack = ['python3-pip','build-essential','libssl-dev', 'libffi-dev','python3-dev
 ensure_packages($pack)
 
   exec{"stop_server_jupyther":
-    command     => "source /root/environments/my_env/bin/activate && jupyter notebook  stop ",
+	path 		=> "/bin:/sbin:/usr/bin:/usr/sbin",
+    	command     	=> "source /root/environments/my_env/bin/activate && jupyter notebook  stop ",
   }~>
   exec{"start_server_jupyther":
-    command     => "jsource /root/environments/my_env/bin/activate && jupyter notebook --allow-root --ip=10.2.4.104 --no-browser  --NotebookApp.token='<none>'",
-    refreshonly => true;
+	path	 	=> "/bin:/sbin:/usr/bin:/usr/sbin",
+    	command     	=> "jsource /root/environments/my_env/bin/activate && jupyter notebook --allow-root --ip=10.2.4.104 --no-browser  --NotebookApp.token='<none>'",
+    	refreshonly 	=> true;
   }
 
 
