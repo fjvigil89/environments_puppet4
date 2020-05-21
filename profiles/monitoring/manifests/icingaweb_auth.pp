@@ -37,7 +37,7 @@ icingaweb2::config::role { 'SysAdmins':
 }
 
 icingaweb2::config::role { 'Develops':
-  users       => 'irlenys.ibarra, manuel.diaz, osmay, serrano',
+  users       => 'manuel.diaz, osmay, serrano',
   groups      => 'Develops',
   permissions => 'module/monitoring, module/doc',
 }

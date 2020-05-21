@@ -15,8 +15,7 @@ node 'toran-proxy.upr.edu.cu' {
 ##Para hacer los proxy inversos
 node /^reverse-proxy\d+$/{
 
-
-  class { 'reverse_proxy_server':
+class { 'reverse_proxy_server':
     server_name    => [
       'www.upr.edu.cu',#1
       'correo.upr.edu.cu',#2
@@ -60,26 +59,30 @@ node /^reverse-proxy\d+$/{
       '*',#2
       '*',#3
       'red_univ',#4      
+      '*',#5
       '*',#6
       '*',#7
       '*',#8
-      '*',#9
-      '*',#10
-      'red_univ',#11      
-      'red_univ',#13
+      'red_univ',#9
+      '*',#10      
+      '*',#11
+      '*',#12
+      '*',#13
+      '*',#14
       '*',#15
       '*',#16
       '*',#17
       '*',#18
-      '*',#19
-      '*',#20
-      '*',#21
+      'red_univ',#19
+      'red_univ',#20
+      'red_univ',#21
       '*',#22
       '*',#23
-      '*',#24
-      '*',#25
-      '*',#27
-      'red_univ',#28
+      'cuba',#24
+      'cuba',#25
+      'cuba',#26
+      'cuba',#27
+      'cuba',#28
       'cuba',#29
       'red_univ',#30
       'red_univ',#31
@@ -90,4 +93,5 @@ node /^reverse-proxy\d+$/{
     ],
 
   }
+
 }
