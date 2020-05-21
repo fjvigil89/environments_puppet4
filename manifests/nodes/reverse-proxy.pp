@@ -59,16 +59,13 @@ class { 'reverse_proxy_server':
       '*',#2
       '*',#3
       'red_univ',#4      
-      '*',#5
       '*',#6
       '*',#7
       '*',#8
       'red_univ',#9
       '*',#10      
       '*',#11
-      '*',#12
       '*',#13
-      '*',#14
       '*',#15
       '*',#16
       '*',#17
@@ -80,7 +77,6 @@ class { 'reverse_proxy_server':
       '*',#23
       'cuba',#24
       'cuba',#25
-      'cuba',#26
       'cuba',#27
       'cuba',#28
       'cuba',#29
