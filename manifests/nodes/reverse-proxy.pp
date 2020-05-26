@@ -27,33 +27,31 @@ class { 'reverse_proxy_server':
       'gitlab.upr.edu.cu',#9
       'icingaweb.upr.edu.cu',#10
       'composer.upr.edu.cu',#11
-      'cooder.upr.edu.cu',#13
-      'mendive.upr.edu.cu',#15
-      'podium.upr.edu.cu',#16
-      'cfores.upr.edu.cu',#17
-      'cifam.upr.edu.cu',#18 
-      'coodes.upr.edu.cu',#19
-      'rc.upr.edu.cu',#20
-      'crai.upr.edu.cu',#21
-      'blogcrai.upr.edu.cu',#22
-      'revistaecovida.upr.edu.cu',#23
-      'tocororo.upr.edu.cu',#24
-      'eventos.upr.edu.cu',#25
-      'telefonos.upr.edu.cu',#27
-      'enlaces.upr.edu.cu',#28
-      'ftp.upr.edu.cu',#29
-      'media.upr.edu.cu',#30
-      'catalogo.upr.edu.cu',#31
-      'earchivos.upr.edu.cu',#32
-      'moodle.ceces.upr.edu.cu',#33
-      'moodlead.upr.edu.cu',#34
-      'ceces.upr.edu.cu', #35
+      'cooder.upr.edu.cu',#12
+      'mendive.upr.edu.cu',#13
+      'podium.upr.edu.cu',#14
+      'cfores.upr.edu.cu',#15
+      'cifam.upr.edu.cu',#16 
+      'coodes.upr.edu.cu',#17
+      'rc.upr.edu.cu',#18
+      'revistaecovida.upr.edu.cu',#19
+      'eventos.upr.edu.cu',#20
+      'telefonos.upr.edu.cu',#21
+      'enlaces.upr.edu.cu',#22
+      'ftp.upr.edu.cu',#23
+      'media.upr.edu.cu',#24
+      'catalogo.upr.edu.cu',#25
+      'earchivos.upr.edu.cu',#26
+      'moodle.ceces.upr.edu.cu',#27
+      'moodlead.upr.edu.cu',#28
+      'ceces.upr.edu.cu', #29
+      'news.upr.edu.cu', #30
       
     ],
-    #                  1  -2 - 3- 4- 6- 7- 8 - 9--10-11-13-15-16-17-18-19-20-21-22-23-24-25-27-28-29-30-31-32-33,34, 35
-    listen_port    => [80,80,80, 80, 80,80,443,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80, 80],
-    #                  1  -2 - 3-  4- -6 - 7 - 8 -9- 10-11-13-15-16-17-18-19-20-21-22-23-24-25--27-28-29-30-31-32,33,34, 35
-    ssl_port       => [80,443,443,443,443,443,443,80,80,80,80,80,80,80,80,80,443,80,80,80,80,80,80,80,80,80,80,80,80,80, 80],
+    #                  1  -2 - 3 - 4 - 6- 7 - 8 - 9--10-11-12-13-14-15-16-17-18-19-20-21-22-23-24-25-26-27,28, 29, 30
+    listen_port    => [80,80 ,80 , 80, 80,80 ,443,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80, 80, 80],
+    #                  1  -2 - 3-  4- -6 - 7 - 8 -9- 10-11-12-13-14-15-16-17-18 -19-20-21-22-23-24-25-26,27,28, 29, 30
+    ssl_port       => [80,443,443,443,443,443,443,80,80,80,80,80,80,80,80,80,443,80,80,80,80,80,80,80,80,80,80, 80, 80],
     location_allow => [
       '*',#1
       '*',#2
@@ -62,30 +60,28 @@ class { 'reverse_proxy_server':
       '*',#6
       '*',#7
       '*',#8
-      'red_univ',#9
+      '*',#9
       '*',#10      
-      '*',#11
+      'red_univ',#11
+      '*',#12
       '*',#13
+      '*',#14
       '*',#15
       '*',#16
       '*',#17
       '*',#18
-      'red_univ',#19
-      'red_univ',#20
-      'red_univ',#21
-      '*',#22
-      '*',#23
-      'cuba',#24
-      'cuba',#25
-      'cuba',#27
-      'cuba',#28
-      'cuba',#29
-      'red_univ',#30
-      'red_univ',#31
-      'red_univ',#32
-      '*',#33
-      '*',#34
-      '*',#35
+      '*',#19
+      '*',#20
+      'cuba',#21
+      'cuba',#22
+      'cuba',#23
+      'red_univ',#24
+      'red_univ',#25
+      'red_univ',#26
+      '*',#27
+      '*',#28
+      '*',#29
+      '*',#30
     ],
 
   }
