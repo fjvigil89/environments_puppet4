@@ -99,8 +99,8 @@ class reverseproxy_server::server{
            }
          }
          else{
+           $port = $::reverseproxy_server::listen_port[$index]
            if($red_univ){
-	     $port = $::reverseproxy_server::listen_port[$index]
              nginx::resource::server { $::reverseproxy_server::server_name[$index]:
                listen_port => $::reverseproxy_server::listen_port[$index],
                #ssl_port    => $::reverseproxy_server::ssl_port[$index],
@@ -112,7 +112,7 @@ class reverseproxy_server::server{
 
              }
            }
-           else{
+           else{ ## para cuando es visible para el mundo ** ##
              nginx::resource::server { $::reverseproxy_server::server_name[$index]:
                listen_port           => $::reverseproxy_server::listen_port[$index],
                proxy                 => "http://${value}:$port",
