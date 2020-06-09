@@ -91,7 +91,7 @@ class { 'reverse_proxy_server':
       '*',#32
       '*',#33
       '*', #34
-      'cuba', #35
+      '*', #35
     ],
 
   }
