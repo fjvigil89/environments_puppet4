@@ -115,7 +115,7 @@ class reverseproxy_server::server{
            else{
              nginx::resource::server { $::reverseproxy_server::server_name[$index]:
                listen_port           => $::reverseproxy_server::listen_port[$index],
-               proxy                 => "http://${value}",
+               proxy                 => "http://${value}:$port",
                server_name           => ["${value}"],         
                proxy_set_header      => ['Host $host','X-Real-IP $remote_addr'],
              }
