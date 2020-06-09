@@ -100,10 +100,11 @@ class reverseproxy_server::server{
          }
          else{
            if($red_univ){
+	     $port = $::reverseproxy_server::listen_port[$index]
              nginx::resource::server { $::reverseproxy_server::server_name[$index]:
                listen_port => $::reverseproxy_server::listen_port[$index],
                #ssl_port    => $::reverseproxy_server::ssl_port[$index],
-               proxy       => 'http://${value}: $::reverseproxy_server::listen_port[$index]',
+               proxy       => "http://${value}:$port" ,
                server_name => ["${value}"],
                location_allow => $allow,
                location_deny  => $deny,
