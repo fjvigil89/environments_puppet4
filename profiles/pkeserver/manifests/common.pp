@@ -22,9 +22,24 @@ class pkeserver::common {
     group  => 'root',
     mode   => '0644',
     source => 'puppet:///modules/pkeserver/default',
+  }->
+  file{'/etc/dnsmasq.conf':
+    ensure => 'file',
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0644',
+    source => 'puppet:///modules/pkeserver/dnsmasq',
+    notify => Service[dnsmasq]
   }
 
+  notify {'tftpboot has already been':
+      require => File['/var/lib/tftpboot'],
+    }
 
+
+  service { 'dnsmasq' :
+    ensure => running
+  }
 
   exec{"cp_pxlinux":
     command     => 'cp /usr/lib/PXELINUX/pxelinux.0 /var/lib/tftpboot/',

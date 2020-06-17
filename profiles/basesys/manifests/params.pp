@@ -5,8 +5,11 @@ class basesys::params {
   $pkgname = 'basesys'
   $conffile = 'basesys/etc/basesys.conf'
   
-  # DNS 10.2.1.13 forward internet another forward (10.2.1.8) upr
-  $dnsservers = [ '10.2.4.14','10.2.4.13']
+  # forward (10.2.1.8) upr
+  $dnsservers = ['10.2.1.8'] #10.2.4.14
+  $preinstall_dns = ['10.2.1.4','8.8.8.8']#
+  $nsservers = ['200.14.49.2']#
+  $dmzservers = ['10.2.1.4','200.14.49.2','8.8.8.8']#
 
   # dominio
   $dnssearchdomains = 'upr.edu.cu'
@@ -46,12 +49,13 @@ class basesys::params {
   $proto_ports     = ['tcp','upd','tcp','udp','tcp','udp','tcp','tcp','tcp']
 
   # Puppet agent settings
-  $puppet_enabled	 = true 
-  $puppetmaster          = 'puppet-master.upr.edu.cu'
-  $puppet_environment    = 'production'
-  $runmode               = 'cron'
-  $manage_packages       = 'agent'
-  $puppet_version	 = 'latest'
+  $puppet_enabled	    = true 
+  $puppetmaster       = 'puppet-master.upr.edu.cu'
+  $puppet_environment = 'production'
+  $runmode            = 'cron'
+  $manage_packages    = 'agent'
+  $puppet_version	    = 'latest'
+  $puppet_server 	    = true
   #$autosign              = '/etc/puppetlabs/code/environments/production/bin/autosign-dns'
   #$puppet_version        = $::osfamily ? {
   #  /Debian/ => "1.10.9-1${::lsbdistcodename}",

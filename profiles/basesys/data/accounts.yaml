@@ -14,15 +14,6 @@ basesys::accounts:
     sshkeys:
       - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD0ZVH5uXCM9/gZhhDApFoshRH86kHqWFpuBrHAQUB8mNBMwI8lQbfwSrVsMv3UcdsvCjYzxPRv7/9Y73zuT32246sJo1Wm0fVZw4gG6p9Pcfc5f4gwo+KDJKcqb0qo5WfgD1xpGfprOBVmlGhGKm5xxRH6qg36Lgxj84oAFL10CK2cb63hw03XNpd4VLWSX9gOyFVyJLLwW+T6mdll2tICvGCAxVkqfBE4PiXS8Eg5m/stnIf1BvKqR9fsq2fmy8MWjaC7sW0xyIli9zJsC7bMWhL2apOiOObOUdndxGejKR0bxtALhywhGpJd7REIJiwnYkT/a2S482nJZ4ppaunJ frank@frank-PC'
       - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDggU4CwEb2RUNZdlGisPryiNb6rBHOMU/w3kG+u7XwEEQ56GTOTzL7+43YFsxtAKSU7kFvyd8ey2OjGc/3ZFUfNrfElzOOfAheoeOwqbHWrp29CEhz6DkLpsDDr9BIl8xc1vAxfP/nV4dn9X9HpwBDiY7q2Ast8WY9DE4QVr+tT2tS59zYuqMV347S8pek2uNcwEbPlhW4lZnhGe9XWqwvVJIkVV39tgT44u0YwPO46WebCnBsswJVggex+mA9xFlu0YBheK/OUfIcwADQ2VfDez3LzxifF+vEAFpCwSRVnn6JoO9d1VKFnbtB7iEHJkxUZdK7dGJ+V3k8HMgdKRHt frank@frank-UPRedes' 
-  'arian':
-    comment: 'Arian Trujillo'
-    uid: '509'
-    manage_primary_group: false
-    gid: '100'
-    tag: 'systemen'
-    password: '$6$SuHGquzM$TzxxgyrxEupaU5R3SZbIcDA6A.9xs/DQEJjU7rNLv8JJFBWyw2l3QnW.ll4czg2I//6YFdrk.l6Psj9KXwzl..'
-    sshkeys:
-      - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDnU3PaL6ik7aM2DfLarz27olqx2Xxu8K8DoQSfp+JPMjlhHlNfInxS568tZ7fY46PBIHTfJhs9dV5SxeHTubTYFZbBiMPUrZSZjEamVPgzc+C0Ap/HKNu40orklMwdfYvplsO5KtWvuBtdtT2sougnr7IHINC7y/hBSH2GfLH/AtL2VAfvgytVdg7jz+Q2WqkcLauPG9ZMeYLLXRJaxj9bFfv5LVafprjlK8oL6PAym3viBPBxFYl3wwMBjfGa57DMoRP/gLH34E2NkSOlFPfUoZqVBkNIOZySfmqqNdcJbEBW7TvHTxDSDC/ORr3uA15P89SPl0kBhBdK4SuiYTfv3yCT+NOsU8Mx+4mcmvUfi4sx0t4BP2LX//5mDE3wGRELoBBd5QjEv0PwcCUfYmmqLRjYFOdLiFGmb+LMGO+ZcmNV9PmAz4mPTsKm0Ytm8CkOwFJZNZuhrPkWTugTcyjT2wfAV890/TH4CV6AkshvCxe6Ftn4s3E+3JxALX900+MZiCWe6YUwG93dXZqIovb19r+6CIhDMMgDK3645aSFKQmhZoMAH1/r2sQ3/lW9zeHYLBJWI872MJhnMZEzvvlX6Zyy7rZZkvbQpB28Iw2wbGzrHhuwUo72Rahdg+rDdd+rHHDeW4I+quSJ8zmcaOu5h5HjtWPXmRz9Eh/kOP6aXQ== arian@Nazgul'
   'rene':
     comment: 'Rene Antonio'
     uid: '510'
@@ -46,6 +37,7 @@ basesys::accounts:
     manage_primary_group: false
     gid: '100'
     tag: 'systemen'
+    password: '$6$bNepJo4TN9IrTBNX$tYUsdl915GD0K4D6nOjq7ZEklFBpZsW8uhS2rdGp40JKzJcCptSv/tn34CiYPcTVG29sscjNcPfPWx3Sky1PG1'
     sshkeys:
       - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDf93JhwknoP9f1NKrvD9Y5ja0JBu8ucpPsZCO+pZUJRHgryeWZb8w+CXQd7VhQnBp0/FtlAT1mroP86BGDmysQ6+u6D26mGPZhhpRX6WK4KKn+8c0OHTmzolY3hiqjiEvMbHaXtlPQWEbUuZHgExGul8f+mWNuoMxG5eUw8ojej7IfKBd2TISqUQA7LFFcWKLOQYKgtxkMn++HaLKJYX+dFgVoBf76hkPsdTAxs8WESlLkgR7nqdt1zIAdMUe1RbCEOwYgY7YjxntJEECi4pO/RVOcB04LLAAMrloP6gqhMI9LtnktkeLdOcuko/PYGcACUVGRRQChxVoLJ0u5X63p yandy@yandy-desktop' 
   'henry':

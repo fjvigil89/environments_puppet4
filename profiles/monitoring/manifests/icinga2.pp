@@ -68,7 +68,7 @@ icinga2::object::zone { 'master':
 #apiuser Conf
 icinga2::object::apiuser { 'aNag':
   apiuser_name => 'icinga',
-  password     => 'icingaweb',
+  password     => 'icinga2web.',
   permissions  => ["*"],
   target       => '/etc/icinga2/conf.d/apiuser.conf',
 }

@@ -6,6 +6,7 @@ node 'ha-ftp.upr.edu.cu' {
     uprinfo_usage   => 'Servidor HAproxy FTP',
     application     => 'HAproxy FTP',
     repos_enabled   => true,
+	dmz				=> true,
     mta_enabled     => false,
   }
 

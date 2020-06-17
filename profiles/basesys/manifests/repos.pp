@@ -280,4 +280,10 @@ class basesys::repos (
         }
       }
     } # end basesys::puppet_enabled
+    /* if ($basesys::puppet_server) {
+      ::apt::source { 'puppet-server':
+      comment  => "Puppetlabs PC1 ${::lsbdistcodename} Repository from basesys",
+      location => 'http://repos.upr.edu.cu/puppet/apt/',
+      repos    => 'puppet5',
+    } */
   } # end basesys::repos_enabled

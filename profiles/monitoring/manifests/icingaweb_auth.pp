@@ -31,13 +31,13 @@ icingaweb2::config::groupbackend { 'ad-group-backend':
 
 #Manage Roles
 icingaweb2::config::role { 'SysAdmins':
-  users       => 'icingaadmin, arian, frank.vigil, rene, ymtnez, henry.fleitas, yandy',
+  users       => 'icingaadmin, frank.vigil, rene, ymtnez, henry.fleitas, yandy',
   groups      => 'SysAdmins',
   permissions => '*',
 }
 
 icingaweb2::config::role { 'Develops':
-  users       => 'irlenys.ibarra, manuel.diaz, osmay, serrano',
+  users       => 'manuel.diaz, osmay, serrano',
   groups      => 'Develops',
   permissions => 'module/monitoring, module/doc',
 }

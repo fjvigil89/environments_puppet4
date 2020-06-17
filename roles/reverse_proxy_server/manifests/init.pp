@@ -16,12 +16,12 @@ class reverse_proxy_server (
   class { '::basesys':
     uprinfo_usage   => 'servidor test',
     application     => 'puppet',
-    dmz             => false,
+    dmz             => true,
   }
 
-  class { '::letsencrypt_host':
-    dominios => $server_name,
-    }->
+  #class { '::letsencrypt_host':
+  #  dominios => $server_name,
+  #  }->
   class { '::reverseproxy_server':
     manage_repo    => false,
     server_name    => $server_name,
