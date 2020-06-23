@@ -25,7 +25,7 @@ node 'dns.upr.edu.cu'{
     allow_query        => $allow_q,
     recursion          => 'no',
     allow_recursion    => [ '10.2.9.0/27'],
-    zone_name          => [ 'upr.edu.cu', 'ceces.upr.edu.cu', 'progintec.upr.edu.cu', 'tele4.upr.edu.cu'],
+    zone_name          => [ 'upr.edu.cu', 'ceces.upr.edu.cu'],
     zone_type          => $zone,
     file_zone_name     => [ 'db.upr.edu.cu', 'db.1.2.10', 'db.3.2.10','db.4.2.10' ,'db.8.2.10'],
     zone_reverse       => [ '1.2.10.in-addr.arpa', '2.2.10.in-addr.arpa', '3.2.10.in-addr.arpa', '4.2.10.in-addr.arpa'],
@@ -47,18 +47,6 @@ node 'dns.upr.edu.cu'{
         "notify yes",
         "file ${quote}${direct}/db.ceces.upr.edu.cu${quote}",
       ],
-      'progintec.upr.edu.cu' => [
-        'type slave',
-        "allow-query $allow",
-        "masters { 10.2.4.171; }",
-        "file ${quote}${direct}/db.progintec.upr.edu.cu${quote}",
-      ],
-      #'tele4.upr.edu.cu' => [
-      #  'type slave',
-      #  "allow-query $allow",
-      #  "masters { 10.2.24.158; };",
-      #  "file ${quote}${direct}/db.tele4.upr.edu.cu${quote}",
-      #],
       '2.2.10.in-addr.arpa' => [
         $zone,
         "allow-query $allow",
@@ -128,7 +116,7 @@ node 'dns-cache1.upr.edu.cu'{
    dump_file          => 'cache_dump.db',
    statistics_file    => 'named_stats.txt',
    memstatistics_file => 'named_mem_stats.txt',
-   forwarders         => ['10.2.1.4','10.2.4.171'],
+   forwarders         => ['10.2.1.4'],
    forward            => true,
    }
 }
