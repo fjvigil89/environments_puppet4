@@ -31,7 +31,7 @@ node /^test-ceph\d+$/ {
     uprinfo_usage   => 'servidor Ceph',
     application     => 'Debian Ceph',
     proxmox_enabled => false,
-    repos_enabled   => true,
+    repos_enabled   => false,
     mta_enabled     => false,
     dmz             => true,
   }
