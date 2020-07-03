@@ -39,7 +39,7 @@ node /^test-ceph\d+$/ {
 
 node 'test-ceph1.upr.edu.cu' {
   class {'ceph':
-    mon_hosts   => [ 'test-ceph1.upr.edu.cu', 'test-ceph2.upr.edu.cu', 'test-ceph3.upr.edu.cu' ]
+    mon_hosts   => [ 'test-ceph1.upr.edu.cu', 'test-ceph2.upr.edu.cu', 'test-ceph3.upr.edu.cu' ],
     release     => 'hammer',
     cluster_net => '192.168.2.0/28',
     public_net  => '10.2.2.0/24',
