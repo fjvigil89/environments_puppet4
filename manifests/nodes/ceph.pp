@@ -35,21 +35,7 @@ node /^test-ceph\d+$/ {
     mta_enabled     => false,
     dmz             => true,
   }
-  
-  class {'ceph':
-    mon_hosts   => [ 'test-ceph1.upr.edu.cu', 'test-ceph2.upr.edu.cu', 'test-ceph3.upr.edu.cu' ],
-    release     => 'hammer',
-    cluster_net => '192.168.2.0/28',
-    public_net  => '10.2.2.0/24',
-  }
 
-  ceph::key {'client.admin':
-    key => 'AQD7kyJQQGoOBhAAqrPAqSopSwPrrfMMomzVdw=='
-  }	
-  ceph::key {'mon.${hostname}' :
-    key => 'AQD7kyJQQGoOBhAAqrPAqSopSwPrrfMMomzVdw=='
-  }
-  class {'ceph::server::mon':
-    id => $::hostname 
-  }
+  include ::ceph
+  
 }

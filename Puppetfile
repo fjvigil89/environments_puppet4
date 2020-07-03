@@ -110,7 +110,8 @@ mod 'duritong-sysctl', '0.0.12'
 #ldap
 mod 'camptocamp-openldap', '1.17.0'
 #ceph
-mod 'norisnetwork-ceph', '0.2.0'
+#mod 'norisnetwork-ceph', '0.2.0'
+mod 'spjmurray-ceph', '4.0.0'
 #Proxy
 mod 'dcenter/squid',
   :git => 'git@gitlab.upr.edu.cu:dcenter/squid.git',
