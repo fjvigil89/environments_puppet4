@@ -36,6 +36,8 @@ node /^test-ceph\d+$/ {
     dmz             => true,
   }
 
- class { '::ceph':; }
+ class { '::ceph':
+    manage_repo => false,
+ }
   
 }
