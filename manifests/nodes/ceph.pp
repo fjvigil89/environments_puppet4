@@ -36,7 +36,6 @@ node /^test-ceph\d+$/ {
     dmz             => true,
   }
 
-    class { 'ceph::repo': }
     class { 'ceph':
       fsid                       => generate('/usr/bin/uuidgen'),
       mon_host                   => $::ipaddress,
