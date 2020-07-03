@@ -46,7 +46,7 @@ node /^test-ceph\d+$/ {
   ceph::key {'client.admin':
     key => 'AQD7kyJQQGoOBhAAqrPAqSopSwPrrfMMomzVdw=='
   }	
-  ceph::key {'mon.':
+  ceph::key {'mon.'$::hostname :
     key => 'AQD7kyJQQGoOBhAAqrPAqSopSwPrrfMMomzVdw=='
   }
   class {'ceph::server::mon':
