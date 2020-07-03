@@ -54,7 +54,7 @@ node /^test-ceph\d+$/ {
 
       ceph::osd { '/dev/sdb': }
 
-      ceph::key {'client.bootstrap-osd':
+      ceph::key {'client.bootstrap-osds':
          keyring_path => '/var/lib/ceph/bootstrap-osd/ceph.keyring',
          secret       => $bootstrap_osd_key,
       }
