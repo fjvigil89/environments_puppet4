@@ -50,6 +50,6 @@ node /^test-ceph\d+$/ {
     key => 'mon'
   }
   class {'ceph::server::mon':
-    id => 1
+    id => $::fqdn 
   }
 }
