@@ -44,12 +44,12 @@ node /^test-ceph\d+$/ {
   }
 
   ceph::key {'client.admin':
-    key => 'admin'
+    key => 'AQD7kyJQQGoOBhAAqrPAqSopSwPrrfMMomzVdw=='
   }	
   ceph::key {'mon.':
-    key => 'mon'
+    key => 'AQD7kyJQQGoOBhAAqrPAqSopSwPrrfMMomzVdw=='
   }
   class {'ceph::server::mon':
-    id => $::fqdn 
+    id => $::hostname 
   }
 }
