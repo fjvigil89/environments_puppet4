@@ -45,7 +45,7 @@ node 'test-ceph1.upr.edu.cu' {
     public_net  => '10.2.2.0/24',
   }
 
-  class {'ceph::server::mon':
-    id => 1
-  }
+ # class {'ceph::server::mon':
+ #   id => 1
+ # }
 }
