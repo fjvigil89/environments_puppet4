@@ -23,32 +23,53 @@ node /^ceph\d+$/ {
   #}
 
 }
+    $admin_key = 'AQCTg71RsNIHORAAW+O6FCMZWBjmVfMIPk3MhQ=='
+    $mon_key = 'AQDesGZSsC7KJBAAw+W/Z4eGSQGAIbxWjxjvfw=='
+    $bootstrap_osd_key = 'AQABsWZSgEDmJhAAkAGSOOAJwrMHrM5Pz5On1A=='
+    $fsid = '066F558C-6789-4A93-AAF1-5AF1BA01A3AD'
 node /^test-ceph\d+$/ {
-  package { 'lsb-release':
-          ensure => installed,
-  }
-  class { '::basesys':
-    uprinfo_usage   => 'servidor Ceph',
-    application     => 'Debian Ceph',
-    proxmox_enabled => false,
-    repos_enabled   => false,
-    mta_enabled     => false,
-    dmz             => true,
-  }
+      class { 'ceph':
+        fsid                => $fsid,
+        mon_initial_members => 'test-ceph1.upr.edu.cu,test-ceph2.upr.edu.cu,test-ceph3.upr.edu.cu',
+        mon_host            => '10.2.2.240,10.2.2.241,10.2.2.242',
+      }
+      ceph::mon { $::hostname:
+        key => $mon_key,
+      }
+      Ceph::Key {
+        inject         => true,
+        inject_as_id   => 'mon.',
+        inject_keyring => "/var/lib/ceph/mon/ceph-${::hostname}/keyring",
+      }
+      ceph::key { 'client.admin':
+        secret  => $admin_key,
+        cap_mon => 'allow *',
+        cap_osd => 'allow *',
+        cap_mds => 'allow',
+      }
+      ceph::key { 'client.bootstrap-osd':
+        secret  => $bootstrap_osd_key,
+        cap_mon => 'allow profile bootstrap-osd',
+      }
 
-    class { 'ceph':
-      fsid                       => generate('/usr/bin/uuidgen'),
-      mon_host                   => $::ipaddress,
-      authentication_type        => 'none',
-      osd_pool_default_size      => '1',
-      osd_pool_default_min_size  => '1',
-    }
-    ceph_config {
-     'global/osd_journal_size': value => '100';
-    }
-    ceph::mon { 'a':
-      public_addr         => $::ipaddress,
-      authentication_type => 'none',
-    }
-    ceph::osd { '/dev/sdb': } 
+      ceph::osd { '/dev/sdb': }
+
+      ceph::key {'client.bootstrap-osd':
+         keyring_path => '/var/lib/ceph/bootstrap-osd/ceph.keyring',
+         secret       => $bootstrap_osd_key,
+      }
 }
+
+ node 'test-ceph1.upr.edu.cu'{
+  
+   class { 'ceph':
+        fsid                => $fsid,
+        mon_initial_members => 'test-ceph1.upr.edu.cu,test-ceph2.upr.edu.cu,test-ceph3.upr.edu.cu',
+        mon_host            => '10.2.2.240,10.2.2.241,10.2.2.242',
+      }
+
+   ceph::key { 'client.admin':
+        secret => $admin_key
+      }
+}
+
