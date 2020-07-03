@@ -38,7 +38,7 @@ node /^test-ceph\d+$/ {
 
  class { '::ceph':
     manage_repo => false,
-    conf = {
+    conf 	=> {
         'global'                => {
            'fsid'                      => '62ed9bd6-adf4-11e4-8fb5-3c970ebb2b86',
       	   'mon_initial_members'       => 'mon0',
