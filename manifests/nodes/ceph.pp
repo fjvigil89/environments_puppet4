@@ -35,9 +35,7 @@ node /^test-ceph\d+$/ {
     mta_enabled     => false,
     dmz             => true,
   }
-}
-
-node 'test-ceph1.upr.edu.cu' {
+  
   class {'ceph':
     mon_hosts   => [ 'test-ceph1.upr.edu.cu', 'test-ceph2.upr.edu.cu', 'test-ceph3.upr.edu.cu' ],
     release     => 'hammer',
@@ -45,7 +43,7 @@ node 'test-ceph1.upr.edu.cu' {
     public_net  => '10.2.2.0/24',
   }
 
-  class {'ceph::key':
+  ceph::key {'client.admin':
     key => 'admin'
   }	
 
