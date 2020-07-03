@@ -36,6 +36,6 @@ node /^test-ceph\d+$/ {
     dmz             => true,
   }
 
-  include ::ceph
+ class { '::ceph': };
   
 }
