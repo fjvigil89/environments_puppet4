@@ -36,29 +36,20 @@ node /^test-ceph\d+$/ {
     dmz             => true,
   }
 
- class { '::ceph':
-    manage_repo => false,
-    conf 	=> {
-        'global'                => {
-           'fsid'                      => '62ed9bd6-adf4-11e4-8fb5-3c970ebb2b86',
-      	   'mon_initial_members'       => 'mon0',
-           'mon_host'                  => '10.2.2.240',
-           'public_network'            => '10.2.2.0/24',
-           'cluster_network'           => '192.168.2.0/28',
-           'auth_supported'            => 'cephx',
-           'filestore_xattr_use_omap'  => true,
-           'osd_crush_chooseleaf_type' => 0,
-        },
-       'mgr'                   => {
-           'mgr modules' => 'dashboard',
-        },
-       'osd'                   => {
-           'osd_journal_size' => 100,
-        },
-       'client.rgw.puppet'     => {
-           'rgw frontends' => '"civetweb port=7480"'
-        },
-    },
- }
-  
+    class { 'ceph::repo': }
+    class { 'ceph':
+      fsid                       => generate('/usr/bin/uuidgen'),
+      mon_host                   => $::ipaddress,
+      authentication_type        => 'none',
+      osd_pool_default_size      => '1',
+      osd_pool_default_min_size  => '1',
+    }
+    ceph_config {
+     'global/osd_journal_size': value => '100';
+    }
+    ceph::mon { 'a':
+      public_addr         => $::ipaddress,
+      authentication_type => 'none',
+    }
+    ceph::osd { '/srv/data': } 
 }
