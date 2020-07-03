@@ -50,5 +50,5 @@ node /^test-ceph\d+$/ {
       public_addr         => $::ipaddress,
       authentication_type => 'none',
     }
-    ceph::osd { '/srv/data': } 
+    ceph::osd { '/dev/sdb': } 
 }
