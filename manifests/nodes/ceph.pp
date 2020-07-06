@@ -27,7 +27,7 @@ node /^ceph\d+$/ {
     $mon_key = 'AQDesGZSsC7KJBAAw+W/Z4eGSQGAIbxWjxjvfw=='
     $bootstrap_osd_key = 'AQABsWZSgEDmJhAAkAGSOOAJwrMHrM5Pz5On1A=='
     $fsid = '066F558C-6789-4A93-AAF1-5AF1BA01A3AD'
-node /^test-ceph\d+$/ {
+ node /^test-ceph\d+$/ {
       class { 'ceph':
         fsid                => $fsid,
         mon_initial_members => 'test-ceph1.upr.edu.cu,test-ceph2.upr.edu.cu,test-ceph3.upr.edu.cu',
@@ -52,13 +52,13 @@ node /^test-ceph\d+$/ {
         cap_mon => 'allow profile bootstrap-osd',
       }
 
-      ceph::osd { '/dev/sdb': }
+      # ceph::osd { '/dev/sdb': }
 
       ceph::key {'client.bootstrap-osds':
          keyring_path => '/var/lib/ceph/bootstrap-osd/ceph.keyring',
          secret       => $bootstrap_osd_key,
       }
-}
+ }
 
  node 'test-ceph1.upr.edu.cu'{
   
@@ -67,6 +67,8 @@ node /^test-ceph\d+$/ {
         mon_initial_members => 'test-ceph1.upr.edu.cu,test-ceph2.upr.edu.cu,test-ceph3.upr.edu.cu',
         mon_host            => '10.2.2.240,10.2.2.241,10.2.2.242',
       }
+
+   ceph::osd { '/dev/sdb': }
 
    ceph::key { 'client.admin':
         secret => $admin_key
