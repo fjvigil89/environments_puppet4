@@ -40,7 +40,7 @@ node /^ceph\d+$/ {
       }
       ceph::mon { 'a':
         public_addr         => $::ipaddress,
-        #authentication_type => 'none',
+        authentication_type => 'cephx',
      }
       #ceph::mon { $::hostname:
       #  key => $mon_key,
