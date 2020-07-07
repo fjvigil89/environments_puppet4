@@ -55,23 +55,10 @@ node /^ceph\d+$/ {
       # ceph::osd { '/dev/sdb': }
 
       ceph::key {'client.bootstrap-osds':
-         keyring_path => '/var/lib/ceph/bootstrap-osd/ceph.keyring',
+         keyring_path => '/var/lib/ceph/bootstrap-osds/ceph.keyring',
          secret       => $bootstrap_osd_key,
       }
  }
 
- node 'test-ceph1.upr.edu.cu'{
-  
-   class { 'ceph':
-        fsid                => $fsid,
-        mon_initial_members => 'test-ceph1.upr.edu.cu,test-ceph2.upr.edu.cu,test-ceph3.upr.edu.cu',
-        mon_host            => '10.2.2.240,10.2.2.241,10.2.2.242',
-      }
 
-   ceph::osd { '/dev/sdb': }
-
-   ceph::key { 'client.admin':
-        secret => $admin_key
-      }
-}
 
