@@ -11,17 +11,6 @@ node /^ceph\d+$/ {
     dmz             => true,
   }
 
-  #exec{"sysctl":
-  #  command => '/usr/bin/sudo sysctl -w vm.max_map_count=262144',
-  #}
-
-  #class {'::filebeatserver':
-  #  log_type => "syslog",
-  #}
-  #class {'::metricbeatserver':
-  # modules  => ['system','ceph']
-  #}
-
 }
     $admin_key = 'AQCTg71RsNIHORAAW+O6FCMZWBjmVfMIPk3MhQ=='
     $mon_key = 'AQDesGZSsC7KJBAAw+W/Z4eGSQGAIbxWjxjvfw=='
@@ -40,7 +29,7 @@ node /^ceph\d+$/ {
       }
       ceph::mon { 'a':
         public_addr         => $::ipaddress,
-        authentication_type => 'cephx',
+        authentication_type => 'none',
      }
       #ceph::mon { $::hostname:
       #  key => $mon_key,
