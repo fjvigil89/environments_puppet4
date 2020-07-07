@@ -31,9 +31,9 @@ node /^ceph\d+$/ {
         public_addr         => $::ipaddress,
         authentication_type => 'none',
      }
-      #ceph::mon { $::hostname:
-      #  key => $mon_key,
-      #}
+      ceph::mon { $::hostname:
+        key => $mon_key,
+      }
       Ceph::Key {
         inject         => true,
         inject_as_id   => 'mon.',
