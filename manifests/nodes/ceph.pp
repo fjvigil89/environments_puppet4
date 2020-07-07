@@ -31,7 +31,7 @@ node /^ceph\d+$/ {
       class { 'ceph':
         fsid                => $fsid,
         mon_initial_members => 'test-ceph1.upr.edu.cu,test-ceph2.upr.edu.cu,test-ceph3.upr.edu.cu',
-        mon_host            => '10.2.2.240,10.2.2.241,10.2.2.242',i
+        mon_host            => '10.2.2.240,10.2.2.241,10.2.2.242',
         cluster_network     => '192.168.2.0/28',
         public_network      => '10.2.2.0/24',
       }
