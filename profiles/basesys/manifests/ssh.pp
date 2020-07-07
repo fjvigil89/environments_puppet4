@@ -34,6 +34,9 @@ class basesys::ssh(
 
   create_resources('sshkey', $known_hosts, { 'type' => 'rsa'})
 
+  $global_ssh_known_host = lookup('basesys::global_ssh_known_host', {merge => hash, default_value => {}})
+  create_resources('@::known_hosts::known_host', $global_ssh_known_host)
+
 # lint:ignore:140chars
   # Gebruik ssh-keyscan -t rsa gitlab.upr.edu.cu
   #sshkey{ 'gitlab.upr.edu.cu':

@@ -186,3 +186,6 @@ mod 'dcenter/ansible',
 mod 'dcenter/razor',
   :git => 'git@gitlab.upr.edu.cu:dcenter/puppet-razor.git',
   :ref => '5e3a12cacc6a3f714bcb2760426cf1ce1e282275'
+
+#know_host ssh
+mod 'mfinelli-known_hosts', '0.2.0'
