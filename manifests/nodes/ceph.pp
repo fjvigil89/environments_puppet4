@@ -33,9 +33,9 @@ node /^ceph\d+$/ {
         mon_initial_members => 'test-ceph1.upr.edu.cu,test-ceph2.upr.edu.cu,test-ceph3.upr.edu.cu',
         mon_host            => '10.2.2.240,10.2.2.241,10.2.2.242',
       }
-      ceph::mon { $::hostname:
-        key => $mon_key,
-      }
+      #ceph::mon { $::hostname:
+      #  key => $mon_key,
+      #}
       Ceph::Key {
         inject         => true,
         inject_as_id   => 'mon.',
