@@ -39,15 +39,15 @@ class basesys::ssh(
 
   file { "/root/.ssh":
     ensure => 'directory',
-    owner  => $name,
-    group  => $name,
+    owner  => 'root',
+    group  => 'root',
     mode   => '0700'
   }
 
   concat { "/roor/.ssh/known_hosts":
     ensure  => present,
-    owner   => $name,
-    group   => $name,
+    owner   => 'root',
+    group   => 'root',
     mode    => '0644',
     require => File["/root/.ssh"]
   }
