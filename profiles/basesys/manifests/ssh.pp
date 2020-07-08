@@ -37,7 +37,27 @@ class basesys::ssh(
   $global_ssh_known_host = lookup('basesys::global_ssh_known_host', {merge => hash, default_value => {}})
   create_resources('sshkey', $global_ssh_known_host)
 
-  ::known_hosts::user {'ceph':}
+  file { "root/.ssh":
+    ensure => 'directory',
+    owner  => $name,
+    group  => $name,
+    mode   => '0700'
+  }
+
+  concat { "/roor/.ssh/known_hosts":
+    ensure  => present,
+    owner   => $name,
+    group   => $name,
+    mode    => '0644',
+    require => File["/root/.ssh"]
+  }
+
+  concat::fragment { "root's local known hosts header":
+    order   => '01',
+    target  => "/root/.ssh/known_hosts",
+    content => "# KNOWN_HOSTS managed by puppet. Do not edit directly.\n"
+  }
+
   ::known_hosts::known_host { 'ceph':
     user         => 'ceph',
     type         => 'ssh-rsa',
