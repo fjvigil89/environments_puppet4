@@ -9,7 +9,7 @@ basesys::system_users:
         #shell      : '/bin/bash'
         #groups     : 'adm'
         #managehome : true
-  'ceph'
+  'ceph':
     ensure     : present
     uid        : 900
     comment    : 'ceph'
