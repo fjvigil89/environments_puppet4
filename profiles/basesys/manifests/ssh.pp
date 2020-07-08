@@ -37,10 +37,11 @@ class basesys::ssh(
   #$global_ssh_known_host = lookup('basesys::global_ssh_known_host', {merge => hash, default_value => {}})
   #create_resources('sshkey', $global_ssh_known_host)
 
-  ::known_hosts::known_host { 'ceph.upr.edu.cu':
-    user => 'ceph',
-    type => 'ssh-rsa',
-    key  => 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDB6m46tCAnlxLIIxZGz75C075qPM+ahnXR5C6SRS+5p1vJYyP/fJP3vY8HV8R4Rq/xn6+IRf/QVxScnlLc8lRyV+fTBdE+iqYUX8mo8EwxPuhG1ft+/D3DAHToGts/o+jkG3+FPSH5qv4LncCRQKw6Zd08zDLoQja3SPZCz5z6kA2WUcZXfSJD6tbhbOfudCvHt5gRE+dC0pOwlXD14HLPEjLwdWDuN8eBs/HfIGVqXiwDzY/p6TjFeqsKuzbQL/a2DGi8paQglBNHAnlJNBG596VZS9vrldM0C+pEsG9pjP3edKhqoAMgpvIVI7BCnYH5MgDTkcu7RSIE1J7w/uf7 root@ceph',
+  ::known_hosts::known_host { 'ceph':
+    user         => 'ceph',
+    type         => 'ssh-rsa',
+    host_aliases => ['ceph.upr.edu.cu'],
+    key          => 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDB6m46tCAnlxLIIxZGz75C075qPM+ahnXR5C6SRS+5p1vJYyP/fJP3vY8HV8R4Rq/xn6+IRf/QVxScnlLc8lRyV+fTBdE+iqYUX8mo8EwxPuhG1ft+/D3DAHToGts/o+jkG3+FPSH5qv4LncCRQKw6Zd08zDLoQja3SPZCz5z6kA2WUcZXfSJD6tbhbOfudCvHt5gRE+dC0pOwlXD14HLPEjLwdWDuN8eBs/HfIGVqXiwDzY/p6TjFeqsKuzbQL/a2DGi8paQglBNHAnlJNBG596VZS9vrldM0C+pEsG9pjP3edKhqoAMgpvIVI7BCnYH5MgDTkcu7RSIE1J7w/uf7 root@ceph',
   }
 
 # lint:ignore:140chars
