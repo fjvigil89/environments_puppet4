@@ -34,8 +34,8 @@ class basesys::ssh(
 
   create_resources('sshkey', $known_hosts, { 'type' => 'rsa'})
 
-  $global_ssh_known_host = lookup('basesys::global_ssh_known_host', {merge => hash, default_value => {}})
-  create_resources('sshkey', $global_ssh_known_host)
+  #$global_ssh_known_host = lookup('basesys::global_ssh_known_host', {merge => hash, default_value => {}})
+  #create_resources('sshkey', $global_ssh_known_host)
 
   ::known_hosts::known_host { 'ceph.upr.edu.cu':
     user => 'ceph',

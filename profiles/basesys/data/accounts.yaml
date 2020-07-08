@@ -51,7 +51,7 @@ basesys::accounts:
   
   'ceph':
     comment: 'Ceph UPR'
-    uid: '516'
+    uid: '517'
     manage_primary_group: false
     gid: '100'
     tag: 'systemen'

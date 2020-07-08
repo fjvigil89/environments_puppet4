@@ -9,11 +9,11 @@ basesys::system_users:
         #shell      : '/bin/bash'
         #groups     : 'adm'
         #managehome : true
-  'www':
+  'ceph'
     ensure     : present
     uid        : 900
-    comment    : 'Apache httpd'
-    home       : '/home/www'
+    comment    : 'ceph'
+    home       : '/home/ceph'
     managehome : true
     shell      : '/bin/bash'
 #  'oratrn':
