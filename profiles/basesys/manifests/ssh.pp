@@ -37,7 +37,7 @@ class basesys::ssh(
   $global_ssh_known_host = lookup('basesys::global_ssh_known_host', {merge => hash, default_value => {}})
   create_resources('sshkey', $global_ssh_known_host)
 
-  file { "root/.ssh":
+  file { "/root/.ssh":
     ensure => 'directory',
     owner  => $name,
     group  => $name,
