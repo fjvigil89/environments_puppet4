@@ -49,20 +49,11 @@ basesys::accounts:
     sshkeys:
       - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC5qkH4WZPXcarvfPB97ESljPkizrGZBDyPBx8PZAnuKYQSrBrI5lSNiH1FWzIpa0T4RebqwPX7p5U26S/D3tbQz7fq7bwD69j9sixurJQKpYRHMNYupS5JTL4lbnW2qN5k2ZXcUaCLV7QdcJW9H7ig/PQjiLK3rt/WqrZZmF5tVO5Uo3s6uYEoaqYzJjeqdaEMmkn17XNnIbncwhAWdEkubmk9MYaa8MkLeIQcY2sJup8TyOXLfOhANrt/7JS9vzgf4sOjohAAUzWAp4Q496G0gUkihvAjrS0CwhdjmuCVtIe46E9BcbGfaOXQ6YjDnsB+9XzLMRWGjmyvjnNJrjFD henry@henry-MS-7982'
   
-  'otrs':
-    comment: 'Otrs Upr'
+  'ceph':
+    comment: 'Ceph UPR'
     uid: '516'
     manage_primary_group: false
     gid: '100'
-    tag: 'otrs_admin'
+    tag: 'systemen'
     sshkeys:
-      - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDW0+fMCBnmbTi1GAq5PfATSwmOtKJJhyylQ/Kg8dSktelZ1cY41xF3Ax4wx4MtofXnxhzlR+LjaaJ2s2l7MfJ$' 
-        #'gitlab':
-        #comment: 'Server Gitlab'
-        #uid: '517'
-        #manage_primary_group: false
-        #gid: '100'
-        #tag: 'systemen'
-        #password: '$6$RT0DtXbN$qu4W.jNIagWd98Mta38wGTgoKvQxImEtBSdfH.ifnnDeL93qPcqZ9/BVyHRTC8ieieGH5COjnlbhZymJOWzbI1'
-        #sshkeys:
-        #- 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDcODNgiShR6qzcgljO5TS64WWqelnn2rXJT7aORKeDU0TPYBZiqxnydLaMS1jlE2EBaACJac4oKVYxdZ9oKQOHdetL6KhJU0ORt1IpC7nwqxdHQ/5NT60+Rb7nDIdpHWYeXwSpCXSd1GNGsm0NJLckNZaq5Hl3VFxdwAwuQqqNVD2A861DfQE/+yQnu/ISuyO9rEarnLYeMkdlmTuL2MWub+9QVAYOzZHUZTr4/sHnZgaTfbGNoj0N+MX0bOwk8snYl7mQVSvmW5xqj5EL+t7ItSIvDhxnScGBpEY6f6wg2GDqUe48kfSMsV8PKiVSSa6d4nyE4UVmAVtgPEmX87Pj root@gitlab'
+      - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDB6m46tCAnlxLIIxZGz75C075qPM+ahnXR5C6SRS+5p1vJYyP/fJP3vY8HV8R4Rq/xn6+IRf/QVxScnlLc8lRyV+fTBdE+iqYUX8mo8EwxPuhG1ft+/D3DAHToGts/o+jkG3+FPSH5qv4LncCRQKw6Zd08zDLoQja3SPZCz5z6kA2WUcZXfSJD6tbhbOfudCvHt5gRE+dC0pOwlXD14HLPEjLwdWDuN8eBs/HfIGVqXiwDzY/p6TjFeqsKuzbQL/a2DGi8paQglBNHAnlJNBG596VZS9vrldM0C+pEsG9pjP3edKhqoAMgpvIVI7BCnYH5MgDTkcu7RSIE1J7w/uf7 root@ceph' 
