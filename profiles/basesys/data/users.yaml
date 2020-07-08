@@ -9,13 +9,14 @@ basesys::system_users:
         #shell      : '/bin/bash'
         #groups     : 'adm'
         #managehome : true
-  'ceph':
-    ensure     : present
-    uid        : 900
-    comment    : 'ceph'
-    home       : '/home/ceph'
-    managehome : true
-    shell      : '/bin/bash'
+        
+        #'ceph':
+        #ensure     : present
+        #uid        : 900
+        #comment    : 'ceph'
+        #home       : '/home/ceph'
+        #managehome : true
+        #shell      : '/bin/bash'
 #  'oratrn':
 #    ensure     : present
 #    uid        : 1036
