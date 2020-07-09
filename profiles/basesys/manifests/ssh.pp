@@ -6,7 +6,12 @@
 #
 #
 class basesys::ssh(
-  $known_hosts = {},
+  $known_hosts = {
+    'ceph':
+        user => 'root',
+        type => 'ssh-rsa',
+        key  => 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDB6m46tCAnlxLIIxZGz75C075qPM+ahnXR5C6SRS+5p1vJYyP/fJP3vY8HV8R4Rq/xn6+IRf/QVxScnlLc8lRyV+fTBdE+iqYUX8mo8EwxPuhG1ft+/D3DAHToGts/o+jkG3+FPSH5qv4LncCRQKw6Zd08zDLoQja3SPZCz5z6kA2WUcZXfSJD6tbhbOfudCvHt5gRE+dC0pOwlXD14HLPEjLwdWDuN8eBs/HfIGVqXiwDzY/p6TjFeqsKuzbQL/a2DGi8paQglBNHAnlJNBG596VZS9vrldM0C+pEsG9pjP3edKhqoAMgpvIVI7BCnYH5MgDTkcu7RSIE1J7w/uf7 root@ceph',
+  },
 ){
 
   # global_ssh_authorized_keys komen uit Hiera. zie common.yaml
@@ -34,36 +39,7 @@ class basesys::ssh(
 
   create_resources('sshkey', $known_hosts, { 'type' => 'rsa'})
 
-  $global_ssh_known_host = lookup('basesys::global_ssh_known_host', {merge => hash, default_value => {}})
-  create_resources('sshkey', $global_ssh_known_host)
 
-  file { "/root/.ssh":
-    ensure => 'directory',
-    owner  => 'root',
-    group  => 'root',
-    mode   => '0700'
-  }
-
-  concat { "/roor/.ssh/known_hosts":
-    ensure  => present,
-    owner   => 'root',
-    group   => 'root',
-    mode    => '0644',
-    require => File["/root/.ssh"]
-  }
-
-  concat::fragment { "root's local known hosts header":
-    order   => '01',
-    target  => "/root/.ssh/known_hosts",
-    content => "# KNOWN_HOSTS managed by puppet. Do not edit directly.\n"
-  }
-
-  ::known_hosts::known_host { 'ceph':
-    user         => 'ceph',
-    type         => 'ssh-rsa',
-    host_aliases => ['ceph.upr.edu.cu'],
-    key          => 'AAAAB3NzaC1yc2EAAAADAQABAAABAQDB6m46tCAnlxLIIxZGz75C075qPM+ahnXR5C6SRS+5p1vJYyP/fJP3vY8HV8R4Rq/xn6+IRf/QVxScnlLc8lRyV+fTBdE+iqYUX8mo8EwxPuhG1ft+/D3DAHToGts/o+jkG3+FPSH5qv4LncCRQKw6Zd08zDLoQja3SPZCz5z6kA2WUcZXfSJD6tbhbOfudCvHt5gRE+dC0pOwlXD14HLPEjLwdWDuN8eBs/HfIGVqXiwDzY/p6TjFeqsKuzbQL/a2DGi8paQglBNHAnlJNBG596VZS9vrldM0C+pEsG9pjP3edKhqoAMgpvIVI7BCnYH5MgDTkcu7RSIE1J7w/uf7 root@ceph',
-  }
 
 # lint:ignore:140chars
   # Gebruik ssh-keyscan -t rsa gitlab.upr.edu.cu

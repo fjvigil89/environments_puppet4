@@ -5,8 +5,6 @@ defaults:
   datadir: data
   data_hash: yaml_data
 hierarchy:
-  - name: "know"
-    path: "know.yaml"      
   - name: "system users"
     path: "users.yaml"
   - name: "accounts::user"
