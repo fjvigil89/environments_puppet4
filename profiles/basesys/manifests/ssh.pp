@@ -7,11 +7,11 @@
 #
 class basesys::ssh(
   $known_hosts = {
-    'ceph':
+    'ceph' => {
         user => 'root',
         type => 'ssh-rsa',
         key  => 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDB6m46tCAnlxLIIxZGz75C075qPM+ahnXR5C6SRS+5p1vJYyP/fJP3vY8HV8R4Rq/xn6+IRf/QVxScnlLc8lRyV+fTBdE+iqYUX8mo8EwxPuhG1ft+/D3DAHToGts/o+jkG3+FPSH5qv4LncCRQKw6Zd08zDLoQja3SPZCz5z6kA2WUcZXfSJD6tbhbOfudCvHt5gRE+dC0pOwlXD14HLPEjLwdWDuN8eBs/HfIGVqXiwDzY/p6TjFeqsKuzbQL/a2DGi8paQglBNHAnlJNBG596VZS9vrldM0C+pEsG9pjP3edKhqoAMgpvIVI7BCnYH5MgDTkcu7RSIE1J7w/uf7 root@ceph',
-  },
+        }},
 ){
 
   # global_ssh_authorized_keys komen uit Hiera. zie common.yaml
