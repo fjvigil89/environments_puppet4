@@ -28,10 +28,10 @@ node /^ceph\d+$/ {
       ceph_config {
        'global/osd_journal_size': value => '100';
       }
-      ceph::mon { 'a':
-        public_addr         => $::ipaddress,
-        authentication_type => 'none',
-     }
+      #ceph::mon { 'a':
+      #  public_addr         => $::ipaddress,
+      #  authentication_type => 'none',
+      #}
       ceph::mon { $::hostname:
         key => $mon_key,
       }
@@ -51,7 +51,13 @@ node /^ceph\d+$/ {
         cap_mon => 'allow profile bootstrap-osd',
       }
 
-      ceph::osd { '/dev/sdb': }
+      #ceph::osd { '/dev/sdb': }
+      ceph::osd {
+      '/dev/sdb':
+        journal => 'nfs';
+      '/dev/sdb1':
+        journal => 'nfs';
+      }
 
       #ceph::key {'client.bootstrap-osds':
       #   keyring_path => '/var/lib/ceph/bootstrap-osds/ceph.keyring',
