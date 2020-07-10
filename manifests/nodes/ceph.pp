@@ -51,7 +51,7 @@ node /^ceph\d+$/ {
         cap_mon => 'allow profile bootstrap-osd',
       }
 
-      # ceph::osd { '/dev/sdb': }
+      ceph::osd { '/dev/sdb': }
 
       #ceph::key {'client.bootstrap-osds':
       #   keyring_path => '/var/lib/ceph/bootstrap-osds/ceph.keyring',
