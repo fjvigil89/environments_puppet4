@@ -50,6 +50,12 @@ class basesys (
   Optional[Array[String]] $open_ports      = $::basesys::params::open_ports, 
   Optional[Array[String]] $proto_ports     = $::basesys::params::proto_ports,
 
+  $proxy_enabled                           = $::basesys::params::proxy_enabled,
+  $proxy_url                               = $::basesys::params::proxy_url,
+  $proxy_port                              = $::basesys::params::proxy_port,
+  $proxy_user                              = $::basesys::params::proxy_user,
+  $proxy_pass                              = $::basesys::params::proxy_pass,
+
   ) inherits ::basesys::params{
   class {'::basesys::repos':;}
   class {'::basesys::dns':;}
@@ -63,6 +69,7 @@ class basesys (
   class {'::basesys::monitoring':;}
   class {'::basesys::dfirewall':;}
   #class {'::basesys::lxc':;}
+  class {'::basesys::proxy':;}
 
   case $facts['os']['family'] {
   'Debian', 'ubuntu': {

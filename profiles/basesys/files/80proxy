@@ -1,0 +1,3 @@
+Acquire::http::proxy "http://proxy-tor.upr.edu.cu:8080/";
+Acquire::ftp::proxy "ftp://proxy-tor.upr.edu.cu:8080/";
+Acquire::https::proxy "https://proxy-tor.upr.edu.cu:8080/";

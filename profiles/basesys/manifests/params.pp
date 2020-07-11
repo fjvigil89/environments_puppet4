@@ -62,5 +62,13 @@ class basesys::params {
   #  /RedHat/ => '1.10.9',
   #  default  => 'latest'
   #}
-  $puppet_users   = true 
+  $puppet_users   = true
+
+  $proxy_enabled = false
+  $proxy_url     = 'http://proxy-tor.upr.edu.cu'
+  $proxy_port    = '8080'
+  $proxy_user    = ''
+  $proxy_pass    = ''
+
+
 }
