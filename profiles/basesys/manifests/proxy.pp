@@ -17,11 +17,6 @@ class basesys::proxy (
     source => 'puppet:///modules/basesys/80proxy',
   }
 
-  exec{"update_apt":
-    command => '/usr/bin/sudo apt update',
-    subscribe => File['/etc/apt/apt.conf.d/80proxy'],
-
-  }
 
   }
 }
