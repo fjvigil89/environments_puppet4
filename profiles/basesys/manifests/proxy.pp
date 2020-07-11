@@ -15,13 +15,19 @@ class basesys::proxy (
   {
    
     exec{"http_proxy":
-     command => "export http_proxy=${proxy_url}:${proxy_port}"
+      path     => '/usr/bin:/usr/sbin:/bin',
+      provider => shell,
+      command => "export http_proxy=${proxy_url}:${proxy_port}"
     }
     exec{"https_proxy":
-     command => "export https_proxy=${proxy_url}:${proxy_port}"
+      path     => '/usr/bin:/usr/sbin:/bin',
+      provider => shell,
+      command => "export https_proxy=${proxy_url}:${proxy_port}"
     }
     exec{"ftp_proxy":
-     command => "export ftp_proxy==${proxy_url}:${proxy_port}"
+      path     => '/usr/bin:/usr/sbin:/bin',
+      provider => shell,
+      command => "export ftp_proxy==${proxy_url}:${proxy_port}"
     }
     
     # file{'/etc/apt/apt.conf.d/80proxy':
