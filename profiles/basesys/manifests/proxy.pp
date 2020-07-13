@@ -35,7 +35,8 @@ class basesys::proxy (
      owner  => 'root',
      group  => 'root',
      mode   => '0644',
-     source => 'puppet:///modules/basesys/80proxy',
+     #source => 'puppet:///modules/basesys/80proxy',
+     content =>  template('basesys/80proxy.erb'),
     }
 
 
