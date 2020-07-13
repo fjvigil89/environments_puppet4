@@ -49,7 +49,7 @@ class basesys::proxy (
     	}
 
 	file{'/etc/environment':
-     		ensure => absent,
+     		ensure => 'file',
      		owner  => 'root',
      		group  => 'root',
      		mode   => '0644',
