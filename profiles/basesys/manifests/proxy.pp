@@ -13,27 +13,38 @@ class basesys::proxy (
 
   if($::basesys::proxy_enabled)
   {
-   
-    exec{"http_proxy":
-      path     => '/usr/bin:/usr/sbin:/bin',
-      provider => shell,
-      command => "export http_proxy=${proxy_url}:${proxy_port}"
+    file{'/etc/proxy.sh':
+     ensure => 'file',
+     owner  => 'root',
+     group  => 'root',
+     mode   => '0644',
+     #source => 'puppet:///modules/basesys/80proxy',
+     content =>  [
+		"export http_proxy=${proxy_url}:${proxy_port}"
+		"export https_proxy=${proxy_url}:${proxy_port}"
+	],
     }
-    exec{"https_proxy":
-      path     => '/usr/bin:/usr/sbin:/bin',
-      provider => shell,
-      command => "export https_proxy=${proxy_url}:${proxy_port}"
-    }
-    exec{"ftp_proxy":
-      path     => '/usr/bin:/usr/sbin:/bin',
-      provider => shell,
-      command => "export ftp_proxy==${proxy_url}:${proxy_port}"
-    }
-    exec{"NO_Proxy":
-      path     => '/usr/bin:/usr/sbin:/bin',
-      provider => shell,
-      command => "export NO_PROXY=localhost,127.0.0.1,.upr.edu.cu"
-    }
+
+    #exec{"http_proxy":
+    #  path     => '/usr/bin:/usr/sbin:/bin',
+    #  provider => shell,
+    #  command => "export http_proxy=${proxy_url}:${proxy_port}"
+    #}
+    #exec{"https_proxy":
+    #  path     => '/usr/bin:/usr/sbin:/bin',
+    #  provider => shell,
+    #  command => "export https_proxy=${proxy_url}:${proxy_port}"
+    #}
+    #exec{"ftp_proxy":
+    #  path     => '/usr/bin:/usr/sbin:/bin',
+    #  provider => shell,
+    #  command => "export ftp_proxy==${proxy_url}:${proxy_port}"
+    #}
+    #exec{"NO_Proxy":
+    #  path     => '/usr/bin:/usr/sbin:/bin',
+    #  provider => shell,
+    #  command => "export NO_PROXY=localhost,127.0.0.1,.upr.edu.cu"
+    #}
 
     
     file{'/etc/apt/apt.conf.d/80proxy':
