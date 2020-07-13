@@ -76,6 +76,7 @@ node /^ceph\d+$/ {
     mta_enabled     => false,
     dmz             => true,
     proxy_enabled   => true,
+    proxy_url	    =>'http://servers-proxy.upr.edu.cu',
   }
  }
 
