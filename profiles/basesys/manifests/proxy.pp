@@ -13,13 +13,6 @@ class basesys::proxy (
 
   if($::basesys::proxy_enabled)
   {
-    file{'/etc/proxy.sh':
-     ensure => absent,
-     owner  => 'root',
-     group  => 'root',
-     mode   => '0644',
-     content => template('basesys/proxy.sh.erb'),
-    }
 
     #exec{"proxy":
     #  path     => '/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin',
@@ -54,6 +47,15 @@ class basesys::proxy (
      		#source => 'puppet:///modules/basesys/80proxy',
      		content =>  template('basesys/80proxy.erb'),
     	}
+
+	file{'/etc/environment':
+     		ensure => absent,
+     		owner  => 'root',
+     		group  => 'root',
+     		mode   => '0644',
+     		content => template('basesys/proxy.sh.erb'),
+    	}
+
      }
 
 
