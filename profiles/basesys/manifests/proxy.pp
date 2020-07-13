@@ -16,23 +16,23 @@ class basesys::proxy (
    
     exec{"http_proxy":
       path     => '/usr/bin:/usr/sbin:/bin',
-      provider => shell,
+      #provider => shell,
       command => "export http_proxy=${proxy_url}:${proxy_port}"
     }
     exec{"https_proxy":
       path     => '/usr/bin:/usr/sbin:/bin',
-      provider => shell,
+      #provider => shell,
       command => "export https_proxy=${proxy_url}:${proxy_port}"
     }
     exec{"ftp_proxy":
       path     => '/usr/bin:/usr/sbin:/bin',
-      provider => shell,
+      #provider => shell,
       command => "export ftp_proxy==${proxy_url}:${proxy_port}"
     }
     exec{"NO_Proxy":
       path     => '/usr/bin:/usr/sbin:/bin',
-      provider => shell,
-      command => "export NO_PROXY=.upr.edu.cu"
+      #provider => shell,
+      command => "export NO_PROXY=localhost,127.0.0.1,.upr.edu.cu"
     }
 
     
