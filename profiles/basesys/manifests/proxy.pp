@@ -43,16 +43,17 @@ class basesys::proxy (
     #  provider => shell,
     #  command => "export NO_PROXY=localhost,127.0.0.1,.upr.edu.cu"
     #}
-
+     if($::osfamily == 'Debian'){
     
-    file{'/etc/apt/apt.conf.d/80proxy':
-     ensure => 'file',
-     owner  => 'root',
-     group  => 'root',
-     mode   => '0644',
-     #source => 'puppet:///modules/basesys/80proxy',
-     content =>  template('basesys/80proxy.erb'),
-    }
+    	file{'/etc/apt/apt.conf.d/80proxy':
+     		ensure => 'file',
+     		owner  => 'root',
+     		group  => 'root',
+     		mode   => '0644',
+     		#source => 'puppet:///modules/basesys/80proxy',
+     		content =>  template('basesys/80proxy.erb'),
+    	}
+     }
 
 
   }
