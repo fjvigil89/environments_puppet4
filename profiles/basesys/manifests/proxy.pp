@@ -14,36 +14,36 @@ class basesys::proxy (
   if($::basesys::proxy_enabled)
   {
     file{'/etc/proxy.sh':
-     ensure => 'file',
+     ensure => absent,
      owner  => 'root',
      group  => 'root',
      mode   => '0644',
      content => template('basesys/proxy.sh.erb'),
     }
 
-    exec{"proxy":
-      path     => '/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin',
-      provider => shell,
-      logoutput => on_failure,
-      command => "bash -c 'source /etc/proxy.sh'",
-      subscribe   => File['/etc/proxy.sh'],
+    #exec{"proxy":
+    #  path     => '/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin',
+    #  provider => shell,
+    #  logoutput => on_failure,
+    #  command => "bash -c 'source /etc/proxy.sh'",
+    #  subscribe   => File['/etc/proxy.sh'],
 
+    #}
+    exec{"https_proxy":
+      path     => '/usr/bin:/usr/sbin:/bin',
+      provider => shell,
+      command => "export https_proxy=${proxy_url}:${proxy_port}"
     }
-    #exec{"https_proxy":
-    #  path     => '/usr/bin:/usr/sbin:/bin',
-    #  provider => shell,
-    #  command => "export https_proxy=${proxy_url}:${proxy_port}"
-    #}
-    #exec{"ftp_proxy":
-    #  path     => '/usr/bin:/usr/sbin:/bin',
-    #  provider => shell,
-    #  command => "export ftp_proxy==${proxy_url}:${proxy_port}"
-    #}
-    #exec{"NO_Proxy":
-    #  path     => '/usr/bin:/usr/sbin:/bin',
-    #  provider => shell,
-    #  command => "export NO_PROXY=localhost,127.0.0.1,.upr.edu.cu"
-    #}
+    exec{"ftp_proxy":
+      path     => '/usr/bin:/usr/sbin:/bin',
+      provider => shell,
+      command => "export ftp_proxy==${proxy_url}:${proxy_port}"
+    }
+    exec{"NO_Proxy":
+      path     => '/usr/bin:/usr/sbin:/bin',
+      provider => shell,
+      command => "export NO_PROXY=localhost,127.0.0.1,.upr.edu.cu"
+    }
      if($::osfamily == 'Debian'){
     
     	file{'/etc/apt/apt.conf.d/80proxy':
