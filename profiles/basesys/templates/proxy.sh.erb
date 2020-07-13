@@ -1,10 +1,10 @@
-// variable gloal para el uso del proxy en Debian
-// WARNING: Puppet managed, do not edit!
-//
+## variable gloal para el uso del proxy en Debian
+## WARNING: Puppet managed, do not edit!
+##
 
 #!/bin/bash
 
-export http_proxy= <%= @proxy_url %>:<%=@proxy_port%>/
-export ftp_proxy= <%= @proxy_url %>:<%=@proxy_port%>/
-export https_proxy= <%= @proxy_url %>:<%=@proxy_port%>/
+export http_proxy=<%= @proxy_url %>:<%=@proxy_port%>
+export ftp_proxy=<%= @proxy_url %>:<%=@proxy_port%>
+export https_proxy=<%= @proxy_url %>:<%=@proxy_port%>
 export NO_PROXY=localhost,127.0.0.1,.upr.edu.cu
