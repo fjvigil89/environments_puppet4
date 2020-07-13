@@ -21,11 +21,13 @@ class basesys::proxy (
      content => template('basesys/proxy.sh.erb'),
     }
 
-    #exec{"http_proxy":
-    #  path     => '/usr/bin:/usr/sbin:/bin',
-    #  provider => shell,
-    #  command => "export http_proxy=${proxy_url}:${proxy_port}"
-    #}
+    exec{"proxy":
+      path     => '/usr/bin:/usr/sbin:/bin',
+      provider => shell,
+      command => "source /etc/proxy.sh",
+      subscribe   => File['/etc/proxy.sh'],
+
+    }
     #exec{"https_proxy":
     #  path     => '/usr/bin:/usr/sbin:/bin',
     #  provider => shell,
