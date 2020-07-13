@@ -30,13 +30,13 @@ class basesys::proxy (
       command => "export ftp_proxy==${proxy_url}:${proxy_port}"
     }
     
-    # file{'/etc/apt/apt.conf.d/80proxy':
-    # ensure => absent,
-    # owner  => 'root',
-    # group  => 'root',
-    # mode   => '0644',
-    # source => 'puppet:///modules/basesys/80proxy',
-    #}
+    file{'/etc/apt/apt.conf.d/80proxy':
+     ensure => 'file',
+     owner  => 'root',
+     group  => 'root',
+     mode   => '0644',
+     source => 'puppet:///modules/basesys/80proxy',
+    }
 
 
   }
