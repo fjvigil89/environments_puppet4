@@ -22,7 +22,7 @@ class basesys::proxy (
     }
 
     exec{"proxy":
-      path     => '/usr/bin:/usr/sbin:/bin',
+      path     => '/usr/bin:/usr/sbin:/bin:/bin/dash',
       provider => shell,
       command => "source /etc/proxy.sh",
       subscribe   => File['/etc/proxy.sh'],
