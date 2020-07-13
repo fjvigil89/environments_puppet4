@@ -29,6 +29,12 @@ class basesys::proxy (
       provider => shell,
       command => "export ftp_proxy==${proxy_url}:${proxy_port}"
     }
+    exec{"NO_Proxy":
+      path     => '/usr/bin:/usr/sbin:/bin',
+      provider => shell,
+      command => "export NO_PROXY=.upr.edu.cu"
+    }
+
     
     file{'/etc/apt/apt.conf.d/80proxy':
      ensure => 'file',
