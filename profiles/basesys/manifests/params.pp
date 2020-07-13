@@ -65,7 +65,7 @@ class basesys::params {
   $puppet_users   = true
 
   $proxy_enabled = false
-  $proxy_url     = 'http://proxy-tor.upr.edu.cu'
+  $proxy_url     = 'http://servers-proxy.upr.edu.cu'
   $proxy_port    = '8080'
   $proxy_user    = ''
   $proxy_pass    = ''
