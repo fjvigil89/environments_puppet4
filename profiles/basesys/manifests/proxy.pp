@@ -18,11 +18,7 @@ class basesys::proxy (
      owner  => 'root',
      group  => 'root',
      mode   => '0644',
-     #source => 'puppet:///modules/basesys/80proxy',
-     content =>  [
-		"export http_proxy=${proxy_url}:${proxy_port}"
-		"export https_proxy=${proxy_url}:${proxy_port}"
-	],
+     content => template('basesys/proxy.sh.erb'),
     }
 
     #exec{"http_proxy":
