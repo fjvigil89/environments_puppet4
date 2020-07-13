@@ -4,12 +4,12 @@
 # DNS configuratie.
 #
 class basesys::proxy (
+  $proxy_url    = $::basesys::proxy_url,
+  $proxy_port   = $::basesys::proxy_port,
+  #$proxy_user   = $::basesys::proxy_user
+  #$proxy_pass   = $::basesys::proxy_pass
   ){
 
-  $proxy_url    = $::basesys::proxy_url
-  $proxy_port   = $::basesys::proxy_port
-  $proxy_user   = $::basesys::proxy_user
-  $proxy_pass   = $::basesys::proxy_pass
 
   if($::basesys::proxy_enabled)
   {

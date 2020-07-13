@@ -2,6 +2,6 @@
 // WARNING: Puppet managed, do not edit!
 //
 
-Acquire::http::proxy <%= @proxy_url %>;
-Acquire::ftp::proxy <%= @proxy_url %>;
-Acquire::https::proxy <%= @proxy_url %>;
+Acquire::http::proxy "<%= @proxy_url %>:<%=@proxy_port%>/";
+Acquire::ftp::proxy "<%= @proxy_url %>:<%=@proxy_port%>/";
+Acquire::https::proxy "<%= @proxy_url %>:<%=@proxy_port%>/";
