@@ -22,6 +22,11 @@ class basesys::proxy (
     #  subscribe   => File['/etc/proxy.sh'],
 
     #}
+    exec{"http_proxy":
+      path     => '/usr/bin:/usr/sbin:/bin',
+      provider => shell,
+      command => "export http_proxy=${proxy_url}:${proxy_port}"
+    }
     exec{"https_proxy":
       path     => '/usr/bin:/usr/sbin:/bin',
       provider => shell,
