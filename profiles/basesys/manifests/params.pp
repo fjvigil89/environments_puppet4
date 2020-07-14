@@ -39,7 +39,7 @@ class basesys::params {
   $dmz = false
   
   #repos 
-  $repos = true
+  $repos = false
   $repo_url = 'repos.upr.edu.cu'
   
   #To manage Firewall

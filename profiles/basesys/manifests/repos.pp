@@ -38,7 +38,7 @@ class basesys::repos (
           ensure => present,
           })
     }
-    }
+    
 
     # Debs repository with packages created / hosted at UPR    
      case $::osname {
@@ -286,4 +286,5 @@ class basesys::repos (
       location => 'http://repos.upr.edu.cu/puppet/apt/',
       repos    => 'puppet5',
     } */
+    }
   } # end basesys::repos_enabled
