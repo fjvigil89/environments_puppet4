@@ -14,21 +14,19 @@ class basesys::docker (
   if($::basesys::docker_enabled)
   {
     
-    	file{'/etc/systemd/system/docker.service.d':
-     		ensure => 'directory',
-     		owner  => 'root',
-     		group  => 'root',
-     		mode   => '0644',
-        #source => 'puppet:///modules/basesys/',
-        #content =>  template('basesys/80proxy.erb'),
-    	}
+    #file{'/etc/systemd/system/docker.service.d':
+    # 		ensure => 'present',
+    # 		owner  => 'root',
+    # 		group  => 'root',
+    # 		mode   => '0644',
+    # 	}
       file{'/etc/systemd/system/docker.service.d/proxy.conf':
         ensure => 'file',
         owner  => 'root',
         group  => 'root',
         mode   => '0644',
         source => 'puppet:///modules/basesys/dockerproxy.conf',
-        notify =>File['/etc/systemd/system/docker.service.d'],
+        # notify =>File['/etc/systemd/system/docker.service.d'],
       }
 
      exec{"daemon-reload":
