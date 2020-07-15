@@ -15,7 +15,7 @@ class basesys::docker (
   {
     
     	file{'/etc/systemd/system/docker.service.d':
-     		ensure => directory,
+     		ensure => 'directory',
      		owner  => 'root',
      		group  => 'root',
      		mode   => '0644',
