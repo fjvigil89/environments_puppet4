@@ -103,7 +103,8 @@ class basesys::packages {
 
     if ($::basesys::docker_enabled) {
       class { 'docker':
-        docker_ee => false,
+        use_upstream_package_source => false,
+        repo_opt                    => '',
       }
     }
 
