@@ -11,7 +11,6 @@ node /^kube\d+$/ {
     dmz             => false,
     proxy_enabled   => true,
     proxy_url       => 'http://proxy-tor.upr.edu.cu',
-    docker_enabled  => true,
   }
 }
 

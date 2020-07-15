@@ -101,22 +101,6 @@ class basesys::packages {
     # 'ugent-nagios-client' heeft voorlopig een Bug #SYSADMIN-89
     #ensure_packages($legacy_ugent_nagios_package, {'ensure' => 'absent'})
 
-    if ($::basesys::docker_enabled) {
-      $docker_version = $::lsbdistcodename ? {
-        'bionic' => ['docker.io','docker-compose'],
-        'stretch' => ['docker','docker-compose'],
-        default  => 'docker',
-      }
-      $docker_package = $::osfamily ? {
-          'Debian' => $docker_version,
-          'Ubuntu' => $docker_version,
-          #'RedHat' => 'ugnagiosclient',
-          default  => $docker_version,
-      }
-
-      ensure_packages($docker_package)
-    }
-
     # lint:endignore
   }
 
