@@ -102,7 +102,9 @@ class basesys::packages {
     #ensure_packages($legacy_ugent_nagios_package, {'ensure' => 'absent'})
 
     if ($::basesys::docker_enabled) {
-      include 'docker'
+      class { 'docker':
+        docker_ee => false,
+      }
     }
 
     # lint:endignore
