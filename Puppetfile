@@ -119,9 +119,6 @@ mod 'openstack-keystone', '17.1.0'
 mod 'openstack-openstacklib', '17.1.0'
 mod 'duritong-sysctl', '0.0.12'
 
-#docker
-mod 'puppetlabs-docker', '3.10.1'
-
 #Proxy
 mod 'dcenter/squid',
   :git => 'git@gitlab.upr.edu.cu:dcenter/squid.git',

@@ -102,10 +102,19 @@ class basesys::packages {
     #ensure_packages($legacy_ugent_nagios_package, {'ensure' => 'absent'})
 
     if ($::basesys::docker_enabled) {
-      class { 'docker':
-        use_upstream_package_source => false,
-        repo_opt                    => '',
+      $docker_version = $::lsbdistcodename ? {
+        'bionic' => ['docker.io','docker-composer'],
+        'stretch' => ['docker','docker-composer'],
+        default  => 'docker',
       }
+      $docker_package = $::osfamily ? {
+          'Debian' => $docker_version,
+          'Ubuntu' => $docker_version,
+          #'RedHat' => 'ugnagiosclient',
+          default  => $docker_version,
+      }
+
+      ensure_packages($docker_package)
     }
 
     # lint:endignore
