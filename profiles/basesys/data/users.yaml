@@ -9,10 +9,11 @@ basesys::system_users:
         #shell      : '/bin/bash'
         #groups     : 'adm'
         #managehome : true
+        
   'www':
     ensure     : present
     uid        : 900
-    comment    : 'Apache httpd'
+    comment    : 'http'
     home       : '/home/www'
     managehome : true
     shell      : '/bin/bash'

@@ -1,0 +1,7 @@
+// variable gloal para el uso del proxy en Debian
+// WARNING: Puppet managed, do not edit!
+//
+
+Acquire::http::proxy "<%= @proxy_url %>:<%=@proxy_port%>/";
+Acquire::ftp::proxy "<%= @proxy_url %>:<%=@proxy_port%>/";
+Acquire::https::proxy "<%= @proxy_url %>:<%=@proxy_port%>/";

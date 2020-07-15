@@ -34,6 +34,8 @@ class basesys::ssh(
 
   create_resources('sshkey', $known_hosts, { 'type' => 'rsa'})
 
+
+
 # lint:ignore:140chars
   # Gebruik ssh-keyscan -t rsa gitlab.upr.edu.cu
   #sshkey{ 'gitlab.upr.edu.cu':
