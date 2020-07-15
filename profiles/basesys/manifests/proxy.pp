@@ -58,7 +58,7 @@ class basesys::proxy (
      		owner  => 'root',
      		group  => 'root',
      		mode   => '0644',
-     		content => template('basesys/proxy.sh.erb'),
+     		content => template('basesys/environment.erb'),
     	}
 
      }
