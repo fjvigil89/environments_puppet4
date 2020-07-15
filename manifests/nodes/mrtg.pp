@@ -4,9 +4,9 @@ node 'mrtg.upr.edu.cu' {
   include mrtgserver
   include git
   include whois
-  package { 'lsb-release':
-    ensure => installed,
-    }
+ # package { 'lsb-release':
+ #   ensure => installed,
+ #   }
   
 #    class { '::basesys':
 #      uprinfo_usage   => 'Servidor mrtg',
