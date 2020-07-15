@@ -103,8 +103,8 @@ class basesys::packages {
 
     if ($::basesys::docker_enabled) {
       $docker_version = $::lsbdistcodename ? {
-        'bionic' => ['docker.io','docker-composer'],
-        'stretch' => ['docker','docker-composer'],
+        'bionic' => ['docker.io','docker-compose'],
+        'stretch' => ['docker','docker-compose'],
         default  => 'docker',
       }
       $docker_package = $::osfamily ? {
