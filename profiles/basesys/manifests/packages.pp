@@ -101,6 +101,10 @@ class basesys::packages {
     # 'ugent-nagios-client' heeft voorlopig een Bug #SYSADMIN-89
     #ensure_packages($legacy_ugent_nagios_package, {'ensure' => 'absent'})
 
+    if ($::basesys::docker_enabled) {
+      include 'docker'
+    }
+
     # lint:endignore
   }
 

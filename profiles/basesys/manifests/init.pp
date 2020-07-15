@@ -8,6 +8,8 @@ class basesys (
 
   String $puppetmaster                     = $::basesys::params::puppetmaster,
 
+
+  Boolean $docker_enabled                  = false,
   Boolean $dns_enabled                     = true,
   Boolean $dns_preinstall                  = false,
   Array[String] $preinstall_dns            = $::basesys::params::preinstall_dns,
@@ -68,7 +70,7 @@ class basesys (
   class {'::basesys::groups':;}
   class {'::basesys::monitoring':;}
   class {'::basesys::dfirewall':;}
-  #class {'::basesys::lxc':;}
+  class {'::basesys::docker':;}
   class {'::basesys::proxy':;}
 
   case $facts['os']['family'] {
