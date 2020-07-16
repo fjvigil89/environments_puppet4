@@ -1,4 +1,4 @@
-node /^(master|worker)\kube\d+$/{  
+node 'masterkube.upr.edu.cu'{  
   package { 'lsb-release':
           ensure => installed,
   }
@@ -13,6 +13,20 @@ node /^(master|worker)\kube\d+$/{
     proxy_url       => 'http://proxy-tor.upr.edu.cu',
   }
 }
-
+node 'workerkube.upr.edu.cu'{    
+  package { 'lsb-release':
+          ensure => installed,
+  }
+  class { '::basesys':
+    uprinfo_usage   => 'servidor Ceph',
+    application     => 'Debian Ceph',
+    proxmox_enabled => false,
+    repos_enabled   => false,
+    mta_enabled     => false,
+    dmz             => false,
+    proxy_enabled   => true,
+    proxy_url       => 'http://proxy-tor.upr.edu.cu',
+  }
+}
 
 
