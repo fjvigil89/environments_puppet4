@@ -12,6 +12,10 @@ node 'masterkube.upr.edu.cu'{
     proxy_enabled   => true,
     proxy_url       => 'http://proxy-tor.upr.edu.cu',
   }
+
+  class {'kubernetes':
+    controller => true,
+  }
 }
 node 'workerkube.upr.edu.cu'{    
   package { 'lsb-release':
@@ -26,6 +30,10 @@ node 'workerkube.upr.edu.cu'{
     dmz             => false,
     proxy_enabled   => true,
     proxy_url       => 'http://proxy-tor.upr.edu.cu',
+  }
+  
+  class {'kubernetes':
+    worker => true,
   }
 }
 
