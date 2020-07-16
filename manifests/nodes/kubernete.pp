@@ -10,7 +10,7 @@ node 'masterkube.upr.edu.cu'{
     mta_enabled     => false,
     dmz             => false,
     proxy_enabled   => true,
-    proxy_url       => 'http://proxy-tor.upr.edu.cu',
+    #proxy_url       => 'http://proxy-tor.upr.edu.cu',
   }
 
   class {'kubernetes':
@@ -29,7 +29,7 @@ node 'workerkube.upr.edu.cu'{
     mta_enabled     => false,
     dmz             => false,
     proxy_enabled   => true,
-    proxy_url       => 'http://proxy-tor.upr.edu.cu',
+    #proxy_url       => 'http://proxy-tor.upr.edu.cu',
   }
   
   class {'kubernetes':
