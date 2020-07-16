@@ -1,4 +1,4 @@
-node /^kube\d+$/ {  
+node /^(master|worker)\.kube\d+$/{  
   package { 'lsb-release':
           ensure => installed,
   }
