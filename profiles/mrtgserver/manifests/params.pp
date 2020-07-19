@@ -5,6 +5,6 @@ class mrtgserver::params {
   $group = 'root'
   $mode  = '0775'
   $comunidad = 'network4core@dminUPR'
-  $ip = ['192.168.200.1','10.2.0.2']
+  $ip = ['192.168.100.1','10.2.0.2']
   $names = ['L3','2960']
   }

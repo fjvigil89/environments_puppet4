@@ -27,12 +27,12 @@ class mrtgserver::mrtg(){
   }
 
   ######## GENERACIÓN DE LOS ARCHIVOS .CFG ########
-  #  each($::mrtgserver::ip) |Integer $index, String $value|{
-  #  exec { $value :
-  #    creates => "/etc/mrtg/${value}.cfg",
-  #    command => "/usr/bin/cfgmaker network4core@dminUPR@$value > /etc/mrtg/$value.cfg"
-  #  }
-  #}
+    each($::mrtgserver::ip) |Integer $index, String $value|{
+    exec { $value :
+      creates => "/etc/mrtg/${value}.cfg",
+      command => "/usr/bin/cfgmaker network4core@dminUPR@$value > /etc/mrtg/$value.cfg"
+    }
+  }
 
   ######## COPIA DE LOS ARCHIVOS .CFG PREVIAMENTE GENERADOS Y EDITADOS ########
 
