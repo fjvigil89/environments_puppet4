@@ -41,13 +41,13 @@ basesys::accounts:
     sshkeys:
       - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDf93JhwknoP9f1NKrvD9Y5ja0JBu8ucpPsZCO+pZUJRHgryeWZb8w+CXQd7VhQnBp0/FtlAT1mroP86BGDmysQ6+u6D26mGPZhhpRX6WK4KKn+8c0OHTmzolY3hiqjiEvMbHaXtlPQWEbUuZHgExGul8f+mWNuoMxG5eUw8ojej7IfKBd2TISqUQA7LFFcWKLOQYKgtxkMn++HaLKJYX+dFgVoBf76hkPsdTAxs8WESlLkgR7nqdt1zIAdMUe1RbCEOwYgY7YjxntJEECi4pO/RVOcB04LLAAMrloP6gqhMI9LtnktkeLdOcuko/PYGcACUVGRRQChxVoLJ0u5X63p yandy@yandy-desktop' 
   'henry':
-    comment: 'Henry Fleita'
+    comment: 'Henry Fleitas Mezquia'
     uid: '515'
     manage_primary_group: false
     gid: '100'
     tag: 'systemen'
     sshkeys:
-      - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC5qkH4WZPXcarvfPB97ESljPkizrGZBDyPBx8PZAnuKYQSrBrI5lSNiH1FWzIpa0T4RebqwPX7p5U26S/D3tbQz7fq7bwD69j9sixurJQKpYRHMNYupS5JTL4lbnW2qN5k2ZXcUaCLV7QdcJW9H7ig/PQjiLK3rt/WqrZZmF5tVO5Uo3s6uYEoaqYzJjeqdaEMmkn17XNnIbncwhAWdEkubmk9MYaa8MkLeIQcY2sJup8TyOXLfOhANrt/7JS9vzgf4sOjohAAUzWAp4Q496G0gUkihvAjrS0CwhdjmuCVtIe46E9BcbGfaOXQ6YjDnsB+9XzLMRWGjmyvjnNJrjFD henry@henry-MS-7982'
+      - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDSM5rn3Dq2IGmBsum1IO4UCbxXFaAWIi4N+2kng4csDfNu6a24EAHNUvje8a79ScM+rgbd3gE0cm/Ntf032+FY2MNhUrNDGMn8/j9a0nolYIjvmEroufzQR6IFYz12XMoqq7QCHqLvpMZ9w2ppVyboPaPg8cwkdBHk3ec7SvCpRQo5mm2R2i6FLFdPOBC/moBWkFebsWBA/qiZ4HB0phXg/hIi56+rAh34VzIx+xRlttVhcUjF2kbHiQpykxqwm0GIYpLAxQhYZT0t1wW5Jojg10jOKSJSePI97J2Wq2bcJQ6SoKsI0669O6/fCShJcK4A4zOA+DOFjL70MW4jUdkyPyUGGTFY9u+b9vt8bkRMS/9qgbzhw67tTl1S31WIZMrSFeyto5eDms265oHwxKZRVZRIyjvBkyOAlkG9TzlJIEt+wZdYmkM7/TiYnDxM271sS0ALWP42nDBienz1ZGYSSZDdxQ0HWQ2Y5C8dG3evbgnolbon1D+p+p/HblJ3jSc= henry-upredes@henryupredes-MS-7982'
   
   'ceph':
     comment: 'Ceph UPR'
