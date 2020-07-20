@@ -59,7 +59,7 @@ class mrtgserver::mrtg(){
     owner  => 'root',
     group  => 'root',
     mode   => '0644',
-    source => 'puppet:///modules/mrtgserver/10.2.1.1.cfg',
+    source => 'puppet:///modules/mrtgserver/10.2.0.1.cfg',
   }
 
   ####SENSORES####
