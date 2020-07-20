@@ -12,6 +12,6 @@ class { 'snmpd':
   allowed_hosts => [ 'localhost','10.2.0.0/21' ],
   community     => 'UPRadmin4all',
   syslocation   => 'UPR, Nodo Central',
-  syscontact    => 'di@upr.edu.cu'
+  syscontact    => 'upredes@upr.edu.cu'
 }
 }
