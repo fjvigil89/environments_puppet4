@@ -115,7 +115,7 @@ mod 'camptocamp-openldap', '1.17.0'
 mod 'openstack-ceph', '3.1.1'
 
 #Kubernetes
-mod 'puppetlabs-kubernetes', '5.1.0'
+#mod 'puppetlabs-kubernetes', '5.1.0'
 
 #OpenStack
 mod 'openstack-keystone', '17.1.0'
