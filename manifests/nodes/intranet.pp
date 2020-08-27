@@ -4,6 +4,8 @@ node 'intranet.upr.edu.cu' {
     application    => 'puppet',
     repos_enabled  => false,
     mta_enabled    => false,
+    dns_preinstall => true,
+    proxy_enabled  => true,
   }
   class{'::wh_php_apache':;}
 
