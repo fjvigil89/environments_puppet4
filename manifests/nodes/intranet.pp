@@ -1,5 +1,10 @@
 node 'intranet.upr.edu.cu' {  
-
+  class { '::basesys':
+    uprinfo_usage  => 'servidor Instranet',
+    application    => 'puppet',
+    repos_enabled  => false,
+    mta_enabled    => false,
+  }
   class{'::wh_php_apache':;}
 
   apache::vhost { 'intranet.upr.edu.cu non-ssl':

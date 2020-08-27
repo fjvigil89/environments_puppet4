@@ -1,5 +1,12 @@
 node 'news.upr.edu.cu' {
 
+  class { '::basesys':
+    uprinfo_usage  => 'servidor News',
+    application    => 'puppet',
+    #puppet_enabled => false,
+    mta_enabled    => false,
+  }
+
   class{'::wh_php_apache':;}
   
   apache::vhost { 'news.upr.edu.cu non-ssl':

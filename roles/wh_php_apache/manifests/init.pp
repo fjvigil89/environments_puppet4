@@ -8,12 +8,6 @@ class wh_php_apache {
     log_type => "apache",
    }
 
-  class { '::basesys':
-    uprinfo_usage  => 'servidor test',
-    application    => 'puppet',
-    #puppet_enabled => false,
-    mta_enabled    => false,
-  }
   
  include git
  include vim
