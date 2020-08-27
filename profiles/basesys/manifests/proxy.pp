@@ -53,13 +53,13 @@ class basesys::proxy (
      		content =>  template('basesys/80proxy.erb'),
     	}
 
-	file{'/etc/environment':
-     		ensure => 'file',
-     		owner  => 'root',
-     		group  => 'root',
-     		mode   => '0644',
-     		content => template('basesys/environment.erb'),
-    	}
+	#file{'/etc/environment':
+     	#	ensure => 'file',
+     	#	owner  => 'root',
+     	#	group  => 'root',
+     	#	mode   => '0644',
+     	#	content => template('basesys/environment.erb'),
+    	#}
 
      }
 
