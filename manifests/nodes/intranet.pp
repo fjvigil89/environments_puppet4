@@ -8,13 +8,13 @@ node 'intranet.upr.edu.cu' {
     proxy_enabled      => true,
     monitoring_enabled => false,
   }->
- file { '/home/Intranet':
+ file { '/tmp/Intranet':
        ensure  => directory,
        group   => 'bind',
        owner   => 'bind',
        mode    => '0775',
      }~>
-     vcsrepo { '/home':  
+     vcsrepo { '/tmp/Intranet':  
       ensure   => latest,
       provider => 'git',
       remote   => 'origin',
