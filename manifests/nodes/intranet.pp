@@ -62,4 +62,11 @@ node 'intranet.upr.edu.cu' {
   }
   }
 
+    class { '::mysql::server':
+    root_password           => 'sv-intranet-admin4all',
+    remove_default_accounts => false,
+    restart                 => true,
+    override_options        => $override_options
+  }
+
 }
