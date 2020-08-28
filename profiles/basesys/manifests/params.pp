@@ -15,7 +15,7 @@ class basesys::params {
   $dnssearchdomains = 'upr.edu.cu'
 
   # NTP
-  $ntp_server  	   = ['ntp0.upr.edu.cu','ntp1.upr.edu.cu','ntp2.upr.edu.cu','ntp3.upr.edu.cu']
+  $ntp_server  	   = ['ntp1.upr.edu.cu']
   $ntp_server_upr  = ['0.north-america.pool.ntp.org','1.north-america.pool.ntp.org','2.north-america.pool.ntp.org','3.north-america.pool.ntp.org']
   $ntpconf         = 'ntp/ntp.conf.epp'
 
