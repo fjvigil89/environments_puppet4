@@ -11,7 +11,7 @@ class gitlabserver {
     #skip_auto_migrations  => false,
     #pgpass_file_ensure   => 'present',
     #pgbouncer_password   => 'YourPassword',
-    backup_cron_enable    => true,
+    backup_cron_enable    => false,
     nginx                 => {
       redirect_http_to_https  => false
     },
