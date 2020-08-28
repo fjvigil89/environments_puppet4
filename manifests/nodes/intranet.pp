@@ -39,6 +39,12 @@ node 'intranet.upr.edu.cu' {
     command     => '/usr/bin/sudo service apache2 restart',
     refreshonly => true;
   }->
+  file { '/root/r10k':
+  ensure => 'directory',
+  owner  => 'root',
+  group  => 'root',
+  mode   => '0600',
+ }->
   class {'r10kserver':
     r10k_basedir => "/home/Intranet",
     cachedir     => "/var/cache/r10k",
