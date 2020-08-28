@@ -8,7 +8,6 @@ node 'intranet.upr.edu.cu' {
     proxy_enabled      => true,
     monitoring_enabled => false,
   }
-
   class{'commun_ssh_keys':;}
   class{'::wh_php_apache':;}
 
