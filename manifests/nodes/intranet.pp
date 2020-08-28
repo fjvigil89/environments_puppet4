@@ -7,22 +7,7 @@ node 'intranet.upr.edu.cu' {
     dns_preinstall     => true,
     proxy_enabled      => true,
     monitoring_enabled => false,
-  }->
- file { '/tmp/Intranet':
-       ensure  => directory,
-       group   => 'bind',
-       owner   => 'bind',
-       mode    => '0775',
-     }~>
-     vcsrepo { '/tmp/Intranet':  
-      ensure   => latest,
-      provider => 'git',
-      remote   => 'origin',
-      source   => {
-        'origin' => 'git@gitlab.upr.edu.cu:dcenter/intranet_old.git',
-      },
-      revision => 'master',
-   }
+  }
 
   class{'commun_ssh_keys':;}
   class{'::wh_php_apache':;}
