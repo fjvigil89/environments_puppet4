@@ -53,7 +53,7 @@ node 'intranet.upr.edu.cu' {
     configfile   => "/etc/r10k/r10k.yaml",
     remote       => "git@gitlab.upr.edu.cu:dcenter/intranet_old.git",
     sources      => {
-      'News-UPR' => {
+      'Intranet' => {
         'remote'           => 'git@gitlab.upr.edu.cu:dcenter/intranet_old.git',
         'basedir'          => '/home/Intranet',
         'prefix'           => false,
