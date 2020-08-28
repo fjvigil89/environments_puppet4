@@ -7,6 +7,7 @@ node 'intranet.upr.edu.cu' {
     dns_preinstall => true,
     proxy_enabled  => true,
   }
+  ## regresando al estado de r10k
   class{'commun_ssh_keys':;}
   class{'::wh_php_apache':;}
 
