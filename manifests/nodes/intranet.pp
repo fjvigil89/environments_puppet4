@@ -1,12 +1,24 @@
 node 'intranet.upr.edu.cu' {  
   class { '::basesys':
-    uprinfo_usage  => 'servidor Instranet',
-    application    => 'puppet',
-    repos_enabled  => false,
-    mta_enabled    => false,
-    dns_preinstall => true,
-    proxy_enabled  => true,
+    uprinfo_usage      => 'servidor Instranet',
+    application        => 'puppet',
+    repos_enabled      => false,
+    mta_enabled        => false,
+    dns_preinstall     => true,
+    proxy_enabled      => true,
+    monitoring_enabled => false,
+  }->
+
+  vcsrepo { '/home':  
+      ensure   => latest,
+      provider => 'git',
+      remote   => 'origin',
+      source   => {
+        'origin' => 'git@gitlab.upr.edu.cu:dcenter/intranet_old.git',
+      },
+      revision => 'master',
   }
+
   class{'commun_ssh_keys':;}
   class{'::wh_php_apache':;}
 
