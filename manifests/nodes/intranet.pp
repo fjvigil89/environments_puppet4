@@ -8,6 +8,7 @@ node 'intranet.upr.edu.cu' {
     proxy_enabled      => true,
     monitoring_enabled => false,
   }
+  ## regresando al estado de r10k
   class{'commun_ssh_keys':;}
   class{'::wh_php_apache':;}
 
