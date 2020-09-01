@@ -51,6 +51,7 @@ mod 'puppet-dhcp', '3.2.0'
 mod 'puppet-logrotate', '3.4.0'
 mod 'puppet-smokeping', '4.0.0'
 mod 'puppet-collectd', '10.1.0'
+mod 'puppet-cron', '2.0.0'
 #r10k
 mod 'puppet-r10k', '7.0.0'
 #Puppetlabs
