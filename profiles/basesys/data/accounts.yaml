@@ -30,7 +30,7 @@ basesys::accounts:
     tag: 'systemen'
     password: '$6$wE994Ch3$doesxScbYMT6EUz00lQN5BS.AY7LgxA56NRxXZjjQCU62h.60WflhA8fHPCCAfQvWarbI5MOzf4gZZpnmYRcv1'
     sshkeys:
-      - 'ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAmqtIEzrcglhKTqnPZKAUBDhQl3fM+sosH9VYveM1ysuyXueyD93DMMjx42QQJ+bXN1EXkBF8gKkBymL8pAQAV6ZZOPjL+G78lIynPlwLvm4tkZycE1kUGzYbL47vCxTBc0gsW3RVIx24BTpZBXdqv1hoI1rCOeV4tCvGsCpHkpThsFPyjcUPuIx7JtosgW9BYcoRQvuxYbYhObZY1icJFz7FMNlxFZe0fxvyBc8gv3XtQB32H6joi6p7rdZi9zmW9nhYu9r4dVnjeSabgpDgz88xTGc0Uo3iQTzokJwsmREyPV45yVA/eBHsvmaL83LwnI0JPLBAb7WgDjgl5iTRPw== rsa-key-20180828'
+      - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDuqMyRZ5kXeocvMtNCI85UgnWrGqGKjHY8Vsd5q+RCg13FLkXjazAUEaLBdN+QWbg4jhNR+xLtOFR1Trd8szHbrw2KekjfxiVbPPwUmYkspMfqcnl4n+3XqLQuCPJJJJZvpuqMMpjmNDMTvWRctPEFVruJEhyeR/ovzSzxXKMul9h3E8fNvjwycoZdd1Ln954X/zO58/8XW1mI8gQsSq2LwB+pQzQpLciW5L79h2hSwddjxbVxQkRtBBdW294pqlZZxtVSA84Q50PDU8r26WMaWNc5J+NfHGzvqCSQ5RT/3zi1eBp+z1mQr7Y1ZOAnY8gi94NUfKozMlriSkZfboD9fIOMWYHpsrsn5ZoR1Ht+OLtugWOodmMvgJ+CefQrmpTR7tBYwIXeM7L7ko685G+a01vApiCOk2haBB5MVTC/72hifRVBVU1GGXTIVY7VEjDDWaD9Htbn3ERIXHHwZRMhyZBI9fEYTW+4AQVtvGuDlCOdpezARPptQN3bx/Boe7c= ymtnez@YMTNEZ-DI'
   'yandy':
     comment: 'Yandilier Rojas'
     uid: '514'
@@ -41,10 +41,20 @@ basesys::accounts:
     sshkeys:
       - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDf93JhwknoP9f1NKrvD9Y5ja0JBu8ucpPsZCO+pZUJRHgryeWZb8w+CXQd7VhQnBp0/FtlAT1mroP86BGDmysQ6+u6D26mGPZhhpRX6WK4KKn+8c0OHTmzolY3hiqjiEvMbHaXtlPQWEbUuZHgExGul8f+mWNuoMxG5eUw8ojej7IfKBd2TISqUQA7LFFcWKLOQYKgtxkMn++HaLKJYX+dFgVoBf76hkPsdTAxs8WESlLkgR7nqdt1zIAdMUe1RbCEOwYgY7YjxntJEECi4pO/RVOcB04LLAAMrloP6gqhMI9LtnktkeLdOcuko/PYGcACUVGRRQChxVoLJ0u5X63p yandy@yandy-desktop' 
   'henry':
-    comment: 'Henry Fleita'
+    comment: 'Henry bad people'
     uid: '515'
     manage_primary_group: false
     gid: '100'
     tag: 'systemen'
+    locked: true
     sshkeys:
       - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC5qkH4WZPXcarvfPB97ESljPkizrGZBDyPBx8PZAnuKYQSrBrI5lSNiH1FWzIpa0T4RebqwPX7p5U26S/D3tbQz7fq7bwD69j9sixurJQKpYRHMNYupS5JTL4lbnW2qN5k2ZXcUaCLV7QdcJW9H7ig/PQjiLK3rt/WqrZZmF5tVO5Uo3s6uYEoaqYzJjeqdaEMmkn17XNnIbncwhAWdEkubmk9MYaa8MkLeIQcY2sJup8TyOXLfOhANrt/7JS9vzgf4sOjohAAUzWAp4Q496G0gUkihvAjrS0CwhdjmuCVtIe46E9BcbGfaOXQ6YjDnsB+9XzLMRWGjmyvjnNJrjFD henry@henry-MS-7982'
+
+  'henry-upredes':
+    comment: 'Henry Fleitas'
+    uid: '516'
+    manage_primary_group: false
+    gid: '100'
+    tag: 'systemen'
+    sshkeys:
+      - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDSM5rn3Dq2IGmBsum1IO4UCbxXFaAWIi4N+2kng4csDfNu6a24EAHNUvje8a79ScM+rgbd3gE0cm/Ntf032+FY2MNhUrNDGMn8/j9a0nolYIjvmEroufzQR6IFYz12XMoqq7QCHqLvpMZ9w2ppVyboPaPg8cwkdBHk3ec7SvCpRQo5mm2R2i6FLFdPOBC/moBWkFebsWBA/qiZ4HB0phXg/hIi56+rAh34VzIx+xRlttVhcUjF2kbHiQpykxqwm0GIYpLAxQhYZT0t1wW5Jojg10jOKSJSePI97J2Wq2bcJQ6SoKsI0669O6/fCShJcK4A4zOA+DOFjL70MW4jUdkyPyUGGTFY9u+b9vt8bkRMS/9qgbzhw67tTl1S31WIZMrSFeyto5eDms265oHwxKZRVZRIyjvBkyOAlkG9TzlJIEt+wZdYmkM7/TiYnDxM271sS0ALWP42nDBienz1ZGYSSZDdxQ0HWQ2Y5C8dG3evbgnolbon1D+p+p/HblJ3jSc= henry-upredes@henryupredes-MS-7982'
