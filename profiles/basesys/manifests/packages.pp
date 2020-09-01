@@ -70,7 +70,7 @@ class basesys::packages {
           'vivid'   => [ 'cpp-doc','gcc-doc', 'automake1.4' ],
           'xenial'  => [ 'cpp-doc','gcc-doc'],
           'bionic'  => [ 'cpp-doc','gcc-doc'],
-          'buster'  => [''],
+          'buster'  => [ 'cpp', 'gcc'],
           'jessie'  => [ 'gcc-doc-base', 'automake1.11', 'jq'],          
           default   => [ 'gcc-doc-base'],
         }
