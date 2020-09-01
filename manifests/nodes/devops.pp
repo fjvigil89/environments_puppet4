@@ -10,6 +10,7 @@ node /^devops\d+$/  {
     repos_enabled   => false,
     mta_enabled     => false,
     dmz             => true,
+    puppet_enabled  => true,
   }
   exec{"sysctl":
     command => '/usr/bin/sudo sysctl -w vm.max_map_count=262144',
