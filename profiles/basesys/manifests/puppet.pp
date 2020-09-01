@@ -7,6 +7,10 @@
 
 class basesys::puppet{
   if($basesys::puppet_enabled) {
+    notify{'prueba_puppet':
+    message =>  'Salioooooooooooooooooooooooooooooooooooooooooooooooooooo.',
+  }
+
   
     file {'/etc/puppetlabs/puppet/README' :
         ensure => present,
