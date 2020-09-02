@@ -14,7 +14,7 @@ class basesys::puppet{
       month       => '*',
       weekday     => '*',
       user        => 'root',
-      command     => '/opt/puppetlabs/bin/puppet agent -t --environment=production --server=puppet-master.upr.edu.cu',
+      command     => '/opt/puppetlabs/bin/puppet agent --config /etc/puppetlabs/puppet/puppet.conf --onetime --no-daemonize',
       description => 'Puppet',
   }
   
@@ -24,7 +24,7 @@ class basesys::puppet{
     }
     cron{'puppet_cheking':
      ensure  => absent,
-     command => '/opt/puppetlabs/bin/puppet agent -t --environment=production --server=puppet-master.upr.edu.cu',
+     command => '/opt/puppetlabs/bin/puppet agent --config /etc/puppetlabs/puppet/puppet.conf --onetime --no-daemonize',
      minute    => ['*/30'],
     }
   }
