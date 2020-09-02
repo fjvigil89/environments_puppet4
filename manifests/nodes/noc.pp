@@ -1,4 +1,5 @@
 node /^noc\d+$/ {  
+  
   package { 'lsb-release':
           ensure => installed,
   }
