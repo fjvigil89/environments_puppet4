@@ -1,5 +1,4 @@
 node /^noc\d+$/ {  
-  include git
   package { 'lsb-release':
           ensure => installed,
   }
