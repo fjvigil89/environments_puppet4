@@ -8,6 +8,7 @@
 class basesys::puppet{
   if($basesys::puppet_enabled) {
     cron::job { 'puppet_cron':
+      ensure      => absent,
       minute      => '*/30',
       hour        => '*',
       date        => '*',
@@ -23,7 +24,7 @@ class basesys::puppet{
         source => 'puppet:///modules/basesys/README';
     }
     cron{'puppet_cheking':
-     ensure  => absent,
+      #ensure  => absent,
      command => '/opt/puppetlabs/bin/puppet agent --config /etc/puppetlabs/puppet/puppet.conf --onetime --no-daemonize',
      minute    => ['*/30'],
     }
