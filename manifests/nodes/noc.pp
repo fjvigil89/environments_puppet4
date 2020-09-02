@@ -1,4 +1,5 @@
 node /^noc\d+$/ {  
+  include git
   package { 'lsb-release':
           ensure => installed,
   }
@@ -6,7 +7,7 @@ node /^noc\d+$/ {
     uprinfo_usage   => 'servidor gestion',
     application     => 'Proxmox Gestion',
     proxmox_enabled => true,
-    repos_enabled   => true,
+    repos_enabled   => false,
     mta_enabled     => false,
     dmz             => true,
   }
