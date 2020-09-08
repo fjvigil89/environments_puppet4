@@ -20,3 +20,16 @@ node 'venus.upr.edu.cu'  {
   include constellation
 
 }
+
+node 'marte.upr.edu.cu'  {
+  include constellation
+
+}
+node 'saturno.upr.edu.cu'  {
+  include constellation
+
+}
+node 'urano.upr.edu.cu'  {
+  include constellation
+
+}
