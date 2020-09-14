@@ -59,10 +59,10 @@ class basesys (
 
   ) inherits ::basesys::params{
   class {'::basesys::repos':;}
+  class {'::basesys::puppet':;}
   class {'::basesys::dns':;}
   class {'::basesys::time':;}
   class {'::basesys::packages':;}
-  class {'::basesys::puppet':;}
   class {'::basesys::mta':;}
   class {'::basesys::ssh':;}
   class {'::basesys::users':;}

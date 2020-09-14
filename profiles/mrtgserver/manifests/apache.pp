@@ -10,18 +10,18 @@ class mrtgserver::apache(){
     aliases    => 'mrtg',
   }
 
-  apache::vhost { 'whois':
-    port       => '80',
-    docroot    => '/var/www/whois/ip/web/',
-    servername => 'whois.upr.edu.cu',
-    aliases    => 'whois',
-	  directories   => [{
-           'path' => '/var/www/whois/ip/web/',
-           'options'   => ['Indexes','FollowSymLinks','MultiViews'],
+#  apache::vhost { 'whois':
+#    port       => '80',
+#    docroot    => '/var/www/whois/ip/web/',
+#    servername => 'whois.upr.edu.cu',
+#    aliases    => 'whois',
+#	  directories   => [{
+#           'path' => '/var/www/whois/ip/web/',
+#           'options'   => ['Indexes','FollowSymLinks','MultiViews'],
 #           'allow_override' => 'All',
-           'directoryindex' => 'index.php',
-         },],
-  }
+#           'directoryindex' => 'index.php',
+#         },],
+#  }
   apache::vhost { 'sensores':
     port       => '80',
     docroot    => '/var/www/mrtg/sensores/',
