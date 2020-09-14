@@ -43,7 +43,7 @@ class { 'reverse_proxy_server':
       'catalogo.upr.edu.cu',#25
       'earchivos.upr.edu.cu',#26
       'moodle.ceces.upr.edu.cu',#27
-      'moodlead.upr.edu.cu',#28
+      'moodleed.upr.edu.cu',#28
       'ceces.upr.edu.cu', #29
       'news.upr.edu.cu', #30
       'techobs.upr.edu.cu',#31
