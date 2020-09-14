@@ -21,7 +21,7 @@ basesys::accounts:
     gid: '100'
     tag: 'systemen'
     sshkeys:
-      - 'ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAytdU0uLsvigQABb0PQ0btgi8cNbk6wcUdjbbrN2oDkRLMsuluDJgsuQPJTKCA3AOuOJJ0x9de2cz1zlv+aA1cpGy0etBz3MgO2XImPjOYZQEYTAUUNPlAdOVZdeeDPy3eVFPdCKA5ZqVSPLGzWFWp6TcTGnljp/nTBeqEUgzE34pvzOvfh7EDRjtCsbSRWSu2bgbmttCk/4V+jh2xlK5ItZAi7tuhlERIIPeAG16FAS411DHdLuLHuB4ITD4riH4Vw7YYyc/cUaDS4yMSkCtW9TiLLXGlVA9U/aCa9lEE0ePaW0EPuEvW62zwU2BY/qVCr715DRo4k6IX9r+4V7iTw== Rene@DIR-INFO-15'
+      - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwaBNfByZSsPY5CdblBLGDNaUstpSoxzAk7jkka3XfnQ6TnPyAf9IDr+1rLU+AsRrmav6U4ZpMrPRJnpCMM7BIg4J5KiC/zxFVmLOdt5aN1vNLs++e4up0+1npYJuoYpyTm2xwsw4Ll2T6B9eFE/nak28WzSj2PmenI2gBRMkLA4kohVuxcCGyTuWQ0GPVp2HRRdjCQOKwoGg3unXtBKelx+S+Qg9lw83GXIGsy7BQjFk8ooaZSG2vEFIoqJygLKVW3jdJPUA4Ux4kvTPSVJCKKysuL/LE92dX8HShXFZhga9lPCnFCOLCHe/u7ttqXDFRyGXTh1qdOQcmNN2oSvMh rene@Gollum'
   'ymtnez':
     comment: 'Yohandys Navarro'
     uid: '511'
