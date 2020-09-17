@@ -21,8 +21,8 @@ node 'dhcp.upr.edu.cu' {
         'Trabajadores-BK', 
         'Estudiantes-BK',
         "CECE",
-        "VM-Noc"
-        "VM-LXC-CONSTELLATION"
+        "VM-Noc",
+        "virtual-constellation"
       ],
       network      => [
         '10.2.9.0',
