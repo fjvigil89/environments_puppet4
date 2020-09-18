@@ -11,5 +11,6 @@ class { '::basesys':
     mta_enabled     => false,
     dmz             => false,
     puppet_enabled  => true,
+    dns_preinstall  => true,
   }
 }
