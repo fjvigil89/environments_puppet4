@@ -58,3 +58,11 @@ basesys::accounts:
     tag: 'systemen'
     sshkeys:
       - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQChhaeXxyBM6rZDsgxXa6f7i73j8liJdeAHL20cjqJY0FQdWjpIHLUGO4Ai++AflOMaeqaarVPqfpquDHtTXe//8v+mhhXuAu28AxL8i490TWNKZ4hxfCd0jRjbpqmFb2Jrs2hAKGvO0DoioaXefB90eNhVB2Kq7LnbIS9AA2RbwK3hkF7hMATvFzHpPV9LC3o6wi8Se6LFVE+jfBEfkGikbVWNQzv/xLupvNwUoMQLoXj+oaMClqOiSt9dhhXeoBqKdXV5+0QzAEXFUpUdZtOgjx+fDk+0qklI5SZCtktcXTRqQ7DLsZdWnipfBf7OWamV9gAh/X+V6gEYxhHOrkXiFKGsCOdg700AStkhRJp1xLAhlWJrPZCuPSSXli0tS/cX/tKGX8Dqss4WHDiRHTCQHW0p7kl2P1wSx3LJfh4+Np4Dmgr0tfY/zjgjAjDn0ntMl9pgV3AF9YoSu3vAf25yv9cJmOiKnNDTzD7XyzcoSrLWFqkexXunAA1Dec88lxU= henry-upredes@henryupredes-MS-7982'
+
+  'terraform':
+    comment: 'Terraform by proxmox'
+    uid: '517'
+    manage_primary_group: false
+    gid: '100'
+    tag: 'systemen'
+    password: '$6$I.Xl5MSS$pdFJzRUAFF0HsGt.C74gCO90X4YCnETLVg9kOIwJ.v7YZM/u7Z9HTHHjiP5aioBdxyS6Ptry6mtRWzDWYixcU1'
