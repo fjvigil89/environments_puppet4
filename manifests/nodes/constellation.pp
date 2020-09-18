@@ -1,8 +1,7 @@
 class constellation {
    include git
-  package { 'lsb-release':
-          ensure => installed,
-  }~>
+  $packages = ['lsb-release','ifupdown2']
+  ensure_packages($packages)
   class { '::basesys':
     uprinfo_usage   => 'Servisores para aprender ',
     application     => 'Proxmox Servicios',
