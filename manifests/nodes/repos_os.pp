@@ -6,7 +6,7 @@ node 'repos.upr.edu.cu' {
     uprinfo_usage   => 'servidor repositorio paquetes SO',
     application     => 'debmirror',
     proxmox_enabled => false,
-    repos_enabled   => true,
+    repos_enabled   => false,
     mta_enabled     => false,
     dns_preinstall  => true,
   }
