@@ -71,6 +71,7 @@ class reposserver {
           'basedir'          => '/root/repos',
           'prefix'           => false,
           'invalid_branches' => correct,
+       }
      }
   }
 
