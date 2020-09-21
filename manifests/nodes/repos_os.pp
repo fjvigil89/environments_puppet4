@@ -10,10 +10,11 @@ node 'repos.upr.edu.cu' {
     mta_enabled     => false,
     dns_preinstall  => true,
   }
-  #aptly::mirror { 'debian_stable':
-  #  location      => 'http://repos.uclv.edu.cu',
-  #  distribution  => 'stable',
-  #  components    => [ 'main' ],
-  #  architectures => ['amd64'],
-  #}
+
+  class {'::r10kserver' :
+     r10k_basedir    => "/root/repos",
+     #cachedir        => "/var/cache/r10k",
+     configfile      => "/etc/r10k.yaml",
+     remote          => "git@gitlab.upr.edu.cu:dcenter/repos.git",
+  }
 }
