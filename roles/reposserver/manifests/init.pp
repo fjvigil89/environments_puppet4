@@ -75,7 +75,13 @@ class reposserver {
      }
   }
 
- include nginx
+ class {'nginx':
+     manage_repo           => false,
+     proxy_connect_timeout => '180s',
+     proxy_read_timeout    => '180s',
+     proxy_send_timeout    => '180s',
+  }
+
  nginx::resource::server { $fqdn :
   www_root => '/root/repos/master',
 }
