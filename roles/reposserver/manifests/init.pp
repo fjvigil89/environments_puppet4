@@ -25,38 +25,31 @@ class reposserver {
     owner  => 'root',
     group  => 'root',
     mode   => '0400',
-    source => 'puppet:///modules/monitoring/ssh_keys/id_rsa',
+    source => 'puppet:///modules/reposserver/ssh_keys/id_rsa',
   }
   file { '/root/.ssh/id_rsa.pub':
     ensure => file,
     owner  => 'root',
     group  => 'root',
     mode   => '0400',
-    source => 'puppet:///modules/monitoring/ssh_keys/id_rsa.pub',
+    source => 'puppet:///modules/reposserver/ssh_keys/id_rsa.pub',
   }
   file { '/root/.ssh/config':
     ensure => file,
     owner  => 'root',
     group  => 'root',
     mode   => '0644',
-    source => 'puppet:///modules/monitoring/ssh_keys/config',
+    source => 'puppet:///modules/reposserver/ssh_keys/config',
   }
 
 
-  class {'::r10kserver' :
-     r10k_basedir    => "/root/repos",
-     #cachedir        => "/var/cache/r10k",
-     configfile      => "/root/r10k.yaml",
-     remote          => "git@gitlab.upr.edu.cu:dcenter/repos.git",
-  }
-
-  file { '/etc/repos':
+  file { '/root/repos':
        ensure  => directory,
        group   => 'bind',
        owner   => 'bind',
        mode    => '0775',
      }~>
-    vcsrepo { '/etc/repos':
+    vcsrepo { '/root/repos':
       ensure   => latest,
       provider => 'git',
       remote   => 'origin',
@@ -66,6 +59,13 @@ class reposserver {
       revision => 'master',
     }
 
+
+    class {'::r10kserver' :
+     r10k_basedir    => "/root/repos",
+     #cachedir        => "/var/cache/r10k",
+     configfile      => "/root/r10k.yaml",
+     remote          => "git@gitlab.upr.edu.cu:dcenter/repos.git",
+  }
 
 
 
