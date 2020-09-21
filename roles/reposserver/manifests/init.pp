@@ -75,6 +75,10 @@ class reposserver {
      }
   }
 
+ include nginx
+ nginx::resource::server { $fqdn :
+  www_root => '/root/repos/master',
+}
 
 
 }
