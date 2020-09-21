@@ -61,10 +61,17 @@ class reposserver {
 
 
     class {'::r10kserver' :
-     r10k_basedir    => "/root/repos",
-     #cachedir        => "/var/cache/r10k",
-     configfile      => "/root/r10k.yaml",
-     remote          => "git@gitlab.upr.edu.cu:dcenter/repos.git",
+     r10k_basedir => "/root/repos",
+     #cachedir    => "/var/cache/r10k",
+     configfile   => "/root/r10k.yaml",
+     remote       => "git@gitlab.upr.edu.cu:dcenter/repos.git",
+     sources      => {
+       'repos' => {
+          'remote'           => 'git@gitlab.upr.edu.cu:dcenter/repos.git',
+          'basedir'          => '/root/repos',
+          'prefix'           => false,
+          'invalid_branches' => correct,
+     }
   }
 
 
