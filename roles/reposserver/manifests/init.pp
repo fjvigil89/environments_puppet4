@@ -45,8 +45,8 @@ class reposserver {
 
   file { '/root/repos':
        ensure  => directory,
-       group   => 'bind',
-       owner   => 'bind',
+       group   => 'root',
+       owner   => 'root',
        mode    => '0775',
      }~>
     vcsrepo { '/root/repos':
