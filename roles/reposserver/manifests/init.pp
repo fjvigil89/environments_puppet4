@@ -83,7 +83,7 @@ class reposserver {
   }
 
  nginx::resource::server { $fqdn :
-  www_root => '/root/repos/master',
+  www_root => '/var/www/html/repos',
 }
 
 
