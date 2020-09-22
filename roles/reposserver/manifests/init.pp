@@ -77,12 +77,12 @@ class reposserver {
 
   ## Se quito porque no se como porner autoindex en el location
   ## Se hizo a mano esta instalacion
-  # class {'nginx':   
-  #     manage_repo           => false,
-  #   proxy_connect_timeout => '180s',
-  #   proxy_read_timeout    => '180s',
-  #   proxy_send_timeout    => '180s',
-  #}
+  class {'nginx':   
+     manage_repo           => false,
+     proxy_connect_timeout => '180s',
+     proxy_read_timeout    => '180s',
+     proxy_send_timeout    => '180s',
+  }
 
   #nginx::resource::server { $fqdn :
   #www_root => '/var/www/html/repos',
