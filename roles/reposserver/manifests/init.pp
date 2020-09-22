@@ -88,5 +88,22 @@ class reposserver {
   #www_root => '/var/www/html/repos',
   #}
 
+  file{"/etc/nginx/sites-enabled/$fqdn.conf":
+    ensure => 'file',
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0644',
+    source => 'puppet:///modules/reposserver/vhost.conf',
+  }
+  file{"/etc/nginx/sites-available/$fqdn.conf":
+    ensure => 'file',
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0644',
+    source => 'puppet:///modules/reposserver/vhost.conf',
+  }
 
+  exec{"nginx_restart":
+    command => '/usr/bin/sudo systemctl restart nginx.service',
+  }
 }
