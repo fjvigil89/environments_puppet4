@@ -88,6 +88,12 @@ class reposserver {
   #www_root => '/var/www/html/repos',
   #}
 
+  file { '/var/www/html/repos':
+       ensure  => directory,
+       group   => 'root',
+       owner   => 'root',
+       mode    => '0775',
+     }
   file{"/etc/nginx/sites-enabled/$fqdn.conf":
     ensure => 'file',
     owner  => 'root',
@@ -106,4 +112,6 @@ class reposserver {
   exec{"nginx_restart":
     command => '/usr/bin/sudo systemctl restart nginx.service',
   }
+
+
 }
