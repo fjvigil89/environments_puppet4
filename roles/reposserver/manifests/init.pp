@@ -89,7 +89,7 @@ class reposserver {
   #}
 
   file { '/srv/repos':
-       ensure => link,
+       ensure => 'link',
        group  => 'root',
        owner  => 'root',
        mode   => '0775',
