@@ -88,12 +88,12 @@ class reposserver {
   #www_root => '/var/www/html/repos',
   #}
 
-  file { '/var/www/html/':
+  file { '/var/www/html/repos/':
        ensure => link,
        group  => 'root',
        owner  => 'root',
        mode   => '0775',
-       target => '/srv/repos/'
+       target => '/srv/repos'
      }
   file{"/etc/nginx/sites-enabled/$fqdn.conf":
     ensure => 'file',
