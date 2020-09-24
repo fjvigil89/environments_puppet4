@@ -93,7 +93,7 @@ class reposserver {
        group  => 'root',
        owner  => 'root',
        mode   => '0775',
-       target => '/srv/repos'
+       target => '/mnt/repos'
      }
   file{"/etc/nginx/sites-enabled/$fqdn.conf":
     ensure => 'file',
