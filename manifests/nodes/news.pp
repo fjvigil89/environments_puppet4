@@ -9,9 +9,9 @@ node 'news.upr.edu.cu' {
 
   class{'::wh_php_apache':;}
   
-  apache::vhost { 'news.upr.edu.cu non-ssl':
-    servername      => 'news.upr.edu.cu',
-    serveraliases   => ['www.news.upr.edu.cu'],
+  apache::vhost { 'noticias.upr.edu.cu non-ssl':
+    servername      => 'noticias.upr.edu.cu',
+    serveraliases   => ['www.noticias.upr.edu.cu'],
     port            => '80',
     docroot         => '/home/News-UPR/master/',
     custom_fragment => 'Alias /phpmyadmin /usr/share/phpmyadmin',
