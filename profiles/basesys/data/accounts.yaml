@@ -61,8 +61,17 @@ basesys::accounts:
 
   'terraform':
     comment: 'Terraform by proxmox'
-    uid: '5188888888'
+    uid: '517'
     manage_primary_group: false
     gid: '100'
     tag: 'systemen'
+    locked: true
+    password: '$6$I.Xl5MSS$pdFJzRUAFF0HsGt.C74gCO90X4YCnETLVg9kOIwJ.v7YZM/u7Z9HTHHjiP5aioBdxyS6Ptry6mtRWzDWYixcU1'
+
+  'terraform':
+    comment: 'Terraform by proxmox'
+    uid: '518'
+    manage_primary_group: false
+    gid: '100'
+    tag: 'systemen'    
     password: '$6$I.Xl5MSS$pdFJzRUAFF0HsGt.C74gCO90X4YCnETLVg9kOIwJ.v7YZM/u7Z9HTHHjiP5aioBdxyS6Ptry6mtRWzDWYixcU1'
