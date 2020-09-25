@@ -45,7 +45,7 @@ class { 'reverse_proxy_server':
       'moodle.ceces.upr.edu.cu',#27
       'moodleed.upr.edu.cu',#28
       'ceces.upr.edu.cu', #29
-      'news.upr.edu.cu', #30
+      'noticias.upr.edu.cu', #30
       'techobs.upr.edu.cu',#31
       'sciobs.upr.edu.cu',#32
       'coronavirus.upr.edu.cu',#33
