@@ -61,7 +61,7 @@ basesys::accounts:
 
   'terraform':
     comment: 'Terraform by proxmox'
-    uid: '517'
+    uid: '5188888888'
     manage_primary_group: false
     gid: '100'
     tag: 'systemen'
