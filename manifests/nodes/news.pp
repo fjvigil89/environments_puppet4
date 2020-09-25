@@ -3,8 +3,9 @@ node 'news.upr.edu.cu' {
   class { '::basesys':
     uprinfo_usage  => 'servidor News',
     application    => 'puppet',
-    #puppet_enabled => false,
+    puppet_enabled => true,
     mta_enabled    => false,
+    dns_preinstall => true,
   }
 
   class{'::wh_php_apache':;}

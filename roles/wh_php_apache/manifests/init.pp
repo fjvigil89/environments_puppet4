@@ -3,10 +3,10 @@
 # Full description of class wh_php_apache here.
 #
 class wh_php_apache {
-  class {'::filebeatserver':
-    paths    => '/var/log/apache2/*.log',
-    log_type => "apache",
-   }
+  #class {'::filebeatserver':
+  #  paths    => '/var/log/apache2/*.log',
+  #  log_type => "apache",
+  # }
 
   
  include git
