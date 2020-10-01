@@ -1,0 +1,6 @@
+# Class: librenmserver
+# ===========================
+#
+class librenmserver {
+
+}
