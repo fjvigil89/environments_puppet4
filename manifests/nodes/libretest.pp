@@ -6,10 +6,10 @@ node 'libretest.upr.edu.cu'{
     repos_enabled  => false,
     mta_enabled    => false,
   }
-#  class { '::php':
-#    config_overrides => { date.timezone => 'America/Havana' },
-#}
-class { '::librenms':
+  class { '::php':
+    config_overrides => { date.timezone => 'America/Havana' },
+}
+ class { '::librenms':
   admin_pass     => 'admin',
   db_pass        => 'librenms',
   poller_modules => { 'os'             => 1,

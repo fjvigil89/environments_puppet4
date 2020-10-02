@@ -80,8 +80,12 @@ mod 'puppetlabs-kubernetes', '3.0.1'
 mod 'lboynton-ejabberd', '0.0.5'
 mod 'puppetlabs-haproxy', '2.2.0'
 mod 'thias-vsftpd', '0.2.1'
+
+#LibreNMS
 mod 'puppetfinland-librenms', '4.0.4'
 #mod 'sourcedoctor-librenms', '0.9.13'
+mod 'puppetfinland-os', '1.1.3'
+
 #mod 'ULHPC-exim4', '0.2.3'
 #mod 'TubeMogul-aptly', '3.1.1'
 
