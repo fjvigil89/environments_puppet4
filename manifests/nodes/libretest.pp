@@ -25,7 +25,6 @@ node 'libretest.upr.edu.cu'{
                       'entity-physical'=> 1,
                     },
 }
-
 class { '::librenms::dbserver':
   bind_address   => '127.0.0.1',
   password       => 'librenmsdb',
