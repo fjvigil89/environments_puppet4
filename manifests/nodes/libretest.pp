@@ -6,6 +6,7 @@ node 'libretest.upr.edu.cu'{
     repos_enabled  => false,
     mta_enabled    => false,
   }
+  include librenmserver
 #  class { '::php':
 #    config_overrides => { date.timezone => 'America/Havana' },
 #}
@@ -25,9 +26,9 @@ node 'libretest.upr.edu.cu'{
                       'entity-physical'=> 1,
                     },
 }
- class { '::apache2::monit':
-   monitor_email => 'henry.fleitas@upr.edu.cu',
-}
+# class { '::apache2::monit':
+#   monitor_email => 'henry.fleitas@upr.edu.cu',
+#}
  class { '::librenms::dbserver':
    bind_address   => '127.0.0.1',
    password       => 'librenmsdb',
