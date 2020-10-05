@@ -2,7 +2,7 @@ node /^devops\d+$/  {
   include git
   package { 'lsb-release':
           ensure => installed,
-  }~>
+  }~> #
   class { '::basesys':
     uprinfo_usage   => 'servidor de Servicios Devops',
     application     => 'Proxmox Servicios',
