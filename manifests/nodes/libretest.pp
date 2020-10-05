@@ -25,22 +25,22 @@ node 'libretest.upr.edu.cu'{
                       'entity-physical'=> 1,
                     },
 }
-class { '::apache2::monit':
-  $monitor_email => 'henry.fleitas@upr.edu.cu',
+ class { '::apache2::monit':
+   monitor_email => 'henry.fleitas@upr.edu.cu',
 }
-class { '::librenms::dbserver':
-  bind_address   => '127.0.0.1',
-  password       => 'librenmsdb',
-  root_password  => 'libredb',
+ class { '::librenms::dbserver':
+   bind_address   => '127.0.0.1',
+   password       => 'librenmsdb',
+   root_password  => 'libredb',
 }
-class { '::snmpd':
-  iface              => 'eth0@if32',
-  allow_address_ipv4 => '10.2.0.0',
-  allow_netmask_ipv4 => '21',
-  #users              => { 'monitor' => { 'pass' => 'my-password' } },
-}
-class { '::librenms::device':
-  proto      => 'v2',
-  community  => 'UPRadmin4all',
-}
+ class { '::snmpd':
+   iface              => 'eth0@if32',
+   allow_address_ipv4 => '10.2.0.0',
+   allow_netmask_ipv4 => '21',
+   #users              => { 'monitor' => { 'pass' => 'my-password' } },
+ }
+ class { '::librenms::device':
+   proto      => 'v2',
+   community  => 'UPRadmin4all',
+ }
 }
