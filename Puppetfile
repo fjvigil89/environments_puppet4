@@ -90,6 +90,7 @@ mod 'puppetfinland-php', '2.3.2'
 mod 'puppetfinland-mysql', '3.0.1'
 mod 'puppetfinland-systemd', '1.0.0'
 mod 'puppetlabs-stdlib', '6.5.0'
+mod 'puppetfinland-webserver', '2.0.1'
 
 #mod 'ULHPC-exim4', '0.2.3'
 #mod 'TubeMogul-aptly', '3.1.1'
