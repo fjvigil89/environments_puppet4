@@ -6,9 +6,9 @@ node 'libretest.upr.edu.cu'{
     repos_enabled  => false,
     mta_enabled    => false,
   }
-#  class { '::php':
-#    config_overrides => { date.timezone => 'America/Havana' },
-#}
+  class { '::php':
+    config_overrides => { date.timezone => 'America/Havana' },
+}
  class { '::librenms':
   admin_pass     => 'admin',
   db_pass        => 'librenms',
@@ -25,6 +25,7 @@ node 'libretest.upr.edu.cu'{
                       'entity-physical'=> 1,
                     },
 }
+
 class { '::librenms::dbserver':
   bind_address   => '127.0.0.1',
   password       => 'librenmsdb',

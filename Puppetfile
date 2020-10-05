@@ -85,6 +85,8 @@ mod 'thias-vsftpd', '0.2.1'
 mod 'puppetfinland-librenms', '4.0.4'
 #mod 'sourcedoctor-librenms', '0.9.13'
 mod 'puppetfinland-os', '1.1.3'
+mod 'puppetfinland-apache2', '2.1.1'
+mod 'puppetfinland-php', '2.3.2'
 
 #mod 'ULHPC-exim4', '0.2.3'
 #mod 'TubeMogul-aptly', '3.1.1'
