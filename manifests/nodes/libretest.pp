@@ -6,16 +6,6 @@ node 'libretest.upr.edu.cu'{
     repos_enabled  => false,
     mta_enabled    => false,
   }
-  include ::php::gd
-  include ::php::mysql
-  include ::php::cli
-  include ::php::pear
-  include ::php::curl
-  include ::php::snmp
-  include ::php::mcrypt
-  include ::php::json
-  include ::php::net_ipv4
-  include ::php::net_ipv6
 #  class { '::php':
 #    config_overrides => { date.timezone => 'America/Havana' },
 #}
