@@ -7,7 +7,7 @@ node 'libretest.upr.edu.cu'{
     mta_enabled    => false,
   }
    class { '::librenms':
-     php_timezone = 'America/Havana',
+     php_timezone => 'America/Havana',
    }
 #  class { '::php':
 #    config_overrides => { date.timezone => 'America/Havana' },
