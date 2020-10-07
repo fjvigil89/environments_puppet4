@@ -5,6 +5,7 @@ node 'libretest.upr.edu.cu'{
     puppet_enabled => true,
     repos_enabled  => false,
     mta_enabled    => false,
+    dmz            => true,
   }
   class { '::librenms':
     admin_email    => 'upredes@upr.edu.cu',
