@@ -7,7 +7,9 @@ node 'libretest.upr.edu.cu'{
     mta_enabled    => false,
   }
   class { '::php':
-    config_overrides => { date.timezone => 'America/Havana' },
+    manage_config => false,
+    config_overrides => { },
+   # config_overrides => { date.timezone => 'America/Havana' },
 }
  class { '::librenms':
   admin_pass     => 'admin',
