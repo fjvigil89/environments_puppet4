@@ -7,7 +7,7 @@ node 'libretest.upr.edu.cu'{
     mta_enabled    => false,
   }
   class { '::librenms':
-    admin_email    => 'upredes@upr.edu.cu'
+    admin_email    => 'upredes@upr.edu.cu',
     php_timezone   => 'America/Havana',
     admin_pass     => 'admin',
     db_pass        => 'librenms',
