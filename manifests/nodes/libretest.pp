@@ -33,7 +33,7 @@ node 'libretest.upr.edu.cu'{
 #  syscontact    => 'upredes@upr.edu.cu'
 #}
  class { '::librenms::device':
-   proto      => 'v2',
+   proto      => 'v2c',
    community  => 'UPRadmin4all',
  }
 }
