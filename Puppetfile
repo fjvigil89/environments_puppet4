@@ -200,5 +200,5 @@ mod 'dcenter/razor',
 #LibreNMS
 mod 'dcenter/librenms',
   :git => 'git@gitlab.upr.edu.cu:dcenter/librenms.git',
-  :ref => 'ddb74ab495c7d0b9bd317ed1d4af6cf56a7e6b8f'
+  :ref => '6e49e8f6a7e8c1da1f0a9e806e812ff3c5667dab'
 
