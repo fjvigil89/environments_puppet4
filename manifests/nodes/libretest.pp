@@ -38,7 +38,7 @@ node 'libretest.upr.edu.cu'{
   root_password           => 'libre',
   remove_default_accounts => true,
   restart                 => true,
-  override_options        => $override_options
+  override_options        => $override_options,
 }
  mysql::db { 'librenms':
   user     => $db_user,
