@@ -25,6 +25,7 @@ node 'libretest.upr.edu.cu'{
                       'entity-physical'=> 1,
                     },
 }
+include git
 # class { 'snmpd':
 #  package       => true,
 #  service       => true,
