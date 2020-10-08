@@ -12,7 +12,7 @@ node 'libretest.upr.edu.cu'{
     php_timezone   => 'America/Havana',
     admin_user     => 'admin',
     admin_pass     => 'adminpass',
-    server_name    => $::fqdn
+    server_name    => $::fqdn,
     user           => 'librenms',
     db_user        => 'librenms',
     db_host        => 'localhost',
