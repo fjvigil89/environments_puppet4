@@ -10,8 +10,13 @@ node 'libretest.upr.edu.cu'{
   class { '::librenms':
     admin_email    => 'upredes@upr.edu.cu',
     php_timezone   => 'America/Havana',
-    admin_pass     => 'admin',
-    db_pass        => 'librenms',
+    admin_user     => 'admin',
+    admin_pass     => 'adminpass',
+    server_name    => $::fqdn
+    user           => 'librenms',
+    db_user        => 'librenms',
+    db_host        => 'localhost',
+    db_pass        => 'librenmsdb',
     poller_modules => { 'os'           => 1,
                       'processors'     => 1,
                       'mempools'       => 1,
@@ -25,29 +30,21 @@ node 'libretest.upr.edu.cu'{
                       'entity-physical'=> 1,
                     },
 }
-include git
-# class { 'snmpd':
-#  package       => true,
-#  service       => true,
-#  allowed_hosts => ['10.2.0.0/21'],
-#  community     => 'UPRadmin4all',
-#  syslocation   => 'Datacenter, UPR',
-#  syscontact    => 'upredes@upr.edu.cu'
-#}
  class { '::librenms::device':
    proto      => 'v2c',
    community  => 'UPRadmin4all',
  }
  class { '::mysql::server':
-  root_password           => 'libretest',
+  root_password           => 'libre',
   remove_default_accounts => true,
   restart                 => true,
   override_options        => $override_options
 }
- mysql::db { 'librenmsdb':
-  user     => 'admin',
-  password => 'admin',
+ mysql::db { 'librenms':
+  user     => $db_user,
+  password => $db_pass,
   host     => 'localhost',
-  grant    =>  ['SELECT', 'INSERT', 'UPDATE', 'DELETE', 'DROP', 'CREATE VIEW', 'CREATE', 'INDEX', 'EXECUTE', 'ALTER', 'REFERENCES'],
+  grant    => ['ALL PRIVILEGES'],
+  #grant    =>  ['SELECT', 'INSERT', 'UPDATE', 'DELETE', 'DROP', 'CREATE VIEW', 'CREATE', 'INDEX', 'EXECUTE', 'ALTER', 'REFERENCES'],
 }
 }
