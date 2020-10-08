@@ -38,4 +38,10 @@ include git
    proto      => 'v2c',
    community  => 'UPRadmin4all',
  }
+ mysql::db { 'librenmsdb':
+  user     => 'admin',
+  password => 'admin',
+  host     => 'localhost',
+  grant    =>  ['SELECT', 'INSERT', 'UPDATE', 'DELETE', 'DROP', 'CREATE VIEW', 'CREATE', 'INDEX', 'EXECUTE', 'ALTER', 'REFERENCES'],
+}
 }
