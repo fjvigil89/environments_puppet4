@@ -38,6 +38,12 @@ include git
    proto      => 'v2c',
    community  => 'UPRadmin4all',
  }
+ class { '::mysql::server':
+  root_password           => 'libretest',
+  remove_default_accounts => true,
+  restart                 => true,
+  override_options        => $override_options
+}
  mysql::db { 'librenmsdb':
   user     => 'admin',
   password => 'admin',
