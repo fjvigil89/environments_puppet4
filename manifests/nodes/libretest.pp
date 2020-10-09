@@ -41,8 +41,8 @@ node 'libretest.upr.edu.cu'{
   override_options        => $override_options,
 }
  mysql::db { 'librenms':
-  user     => $db_user,
-  password => $db_pass,
+  user     => 'librenms',
+  password => 'librenms',
   host     => 'localhost',
   grant    => ['ALL'],
 #  #grant    =>  ['SELECT', 'INSERT', 'UPDATE', 'DELETE', 'DROP', 'CREATE VIEW', 'CREATE', 'INDEX', 'EXECUTE', 'ALTER', 'REFERENCES'],
