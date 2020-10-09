@@ -40,7 +40,6 @@ node 'libretest.upr.edu.cu'{
   restart                 => true,
   override_options        => $override_options,
 }
-include ::mysql::server
  mysql::db { 'librenms':
   user     => $db_user,
   password => $db_pass,
