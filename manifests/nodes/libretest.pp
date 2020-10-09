@@ -42,7 +42,7 @@ node 'libretest.upr.edu.cu'{
 }
  mysql::db { 'librenms':
   user     => 'librenms',
-  password => 'librenms',
+  password => 'librenmsdb',
   host     => 'localhost',
   grant    => ['ALL'],
 #  #grant    =>  ['SELECT', 'INSERT', 'UPDATE', 'DELETE', 'DROP', 'CREATE VIEW', 'CREATE', 'INDEX', 'EXECUTE', 'ALTER', 'REFERENCES'],
