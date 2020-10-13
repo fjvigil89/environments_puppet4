@@ -12,7 +12,7 @@ node 'libretest.upr.edu.cu'{
     php_timezone   => 'America/Havana',
     admin_pass     => 'adminpass',
     server_name    => $::fqdn,
-    #db_pass        => 'librenmsdb',
+    db_pass        => 'librenmsdb',
     poller_modules => { 'os'           => 1,
                       'processors'     => 1,
                       'mempools'       => 1,
