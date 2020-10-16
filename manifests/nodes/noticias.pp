@@ -63,7 +63,6 @@ node 'tf-noticias.upr.edu.cu' {
     command     => '/usr/bin/sudo service apache2 restart',
     refreshonly => true;
   }->
-
    file { '/home/News-UPR':
        ensure  => directory,
        group   => 'root',
@@ -78,8 +77,7 @@ node 'tf-noticias.upr.edu.cu' {
         'origin' => 'git@gitlab.upr.edu.cu:ysantalla/app-noticias.git',
       },
       revision => 'master',
-    }
-
+    }->
   class {'r10kserver':
     r10k_basedir => "/home/News-UPR",
     cachedir     => "/var/cache/r10k",
