@@ -105,6 +105,7 @@ node 'tf-noticias.upr.edu.cu' {
 
     user { news:
       ensure => present,
-      password => '!!',
+      ##news.cuba
+      password => '$6$U85EKS1f$Ccdr/Qar1Em6VxWwPYlwx8uKM1sBGb1dEEc1hATi4ZlpkTRYCcz.X38ZXeq5ok/I.zEwVtjVMh.YTLVOBMXTL0',
     }
 }
