@@ -63,6 +63,23 @@ node 'tf-noticias.upr.edu.cu' {
     command     => '/usr/bin/sudo service apache2 restart',
     refreshonly => true;
   }->
+
+   file { '/home/News-UPR':
+       ensure  => directory,
+       group   => 'root',
+       owner   => 'root',
+       mode    => '0775',
+     }~>
+    vcsrepo { '/home/News-UPR':
+      ensure   => latest,
+      provider => 'git',
+      remote   => 'origin',
+      source   => {
+        'origin' => 'git@gitlab.upr.edu.cu:ysantalla/app-noticias.git',
+      },
+      revision => 'master',
+    }
+
   class {'r10kserver':
     r10k_basedir => "/home/News-UPR",
     cachedir     => "/var/cache/r10k",
