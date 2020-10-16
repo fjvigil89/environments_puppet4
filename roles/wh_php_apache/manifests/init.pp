@@ -3,7 +3,7 @@
 # Full description of class wh_php_apache here.
 #
 class wh_php_apache(
-  Optional[String] $version => '7.0',
+  Optional[String] $version = '7.0',
 ) {
   #class {'::filebeatserver':
   #  paths    => '/var/log/apache2/*.log',

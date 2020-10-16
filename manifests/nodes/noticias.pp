@@ -42,7 +42,9 @@ node 'tf-noticias.upr.edu.cu' {
        owner   => 'root',
        mode    => '0775',
      }
-  class{'::wh_php_apache':;}
+  class{'::wh_php_apache':
+    version => "7.3"
+  }
   
   apache::vhost { 'noticias.upr.edu.cu non-ssl':
     servername      => 'noticias.upr.edu.cu',
