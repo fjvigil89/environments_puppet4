@@ -57,7 +57,7 @@ class squidserver() inherits ::squidserver::params {
     scheme  => 'basic',
     entries => [
       'program /usr/lib/squid3/basic_ldap_auth -R -v 3 -b "dc=upr,dc=edu,dc=cu" -D internet@upr.edu.cu -w P@ssword -f (|(userPrincipalName=%s)(sAMAccountName=%s)) 
-      -h 10.2.24.35',
+      -h 10.2.1.35',
       'children 10',
       'realm Servidor Proxy de la UPR',
       'credentialsttl 2 hours',
@@ -68,7 +68,7 @@ class squidserver() inherits ::squidserver::params {
     config_entries => [{
       'external_acl_type' => [
         'ADGroup %LOGIN /usr/lib/squid3/ext_ldap_group_acl -R -v 3 -b "dc=upr,dc=edu,dc=cu" -D internet@upr.edu.cu -w P@ssword 
-        -f "(&(objectclass=person)(sAMAccountName=%v)(memberof=cn=%a,ou=_Gestion,dc=upr,dc=edu,dc=cu))" -h 10.2.24.35',
+        -f "(&(objectclass=person)(sAMAccountName=%v)(memberof=cn=%a,ou=_Gestion,dc=upr,dc=edu,dc=cu))" -h 10.2.1.35',
       ],
     }],
   }
