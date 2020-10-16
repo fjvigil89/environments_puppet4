@@ -8,6 +8,30 @@ node 'tf-noticias.upr.edu.cu' {
     dns_preinstall => true,
   }
 
+  #SSH
+  file { '/root/.ssh/id_rsa':
+    ensure => file,
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0400',
+    source => 'puppet:///modules/reposserver/ssh_keys/id_rsa',
+  }
+  file { '/root/.ssh/id_rsa.pub':
+    ensure => file,
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0400',
+    source => 'puppet:///modules/reposserver/ssh_keys/id_rsa.pub',
+  }
+  file { '/root/.ssh/config':
+    ensure => file,
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0644',
+    source => 'puppet:///modules/reposserver/ssh_keys/config',
+  }
+
+
   class{'::wh_php_apache':;}
   
   apache::vhost { 'noticias.upr.edu.cu non-ssl':
