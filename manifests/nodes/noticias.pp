@@ -30,8 +30,18 @@ node 'tf-noticias.upr.edu.cu' {
     mode   => '0644',
     source => 'puppet:///modules/reposserver/ssh_keys/config',
   }
-
-
+  file { '/etc/r10k':
+       ensure  => directory,
+       group   => 'root',
+       owner   => 'root',
+       mode    => '0775',
+     }
+  file { '/etc/r10k/r10k.yaml':
+    ensure => file,
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0400',
+  }
   class{'::wh_php_apache':;}
   
   apache::vhost { 'noticias.upr.edu.cu non-ssl':
