@@ -2,7 +2,9 @@
 #
 # Full description of class wh_php_apache here.
 #
-class wh_php_apache {
+class wh_php_apache(
+  Optional[String] $version => '7.0',
+) {
   #class {'::filebeatserver':
   #  paths    => '/var/log/apache2/*.log',
   #  log_type => "apache",
@@ -18,7 +20,7 @@ class { ::letsencrypt:
 }
 
  class { '::php_webserver':
-     php_version    => '7.0',
+     php_version    => $version,
      php_extensions => {
       'curl'     => {},
       'gd'       => {},
@@ -27,7 +29,7 @@ class { ::letsencrypt:
       'xml'      => {},
       'mbstring' => {},
      },
-     packages       =>  ['php7.0-mbstring','php7.0','php7.0-cli','php7.0-curl','php7.0-intl','php7.0-ldap','php7.0-mysql','php7.0-sybase','libapache2-mod-php7.0','php7.0-mcrypt','phpmyadmin','freetds-bin','freetds-common'],
+     packages       =>  ["php$::version","php$::version-mbstring","php$::version-cli","php$::version-curl","php$::version-intl","php$::version-ldap","php$::version-mysql","php$::version-sybase","libapache2-mod-php$::version","php$::version-mcrypt",'phpmyadmin','freetds-bin','freetds-common'],
   }
 
  
