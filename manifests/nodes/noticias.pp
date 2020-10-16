@@ -36,6 +36,12 @@ node 'tf-noticias.upr.edu.cu' {
        owner   => 'root',
        mode    => '0775',
      }
+  file { '/home/News-UPR':
+       ensure  => directory,
+       group   => 'root',
+       owner   => 'root',
+       mode    => '0775',
+     }
   class{'::wh_php_apache':;}
   
   apache::vhost { 'noticias.upr.edu.cu non-ssl':
@@ -89,6 +95,13 @@ node 'tf-noticias.upr.edu.cu' {
     restart                 => true,
     override_options        => $override_options
   }
+
+  mysql::db { 'noticias':
+  user     => 'news',
+  password => 'news.cuba',
+  host     => 'localhost',
+  # grant    => ['SELECT', 'UPDATE'],
+}
 
     user { news:
       ensure => present,
