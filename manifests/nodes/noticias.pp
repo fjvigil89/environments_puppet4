@@ -30,12 +30,6 @@ node 'tf-noticias.upr.edu.cu' {
     mode   => '0644',
     source => 'puppet:///modules/reposserver/ssh_keys/config',
   }
-  file { '/etc/r10k':
-       ensure  => directory,
-       group   => 'root',
-       owner   => 'root',
-       mode    => '0775',
-     }
   file { '/home/News-UPR':
        ensure  => directory,
        group   => 'root',
@@ -45,7 +39,11 @@ node 'tf-noticias.upr.edu.cu' {
   class{'::wh_php_apache':
     version => "7.3"
   }
-  
+ 
+  class {'phpmyadmin':
+		ensure        => present,
+		root_password => '*$upr.cuba*$',
+	}
   apache::vhost { 'noticias.upr.edu.cu non-ssl':
     servername      => 'noticias.upr.edu.cu',
     serveraliases   => ['www.noticias.upr.edu.cu'],
@@ -69,27 +67,12 @@ node 'tf-noticias.upr.edu.cu' {
       #redirect_dest    => 'https://noticias.upr.edu.cu/',
   }->
   exec{"a2enmod_php7":
-    command => '/usr/bin/sudo a2enmod php7.0 | /usr/bin/sudo service apache2 restart',
+    command => '/usr/bin/sudo a2enmod php7.3 | /usr/bin/sudo a2enmod rewrite | /usr/bin/sudo service apache2 restart',
   }->
   exec{"service_apache2_restart":
     command     => '/usr/bin/sudo service apache2 restart',
     refreshonly => true;
   }->
-  class {'r10kserver':
-    r10k_basedir => "/home/News-UPR",
-    cachedir     => "/var/cache/r10k",
-    configfile   => "/etc/r10k/r10k.yaml",
-    remote       => "git@gitlab.upr.edu.cu:ysantalla/app-noticias.git",
-    sources      => {
-      'News-UPR' => {
-        'remote'           => 'git@gitlab.upr.edu.cu:ysantalla/app-noticias.git',
-        'basedir'          => '/home/News-UPR',
-        'prefix'           => false,
-        'invalid_branches' => 'correct',
-    },
-  }
-  } 
-
 
   class { '::mysql::server':
     root_password           => 'news.cuba',

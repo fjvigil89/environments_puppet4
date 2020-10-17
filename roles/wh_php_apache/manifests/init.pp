@@ -29,7 +29,7 @@ class { ::letsencrypt:
       'xml'      => {},
       'mbstring' => {},
      },
-     packages       =>  ["php$::version","php$::version-mbstring","php$::version-cli","php$::version-curl","php$::version-intl","php$::version-ldap","php$::version-mysql","php$::version-sybase","libapache2-mod-php$::version","php$::version-mcrypt",'phpmyadmin','freetds-bin','freetds-common'],
+     packages       =>  ["php${version}","php${version}-mbstring","php${version}-cli","php${version}-curl","php${version}-intl","php${version}-ldap","php${version}-mysql","php${version}-sybase","libapache2-mod-php${version}","php${version}-mcrypt",'freetds-bin','freetds-common'],
   }
 
  
