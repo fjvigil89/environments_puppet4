@@ -74,12 +74,12 @@ node 'tf-noticias.upr.edu.cu' {
     refreshonly => true;
   }->
 
-  class { '::mysql::server':
-    root_password           => 'news.cuba',
-    remove_default_accounts => false,
-    restart                 => true,
-    override_options        => $override_options
-  }
+  #  class { '::mysql::server':
+  #  root_password           => 'news.cuba',
+  #  remove_default_accounts => false,
+  #  restart                 => true,
+  #  override_options        => $override_options
+  #}
 
   mysql::db { 'noticias':
   user     => 'news',
