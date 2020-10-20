@@ -12,7 +12,7 @@ define phpmyadmin_local::install($version = $title, $installdir)
 			ensure => directory,
 			owner  => 'root',
 			group  => 'root',
-			mode   => 0755,
+			mode   => '0755',
 		}
 	}
 	# Creating source directory
