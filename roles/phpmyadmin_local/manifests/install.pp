@@ -8,7 +8,7 @@ define phpmyadmin_local::install($version = $title, $installdir)
 
 	# Creating source directory
 	if !defined(File[$phpmyadmin_local::params::srcdir]) {
-		file {"${phpmyadmin_local::params::srcdir}":
+		file {"/usr/src":
 			ensure => directory,
 			owner  => root,
 			group  => root,
