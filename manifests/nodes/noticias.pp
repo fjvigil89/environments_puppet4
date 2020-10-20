@@ -38,6 +38,7 @@ node 'tf-noticias.upr.edu.cu' {
      }
   class{'::wh_php_apache':
     version => "7.3"
+    $packages = ["php7.3","php7.3-mbstring","php7.3-cli","php7.3-curl","php7.3-intl","php7.3-ldap","php7.3-mysql","php7.3-sybase","libapache2-mod-php7.3",],
   }
  
   class { 'phpmyadmin': }
@@ -66,9 +67,9 @@ node 'tf-noticias.upr.edu.cu' {
       #redirect_status  => 'permanent',
       #redirect_dest    => 'https://noticias.upr.edu.cu/',
   }->
-  exec{"a2enmod_php7":
-    command => '/usr/bin/sudo a2enmod php7.3 | /usr/bin/sudo a2enmod rewrite | /usr/bin/sudo service apache2 restart',
-  }->
+  #  exec{"a2enmod_php7":
+  #  command => '/usr/bin/sudo a2enmod php7.3 | /usr/bin/sudo a2enmod rewrite | /usr/bin/sudo service apache2 restart',
+  #}->
   exec{"service_apache2_restart":
     command     => '/usr/bin/sudo service apache2 restart',
     refreshonly => true;
