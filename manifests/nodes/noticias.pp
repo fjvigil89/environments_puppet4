@@ -44,6 +44,8 @@ node 'tf-noticias.upr.edu.cu' {
  class { 'phpmyadmin':
    path     => "/usr/share/phpmyadmin",
    user     => "www-data",
+   before => Exec['a2enmod_php7.3'],
+   notify => Exec['service_apache2_restart'];
  }
   apache::vhost { 'noticias.upr.edu.cu non-ssl':
     servername      => 'noticias.upr.edu.cu',
@@ -67,24 +69,22 @@ node 'tf-noticias.upr.edu.cu' {
       #redirect_status  => 'permanent',
       #redirect_dest    => 'https://noticias.upr.edu.cu/',
   }
-  exec{"a2enmod_php7.3":
-    command => '/usr/bin/sudo a2enmod php7.3 | /usr/bin/sudo a2enmod rewrite ',
-  }
-  exec{"service_apache2_restart":
-    command     => '/usr/bin/sudo service apache2 restart',
-    refreshonly => true;
-  }
 
   class { '::mysql::server':
     root_password           => '*$upr.cuba*$',
     remove_default_accounts => false,
     restart                 => true,
     override_options        => $override_options,
-    before => Exec['a2enmod_php7.3'],
-    notify => Exec['service_apache2_restart'];
 
   }
 
+ exec{"a2enmod_php7.3":
+    command => '/usr/bin/sudo a2enmod php7.3 | /usr/bin/sudo a2enmod rewrite ',
+  }
+  exec{"service_apache2_restart":
+    command     => '/usr/bin/sudo service apache2 restart',
+    refreshonly => true;
+  }
 
   mysql::db { 'noticias':
   user     => 'news',
