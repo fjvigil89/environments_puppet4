@@ -40,10 +40,10 @@ node 'tf-noticias.upr.edu.cu' {
     version => "7.3"
   }
  
-  class {'phpmyadmin':
-		ensure        => present,
-		root_password => '*$upr.cuba*$',
-	}
+  class { 'phpmyadmin': }
+  phpmyadmin::server{ 'default': }
+
+
   apache::vhost { 'noticias.upr.edu.cu non-ssl':
     servername      => 'noticias.upr.edu.cu',
     serveraliases   => ['www.noticias.upr.edu.cu'],
@@ -74,12 +74,16 @@ node 'tf-noticias.upr.edu.cu' {
     refreshonly => true;
   }->
 
-  #  class { '::mysql::server':
-  #  root_password           => 'news.cuba',
-  #  remove_default_accounts => false,
-  #  restart                 => true,
-  #  override_options        => $override_options
-  #}
+  class { '::mysql::server':
+    root_password           => '*$upr.cuba*$',
+    remove_default_accounts => false,
+    restart                 => true,
+    override_options        => $override_options
+  }
+
+   @@phpmyadmin::servernode { "${::ipaddress}":
+    server_group => 'default',
+  }
 
   mysql::db { 'noticias':
   user     => 'news',
