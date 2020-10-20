@@ -41,17 +41,12 @@ node 'tf-noticias.upr.edu.cu' {
     packages => ["php7.3","php7.3-mbstring","php7.3-cli","php7.3-curl","php7.3-intl","php7.3-ldap","php7.3-mysql","php7.3-sybase","libapache2-mod-php7.3","yarn","php7.3-zip"],
   }
 
-  class { 'php::extension::mysql': }
-  class { 'php::extension::mcrypt': }
-  class { 'php::fpm::daemon':
-    ensure => running
-  }
- class { 'phpmyadmin':
-   path     => "/usr/share/phpmyadmin",
-   user     => "www-data",
-   before => Exec['a2enmod_php7.3'],
-   notify => Exec['service_apache2_restart'];
- }
+  class {'phpmyadmin_local':
+		ensure        => present,
+		root_password => '*$upr.cuba*$',
+    before => Exec['a2enmod_php7.3'],
+    notify => Exec['service_apache2_restart'];
+	}
   apache::vhost { 'noticias.upr.edu.cu non-ssl':
     servername      => 'noticias.upr.edu.cu',
     serveraliases   => ['www.noticias.upr.edu.cu'],
@@ -75,13 +70,13 @@ node 'tf-noticias.upr.edu.cu' {
       #redirect_dest    => 'https://noticias.upr.edu.cu/',
   }
 
-  class { '::mysql::server':
-    root_password           => '*$upr.cuba*$',
-    remove_default_accounts => false,
-    restart                 => true,
-    override_options        => $override_options,
+  # class { '::mysql::server':
+  #  root_password           => '*$upr.cuba*$',
+  #  remove_default_accounts => false,
+  #  restart                 => true,
+  #  override_options        => $override_options,
 
-  }
+  #}
 
  exec{"a2enmod_php7.3":
     command => '/usr/bin/sudo a2enmod php7.3 | /usr/bin/sudo a2enmod rewrite ',
