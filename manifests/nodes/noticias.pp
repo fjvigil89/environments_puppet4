@@ -80,11 +80,10 @@ node 'tf-noticias.upr.edu.cu' {
     restart                 => true,
     override_options        => $override_options,
 
-  }
-
+  }~>
  exec{"a2enmod_php7":
     command => '/usr/bin/sudo a2enmod php7.2 | /usr/bin/sudo a2enmod rewrite ',
-  }
+  }~>
   exec{"service_apache2_restart":
     command     => '/usr/bin/sudo service apache2 restart',
     refreshonly => true;
