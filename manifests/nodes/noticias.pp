@@ -39,8 +39,6 @@ node 'tf-noticias.upr.edu.cu' {
   class{'::wh_php_apache':
     version => "7.2",
     packages => ["php7.2","php7.2-mbstring","php7.2-cli","php7.2-curl","php7.2-intl","php7.2-ldap","php7.2-mysql","php7.2-sybase","libapache2-mod-php7.2","php7.2-zip","phpmyadmin"],
-    before        => Exec['a2enmod_php7'],
-    notify        => Exec['service_apache2_restart'];
   }
 
   #  class {'phpmyadmin_local':
@@ -71,6 +69,9 @@ node 'tf-noticias.upr.edu.cu' {
     ],
       #redirect_status  => 'permanent',
       #redirect_dest    => 'https://noticias.upr.edu.cu/',
+    before        => Exec['a2enmod_php7'],
+    notify        => Exec['service_apache2_restart'];
+
   }
 
    class { '::mysql::server':
