@@ -27,7 +27,7 @@ define phpmyadmin_local::install($version = $title, $installdir)
 
 	# Unpacking the source
 	exec {'tar-phpmyadmin':
-		command => "tar -jxf ${destination}",
+		command => "tar xvf ${destination}",
 		path    => ['/bin','/usr/bin'],
 		cwd     => $phpmyadmin_local::params::srcdir,
 		onlyif  => [
