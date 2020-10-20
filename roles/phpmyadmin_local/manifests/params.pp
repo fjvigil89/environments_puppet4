@@ -2,7 +2,7 @@ class phpmyadmin_local::params
 {
 	$ensure         = "present"
   $php_version    = "7.3"
-	$version        = "3.5.8.1"
+	$version        = "5.0.4"
 	$srcdir         = "/usr/src"
 	$instdir        = "/usr/share/phpMyAdmin"
 	$vhost_name     = "phpmyadmin.local"
