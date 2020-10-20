@@ -37,8 +37,8 @@ node 'tf-noticias.upr.edu.cu' {
        mode    => '0775',
      }
   class{'::wh_php_apache':
-    version => "7.3"
-    $packages = ["php7.3","php7.3-mbstring","php7.3-cli","php7.3-curl","php7.3-intl","php7.3-ldap","php7.3-mysql","php7.3-sybase","libapache2-mod-php7.3",],
+    version => "7.3",
+    packages => ["php7.3","php7.3-mbstring","php7.3-cli","php7.3-curl","php7.3-intl","php7.3-ldap","php7.3-mysql","php7.3-sybase","libapache2-mod-php7.3",],
   }
  
   class { 'phpmyadmin': }
