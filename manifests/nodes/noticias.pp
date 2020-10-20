@@ -37,8 +37,8 @@ node 'tf-noticias.upr.edu.cu' {
        mode    => '0775',
      }
   class{'::wh_php_apache':
-    version => "7.1",
-    packages => ["php7.1","php7.1-mbstring","php7.1-cli","php7.1-curl","php7.1-intl","php7.1-ldap","php7.1-mysql","php7.1-sybase","libapache2-mod-php7.1","yarn","php7.1-zip","phpmyadmin"],
+    version => "7.2",
+    packages => ["php7.2","php7.2-mbstring","php7.2-cli","php7.2-curl","php7.2-intl","php7.2-ldap","php7.2-mysql","php7.2-sybase","libapache2-mod-php7.2","php7.2-zip","phpmyadmin"],
     before        => Exec['a2enmod_php7'],
     notify        => Exec['service_apache2_restart'];
   }
@@ -82,7 +82,7 @@ node 'tf-noticias.upr.edu.cu' {
   }
 
  exec{"a2enmod_php7":
-    command => '/usr/bin/sudo a2enmod php7.3 | /usr/bin/sudo a2enmod rewrite ',
+    command => '/usr/bin/sudo a2enmod php7.2 | /usr/bin/sudo a2enmod rewrite ',
   }
   exec{"service_apache2_restart":
     command     => '/usr/bin/sudo service apache2 restart',
