@@ -40,7 +40,12 @@ node 'tf-noticias.upr.edu.cu' {
     version => "7.3",
     packages => ["php7.3","php7.3-mbstring","php7.3-cli","php7.3-curl","php7.3-intl","php7.3-ldap","php7.3-mysql","php7.3-sybase","libapache2-mod-php7.3","yarn","php7.3-zip"],
   }
- 
+
+  class { 'php::extension::mysql': }
+  class { 'php::extension::mcrypt': }
+  class { 'php::fpm::daemon':
+    ensure => running
+  }
  class { 'phpmyadmin':
    path     => "/usr/share/phpmyadmin",
    user     => "www-data",

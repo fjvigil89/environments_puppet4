@@ -64,6 +64,7 @@ mod 'puppetlabs-git', '0.5.0'
 mod 'puppetlabs-apache', '4.0.0'
 #mod 'jlondon-phpmyadmin', '1.3.0'
 mod 'velaluqa-phpmyadmin', '1.0.0'
+mod 'nodes-php', '0.9.0'
 
 mod 'leonardothibes-wget', '1.0.4'
 mod 'puppetlabs-mysql', '6.2.0'
