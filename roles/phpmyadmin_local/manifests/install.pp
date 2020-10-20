@@ -8,7 +8,7 @@ define phpmyadmin_local::install($version = $title, $installdir)
 
 	# Creating source directory
 	if !defined(File[$phpmyadmin_local::params::srcdir]) {
-		file {'/usr/src':
+		file {$phpmyadmin_local::params::srcdir :
 			ensure => directory,
 			owner  => 'root',
 			group  => 'root',
@@ -41,9 +41,9 @@ define phpmyadmin_local::install($version = $title, $installdir)
 	# Installing the phpMyAdmin
 	file {$phpmyadmin_local::params::instdir:
 		ensure => directory,
-		owner  => root,
-		group  => root,
-		mode   => 0755,
+		owner  => 'root',
+		group  => 'root',
+		mode   => '0755',
 	}
 	exec {'copy-phpmyadmin':
 		command => "cp -Rf ${phpmyadmin_local::params::srcdir}/phpMyAdmin-${version}-all-languages ${phpmyadmin_local::params::instdir}/${version}",
