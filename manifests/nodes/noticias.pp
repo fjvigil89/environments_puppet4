@@ -41,10 +41,10 @@ node 'tf-noticias.upr.edu.cu' {
     packages => ["php7.3","php7.3-mbstring","php7.3-cli","php7.3-curl","php7.3-intl","php7.3-ldap","php7.3-mysql","php7.3-sybase","libapache2-mod-php7.3",],
   }
  
-  class { 'phpmyadmin': }
-  phpmyadmin::server{ 'default': }
-
-
+ class { 'phpmyadmin':
+   path     => "/usr/share/phpmyadmin",
+   user     => "www-data",
+ }
   apache::vhost { 'noticias.upr.edu.cu non-ssl':
     servername      => 'noticias.upr.edu.cu',
     serveraliases   => ['www.noticias.upr.edu.cu'],
@@ -82,9 +82,6 @@ node 'tf-noticias.upr.edu.cu' {
     override_options        => $override_options
   }
 
-   @@phpmyadmin::servernode { "${::ipaddress}":
-    server_group => 'default',
-  }
 
   mysql::db { 'noticias':
   user     => 'news',
