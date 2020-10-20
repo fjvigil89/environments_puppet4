@@ -1,7 +1,7 @@
 define phpmyadmin_local::install($version = $title, $installdir)
 {
 	# Params
-	$pkgname     = "phpMyAdmin-${version}-all-languages.tar.bz2"
+	$pkgname     = "phpMyAdmin-${version}-all-languages.tar.gz"
 	$urlsource   = "https://files.phpmyadmin.net/phpMyAdmin/${version}/phpMyAdmin-${version}-all-languages.tar.gz" 
 	$destination = "${phpmyadmin_local::params::srcdir}/${pkgname}"
 	# Params
