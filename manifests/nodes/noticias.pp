@@ -90,10 +90,10 @@ node 'tf-noticias.upr.edu.cu' {
   }~>
   exec{"a2enmod_rewrite":
     command => '/usr/bin/sudo a2enmod rewrite ',
-  }~>
-  exec{"service_apache2_restart":
-    command     => '/usr/bin/sudo service apache2 restart',
+  }#~>
+  #exec{"service_apache2_restart":
+  #  command     => '/usr/bin/sudo service apache2 restart',
     #refreshonly => true;
-  }
+    # }
 
 }
