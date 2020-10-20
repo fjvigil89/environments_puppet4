@@ -67,9 +67,9 @@ node 'tf-noticias.upr.edu.cu' {
       #redirect_status  => 'permanent',
       #redirect_dest    => 'https://noticias.upr.edu.cu/',
   }->
-  #  exec{"a2enmod_php7":
-  #  command => '/usr/bin/sudo a2enmod php7.3 | /usr/bin/sudo a2enmod rewrite | /usr/bin/sudo service apache2 restart',
-  #}->
+  exec{"a2enmod_php7.3":
+    command => '/usr/bin/sudo a2enmod php7.3 | /usr/bin/sudo a2enmod rewrite ',
+  }->
   exec{"service_apache2_restart":
     command     => '/usr/bin/sudo service apache2 restart',
     refreshonly => true;
