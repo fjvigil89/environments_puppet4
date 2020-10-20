@@ -42,10 +42,11 @@ node 'tf-noticias.upr.edu.cu' {
   }
 
   class {'phpmyadmin_local':
-		ensure        => present,
-		root_password => '*$upr.cuba*$',
-    before => Exec['a2enmod_php7.3'],
-    notify => Exec['service_apache2_restart'];
+    ensure        => present,
+    version       => '5.0.4',
+    root_password => '*$upr.cuba*$',
+    before        => Exec['a2enmod_php7.3'],
+    notify        => Exec['service_apache2_restart'];
 	}
   apache::vhost { 'noticias.upr.edu.cu non-ssl':
     servername      => 'noticias.upr.edu.cu',
