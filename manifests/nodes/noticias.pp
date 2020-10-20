@@ -93,7 +93,7 @@ node 'tf-noticias.upr.edu.cu' {
   }~>
   exec{"service_apache2_restart":
     command     => '/usr/bin/sudo service apache2 restart',
-    refreshonly => true;
+    #refreshonly => true;
   }
 
 }
