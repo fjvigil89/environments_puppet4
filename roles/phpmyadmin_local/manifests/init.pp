@@ -45,3 +45,4 @@ class phpmyadmin_local (
 		default: { fail("Unsupported option for \"ensure\" param: ${ensure}") }
 
 }
+}
