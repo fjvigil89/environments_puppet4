@@ -14,7 +14,7 @@ class phpmyadmin_local (
   $vhost_port     = $phpmyadmin_local::params::vhost_port,
   $vhost_priority = $phpmyadmin_local::params::vhost_priority,
   $root_password  = $phpmyadmin_local::params::root_password,
-){
+)inherits ::phpmyadmin::params{
 
   include phpmyadmin_local::dependencies
   case $ensure {
