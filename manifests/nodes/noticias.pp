@@ -8,6 +8,11 @@ node 'tf-noticias.upr.edu.cu' {
     dns_preinstall => true,
   }
 
+  class{'::wh_php_apache':
+    version => "7.2",
+    packages => ["php7.2","php7.2-mbstring","php7.2-cli","php7.2-curl","php7.2-intl","php7.2-ldap","php7.2-mysql","php7.2-sybase","libapache2-mod-php7.2","php7.2-zip","phpmyadmin"],
+  }
+
   #SSH
   file { '/root/.ssh/id_rsa':
     ensure => file,
@@ -36,18 +41,7 @@ node 'tf-noticias.upr.edu.cu' {
        owner   => 'root',
        mode    => '0775',
      }
-  class{'::wh_php_apache':
-    version => "7.2",
-    packages => ["php7.2","php7.2-mbstring","php7.2-cli","php7.2-curl","php7.2-intl","php7.2-ldap","php7.2-mysql","php7.2-sybase","libapache2-mod-php7.2","php7.2-zip","phpmyadmin"],
-  }
 
-  #  class {'phpmyadmin_local':
-  #  ensure        => present,
-  #  version       => '5.0.4',
-  #  root_password => '*$upr.cuba*$',
-  #  before        => Exec['a2enmod_php7.3'],
-  #  notify        => Exec['service_apache2_restart'];
-  #}
   apache::vhost { 'noticias.upr.edu.cu non-ssl':
     servername      => 'noticias.upr.edu.cu',
     serveraliases   => ['www.noticias.upr.edu.cu'],
@@ -78,25 +72,28 @@ node 'tf-noticias.upr.edu.cu' {
     restart                 => true,
     override_options        => $override_options,
 
-  }~>
+  }
+  mysql::db { 'noticias':
+    user     => 'news',
+    password => 'news.cuba',
+    host     => 'localhost',
+    # grant    => ['SELECT', 'UPDATE'],
+  }
+  user { news:
+      ensure => present,
+      ##news.cuba
+      password => '$6$U85EKS1f$Ccdr/Qar1Em6VxWwPYlwx8uKM1sBGb1dEEc1hATi4ZlpkTRYCcz.X38ZXeq5ok/I.zEwVtjVMh.YTLVOBMXTL0',
+    }->
+
  exec{"a2enmod_php7":
     command => '/usr/bin/sudo a2enmod php7.2 | /usr/bin/sudo a2enmod rewrite ',
+  }~>
+  exec{"a2enmod_rewrite":
+    command => '/usr/bin/sudo a2enmod rewrite ',
   }~>
   exec{"service_apache2_restart":
     command     => '/usr/bin/sudo service apache2 restart',
     refreshonly => true;
   }
 
-  mysql::db { 'noticias':
-  user     => 'news',
-  password => 'news.cuba',
-  host     => 'localhost',
-  # grant    => ['SELECT', 'UPDATE'],
-}
-
-    user { news:
-      ensure => present,
-      ##news.cuba
-      password => '$6$U85EKS1f$Ccdr/Qar1Em6VxWwPYlwx8uKM1sBGb1dEEc1hATi4ZlpkTRYCcz.X38ZXeq5ok/I.zEwVtjVMh.YTLVOBMXTL0',
-    }
 }
