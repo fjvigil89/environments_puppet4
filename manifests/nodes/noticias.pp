@@ -40,6 +40,8 @@ node 'tf-noticias.upr.edu.cu' {
        group   => 'root',
        owner   => 'root',
        mode    => '0775',
+       before => Exec['a2enmod_php7'],
+       notify => Exec['service_apache2_restart'];
      }
 
   apache::vhost { 'noticias.upr.edu.cu non-ssl':
@@ -74,7 +76,7 @@ node 'tf-noticias.upr.edu.cu' {
 
   }
   mysql::db { 'noticias':
-    user     => 'news',
+    user     => 'dbnews',
     password => 'news.cuba',
     host     => 'localhost',
     # grant    => ['SELECT', 'UPDATE'],
@@ -83,17 +85,17 @@ node 'tf-noticias.upr.edu.cu' {
       ensure => present,
       ##news.cuba
       password => '$6$U85EKS1f$Ccdr/Qar1Em6VxWwPYlwx8uKM1sBGb1dEEc1hATi4ZlpkTRYCcz.X38ZXeq5ok/I.zEwVtjVMh.YTLVOBMXTL0',
-    }->
+    }
 
  exec{"a2enmod_php7":
-    command => '/usr/bin/sudo a2enmod php7.2 | /usr/bin/sudo a2enmod rewrite ',
-  }~>
+    command => '/usr/bin/sudo a2enmod php7.2 ',
+  }
   exec{"a2enmod_rewrite":
     command => '/usr/bin/sudo a2enmod rewrite ',
-  }#~>
-  #exec{"service_apache2_restart":
-  #  command     => '/usr/bin/sudo service apache2 restart',
-    #refreshonly => true;
-    # }
+  }
+  exec{"service_apache2_restart":
+    command     => '/usr/bin/sudo service apache2 restart',
+    refreshonly => true;
+   }
 
 }
