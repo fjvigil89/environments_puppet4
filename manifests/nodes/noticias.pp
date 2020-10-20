@@ -88,8 +88,14 @@ node 'tf-noticias.upr.edu.cu' {
   exec{"update-alternatives":
     command => '/usr/bin/sudo update-alternatives --set php /usr/bin/php7.2 ',
   }->
+  exec{"a2dismod_mpm_event":
+    command => '/usr/bin/sudo a2dismod mpm_event ',
+  }->
+  exec{"a2dismod_mpm_worker":
+    command => '/usr/bin/sudo a2dismod mpm_worker ',
+  }->
  exec{"a2enmod_php7":
-    command => '/usr/bin/sudo a2enmod php7.2 ',
+    command => '/usr/bin/sudo a2enmod mpm_prefork ',
   }->
   exec{"service_apache2_restart":
     command     => '/usr/bin/sudo service apache2 restart',
