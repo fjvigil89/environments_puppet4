@@ -69,8 +69,6 @@ node 'tf-noticias.upr.edu.cu' {
     ],
       #redirect_status  => 'permanent',
       #redirect_dest    => 'https://noticias.upr.edu.cu/',
-    before        => Exec['a2enmod_php7'],
-    notify        => Exec['service_apache2_restart'];
 
   }
 
