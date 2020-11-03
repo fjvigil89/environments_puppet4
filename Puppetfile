@@ -81,7 +81,14 @@ mod 'puppetlabs-kubernetes', '3.0.1'
 mod 'lboynton-ejabberd', '0.0.5'
 mod 'puppetlabs-haproxy', '2.2.0'
 mod 'thias-vsftpd', '0.2.1'
-mod 'puppetfinland-librenms', '4.0.4'
+
+#LibreNMS
+#mod 'sourcedoctor-librenms', '0.9.13'
+mod 'puppetfinland-os', '1.1.3'
+#mod 'puppetfinland-systemd', '1.0.0'
+mod 'puppetlabs-stdlib', '6.5.0'
+mod 'puppet-posix_acl', '1.0.0'
+
 #mod 'ULHPC-exim4', '0.2.3'
 #mod 'TubeMogul-aptly', '3.1.1'
 
@@ -191,4 +198,8 @@ mod 'dcenter/ansible',
 mod 'dcenter/razor',
   :git => 'git@gitlab.upr.edu.cu:dcenter/puppet-razor.git',
   :ref => '5e3a12cacc6a3f714bcb2760426cf1ce1e282275'
+#LibreNMS
+mod 'dcenter/librenms',
+  :git => 'git@gitlab.upr.edu.cu:dcenter/librenms.git',
+  :ref => '1a3cd7d4e8f941f97ed8df8f61d35f881cddc2d6'
 
