@@ -66,7 +66,7 @@ node 'gicacovid.upr.edu.cu' {
  class {'r10kserver':
     r10k_basedir => "/home/GicaCovid",
     cachedir     => "/var/cache/r10k",
-    configfile   => "/etc/r10k.yaml",
+    configfile   => "/home/r10k.yaml",
     remote       => "git@gitlab.upr.edu.cu:dpto_informatica/gicacovid.git",
     sources      => {
       'News-UPR' => {
