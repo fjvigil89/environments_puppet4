@@ -46,10 +46,10 @@ node 'gicacovid.upr.edu.cu' {
     servername      => 'gicacovid.upr.edu.cu',
     serveraliases   => ['www.gicacovid.upr.edu.cu'],
     port            => '80',
-    docroot         => '/home/GicaCovid/master/',
+    docroot         => '/home/GicaCovid/master/public',
     custom_fragment => 'Alias /phpmyadmin /usr/share/phpmyadmin',
     directories     => [ {
-      'path'           => '/home/GicaCovid/master',
+      'path'           => '/home/GicaCovid/master/public',
       'options'        => ['Indexes','FollowSymLinks','MultiViews'],
       'allow_override' => 'All',
       'directoryindex' => 'index.php',
