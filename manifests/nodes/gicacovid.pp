@@ -63,6 +63,22 @@ node 'gicacovid.upr.edu.cu' {
     ],
   }
 
+ class {'r10kserver':
+    r10k_basedir => "/home/GicaCovid",
+    cachedir     => "/var/cache/r10k",
+    configfile   => "/etc/r10k.yaml",
+    remote       => "git@gitlab.upr.edu.cu:dpto_informatica/gicacovid.git",
+    sources      => {
+      'News-UPR' => {
+        'remote'           => 'git@gitlab.upr.edu.cu:dpto_informatica/gicacovid.git',
+        'basedir'          => '/home/GicaCovid',
+        'prefix'           => false,
+        'invalid_branches' => 'correct',
+    },
+  }
+  }
+
+
    class { '::mysql::server':
     root_password           => '*$upr.cuba*$',
     remove_default_accounts => false,
