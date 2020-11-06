@@ -1,4 +1,4 @@
-node 'tf-noticias.upr.edu.cu' {
+node 'gicacovid.upr.edu.cu' {
 
   class { '::basesys':
     uprinfo_usage  => 'servidor GicaCovid',
