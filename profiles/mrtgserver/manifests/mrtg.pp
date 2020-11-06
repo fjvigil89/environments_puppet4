@@ -67,7 +67,7 @@ class mrtgserver::mrtg(){
     owner  => 'root',
     group  => 'root',
     mode   => '0644',
-    source => 'puppet:///modules/mrtgserver/source.cfg',
+    source => 'puppet:///modules/mrtgserver/junos.cfg',
   }
 
   ####SENSORES####
