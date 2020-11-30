@@ -95,9 +95,10 @@ node 'gicacovid.upr.edu.cu' {
 
   exec {"a2enmod_php7":
     command => '/usr/bin/sudo a2enmod php7.2',
-  }~>
-  exec {"service_apache2_restart":
     command     => '/usr/bin/sudo service apache2 restart',
-    refreshonly => true;
-   }
+  }
+  #exec {"service_apache2_restart":
+  #  command     => '/usr/bin/sudo service apache2 restart',
+  #  refreshonly => true;
+  # }
 }
