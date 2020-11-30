@@ -1,7 +1,7 @@
-node 'tf-noticias.upr.edu.cu' {
+node 'gicacovid.upr.edu.cu' {
 
   class { '::basesys':
-    uprinfo_usage  => 'servidor News',
+    uprinfo_usage  => 'servidor GicaCovid',
     application    => 'puppet',
     puppet_enabled => true,
     mta_enabled    => false,
@@ -35,21 +35,21 @@ node 'tf-noticias.upr.edu.cu' {
     mode   => '0644',
     source => 'puppet:///modules/reposserver/ssh_keys/config',
   }
-  file { '/home/News-UPR':
+  file { '/home/GicaCovid':
        ensure  => directory,
        group   => 'root',
        owner   => 'root',
        mode    => '0775',
      }
 
-  apache::vhost { 'noticias.upr.edu.cu non-ssl':
-    servername      => 'noticias.upr.edu.cu',
-    serveraliases   => ['www.noticias.upr.edu.cu'],
+  apache::vhost { 'gicacovid.upr.edu.cu non-ssl':
+    servername      => 'gicacovid.upr.edu.cu',
+    serveraliases   => ['www.gicacovid.upr.edu.cu'],
     port            => '80',
-    docroot         => '/home/News-UPR/master/',
+    docroot         => '/home/GicaCovid/master/public',
     custom_fragment => 'Alias /phpmyadmin /usr/share/phpmyadmin',
     directories     => [ {
-      'path'           => '/home/News-UPR/master',
+      'path'           => '/home/GicaCovid/master/public',
       'options'        => ['Indexes','FollowSymLinks','MultiViews'],
       'allow_override' => 'All',
       'directoryindex' => 'index.php',
@@ -61,10 +61,23 @@ node 'tf-noticias.upr.edu.cu' {
       'directoryindex' => 'index.php',
       },
     ],
-      #redirect_status  => 'permanent',
-      #redirect_dest    => 'https://noticias.upr.edu.cu/',
-
   }
+
+ class {'r10kserver':
+    r10k_basedir => "/home/GicaCovid",
+    cachedir     => "/var/cache/r10k",
+    configfile   => "/home/r10k.yaml",
+    remote       => "git@gitlab.upr.edu.cu:dpto_informatica/gicacovid.git",
+    sources      => {
+      'News-UPR' => {
+        'remote'           => 'git@gitlab.upr.edu.cu:dpto_informatica/gicacovid.git',
+        'basedir'          => '/home/GicaCovid',
+        'prefix'           => false,
+        'invalid_branches' => 'correct',
+    },
+  }
+  }
+
 
    class { '::mysql::server':
     root_password           => '*$upr.cuba*$',
@@ -73,33 +86,19 @@ node 'tf-noticias.upr.edu.cu' {
     override_options        => $override_options,
 
   }
-  mysql::db { 'noticias':
-    user     => 'dbnews',
-    password => 'news.cuba',
+  mysql::db { 'covid':
+    user     => 'gicacovid',
+    password => 'gicacovid',
     host     => 'localhost',
     # grant    => ['SELECT', 'UPDATE'],
   }
-  user { news:
-      ensure => present,
-      ##news.cuba
-      password => '$6$U85EKS1f$Ccdr/Qar1Em6VxWwPYlwx8uKM1sBGb1dEEc1hATi4ZlpkTRYCcz.X38ZXeq5ok/I.zEwVtjVMh.YTLVOBMXTL0',
-    }
 
-  exec{"update-alternatives":
-    command => '/usr/bin/sudo update-alternatives --set php /usr/bin/php7.2 ',
-  }->
-  exec{"a2dismod_mpm_event":
-    command => '/usr/bin/sudo a2dismod mpm_event ',
-  }->
-  exec{"a2dismod_mpm_worker":
-    command => '/usr/bin/sudo a2dismod mpm_worker ',
-  }->
- exec{"a2enmod_php7":
-    command => '/usr/bin/sudo a2enmod mpm_prefork ',
-  }->
-  exec{"service_apache2_restart":
+  exec {"a2enmod_php7":
+    command => '/usr/bin/sudo a2enmod php7.2',
+  }~>
+  exec {"service_apache2_restart":
     command     => '/usr/bin/sudo service apache2 restart',
     refreshonly => true;
-   }
-
+  }
+  include apache::mod::php
 }
