@@ -93,8 +93,8 @@ node 'gicacovid.upr.edu.cu' {
     # grant    => ['SELECT', 'UPDATE'],
   }
 
-  exec {'a2enmod php7.2':
-   cwd => '/usr/bin/sudo',
+  exec {'/usr/bin/sudo/a2enmod php7.2':
+  # cwd => '/usr/bin/sudo',
   }~>
   exec{"service_apache2_restart":
     command     => '/usr/bin/sudo service apache2 restart',
