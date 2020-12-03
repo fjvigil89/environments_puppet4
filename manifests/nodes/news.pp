@@ -53,7 +53,7 @@ node 'news.upr.edu.cu' {
     },
   }
   } 
-
+  include apache::mod::php
 
 #  class { '::mysql::server':
 #    root_password           => 'news',
