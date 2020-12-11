@@ -32,7 +32,7 @@ node 'libretest.upr.edu.cu'{
  }
  class { '::mysql::server':
   root_password           => 'libre',
-  remove_default_accounts => true,
+  remove_default_accounts => false,
   restart                 => true,
   override_options        => $override_options,
 }
