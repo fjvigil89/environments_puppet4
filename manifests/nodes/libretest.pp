@@ -34,22 +34,22 @@ node 'libretest.upr.edu.cu'{
    proto      => 'v2c',
    community  => 'UPRadmin4all',
  }
- class { '::mysql::server':
-  root_password           => 'libre',
-  restart                 => true,
-  override_options        => $override_options,
-  before                  => Class['::librenms::config'],
+ #class { '::mysql::server':
+ # root_password           => 'libre',
+ # restart                 => true,
+ # override_options        => $override_options,
+ # before                  => Class['::librenms::config'],
   #remove_default_accounts => false,
-}
-::mysql::db { 'librenms':
-  user     => 'librenms',
-  password => $::db_pass,
-  host     => 'localhost',
-  grant    => ['ALL'],
-  charset  => 'utf8',
-  collate  => 'utf8_unicode_ci',
-  before   => Class['::librenms::config'],
-  require  => Class['::mysql::server'],
+#}
+#::mysql::db { 'librenms':
+#  user     => 'librenms',
+#  password => $::db_pass,
+#  host     => 'localhost',
+#  grant    => ['ALL'],
+#  charset  => 'utf8',
+#  collate  => 'utf8_unicode_ci',
+#  before   => Class['::librenms::config'],
+#  require  => Class['::mysql::server'],
 #  #grant    =>  ['SELECT', 'INSERT', 'UPDATE', 'DELETE', 'DROP', 'CREATE VIEW', 'CREATE', 'INDEX', 'EXECUTE', 'ALTER', 'REFERENCES'],
-  }
+#  }
 }
