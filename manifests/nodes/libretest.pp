@@ -8,6 +8,10 @@ node 'libretest.upr.edu.cu'{
     dmz            => true,
   }
   class { '::librenms':
+    version        => $::librenms_version,
+    manage_php     => true,
+    manage_apache  => true,
+    ssl            => true,
     admin_email    => 'upredes@upr.edu.cu',
     php_timezone   => 'America/Havana',
     admin_pass     => 'adminpass',
@@ -32,15 +36,20 @@ node 'libretest.upr.edu.cu'{
  }
  class { '::mysql::server':
   root_password           => 'libre',
-  remove_default_accounts => false,
   restart                 => true,
   override_options        => $override_options,
+  before                  => Class['::librenms::config'],
+  #remove_default_accounts => false,
 }
- mysql::db { 'librenms':
+::mysql::db { 'librenms':
   user     => 'librenms',
-  password => 'librenmsdb',
+  password => $::db_pass,
   host     => 'localhost',
   grant    => ['ALL'],
+  charset  => 'utf8',
+  collate  => 'utf8_unicode_ci',
+  before   => Class['::librenms::config'],
+  require  => Class['::mysql::server'],
 #  #grant    =>  ['SELECT', 'INSERT', 'UPDATE', 'DELETE', 'DROP', 'CREATE VIEW', 'CREATE', 'INDEX', 'EXECUTE', 'ALTER', 'REFERENCES'],
   }
 }
