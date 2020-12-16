@@ -51,5 +51,5 @@ node 'libretest.upr.edu.cu'{
   before   => Class['::librenms::config'],
   require  => Class['::mysql::server'],
 #  #grant    =>  ['SELECT', 'INSERT', 'UPDATE', 'DELETE', 'DROP', 'CREATE VIEW', 'CREATE', 'INDEX', 'EXECUTE', 'ALTER', 'REFERENCES'],
-#  }
+  }
 }
