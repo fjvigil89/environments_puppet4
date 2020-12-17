@@ -6,7 +6,7 @@ node 'henry-pup.upr.edu.cu' {
   class { '::basesys':
     uprinfo_usage   => 'Servidor Puppet Master',
     application     => 'Puppet Master Prueba',
-    repos_enabled   => true,
+    #repos_enabled   => true,
     mta_enabled     => false,
   	puppet_enabled  => false,
 	dmz 			=> true,
