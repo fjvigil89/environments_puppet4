@@ -1,5 +1,5 @@
 node 'henry-pup.upr.edu.cu' {
-#  include puppetserver
+  include puppetserver
   package { 'lsb-release':
           ensure => installed,
   }~>
