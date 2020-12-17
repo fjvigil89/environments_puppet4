@@ -15,7 +15,7 @@ class puppetserver  {
 #      server => 'pgp.mit.edu',
 #    },
 #  }
-apt::source { 'puppetlabs':
+::apt::source { 'puppetlabs':
   location => 'http://apt.puppetlabs.com',
   repos    => 'main',
   key      => {
