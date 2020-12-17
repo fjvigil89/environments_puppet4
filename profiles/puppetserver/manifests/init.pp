@@ -23,13 +23,13 @@ class puppetserver {
     'server' => 'pgp.mit.edu',
   },
  }
+ file {'/etc/puppetlabs/puppetserver':
+   ensure => 'directory',
+   owner  => 'root',
+   group  => 'root',
+   mode   => '0644',
+ }
 }
-#  file {'/etc/puppetlabs/puppetserver':
-#    ensure => 'directory',
-#    owner  => 'root',
-#    group  => 'root',
-#    mode   => '0644',
-#  }
 #  class { '::puppet':
     #agent                    => true,
     #server                   => true,
