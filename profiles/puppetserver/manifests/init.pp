@@ -60,43 +60,42 @@ class puppetserver {
         },
       },
     }
-  }
   # lint:ignore:140chars
-  #cron { 'r10k-deploy':
-  #    ensure  => present,
-  #    command => '[ -x /usr/local/bin/r10k ] && /usr/local/bin/r10k deploy environment -p -c /etc/r10k.yaml',
-  #    minute  => [7,12,17,22,27,32,37,42,47,52,57];
-  #  'serverbeheer2hiera':
-  #    ensure  => present,
-  #    command => '/etc/puppetlabs/code/environments/production/bin/hosts2hiera.pl > /tmp/.hosts_$$ && mv /tmp/.hosts_$$ /var/lib/serverbeheer/data/serverbeheer.yaml',
-  #    minute  => [7,12,17,22,27,32,37,42,47,52,57],
-  #}
+  cron { 'r10k-deploy':
+      ensure  => present,
+      command => '[ -x /usr/local/bin/r10k ] && /usr/local/bin/r10k deploy environment -p -c /etc/r10k.yaml',
+      minute  => [7,12,17,22,27,32,37,42,47,52,57];
+    'serverbeheer2hiera':
+      ensure  => present,
+      command => '/etc/puppetlabs/code/environments/production/bin/hosts2hiera.pl > /tmp/.hosts_$$ && mv /tmp/.hosts_$$ /var/lib/serverbeheer/data/serverbeheer.yaml',
+      minute  => [7,12,17,22,27,32,37,42,47,52,57],
+  }
   # lint:endignore
-  #package {
-  #  'libyaml-perl':
-  #    ensure => installed,
-  #}
+  package {
+    'libyaml-perl':
+      ensure => installed,
+  }
   # Voor de network puppet module
-  #package { 'ipaddress':
-  #  ensure   => installed,
-  #  provider => 'puppet_gem',
-  #  require  => Class['::puppet'];
-  #}
-  #file {
-  #  '/etc/puppetlabs/code/hiera.yaml':
-  #    ensure => 'file',
-  #    owner  => 'root',
-  #    group  => 'root',
-  #    mode   => '0644',
-  #    source => 'puppet:///modules/puppetserver/hiera.yaml',
-  #    notify => Exec['restart-puppet-server'];
-  #}
-  #exec {
-  #  'restart-puppet-server':
-  #    command     => '/etc/init.d/puppetserver restart',
-  #    refreshonly => true;
-  #}
-#}
+  package { 'ipaddress':
+    ensure   => installed,
+    provider => 'puppet_gem',
+    require  => Class['::puppet'];
+  }
+  file {
+    '/etc/puppetlabs/code/hiera.yaml':
+      ensure => 'file',
+      owner  => 'root',
+      group  => 'root',
+      mode   => '0644',
+      source => 'puppet:///modules/puppetserver/hiera.yaml',
+      notify => Exec['restart-puppet-server'];
+  }
+  exec {
+    'restart-puppet-server':
+      command     => '/etc/init.d/puppetserver restart',
+      refreshonly => true;
+  }
+}
 #  ($puppetdb_server = '10.2.4.170')
 #::apt::source { 'puppetlabs-pc1-server':
 #    comment  => 'Puppetlabs PC1 Repository',
