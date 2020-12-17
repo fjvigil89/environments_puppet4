@@ -5,16 +5,6 @@
 # Configure puppetserver
 
 class puppetserver {
-#  ($puppetdb_server = '10.2.4.170')
-#::apt::source { 'puppetlabs-pc1-server':
-#    comment  => 'Puppetlabs PC1 Repository',
-#    location => 'http://repos.upr.edu.cu/puppet/apt',
-#    repos    => 'puppet',
-#    key      => {
-#      id     => '6F6B15509CF8E59E6E469F327F438280EF8D349F',
-#      server => 'pgp.mit.edu',
-#    },
-#  }
 ::apt::source { 'puppetlabs':
   location => 'http://apt.puppetlabs.com',
   repos    => 'main',
@@ -29,19 +19,18 @@ class puppetserver {
    group  => 'root',
    mode   => '0644',
  }
-}
-#  class { '::puppet':
+  class { '::puppet':
     #agent                    => true,
-    #server                   => true,
+    server                   => true,
     #server_foreman           => true,
     #server_foreman_facts     => true,
     #server_foreman_url       => "https://foreman.upr.edu.cu",
-    #server_ca                => true,
+    server_ca                => true,
     #server_passenger        => false,
     #server_environments         => [],
     #puppetdb                    => true,
     #server_puppetdb_host     => $puppetserver::puppetdb_server,
-    #server_reports           => 'store',
+    server_reports           => 'store',
     #server_storeconfigs_backend => 'puppetdb',
     #server_jvm_min_heap_size => '2G',
     #server_jvm_max_heap_size => '3G',
@@ -49,16 +38,17 @@ class puppetserver {
     #autosign_mode               => '755',
     #server_external_nodes    => '',
     #environment              => 'production',
-    #version                  => 'latest',
+    version                  => 'latest',
     #version                     => "5.5.1-1${::lsbdistcodename}",
     #server_puppetserver_version => '5.1.0',
     #server_version              => '5.3.5-1puppetlabs1',
     #server_common_modules_path  => '',
-    #hiera_config                => '$codedir/hiera.yaml',
+    hiera_config                => '$codedir/hiera.yaml',
     # Staat op agent omdat we de server manueel upgraden!
-    #manage_packages          => 'server',
-    #runmode                  => 'cron',
-  #}
+    manage_packages          => 'server',
+    runmode                  => 'cron',
+  }
+}
   #class { '::r10k':
   #  r10k_basedir => '/etc/puppetlabs/r10k',
   #  cachedir     => '/opt/puppetlabs/r10k/cache',
@@ -107,3 +97,13 @@ class puppetserver {
   #    refreshonly => true;
   #}
 #}
+#  ($puppetdb_server = '10.2.4.170')
+#::apt::source { 'puppetlabs-pc1-server':
+#    comment  => 'Puppetlabs PC1 Repository',
+#    location => 'http://repos.upr.edu.cu/puppet/apt',
+#    repos    => 'puppet',
+#    key      => {
+#      id     => '6F6B15509CF8E59E6E469F327F438280EF8D349F',
+#      server => 'pgp.mit.edu',
+#    },
+#  }
