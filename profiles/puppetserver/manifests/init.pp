@@ -6,15 +6,24 @@
 
 class puppetserver  {
 #  ($puppetdb_server = '10.2.4.170')
-::apt::source { 'puppetlabs-pc1-server':
-    comment  => 'Puppetlabs PC1 Repository',
-    location => 'http://repos.upr.edu.cu/puppet/apt',
-    repos    => 'puppet',
-    key      => {
-      id     => '6F6B15509CF8E59E6E469F327F438280EF8D349F',
-      server => 'pgp.mit.edu',
-    },
-  }
+#::apt::source { 'puppetlabs-pc1-server':
+#    comment  => 'Puppetlabs PC1 Repository',
+#    location => 'http://repos.upr.edu.cu/puppet/apt',
+#    repos    => 'puppet',
+#    key      => {
+#      id     => '6F6B15509CF8E59E6E469F327F438280EF8D349F',
+#      server => 'pgp.mit.edu',
+#    },
+#  }
+apt::source { 'puppetlabs':
+  location => 'http://apt.puppetlabs.com',
+  repos    => 'main',
+  key      => {
+    'id'     => '6F6B15509CF8E59E6E469F327F438280EF8D349F',
+    'server' => 'pgp.mit.edu',
+  },
+}
+
   file {'/etc/puppetlabs/puppetserver':
     ensure => 'directory',
     owner  => 'root',
@@ -24,17 +33,17 @@ class puppetserver  {
   class { '::puppet':
     agent                    => true,
     server                   => true,
-    server_foreman           => true,
-    server_foreman_facts     => true,
-    server_foreman_url       => "https://foreman.upr.edu.cu",
+    #server_foreman           => true,
+    #server_foreman_facts     => true,
+    #server_foreman_url       => "https://foreman.upr.edu.cu",
     server_ca                => true,
     #server_passenger        => false,
     #server_environments         => [],
     #puppetdb                    => true,
     #server_puppetdb_host     => $puppetserver::puppetdb_server,
-    server_reports           => 'foreman',
+    #server_reports           => 'foreman',
     #server_storeconfigs_backend => 'puppetdb',
-    server_jvm_min_heap_size => '1G',
+    server_jvm_min_heap_size => '2G',
     server_jvm_max_heap_size => '3G',
     autosign                 => false,  #'/etc/puppetlabs/code/environments/production/bin/autosign-dns',
     #autosign_mode               => '755',
