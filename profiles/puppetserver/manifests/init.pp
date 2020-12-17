@@ -32,12 +32,12 @@ class puppetserver {
    #server_puppetdb_host     => $puppetserver::puppetdb_server,
    server_reports           => 'store',
    #server_storeconfigs_backend => 'puppetdb',
-   server_jvm_min_heap_size => '2G',
+   server_jvm_min_heap_size => '3G',
    server_jvm_max_heap_size => '3G',
    #autosign                 => false,  #'/etc/puppetlabs/code/environments/production/bin/autosign-dns',
    #autosign_mode               => '755',
    #server_external_nodes    => '',
-   #environment              => 'production',
+   environment              => 'production',
    version                  => 'latest',
    #version                     => "5.5.1-1${::lsbdistcodename}",
    #server_puppetserver_version => '5.1.0',
@@ -48,19 +48,19 @@ class puppetserver {
    manage_packages          => 'server',
    runmode                  => 'service',
    }
- }
-  #class { '::r10k':
-  #  r10k_basedir => '/etc/puppetlabs/r10k',
-  #  cachedir     => '/opt/puppetlabs/r10k/cache',
-  #  configfile   => '/etc/puppetlabs/r10k/r10k.yaml',
-  #  sources      => {
-  #    'environments' => {
-  #      'remote'  => 'git@gitlab.upr.edu.cu:dcenter/environments.git',
-  #      'basedir' => "${r10k_basedir}",
-  #      'prefix'  => false,
-  #      },
-  #    },
-  #  }
+  class { '::r10k':
+    r10k_basedir => '/etc/puppetlabs/r10k',
+    cachedir     => '/opt/puppetlabs/r10k/cache',
+    configfile   => '/etc/puppetlabs/r10k/r10k.yaml',
+    sources      => {
+      'environments' => {
+        'remote'  => 'git@gitlab.upr.edu.cu:dcenter/environments.git',
+        'basedir' => "${r10k_basedir}",
+        'prefix'  => false,
+        },
+      },
+    }
+  }
   # lint:ignore:140chars
   #cron { 'r10k-deploy':
   #    ensure  => present,
