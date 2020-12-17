@@ -4,7 +4,7 @@
 #
 # Configure puppetserver
 
-class puppetserver  {
+class puppetserver {
 #  ($puppetdb_server = '10.2.4.170')
 #::apt::source { 'puppetlabs-pc1-server':
 #    comment  => 'Puppetlabs PC1 Repository',
@@ -31,7 +31,7 @@ class puppetserver  {
     mode   => '0644',
   }
   class { '::puppet':
-    agent                    => true,
+    #agent                    => true,
     server                   => true,
     #server_foreman           => true,
     #server_foreman_facts     => true,
@@ -41,7 +41,7 @@ class puppetserver  {
     #server_environments         => [],
     #puppetdb                    => true,
     #server_puppetdb_host     => $puppetserver::puppetdb_server,
-    #server_reports           => 'foreman',
+    server_reports           => 'store',
     #server_storeconfigs_backend => 'puppetdb',
     server_jvm_min_heap_size => '2G',
     server_jvm_max_heap_size => '3G',
