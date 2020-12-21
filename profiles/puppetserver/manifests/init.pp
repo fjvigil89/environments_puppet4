@@ -25,7 +25,7 @@ class puppetserver {
    server_foreman           => false,
    server_foreman_facts     => false,
    #server_foreman_url       => "https://foreman.upr.edu.cu",
-   server_ca                => true,
+   #server_ca                => true,
    #server_passenger        => false,
    #server_environments         => [],
    #puppetdb                    => true,
