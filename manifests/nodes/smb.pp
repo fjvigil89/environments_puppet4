@@ -23,7 +23,7 @@ node 'smb.upr.edu.cu' {
   package { 'samba':
     ensure => 'installed',
   }
-  service { 'samba':
+  service { 'smbd':
     ensure => 'running',
   }
   file {'/srv/dopa':
