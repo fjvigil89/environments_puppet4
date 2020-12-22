@@ -18,7 +18,7 @@ node 'smb.upr.edu.cu' {
     managehome => true,
     groups     => 'dopa',
     # note the single quotes to stop $ expanding
-    #password   => '$6$LD5..snip...gNY1',
+    password   => '$6$TEfwqzdhNZL8RbKD$pRCwZFAveROkeXtMahru7fhc24Nh.TOy/./QKAOYHk9rmQs4NJhD/r5xusBrZTcDvhrmgX6shjxiCV4Flz9Uu.',
   }
   package { 'samba':
     ensure => 'installed',
