@@ -41,32 +41,16 @@ valid users = dopa
 read only = no
 ",
     }
-  }
-#  apache::vhost { 'dopa.upr.edu.cu non-ssl':
-#    servername      => 'dopa.upr.edu.cu',
-#    serveraliases   => ['www.dopa.upr.edu.cu'],
-#    port            => '80',
-#    docroot         => '/srv/dopa/',
-#    directories     => [ {
-#      'path'           => '/srv/dopa',
-#      'options'        => ['Indexes','FollowSymLinks','MultiViews'],
-#      'allow_override' => 'All',
-#      #'directoryindex' => 'index.php',
-#      },
-      #{
-      #'path'           => '/usr/share/phpmyadmin',
-      #'options'        => ['FollowSymLinks'],
-      #'allow_override' => 'All',
-      #'directoryindex' => 'index.php',
-      #},
-#    ],
-#  }->
-#  exec{"a2enmod_php7":
-#    command => '/usr/bin/sudo a2enmod php7.0 | /usr/bin/sudo service apache2 restart',
-#  }->
-#  exec{"service_apache2_restart":
-#    command     => '/usr/bin/sudo service apache2 restart',
-#    refreshonly => true;
-#  }->
-#  include apache::mod::php
-#}
+ apache::vhost { 'dopa':
+    port       => '80',
+    docroot    => '/srv/dopa/',
+    servername => 'enlaces.upr.edu.cu',
+    serveraliases   => ['www.dopa.upr.edu.cu'],
+    aliases    => 'mrtg',
+    directories     => {
+      'path'           => '/srv/dopa',
+      'options'        => ['Indexes','FollowSymLinks','MultiViews'],
+      'allow_override' => 'All',
+      },
+   }
+ }
