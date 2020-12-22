@@ -33,13 +33,13 @@ node 'smb.upr.edu.cu' {
    mode   => '0644',
  }
   file { '/etc/samba/smb.conf':
-      content => = "[DOPA]
-                    comment = Repositorio de DOPA
-                    browseable = yes
-                    path = /srv/dopa
-                    valid users = dopa
-                    read only = no
-                    ",
+      content => "[DOPA]
+                  comment = Repositorio de DOPA
+                  browseable = yes
+                  path = /srv/dopa
+                  valid users = dopa
+                  read only = no
+                  ",
     }
   }
 #  apache::vhost { 'dopa.upr.edu.cu non-ssl':
