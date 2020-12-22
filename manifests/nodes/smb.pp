@@ -41,16 +41,16 @@ valid users = dopa
 read only = no
 ",
     }
- apache::vhost { 'dopa':
+  apache::vhost { 'dopa':
     port       => '80',
     docroot    => '/srv/dopa/',
-    servername => 'enlaces.upr.edu.cu',
+    servername => 'dopa.upr.edu.cu',
     serveraliases   => ['www.dopa.upr.edu.cu'],
     aliases    => 'mrtg',
-    directories     => {
+    directories     => [{
       'path'           => '/srv/dopa',
       'options'        => ['Indexes','FollowSymLinks','MultiViews'],
       'allow_override' => 'All',
-      },
+      },],
    }
  }
