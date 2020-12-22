@@ -40,14 +40,13 @@ path = /srv/dopa
 valid users = dopa
 read only = no
 ",
-    }
+}
   apache::vhost { 'dopa':
     port       => '80',
     docroot    => '/srv/dopa/',
     servername => 'dopa.upr.edu.cu',
     serveraliases   => ['www.dopa.upr.edu.cu'],
     aliases    => 'dopa',
-    suphp_engine => 'off',
     directories     => {
       'path'           => '/srv/dopa',
       'options'        => ['Indexes','FollowSymLinks','MultiViews'],
