@@ -45,12 +45,13 @@ read only = no
     port       => '80',
     docroot    => '/srv/dopa/',
     servername => 'dopa.upr.edu.cu',
-    #serveraliases   => ['www.dopa.upr.edu.cu'],
+    serveraliases   => ['www.dopa.upr.edu.cu'],
     aliases    => 'dopa',
-    #directories     => {
-    #  'path'           => '/srv/dopa',
-    #  'options'        => ['Indexes','FollowSymLinks','MultiViews'],
-    #  'allow_override' => 'All',
-    #  },
+    suphp_engine => 'off',
+    directories     => {
+      'path'           => '/srv/dopa',
+      'options'        => ['Indexes','FollowSymLinks','MultiViews'],
+      'allow_override' => 'All',
+      },
    }
  }
