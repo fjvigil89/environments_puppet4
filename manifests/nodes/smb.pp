@@ -32,15 +32,15 @@ node 'smb.upr.edu.cu' {
    group  => 'dopa',
    mode   => '0644',
  }
-  file { '/etc/samba/smb.conf':
-      content => "[DOPA]
-comment = Repositorio de DOPA
-browseable = yes
-path = /srv/dopa
-valid users = dopa
-read only = no
-",
-    }
+#  file { '/etc/samba/smb.conf':
+#      content => "[DOPA]
+#comment = Repositorio de DOPA
+#browseable = yes
+#path = /srv/dopa
+#valid users = dopa
+#read only = no
+#",
+#    }
   }
 #  apache::vhost { 'dopa.upr.edu.cu non-ssl':
 #    servername      => 'dopa.upr.edu.cu',
