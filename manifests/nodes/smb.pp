@@ -45,12 +45,12 @@ read only = no
     port       => '80',
     docroot    => '/srv/dopa/',
     servername => 'dopa.upr.edu.cu',
-    serveraliases   => ['www.dopa.upr.edu.cu'],
-    aliases    => 'mrtg',
-    directories     => [{
-      'path'           => '/srv/dopa',
-      'options'        => ['Indexes','FollowSymLinks','MultiViews'],
-      'allow_override' => 'All',
-      },],
+    #serveraliases   => ['www.dopa.upr.edu.cu'],
+    aliases    => 'dopa',
+    #directories     => {
+    #  'path'           => '/srv/dopa',
+    #  'options'        => ['Indexes','FollowSymLinks','MultiViews'],
+    #  'allow_override' => 'All',
+    #  },
    }
  }
