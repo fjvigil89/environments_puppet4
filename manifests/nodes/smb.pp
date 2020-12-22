@@ -41,7 +41,7 @@ valid users = dopa
 read only = no
 ",
 }
-  apache::vhost { 'dopa':
+  ::apache::vhost { 'dopa':
     port       => '80',
     docroot    => '/srv/dopa/',
     servername => 'dopa.upr.edu.cu',
