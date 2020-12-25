@@ -15,15 +15,16 @@ node 'smb.upr.edu.cu' {
   user { 'dopa':
     ensure     => 'present',
     comment    => 'Samba DOPA',
-    managehome => true,
+    #managehome => true,
     groups     => 'dopa',
     # note the single quotes to stop $ expanding
-    password   => '$6$TEfwqzdhNZL8RbKD$pRCwZFAveROkeXtMahru7fhc24Nh.TOy/./QKAOYHk9rmQs4NJhD/r5xusBrZTcDvhrmgX6shjxiCV4Flz9Uu.',
+    #password   => '$6$TEfwqzdhNZL8RbKD$pRCwZFAveROkeXtMahru7fhc24Nh.TOy/./QKAOYHk9rmQs4NJhD/r5xusBrZTcDvhrmgX6shjxiCV4Flz9Uu.',
   }
   package { 'samba':
     ensure => 'installed',
   }
   service { 'smbd':
+    enable => true,
     ensure => 'running',
   }
   file {'/srv/dopa':
@@ -32,15 +33,19 @@ node 'smb.upr.edu.cu' {
    group  => 'dopa',
    mode   => '0644',
  }
-  file { '/etc/samba/smb.conf':
-      content => "[DOPA]
-comment = Repositorio de DOPA
-browseable = yes
-path = /srv/dopa
-valid users = dopa
-read only = no
-",
-}
+ exec { "add smb account for dopa":
+    command => '/bin/echo -e test\\ntest\\n | /usr/bin/smbpasswd -a dopa',
+    }
+    }
+#  file { '/etc/samba/smb.conf':
+#      content => "[DOPA]
+#comment = Repositorio de DOPA
+#browseable = yes
+#path = /srv/dopa
+#valid users = dopa
+#read only = no
+#",
+#}
   #apache::vhost { 'dopa':
   #  port       => '80',
   #  docroot    => '/srv/dopa/',
@@ -53,4 +58,3 @@ read only = no
   #    'allow_override' => 'All',
   #    },
   # }
- }
