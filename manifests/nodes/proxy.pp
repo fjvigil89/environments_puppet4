@@ -13,12 +13,6 @@ node /^proxy\d+$/ {
     dns_preinstall  => true,
   }
   
-  @@haproxy::balancermember { $::fqdn:
-    listening_service => 'proxy_http',
-    server_names      => $::hostname,
-    ipaddresses       => $::ipaddress,
-    ports             => '8080',
-  }
 
 }
 
@@ -58,19 +52,19 @@ node 'ha-proxy.upr.edu.cu' {
       'balance' => 'roundrobin',
     },
   }
-  # haproxy::balancermember { 'proxy1':  
-  #listening_service => 'proxy_http',
-  #  server_names      => 'proxy1.upr.edu.cu',
-  #  ipaddresses       => '10.2.1.75',
-  #  ports             => '80',
-  #}
+  haproxy::balancermember { 'proxy1':  
+    listening_service => 'proxy_http',
+    server_names      => 'proxy1.upr.edu.cu',
+    ipaddresses       => '10.2.1.75',
+    ports             => '8080',
+  }
 
-  #haproxy::balancermember { 'proxy2':
-  #  listening_service => 'proxy_http',
-  #  server_names      => 'proxy2.upr.edu.cu',
-  #  ipaddresses       => '10.2.1.77',
-  #  ports             => '80',
-  #}
+  haproxy::balancermember { 'proxy2':
+    listening_service => 'proxy_http',
+    server_names      => 'proxy2.upr.edu.cu',
+    ipaddresses       => '10.2.1.77',
+    ports             => '8080',
+  }
 
 }
 
