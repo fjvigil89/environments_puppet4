@@ -34,7 +34,7 @@ node 'smb.upr.edu.cu' {
    mode   => '0644',
  }
  exec { "add smb account for dopa":
-    command => "/bin/echo -e test\\ntest | /usr/bin/smbpasswd -a dopa",
+    command => "/bin/echo -e test\\ntest\\n | /usr/bin/smbpasswd -a dopa",
     }
     }
 #  file { '/etc/samba/smb.conf':
