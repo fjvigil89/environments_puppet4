@@ -23,10 +23,10 @@ node 'smb.upr.edu.cu' {
   package { 'samba':
     ensure => 'installed',
   }
-  service { 'smbd':
-    enable => true,
-    ensure => 'running',
-  }
+#  service { 'smbd':
+#    enable => true,
+#    ensure => 'running',
+#  }
   file {'/srv/dopa':
    ensure => 'directory',
    owner  => 'dopa',
@@ -34,8 +34,12 @@ node 'smb.upr.edu.cu' {
    mode   => '0644',
  }
  exec { "add smb account for dopa":
-    command => "/bin/echo -e 'test\\ntest' | /usr/bin/smbpasswd -a dopa",
+    command => "/bin/echo -e 'dopa\\ndopa' | /usr/bin/smbpasswd -a dopa",
     }
+  service { 'smbd':
+    enable => true,
+    ensure => 'running',
+  }
     }
 #  file { '/etc/samba/smb.conf':
 #      content => "[DOPA]
