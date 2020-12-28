@@ -1,4 +1,4 @@
-node 'smb.upr.edu.cu' {
+node 'sambatest.upr.edu.cu' {
   class { '::basesys':
     uprinfo_usage   => 'Samba',
     application     => 'CT',
