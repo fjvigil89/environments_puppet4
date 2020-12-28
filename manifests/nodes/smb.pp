@@ -51,7 +51,7 @@ node 'sambatest.upr.edu.cu' {
 #}
   apache::vhost { 'dopa':
     port       => '80',
-    docroot    => '/srv/dopa/',
+    docroot    => '/srv/dopa',
     servername => 'dopa.upr.edu.cu',
     #serveraliases   => ['www.dopa.upr.edu.cu'],
     aliases    => 'dopa',
