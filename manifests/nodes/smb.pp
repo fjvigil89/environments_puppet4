@@ -13,10 +13,10 @@ node 'sambatest.upr.edu.cu' {
     ensure => 'present',
   }
   user { 'dopa':
-    ensure     => 'present',
-    comment    => 'Samba DOPA',
+    ensure  => 'present',
+    comment => 'Samba DOPA',
     #managehome => true,
-    groups     => 'dopa',
+    groups  => 'dopa',
     # note the single quotes to stop $ expanding
     #password   => '$6$TEfwqzdhNZL8RbKD$pRCwZFAveROkeXtMahru7fhc24Nh.TOy/./QKAOYHk9rmQs4NJhD/r5xusBrZTcDvhrmgX6shjxiCV4Flz9Uu.',
   }
@@ -28,29 +28,29 @@ node 'sambatest.upr.edu.cu' {
 #    ensure => 'running',
 #  }
   file {'/srv/dopa':
-   ensure => 'directory',
-   owner  => 'dopa',
-   group  => 'dopa',
-   mode   => '0644',
- }
- exec { "add smb account for dopa":
+    ensure => 'directory',
+    owner  => 'dopa',
+    group  => 'dopa',
+    mode   => '0644',
+  }
+  exec { "add smb account for dopa":
     command => "/bin/echo -e 'dopa\\ndopa' | /usr/bin/smbpasswd -a dopa",
     }
   service { 'smbd':
     enable => true,
     ensure => 'running',
   }
- apache::vhost { 'dopa':
-   port       => '80',
-   docroot    => '/srv/dopa',
-   servername => 'dopa.upr.edu.cu',
-   #serveraliases   => ['www.dopa.upr.edu.cu'],
-   aliases    => 'dopa',
-   #directories     => {
-   #  'path'           => '/srv/dopa',
-   #  'options'        => ['Indexes','FollowSymLinks','MultiViews'],
-   #  'allow_override' => 'All',
-   #  },
+  apache::vhost { 'dopa':
+    port       => '80',
+    docroot    => '/srv/dopa',
+    servername => 'dopa.upr.edu.cu',
+    #serveraliases   => ['www.dopa.upr.edu.cu'],
+    aliases    => 'dopa',
+    #directories     => {
+    #  'path'           => '/srv/dopa',
+    #  'options'        => ['Indexes','FollowSymLinks','MultiViews'],
+    #  'allow_override' => 'All',
+    #  },
   }
 }
 #  file { '/etc/samba/smb.conf':
