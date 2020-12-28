@@ -40,6 +40,19 @@ node 'sambatest.upr.edu.cu' {
     enable => true,
     ensure => 'running',
   }
+ apache::vhost { 'dopa':
+   port       => '80',
+   docroot    => '/srv/dopa',
+   servername => 'dopa.upr.edu.cu',
+   #serveraliases   => ['www.dopa.upr.edu.cu'],
+   aliases    => 'dopa',
+   #directories     => {
+   #  'path'           => '/srv/dopa',
+   #  'options'        => ['Indexes','FollowSymLinks','MultiViews'],
+   #  'allow_override' => 'All',
+   #  },
+  }
+}
 #  file { '/etc/samba/smb.conf':
 #      content => "[DOPA]
 #comment = Repositorio de DOPA
@@ -49,16 +62,4 @@ node 'sambatest.upr.edu.cu' {
 #read only = no
 #",
 #}
-  apache::vhost { 'dopa':
-    port       => '80',
-    docroot    => '/srv/dopa',
-    servername => 'dopa.upr.edu.cu',
-    #serveraliases   => ['www.dopa.upr.edu.cu'],
-    aliases    => 'dopa',
-    #directories     => {
-    #  'path'           => '/srv/dopa',
-    #  'options'        => ['Indexes','FollowSymLinks','MultiViews'],
-    #  'allow_override' => 'All',
-    #  },
-   }
- }
+
