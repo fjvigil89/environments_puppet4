@@ -42,16 +42,16 @@ samba::server::share { 'notas':
   exec { "add smb account for dopa":
     command => "/bin/echo -e 'notasPI\\nnotasPI' | /usr/bin/smbpasswd -a notas",
     }
-#  apache::vhost { '$fqdn':
-#    port       => '80',
-#    docroot    => '/srv/notas',
-#    servername => $fqdn,
-#    serveraliases   => ["www.${fqdn}"],
-    #aliases    => 'notas',
+  apache::vhost { '$fqdn':
+    port       => '80',
+    docroot    => '/srv/notas/',
+    servername => $fqdn,
+    aliases    => 'notas',
+#   serveraliases   => ["www.${fqdn}"],
     #directories     => {
     #  'path'           => '/srv/notas',
     #  'options'        => ['Indexes','FollowSymLinks','MultiViews'],
     #  'allow_override' => 'All',
     #  },
-#  }
+    }
 }
