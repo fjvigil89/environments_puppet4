@@ -44,7 +44,7 @@ node 'enotas.upr.edu.cu' {
     source   => {
       'origin' => 'git@gitlab.upr.edu.cu:osmay/tunota.git',
     },
-   evision => 'master',
+   revision => 'master',
   }
 
   class { 'apache': }
