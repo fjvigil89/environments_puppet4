@@ -15,10 +15,7 @@ node 'ftp-notas.upr.edu.cu' {
   user { 'notas':
     ensure  => 'present',
     comment => 'NOTAS',
-    #managehome => true,
     groups  => 'notas',
-    # note the single quotes to stop $ expanding
-    #password   => '$6$TEfwqzdhNZL8RbKD$pRCwZFAveROkeXtMahru7fhc24Nh.TOy/./QKAOYHk9rmQs4NJhD/r5xusBrZTcDvhrmgX6shjxiCV4Flz9Uu.',
   }
   file {'/srv/notas':
     ensure => 'directory',
@@ -58,13 +55,3 @@ samba::server::share { 'notas':
     #  },
 #  }
 }
-#  file { '/etc/samba/smb.conf':
-#      content => "[DOPA]
-#comment = Repositorio de DOPA
-#browseable = yes
-#path = /srv/dopa
-#valid users = dopa
-#read only = no
-#",
-#}
-
