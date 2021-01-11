@@ -36,6 +36,16 @@ node 'enotas.upr.edu.cu' {
        owner   => 'root',
        mode    => '0775',
      }
+  
+  vcsrepo { '/home/eNotas':
+   ensure   => latest,
+   provider => git,
+   remote   => 'origin',
+    source   => {
+      'origin' => 'git@gitlab.upr.edu.cu:osmay/tunota.git',
+    },
+   evision => 'master',
+  }
 
   class { 'apache': }
   apache::vhost { 'enotas.upr.edu.cu non-ssl':
