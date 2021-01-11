@@ -1,4 +1,4 @@
-node 'sambatest.upr.edu.cu' {
+node 'ftp-notas.upr.edu.cu' {
   class { '::basesys':
     uprinfo_usage   => 'Samba',
     application     => 'CT',
