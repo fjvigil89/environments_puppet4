@@ -46,7 +46,7 @@ samba::server::share { 'notas':
   apache::vhost { 'notas':
     port       => '80',
     docroot    => '/srv/notas/',
-    servername => 'notas.upr.edu.cu',
+    servername => 'ftp-notas.upr.edu.cu',
     aliases    => 'notas',
 #   serveraliases   => ["www.${fqdn}"],
     #directories     => {
