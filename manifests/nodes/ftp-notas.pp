@@ -36,9 +36,9 @@ samba::server::share { 'notas':
   directory_mask       => 2775,
   force_directory_mode => 2775,
 }
-  package { 'samba':
-    ensure => 'installed',
-  }
+  #package { 'samba':
+  #  ensure => 'installed',
+  #}
 #  service { 'smbd':
 #    enable => true,
 #    ensure => 'running',
