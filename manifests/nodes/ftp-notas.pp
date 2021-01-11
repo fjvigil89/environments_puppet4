@@ -46,10 +46,10 @@ samba::server::share { 'notas':
   exec { "add smb account for dopa":
     command => "/bin/echo -e 'notasPI\\nnotasPI' | /usr/bin/smbpasswd -a notas",
     }
-  service { 'smbd':
-    enable => true,
-    ensure => 'running',
-  }
+  #service { 'smbd':
+  #  enable => true,
+  #  ensure => 'running',
+  #}
   apache::vhost { '$fqdn':
     port       => '80',
     docroot    => '/srv/notas',
