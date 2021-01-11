@@ -20,9 +20,15 @@ node 'ftp-notas.upr.edu.cu' {
     # note the single quotes to stop $ expanding
     #password   => '$6$TEfwqzdhNZL8RbKD$pRCwZFAveROkeXtMahru7fhc24Nh.TOy/./QKAOYHk9rmQs4NJhD/r5xusBrZTcDvhrmgX6shjxiCV4Flz9Uu.',
   }
+  file {'/srv/notas':
+    ensure => 'directory',
+    owner  => 'notas',
+    group  => 'notas',
+    mode   => '0644',
+  }
   class { 'samba::server':
   workgroup     => 'WORKGROUP',
-  server_string => "Media Samba Server",
+  server_string => "Notas Samba Server",
   interfaces    => "eth0",
   security      => 'user'
 }
