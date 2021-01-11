@@ -36,32 +36,21 @@ samba::server::share { 'notas':
   directory_mask       => 2775,
   force_directory_mode => 2775,
 }
-  #package { 'samba':
-  #  ensure => 'installed',
-  #}
-#  service { 'smbd':
-#    enable => true,
-#    ensure => 'running',
-#  }
   exec { "add smb account for dopa":
     command => "/bin/echo -e 'notasPI\\nnotasPI' | /usr/bin/smbpasswd -a notas",
     }
-  #service { 'smbd':
-  #  enable => true,
-  #  ensure => 'running',
-  #}
-  apache::vhost { '$fqdn':
-    port       => '80',
-    docroot    => '/srv/notas',
-    servername => $fqdn,
-    serveraliases   => ["www.${fqdn}"],
+#  apache::vhost { '$fqdn':
+#    port       => '80',
+#    docroot    => '/srv/notas',
+#    servername => $fqdn,
+#    serveraliases   => ["www.${fqdn}"],
     #aliases    => 'notas',
     #directories     => {
     #  'path'           => '/srv/notas',
     #  'options'        => ['Indexes','FollowSymLinks','MultiViews'],
     #  'allow_override' => 'All',
     #  },
-  }
+#  }
 }
 #  file { '/etc/samba/smb.conf':
 #      content => "[DOPA]
