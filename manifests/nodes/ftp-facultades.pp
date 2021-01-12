@@ -115,28 +115,28 @@ samba::server::share { 'meca':
     command => "/bin/echo -e 'adminMeca\\nadminMeca' | /usr/bin/smbpasswd -a meca",
     }
   include apache
-  apache::vhost { $fqdn:
+  apache::vhost { 'ftp-info.upr.edu.cu':
     port       => '80',
     docroot    => '/srv/Informatica',
-    servername => $fqdn,
+    servername => 'ftp-info.upr.edu.cu',
     aliases    => 'info',
     }
-    apache::vhost { $fqdn:
+    apache::vhost { 'ftp-tele.upr.edu.cu':
     port       => '80',
     docroot    => '/srv/Telecomunicaciones',
-    servername => $fqdn,
+    servername => 'ftp-tele.upr.edu.cu',
     aliases    => 'tele',
     }
-    apache::vhost { $fqdn:
+    apache::vhost { 'ftp-meca.upr.edu.cu':
     port       => '80',
     docroot    => '/srv/Mecanica',
-    servername => $fqdn,
+    servername => 'ftp-meca.upr.edu.cu',
     aliases    => 'meca',
     }
-    apache::vhost { $fqdn:
+    apache::vhost { 'ftp-geo.upr.edu.cu':
     port       => '80',
     docroot    => '/srv/Geologia',
-    servername => $fqdn,
+    servername => 'ftp-geo.upr.edu.cu',
     aliases    => 'geo',
     }
 }
