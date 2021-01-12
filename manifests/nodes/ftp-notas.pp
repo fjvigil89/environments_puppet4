@@ -43,16 +43,10 @@ samba::server::share { 'notas':
     command => "/bin/echo -e 'notasPI\\nnotasPI' | /usr/bin/smbpasswd -a notas",
     }
   include apache
-  apache::vhost { 'notas':
+  apache::vhost { $fqdn:
     port       => '80',
-    docroot    => '/srv/notas/',
-    servername => 'ftp-notas.upr.edu.cu',
+    docroot    => '/srv/notas',
+    servername => $fqdn,
     aliases    => 'notas',
-#   serveraliases   => ["www.${fqdn}"],
-    #directories     => {
-    #  'path'           => '/srv/notas',
-    #  'options'        => ['Indexes','FollowSymLinks','MultiViews'],
-    #  'allow_override' => 'All',
-    #  },
     }
 }
