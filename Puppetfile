@@ -16,7 +16,7 @@ mod 'stahnma-epel', '1.3.0'
 mod 'saz/vim', '2.4.0'
 mod 'saz-locales', '2.4.0'
 mod 'saz/sudo', '3.1.0'
-mod 'theforeman-puppet', '9.1.0'
+mod 'theforeman-puppet', '14.2.0'
 mod 'icinga-icinga2', '1.4.0'
 mod 'icinga-icingaweb2', '2.2.0'
 mod 'Slashbunny-phpfpm', '0.0.16'
@@ -201,5 +201,5 @@ mod 'dcenter/razor',
 #LibreNMS
 mod 'dcenter/librenms',
   :git => 'git@gitlab.upr.edu.cu:dcenter/librenms.git',
-  :ref => '9043758b6c2b085bf0179c7f81b2048b245e3343'
+  :ref => 'a09380bc4c6d48acb564684284e249442bfa42ec'
 
