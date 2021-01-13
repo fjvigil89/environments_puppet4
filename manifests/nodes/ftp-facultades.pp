@@ -55,7 +55,7 @@ node 'ftp-facultades.upr.edu.cu' {
   }
   file {'/srv/fcfa':
     ensure => 'directory',
-    owner  => '',
+    owner  => 'fcfa',
     group  => 'facultades',
     mode   => '0644',
   }
