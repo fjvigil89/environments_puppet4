@@ -53,43 +53,43 @@ node 'ftp-facultades.upr.edu.cu' {
     group  => 'facultades',
     mode   => '0644',
   }
-  file {'/srv/fct':
+  file {'/srv/facultades/fct':
     ensure => 'directory',
     owner  => 'fct',
     group  => 'facultades',
     mode   => '0644',
   }
-  file {'/srv/fcfa':
+  file {'/srv/facultades/fcfa':
     ensure => 'directory',
     owner  => 'fcfa',
     group  => 'facultades',
     mode   => '0644',
   }
-  file {'/srv/fcee':
+  file {'/srv/facultades/fcee':
     ensure => 'directory',
     owner  => 'fcee',
     group  => 'facultades',
     mode   => '0644',
   }
-  file {'/srv/fcsh':
+  file {'/srv/facultades/fcsh':
     ensure => 'directory',
     owner  => 'fcsh',
     group  => 'facultades',
     mode   => '0644',
   }
-  file {'/srv/fei':
+  file {'/srv/facultades/fei':
     ensure => 'directory',
     owner  => 'fei',
     group  => 'facultades',
     mode   => '0644',
   }
-  file {'/srv/fem':
+  file {'/srv/facultades/fem':
     ensure => 'directory',
     owner  => 'fem',
     group  => 'facultades',
     mode   => '0644',
   }
-  file {'/srv/fcf':
+  file {'/srv/facultades/fcf':
     ensure => 'directory',
     owner  => 'fcf',
     group  => 'facultades',
