@@ -200,43 +200,43 @@ samba::server::share { 'fcf':
   include apache
   apache::vhost { 'fct':
     port       => '80',
-    docroot    => '/srv/fct',
+    docroot    => '/srv/facultades/fct',
     servername => 'ftp-fct.upr.edu.cu',
     aliases    => 'fct',
     }
   apache::vhost { 'fcfa':
     port       => '80',
-    docroot    => '/srv/fcfa',
+    docroot    => '/srv/facultades/fcfa',
     servername => 'ftp-fcfa.upr.edu.cu',
     aliases    => 'fcfa',
     }
   apache::vhost { 'fcee':
     port       => '80',
-    docroot    => '/srv/fcee',
+    docroot    => '/srv/facultades/fcee',
     servername => 'ftp-fcee.upr.edu.cu',
     aliases    => 'fcee',
     }
   apache::vhost { 'fcsh':
     port       => '80',
-    docroot    => '/srv/fcsh',
+    docroot    => '/srv/facultades/fcsh',
     servername => 'ftp-fcsh.upr.edu.cu',
     aliases    => 'fcsh',
     }
   apache::vhost { 'fei':
     port       => '80',
-    docroot    => '/srv/fei',
+    docroot    => '/srv/facultades/fei',
     servername => 'ftp-fei.upr.edu.cu',
     aliases    => 'fei',
     }
   apache::vhost { 'fem':
     port       => '80',
-    docroot    => '/srv/fem',
+    docroot    => '/srv/facultades/fem',
     servername => 'ftp-fem.upr.edu.cu',
     aliases    => 'fem',
     }
   apache::vhost { 'fcf':
     port       => '80',
-    docroot    => '/srv/fem',
+    docroot    => '/srv/facultades/fem',
     servername => 'ftp-fcf.upr.edu.cu',
     aliases    => 'fcf',
     }
