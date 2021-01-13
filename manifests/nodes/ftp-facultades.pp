@@ -47,6 +47,12 @@ node 'ftp-facultades.upr.edu.cu' {
     comment => 'FCF',
     groups  => 'facultades',
   }
+  file {'/srv/facultades':
+    ensure => 'directory',
+    owner  => 'root',
+    group  => 'facultades',
+    mode   => '0644',
+  }
   file {'/srv/fct':
     ensure => 'directory',
     owner  => 'fct',
