@@ -12,6 +12,11 @@ node 'ftp-facultades.upr.edu.cu' {
   group { 'facultades':
     ensure => 'present',
   }
+  user { 'facultades':
+    ensure  => 'present',
+    comment => 'Facultades',
+    groups  => 'facultades',
+  }
   user { 'fct':
     ensure  => 'present',
     comment => 'FCT',
@@ -49,7 +54,7 @@ node 'ftp-facultades.upr.edu.cu' {
   }
   file {'/srv/facultades':
     ensure => 'directory',
-    owner  => 'root',
+    owner  => 'facultades',
     group  => 'facultades',
     mode   => '0644',
   }
@@ -103,7 +108,7 @@ node 'ftp-facultades.upr.edu.cu' {
 }
 samba::server::share { 'fct':
   comment              => 'FCFA',
-  path                 => '/srv/fct',
+  path                 => '/srv/facultades/fct',
   browsable            => true,
   writable             => true,
   valid_users          => "fct",
@@ -113,7 +118,7 @@ samba::server::share { 'fct':
 }
 samba::server::share { 'fcfa':
   comment              => 'FCFA',
-  path                 => '/srv/fcfa',
+  path                 => '/srv/facultades/fcfa',
   browsable            => true,
   writable             => true,
   valid_users          => "fcfa",
@@ -123,7 +128,7 @@ samba::server::share { 'fcfa':
 }
 samba::server::share { 'fcee':
   comment              => 'FCEE',
-  path                 => '/srv/fcee',
+  path                 => '/srv/facultades/fcee',
   browsable            => true,
   writable             => true,
   valid_users          => "fcee",
@@ -133,7 +138,7 @@ samba::server::share { 'fcee':
 }
 samba::server::share { 'fcsh':
   comment              => 'FCSH',
-  path                 => '/srv/fcsh',
+  path                 => '/srv/facultades/fcsh',
   browsable            => true,
   writable             => true,
   valid_users          => "fcsh",
@@ -143,7 +148,7 @@ samba::server::share { 'fcsh':
 }
 samba::server::share { 'fei':
   comment              => 'FEI',
-  path                 => '/srv/fei',
+  path                 => '/srv/facultades/fei',
   browsable            => true,
   writable             => true,
   valid_users          => "fei",
@@ -153,7 +158,7 @@ samba::server::share { 'fei':
 }
 samba::server::share { 'fem':
   comment              => 'FEM',
-  path                 => '/srv/fem',
+  path                 => '/srv/facultades/fem',
   browsable            => true,
   writable             => true,
   valid_users          => "fem",
@@ -163,7 +168,7 @@ samba::server::share { 'fem':
 }
 samba::server::share { 'fcf':
   comment              => 'FCF',
-  path                 => '/srv/fcf',
+  path                 => '/srv/facultades/fcf',
   browsable            => true,
   writable             => true,
   valid_users          => "fcf",
