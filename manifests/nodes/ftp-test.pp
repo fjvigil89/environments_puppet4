@@ -249,10 +249,10 @@ samba::server::share { 'fcf':
     aliases    => 'facultades',
     suphp_engine     => 'off',
     directories   => [ {
-      'path'           => '/srv/facultades',
+      'path'           => '/srv/facultades/_h5ai/public/',
       'options'        => ['Indexes','FollowSymLinks','MultiViews'],
       'allow_override' => 'All',
-      'directoryindex' => '/_h5ai/public/index.php',
+      'directoryindex' => 'index.php',
       },],
   }
   apache::vhost { 'fct':
