@@ -230,7 +230,18 @@ samba::server::share { 'fcf':
     command => "/bin/echo -e 'adminfcf\\nadminfcf' | /usr/bin/smbpasswd -a fcf",
     }
   #include apache
-  class{'::wh_php_apache':;}
+  class { '::php_webserver':
+     php_version    => '7.4',
+     php_extensions => {
+      'curl'     => {},
+      'gd'       => {},
+      'mysql'    => {},
+      'ldap'     => {},
+      'xml'      => {},
+      'mbstring' => {},
+     },
+     packages       =>  ['php7.4-mbstring','php7.4','php7.4-cli','php7.4-curl','php7.4-intl','php7.4-ldap','php7.4-mysql','php7.4-sybase','libapache2-mod-php7.4','php7.4-mcrypt','phpmyadmin','freetds-bin','freetds-common'],
+  }
   apache::vhost { $fqdn:
     port       => '80',
     docroot    => '/srv/facultades',
