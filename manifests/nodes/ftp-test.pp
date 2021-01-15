@@ -52,12 +52,21 @@ node 'ftp-test.upr.edu.cu' {
     comment => 'FCF',
     groups  => 'facultades',
   }
-  file {'/srv/facultades':
-    ensure => 'directory',
-    owner  => 'facultades',
-    group  => 'facultades',
-    mode   => '0644',
-  }
+  #file {'/srv/facultades':
+  #  ensure => 'directory',
+  #  owner  => 'facultades',
+  #  group  => 'facultades',
+  #  mode   => '0644',
+  #}
+  vcsrepo { '/srv/facultades':
+  ensure   => latest,
+  provider => 'git',
+  remote   => 'origin',
+  source   => {
+    'origin' => 'git@gitlab.upr.edu.cu:dcenter/ftp.git',
+  },
+  revision => 'master',
+}
   file {'/srv/facultades/fct':
     ensure => 'directory',
     owner  => 'fct',
@@ -123,15 +132,6 @@ file { '/root/.ssh/config':
   source => 'puppet:///modules/ftpbackend_server/ssh_keys/config',
 }
 #include git
-vcsrepo { '/srv/facultades':
-  ensure   => latest,
-  provider => 'git',
-  remote   => 'origin',
-  source   => {
-    'origin' => 'git@gitlab.upr.edu.cu:dcenter/ftp.git',
-  },
-  revision => 'master',
-}
 class { 'samba::server':
   workgroup     => 'WORKGROUP',
   server_string => "Facultades Samba Server",
