@@ -52,13 +52,13 @@ node 'ftp-test.upr.edu.cu' {
     comment => 'FCF',
     groups  => 'facultades',
   }
-  #file {'/srv/facultades':
-  #  ensure => 'directory',
-  #  owner  => 'facultades',
-  #  group  => 'facultades',
-  #  mode   => '0644',
-  #}
-  vcsrepo { '/srv/facultades':
+  file {'/srv/ftp':
+    ensure => 'directory',
+    owner  => 'facultades',
+    group  => 'facultades',
+    mode   => '0644',
+  }
+  vcsrepo { '/srv/ftp':
   ensure   => latest,
   provider => 'git',
   remote   => 'origin',
@@ -67,47 +67,47 @@ node 'ftp-test.upr.edu.cu' {
   },
   revision => 'master',
 }
-  file {'/srv/facultades/fct':
+  file {'/srv/ftp/fct':
     ensure => 'directory',
     owner  => 'fct',
     group  => 'facultades',
-    mode   => '0644',
+    mode   => '0777',
   }
-  file {'/srv/facultades/fcfa':
+  file {'/srv/ftp/fcfa':
     ensure => 'directory',
     owner  => 'fcfa',
     group  => 'facultades',
-    mode   => '0644',
+    mode   => '0777',
   }
-  file {'/srv/facultades/fcee':
+  file {'/srv/ftp/fcee':
     ensure => 'directory',
     owner  => 'fcee',
     group  => 'facultades',
-    mode   => '0644',
+    mode   => '0777',
   }
-  file {'/srv/facultades/fcsh':
+  file {'/srv/ftp/fcsh':
     ensure => 'directory',
     owner  => 'fcsh',
     group  => 'facultades',
-    mode   => '0644',
+    mode   => '0777',
   }
-  file {'/srv/facultades/fei':
+  file {'/srv/ftp/fei':
     ensure => 'directory',
     owner  => 'fei',
     group  => 'facultades',
-    mode   => '0644',
+    mode   => '0777',
   }
-  file {'/srv/facultades/fem':
+  file {'/srv/ftp/fem':
     ensure => 'directory',
     owner  => 'fem',
     group  => 'facultades',
-    mode   => '0644',
+    mode   => '0777',
   }
-  file {'/srv/facultades/fcf':
+  file {'/srv/ftp/fcf':
     ensure => 'directory',
     owner  => 'fcf',
     group  => 'facultades',
-    mode   => '0644',
+    mode   => '0777',
   }
   #Copy SSH Key
 file { '/root/.ssh/id_rsa':
@@ -140,7 +140,7 @@ class { 'samba::server':
 }
 samba::server::share { 'fct':
   comment              => 'FCFA',
-  path                 => '/srv/facultades/fct',
+  path                 => '/srv/ftp/fct',
   browsable            => true,
   writable             => true,
   valid_users          => "fct",
@@ -150,7 +150,7 @@ samba::server::share { 'fct':
 }
 samba::server::share { 'fcfa':
   comment              => 'FCFA',
-  path                 => '/srv/facultades/fcfa',
+  path                 => '/srv/ftp/fcfa',
   browsable            => true,
   writable             => true,
   valid_users          => "fcfa",
@@ -160,7 +160,7 @@ samba::server::share { 'fcfa':
 }
 samba::server::share { 'fcee':
   comment              => 'FCEE',
-  path                 => '/srv/facultades/fcee',
+  path                 => '/srv/ftp/fcee',
   browsable            => true,
   writable             => true,
   valid_users          => "fcee",
@@ -170,7 +170,7 @@ samba::server::share { 'fcee':
 }
 samba::server::share { 'fcsh':
   comment              => 'FCSH',
-  path                 => '/srv/facultades/fcsh',
+  path                 => '/srv/ftp/fcsh',
   browsable            => true,
   writable             => true,
   valid_users          => "fcsh",
@@ -180,7 +180,7 @@ samba::server::share { 'fcsh':
 }
 samba::server::share { 'fei':
   comment              => 'FEI',
-  path                 => '/srv/facultades/fei',
+  path                 => '/srv/ftp/fei',
   browsable            => true,
   writable             => true,
   valid_users          => "fei",
@@ -190,7 +190,7 @@ samba::server::share { 'fei':
 }
 samba::server::share { 'fem':
   comment              => 'FEM',
-  path                 => '/srv/facultades/fem',
+  path                 => '/srv/ftp/fem',
   browsable            => true,
   writable             => true,
   valid_users          => "fem",
@@ -200,7 +200,7 @@ samba::server::share { 'fem':
 }
 samba::server::share { 'fcf':
   comment              => 'FCF',
-  path                 => '/srv/facultades/fcf',
+  path                 => '/srv/ftp/fcf',
   browsable            => true,
   writable             => true,
   valid_users          => "fcf",
@@ -244,56 +244,56 @@ samba::server::share { 'fcf':
   }
   apache::vhost { $fqdn:
     port       => '80',
-    docroot    => '/srv/facultades',
+    docroot    => '/srv/ftp',
     servername => $fqdn,
     aliases    => 'facultades',
     suphp_engine     => 'off',
     directories   => [ {
-      'path'           => '/srv/facultades/_h5ai/public/',
+      'path'           => '/srv/ftp',
       'options'        => ['Indexes','FollowSymLinks','MultiViews'],
       'allow_override' => 'All',
-      'directoryindex' => 'index.php',
+      'directoryindex' => '/_h5ai/public/index.php',
       },],
   }
   apache::vhost { 'fct':
     port       => '80',
-    docroot    => '/srv/facultades/fct',
+    docroot    => '/srv/ftp/fct',
     servername => 'ftp-fct.upr.edu.cu',
     aliases    => 'fct',
     }
   apache::vhost { 'fcfa':
     port       => '80',
-    docroot    => '/srv/facultades/fcfa',
+    docroot    => '/srv/ftp/fcfa',
     servername => 'ftp-fcfa.upr.edu.cu',
     aliases    => 'fcfa',
     }
   apache::vhost { 'fcee':
     port       => '80',
-    docroot    => '/srv/facultades/fcee',
+    docroot    => '/srv/ftp/fcee',
     servername => 'ftp-fcee.upr.edu.cu',
     aliases    => 'fcee',
     }
   apache::vhost { 'fcsh':
     port       => '80',
-    docroot    => '/srv/facultades/fcsh',
+    docroot    => '/srv/ftp/fcsh',
     servername => 'ftp-fcsh.upr.edu.cu',
     aliases    => 'fcsh',
     }
   apache::vhost { 'fei':
     port       => '80',
-    docroot    => '/srv/facultades/fei',
+    docroot    => '/srv/ftp/fei',
     servername => 'ftp-fei.upr.edu.cu',
     aliases    => 'fei',
     }
   apache::vhost { 'fem':
     port       => '80',
-    docroot    => '/srv/facultades/fem',
+    docroot    => '/srv/ftp/fem',
     servername => 'ftp-fem.upr.edu.cu',
     aliases    => 'fem',
     }
   apache::vhost { 'fcf':
     port       => '80',
-    docroot    => '/srv/facultades/fem',
+    docroot    => '/srv/ftp/fem',
     servername => 'ftp-fcf.upr.edu.cu',
     aliases    => 'fcf',
     }
