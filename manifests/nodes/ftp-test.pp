@@ -56,7 +56,7 @@ node 'ftp-test.upr.edu.cu' {
     ensure => 'directory',
     owner  => 'facultades',
     group  => 'facultades',
-    mode   => '0644',
+    mode   => '0755',
   }
   file {'/srv/facultades/fct':
     ensure => 'directory',
