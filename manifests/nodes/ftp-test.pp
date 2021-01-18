@@ -198,10 +198,10 @@ samba::server::share { 'fcf':
     command => "/bin/echo -e 'adminfcf\\nadminfcf' | /usr/bin/smbpasswd -a fcf",
     }
   include apache
-  apache::vhost { 'facultades':
+  apache::vhost { '':
     port       => '80',
     docroot    => '/srv/facultades',
-    servername => 'ftp-facultades.upr.edu.cu',
+    servername => 'ftp-test.upr.edu.cu',
     aliases    => 'facultades',
     }
   apache::vhost { 'fct':
