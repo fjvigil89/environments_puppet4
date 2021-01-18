@@ -58,56 +58,57 @@ node 'ftp-test.upr.edu.cu' {
     group  => 'facultades',
     mode   => '0644',
   }
+  include git
   vcsrepo { '/srv/ftp':
   ensure   => latest,
   provider => 'git',
   remote   => 'origin',
   source   => {
     'origin' => 'git@gitlab.upr.edu.cu:dcenter/ftp.git',
-  },
+},
   revision => 'master',
 }
   file {'/srv/ftp/fct':
     ensure => 'directory',
     owner  => 'fct',
     group  => 'facultades',
-    mode   => '0777',
+    mode   => '0644',
   }
   file {'/srv/ftp/fcfa':
     ensure => 'directory',
     owner  => 'fcfa',
     group  => 'facultades',
-    mode   => '0777',
+    mode   => '0644',
   }
   file {'/srv/ftp/fcee':
     ensure => 'directory',
     owner  => 'fcee',
     group  => 'facultades',
-    mode   => '0777',
+    mode   => '0644',
   }
   file {'/srv/ftp/fcsh':
     ensure => 'directory',
     owner  => 'fcsh',
     group  => 'facultades',
-    mode   => '0777',
+    mode   => '0644',
   }
   file {'/srv/ftp/fei':
     ensure => 'directory',
     owner  => 'fei',
     group  => 'facultades',
-    mode   => '0777',
+    mode   => '0644',
   }
   file {'/srv/ftp/fem':
     ensure => 'directory',
     owner  => 'fem',
     group  => 'facultades',
-    mode   => '0777',
+    mode   => '0644',
   }
   file {'/srv/ftp/fcf':
     ensure => 'directory',
     owner  => 'fcf',
     group  => 'facultades',
-    mode   => '0777',
+    mode   => '0644',
   }
   #Copy SSH Key
 file { '/root/.ssh/id_rsa':
@@ -131,7 +132,6 @@ file { '/root/.ssh/config':
   mode   => '0644',
   source => 'puppet:///modules/ftpbackend_server/ssh_keys/config',
 }
-#include git
 class { 'samba::server':
   workgroup     => 'WORKGROUP',
   server_string => "Facultades Samba Server",
@@ -229,25 +229,25 @@ samba::server::share { 'fcf':
   exec { "add smb account for fcf":
     command => "/bin/echo -e 'adminfcf\\nadminfcf' | /usr/bin/smbpasswd -a fcf",
     }
-  #include apache
-  class { '::php_webserver':
-     php_version    => '7.4',
-     php_extensions => {
-      'curl'     => {},
-      'gd'       => {},
-      'mysql'    => {},
-      'ldap'     => {},
-      'xml'      => {},
-      'mbstring' => {},
-     },
-     packages       =>  ['php7.4-mbstring','php7.4','php7.4-cli','php7.4-curl','php7.4-intl','php7.4-ldap','php7.4-mysql','php7.4-sybase','libapache2-mod-php7.4','php7.4-mcrypt','phpmyadmin','freetds-bin','freetds-common'],
-  }
+  include apache
+  #class { '::php_webserver':
+  #   php_version    => '7.4',
+  #   php_extensions => {
+  #    'curl'     => {},
+  #    'gd'       => {},
+  #    'mysql'    => {},
+  #    'ldap'     => {},
+  #    'xml'      => {},
+  #    'mbstring' => {},
+  #   },
+  #   packages       =>  ['php7.4-mbstring','php7.4','php7.4-cli','php7.4-curl','php7.4-intl','php7.4-ldap','php7.4-mysql','php7.4-sybase','libapache2-mod-php7.4','php7.4-mcrypt','phpmyadmin','freetds-bin','freetds-common'],
+  #}
   apache::vhost { $fqdn:
     port       => '80',
     docroot    => '/srv/ftp',
     servername => $fqdn,
     aliases    => 'facultades',
-    suphp_engine     => 'off',
+    #suphp_engine     => 'off',
     #directories   => [ {
     #  'path'           => '/srv/ftp',
     #  'options'        => ['Indexes','FollowSymLinks','MultiViews'],
@@ -297,11 +297,11 @@ samba::server::share { 'fcf':
     servername => 'ftp-fcf.upr.edu.cu',
     aliases    => 'fcf',
     }
-  exec { "a2enmod_php7":
-  command => '/usr/bin/sudo a2enmod php7.4',
-}~>
-exec { "service_apache2_restart":
-  command     => '/usr/bin/sudo service apache2 restart',
-  refreshonly => true;
-}
+#  exec { "a2enmod_php7":
+#  command => '/usr/bin/sudo a2enmod php7.4',
+#}~>
+#exec { "service_apache2_restart":
+#  command     => '/usr/bin/sudo service apache2 restart',
+#  refreshonly => true;
+#}
 }
