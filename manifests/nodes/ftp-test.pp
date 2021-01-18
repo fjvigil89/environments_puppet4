@@ -243,7 +243,20 @@ samba::server::share { 'fcf':
     docroot    => '/srv/ftp',
     servername => $fqdn,
     aliases    => 'facultades',
+    directories   => [ {
+    'path'           => '/srv/ftp',
+    'options'        => ['Indexes','FollowSymLinks','MultiViews'],
+    'allow_override' => 'All',
+    'directoryindex' => '/_h5ai/public/index.php',
+    },],
     }
+    exec { "a2enmod_php7":
+  command => '/usr/bin/sudo a2enmod php7.4',
+}~>
+exec { "service_apache2_restart":
+  command     => '/usr/bin/sudo service apache2 restart',
+  refreshonly => true;
+}
   apache::vhost { 'fct':
     port       => '80',
     docroot    => '/srv/ftp/fct',
