@@ -52,12 +52,21 @@ node 'ftp-test.upr.edu.cu' {
     comment => 'FCF',
     groups  => 'facultades',
   }
-  file {'/srv/ftp':
-    ensure => 'directory',
-    owner  => 'facultades',
-    group  => 'facultades',
-    mode   => '0755',
-  }
+  vcsrepo { '/srv/ftp':
+  ensure   => latest,
+  provider => 'git',
+  remote   => 'origin',
+  source   => {
+    'origin' => 'git@gitlab.upr.edu.cu:dcenter/ftp.git',
+  },
+  revision => 'master',
+}
+  #file {'/srv/ftp':
+  #  ensure => 'directory',
+  #  owner  => 'facultades',
+  #  group  => 'facultades',
+  #  mode   => '0755',
+  #}
   file {'/srv/ftp/fct':
     ensure => 'directory',
     owner  => 'fct',
@@ -121,15 +130,6 @@ node 'ftp-test.upr.edu.cu' {
     mode   => '0644',
     source => 'puppet:///modules/ftpbackend_server/ssh_keys/config',
   }
-  vcsrepo { '/srv/ftp':
-  ensure   => latest,
-  provider => 'git',
-  remote   => 'origin',
-  source   => {
-    'origin' => 'git@gitlab.upr.edu.cu:dcenter/ftp.git',
-  },
-  revision => 'master',
-}
 class { '::php':
   ensure       => latest,
   manage_repos => false,
