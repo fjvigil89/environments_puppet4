@@ -290,4 +290,5 @@ samba::server::share { 'fcf':
   command     => '/usr/bin/sudo service apache2 restart',
   refreshonly => true;
   }
+  include apache::mod::php
 }
