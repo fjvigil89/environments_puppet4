@@ -248,12 +248,12 @@ samba::server::share { 'fcf':
     servername => $fqdn,
     aliases    => 'facultades',
     suphp_engine     => 'off',
-    directories   => [ {
-      'path'           => '/srv/ftp',
-      'options'        => ['Indexes','FollowSymLinks','MultiViews'],
-      'allow_override' => 'All',
-      'directoryindex' => '/_h5ai/public/index.php',
-      },],
+    #directories   => [ {
+    #  'path'           => '/srv/ftp',
+    #  'options'        => ['Indexes','FollowSymLinks','MultiViews'],
+    #  'allow_override' => 'All',
+    #  'directoryindex' => '/_h5ai/public/index.php',
+    #  },],
   }
   apache::vhost { 'fct':
     port       => '80',
