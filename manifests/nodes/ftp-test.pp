@@ -137,8 +137,8 @@ class { '::php':
   composer     => true,
   pear         => true,
 }
-ensure_packages(['php7.0-dev','php7.0-apcu','php7.0-mbstring','php7.0','php7.0-cli','php7.0-curl','php7.0-intl','php7.0-ldap','php7.0-sybase','php7.0-mcrypt',
-'libapache2-mod-php7.0','php7.0-xml','php7.0-mysql','php7.0-common','php-fpm','php7.0-gd','ffmpeg','graphicsmagick'])
+ensure_packages(['php7.4-dev','php7.4-apcu','php7.4-mbstring','php7.4','php7.4-cli','php7.4-curl','php7.4-intl','php7.4-ldap','php7.4-sybase','php7.4-mcrypt',
+'libapache2-mod-php7.4','php7.4-xml','php7.4-mysql','php7.4-common','php-fpm','php7.4-gd','ffmpeg','graphicsmagick'])
 
 class { 'samba::server':
   workgroup     => 'WORKGROUP',
