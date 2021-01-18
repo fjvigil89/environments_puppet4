@@ -52,6 +52,27 @@ node 'ftp-test.upr.edu.cu' {
     comment => 'FCF',
     groups  => 'facultades',
   }
+  file { '/root/.ssh/id_rsa':
+    ensure => file,
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0600',
+    source => 'puppet:///modules/ftpbackend_server/ssh_keys/id_rsa',
+  }
+  file { '/root/.ssh/id_rsa.pub':
+    ensure => file,
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0644',
+    source => 'puppet:///modules/ftpbackend_server/ssh_keys/id_rsa.pub',
+  }
+  file { '/root/.ssh/config':
+    ensure => file,
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0644',
+    source => 'puppet:///modules/ftpbackend_server/ssh_keys/config',
+  }
   vcsrepo { '/srv/ftp':
   ensure   => latest,
   provider => 'git',
@@ -109,36 +130,6 @@ node 'ftp-test.upr.edu.cu' {
     group  => 'facultades',
     mode   => '0644',
   }
-  file { '/root/.ssh/id_rsa':
-    ensure => file,
-    owner  => 'root',
-    group  => 'root',
-    mode   => '0600',
-    source => 'puppet:///modules/ftpbackend_server/ssh_keys/id_rsa',
-  }
-  file { '/root/.ssh/id_rsa.pub':
-    ensure => file,
-    owner  => 'root',
-    group  => 'root',
-    mode   => '0644',
-    source => 'puppet:///modules/ftpbackend_server/ssh_keys/id_rsa.pub',
-  }
-  file { '/root/.ssh/config':
-    ensure => file,
-    owner  => 'root',
-    group  => 'root',
-    mode   => '0644',
-    source => 'puppet:///modules/ftpbackend_server/ssh_keys/config',
-  }
-class { '::php':
-  ensure       => latest,
-  manage_repos => false,
-  fpm          => true,
-  composer     => true,
-  pear         => true,
-}
-ensure_packages(['php7.4-dev','php7.4-apcu','php7.4-mbstring','php7.4','php7.4-cli','php7.4-curl','php7.4-intl','php7.4-ldap','php7.4-sybase','php7.4-mcrypt',
-'libapache2-mod-php7.4','php7.4-xml','php7.4-mysql','php7.4-common','php-fpm','php7.4-gd','ffmpeg','graphicsmagick'])
 
 class { 'samba::server':
   workgroup     => 'WORKGROUP',
@@ -237,7 +228,7 @@ samba::server::share { 'fcf':
   exec { "add smb account for fcf":
     command => "/bin/echo -e 'adminfcf\\nadminfcf' | /usr/bin/smbpasswd -a fcf",
     }
-  include apache
+  class{'::wh_php_apache':;}
   apache::vhost { $fqdn:
     port       => '80',
     docroot    => '/srv/ftp',
@@ -249,14 +240,14 @@ samba::server::share { 'fcf':
     'allow_override' => 'All',
     'directoryindex' => '/_h5ai/public/index.php',
     },],
-    }
-    exec { "a2enmod_php7":
-  command => '/usr/bin/sudo a2enmod php7.4',
-}~>
-exec { "service_apache2_restart":
+  }
+  exec { "a2enmod_php7":
+  command => '/usr/bin/sudo a2enmod php7.0',
+  }~>
+  exec { "service_apache2_restart":
   command     => '/usr/bin/sudo service apache2 restart',
   refreshonly => true;
-}
+  }
   apache::vhost { 'fct':
     port       => '80',
     docroot    => '/srv/ftp/fct',
