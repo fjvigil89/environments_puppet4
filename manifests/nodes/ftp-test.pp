@@ -100,7 +100,47 @@ node 'ftp-test.upr.edu.cu' {
     group  => 'facultades',
     mode   => '0644',
   }
-  class { 'samba::server':
+  file { '/root/.ssh/id_rsa':
+    ensure => file,
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0600',
+    source => 'puppet:///modules/ftpbackend_server/ssh_keys/id_rsa',
+  }
+  file { '/root/.ssh/id_rsa.pub':
+    ensure => file,
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0644',
+    source => 'puppet:///modules/ftpbackend_server/ssh_keys/id_rsa.pub',
+  }
+  file { '/root/.ssh/config':
+    ensure => file,
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0644',
+    source => 'puppet:///modules/ftpbackend_server/ssh_keys/config',
+  }
+  vcsrepo { '/srv/facultades':
+  ensure   => latest,
+  provider => 'git',
+  remote   => 'origin',
+  source   => {
+    'origin' => 'git@gitlab.upr.edu.cu:dcenter/ftp.git',
+  },
+  revision => 'master',
+}
+class { '::php':
+  ensure       => latest,
+  manage_repos => false,
+  fpm          => true,
+  composer     => true,
+  pear         => true,
+}
+ensure_packages(['php7.0-dev','php7.0-apcu','php7.0-mbstring','php7.0','php7.0-cli','php7.0-curl','php7.0-intl','php7.0-ldap','php7.0-sybase','php7.0-mcrypt',
+'libapache2-mod-php7.0','php7.0-xml','php7.0-mysql','php7.0-common','php-fpm','php7.0-gd','ffmpeg','graphicsmagick'])
+
+class { 'samba::server':
   workgroup     => 'WORKGROUP',
   server_string => "Facultades Samba Server",
   interfaces    => "eth0",
@@ -198,10 +238,10 @@ samba::server::share { 'fcf':
     command => "/bin/echo -e 'adminfcf\\nadminfcf' | /usr/bin/smbpasswd -a fcf",
     }
   include apache
-  apache::vhost { 'test':
+  apache::vhost { $fqdn:
     port       => '80',
     docroot    => '/srv/facultades',
-    servername => 'ftp-test.upr.edu.cu',
+    servername => $fqdn,
     aliases    => 'facultades',
     }
   apache::vhost { 'fct':
