@@ -241,13 +241,6 @@ samba::server::share { 'fcf':
     'directoryindex' => '/_h5ai/public/index.php',
     },],
   }
-  exec { "a2enmod_php7":
-  command => '/usr/bin/sudo a2enmod php7.0',
-  }~>
-  exec { "service_apache2_restart":
-  command     => '/usr/bin/sudo service apache2 restart',
-  refreshonly => true;
-  }
   apache::vhost { 'fct':
     port       => '80',
     docroot    => '/srv/ftp/fct',
@@ -290,4 +283,11 @@ samba::server::share { 'fcf':
     servername => 'ftp-fcf.upr.edu.cu',
     aliases    => 'fcf',
     }
+  exec { "a2enmod_php7":
+  command => '/usr/bin/sudo a2enmod php7.0',
+  }~>
+  exec { "service_apache2_restart":
+  command     => '/usr/bin/sudo service apache2 restart',
+  refreshonly => true;
+  }
 }
