@@ -9,7 +9,7 @@ node 'ftp-facultades.upr.edu.cu' {
     puppet_enabled  => true,
     dns_preinstall  => true,
   }
-  include git
+
   group { 'facultades':
     ensure => 'present',
   }
@@ -82,7 +82,7 @@ node 'ftp-facultades.upr.edu.cu' {
     'origin' => 'git@gitlab.upr.edu.cu:dcenter/ftp.git',
   },
   revision => 'master',
-}
+  }
   file {'/srv/ftp/fct':
     ensure => 'directory',
     owner  => 'fct',
@@ -125,8 +125,8 @@ node 'ftp-facultades.upr.edu.cu' {
     group  => 'facultades',
     mode   => '0644',
   }
-  
-  class { 'samba::server':
+
+class { 'samba::server':
   workgroup     => 'WORKGROUP',
   server_string => "Facultades Samba Server",
   interfaces    => "eth0",
@@ -202,80 +202,88 @@ samba::server::share { 'fcf':
   directory_mask       => 2775,
   force_directory_mode => 2775,
 }
-  exec { "add smb account for fct":
-    command => "/bin/echo -e 'adminfct\\nadminfct' | /usr/bin/smbpasswd -a fct",
-    }
-  exec { "add smb account for fcfa":
-    command => "/bin/echo -e 'adminfcfa\\nadminfcfa' | /usr/bin/smbpasswd -a fcfa",
-    }
-  exec { "add smb account for fcee":
-    command => "/bin/echo -e 'adminfcee\\nadminfcee' | /usr/bin/smbpasswd -a fcee",
-    }
-  exec { "add smb account for fcsh":
-    command => "/bin/echo -e 'adminfcsh\\nadminfcsh' | /usr/bin/smbpasswd -a fcsh",
-    }
-  exec { "add smb account for fei":
-    command => "/bin/echo -e 'adminfei\\nadminfei' | /usr/bin/smbpasswd -a fei",
-    }
-  exec { "add smb account for fem":
-    command => "/bin/echo -e 'adminfem\\nadminfem' | /usr/bin/smbpasswd -a fem",
-    }
-  exec { "add smb account for fcf":
-    command => "/bin/echo -e 'adminfcf\\nadminfcf' | /usr/bin/smbpasswd -a fcf",
-    }
-  class{'::wh_php_apache':;}
-  apache::vhost { $fqdn:
-    port       => '80',
-    docroot    => '/srv/ftp',
-    servername => $fqdn,
-    aliases    => 'facultades',
-    directories   => [ {
-    'path'           => '/srv/ftp',
-    'options'        => ['Indexes','FollowSymLinks','MultiViews'],
-    'allow_override' => 'All',
-    'directoryindex' => '/_h5ai/public/index.php',
-    },],
-  }
-  apache::vhost { 'fct':
-    port       => '80',
-    docroot    => '/srv/ftp/fct',
-    servername => 'ftp-fct.upr.edu.cu',
-    aliases    => 'fct',
-    }
-  apache::vhost { 'fcfa':
-    port       => '80',
-    docroot    => '/srv/ftp/fcfa',
-    servername => 'ftp-fcfa.upr.edu.cu',
-    aliases    => 'fcfa',
-    }
-  apache::vhost { 'fcee':
-    port       => '80',
-    docroot    => '/srv/ftp/fcee',
-    servername => 'ftp-fcee.upr.edu.cu',
-    aliases    => 'fcee',
-    }
-  apache::vhost { 'fcsh':
-    port       => '80',
-    docroot    => '/srv/ftp/fcsh',
-    servername => 'ftp-fcsh.upr.edu.cu',
-    aliases    => 'fcsh',
-    }
-  apache::vhost { 'fei':
-    port       => '80',
-    docroot    => '/srv/ftp/fei',
-    servername => 'ftp-fei.upr.edu.cu',
-    aliases    => 'fei',
-    }
-  apache::vhost { 'fem':
-    port       => '80',
-    docroot    => '/srv/ftp/fem',
-    servername => 'ftp-fem.upr.edu.cu',
-    aliases    => 'fem',
-    }
-  apache::vhost { 'fcf':
-    port       => '80',
-    docroot    => '/srv/ftp/fem',
-    servername => 'ftp-fcf.upr.edu.cu',
-    aliases    => 'fcf',
-    }
+exec { "add smb account for fct":
+  command => "/bin/echo -e 'adminfct\\nadminfct' | /usr/bin/smbpasswd -a fct",
+}
+exec { "add smb account for fcfa":
+  command => "/bin/echo -e 'adminfcfa\\nadminfcfa' | /usr/bin/smbpasswd -a fcfa",
+}
+exec { "add smb account for fcee":
+  command => "/bin/echo -e 'adminfcee\\nadminfcee' | /usr/bin/smbpasswd -a fcee",
+}
+exec { "add smb account for fcsh":
+  command => "/bin/echo -e 'adminfcsh\\nadminfcsh' | /usr/bin/smbpasswd -a fcsh",
+}
+exec { "add smb account for fei":
+  command => "/bin/echo -e 'adminfei\\nadminfei' | /usr/bin/smbpasswd -a fei",
+}
+exec { "add smb account for fem":
+  command => "/bin/echo -e 'adminfem\\nadminfem' | /usr/bin/smbpasswd -a fem",
+}
+exec { "add smb account for fcf":
+  command => "/bin/echo -e 'adminfcf\\nadminfcf' | /usr/bin/smbpasswd -a fcf",
+}
+class{'::wh_php_apache':;}
+apache::vhost { $fqdn:
+  port       => '80',
+  docroot    => '/srv/ftp',
+  servername => $fqdn,
+  aliases    => 'facultades',
+  directories   => [ {
+   'path'           => '/srv/ftp',
+   'options'        => ['Indexes','FollowSymLinks','MultiViews'],
+   'allow_override' => 'All',
+   'directoryindex' => '/_h5ai/public/index.php',
+  },],
+}
+apache::vhost { 'fct':
+  port       => '80',
+  docroot    => '/srv/ftp/fct',
+  servername => 'ftp-fct.upr.edu.cu',
+  aliases    => 'fct',
+}
+apache::vhost { 'fcfa':
+  port       => '80',
+  docroot    => '/srv/ftp/fcfa',
+  servername => 'ftp-fcfa.upr.edu.cu',
+  aliases    => 'fcfa',
+}
+apache::vhost { 'fcee':
+  port       => '80',
+  docroot    => '/srv/ftp/fcee',
+  servername => 'ftp-fcee.upr.edu.cu',
+  aliases    => 'fcee',
+}
+apache::vhost { 'fcsh':
+  port       => '80',
+  docroot    => '/srv/ftp/fcsh',
+  servername => 'ftp-fcsh.upr.edu.cu',
+  aliases    => 'fcsh',
+}
+apache::vhost { 'fei':
+  port       => '80',
+  docroot    => '/srv/ftp/fei',
+  servername => 'ftp-fei.upr.edu.cu',
+  aliases    => 'fei',
+}
+apache::vhost { 'fem':
+  port       => '80',
+  docroot    => '/srv/ftp/fem',
+  servername => 'ftp-fem.upr.edu.cu',
+  aliases    => 'fem',
+}
+apache::vhost { 'fcf':
+  port       => '80',
+  docroot    => '/srv/ftp/fem',
+  servername => 'ftp-fcf.upr.edu.cu',
+  aliases    => 'fcf',
+}
+exec { "a2enmod_php7":
+  command => '/usr/bin/sudo a2enmod php7.0',
+}~>
+exec { "service_apache2_restart":
+  command     => '/usr/bin/sudo service apache2 restart',
+  refreshonly => true;
+}
+include apache::mod::php
 }
