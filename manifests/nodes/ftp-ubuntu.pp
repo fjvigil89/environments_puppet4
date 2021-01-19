@@ -73,12 +73,12 @@ node 'ftp-ubuntu.upr.edu.cu' {
     mode   => '0644',
     source => 'puppet:///modules/ftpbackend_server/ssh_keys/config',
   }
-  file {'/srv/ftp':
-    ensure => 'directory',
-    owner  => 'facultades',
-    group  => 'facultades',
-    mode   => '0755',
-  }
+  #file {'/srv/ftp':
+  #  ensure => 'directory',
+  #  owner  => 'facultades',
+  #  group  => 'facultades',
+  #  mode   => '0755',
+  #}
   file {'/srv/ftp/fct':
     ensure => 'directory',
     owner  => 'fct',
