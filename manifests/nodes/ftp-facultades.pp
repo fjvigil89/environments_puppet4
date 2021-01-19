@@ -9,6 +9,7 @@ node 'ftp-facultades.upr.edu.cu' {
     puppet_enabled  => true,
     dns_preinstall  => true,
   }
+  include git
   group { 'facultades':
     ensure => 'present',
   }
@@ -52,54 +53,79 @@ node 'ftp-facultades.upr.edu.cu' {
     comment => 'FCF',
     groups  => 'facultades',
   }
-  file {'/srv/facultades':
-    ensure => 'directory',
-    owner  => 'facultades',
-    group  => 'facultades',
-    mode   => '0644',
+  file { '/root/.ssh/id_rsa':
+    ensure => file,
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0600',
+    source => 'puppet:///modules/ftpbackend_server/ssh_keys/id_rsa',
   }
-  file {'/srv/facultades/fct':
+  file { '/root/.ssh/id_rsa.pub':
+    ensure => file,
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0644',
+    source => 'puppet:///modules/ftpbackend_server/ssh_keys/id_rsa.pub',
+  }
+  file { '/root/.ssh/config':
+    ensure => file,
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0644',
+    source => 'puppet:///modules/ftpbackend_server/ssh_keys/config',
+  }
+  vcsrepo { '/srv/ftp':
+  ensure   => latest,
+  provider => 'git',
+  remote   => 'origin',
+  source   => {
+    'origin' => 'git@gitlab.upr.edu.cu:dcenter/ftp.git',
+  },
+  revision => 'master',
+}
+  file {'/srv/ftp/fct':
     ensure => 'directory',
     owner  => 'fct',
     group  => 'facultades',
     mode   => '0644',
   }
-  file {'/srv/facultades/fcfa':
+  file {'/srv/ftp/fcfa':
     ensure => 'directory',
     owner  => 'fcfa',
     group  => 'facultades',
     mode   => '0644',
   }
-  file {'/srv/facultades/fcee':
+  file {'/srv/ftp/fcee':
     ensure => 'directory',
     owner  => 'fcee',
     group  => 'facultades',
     mode   => '0644',
   }
-  file {'/srv/facultades/fcsh':
+  file {'/srv/ftp/fcsh':
     ensure => 'directory',
     owner  => 'fcsh',
     group  => 'facultades',
     mode   => '0644',
   }
-  file {'/srv/facultades/fei':
+  file {'/srv/ftp/fei':
     ensure => 'directory',
     owner  => 'fei',
     group  => 'facultades',
     mode   => '0644',
   }
-  file {'/srv/facultades/fem':
+  file {'/srv/ftp/fem':
     ensure => 'directory',
     owner  => 'fem',
     group  => 'facultades',
     mode   => '0644',
   }
-  file {'/srv/facultades/fcf':
+  file {'/srv/ftp/fcf':
     ensure => 'directory',
     owner  => 'fcf',
     group  => 'facultades',
     mode   => '0644',
   }
+  
   class { 'samba::server':
   workgroup     => 'WORKGROUP',
   server_string => "Facultades Samba Server",
@@ -108,7 +134,7 @@ node 'ftp-facultades.upr.edu.cu' {
 }
 samba::server::share { 'fct':
   comment              => 'FCFA',
-  path                 => '/srv/facultades/fct',
+  path                 => '/srv/ftp/fct',
   browsable            => true,
   writable             => true,
   valid_users          => "fct",
@@ -118,7 +144,7 @@ samba::server::share { 'fct':
 }
 samba::server::share { 'fcfa':
   comment              => 'FCFA',
-  path                 => '/srv/facultades/fcfa',
+  path                 => '/srv/ftp/fcfa',
   browsable            => true,
   writable             => true,
   valid_users          => "fcfa",
@@ -128,7 +154,7 @@ samba::server::share { 'fcfa':
 }
 samba::server::share { 'fcee':
   comment              => 'FCEE',
-  path                 => '/srv/facultades/fcee',
+  path                 => '/srv/ftp/fcee',
   browsable            => true,
   writable             => true,
   valid_users          => "fcee",
@@ -138,7 +164,7 @@ samba::server::share { 'fcee':
 }
 samba::server::share { 'fcsh':
   comment              => 'FCSH',
-  path                 => '/srv/facultades/fcsh',
+  path                 => '/srv/ftp/fcsh',
   browsable            => true,
   writable             => true,
   valid_users          => "fcsh",
@@ -148,7 +174,7 @@ samba::server::share { 'fcsh':
 }
 samba::server::share { 'fei':
   comment              => 'FEI',
-  path                 => '/srv/facultades/fei',
+  path                 => '/srv/ftp/fei',
   browsable            => true,
   writable             => true,
   valid_users          => "fei",
@@ -158,7 +184,7 @@ samba::server::share { 'fei':
 }
 samba::server::share { 'fem':
   comment              => 'FEM',
-  path                 => '/srv/facultades/fem',
+  path                 => '/srv/ftp/fem',
   browsable            => true,
   writable             => true,
   valid_users          => "fem",
@@ -168,7 +194,7 @@ samba::server::share { 'fem':
 }
 samba::server::share { 'fcf':
   comment              => 'FCF',
-  path                 => '/srv/facultades/fcf',
+  path                 => '/srv/ftp/fcf',
   browsable            => true,
   writable             => true,
   valid_users          => "fcf",
@@ -197,52 +223,58 @@ samba::server::share { 'fcf':
   exec { "add smb account for fcf":
     command => "/bin/echo -e 'adminfcf\\nadminfcf' | /usr/bin/smbpasswd -a fcf",
     }
-  include apache
-  apache::vhost { 'facultades':
+  class{'::wh_php_apache':;}
+  apache::vhost { $fqdn:
     port       => '80',
-    docroot    => '/srv/facultades',
-    servername => 'ftp-facultades.upr.edu.cu',
+    docroot    => '/srv/ftp',
+    servername => $fqdn,
     aliases    => 'facultades',
-    }
+    directories   => [ {
+    'path'           => '/srv/ftp',
+    'options'        => ['Indexes','FollowSymLinks','MultiViews'],
+    'allow_override' => 'All',
+    'directoryindex' => '/_h5ai/public/index.php',
+    },],
+  }
   apache::vhost { 'fct':
     port       => '80',
-    docroot    => '/srv/facultades/fct',
+    docroot    => '/srv/ftp/fct',
     servername => 'ftp-fct.upr.edu.cu',
     aliases    => 'fct',
     }
   apache::vhost { 'fcfa':
     port       => '80',
-    docroot    => '/srv/facultades/fcfa',
+    docroot    => '/srv/ftp/fcfa',
     servername => 'ftp-fcfa.upr.edu.cu',
     aliases    => 'fcfa',
     }
   apache::vhost { 'fcee':
     port       => '80',
-    docroot    => '/srv/facultades/fcee',
+    docroot    => '/srv/ftp/fcee',
     servername => 'ftp-fcee.upr.edu.cu',
     aliases    => 'fcee',
     }
   apache::vhost { 'fcsh':
     port       => '80',
-    docroot    => '/srv/facultades/fcsh',
+    docroot    => '/srv/ftp/fcsh',
     servername => 'ftp-fcsh.upr.edu.cu',
     aliases    => 'fcsh',
     }
   apache::vhost { 'fei':
     port       => '80',
-    docroot    => '/srv/facultades/fei',
+    docroot    => '/srv/ftp/fei',
     servername => 'ftp-fei.upr.edu.cu',
     aliases    => 'fei',
     }
   apache::vhost { 'fem':
     port       => '80',
-    docroot    => '/srv/facultades/fem',
+    docroot    => '/srv/ftp/fem',
     servername => 'ftp-fem.upr.edu.cu',
     aliases    => 'fem',
     }
   apache::vhost { 'fcf':
     port       => '80',
-    docroot    => '/srv/facultades/fem',
+    docroot    => '/srv/ftp/fem',
     servername => 'ftp-fcf.upr.edu.cu',
     aliases    => 'fcf',
     }
