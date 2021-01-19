@@ -220,7 +220,11 @@ samba::server::share { 'fcf':
     command => "/bin/echo -e 'adminfcf\\nadminfcf' | /usr/bin/smbpasswd -a fcf",
     }
   ensure_packages(['php7.4-dev','php7.4-apcu','php7.4-mbstring','php7.4','php7.4-cli','php7.4-curl','php7.4-intl','php7.4-ldap','php7.4-sybase','php7.4-mcrypt','libapache2-mod-php7.4','php7.4-xml','php7.4-mysql','php7.4-common','php-fpm','php7.4-gd','ffmpeg','graphicsmagick'])
-  include apache
+  class { 'apache':
+  default_vhost => false,
+  mpm_module    => 'prefork',
+}
+  #include apache
   apache::vhost { $fqdn:
     port       => '80',
     docroot    => '/srv/ftp',
