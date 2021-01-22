@@ -54,7 +54,7 @@ class { 'reverse_proxy_server':
       'coronavirus2.upr.edu.cu',#36
       'pinarcti.upr.edu.cu',#37
       'gicacovid.upr.edu.cu',#38
-      'syncassets.upr.edu.cu',#39
+      'teleclases.upr.edu.cu',#39
       'cneuro.upr.edu.cu',#40
       'estudiantes.upr.edu.cu',#41
       'moodle.upr.edu.cu',#42
@@ -105,7 +105,7 @@ class { 'reverse_proxy_server':
       '*', #36
       '*', #37
       '*', #38
-      'red_univ', #39
+      'cuba', #39
       '*', #40
       '*', #41
       'cuba', #42
