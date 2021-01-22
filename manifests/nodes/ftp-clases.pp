@@ -50,8 +50,8 @@ node 'teleclases.upr.edu.cu' {
   }
   file {'/srv/ftp/teleclases-Mined':
     ensure => 'directory',
-    owner  => 'fct',
-    group  => 'facultades',
+    owner  => 'clases',
+    group  => 'clases',
     mode   => '0644',
   }
 class { 'samba::server':
