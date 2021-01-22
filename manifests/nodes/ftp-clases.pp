@@ -60,8 +60,8 @@ class { 'samba::server':
   interfaces    => "eth0",
   security      => 'user'
 }
-samba::server::share { 'clases:
-  comment              => 'FCFA',
+samba::server::share { 'clases':
+  comment              => 'CLASES',
   path                 => '/srv/ftp/teleclases-Mined',
   browsable            => true,
   writable             => true,
