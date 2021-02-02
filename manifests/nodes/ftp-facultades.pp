@@ -53,6 +53,11 @@ node 'ftp-facultades.upr.edu.cu' {
     comment => 'FCF',
     groups  => 'facultades',
   }
+  user { 'postgrado':
+    ensure  => 'present',
+    comment => 'Postgrado',
+    groups  => 'facultades',
+  }
   file { '/root/.ssh/id_rsa':
     ensure => file,
     owner  => 'root',
@@ -125,7 +130,12 @@ node 'ftp-facultades.upr.edu.cu' {
     group  => 'facultades',
     mode   => '0644',
   }
-
+  file {'/srv/ftp/postgrado':
+    ensure => 'directory',
+    owner  => 'postgrado',
+    group  => 'facultades',
+    mode   => '0644',
+  }
 class { 'samba::server':
   workgroup     => 'WORKGROUP',
   server_string => "Facultades Samba Server",
@@ -202,6 +212,16 @@ samba::server::share { 'fcf':
   directory_mask       => 2775,
   force_directory_mode => 2775,
 }
+samba::server::share { 'postgrado':
+  comment              => 'Postgrado',
+  path                 => '/srv/ftp/postgrado',
+  browsable            => true,
+  writable             => true,
+  valid_users          => "postgrado",
+  create_mask          => 755,
+  directory_mask       => 2775,
+  force_directory_mode => 2775,
+}
 exec { "add smb account for fct":
   command => "/bin/echo -e 'adminfct\\nadminfct' | /usr/bin/smbpasswd -a fct",
 }
@@ -222,6 +242,9 @@ exec { "add smb account for fem":
 }
 exec { "add smb account for fcf":
   command => "/bin/echo -e 'adminfcf\\nadminfcf' | /usr/bin/smbpasswd -a fcf",
+}
+exec { "add smb account for postgrado":
+  command => "/bin/echo -e 'adminpost\\nadminpost' | /usr/bin/smbpasswd -a postgrado",
 }
 class{'::wh_php_apache':;}
 apache::vhost { $fqdn:
@@ -277,6 +300,12 @@ apache::vhost { 'fcf':
   docroot    => '/srv/ftp/fem',
   servername => 'ftp-fcf.upr.edu.cu',
   aliases    => 'fcf',
+}
+apache::vhost { 'postgrado':
+  port       => '80',
+  docroot    => '/srv/ftp/postgrado',
+  servername => 'ftp-post.upr.edu.cu',
+  aliases    => 'postgrado',
 }
 exec { "a2enmod_php7":
   command => '/usr/bin/sudo a2enmod php7.0',
