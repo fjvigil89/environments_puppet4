@@ -130,6 +130,7 @@ mod 'camptocamp-openldap', '1.17.0'
 #mod 'openstack-openstacklib', '17.1.0'
 #mod 'duritong-sysctl', '0.0.12'
 
+mod 'smash-jitsimeet', '1.0.0'
 #Proxy
 mod 'dcenter/squid',
   :git => 'git@gitlab.upr.edu.cu:dcenter/squid.git',
