@@ -5,6 +5,5 @@ node 'jitsi.upr.edu.cu' {
     proxmox_enabled => false,
     repos_enabled   => false,
     mta_enabled     => false,
-    puppet_enabled  => true,
   }
 }
