@@ -58,7 +58,6 @@ mod 'puppet-r10k', '7.0.0'
 mod 'puppetlabs-gcc', '0.3.0'
 mod 'puppetlabs/vcsrepo', '2.3.0'
 mod 'puppetlabs-puppetdb', '7.0.1'
-mod 'puppetlabs-stdlib', '4.25.1'
 mod 'puppetlabs-concat', '4.2.1'
 mod 'puppetlabs-git', '0.5.0'
 mod 'puppetlabs-apache', '4.0.0'
@@ -114,7 +113,6 @@ mod 'stackforge-tempest', '5.1.0'
 mod 'puppetlabs-mongodb', '1.0.0'
 mod 'puppetlabs-rabbitmq', '5.6.0'
 mod 'stackforge-vswitch', '1.1.0'
-mod 'duritong-sysctl', '0.0.12'
 #ldap
 mod 'camptocamp-openldap', '1.17.0'
 #ceph
@@ -128,7 +126,6 @@ mod 'camptocamp-openldap', '1.17.0'
 #OpenStack
 #mod 'openstack-keystone', '17.1.0'
 #mod 'openstack-openstacklib', '17.1.0'
-#mod 'duritong-sysctl', '0.0.12'
 
 mod 'smash-jitsimeet', '1.0.0'
 #Proxy
