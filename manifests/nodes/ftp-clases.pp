@@ -18,6 +18,11 @@ node 'teleclases.upr.edu.cu' {
     comment => 'Clases',
     groups  => 'clases',
   }
+  user { 'ipvce':
+    ensure  => 'present',
+    comment => 'IPVCE',
+    groups  => 'clases',
+  }
   file { '/root/.ssh/id_rsa':
     ensure => file,
     owner  => 'root',
@@ -54,9 +59,15 @@ node 'teleclases.upr.edu.cu' {
     group  => 'clases',
     mode   => '0644',
   }
+  file {'/srv/ftp/IPVCE':
+    ensure => 'directory',
+    owner  => 'ipvce',
+    group  => 'clases',
+    mode   => '0644',
+  }
 class { 'samba::server':
   workgroup     => 'WORKGROUP',
-  server_string => "Facultades Samba Server",
+  server_string => "Teleclases Samba Server",
   interfaces    => "eth0",
   security      => 'user'
 }
@@ -70,8 +81,21 @@ samba::server::share { 'clases':
   directory_mask       => 2775,
   force_directory_mode => 2775,
 }
-exec { "add smb account for fcf":
+samba::server::share { 'IPVCE':
+  comment              => 'IPVCE',
+  path                 => '/srv/ftp/IPVCE',
+  browsable            => true,
+  writable             => true,
+  valid_users          => "ipvce",
+  create_mask          => 755,
+  directory_mask       => 2775,
+  force_directory_mode => 2775,
+}
+exec { "add smb account for clases":
   command => "/bin/echo -e 'adminclases\\nadminclases' | /usr/bin/smbpasswd -a clases",
+}
+exec { "add smb account for ipvce":
+  command => "/bin/echo -e 'adminipvce\\nadminipvce' | /usr/bin/smbpasswd -a ipvce",
 }
 class{'::wh_php_apache':;}
 apache::vhost { $fqdn:
