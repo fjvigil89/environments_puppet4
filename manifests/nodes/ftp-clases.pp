@@ -91,10 +91,10 @@ samba::server::share { 'IPVCE':
   directory_mask       => 2775,
   force_directory_mode => 2775,
 }
-exec { "add smb account for fcf":
+exec { "add smb account for clases":
   command => "/bin/echo -e 'adminclases\\nadminclases' | /usr/bin/smbpasswd -a clases",
 }
-exec { "add smb account for fcf":
+exec { "add smb account for ipvce":
   command => "/bin/echo -e 'adminipvce\\nadminipvce' | /usr/bin/smbpasswd -a ipvce",
 }
 class{'::wh_php_apache':;}
