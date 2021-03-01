@@ -38,6 +38,15 @@ node 'repo-fem.upr.edu.cu' {
     mode   => '0644',
     source => 'puppet:///modules/ftpbackend_server/ssh_keys/config',
   }
+  vcsrepo { '/srv/ftp':
+  ensure   => latest,
+  provider => 'git',
+  remote   => 'origin',
+  source   => {
+    'origin' => 'git@gitlab.upr.edu.cu:dcenter/ftp.git',
+  },
+  revision => 'master',
+  }
 class { 'samba::server':
   workgroup     => 'WORKGROUP',
   server_string => "FEM Samba Server",
@@ -60,11 +69,11 @@ exec { "add smb account for fem":
 class{'::wh_php_apache':;}
 apache::vhost { $fqdn:
   port       => '80',
-  docroot    => '/srv/repo-fem',
+  docroot    => '/srv/ftp',
   servername => $fqdn,
   aliases    => 'repo-fem',
   directories   => [ {
-   'path'           => '/srv/repo-fem',
+   'path'           => '/srv/ftp',
    'options'        => ['Indexes','FollowSymLinks','MultiViews'],
    'allow_override' => 'All',
    'directoryindex' => '/_h5ai/public/index.php',
