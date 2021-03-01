@@ -1,4 +1,4 @@
-node 'repo-fem.upr.edu.cu' {
+node 'repo-fei.upr.edu.cu' {
   class { '::basesys':
     uprinfo_usage   => 'Samba',
     application     => 'CT',
