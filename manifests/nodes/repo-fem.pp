@@ -38,15 +38,6 @@ node 'repo-fem.upr.edu.cu' {
     mode   => '0644',
     source => 'puppet:///modules/ftpbackend_server/ssh_keys/config',
   }
-  vcsrepo { '/srv/repo-fem':
-  ensure   => latest,
-  provider => 'git',
-  remote   => 'origin',
-  source   => {
-    'origin' => 'git@gitlab.upr.edu.cu:dcenter/ftp.git',
-  },
-  revision => 'master',
-  }
 class { 'samba::server':
   workgroup     => 'WORKGROUP',
   server_string => "FEM Samba Server",
