@@ -53,9 +53,9 @@ class { 'samba::server':
   interfaces    => "eth0",
   security      => 'user'
 }
-samba::server::share { 'fem':
+samba::server::share { 'repo-fem':
   comment              => 'FEM',
-  path                 => '/srv/repo-fem',
+  path                 => '/srv/ftp/repo-fem',
   browsable            => true,
   writable             => true,
   valid_users          => "fem",
