@@ -53,7 +53,7 @@ class { 'samba::server':
   interfaces    => "eth0",
   security      => 'user'
 }
-samba::server::share { 'ftp':
+samba::server::share { 'repo':
   comment              => 'FEI',
   path                 => '/srv/repo/repo-fei',
   browsable            => true,
