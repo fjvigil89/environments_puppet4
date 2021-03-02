@@ -7,7 +7,7 @@ node /^nodo\d+$/ {
     uprinfo_usage   => 'servidor de Servicios',
     application     => 'Proxmox Servicios',
     proxmox_enabled => true,
-    repos_enabled   => true,
+    repos_enabled   => false,
     mta_enabled     => false,
     dmz             => true,
   }
