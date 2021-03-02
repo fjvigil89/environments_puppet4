@@ -38,7 +38,7 @@ node 'repo-fei.upr.edu.cu' {
     mode   => '0644',
     source => 'puppet:///modules/ftpbackend_server/ssh_keys/config',
   }
-  vcsrepo { '/srv/ftp':
+  vcsrepo { '/srv/repo':
   ensure   => latest,
   provider => 'git',
   remote   => 'origin',
@@ -55,7 +55,7 @@ class { 'samba::server':
 }
 samba::server::share { 'ftp':
   comment              => 'FEI',
-  path                 => '/srv/ftp',
+  path                 => '/srv/repo/repo-fei',
   browsable            => true,
   writable             => true,
   valid_users          => "fei",
@@ -63,17 +63,17 @@ samba::server::share { 'ftp':
   directory_mask       => 2775,
   force_directory_mode => 2775,
 }
-exec { "add smb account for fem":
+exec { "add smb account for fei":
   command => "/bin/echo -e 'adminfei\\nadminfei' | /usr/bin/smbpasswd -a fei",
 }
 class{'::wh_php_apache':;}
 apache::vhost { $fqdn:
   port       => '80',
-  docroot    => '/srv/ftp',
+  docroot    => '/srv/repo',
   servername => $fqdn,
   aliases    => 'repo-fei',
   directories   => [ {
-   'path'           => '/srv/ftp',
+   'path'           => '/srv/repo',
    'options'        => ['Indexes','FollowSymLinks','MultiViews'],
    'allow_override' => 'All',
    'directoryindex' => '/_h5ai/public/index.php',
