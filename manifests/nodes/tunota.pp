@@ -67,6 +67,14 @@ node 'tunota.upr.edu.cu' {
     },
     wsgi_process_group          => 'wsgi',
     wsgi_script_aliases         => { '/' => '/home/tunota/' },
+  }->
+  exec {"a2enmod_wsgi":
+    command => '/usr/bin/sudo a2enmod wsgi',
+  }~>
+  exec {"service_apache2_restart":
+    command     => '/usr/bin/sudo service apache2 restart',
+    refreshonly => true;
   }
+  include apache::mod::php
 
 }

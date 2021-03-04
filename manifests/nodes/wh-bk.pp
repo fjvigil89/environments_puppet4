@@ -116,7 +116,7 @@ node 'wh-bk.upr.edu.cu'{
   cron {'CrearLosNuevosEstudiantesDeIngreso':
     ensure  => present,
     command => 'wget -q -d  --no-check-certificate "http://sync.upr.edu.cu/crear_student" > /var/log/sync_upr_newStudent.log',
-    hour    => [23,20],
+    hour    => [17,18],
     minute  => 59,
   }
   cron {'CreacionTrabajadoresNuevos':
