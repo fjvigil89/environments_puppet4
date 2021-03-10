@@ -55,7 +55,7 @@ class { 'samba::server':
 }
 samba::server::share { 'repo':
   comment              => 'IDIOMA',
-  path                 => '/srv/repo/repo-idioma',
+  path                 => '/srv/repo/repo-idiomas',
   browsable            => true,
   writable             => true,
   valid_users          => "idioma",
@@ -71,7 +71,7 @@ apache::vhost { $fqdn:
   port       => '80',
   docroot    => '/srv/repo',
   servername => $fqdn,
-  aliases    => 'repo-fem',
+  aliases    => 'repoidiomas',
   directories   => [ {
    'path'           => '/srv/repo',
    'options'        => ['Indexes','FollowSymLinks','MultiViews'],
