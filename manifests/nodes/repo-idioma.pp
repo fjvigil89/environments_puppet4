@@ -1,4 +1,4 @@
-node 'repo-idioma.upr.edu.cu' {
+node 'repo-idiomas.upr.edu.cu' {
   class { '::basesys':
     uprinfo_usage   => 'Repo Idioma',
     application     => 'CT',
@@ -63,7 +63,7 @@ samba::server::share { 'repo':
   directory_mask       => 2775,
   force_directory_mode => 2775,
 }
-exec { "add smb account for fem":
+exec { "add smb account for idioma":
   command => "/bin/echo -e 'adminidioma\\nadminidioma' | /usr/bin/smbpasswd -a idioma",
 }
 class{'::wh_php_apache':;}
