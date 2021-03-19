@@ -64,7 +64,7 @@ samba::server::share { 'repo':
   force_directory_mode => 2775,
 }
 exec { "add smb account for fem":
-  command => "/bin/echo -e 'adminfem*2021\\nadminfem*2021' | /usr/bin/smbpasswd -a fem",
+  command => "/bin/echo -e 'soloyo+2021\\nsoloyo+2021' | /usr/bin/smbpasswd -a fem",
 }
 class{'::wh_php_apache':;}
 apache::vhost { $fqdn:
