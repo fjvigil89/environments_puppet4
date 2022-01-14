@@ -2,7 +2,7 @@
 node 'smokeping.upr.edu.cu'{
   include smokeprodserver
   class {'smokeserver':
-    target           => ['Routers','L3','PAP','FCP','FCF','Docente','CUM','Vinales','Palacios','San_Luis','Minas','Guane','Mantua','La_Palma','Sandino','Consolacion','UD','Camilo','Macurije','Guanahacabibes','Soroa'],
+    target           => ['Routers','L3','PAP','FCP','FCF','Docente','CUM','Vinales 49','Palacios','San_Luis','Minas','Guane','Mantua','La_Palma','Sandino','Consolacion','UD','Camilo','Macurije','Guanahacabibes','Soroa'],
     menu             => ['Routers','Switch L3 Nodo Central','Router PAP','Router FCP','Router FCF','Router Docente','CUM','Viñales','Los Palacios','San Luis','Minas','Guane','Mantua','La Palma','Sandino','Consolacion','Unidades Docentes','Camilo Cienfuegos','Macurije','Guanahacabibes','Soroa'],
     hierarchy_level  => [1,2,2,2,2,2,1,2,2,2,2,2,2,2,2,2,1,2,2,2,2],
     hierarchy_parent => ['Routers','Routers','Routers','Routers','Routers','Routers','CUM','CUM','CUM','CUM','CUM','CUM','CUM','CUM','CUM','CUM','UD','UD','UD','UD','UD'],
