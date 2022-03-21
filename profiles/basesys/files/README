@@ -1,0 +1,15 @@
+#################################################################
+##  Puppet 5.5: nuevos archivos de configuración de ubicación  ##
+#################################################################
+#                                                    #
+#  			                             #
+#                                                    # 
+#  La configuración esta en esta dirección           #
+#      /etc/puppetlabs/puppet/puppet.conf            #
+#                                                    #
+#     Otro ajuste importante es que no 		     #
+#    corredores de títeres automáticos son.          #
+# La configuración se verifica cada media hora       #
+#       y si es necesario cambiado.                  #
+#                                                    #
+######################################################

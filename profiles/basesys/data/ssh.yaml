@@ -1,0 +1,14 @@
+---
+basesys::global_ssh_authorized_keys:
+  'root@gitlab':
+     ensure: present
+     key   : 'AAAAB3NzaC1yc2EAAAADAQABAAABAQDcODNgiShR6qzcgljO5TS64WWqelnn2rXJT7aORKeDU0TPYBZiqxnydLaMS1jlE2EBaACJac4oKVYxdZ9oKQOHdetL6KhJU0ORt1IpC7nwqxdHQ/5NT60+Rb7nDIdpHWYeXwSpCXSd1GNGsm0NJLckNZaq5Hl3VFxdwAwuQqqNVD2A861DfQE/+yQnu/ISuyO9rEarnLYeMkdlmTuL2MWub+9QVAYOzZHUZTr4/sHnZgaTfbGNoj0N+MX0bOwk8snYl7mQVSvmW5xqj5EL+t7ItSIvDhxnScGBpEY6f6wg2GDqUe48kfSMsV8PKiVSSa6d4nyE4UVmAVtgPEmX87Pj'
+     type  : 'ssh-rsa'
+     user  : 'root'
+  
+  'root@ansible':
+     ensure: present
+     key   : 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDM8t+NCuStHTS0NM68UzAM5+W8cHOCIpg0v/ONuhBqFA63XhGXoHwdX03MO+DtLdtjJMamr4IEJuolfLGb5XNz9IKSN0xeqZQPrtSUEqvL2DZAK98R9l9XhBETNA2jGsB3eSJ7A8ofkTvUzRV1mfmQ5ZKYvJ1fAlRTlNQ7w3qNLLWkkj61ok9jNn16zt2nR6T7hV3fPT32pli2vBtRt9/pkCsmKf7+MSKKW2yII9f+Ee/cjn+JZJzZGHzbKgNihPvuS/S56odAv3D6J6X01UpiU555lBtGYY0kWgHBqBrbOv7Zzn+61POXpUYjeNU+iZBhYlY5HBevbWXjzjSN1kOZ ansible'
+     type  : 'ssh-rsa'
+     user  : 'root'
+

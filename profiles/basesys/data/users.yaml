@@ -1,0 +1,30 @@
+---
+## System users
+basesys::system_users:
+        #'frank':
+        #ensure     : present
+        #uid        : '508'
+        #comment    : 'System Admin'
+        #home       : '/home/frank'
+        #shell      : '/bin/bash'
+        #groups     : 'adm'
+        #managehome : true
+        
+  'www':
+    ensure     : present
+    uid        : 900
+    comment    : 'http'
+    home       : '/home/www'
+    managehome : true
+    shell      : '/bin/bash'
+#  'oratrn':
+#    ensure     : present
+#    uid        : 1036
+#    gid        : 15003
+#    password   : 'Vru5VK7x7XM5.'
+#    comment    : 'SAP Database Administrator'
+#    home       : '/home/oratrn'
+#    managehome : false
+#    shell      : '/bin/csh'
+#    groups     : [ 'oper' , 'sapinst' , 'oinstall', 'sapsys']
+

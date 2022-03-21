@@ -1,0 +1,17 @@
+#!/bin/bash
+
+fqdn=$1
+
+ipaddress=`dig +short $fqdn`
+
+case $ipaddress in
+  10.2.3.*|\
+  10.2.2.*|\
+  10.2.1.*)
+    /etc/puppetlabs/code/environments/production/bin/autosign-serverbeheer $fqdn >> /tmp/output
+    exit 0
+  ;;
+  *)
+    exit 1
+  ;;
+esac

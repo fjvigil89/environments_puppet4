@@ -1,0 +1,77 @@
+---
+# System Account
+basesys::accounts:
+  ################
+  ### systemen ###
+  ################
+  'frank':
+    comment: 'Frank J. Vigil Vega'
+    uid: '508'
+    manage_primary_group: false
+    gid: '100'
+    tag: 'systemen'
+    password: '$6$wK0dY.ut$IpfwW/WK6ebzT61Zwt9I6yUHb2BIm84p2JjyBSBZMi.GUfHM9PZMZUZX2iKY9bLPQjLShH.XTCPh1/vSVPR9C/'
+    sshkeys:
+      - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD0ZVH5uXCM9/gZhhDApFoshRH86kHqWFpuBrHAQUB8mNBMwI8lQbfwSrVsMv3UcdsvCjYzxPRv7/9Y73zuT32246sJo1Wm0fVZw4gG6p9Pcfc5f4gwo+KDJKcqb0qo5WfgD1xpGfprOBVmlGhGKm5xxRH6qg36Lgxj84oAFL10CK2cb63hw03XNpd4VLWSX9gOyFVyJLLwW+T6mdll2tICvGCAxVkqfBE4PiXS8Eg5m/stnIf1BvKqR9fsq2fmy8MWjaC7sW0xyIli9zJsC7bMWhL2apOiOObOUdndxGejKR0bxtALhywhGpJd7REIJiwnYkT/a2S482nJZ4ppaunJ frank@frank-PC'
+      - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDggU4CwEb2RUNZdlGisPryiNb6rBHOMU/w3kG+u7XwEEQ56GTOTzL7+43YFsxtAKSU7kFvyd8ey2OjGc/3ZFUfNrfElzOOfAheoeOwqbHWrp29CEhz6DkLpsDDr9BIl8xc1vAxfP/nV4dn9X9HpwBDiY7q2Ast8WY9DE4QVr+tT2tS59zYuqMV347S8pek2uNcwEbPlhW4lZnhGe9XWqwvVJIkVV39tgT44u0YwPO46WebCnBsswJVggex+mA9xFlu0YBheK/OUfIcwADQ2VfDez3LzxifF+vEAFpCwSRVnn6JoO9d1VKFnbtB7iEHJkxUZdK7dGJ+V3k8HMgdKRHt frank@frank-UPRedes' 
+  'rene':
+    comment: 'Rene Antonio'
+    uid: '510'
+    manage_primary_group: false
+    gid: '100'
+    tag: 'systemen'
+    sshkeys:
+      - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwaBNfByZSsPY5CdblBLGDNaUstpSoxzAk7jkka3XfnQ6TnPyAf9IDr+1rLU+AsRrmav6U4ZpMrPRJnpCMM7BIg4J5KiC/zxFVmLOdt5aN1vNLs++e4up0+1npYJuoYpyTm2xwsw4Ll2T6B9eFE/nak28WzSj2PmenI2gBRMkLA4kohVuxcCGyTuWQ0GPVp2HRRdjCQOKwoGg3unXtBKelx+S+Qg9lw83GXIGsy7BQjFk8ooaZSG2vEFIoqJygLKVW3jdJPUA4Ux4kvTPSVJCKKysuL/LE92dX8HShXFZhga9lPCnFCOLCHe/u7ttqXDFRyGXTh1qdOQcmNN2oSvMh rene@Gollum'
+  'ymtnez':
+    comment: 'Yohandys Navarro'
+    uid: '511'
+    manage_primary_group: false
+    gid: '100'
+    tag: 'systemen'
+    password: '$6$wE994Ch3$doesxScbYMT6EUz00lQN5BS.AY7LgxA56NRxXZjjQCU62h.60WflhA8fHPCCAfQvWarbI5MOzf4gZZpnmYRcv1'
+    sshkeys:
+      - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDuqMyRZ5kXeocvMtNCI85UgnWrGqGKjHY8Vsd5q+RCg13FLkXjazAUEaLBdN+QWbg4jhNR+xLtOFR1Trd8szHbrw2KekjfxiVbPPwUmYkspMfqcnl4n+3XqLQuCPJJJJZvpuqMMpjmNDMTvWRctPEFVruJEhyeR/ovzSzxXKMul9h3E8fNvjwycoZdd1Ln954X/zO58/8XW1mI8gQsSq2LwB+pQzQpLciW5L79h2hSwddjxbVxQkRtBBdW294pqlZZxtVSA84Q50PDU8r26WMaWNc5J+NfHGzvqCSQ5RT/3zi1eBp+z1mQr7Y1ZOAnY8gi94NUfKozMlriSkZfboD9fIOMWYHpsrsn5ZoR1Ht+OLtugWOodmMvgJ+CefQrmpTR7tBYwIXeM7L7ko685G+a01vApiCOk2haBB5MVTC/72hifRVBVU1GGXTIVY7VEjDDWaD9Htbn3ERIXHHwZRMhyZBI9fEYTW+4AQVtvGuDlCOdpezARPptQN3bx/Boe7c= ymtnez@YMTNEZ-DI'
+  'yandy':
+    comment: 'Yandilier Rojas'
+    uid: '514'
+    manage_primary_group: false
+    gid: '100'
+    tag: 'systemen'
+    password: '$6$bNepJo4TN9IrTBNX$tYUsdl915GD0K4D6nOjq7ZEklFBpZsW8uhS2rdGp40JKzJcCptSv/tn34CiYPcTVG29sscjNcPfPWx3Sky1PG1'
+    sshkeys:
+      - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDtnT+NWkgDtSIlBhpEr8yeDm4Q1kKJdhAHt8eqE5fKtZySwgTt8yXobmUNiRSra3H+xswwHVFxjuE9g0RRj1WlFoQBS+YnCR2A1oBqSYYNB+KpK+bWmldEkEHpY/nQYiTGzEyKN2yO/UBk/RM5T+0+4SeMWeYVGMEUE4+xtNNzcNlR5MuaWvdR8N279KGirNv1PTEakDzOhZaZq/4vYtDYumu9/dApyf5IQ31IVa7d21lVFeu1ge7m73sS75qRzGCQiD8NsFDcjG4RNJrmvmZb77e1Iv/ocFVVSmAbUNEaYyykfOBuUt5kvZOLcGNOmClk+vnboIrOsrygBTCWRviIOgWce6ZhG1rjh6cJDQWNEAx+cENC/RFIKrCZm02/rnduOsxyuNQEq8yslOI3LA+htKXC6hGXAldObxE51jliYpp+cGmRriXt2iwl3ngr9hhZVDcm/L40EX/VXV7odoBzuypQW7815AGoa5K0dJt/AVVYVrL/XySueHTrP9x+sW+nzR1MVMg8jy7kkv2e/KDTmLksP4Amr/jM9J6BUx9G9i7mIFQvLNveBhXNrUYZBPFlgbg2AL8L/k/jOVRjPmpNo8gJM36F5o1IaFTqb1M5ToMUnLUJkRBIM6IiXAM+chTTU2moMAcZQMQKSDKmxkbQ+EOuOlrKbQY7qPJQJe4GvQ== yandy@upr.edu.cu' 
+  'henry':
+    comment: 'Henry bad people'
+    uid: '515'
+    manage_primary_group: false
+    gid: '100'
+    tag: 'systemen'
+    locked: true
+    sshkeys:
+      - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC5qkH4WZPXcarvfPB97ESljPkizrGZBDyPBx8PZAnuKYQSrBrI5lSNiH1FWzIpa0T4RebqwPX7p5U26S/D3tbQz7fq7bwD69j9sixurJQKpYRHMNYupS5JTL4lbnW2qN5k2ZXcUaCLV7QdcJW9H7ig/PQjiLK3rt/WqrZZmF5tVO5Uo3s6uYEoaqYzJjeqdaEMmkn17XNnIbncwhAWdEkubmk9MYaa8MkLeIQcY2sJup8TyOXLfOhANrt/7JS9vzgf4sOjohAAUzWAp4Q496G0gUkihvAjrS0CwhdjmuCVtIe46E9BcbGfaOXQ6YjDnsB+9XzLMRWGjmyvjnNJrjFD henry@henry-MS-7982'
+
+  'henry-upredes':
+    comment: 'Henry Fleitas'
+    uid: '516'
+    manage_primary_group: false
+    gid: '100'
+    tag: 'systemen'
+    sshkeys:
+      - 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQChhaeXxyBM6rZDsgxXa6f7i73j8liJdeAHL20cjqJY0FQdWjpIHLUGO4Ai++AflOMaeqaarVPqfpquDHtTXe//8v+mhhXuAu28AxL8i490TWNKZ4hxfCd0jRjbpqmFb2Jrs2hAKGvO0DoioaXefB90eNhVB2Kq7LnbIS9AA2RbwK3hkF7hMATvFzHpPV9LC3o6wi8Se6LFVE+jfBEfkGikbVWNQzv/xLupvNwUoMQLoXj+oaMClqOiSt9dhhXeoBqKdXV5+0QzAEXFUpUdZtOgjx+fDk+0qklI5SZCtktcXTRqQ7DLsZdWnipfBf7OWamV9gAh/X+V6gEYxhHOrkXiFKGsCOdg700AStkhRJp1xLAhlWJrPZCuPSSXli0tS/cX/tKGX8Dqss4WHDiRHTCQHW0p7kl2P1wSx3LJfh4+Np4Dmgr0tfY/zjgjAjDn0ntMl9pgV3AF9YoSu3vAf25yv9cJmOiKnNDTzD7XyzcoSrLWFqkexXunAA1Dec88lxU= henry-upredes@henryupredes-MS-7982'
+
+  'terraform':
+    comment: 'Terraform by proxmox'
+    uid: '517'
+    manage_primary_group: false
+    gid: '100'
+    tag: 'systemen'
+    locked: true
+    password: '$6$I.Xl5MSS$pdFJzRUAFF0HsGt.C74gCO90X4YCnETLVg9kOIwJ.v7YZM/u7Z9HTHHjiP5aioBdxyS6Ptry6mtRWzDWYixcU1'
+
+  'terraform':
+    comment: 'Terraform by proxmox'
+    uid: '518'
+    manage_primary_group: false
+    gid: '100'
+    tag: 'systemen'    
+    password: '$6$I.Xl5MSS$pdFJzRUAFF0HsGt.C74gCO90X4YCnETLVg9kOIwJ.v7YZM/u7Z9HTHHjiP5aioBdxyS6Ptry6mtRWzDWYixcU1'
