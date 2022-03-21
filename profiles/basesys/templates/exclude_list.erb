@@ -1,6 +1,0 @@
-# Managed by puppet!
-<%if @exclude.is_a? Array -%>
-<% @exclude.each do |name| -%><%= "#{name}\n" %><% end -%>
-<% elsif @exclude != '' -%>
-<%= "#{@exclude}\n" -%>
-<% end -%>
