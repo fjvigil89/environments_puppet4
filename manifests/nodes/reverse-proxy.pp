@@ -88,7 +88,7 @@ class { 'reverse_proxy_server':
       'repofisica.upr.edu.cu',#71
       'acreditacion-cegesta.upr.edu.cu',#72
       'acreditacion-forestal.upr.edu.cu',#73
-      'btj.upr.edu.cu',#74
+      'gradocientifico.upr.edu.cu',#74
       'univ2022.upr.edu.cu',#75
       'premioscti.upr.edu.cu',#76
       'full.upr.edu.cu',#77
