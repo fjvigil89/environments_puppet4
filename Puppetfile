@@ -76,7 +76,7 @@ mod 'puppetlabs-firewall', '1.12.0'
 mod 'puppetlabs-inifile', '2.2.1'
 mod 'puppetlabs-passenger', '0.4.1'
 mod 'puppetlabs-ruby', '1.0.0'
-mod 'puppetlabs-kubernetes', '3.0.1'
+
 mod 'lboynton-ejabberd', '0.0.5'
 mod 'puppetlabs-haproxy', '2.2.0'
 mod 'thias-vsftpd', '0.2.1'
